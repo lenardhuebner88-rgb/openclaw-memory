@@ -12,7 +12,9 @@
 
 ## Agenten
 - [[03-Agents/Atlas]]
-- [[03-Agents/Hermes]]
+- [[03-Agents/Forge]]
+- [[03-Agents/Lens]]
+- [[03-Agents/James]]
 - [[03-Agents/OpenClaw]]
 - [[03-Agents/Shared]]
 
@@ -20,7 +22,9 @@
 - [[03-Agents/Shared/user-profile]]
 - [[03-Agents/Shared/project-state]]
 - [[03-Agents/Shared/decisions-log]]
+- [[03-Agents/OpenClaw/operational-state]]
 - [[04-Operations/Validations/vault-cleanup-2026-04-10-root]]
+- [[04-Operations/Validations/vault-consolidation-2026-04-10]]
 
 ## Arbeitsfluss
 1. Neue / unklare Dinge zuerst nach [[00-Inbox]].

@@ -87,3 +87,8 @@
 - `.obsidian/` kept in root as active vault config.
 - `.gitignore` kept in root as repo config.
 - `Openclaw peter/.obsidian/` kept untouched for now; nested placeholder can be deleted later after manual confirmation.
+
+## Update 2026-04-10 (Consolidation Slice)
+- Hermes wurde aus der aktiven Struktur entfernt und nach `06-Archive/2026-04/decommissioned/Hermes` verschoben.
+- Der verschachtelte Platzhalter-Vault `Openclaw peter` wurde nach `06-Archive/2026-04/decommissioned/Openclaw-peter-nested-vault` archiviert und ist kein aktiver Pfad mehr.
+- Aktive Layer-3 Retrieval-Basis ist jetzt `03-Agents/Shared/*` plus `03-Agents/OpenClaw/operational-state.md`.

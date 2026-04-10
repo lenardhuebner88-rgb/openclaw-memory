@@ -7,3 +7,6 @@
 - 2026-04-09: MC root-cause documented (`middleware-manifest`, dynamic costs page handling) and production build path validated.
 - 2026-04-09: A2 remains blocked until `expectsCompletionMessage` write-path is proven and corrected.
 - 2026-04-09: Result routing formalized by Discord channel purpose; no default dumping into `#atlas-main`.
+- 2026-04-10: Layer-3 canonicalized to `/home/piet/vault` root structure; no `OpenClaw-Memory/*` dependency.
+- 2026-04-10: Hermes removed from active agent structure and archived as decommissioned context.
+- 2026-04-10: Nested `Openclaw peter` vault path retired from active use; archived to reduce retrieval ambiguity.

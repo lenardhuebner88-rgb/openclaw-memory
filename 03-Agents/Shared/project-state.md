@@ -1,5 +1,12 @@
 # Project State
 
+## Vault / Retrieval Stability
+- Status: Consolidated (2026-04-10)
+- Canonical vault root: `/home/piet/vault`
+- Active shared context: `03-Agents/Shared/*` + `03-Agents/OpenClaw/operational-state.md`
+- Hermes: decommissioned and moved to `06-Archive/2026-04/decommissioned/Hermes`
+- Nested placeholder vault `Openclaw peter`: archived under `06-Archive/2026-04/decommissioned/Openclaw-peter-nested-vault`
+
 ## Home Server
 - Status: Active
 - Scope: OpenClaw + Immich host setup via Docker Compose (strict network separation)
