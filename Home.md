@@ -5,7 +5,7 @@
 - [[00-Inbox]]
 - [[04-Operations/Validations]]
 
-## Projekte
+## Projekt
 - [[02-Projects/Mission-Control]]
 - [[02-Projects/Memory-System]]
 - [[02-Projects/Model-Setup]]
@@ -32,3 +32,4 @@
 ## Empfehlung
 - Diese Note in Obsidian anpinnen.
 - Vault immer mit `git pull` starten, am Ende `commit + push`.
+Test sync
