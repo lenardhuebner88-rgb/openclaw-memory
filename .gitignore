@@ -1,0 +1,14 @@
+Openclaw peter/.obsidian/workspace.json
+Openclaw peter/.obsidian/workspace-mobile.json
+Openclaw peter/.obsidian/app.json
+Openclaw peter/.obsidian/appearance.json
+Openclaw peter/.obsidian/graph.json
+Openclaw peter/.obsidian/plugins/*/data.json
+
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+*.swp
+~$*
