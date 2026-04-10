@@ -1,21 +1,28 @@
 # OpenClaw Operational State
 
 ## Canonical Paths
-- Runtime workspace: `/home/piet/.openclaw/workspace`
-- Productive Obsidian vault: `/home/piet/vault`
-- OpenClaw config: `/home/piet/.openclaw/openclaw.json`
+- Workspace: `/home/piet/.openclaw/workspace`
+- Vault: `/home/piet/vault`
+- Config: `/home/piet/.openclaw/openclaw.json`
 - Mission Control tasks: `/home/piet/.openclaw/workspace/mission-control/data/tasks.json`
 - Worker runs: `/home/piet/.openclaw/workspace/mission-control/data/worker-runs.json`
 
-## Retrieval Entry Points (Agent-Minimum)
-1. `03-Agents/Shared/user-profile.md`
-2. `03-Agents/Shared/project-state.md`
-3. `03-Agents/Shared/decisions-log.md`
-4. `03-Agents/OpenClaw/operational-state.md`
-5. `01-Daily/YYYY-MM-DD.md`
+## Read Order
+1. `03-Agents/Shared/project-state.md`
+2. `03-Agents/Shared/decisions-log.md`
+3. `03-Agents/OpenClaw/operational-state.md`
+4. passender `03-Agents/<Agent>/working-context.md`
+5. `01-Daily/YYYY-MM-DD.md` nur bei Bedarf
 
-## Session Updates from 2026-04-10
-- Layer3 rollup cron exists (`.cron/layer3-rollup`) and runs daily around 21:10.
-- Git receive mode on homeserver vault adjusted with `receive.denyCurrentBranch=updateInstead` for push-into-checked-out-repo flow.
-- Hermes no longer active in vault structure.
-- Nested `Openclaw peter` path is not an active vault path anymore.
+## Current Truth
+- Produktiver Vault ist `/home/piet/vault`
+- Hermes ist kein aktiver Pfad mehr
+- `Openclaw peter` ist kein produktiver Vault-Pfad mehr
+- Layer3-Rollup läuft täglich über `.cron/layer3-rollup`
+- Windows-Push in den Homeserver-Vault ist erlaubt über `receive.denyCurrentBranch=updateInstead`
+
+## Automation Active
+- Obsidian Git: Pull/Backup/Push aktiv
+- Home Note als geführter Einstieg aktiv
+- Vault Auto-Write für `task start`, `checkpoint`, `task done` aktiv
+- DONE-Dedupe gegen Doppel-Callbacks aktiv

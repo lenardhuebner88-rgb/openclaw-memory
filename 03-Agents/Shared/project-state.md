@@ -1,36 +1,40 @@
 # Project State
 
-## Vault / Retrieval Stability
-- Status: Consolidated (2026-04-10)
-- Canonical vault root: `/home/piet/vault`
-- Active shared context: `03-Agents/Shared/*` + `03-Agents/OpenClaw/operational-state.md`
-- Hermes: decommissioned and moved to `06-Archive/2026-04/decommissioned/Hermes`
-- Nested placeholder vault `Openclaw peter`: archived under `06-Archive/2026-04/decommissioned/Openclaw-peter-nested-vault`
+## Active System Focus
+- Obsidian Vault ist jetzt der produktive Informationsanker
+- Ziel: stabile Retrieval-Pfade, wenig Kontextverschwendung, wenig manuelle Pflege
+- Aktive Kernpfade: `03-Agents/Shared/*`, `03-Agents/OpenClaw/operational-state.md`, agent-spezifische `working-context.md`
 
-## Home Server
-- Status: Active
-- Scope: OpenClaw + Immich host setup via Docker Compose (strict network separation)
-- Notes: Hardware prepared; OpenClaw already running on Linux home server
+## Current Priorities
+- Mission Control stabil halten
+- OpenClaw + Vault-Automation robust halten
+- kleine produktive Slices statt Umbauten
+- Kontext nur dort halten, wo er wiederverwendbar ist
 
-## Phase 3 Self-Optimization
-- Status: Sprint 1-3 completed (2026-04-08)
-- Delivered: validator, health monitor, build integrity, auto-restart, DB CRUD/search/migration, model status + fallback alerts
-- Next: continue quality loop and stabilize long-running workers
+## Important Projects
+### Mission Control
+- Produktion aktiv auf Port 3000
+- Mobile Phase 2 offen
+- Build kann in knapper Umgebung an OOM/SIGKILL scheitern
 
-## Mission Control (Production)
-- Status: Running in production mode via systemd on port 3000
-- URL: http://192.168.178.61:3000
-- Known issue: `next build` can fail due to OOM/SIGKILL in constrained env
-- Mitigation: Build in frontend workspace, deploy artifacts
+### Vault / Memory System
+- Struktur konsolidiert am 2026-04-10
+- Home Note, Auto-Rollup, Auto-Write und DONE-Dedupe aktiv
+- Hermes ist decommissioned
 
-## Mission Control Mobile Phase 2
-- Status: Task created and assigned
-- Scope: bottom nav, full-screen modals, 44px touch targets, lane gestures
+### Home Server
+- OpenClaw läuft bereits
+- Immich bleibt strikt getrennt
 
-## Finance Dashboard
-- Status: MVP done
-- Remaining: design polish, optional portfolio/credit modules
+### Telegram Bridge
+- stabil als systemd user service
 
-## Claude Code Telegram Bridge
-- Status: Stable in systemd user service
-- Capabilities: model switching, health/status, agent/cron/task/log utilities
+## Not Active / Removed from Core Context
+- Hermes als aktiver Agentenpfad
+- nested placeholder vault `Openclaw peter`
+
+## Retrieval Rule
+- erst Shared State
+- dann OpenClaw Operational State
+- dann Agent Working Context
+- erst danach Details oder Archive
