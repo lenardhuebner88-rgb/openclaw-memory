@@ -1,6 +1,7 @@
 # Decisions Log
 
 ## Active decisions
+- 2026-04-10: Receipt blocked task blocked: Needs human decision <!-- mc:auto-decision:receipt-blocked-task|blocked|receipt-blocked-task-blocked-needs-human-decision -->
 - 2026-04-10: Layer-3 canonicalized to `/home/piet/vault` root structure; no `OpenClaw-Memory/*` dependency.
 - 2026-04-10: Active retrieval chain is `project-state` → `decisions-log` → `operational-state` → agent `working-context`; daily is opt-in only.
 - 2026-04-10: Hermes removed from active agent structure and archived as decommissioned context.

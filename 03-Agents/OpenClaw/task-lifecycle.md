@@ -1,0 +1,21 @@
+# OpenClaw Task Lifecycle
+
+- 2026-04-10T15:17:59.046Z | CHECKPOINT | 8f00d8ca-9b66-46a1-b966-e535bb46e044 | Live vault smoke post-fix | worker=smoke | progress=- | summary=- | note=stage progress
+- 2026-04-10T15:18:20.151Z | CHECKPOINT | 278d7d8d-f806-41a6-b27c-84c0008e08f5 | Vault stage progress test | worker=smoke | progress=- | summary=- | note=progress summary
+- 2026-04-10T15:18:21.315Z | DONE | bd024fe2-7f0d-4f01-944e-af41e8761feb | Vault stage result test | worker=smoke | progress=- | summary=-
+- 2026-04-10T15:24:14.142Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T16:31:19.757Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T16:46:33.493Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T16:48:43.181Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T17:35:56.136Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T18:04:05.089Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T18:04:50.702Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T18:05:08.855Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T18:08:48.713Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T18:20:12.874Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T18:20:19.885Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T19:09:52.375Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T19:10:32.958Z | BLOCKED | receipt-blocked-task | Receipt blocked task | worker=unassigned | progress=- | summary=- | note=Needs human decision
+- 2026-04-10T21:24:47.260Z | BLOCKED | mc-proof-contract-gap-1 | Proof Contract Gap Task | worker=Forge | progress=- | summary=- | note=missing execution contract
+- 2026-04-10T21:25:36.611Z | BLOCKED | mc-proof-contract-gap-1 | Proof Contract Gap Task | worker=Forge | progress=- | summary=- | note=missing execution contract
+- 2026-04-10T21:27:40.843Z | BLOCKED | mc-proof-contract-gap-1 | Proof Contract Gap Task | worker=Forge | progress=- | summary=- | note=missing execution contract
