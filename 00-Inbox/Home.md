@@ -32,4 +32,3 @@
 ## Empfehlung
 - Diese Note in Obsidian anpinnen.
 - Vault immer mit `git pull` starten, am Ende `commit + push`.
-Test sync

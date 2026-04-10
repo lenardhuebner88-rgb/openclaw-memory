@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
+                "file": "01-Daily/evening-debrief-2026-04-07.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "evening-debrief-2026-04-07"
             }
           }
         ]
@@ -184,10 +184,12 @@
       "bases:Neue Base erstellen": false
     }
   },
-  "active": "a9030c81bc070a94",
+  "active": "6a4ef9cd6eafe168",
   "lastOpenFiles": [
+    "00-Inbox/Home.md",
+    "00-Inbox/Willkommen.md",
+    "00-Inbox/Unbenannt.md",
     "02-Projects/Memory-System/MEMORY-SYSTEM-AUDIT-2026-04-09.md",
-    "Home.md",
     "99-Templates/template-daily.md",
     "99-Templates",
     "06-Archive/2026-04/archive-2026-04-05.md",
@@ -209,8 +211,6 @@
     "02-Projects/Memory-System/CONTEXT-MANAGEMENT-RESULTS-2026-04-09.md",
     "02-Projects/Memory-System/CONTEXT-MANAGEMENT-PLAN.md",
     "02-Projects/Memory-System/board-memory-analyse-2026-04-09.md",
-    "00-Inbox/Unbenannt.md",
-    "00-Inbox/Willkommen.md",
     "01-Daily/evening-debrief-2026-04-08.md",
     "01-Daily/evening-debrief-2026-04-07.md",
     "Agent-OpenClaw/ping-test.md",
