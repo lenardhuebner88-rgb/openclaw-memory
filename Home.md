@@ -15,6 +15,7 @@
 - [[00-Inbox]]
 - [[01-Daily]]
 - [[04-Operations/Validations]]
+- [[03-Agents/OpenClaw/OBSIDIAN-OPERATING-RULES]]
 
 ## Projekte
 - [[02-Projects/Mission-Control]]
