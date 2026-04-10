@@ -57,3 +57,8 @@ Check in this order:
 ## Mission Control
 - `/memory` is the workspace UI for browsing daily memory
 - The UI should surface project, type, importance, source, and why-it-matters
+
+## Obsidian Vault Sync Notes (2026-04-10)
+- Produktiver Vault ist `/home/piet/vault`.
+- `receive.denyCurrentBranch=updateInstead` wurde gesetzt, damit Push auf den checked-out Vault funktionieren kann.
+- Der frühere verschachtelte Pfad `Openclaw peter` ist archiviert und kein aktiver Arbeits-Pfad.
