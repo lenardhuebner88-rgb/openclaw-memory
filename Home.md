@@ -13,7 +13,8 @@
 
 ## Heute
 - [[00-Inbox]]
-- [[01-Daily]]
+- [[03-Agents/OpenClaw/daily]]
+- [[01-Daily]] (manuell)
 - [[04-Operations/Validations]]
 - [[03-Agents/OpenClaw/OBSIDIAN-OPERATING-RULES]]
 
