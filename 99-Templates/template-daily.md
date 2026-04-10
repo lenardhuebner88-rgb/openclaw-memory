@@ -1,16 +1,23 @@
 # YYYY-MM-DD
 
 > Regeln:
-> - append-only
 > - nur wichtige Einträge
-> - offene operative Follow-ups nicht als lose TODO-Liste hier stapeln, sondern nach `memory/OPEN-LOOPS.md` oder ins Task Board
+> - kurz, konkret, wiederverwendbar
+> - offene operative Arbeit ins Task Board, nicht als lose Sammelliste hier
+> - was dauerhaft wichtig ist, später nach Shared / Projects / OpenClaw hochziehen
+
+## Today
+- Fokus:
+- Wichtigste Änderung:
+- Offene Entscheidung:
 
 ## Entries
 
-### YYYY-MM-DDTHH:MM:SS+01:00 | project:general | type:decision | importance:high | id:YYYYMMDD-HHMMSS-general-decision
-- Summary: 
-- Why it matters: 
-- Context:
-  - 
-- Tags: #memory
-- Source: telegram direct chat
+### HH:MM | type:decision|status|checkpoint
+- Summary:
+- Impact:
+- Link / Bezug:
+
+## End of day
+- Was bleibt relevant?
+- Was kann archiviert oder ignoriert werden?
