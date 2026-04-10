@@ -3,8 +3,13 @@
     {
       "type": "file",
       "ctime": 1775820676949,
-      "path": "Home.md",
+      "path": "00-Inbox/Home.md",
       "title": "Startleiste"
+    },
+    {
+      "type": "folder",
+      "ctime": 1775821226736,
+      "path": "01-Daily"
     }
   ]
 }
