@@ -1,0 +1,33 @@
+# Learnings
+
+- [2026-04-05] [model] SRE-Expert (deepseek-r1:free) liefert 0s Runtime bei Subagent-Tasks | Model akzeptiert Session aber produziert kein Output | Gewechselt zu deepseek-v3.2
+- [2026-04-05] [model] qwen3.6-plus:free crasht konsistent mit LiveSessionModelSwitchError | Model auf OpenRouter transient/rate-limited | Von Primary zu Fallback verschoben
+- [2026-04-05] [cron] morning-kickoff + model-id-validator: Provider finish_reason: error | SRE-Agent Model instabil | Model auf minimax-m2.5 gewechselt
+- [2026-04-05] [cron] task-board-auto-cleanup: Timeout nach 60s | Timeout zu kurz für Board-Scan | Auf 120s erhöht
+- [2026-04-05] [cron] hourly-task-summary: 4 consecutive errors | Kein explizites Model, Default instabil | Model auf minimax-m2.5 gesetzt
+- [2026-04-05] [worker] Dispatch→Done Gap: Subagenten schließen Tasks nicht automatisch | Kein Receipt-Callback existiert | /complete + /fail Routes erstellt
+- [2026-04-05] [config] dispatchTarget speichert Display-Name statt Runtime-ID | normalizeAssignee statt resolveRuntimeAgentId | resolveRuntimeAgentId eingeführt, 4 Duplikate bereinigt
+- [2026-04-05] [board] 77 Draft-Tasks älter als 24h im Board | Kein Auto-Cleanup | task-board-auto-cleanup Cron erstellt
+- [2026-04-05] [cost] nightly-self-improvement: 97k Tokens für "blocked" Ergebnis | Kein Backlog-Check vor LLM-Analyse | Skill v2 mit 6 automatischen Quellen
+- [2026-04-05] [config] Context Pipeline 22KB→8KB | 8 Dateien mit 23KB Context pro Session | Historisches archiviert, 64% Reduktion
+- [2026-04-06] [cron] LiveSessionModelSwitchError at daily-cost-report | model override mismatch | Removed override, uses agent default
+- [2026-04-06] [cron] LiveSessionModelSwitchError at model-id-validator | model override mismatch | Removed override, uses agent default
+- [2026-04-06] [cron] LiveSessionModelSwitchError at morning-kickoff | model override mismatch | Removed override, uses agent default
+- [2026-04-07] [cron] Timeout at self-optimization-intelligence | timeout 225s too short | Increased to 285s
+- [2026-04-07] [cron] Timeout at daily-standup-projekte | timeout 180s too short | Increased to 300s
+- [2026-04-06] [cron] LiveSessionModelSwitchError at nightly-self-improvement | model override mismatch | Removed override, uses agent default
+- [2026-04-06] [cron] LiveSessionModelSwitchError at hourly-task-summary | model override mismatch | Removed override, uses agent default
+- [2026-04-06] [cron] LiveSessionModelSwitchError at task-board-auto-cleanup | model override mismatch | Removed override, uses agent default
+- [2026-04-06] [cron] LiveSessionModelSwitchError at stability-test-3h-check | model override mismatch | Removed override, uses agent default
+- [2026-04-06] [cron] LiveSessionModelSwitchError at session-cleanup-local | model override mismatch | Removed override, uses agent default
+- [2026-04-07] [cron] Timeout at model-compatibility-check | timeout 150s too short | Increased to 210s
+- [2026-04-07] [cron] LiveSessionModelSwitchError at stability-test-3h-check (no payload model) | agent default model unavailable in isolated session context | SYSTEMIC — requires gateway config change or session model mapping fix; auto-fix skipped
+- [2026-04-07] [cron] Persistent timeout at self-optimization-intelligence | Exceeds 360s after 2 attempts | Manual review required
+- [2026-04-07] [cron] Persistent timeout at model-compatibility-check | Exceeds 360s after 3 attempts | Manual review required
+- [2026-04-07] [cron] Persistent timeout at auto-fix-trigger | Exceeds 360s after 3 attempts | Manual review required
+- [2026-04-07] [cron] Timeout at Atlas HTTP Heartbeat | timeout 180s too short | Increased to 300s
+- [2026-04-08] [cron] Persistent timeout at daily-standup-projekte | Exceeds 360s after 4 attempts | Manual review required
+- [2026-04-09] [cron] Timeout at learnings-to-tasks | timeout 180s too short | Increased to 300s
+- [2026-04-09] [cron] daily-standup-projekte Persistent timeout: 13x in 2 days — Fix bereits angewandt
+- [2026-04-09] [cron] Timeout escalation cap at dispatch-router | 5 consecutive auto-increments, still timing out | Manual review required — task redesign, model change, or accept current runtime
+- [2026-03-22] [process] Self-Improvement initialisiert | Skill + Struktur angelegt | Historischer Eintrag aus .learnings/LEARNINGS.md migriert
