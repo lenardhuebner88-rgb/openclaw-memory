@@ -26,10 +26,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: p3-autowrite-proof P3 Shared State and Working Context autowrite proof
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: working context updated from runtime checkpoint event
-- blocker: -
-- updated: 2026-04-10T22:54:39.382Z
+- task: f9abcb0f-0bf5-49de-84c4-fc2dea9ecb9e Dreaming Sprint 3: Event Log + Projections orchestrieren
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Security check failed (critical)
+- blocker: Security check failed (critical)
+- updated: 2026-04-11T21:23:27.916Z
 <!-- mc:auto-working-context:end -->
