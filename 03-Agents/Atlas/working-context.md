@@ -11,7 +11,7 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
-- [[../OpenClaw/operational-state]]
+- [[../Shared/checkpoints]]
 - [[atlas-session-handover]]
 
 ## Aktuelle Regeln

@@ -11,7 +11,7 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
-- [[../OpenClaw/operational-state]]
+- [[../Shared/checkpoints]]
 - [[../../04-Operations/Validations]]
 
 ## Aktuelle Regeln
@@ -23,3 +23,13 @@
 ## Checkpoint-Notiz
 - hier nur aktuelle operative Relevanz halten
 - alles Dauerhafte nach Shared oder OpenClaw verschieben
+
+<!-- mc:auto-working-context:start -->
+## Runtime Auto-Update
+- task: p3-autowrite-proof P3 Shared State and Working Context autowrite proof
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: working context updated from runtime checkpoint event
+- blocker: -
+- updated: 2026-04-10T22:54:39.382Z
+<!-- mc:auto-working-context:end -->
