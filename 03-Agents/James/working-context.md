@@ -21,3 +21,13 @@
 
 ## Checkpoint-Notiz
 - hier nur aktive Recherchefragen und unmittelbare nächste Erkenntnisse
+
+<!-- mc:auto-working-context:start -->
+## Runtime Auto-Update
+- task: -
+- stage: CHECKPOINT
+- next: -
+- checkpoint: -
+- blocker: -
+- updated: -
+<!-- mc:auto-working-context:end -->

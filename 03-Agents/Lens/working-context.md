@@ -22,3 +22,13 @@
 ## Checkpoint-Notiz
 - nur aktive Analysen und laufende Entscheidungen
 - alles Abgeschlossene in Projects, Validations oder Archive
+
+<!-- mc:auto-working-context:start -->
+## Runtime Auto-Update
+- task: -
+- stage: CHECKPOINT
+- next: -
+- checkpoint: -
+- blocker: -
+- updated: -
+<!-- mc:auto-working-context:end -->

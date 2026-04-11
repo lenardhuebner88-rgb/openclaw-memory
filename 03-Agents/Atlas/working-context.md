@@ -23,3 +23,13 @@
 ## Checkpoint-Notiz
 - hier nur aktive Prioritäten, offene Entscheidungen und nächster sinnvoller Schritt
 - Dauerhaftes nach Shared, Operatives nach OpenClaw
+
+<!-- mc:auto-working-context:start -->
+## Runtime Auto-Update
+- task: -
+- stage: CHECKPOINT
+- next: -
+- checkpoint: -
+- blocker: -
+- updated: -
+<!-- mc:auto-working-context:end -->
