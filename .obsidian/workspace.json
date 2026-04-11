@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03-Agents/Forge/working-context.md",
+                "file": "01-Daily/evening-debrief-2026-04-08.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "working-context"
+              "title": "evening-debrief-2026-04-08"
             }
           }
         ]
@@ -186,11 +186,11 @@
   },
   "active": "6a4ef9cd6eafe168",
   "lastOpenFiles": [
+    "01-Daily/evening-debrief-2026-04-07.md",
+    "01-Daily/evening-debrief-2026-04-08.md",
+    "03-Agents/Forge/working-context.md",
     "03-Agents/Atlas/working-context.md",
     "03-Agents/Atlas/atlas-session-handover.md",
-    "01-Daily/evening-debrief-2026-04-08.md",
-    "01-Daily/evening-debrief-2026-04-07.md",
-    "03-Agents/Forge/working-context.md",
     "03-Agents/OpenClaw/OBSIDIAN-OPERATING-RULES.md",
     "03-Agents/OpenClaw/README.md",
     "04-Operations/Validations/README.md",
