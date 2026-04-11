@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "f33ad94d26a24877",
+        "id": "8f84d1fd97fd70a0",
         "type": "tabs",
         "children": [
           {
-            "id": "19f4587895034463",
+            "id": "47f3bc73365909dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "01-Daily/2026-04-10.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Neuer Tab"
+              "title": "2026-04-10"
             }
           }
         ]
@@ -108,6 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "01-Daily/2026-04-10.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -126,6 +131,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "01-Daily/2026-04-10.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           },
@@ -139,6 +145,7 @@
         "state": {
           "type": "outline",
           "state": {
+            "file": "01-Daily/2026-04-10.md",
             "followCursor": false,
             "showSearch": false,
             "searchQuery": ""
@@ -158,9 +165,16 @@
       "daily-notes:Heutige Notiz öffnen": false,
       "templates:Vorlage einfügen": false,
       "command-palette:Befehlspalette öffnen": false,
-      "bases:Neue Base erstellen": false
+      "bases:Neue Base erstellen": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "19f4587895034463",
-  "lastOpenFiles": []
+  "active": "47f3bc73365909dc",
+  "lastOpenFiles": [
+    "01-Daily/2026-04-11.md",
+    "01-Daily/evening-debrief-2026-04-07.md",
+    "02-Projects/Memory-System/board-memory-analyse-2026-04-09.md",
+    "01-Daily/2026-04-10.md",
+    "00-Inbox/Home.md"
+  ]
 }
