@@ -140,6 +140,32 @@ Headers: x-actor-kind: automation, x-request-class: system
 Body: {"stage": "result", "resultSummary": "<kurze Zusammenfassung>"}
 ```
 
+## Nightly Self-Improvement (automatisch, 04:00 Berlin)
+
+Atlas wird täglich um 04:00 Uhr mit dem nightly-self-improvement SKILL aufgerufen.
+
+**Was Atlas dabei tut — und nur das:**
+1. 6 Quellen scannen (Learnings-API, Board, MC-Code, Config, Kosten, Autonomie)
+2. EINEN Kandidaten auswählen
+3. Safety-Check: fällt er in Forge-Scope?
+4. Forge-Task mit Execution Contract erstellen + dispatchen
+5. In nightly-builds.md loggen
+6. Discord-Notify an #execution-reports
+
+**Was Atlas dabei NICHT tut:**
+- Keinen Code schreiben
+- Keine Dateien editieren
+- Keine tsc/build Kommandos ausführen
+- Forge implementiert, testet und deployt eigenständig via Receipt
+
+**Execution Contract Pflichtformat für Nightly-Tasks:**
+```
+task id: <nach Erstellung eintragen>
+objective: <was Forge konkret implementiert>
+definition of done: npx tsc --noEmit ohne Fehler. Änderung live in MC.
+return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementiert / ## Validierung / ## Impact)
+```
+
 ## Checkpoint-Notiz
 - hier nur aktive Prioritäten, offene Entscheidungen und nächster sinnvoller Schritt
 - Dauerhaftes nach Shared, Operatives nach OpenClaw
