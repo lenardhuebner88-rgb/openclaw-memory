@@ -41,10 +41,10 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 33a08561-40c2-477e-af39-1d5d4731526e [Konzept] Spark als Entlastungs-Agent für Forge neu definieren
+- task: 13d5935d-d2fa-44ca-8278-271e764ef71e [Sprint Agents] Datenvalidität + operative Verwendbarkeit des Agents-Tabs
 - stage: DONE
 - next: await next assignment
-- checkpoint: Spark als dedizierter Forge-Entlastungs-Agent neu definiert: klare Rollenabgrenzung, Zielmodell gpt-5.3-codex-spark, Routing/UI/Board-Integration und 8-Schritte-Umsetzungsplan.
+- checkpoint: Root-Cause, kanonische Datenquellen, Statuslogik und ein umsetzbarer Arbeitspaket-Plan für einen signalbasierten, nicht-redundanten Agents-Tab wurden ausgearbeitet.
 - blocker: -
-- updated: 2026-04-12T21:02:25.506Z
+- updated: 2026-04-12T21:52:24.449Z
 <!-- mc:auto-working-context:end -->
