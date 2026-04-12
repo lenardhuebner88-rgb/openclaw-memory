@@ -19,3 +19,6 @@
 - 2026-04-12: Forge-Opus läuft über Anthropic API Key (nicht OAuth). OAuth gilt nur für Atlas/Sonnet via sync-cron.
 - 2026-04-12: Execution Contract als Pflichtformat für alle Tasks formalisiert — worker-runner lehnt Tasks ohne task id/objective/definition of done/return format ab.
 - 2026-04-12: Sprint Autonomie-Basis erstellt und code-verifiziert — zwei echte Lücken: kein Dispatch-Loop, kein formalisierter Execution Contract.
+- 2026-04-12 Abend: Phase-4-Sprint im Closeout — Build ✅, Vitest 135 ✅, E2E 9/9 ✅. Letzter James Gate-Check läuft auf Stand afa88eb.
+- 2026-04-12 Abend: Board erstmals clean seit Backup-Restore — failed=0, done=161 (+37), assigned=6, draft=1.
+- 2026-04-12 Abend: Root-Cause Phase 4 war echte Integrationslücken (Runtime-Libs, App-Router-Basis, leere Task-Routen) — nicht nur Testnoise.

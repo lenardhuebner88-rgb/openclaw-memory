@@ -62,3 +62,13 @@
 | Flash | flash | minimax/MiniMax-M2.7-highspeed | MiniMax | ❌ noch nicht aktiv |
 
 Modell-Zuweisungen noch nicht live in openclaw.json — Forge-Task ausstehend.
+
+## Board-Stand 2026-04-12 Abend (letzter Heartbeat)
+- done=161 (+37 seit Backup-Restore)
+- assigned=6 | draft=1 | failed=0 ✅ | canceled=1
+- Erstes Mal sauber (failed=0) seit Backup-Restore
+
+## Phase-4-Sprint Status (2026-04-12 Abend)
+- Build ✅ | Vitest 135 Tests ✅ | E2E 9/9 ✅
+- Letzter James Gate-Check läuft auf Commit afa88eb
+- Commits: 51c0b6e → 86830ab → 27fe521 → e2e7715 → afa88eb
