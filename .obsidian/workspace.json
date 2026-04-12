@@ -243,6 +243,8 @@
   },
   "active": "dff3336d867e5018",
   "lastOpenFiles": [
+    "03-Agents/Researcher/working-context.md",
+    "03-Agents/Researcher",
     "04-Operations/Audits/system-audit-playbook.md",
     "03-Agents/Shared/project-state.md",
     "03-Agents/Shared/decisions-log.md",
@@ -269,7 +271,6 @@
     "03-Agents/OpenClaw/README.md",
     "03-Agents/OpenClaw/operational-state.md",
     "03-Agents/OpenClaw/daily/2026-04-10.md",
-    "03-Agents/OpenClaw/daily/2026-04-11.md",
     "04-Operations/Validations/checkpoints",
     "03-Agents/OpenClaw/daily",
     "03-Agents/Lens",
@@ -277,7 +278,6 @@
     "03-Agents/Forge",
     "06-Archive/2026-04/decommissioned/Hermes/daily",
     "06-Archive/2026-04/decommissioned/Openclaw-peter-nested-vault",
-    "06-Archive/2026-04/decommissioned/Hermes",
-    "06-Archive/2026-04/decommissioned"
+    "06-Archive/2026-04/decommissioned/Hermes"
   ]
 }
