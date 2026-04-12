@@ -243,6 +243,7 @@
   },
   "active": "dff3336d867e5018",
   "lastOpenFiles": [
+    "04-Operations/Audits/system-audit-playbook.md",
     "03-Agents/Shared/project-state.md",
     "03-Agents/Shared/decisions-log.md",
     "03-Agents/Shared/checkpoints.md",
@@ -269,7 +270,6 @@
     "03-Agents/OpenClaw/operational-state.md",
     "03-Agents/OpenClaw/daily/2026-04-10.md",
     "03-Agents/OpenClaw/daily/2026-04-11.md",
-    "03-Agents/Shared/user-profile.md",
     "04-Operations/Validations/checkpoints",
     "03-Agents/OpenClaw/daily",
     "03-Agents/Lens",
