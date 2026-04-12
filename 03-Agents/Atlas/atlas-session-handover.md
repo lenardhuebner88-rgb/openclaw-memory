@@ -1,138 +1,118 @@
 # Atlas Session Handover
 
-## 1. Aktiver System-Zustand
+## Stand: 2026-04-12 — Lens-Analyse + Vault-Bereinigung abgeschlossen
 
-### Worker-Status
-- **Atlas / main:** stabil. Mission Control Build, Deploy, Cleanup und Hardening wurden erfolgreich durchgeführt.
-- **Forge / sre-expert:** grundsätzlich nutzbar, aber heute nicht als primärer Wahrheits-/Stabilitätspfad verwendet. Exec-Security wurde auf `allowlist` reduziert.
-- **Pixel / frontend-guru:** zuletzt als grundsätzlich stabil/startbar betrachtet; heute kein neuer eigener Blocker von Pixel.
-- **Lens / efficiency-auditor:** weiterhin **nicht vertrauenswürdig stabil**. Frühere Root Cause war `LiveSessionModelSwitchError` / instabiler Modellpfad. Noch offen.
-- **Researcher:** logisch eingebunden, aber nicht final live-validiert als belastbarer Produktionspfad.
+---
 
-### Offene Blocker + Root Cause
-- **Lens instabil:** Root Cause weiter im Modell-/Session-Switch-Pfad, nicht in Mission Control selbst.
-- **Tailscale/Mobilzugriff offen:** `allowedOrigins` wurden vorbereitet, aber `tailscale status` lieferte leer und `http://100.109.144.77:18789` war nicht erreichbar. Root Cause liegt sehr wahrscheinlich außerhalb von Mission Control, eher Host-/Tailscale-Zustand.
-- **Small-model / sandbox / web-tools:** Security-Audit warnt weiterhin, weil kleine/free Modelle ohne verpflichtende Sandbox und mit Web-/Browser-Kontext möglich sind. Das ist ein strategischer Hardening-Punkt, kein akuter Mission-Control-Blocker.
+## 1. Was heute gemacht wurde
 
-### Was heute bereits erledigt wurde
-- Mission Control Build-Blocker mit alten `backlog`-/`recurring`-Altlasten, `server-only`-Leak und inkonsistenten Importpfaden wurde systematisch behoben.
-- `deploy.sh` wurde stabilisiert: alter Server wird vor Build gekillt, stale Next-Locks werden vor Build entfernt.
-- Mission Control ist wieder **buildbar** und **deploybar**.
-- Task-Lifecycle wurde live repariert und verifiziert:
-  - create -> assigned
-  - dispatch/send -> in progress
-  - resolve -> done
-- Board-Cleanup durchgeführt: offene Test-/Validation-/Smoke-Aufgaben wurden bereinigt, Board ist sichtbar ruhiger.
-- Hardening umgesetzt:
-  - `channels.discord.groupPolicy = allowlist`
-  - `channels.telegram.groupPolicy = allowlist`
-  - `tools.exec.security = allowlist` für `main`, `sre-expert`, `sre-expert-fresh`
-  - `gateway.controlUi.allowedOrigins` gesetzt für lokal/LAN/Tailscale
-- `claude-cli/claude-sonnet-4-6` wurde **einmalig für diese Session testweise verwendet** und als **für Session-Nutzung grundsätzlich brauchbar** bewertet; danach wurde wieder auf `openai-codex/gpt-5.4` zurückgestellt.
+### Vault-Bereinigung (komplett)
+- Merge-Konflikte in 6 Core-Vault-Files aufgelöst: Atlas, Forge, James, Lens working-context + project-state + decisions-log
+- Strikte Delegationsregeln in alle working-contexts eingebaut (Atlas delegiert immer, handelt nie selbst technisch)
+- Fehlende working-context.md erstellt für: Pixel, Forge-Opus, Flash (Platzhalter)
+- Forge-Opus: korrekt dokumentiert als Anthropic API Key (nicht OAuth — OAuth gilt nur für Atlas/Sonnet)
 
-## 2. Offene Tasks
+### Modell-Zuweisung neu geregelt (noch nicht live in openclaw.json)
+| Agent | Modell | Pool |
+|-------|--------|------|
+| Atlas | `gpt-5.4` | OpenAI Pro (€200 flat) |
+| Forge | `GPT-5.3 Codex` | OpenAI Pro (fix, unverändert) |
+| Lens | `gpt-5.4` | OpenAI Pro |
+| James | `minimax/MiniMax-M2.7-highspeed` | MiniMax (€40 token) |
+| Pixel | `minimax/MiniMax-M2.7-highspeed` | MiniMax |
+| Flash | `minimax/MiniMax-M2.7-highspeed` | MiniMax (noch nicht aktiv) |
+| Forge-Opus | `anthropic/claude-opus-4-6` | Anthropic API Key |
 
-Hinweis: Der Board-Cleanup hat die offensichtlichen Test-/Validation-Artefakte entfernt. Die folgenden Themen sind die weiterhin relevanten operativen offenen Punkte.
+---
 
-### 1) Lens / Model-Switch-Instabilität beheben
-- **ID:** kein sauber gepflegter aktueller Board-Task als endgültige Live-Wahrheit bestätigt; als offener Systemblock behandeln
-- **Titel:** Lens / Model-Switch-Instabilität beheben
-- **Nächster konkreter Schritt:** Modell-/Session-Pfad von `efficiency-auditor` read-only prüfen, dann minimalen Live-Smoketest mit dem echten Agenten fahren.
-- **Zuständiger Worker:** Lens / ggf. Atlas orchestriert, Forge nur bei technischem Fixpfad
+## 2. Offene Tasks — priorisiert
 
-### 2) Researcher-Agent live validieren
-- **ID:** derzeit nicht als klarer aktiver Board-Task verifiziert
-- **Titel:** Researcher-Agent live validieren
-- **Nächster konkreter Schritt:** Einfache echte Recherche-Task an `researcher` dispatchen und prüfen, ob Rücklauf + Routing sauber funktionieren.
-- **Zuständiger Worker:** Researcher
+### Sofort → an Forge dispatchen:
 
-### 3) Config vs Live-Provider-Truth bereinigen
-- **ID:** derzeit nicht als klarer aktiver Board-Task verifiziert
-- **Titel:** Config vs Live-Provider-Truth abgleichen
-- **Nächster konkreter Schritt:** aktive Modelle/Fallbacks gegen tatsächlich funktionierende Providerpfade abgleichen; nicht belastbare Modellpfade kennzeichnen oder rausnehmen.
-- **Zuständiger Worker:** Atlas / Lens
+**[1] Modell-Zuweisungen live setzen**
+- `openclaw.json` anpassen gemäß Tabelle oben
+- Atlas: MiniMax → `gpt-5.4`
+- Lens: instabiler Pfad → `gpt-5.4`
+- James + Pixel: explizit auf `minimax/MiniMax-M2.7-highspeed` setzen
+- Verifizieren: `/api/agents/live` zeigt korrekte Modelle
 
-### 4) Tailscale/Mobilzugriff separat prüfen
-- **ID:** derzeit nicht als klarer aktiver Board-Task verifiziert
-- **Titel:** Tailscale / Mobilzugriff verifizieren
-- **Nächster konkreter Schritt:** Host-Tailscale-Zustand prüfen (`tailscale status` / Host-Dienst), danach UI-Zugriff über `100.109.144.77:18789` erneut testen.
-- **Zuständiger Worker:** Forge / Atlas
+**[2] Security-Blocked Root-Cause klären**
+- Seit 2026-04-11 blockt ein globales `security-check-failed` alle Task-Terminierungen
+- 8+ Tasks betroffen (Atlas, Forge, James, Lens)
+- Ein Task (`Dispatch UX → Contract-Fix`, commit 150cbad) ist fachlich fertig — wartet nur auf Terminalisierung
+- Forge-Brief liegt bereit: [[../../04-Operations/Audits/security-check-diagnose-2026-04-12]]
+- Forge soll Root-Cause identifizieren und Fix-Pfad beschreiben, du entscheidest dann
 
-### 5) Heartbeat-/Prompt-Altlasten bereinigen
-- **ID:** derzeit nicht als klarer aktiver Board-Task verifiziert
-- **Titel:** Heartbeat-/Prompt-Altlasten bereinigen
-- **Nächster konkreter Schritt:** veraltete `backlog`-/Legacy-Semantik in HEARTBEAT.md und angrenzenden Texten gegen aktuelles Statusmodell prüfen.
-- **Zuständiger Worker:** Atlas / Pixel
+**[3] Pulse-Entfernung final bestätigen**
+- Angeordnet seit 2026-04-07, Status unklar
+- `model-monitor` aus `TEAM_AGENT_ORDER` / `route.ts` prüfen
+- Cron deaktivieren (nicht löschen), dann als DONE schließen
 
-### 6) Memory konsolidieren
-- **ID:** derzeit nicht als klarer aktiver Board-Task verifiziert
-- **Titel:** Memory konsolidieren
-- **Nächster konkreter Schritt:** heutige Entscheidungen und neue stabile Betriebsregeln in eine knappe durable Note überführen.
-- **Zuständiger Worker:** Atlas
+### Danach → an Forge:
 
-### 7) Update 2026.4.2 prüfen
-- **ID:** derzeit nicht als klarer aktiver Board-Task verifiziert
-- **Titel:** OpenClaw Update 2026.4.2 prüfen
-- **Nächster konkreter Schritt:** nur Changelog/Risiko prüfen, nicht blind updaten.
-- **Zuständiger Worker:** Forge / Atlas
+**[4] Zombie-Agenten aus openclaw.json entfernen**
+- ideen, projekte, orchestrator-free, prompt-optimizer, quick
+- kein Cron, kein Channel, kein Mandat — einfach raus
 
-## 3. Wichtige Config-Änderungen heute
+**[5] Cron-Channels korrigieren**
+- `efficiency-auditor-heartbeat`: sendet an `telegram` → auf `discord` ändern
+- `daily-cost-report`: sendet an `telegram` → auf `discord` ändern
 
-### `openclaw.json`
-Bewusst gesetzt und **nicht rückgängig machen**:
-- `channels.discord.groupPolicy = "allowlist"`
-- `channels.telegram.groupPolicy = "allowlist"`
-- `agents.list[main].tools.exec.security = "allowlist"`
-- `agents.list[sre-expert].tools.exec.security = "allowlist"`
-- `agents.list[sre-expert-fresh].tools.exec.security = "allowlist"`
-- `gateway.controlUi.allowedOrigins = [
-  "http://127.0.0.1:18789",
-  "http://localhost:18789",
-  "http://192.168.178.61:18789",
-  "http://100.109.144.77:18789"
-]`
+**[6] sre-expert-fresh klären**
+- Taucht in exec-security-allowlist auf, hat keine Vault-Dokumentation und keine Rolle
+- Entweder sauber einführen oder aus Config entfernen
 
-**Warum:** Diese Schritte waren die bewusst freigegebenen Security-Hardening-Maßnahmen nach Stabilisierung. Nicht wieder auf `open` oder `full` zurückdrehen, außer mit expliziter neuer Entscheidung.
+### Deine Entscheidung erforderlich:
 
-### `HEARTBEAT.md`
-- Keine bestätigte bewusste Dateiänderung in dieser Session final festgehalten.
-- Aber: HEARTBEAT-/Prompt-Altlasten gelten weiterhin als späterer Cleanup-Punkt, weil historisch noch Legacy-Semantik vermutet wird.
+**[7] Flash aktivieren?**
+- Platzhalter-Context liegt in `03-Agents/Flash/working-context.md`
+- Aktivierungs-Checkliste steht dort
+- Entscheide: jetzt oder später?
 
-### `sessions.json`
-- Keine operative, bewusst zu bewahrende Schlüsselfestlegung aus heutiger Stabilisierung ableiten.
-- Nicht ohne konkreten Anlass daran drehen.
+**[8] Heartbeat-Controller: implementieren oder Doku anpassen?**
+- HEARTBEAT.md beschreibt einen Loop der im Code nicht existiert
+- Option A: echten Controller implementieren (Aufwand groß, Forge-Opus-Kandidat)
+- Option B: HEARTBEAT.md an Realität anpassen (schnell, kein Mehrwert) — Korrekturvorlage liegt bereit: [[../../04-Operations/Audits/heartbeat-realitaet-2026-04-12]]
+- Entscheide Richtung, dann Forge dispatchen
 
-### Mission Control Code / Deploy
-Bewusst gesetzte operative Wahrheit:
-- `deploy.sh` killt den alten Server jetzt **vor** dem Build.
-- `deploy.sh` räumt stale Next-Locks vor dem Build weg.
-- Mission Control Build-/Deploy-Pfad ist jetzt wieder stabil genug für normalen Einsatz.
+**[9] Lens Smoketest**
+- Lens gilt als instabil (LiveSessionModelSwitchError) bis eigener Smoketest grün
+- Mit neuem Modell `gpt-5.4` sollte Instabilität behoben sein
+- Beauftrage einen minimalen Live-Smoketest um Lens als stabil zu bestätigen
 
-## 4. Operative Leitplanken
+---
 
-### Dispatch-Regeln aktuell
-- Create mit gewähltem Agenten landet sinnvoll in **Assigned**.
-- Dispatch/Send muss sauber nach **In Progress** gehen.
-- Resolve führt nach **Done**.
-- `backlog` ist **kein operativer Persistenz-Status mehr**.
-- Board/API/Deploy-Wahrheit liegt im kanonischen `workspace/mission-control`, nicht in alten/stalen Runtimes.
+## 3. Systemregel (neu, ab heute aktiv)
 
-### Was NICHT zu tun ist
-- **Nicht** den gerade stabilisierten Mission-Control-Kern wieder groß umbauen.
-- **Nicht** `groupPolicy` wieder auf `open` stellen.
-- **Nicht** `exec security` für die gehärteten Agenten wieder auf `full` stellen, außer mit ausdrücklicher neuer Entscheidung.
-- **Nicht** Tailscale-/Host-Erreichbarkeit mit Mission-Control-Core-Problemen vermischen.
-- **Forge nicht blind als Wahrheitsquelle** für den Gesamtzustand verwenden; Mission-Control war heute primär über Atlas/Live-Validierung stabilisiert.
-- **Lens nicht als stabil annehmen**, bis eigener Live-Smoketest grün ist.
-- **Keine blinden globalen Modellwechsel**; `claude-cli/claude-sonnet-4-6` ist für Einzelsession nutzbar, aber nicht als global verifizierter Default bewiesen.
-- **Keine parallelen Großbaustellen**: immer ein Systemblock nach dem anderen.
+**Atlas delegiert immer — handelt nie selbst technisch.**
 
-## 5. Erste Aktion nach dem Neustart
+| Aufgabe | Agent |
+|---------|-------|
+| Code, Infra, Build, Deploy | Forge |
+| Root-Cause, Architektur-Risiko | Forge-Opus |
+| Recherche, externe Vergleiche | James |
+| UI, Frontend, Dashboard | Pixel |
+| Kosten, Audit, Konsolidierung | Lens |
+| Leichte Forge-Entlastung | Flash (sobald aktiv) |
 
-Erste Aktion nach der frischen Session: **den stabilen Stand kurz bestätigen und dann Lens/Model-Switch-Instabilität als nächsten echten offenen Systemblock angehen.**
+Details stehen in jedem `working-context.md`.
 
-Die Reihenfolge nach Neustart soll sein:
-1. kurz bestätigen, dass Mission Control + Hardening-Zwischenstand noch gilt
-2. Lens / `efficiency-auditor` read-only prüfen
-3. minimalen Live-Smoketest für Lens planen bzw. fahren
-4. erst danach Researcher / Config-Truth / Tailscale separat angehen
+---
+
+## 4. Operative Leitplanken (unverändert gültig)
+
+- `groupPolicy = allowlist` für Discord + Telegram — nicht zurückdrehen
+- `exec.security = allowlist` für main, sre-expert, sre-expert-fresh — nicht zurückdrehen
+- Mission Control bleibt auf `next start` (production, nicht dev)
+- Forge nicht blind als Wahrheitsquelle für Gesamtzustand verwenden
+- Keine parallelen Großbaustellen — ein Block nach dem anderen
+
+---
+
+## 5. Erste Aktion nach Sessionstart
+
+1. `project-state.md` + `decisions-log.md` kurz bestätigen (sind aktuell)
+2. Scope-Entscheidung Heartbeat-Controller treffen (minimal vs. voll) — 5 Min
+3. Sprint starten: [[../../04-Operations/Validations/sprint-autonomie-basis]]
+4. P1-A + P1-B gleichzeitig an Forge dispatchen
+5. Modell-Zuweisung parallel an Forge (unabhängig vom Sprint)

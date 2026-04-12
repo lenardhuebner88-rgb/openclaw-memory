@@ -106,9 +106,10 @@ Nur dauerhafte, aktuell gültige Informationen. Historisches → `memory/archive
 - **Premium (Opus):** → forge-opus (schwere Bugs, Root-Cause, Architektur)
 - **Agent-Status:**
   - ✅ Aktiv: main (Atlas), sre-expert (Forge), frontend-guru (Pixel), efficiency-auditor (Lens), researcher (James), forge-opus
-  - 🔄 In Rekonfiguration: quick (Flash) — local-runner Setup für Ollama Qwen 3.5
-  - 💡 Channel-Konzept: ideen — Discord Channel mit Mention-Trigger für Analyse
-  - ⚠️ Zombie (ENTFERNT): projekte, orchestrator-free, acp-defaultagent, model-monitor (Pulse)
+  - ⏳ Geplant, nicht aktiv: flash — wartet auf Aktivierungsentscheidung durch Atlas
+  - ⚠️ Offline, Entfernung ausstehend: model-monitor (Pulse)
+  - 🗄️ Archiviert: Hermes (2026-04-10)
+  - ❌ Zombies (aus openclaw.json entfernen): projekte, orchestrator-free, prompt-optimizer, quick, ideen
 
 ### Modell-Routing (HARTE REGEL)
 - KEIN Modellrouting über sessions_spawn(model: ...) — funktioniert unzuverlässig
@@ -121,19 +122,20 @@ Nur dauerhafte, aktuell gültige Informationen. Historisches → `memory/archive
 | **MiniMax Tokenplan Plus** | €40/Monat | `minimax/MiniMax-M2.7-highspeed` (Primary), MiniMax M2.7 | Primary für alle Standard-Agents |
 | **OpenRouter** | ~$10/Monat | DeepSeek, Gemini, Ollama | Reserve-Fallbacks, kostenlose Modelle |
 
-### Agent-Modell-Zuordnung
-| Agent | Primary | Fallback 1 | Fallback 2 | Fallback 3 | Fallback 4 |
-|-------|---------|-----------|-----------|-----------|-----------|
-| main (Atlas) | MiniMax M2.7 HS | MiniMax M2.7 | Codex GPT-5.4 | openrouter/auto | **Ollama Qwen 3.5** |
-| sre-expert (Forge) | **Codex GPT-5.3** | MiniMax M2.7 HS | Codex GPT-5.4 | openrouter/auto | **Ollama Qwen 3.5** |
-| frontend-guru (Pixel) | MiniMax M2.7 HS | Codex GPT-5.4 | openrouter/auto | **Ollama Qwen 3.5** | — |
-| efficiency-auditor (Lens) | MiniMax M2.7 HS | Codex GPT-5.4 | openrouter/auto | **Ollama Qwen 3.5** | — |
-| researcher (James) | MiniMax M2.7 HS | Codex GPT-5.4 | openrouter/auto | **Ollama Qwen 3.5** | — |
-| forge-opus | **Opus 4.6** | MiniMax M2.7 HS | Codex GPT-5.4 | openrouter/auto | **Ollama Qwen 3.5** |
-| local-runner | **Ollama Qwen 3.5** | openrouter/auto | — | — | — |
+### Agent-Modell-Zuordnung (aktualisiert 2026-04-12)
+| Agent | Primary | Pool | Fallback 1 | Fallback 2 | Fallback 3 |
+|-------|---------|------|-----------|-----------|-----------|
+| main (Atlas) | **GPT-5.4** | OpenAI Pro flat | MiniMax M2.7 HS | openrouter/auto | Ollama Qwen 3.5 |
+| sre-expert (Forge) | **GPT-5.3 Codex** | OpenAI Pro flat | MiniMax M2.7 HS | openrouter/auto | Ollama Qwen 3.5 |
+| efficiency-auditor (Lens) | **GPT-5.4** | OpenAI Pro flat | MiniMax M2.7 HS | openrouter/auto | Ollama Qwen 3.5 |
+| researcher (James) | **MiniMax M2.7 HS** | MiniMax €40 token | GPT-5.4 | openrouter/auto | Ollama Qwen 3.5 |
+| frontend-guru (Pixel) | **MiniMax M2.7 HS** | MiniMax €40 token | GPT-5.4 | openrouter/auto | Ollama Qwen 3.5 |
+| flash | **MiniMax M2.7 HS** | MiniMax €40 token | GPT-5.4 | openrouter/auto | Ollama Qwen 3.5 |
+| forge-opus | **Claude Opus 4.6** | Anthropic API Key | MiniMax M2.7 HS | openrouter/auto | Ollama Qwen 3.5 |
 
-**Trigger forge-opus:** Root-Cause, schwere Bugs, Architekturentscheidungen, komplexe Refactors
-**Trigger Codex (Standard-Agents):** Wenn MiniMax Timeout oder Rate-Limit
+**Logik:** OpenAI Pro (€200 flat) → Atlas + Forge + Lens (strategisch, Reasoning). MiniMax (€40 token) → James + Pixel + Flash (Volume, mechanisch).
+**Trigger forge-opus:** unklare Root-Cause nach Forge-Erstdurchlauf, Architektur-Risiko, schwere Bugs. Nur via Task-Board.
+**Noch nicht live:** Zuweisungen müssen in openclaw.json gesetzt werden (offener Task für Forge).
 
 ### Worker-Contract
 **Single Source of Truth:** `HEARTBEAT.md` — vollständige Worker/Heartbeat-Dokumentation.

@@ -29,3 +29,10 @@
 - Home Note als geführter Einstieg aktiv
 - Vault Auto-Write für `task start`, `checkpoint`, `task done` aktiv
 - DONE-Dedupe gegen Doppel-Callbacks aktiv
+
+## Update 2026-04-12
+- Alle working-context.md Merge-Konflikte aufgelöst
+- Strikte Delegationsregeln in alle Agent-Contexts eingebaut
+- Neue Agent-Contexts: Pixel, Forge-Opus, Flash
+- Modell-Zuweisung neu geregelt (noch nicht live in openclaw.json — offener Task für Forge)
+- Atlas-Session-Handover aktualisiert — Atlas braucht kein separates Handover-Prompt

@@ -38,3 +38,27 @@
 - dann OpenClaw Operational State
 - dann Agent Working Context
 - erst danach Details oder Archive
+
+## System Rule — Delegation (2026-04-12)
+**Atlas delegiert immer — handelt nie selbst technisch.**
+| Aufgabe | Agent |
+|---------|-------|
+| Code, Infra, Build, Deploy | Forge |
+| Root-Cause, Architektur-Risiko | Forge-Opus |
+| Recherche, externe Vergleiche | James |
+| UI, Frontend, Dashboard | Pixel |
+| Kosten, Audit, Konsolidierung | Lens |
+| Leichte Forge-Entlastung | Flash (sobald aktiv) |
+
+## Aktive Agenten + Modell-Zuweisung (Stand 2026-04-12)
+| Agent | ID | Modell | Pool | Status |
+|-------|-----|--------|------|--------|
+| Atlas | main | gpt-5.4 | OpenAI Pro (€200 flat) | ✅ aktiv |
+| Forge | sre-expert | GPT-5.3 Codex | OpenAI Pro (fix) | ✅ aktiv |
+| Lens | efficiency-auditor | gpt-5.4 | OpenAI Pro | ✅ stabilisiert |
+| James | researcher | minimax/MiniMax-M2.7-highspeed | MiniMax (€40 token) | ✅ aktiv |
+| Pixel | frontend-guru | minimax/MiniMax-M2.7-highspeed | MiniMax | ✅ aktiv |
+| Forge-Opus | forge-opus | anthropic/claude-opus-4-6 | Anthropic API Key | ⚠️ Eskalation only |
+| Flash | flash | minimax/MiniMax-M2.7-highspeed | MiniMax | ❌ noch nicht aktiv |
+
+Modell-Zuweisungen noch nicht live in openclaw.json — Forge-Task ausstehend.

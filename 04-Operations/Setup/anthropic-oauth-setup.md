@@ -1,8 +1,11 @@
 ---
 name: Anthropic OAuth Setup
-description: Wie Anthropic OAuth für OpenClaw eingerichtet ist und wie der Token-Refresh funktioniert
+description: Wie Anthropic OAuth für OpenClaw eingerichtet ist und wie der Token-Refresh funktioniert — gilt für Atlas (Sonnet) UND Forge-Opus (Opus)
 type: project
 ---
+
+**Gilt für:** Atlas (`anthropic/claude-sonnet-4-6`) via Claude.ai Pro OAuth, kein API-Key, keine direkten API-Kosten.
+**Forge-Opus** (`anthropic/claude-opus-4-6`) läuft separat über direkten Anthropic API Key — nicht OAuth.
 
 Atlas läuft auf `anthropic/claude-sonnet-4-6` via Claude.ai Pro OAuth (kein API-Key, keine Kosten).
 

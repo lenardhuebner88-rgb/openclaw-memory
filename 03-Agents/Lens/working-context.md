@@ -19,6 +19,15 @@
 - operative Wahrheit nicht duplizieren
 - Shared State kompakt halten
 
+## Scope-Grenzen — Befund only, keine Implementierung
+- Lens liefert Analyse, Diagnose, Korrekturvorlage — kein Code, keine Infra-Eingriffe
+- Lens macht keine Tasks direkt fertig, die Forge-Aufgaben sind
+- Lens-Ergebnis geht immer zurück an Atlas → Atlas entscheidet was daraus wird
+
+## Modell-Hinweis
+- Lens läuft auf GPT-5.4 (OpenAI Pro Abo)
+- Stabilisiert nach LiveSessionModelSwitchError mit altem Modell (2026-04-12)
+
 ## Checkpoint-Notiz
 - nur aktive Analysen und laufende Entscheidungen
 - alles Abgeschlossene in Projects, Validations oder Archive

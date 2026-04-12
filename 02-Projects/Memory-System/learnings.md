@@ -30,4 +30,12 @@
 - [2026-04-09] [cron] Timeout at learnings-to-tasks | timeout 180s too short | Increased to 300s
 - [2026-04-09] [cron] daily-standup-projekte Persistent timeout: 13x in 2 days — Fix bereits angewandt
 - [2026-04-09] [cron] Timeout escalation cap at dispatch-router | 5 consecutive auto-increments, still timing out | Manual review required — task redesign, model change, or accept current runtime
+- [2026-04-12] [structure] Working-context Merge-Konflikte in 6 Core-Files — Agenten lasen inkonsistenten Zustand | Git-Push/Pull ohne manuelle Konfliktauflösung | Sofort auflösen, nicht akkumulieren lassen; Vault-Auto-Write prüft auf Konflikte
+- [2026-04-12] [structure] Atlas erledigte technische Arbeit selbst weil Delegationsregeln nirgends formal verankert waren | Keine explizite Grenze in working-context | Delegationstabelle + "Was Atlas nicht macht" in jeden working-context eingebaut
+- [2026-04-12] [model] Lens LiveSessionModelSwitchError = gleiches Muster wie 2026-04-06 Batch | Model-Override-Mismatch / instabiler Modellpfad | GPT-5.4 als stabiler Primary gesetzt; kein Override
+- [2026-04-12] [cost] MiniMax €40 und OpenAI Pro €200 beide untergenutzt — nur je 1 Agent pro Pool | Schlechte Balance zwischen Flat-Rate und Token-Abo | Rebalanciert: OpenAI Pro = Atlas+Forge+Lens (strategic), MiniMax = James+Pixel+Flash (volume)
+- [2026-04-12] [structure] Pixel, Forge-Opus, Flash hatten keine working-context.md | Neue Agenten werden ohne Kontext-File konfiguriert | Für jeden konfigurierten Agenten sofort working-context.md anlegen
+- [2026-04-12] [ops] Forge-Opus fälschlicherweise als OAuth dokumentiert | Annahme aus Atlas-OAuth-Setup übertragen | Ist Anthropic API Key — immer direkt beim Setup verifizieren
+- [2026-04-12] [structure] HEARTBEAT.md beschreibt Loop der im Code nicht existiert | Dokumentation nie gegen Code-Realität geprüft | Doku-Realität-Gap ist dauerhaftes Risiko; Docs müssen mit Code-Stand versioniert werden
+- [2026-04-12] [ops] 5 Zombie-Agenten in Registry ohne Rolle/Channel/Cron seit Wochen | Kein periodischer Agent-Review-Cycle | Wöchentlicher Cleanup-Check als Cron einplanen
 - [2026-03-22] [process] Self-Improvement initialisiert | Skill + Struktur angelegt | Historischer Eintrag aus .learnings/LEARNINGS.md migriert

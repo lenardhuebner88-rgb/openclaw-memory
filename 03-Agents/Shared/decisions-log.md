@@ -14,3 +14,8 @@
 - 2026-04-09: A2 remains blocked until `expectsCompletionMessage` write-path is proven and corrected.
 - 2026-04-08: Phase 3 Sprint 1-3 accepted as complete; self-healing/monitoring baseline established.
 - 2026-04-08: Dual-subscription model strategy adopted (MiniMax primary, Codex/Opus escalation paths).
+- 2026-04-12: Strikte Delegationsregeln in alle Agent-working-contexts eingebaut — Atlas delegiert immer, handelt nie selbst technisch.
+- 2026-04-12: Modell-Zuweisung neu geregelt — Atlas+Forge+Lens auf OpenAI Pro (GPT-5.4/5.3), James+Pixel+Flash auf MiniMax M2.7-HS. Noch nicht live in openclaw.json — Forge-Task ausstehend.
+- 2026-04-12: Forge-Opus läuft über Anthropic API Key (nicht OAuth). OAuth gilt nur für Atlas/Sonnet via sync-cron.
+- 2026-04-12: Execution Contract als Pflichtformat für alle Tasks formalisiert — worker-runner lehnt Tasks ohne task id/objective/definition of done/return format ab.
+- 2026-04-12: Sprint Autonomie-Basis erstellt und code-verifiziert — zwei echte Lücken: kein Dispatch-Loop, kein formalisierter Execution Contract.

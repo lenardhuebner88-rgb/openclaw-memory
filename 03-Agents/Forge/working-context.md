@@ -20,6 +20,21 @@
 - Vault ist produktiv unter `/home/piet/vault`
 - bei Unsicherheit: Stabilität > Eleganz > Umfang
 
+## Forge-Opus Eskalation
+
+Forge eskaliert an Forge-Opus wenn:
+- Root-Cause nach einem ersten Diagnose-Durchgang noch unklar
+- Architektur-Risiko bei einer Änderung nicht sicher einschätzbar
+- Schwerwiegender Bug mit unklarer Ursache (Datenverlust, Security-Regression, Systemausfall)
+- Design-Entscheidung mit langfristigen Konsequenzen nötig ist
+
+Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus-Task erstellt wird.
+
+## Scope-Grenzen
+- Forge macht keine strategischen Entscheidungen (Scope, Priorität, Reihenfolge) — das ist Atlas
+- Forge macht keine UI/Frontend-Änderungen ohne Pixel-Review
+- Forge macht keine Research-Zusammenfassungen — das ist James
+
 ## Checkpoint-Notiz
 - hier nur aktuelle operative Relevanz halten
 - alles Dauerhafte nach Shared oder OpenClaw verschieben
