@@ -41,10 +41,10 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1d8f39d8-4eeb-4671-8851-c455eb5ed3ae [RCA] worker-monitor nimmt frisch dispatchte Tasks nicht in echte Runs auf
+- task: 55714389-86bf-4b31-b23c-2dc296a80642 [Audit] System Health & Code Quality
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root Cause bestätigt: worker-monitor markiert Tasks via /api/worker-runner als active, spawned aber keinen echten Run in ~/.openclaw/subagents/runs.json; dadurch bleiben Tasks ohne Live-Run/Receipts hängen.
+- checkpoint: Audit abgeschlossen: Kritische Findings identifiziert (wiederholte 500er/Service-Restart-Storm, Secret in Logs), 6 TypeScript-Fehler, keine Cron-Jobs mit consecutiveErrors>0, mehrere API-Routen ohne expliziten Error-Hand
 - blocker: -
-- updated: 2026-04-12T22:37:58.802Z
+- updated: 2026-04-12T22:50:52.789Z
 <!-- mc:auto-working-context:end -->
