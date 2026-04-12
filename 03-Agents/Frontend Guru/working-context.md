@@ -1,11 +1,17 @@
 # Frontend Guru Working Context
 
+## Lies zuerst
+- [[../Shared/project-state]]
+- [[../Shared/decisions-log]]
+- [[../Shared/checkpoints]]
+
+
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 875431ba-b1ce-487c-afc5-202da44c467d [MC-9-10] T3: SLA-Monitoring Histogramm
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: Security check failed (critical)
-- blocker: Security check failed (critical)
-- updated: 2026-04-11T21:25:43.129Z
+- task: d7479948-96c0-4c7a-97f1-5f439502afa4 [AUDIT] Pixel: UI/UX Polish + Customer-Ready
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-12T20:16:17.501Z
 <!-- mc:auto-working-context:end -->

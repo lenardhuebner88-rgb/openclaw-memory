@@ -38,3 +38,6 @@
 - 2026-04-11T21:25:43.124Z | BLOCKED | 875431ba-b1ce-487c-afc5-202da44c467d | [MC-9-10] T3: SLA-Monitoring Histogramm | worker=frontend-guru | progress=- | summary=- | note=Security check failed (critical)
 - 2026-04-11T21:53:18.210Z | BLOCKED | 68ced946-e896-4a86-a5fb-b85f6cd6bcd8 | [AUDIT] Forge: Data Stability + Backend | worker=Forge | progress=- | summary=- | note=Security check failed (critical)
 - 2026-04-12T07:53:27.855Z | BLOCKED | e80e7cd2-7cb7-4a8b-b295-e1675fda260e | [NOW] [AUDIT] Forge: Data Stability + Backend Hardening | worker=Forge | progress=- | summary=- | note=Security check failed (critical)
+- 2026-04-12T20:16:17.444Z | FAILED | 626bea87-39ba-4674-8214-2fa4a711dfa5 | [Config] GPT-5.4 Routing für main + frontend-guru umstellen und Modell-Inkonsistenz bereinigen | worker=Forge | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
+- 2026-04-12T20:16:17.477Z | FAILED | 7b242683-6af1-4fe5-b15d-206418de3c3c | Fix dispatch-router timeout escalation | worker=Forge | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
+- 2026-04-12T20:16:17.501Z | FAILED | d7479948-96c0-4c7a-97f1-5f439502afa4 | [AUDIT] Pixel: UI/UX Polish + Customer-Ready | worker=frontend-guru | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed

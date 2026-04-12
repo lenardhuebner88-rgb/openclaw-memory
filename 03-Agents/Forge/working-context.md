@@ -11,7 +11,7 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
-- [[../OpenClaw/operational-state]]
+- [[../Shared/checkpoints]]
 - [[../../04-Operations/Validations]]
 
 ## Aktuelle Regeln
@@ -38,3 +38,13 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 ## Checkpoint-Notiz
 - hier nur aktuelle operative Relevanz halten
 - alles Dauerhafte nach Shared oder OpenClaw verschieben
+
+<!-- mc:auto-working-context:start -->
+## Runtime Auto-Update
+- task: 7b242683-6af1-4fe5-b15d-206418de3c3c Fix dispatch-router timeout escalation
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-12T20:16:17.477Z
+<!-- mc:auto-working-context:end -->
