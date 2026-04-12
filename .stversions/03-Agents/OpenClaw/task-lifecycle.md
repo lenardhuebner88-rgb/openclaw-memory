@@ -36,4 +36,3 @@
 - 2026-04-11T21:23:26.731Z | BLOCKED | 0ddc08b3-2820-4513-ba31-8339ea7e39d7 | Dreaming Sprint 2: Doc Identity + Path Aliases einziehen | worker=Forge | progress=- | summary=- | note=Security check failed (critical)
 - 2026-04-11T21:23:27.915Z | BLOCKED | f9abcb0f-0bf5-49de-84c4-fc2dea9ecb9e | Dreaming Sprint 3: Event Log + Projections orchestrieren | worker=Forge | progress=- | summary=- | note=Security check failed (critical)
 - 2026-04-11T21:25:43.124Z | BLOCKED | 875431ba-b1ce-487c-afc5-202da44c467d | [MC-9-10] T3: SLA-Monitoring Histogramm | worker=frontend-guru | progress=- | summary=- | note=Security check failed (critical)
-- 2026-04-11T21:53:18.210Z | BLOCKED | 68ced946-e896-4a86-a5fb-b85f6cd6bcd8 | [AUDIT] Forge: Data Stability + Backend | worker=Forge | progress=- | summary=- | note=Security check failed (critical)
