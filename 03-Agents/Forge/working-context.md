@@ -41,10 +41,10 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 13d5935d-d2fa-44ca-8278-271e764ef71e [Sprint Agents] Datenvalidität + operative Verwendbarkeit des Agents-Tabs
+- task: 1d8f39d8-4eeb-4671-8851-c455eb5ed3ae [RCA] worker-monitor nimmt frisch dispatchte Tasks nicht in echte Runs auf
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root-Cause, kanonische Datenquellen, Statuslogik und ein umsetzbarer Arbeitspaket-Plan für einen signalbasierten, nicht-redundanten Agents-Tab wurden ausgearbeitet.
+- checkpoint: Root Cause bestätigt: worker-monitor markiert Tasks via /api/worker-runner als active, spawned aber keinen echten Run in ~/.openclaw/subagents/runs.json; dadurch bleiben Tasks ohne Live-Run/Receipts hängen.
 - blocker: -
-- updated: 2026-04-12T21:52:24.449Z
+- updated: 2026-04-12T22:37:58.802Z
 <!-- mc:auto-working-context:end -->

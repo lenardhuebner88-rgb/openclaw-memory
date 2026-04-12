@@ -11,6 +11,7 @@
 - 2026-04-08: Opus stays constrained to high-value cases (root-cause, architecture, severe bugs).
 
 ## Historical decisions
+- 2026-04-12: [RCA] worker-monitor nimmt frisch dispatchte Tasks nicht in echte Runs auf: Root Cause bestätigt: worker-monitor markiert Tasks via /api/worker-runner als active, spawned aber keinen echten Run in ~/.openclaw/subagents/runs.json; dadurch bleiben Tasks ohne <!-- mc:auto-decision:1d8f39d8-4eeb-4671-8851-c455eb5ed3ae|result|rca-worker-monitor-nimmt-frisch-dispatchte-tasks-nicht-in-echte-runs-auf-root-ca -->
 - 2026-04-09: MC root-cause documented (`middleware-manifest`, dynamic costs page handling) and production build path validated.
 - 2026-04-09: A2 remains blocked until `expectsCompletionMessage` write-path is proven and corrected.
 - 2026-04-08: Phase 3 Sprint 1-3 accepted as complete; self-healing/monitoring baseline established.

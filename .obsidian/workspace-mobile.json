@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Daily/2026-04-10.md",
+                "file": "03-Agents/Shared/user-profile.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-10"
+              "title": "user-profile"
             }
           }
         ]
@@ -171,12 +171,34 @@
   },
   "active": "47f3bc73365909dc",
   "lastOpenFiles": [
-    "03-Agents/OpenClaw/daily/2026-04-12.md",
+    "03-Agents/Shared/decisions-log.md",
+    "03-Agents/Shared/checkpoints.md",
+    "03-Agents/Worker/working-context.md",
+    "03-Agents.md",
+    "2026-03-27.md",
+    "00-Inbox/Home.md",
+    "02-Projects/Memory-System/CONTEXT-MANAGEMENT-RESULTS-2026-04-09.md",
     "01-Daily/2026-04-12.md",
     "01-Daily/2026-04-11.md",
-    "01-Daily/evening-debrief-2026-04-07.md",
-    "02-Projects/Memory-System/board-memory-analyse-2026-04-09.md",
     "01-Daily/2026-04-10.md",
-    "00-Inbox/Home.md"
+    "01-Daily/2026-04-13.md",
+    "03-Agents/Flash/working-context.md",
+    "03-Agents/Pixel/working-context.md",
+    "03-Agents/Researcher/working-context.md",
+    "04-Operations/Validations/sprint-autonomie-basis.md",
+    "03-Agents/OpenClaw/daily/2026-04-13.md",
+    "04-Operations/Audits/system-audit-playbook.md",
+    "03-Agents/Forge-Opus/working-context.md",
+    "04-Operations/Audits/heartbeat-realitaet-2026-04-12.md",
+    "04-Operations/Audits/agent-landscape-audit-2026-04-12.md",
+    "04-Operations/Audits/security-check-diagnose-2026-04-12.md",
+    "03-Agents/Worker",
+    "03-Agents/Researcher",
+    "03-Agents/Forge-Opus",
+    "03-Agents/Flash",
+    "03-Agents/Pixel",
+    "03-Agents/OpenClaw/daily/2026-04-12.md",
+    "01-Daily/evening-debrief-2026-04-07.md",
+    "02-Projects/Memory-System/board-memory-analyse-2026-04-09.md"
   ]
 }

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9ffe3ad1-91b3-4e2d-ad5c-8c2372eca46a Fix systemic LiveSessionModelSwitchError
+- task: 0321f321-61d6-4ef7-8355-daac4ece3779 [E2E-Test] James Smoke Test
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root cause identified: dispatch-router-cron had modelOverride MiniMax-M2.7 (not in fallback chain), causing LiveSessionModelSwitchError on timeout. Overrides cleared.
+- checkpoint: Die aktuelle OpenClaw-Version ist 2026.4.10 (Commit 44e5b62).
 - blocker: -
-- updated: 2026-04-12T22:06:48.861Z
+- updated: 2026-04-12T22:30:38.987Z
 <!-- mc:auto-working-context:end -->
