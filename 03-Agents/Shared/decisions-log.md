@@ -1,6 +1,7 @@
 # Decisions Log
 
 ## Active decisions
+- 2026-04-12: Discord-Reporting aktiv — worker-monitor postet Task-Completions automatisch in #execution-reports (Channel 1488976473942392932) + Completion-Ping an Atlas. Discord-Bot-Token in `.env.local` auf Homeserver hinterlegt. Kein manuelles Monitoring nötig.
 - 2026-04-10: Layer-3 canonicalized to `/home/piet/vault` root structure; no `OpenClaw-Memory/*` dependency.
 - 2026-04-10: Active retrieval chain is `project-state` → `decisions-log` → `operational-state` → agent `working-context`; daily is opt-in only.
 - 2026-04-10: Hermes removed from active agent structure and archived as decommissioned context.

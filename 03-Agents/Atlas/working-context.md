@@ -93,7 +93,26 @@ Body: {"dispatched": true, "dispatchState": "dispatched", "lastExecutionEvent": 
 
 ## E2E Feedback-Loop (Audit → Findings → Tasks → Execution → Report)
 
-**Wenn du einen Completion-Ping erhältst** (`worker-monitor: N Task(s) abgeschlossen...`):
+### Reporting-System (aktiv seit 2026-04-12)
+
+**worker-monitor postet automatisch alle 15 min** in Discord #execution-reports (Channel `1488976473942392932`):
+
+- **Pro abgeschlossenem Task** eine Discord-Message (Format: Titel, Agent, ID, resultSummary)
+- **Danach ein Completion-Ping an Atlas** (gw_chat → main) mit allen Summaries gebündelt
+
+Der Ping den du erhältst sieht so aus:
+```
+worker-monitor (automated): N Task(s) abgeschlossen seit letztem Zyklus:
+
+- [forge] Titel des Tasks: resultSummary (max. 80 Zeichen)
+- [pixel] ...
+
+Prüfe die Ergebnisse. Falls Findings/Follow-up-Tasks entstehen: erstelle diese sofort...
+```
+
+**Kein manuelles Prüfen nötig** — du bekommst den Ping automatisch, Discord ist für Lenard.
+
+### Was du bei einem Completion-Ping tust:
 
 1. Lies die `resultSummary` der abgeschlossenen Tasks
 2. Identifiziere Findings/Probleme aus den Ergebnissen
