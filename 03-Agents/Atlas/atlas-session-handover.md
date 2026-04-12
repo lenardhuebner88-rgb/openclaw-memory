@@ -54,36 +54,21 @@
 - Execution Contract Pflichtformat in Atlas working-context verankert
 
 ### Modell-Zuweisung neu geregelt (noch nicht live in openclaw.json)
-| Agent | Modell | Pool |
-|-------|--------|------|
-| Atlas | `gpt-5.4` | OpenAI Pro (€200 flat) |
-| Forge | `GPT-5.3 Codex` | OpenAI Pro (fix) |
-| Lens | `gpt-5.4` | OpenAI Pro |
-| James | `minimax/MiniMax-M2.7-highspeed` | MiniMax (€40 token) |
-| Pixel | `minimax/MiniMax-M2.7-highspeed` | MiniMax |
-| Flash | `minimax/MiniMax-M2.7-highspeed` | MiniMax (noch nicht aktiv) |
-| Forge-Opus | `anthropic/claude-opus-4-6` | Anthropic API Key |
+| Agent      | Modell                           | Pool                       |
+| ---------- | -------------------------------- | -------------------------- |
+| Atlas      | `gpt-5.4`                        | OpenAI Pro (€200 flat)     |
+| Forge      | `GPT-5.3 Codex`                  | OpenAI Pro (fix)           |
+| Lens       | `gpt-5.4`                        | OpenAI Pro                 |
+| James      | `minimax/MiniMax-M2.7-highspeed` | MiniMax (€40 token)        |
+| Pixel      |  gpt-5.4`                        | MiniMax                    |
+| Flash      | `minimax/MiniMax-M2.7-highspeed` | MiniMax (noch nicht aktiv) |
+| Forge-Opus | `anthropic/claude-opus-4-6`      | Anthropic API Key          |
 
 ---
 
 ## 2. Offene Tasks nach Phase-4-Abschluss
 
 ### Sofort nach Phase-4-GO:
-
-**[1] Modell-Zuweisungen live setzen**
-- `openclaw.json` anpassen gemäß Tabelle oben
-- Verifizieren: `/api/agents/live` zeigt korrekte Modelle
-
-**[2] Security-blocked Tasks prüfen**
-- Board zeigt jetzt failed=0 — möglicherweise bereits aufgelöst
-- Falls noch welche blocked: POST /api/tasks/{id}/complete für IDs: 2e89fa6f, 4a7bbc73, 4cc89b06, 939e95b5, 377a6912, ff4d92ba, 0339bc12, 9673093b
-- security-check.sh gibt aktuell OK zurück → Blocker ist weg
-
-**[3] Sprint Autonomie-Basis starten**
-- Liegt vollständig bereit: [[../../04-Operations/Validations/sprint-autonomie-basis]]
-- P1-A: 8 blocked Tasks terminieren (falls noch nötig)
-- P3-A: worker-monitor.py um dispatch_ready_tasks() erweitern (Forge)
-- P2-A (HEARTBEAT.md): Execution Contract Template eintragen (Forge)
 
 **[4] Pulse-Entfernung final bestätigen**
 - `model-monitor` aus `TEAM_AGENT_ORDER` / `route.ts` prüfen → als DONE schließen
@@ -107,9 +92,6 @@
 **[9] Heartbeat-Controller: implementieren oder Doku anpassen?**
 - Korrekturvorlage liegt bereit: [[../../04-Operations/Audits/heartbeat-realitaet-2026-04-12]]
 - Empfehlung: Option A (Dispatch-Loop in worker-monitor.py) — Sprint-Dokument beschreibt genau wie
-
-**[10] Lens Smoketest**
-- Bestätige Lens als stabil mit neuem Modell gpt-5.4
 
 ---
 
@@ -138,9 +120,4 @@
 
 ---
 
-## 5. Erste Aktion nach Sessionstart
 
-1. James Gate-Check Ergebnis abwarten (falls noch nicht da)
-2. Wenn Phase 4 GO: Sprint Autonomie-Basis starten (P1-A + P3-A an Forge)
-3. Modell-Zuweisung parallel an Forge (unabhängig vom Sprint)
-4. Board-State kurz bestätigen: `GET /api/board-consistency`
