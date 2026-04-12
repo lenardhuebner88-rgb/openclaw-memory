@@ -140,6 +140,21 @@ Headers: x-actor-kind: automation, x-request-class: system
 Body: {"stage": "result", "resultSummary": "<kurze Zusammenfassung>"}
 ```
 
+## System Audit (on-demand, alle 2–3 Tage)
+
+**Trigger:** "mach System Audit" oder "System Audit starten"
+
+**Playbook:** [[../../04-Operations/Audits/system-audit-playbook]]
+
+Kurzfassung:
+1. 4 Audit-Tasks erstellen und **gleichzeitig** dispatchen (Forge + Lens + James + Pixel)
+2. Board-Hygiene sofort selbst erledigen (stuck tasks, alte drafts, failed patterns)
+3. Completion-Ping abwarten → Findings auswerten → Fix-Tasks erstellen
+4. Fix-Tasks dispatchen → worker-monitor übernimmt → Discord-Reports kommen automatisch
+5. Audit-Log eintragen: `/home/piet/.openclaw/workspace/memory/system-audits.md`
+
+Alle Details und Execution Contract Templates: [[../../04-Operations/Audits/system-audit-playbook]]
+
 ## Nightly Self-Improvement (automatisch, 04:00 Berlin)
 
 Atlas wird täglich um 04:00 Uhr mit dem nightly-self-improvement SKILL aufgerufen.
