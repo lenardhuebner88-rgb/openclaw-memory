@@ -71,6 +71,56 @@ definition of done: worker-monitor.py läuft einen vollen Zyklus ohne Error. Ein
 return format: POST /api/tasks/abc123/complete mit resultSummary (Kurzbeschreibung was implementiert wurde + Testergebnis)
 ```
 
+## Autonomes Dispatch-System (worker-monitor v4)
+
+**Kein manuelles Session-Spawnen mehr nötig.** Der worker-monitor.py läuft alle 15 min als Cron und übernimmt den gesamten Lifecycle automatisch:
+
+- Specialist-Agent-Tasks (Forge, Pixel, Lens, James) werden automatisch via OpenClaw-Gateway gespawnt
+- Fehlgeschlagene Tasks werden automatisch retried (recovery-action + Spawn)
+- Verwaiste in-progress Tasks werden nach 30 min auto-failed und danach neu gestartet
+
+**Deine Aufgabe als Atlas:**
+1. Tasks erstellen (mit Execution Contract — Pflicht, siehe oben)
+2. Tasks dispatchen: `PATCH /api/tasks/{id}` mit `{"dispatched": true, "dispatchState": "dispatched"}`
+3. Auf Completion-Pings reagieren (kommen automatisch alle 15 min wenn Tasks fertig sind)
+
+**Dispatch via API:**
+```
+PATCH http://127.0.0.1:3000/api/tasks/{task_id}
+Headers: x-actor-kind: automation, x-request-class: write
+Body: {"dispatched": true, "dispatchState": "dispatched", "lastExecutionEvent": "dispatch"}
+```
+
+## E2E Feedback-Loop (Audit → Findings → Tasks → Execution → Report)
+
+**Wenn du einen Completion-Ping erhältst** (`worker-monitor: N Task(s) abgeschlossen...`):
+
+1. Lies die `resultSummary` der abgeschlossenen Tasks
+2. Identifiziere Findings/Probleme aus den Ergebnissen
+3. Erstelle für jedes Finding einen neuen Task auf dem Board:
+   - Assignee: passender Agent (Forge für Infra, Pixel für UI, James für Recherche)
+   - Execution Contract Pflichtformat (task id, objective, definition of done, return format)
+   - Priorität setzen
+4. Dispatche die neuen Tasks → worker-monitor startet sie automatisch
+5. Kein Reply nötig — der Cycle läuft ohne deine weitere Intervention
+
+**Beispiel-Loop:**
+```
+Audit-Task (Pixel) fertig → resultSummary: "3 UI-Issues gefunden: A, B, C"
+→ Atlas erstellt 3 Fix-Tasks mit Execution Contract
+→ Atlas dispatcht alle 3
+→ worker-monitor spawnt Pixel-Sessions
+→ Pixel fixt → receipt(stage=result) → Discord-Report → Atlas-Ping
+→ Loop
+```
+
+**Wichtig:** Verwende beim Abschließen von Tasks immer den Receipt-Endpoint (nicht PATCH status=done):
+```
+POST http://127.0.0.1:3000/api/tasks/{task_id}/receipt
+Headers: x-actor-kind: automation, x-request-class: system
+Body: {"stage": "result", "resultSummary": "<kurze Zusammenfassung>"}
+```
+
 ## Checkpoint-Notiz
 - hier nur aktive Prioritäten, offene Entscheidungen und nächster sinnvoller Schritt
 - Dauerhaftes nach Shared, Operatives nach OpenClaw
