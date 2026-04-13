@@ -69,10 +69,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5caa87f1-642d-48dd-a278-02c9a344c120 [Follow-up] dispatchTask respektiert agentId-Override im Retry/Dispatch-Pfad
+- task: c4593f99-7756-49f1-ba4b-6ea797239679 [P1][Follow-up] Dispatch/Retry-Pfad mit agentId-/target-Override durchgängig härten
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T12:53:31.007Z
+- updated: 2026-04-13T13:15:01.705Z
 <!-- mc:auto-working-context:end -->
