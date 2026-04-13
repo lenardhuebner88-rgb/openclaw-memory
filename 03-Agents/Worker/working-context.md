@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c4593f99-7756-49f1-ba4b-6ea797239679 [P1][Follow-up] Dispatch/Retry-Pfad mit agentId-/target-Override durchgängig härten
+- task: 365ccccc-0ec0-46c7-a450-425656809436 [Sprint][MC Team Tab] Forge: kurzer Stabilitäts- und Funktionscheck Team Tab
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T12:30:01.697Z
+- updated: 2026-04-13T16:55:01.772Z
 <!-- mc:auto-working-context:end -->

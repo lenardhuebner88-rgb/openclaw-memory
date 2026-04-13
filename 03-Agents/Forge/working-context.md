@@ -69,10 +69,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e6b1b3be-ff5e-42cc-bb95-06ebee89d93c [P0][Infra] GET /api/agents/concurrency Endpoint implementieren
+- task: 972eddf1-133a-40bc-974a-464a06a6ab5e [P1][Test] /api/agents/concurrency mit Regressionstest für Target-Normalisierung und Limits absichern
 - stage: DONE
 - next: await next assignment
-- checkpoint: GET /api/agents/concurrency implementiert und verifiziert, liefert 200 mit Agent-Counts und canDispatch-Status.
+- checkpoint: Regressionstest für /api/agents/concurrency ergänzt, der Target-Normalisierung und Limit-Logik inkl. canDispatch absichert.
 - blocker: -
-- updated: 2026-04-13T16:27:13.390Z
+- updated: 2026-04-13T16:48:16.186Z
 <!-- mc:auto-working-context:end -->

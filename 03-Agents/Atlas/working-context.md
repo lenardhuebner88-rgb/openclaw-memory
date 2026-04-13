@@ -262,12 +262,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: de16016f-b95d-4950-ad9d-509f4d8fe7b8 [MC-9-10] T6: Trend-Dashboard für Costs + Velocity
+- task: 365ccccc-0ec0-46c7-a450-425656809436 [Sprint][MC Team Tab] Forge: kurzer Stabilitäts- und Funktionscheck Team Tab
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T12:45:01.398Z
+- updated: 2026-04-13T17:00:01.363Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

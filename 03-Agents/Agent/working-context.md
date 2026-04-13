@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 428839fc-c3cd-48dc-acbe-3f124d2133c4 [P0][RCA/Fix] Dispatch/Reconcile-State-Drift: accepted/workerSessionId gehen verloren oder fallen auf assigned zurück
+- task: 972eddf1-133a-40bc-974a-464a06a6ab5e [P1][Test] /api/agents/concurrency mit Regressionstest für Target-Normalisierung und Limits absichern
 - stage: START
 - next: continue current task
-- checkpoint: Failed after 4 attempts: Worker failed
+- checkpoint: Failed after 1 attempt: Worker failed
 - blocker: -
-- updated: 2026-04-13T16:21:37.632Z
+- updated: 2026-04-13T16:45:24.803Z
 <!-- mc:auto-working-context:end -->
