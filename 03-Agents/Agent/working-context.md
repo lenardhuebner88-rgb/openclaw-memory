@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: df16e283-b98d-433e-adc3-f5427bc486cd [E2E Retry][UI] Pixel: frischer Task-Board-UI-Fix zur Worker-End-to-End-Verifikation
+- task: 3bbd7944-bed6-4bf4-99ec-767be59e229b [Sprint][Ops] Workspace Ground Truth und Worker-Basis sauber strukturieren
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-13T17:35:21.235Z
+- updated: 2026-04-13T18:05:08.003Z
 <!-- mc:auto-working-context:end -->

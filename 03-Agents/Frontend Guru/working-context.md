@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0cdd1b55-7855-4ee7-a016-2ee51632a784 [Sprint][E2E Test] Pixel: kleiner UI-Fix im Task Board zur Worker-Verifikation
+- task: e5bc3a98-2218-47b8-a689-3091fe8cba92 [Follow-up][Pixel][Tests] Taskboard-Feedback-Tests auf deutschsprachige UI-Ausgabe angleichen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Kleiner echter UI-Fix im Task Board umgesetzt: Intervall-Zeitpläne zeigen jetzt lesbare Minuten/Stunden-Takte statt potenziell irreführendem "every 0h".
+- checkpoint: Die deutschsprachigen Assertions in tests/taskboard-feedback.test.ts wurden an die aktuelle Taskboard-Ausgabe angepasst; der gezielte Vitest-Lauf für die Datei ist grün.
 - blocker: -
-- updated: 2026-04-13T17:27:48.630Z
+- updated: 2026-04-13T18:01:48.488Z
 <!-- mc:auto-working-context:end -->

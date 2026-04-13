@@ -262,12 +262,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 365ccccc-0ec0-46c7-a450-425656809436 [Sprint][MC Team Tab] Forge: kurzer Stabilitäts- und Funktionscheck Team Tab
+- task: 893fa749-f9f2-4b33-a7ab-1d5229d9da1e [P1][Follow-up][Mobile Smoke] Task Board ersten Mobile-Render browsernah absichern
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T17:10:01.832Z
+- updated: 2026-04-13T18:00:02.598Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)
