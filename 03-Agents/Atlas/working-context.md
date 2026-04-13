@@ -11,6 +11,7 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
+- [[../Shared/reporting-routing-canon]]
 - [[../Shared/checkpoints]]
 - [[atlas-session-handover]]
 - [[../Shared/task-lifecycle-canon]]
@@ -20,6 +21,7 @@
 - Vault ist der stabile Informationsanker unter `/home/piet/vault`
 - keine Hermes-Abhängigkeit im aktiven Pfad
 - lieber ein sauberer nächster Slice als Scope-Ausweitung
+- Reporting-/Routing-Kanon: `../Shared/reporting-routing-canon.md` ist maßgeblich. `#execution-reports` = Lifecycle-only, `#alerts` = operative Warnungen, Agent-Channels = fachliche Resultate, `#atlas-main` nur für Koordination/Entscheidungen.
 
 ## Strikte Delegationsregeln
 
@@ -262,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 893fa749-f9f2-4b33-a7ab-1d5229d9da1e [P1][Follow-up][Mobile Smoke] Task Board ersten Mobile-Render browsernah absichern
+- task: 84ace37a-afe6-4f4e-980e-1beb56370456 [Follow-up][Forge] Board Confidence/Intervention auf offene operative Tasks begrenzen
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T18:15:01.806Z
+- updated: 2026-04-13T19:00:01.672Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

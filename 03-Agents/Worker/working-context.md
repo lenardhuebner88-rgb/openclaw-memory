@@ -1,8 +1,16 @@
 # Worker Working Context
 
+## Routing-Kurzregel
+- Maßgeblich ist `../Shared/reporting-routing-canon.md`.
+- `#execution-reports` = Lifecycle-Mirror
+- `#alerts` = operative Warnungen
+- Agent-Channels = fachliche Resultate
+- `#atlas-main` nur bei Koordinations- oder Entscheidungsbedarf
+
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
+- [[../Shared/reporting-routing-canon]]
 - [[../Shared/checkpoints]]
 
 <!-- mc:auto-working-context:start -->

@@ -11,6 +11,7 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
+- [[../Shared/reporting-routing-canon]]
 - [[../Shared/checkpoints]]
 - [[../Shared/task-lifecycle-canon]]
 - [[../../04-Operations/Validations]]
@@ -20,6 +21,7 @@
 - keine neue Hermes-Abhängigkeit
 - Vault ist produktiv unter `/home/piet/vault`
 - bei Unsicherheit: Stabilität > Eleganz > Umfang
+- Reporting-/Routing-Kanon: `../Shared/reporting-routing-canon.md` ist maßgeblich. Lifecycle nach `#execution-reports`, operative Warnungen nach `#alerts`, fachliche Resultate in den passenden Agent-Channel, kein Default-Dump nach `#atlas-main`.
 
 ## Forge-Opus Eskalation
 
@@ -69,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: bb4596a7-33a5-443f-9dee-a5f55d53fbaa [P2][Follow-up][Forge] Historische Templates auf Workspace-Ground-Truth migrieren
+- task: 4eeb30d2-2005-442e-813f-aa93ce587334 [Sprint 2.0][Forge] Reporting-Dedup und Channel-Trennung für Lifecycle vs Agent-Result
 - stage: DONE
 - next: await next assignment
-- checkpoint: Historische Task-Templates werden jetzt beim Lesen/Schreiben zentral auf den kanonischen Workspace-Ground-Truth-Block normalisiert; die Templates-API nutzt dafuer einen Shared-Normalizer, fokussierte Tests laufen gruen, 
+- checkpoint: Lifecycle-Reports in #execution-reports wurden auf lifecycle-only umgestellt; fachliche Result-Summaries bleiben beim dispatch-router für Agent-Channels.
 - blocker: -
-- updated: 2026-04-13T18:34:41.373Z
+- updated: 2026-04-13T18:59:31.375Z
 <!-- mc:auto-working-context:end -->

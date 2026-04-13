@@ -6,11 +6,13 @@
 - 2026-04-10: Active retrieval chain is `project-state` → `decisions-log` → `operational-state` → agent `working-context`; daily is opt-in only.
 - 2026-04-10: Hermes removed from active agent structure and archived as decommissioned context.
 - 2026-04-10: Nested `Openclaw peter` vault path retired from active use to remove retrieval ambiguity.
+- 2026-04-13: Reporting-/Routing-Kanon in `03-Agents/Shared/reporting-routing-canon.md` verankert: `#execution-reports` = Lifecycle-only, `#alerts` = operative Warnungen, Agent-Channels = fachliche Resultate, `#atlas-main` nur für Koordination/Entscheidungen.
 - 2026-04-09: Result routing follows Discord channel purpose; no default dumping into `#atlas-main`.
 - 2026-04-08: Mission Control stays on production service (`next start`) for lower memory and better stability.
 - 2026-04-08: Opus stays constrained to high-value cases (root-cause, architecture, severe bugs).
 
 ## Historical decisions
+- 2026-04-13: [P1][Follow-up][Pixel] Task-/Agent-Drilldown mit Timeline und Artefakten schaerfen: Task Detail zeigt jetzt einen echten Drilldown mit verdichteten Entscheidungen/Outputs, absoluten Timeline-Zeitstempeln und reicheren Artefakten aus Board-, Run- und Trace-Daten. # <!-- mc:auto-decision:87105644-2781-4680-88e4-3b45594563d6|result|p1-follow-up-pixel-task-agent-drilldown-mit-timeline-und-artefakten-schaerfen-ta -->
 - 2026-04-13: [P2][Follow-up][Ops] Ground-Truth-Pfadklassifikation in Dispatch-/Agent-Templates verankern: Ground-truth path guidance is now embedded in worker task contract templates, the new-task authoring flow, and worker-adapter payloads via a shared canonical helper. ## Was wurde g <!-- mc:auto-decision:e03ade21-9b83-44d5-8487-0995546b8e10|result|p2-follow-up-ops-ground-truth-pfadklassifikation-in-dispatch-agent-templates-ver -->
 - 2026-04-13: [E2E][Lens] Operative Nutzbarkeit des Mission Control Task Boards prüfen: Das Task Board ist fuer die taegliche operative Steuerung grundsaetzlich nutzbar, weil Live-Status, Filter und Prioritaets-/Signalrails schnell Orientierung geben; die groessten Fr <!-- mc:auto-decision:0c79ce91-bfd6-474c-b73b-7c6bf84e45ed|result|e2e-lens-operative-nutzbarkeit-des-mission-control-task-boards-pr-fen-das-task-b -->
 - 2026-04-13: [E2E][James] Best-in-slot Mission Control Board Research: Kurzresearch zu best-in-slot Mission Control Boards abgeschlossen; Pflicht-Sichten, best-in-class Merkmale, nice-to-haves und die 3 wichtigsten Chancen fuer unser Board sind verdic <!-- mc:auto-decision:a4542e48-5a41-472e-96d1-dafeb08e7ad7|result|e2e-james-best-in-slot-mission-control-board-research-kurzresearch-zu-best-in-sl -->
