@@ -72,13 +72,18 @@ definition of done: worker-monitor.py läuft einen vollen Zyklus ohne Error. Ein
 return format: POST /api/tasks/abc123/complete mit resultSummary (Kurzbeschreibung was implementiert wurde + Testergebnis)
 ```
 
-## Autonomes Dispatch-System (worker-monitor v4)
+## Autonomes Dispatch-System (worker-monitor v5)
 
 **Kein manuelles Session-Spawnen mehr nötig.** Der worker-monitor.py läuft alle 15 min als Cron und übernimmt den gesamten Lifecycle automatisch:
 
 - Specialist-Agent-Tasks (Forge, Pixel, Lens, James) werden automatisch via OpenClaw-Gateway gespawnt
 - Fehlgeschlagene Tasks werden automatisch retried (recovery-action + Spawn)
 - Verwaiste in-progress Tasks werden nach 30 min auto-failed und danach neu gestartet
+- **Gateway-Token** wird beim Start jedes Cron-Zyklus validiert — ungültiger Token → Discord-Alert
+- **Priority-Dispatch:** worker-monitor dispatcht [P0] vor [P1] vor [P2] (auch ohne Atlas-Intervention)
+- **Assigned-Timeout:** assigned Tasks ohne Dispatch nach 120 Min → Discord-Alert an Operator
+- **maxRetriesReached:** wenn alle Retries aufgebraucht → Discord-Alert, manuelle Intervention nötig
+- **Completion-Pings:** idempotent via pending-pings.json — auch nach gw_chat-Fehler nicht verloren
 
 **Deine Aufgabe als Atlas:**
 1. Tasks erstellen (mit Execution Contract — Pflicht, siehe oben)
@@ -234,10 +239,9 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: Sprint Autonomie-Basis
-- stage: READY TO DISPATCH
-- next: P1-A + P3-A an Forge dispatchen, P2-A (HEARTBEAT.md) an Forge
-- checkpoint: sprint-autonomie-basis.md vollständig, Vault gepusht
-- blocker: -
-- updated: 2026-04-12
+- worker-monitor: v5 (P0/P1 fixes deployed, syntax OK)
+- fixes deployed: token validation, priority dispatch, assigned-timeout, contract logging
+- pending: MC rebuild für /api/agents/concurrency (server-load abwarten)
+- next: System-Status prüfen, ggf. neue Sprint-Tasks erstellen
+- updated: 2026-04-13
 <!-- mc:auto-working-context:end -->

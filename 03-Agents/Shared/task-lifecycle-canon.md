@@ -292,3 +292,14 @@ Board-State wird immer angezeigt — Live-Runtime-Signals (workerSessionId etc.)
 | Fehlende workerSessionId | worker-monitor.py | Gateway-Tasks hatten kein workerSessionId → Case B statt C | `patch_bridge_blocked_to_active()` setzt synthetic gateway-sessionId |
 | Atlas Dispatch-Protokoll | Atlas working-context.md | `status:"in-progress"` fehlte im PATCH | Protocol-Dokument korrigiert |
 | Agents-Tab Filter | agents/live/route.ts | queued/active zeigten 0 trotz Tasks | 3 Filter-Bugs gefixt (queued, activeByBoard, active-Gate) |
+| Accepted nicht erzwungen | worker-monitor.py | SPECIALIST_DISPATCH_PROMPT enthielt keinen accepted-Schritt | SCHRITT 1 mit explizitem Receipt-Aufruf im Prompt ergänzt |
+| Gateway-Kapazität blind | worker-monitor.py | Kein Status-Check vor Spawn — Überlastung | `/agents/{id}/status` wird vor jedem Spawn geprüft |
+| maxRetriesReached lautlos | worker-monitor.py | Tasks stuck ohne Operator-Alert | Discord-Notification bei maxRetriesReached=true |
+| Recovery wartet auf Atlas | worker-monitor.py | Recovery-Action dispatcht immer an main — Verzögerung | Nach Recovery direkt `_spawn_specialist()` wenn dispatchTarget bekannt |
+| Atlas-Ping nicht idempotent | worker-monitor.py | Completion-Pings bei gw_chat-Fehler verloren | pending-pings.json — Retry über Zyklen hinweg |
+| Fehlender Token-Check | worker-monitor.py | Ungültiger/fehlender GW-Token erst beim Spawn sichtbar | validate_gateway_token() am Cron-Start mit Discord-Alert |
+| Unkontrollierte Dispatch-Order | worker-monitor.py | Alle ready-Tasks ohne Prio dispatcht | Priority-Sort: [P0] → [P1] → [P2] → Rest in dispatch_ready_tasks() |
+| Assigned-Task Stuck blind | worker-monitor.py | Tasks auf assigned ohne Dispatch kein Alert | alert_stuck_assigned_tasks() nach 120 Min Discord-Alert |
+| Contract-Blocker stumm | worker-monitor.py | missing-execution-contract in Dispatch-Log unsichtbar | Dispatch loggt Tasks die am Contract scheitern explizit |
+| Concurrency unbegrenzt | worker-monitor.py | Atlas dispatcht n Tasks gleichzeitig an einen Agent | MAX_CONCURRENT_PER_AGENT Guard in _spawn_specialist() |
+| canceled State-Normalisierung | taskboard-store.ts | canceled ließ dispatchState/executionState undefiniert | normalizeTaskRecord: canceled → dispatched=false, completed, done |
