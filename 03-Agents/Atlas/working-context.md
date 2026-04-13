@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2e89fa6f-f26b-4530-9000-327f695e9999 [DONE-BUT-SECURITY-BLOCKED] [PARKED-SEC-BLOCKED] Dispatch UX führt nicht zum Contract-Fix
+- task: f657010f-7dfe-4b56-b010-a929fbb7c3bb [DONE-BUT-SECURITY-BLOCKED] [BUG] Task Persistence — erstellte Tasks verschwinden nach MC-Restart
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T22:10:02.517Z
+- updated: 2026-04-13T23:10:01.593Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

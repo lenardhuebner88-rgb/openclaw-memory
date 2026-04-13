@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2e89fa6f-f26b-4530-9000-327f695e9999 [DONE-BUT-SECURITY-BLOCKED] [PARKED-SEC-BLOCKED] Dispatch UX führt nicht zum Contract-Fix
+- task: c00839f1-22b1-4caf-8f98-c86c87f57bb0 Non-Atlas Runtime Retest
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T22:05:01.502Z
+- updated: 2026-04-13T23:00:01.752Z
 <!-- mc:auto-working-context:end -->
