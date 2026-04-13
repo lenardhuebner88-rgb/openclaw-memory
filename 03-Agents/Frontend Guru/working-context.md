@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6f05473f-ce95-4bc1-93e7-b01780fc9d99 [Fix] /trends 404 und /team React-Error beheben
+- task: 0cdd1b55-7855-4ee7-a016-2ee51632a784 [Sprint][E2E Test] Pixel: kleiner UI-Fix im Task Board zur Worker-Verifikation
 - stage: DONE
 - next: await next assignment
-- checkpoint: Die laufende Mission-Control-Instanz wurde auf den aktuellen Stand gebracht; /trends ist live wieder erreichbar und /team rendert ohne den React-Client-Error #418.
+- checkpoint: Kleiner echter UI-Fix im Task Board umgesetzt: Intervall-Zeitpläne zeigen jetzt lesbare Minuten/Stunden-Takte statt potenziell irreführendem "every 0h".
 - blocker: -
-- updated: 2026-04-13T14:05:41.485Z
+- updated: 2026-04-13T17:27:48.630Z
 <!-- mc:auto-working-context:end -->

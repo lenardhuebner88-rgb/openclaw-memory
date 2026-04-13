@@ -267,7 +267,7 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T17:00:01.363Z
+- updated: 2026-04-13T17:10:01.832Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

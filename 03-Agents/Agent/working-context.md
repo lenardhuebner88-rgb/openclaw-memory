@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 972eddf1-133a-40bc-974a-464a06a6ab5e [P1][Test] /api/agents/concurrency mit Regressionstest für Target-Normalisierung und Limits absichern
+- task: df16e283-b98d-433e-adc3-f5427bc486cd [E2E Retry][UI] Pixel: frischer Task-Board-UI-Fix zur Worker-End-to-End-Verifikation
 - stage: START
 - next: continue current task
-- checkpoint: Failed after 1 attempt: Worker failed
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-13T16:45:24.803Z
+- updated: 2026-04-13T17:35:21.235Z
 <!-- mc:auto-working-context:end -->
