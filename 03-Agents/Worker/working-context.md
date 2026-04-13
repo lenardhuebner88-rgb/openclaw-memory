@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 90dd26a0-a204-4e83-8f9b-a5155f5f13dd [System] Atlas Triggerlogik für Schritt 8 sauber machen
+- task: 2bf0ae4a-1ddd-453f-83b4-509b97a4d258 [Fix] Secret-Leak in Logs unterbinden + Key-Rotation vorbereiten
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T05:45:01.888Z
+- updated: 2026-04-13T07:00:01.628Z
 <!-- mc:auto-working-context:end -->

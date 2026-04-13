@@ -41,10 +41,10 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6a6cb692-2c15-4094-92ce-b1d51f3ed267 [P1][Nightly] Harden live-agents API route with fail-soft error handling
+- task: 2bf0ae4a-1ddd-453f-83b4-509b97a4d258 [Fix] Secret-Leak in Logs unterbinden + Key-Rotation vorbereiten
 - stage: DONE
 - next: await next assignment
-- checkpoint: Die Live-Agents-Route wurde mit einem top-level fail-soft Try/Catch gehärtet und liefert bei unerwarteten Fehlern nun eine strukturierte JSON-500-Antwort statt zu crashen.
+- checkpoint: Root Cause im dreaming_pipeline_cycle-Logging bestätigt, Redaction-Fix verifiziert und ein konkreter Key-Rotationspfad dokumentiert.
 - blocker: -
-- updated: 2026-04-13T06:25:34.156Z
+- updated: 2026-04-13T07:17:35.920Z
 <!-- mc:auto-working-context:end -->
