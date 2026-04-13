@@ -8,10 +8,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8a26dfb5-b83c-4e96-a1c9-b9d6eaa43c65 [E2E-Test] Pixel Smoke Test
+- task: ef45569e-302e-419d-bba2-6c07e1a8d1e7 [Audit] Mission Control UI & UX
 - stage: DONE
 - next: await next assignment
-- checkpoint: Pixel Smoke Test erfolgreich ausgeführt: Die Seite unter http://127.0.0.1:3000 lädt, das Task Board ist sichtbar, aber in der Browser-Console erscheint ein 503-Fehler auf /api/health.
+- checkpoint: Audit abgeschlossen: 4 klare UI/UX-Issues gefunden, davon 2 hochkritisch für tägliche Operator-Nutzung.
 - blocker: -
-- updated: 2026-04-12T22:32:29.321Z
+- updated: 2026-04-13T05:07:28.245Z
 <!-- mc:auto-working-context:end -->

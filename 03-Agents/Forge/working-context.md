@@ -41,10 +41,10 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 55714389-86bf-4b31-b23c-2dc296a80642 [Audit] System Health & Code Quality
+- task: 861fbdaa-b927-43a5-a183-b0dabcff38d9 [Spark Relief] Agent-Definition + Routing/Board-Regeln umsetzen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Audit abgeschlossen: Kritische Findings identifiziert (wiederholte 500er/Service-Restart-Storm, Secret in Logs), 6 TypeScript-Fehler, keine Cron-Jobs mit consecutiveErrors>0, mehrere API-Routen ohne expliziten Error-Hand
+- checkpoint: Spark Relief ist als dedizierter Agent mit codex-spark modelliert, Routing aktiv und kritische Spark-Fälle werden hart zu Forge eskaliert inkl. Handoff-Block.
 - blocker: -
-- updated: 2026-04-12T22:50:52.789Z
+- updated: 2026-04-13T05:07:42.957Z
 <!-- mc:auto-working-context:end -->
