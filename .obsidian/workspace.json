@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03-Agents/Shared/user-profile.md",
+                "file": "00-Inbox/Home.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "user-profile"
+              "title": "Home"
             }
           }
         ],
@@ -243,6 +243,8 @@
   },
   "active": "dff3336d867e5018",
   "lastOpenFiles": [
+    "03-Agents/Shared/user-profile.md",
+    "03-Agents/Shared/task-lifecycle-canon.md",
     "03-Agents/Researcher/working-context.md",
     "03-Agents/Researcher",
     "04-Operations/Audits/system-audit-playbook.md",
@@ -269,8 +271,6 @@
     "04-Operations/Audits/heartbeat-realitaet-2026-04-12.md",
     "03-Agents/Forge/working-context.md",
     "03-Agents/OpenClaw/README.md",
-    "03-Agents/OpenClaw/operational-state.md",
-    "03-Agents/OpenClaw/daily/2026-04-10.md",
     "04-Operations/Validations/checkpoints",
     "03-Agents/OpenClaw/daily",
     "03-Agents/Lens",
