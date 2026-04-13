@@ -85,6 +85,28 @@ return format: POST /api/tasks/abc123/complete mit resultSummary (Kurzbeschreibu
 2. Tasks dispatchen: `PATCH /api/tasks/{id}` mit `{"dispatched": true, "dispatchState": "dispatched", "status": "in-progress"}`
 3. Auf Completion-Pings reagieren (kommen automatisch alle 15 min wenn Tasks fertig sind)
 
+
+## Dispatch-Concurrency-Limit — Pflicht vor jedem Batch
+
+**Vor einem Dispatch-Batch immer zuerst prüfen:**
+```
+GET http://127.0.0.1:3000/api/tasks
+→ zähle tasks mit status=in-progress pro assigned_agent
+```
+
+**Harte Limits pro Agent (gleichzeitig in-progress):**
+| Agent | agentId | Max parallel |
+|-------|---------|-------------|
+| Forge | sre-expert | **3** |
+| Pixel | frontend-guru | **2** |
+| Lens | efficiency-auditor | **1** |
+| James | researcher | **1** |
+
+**Regel:** Nur dispatchen wenn `aktuell in-progress für diesen Agent < Limit`.  
+Wenn Limit erreicht → diesen Task überspringen, nächsten Zyklus erneut prüfen.
+
+**Niemals alle assigned Tasks in einem Zug dispatchen** — immer per Agent zählen und limitieren.
+
 **Dispatch via API:**
 ```
 PATCH http://127.0.0.1:3000/api/tasks/{task_id}
