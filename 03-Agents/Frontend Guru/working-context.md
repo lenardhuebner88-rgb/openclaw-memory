@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e5bc3a98-2218-47b8-a689-3091fe8cba92 [Follow-up][Pixel][Tests] Taskboard-Feedback-Tests auf deutschsprachige UI-Ausgabe angleichen
+- task: d3d77178-2f08-4da0-aceb-258a029c7b23 [P1][Follow-up][Pixel] Operator Now View fuer akute Steuerung aufbauen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Die deutschsprachigen Assertions in tests/taskboard-feedback.test.ts wurden an die aktuelle Taskboard-Ausgabe angepasst; der gezielte Vitest-Lauf für die Datei ist grün.
+- checkpoint: Im Taskboard gibt es jetzt eine klickbare Operator-Now-View, die Active, Blocked, Failed, Waiting, Aging sowie Approval- und Alert-Hotspots direkt priorisiert sichtbar macht.
 - blocker: -
-- updated: 2026-04-13T18:01:48.488Z
+- updated: 2026-04-13T18:34:24.384Z
 <!-- mc:auto-working-context:end -->

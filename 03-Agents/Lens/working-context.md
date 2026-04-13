@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2bd809a0-9c50-4c24-bb7d-9029cc3da7a4 [RCA/Fix] dispatch-router + Recovery-Runs auf Redundanz und Takt härten
-- stage: FAILED
+- task: 0c79ce91-bfd6-474c-b73b-7c6bf84e45ed [E2E][Lens] Operative Nutzbarkeit des Mission Control Task Boards prüfen
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-13T15:00:01.885Z
+- checkpoint: Das Task Board ist fuer die taegliche operative Steuerung grundsaetzlich nutzbar, weil Live-Status, Filter und Prioritaets-/Signalrails schnell Orientierung geben; die groessten Friktionen sind aber Alert-Noisiness durch
+- blocker: -
+- updated: 2026-04-13T18:11:42.581Z
 <!-- mc:auto-working-context:end -->

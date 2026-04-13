@@ -69,10 +69,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 972eddf1-133a-40bc-974a-464a06a6ab5e [P1][Test] /api/agents/concurrency mit Regressionstest für Target-Normalisierung und Limits absichern
+- task: bb4596a7-33a5-443f-9dee-a5f55d53fbaa [P2][Follow-up][Forge] Historische Templates auf Workspace-Ground-Truth migrieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Regressionstest für /api/agents/concurrency ergänzt, der Target-Normalisierung und Limit-Logik inkl. canDispatch absichert.
+- checkpoint: Historische Task-Templates werden jetzt beim Lesen/Schreiben zentral auf den kanonischen Workspace-Ground-Truth-Block normalisiert; die Templates-API nutzt dafuer einen Shared-Normalizer, fokussierte Tests laufen gruen, 
 - blocker: -
-- updated: 2026-04-13T16:48:16.186Z
+- updated: 2026-04-13T18:34:41.373Z
 <!-- mc:auto-working-context:end -->

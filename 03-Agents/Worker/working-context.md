@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0cdd1b55-7855-4ee7-a016-2ee51632a784 [Sprint][E2E Test] Pixel: kleiner UI-Fix im Task Board zur Worker-Verifikation
+- task: 11e3422f-7e6e-4e42-8503-df281106d676 [P1][Follow-up][Test] Task-Board-Feedback-Test an aktuelle deutschsprachige UI-Ausgabe anpassen
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T17:20:12.830Z
+- updated: 2026-04-13T18:10:01.194Z
 <!-- mc:auto-working-context:end -->
