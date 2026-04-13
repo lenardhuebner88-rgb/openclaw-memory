@@ -277,3 +277,4 @@
 - 2026-04-13T22:10:02.463Z | FAILED | febf318e-5d91-45ca-ba05-0276eac390cb | [PARKED-UI-NOT-STABILITY] [P5] MC: Brain Health Sicht (read-only, 4 operative Signale) | worker=atlas | progress=- | summary=Failed after 2 attempts: Worker failed | note=Worker failed
 - 2026-04-13T22:10:02.516Z | FAILED | 2e89fa6f-f26b-4530-9000-327f695e9999 | [DONE-BUT-SECURITY-BLOCKED] [PARKED-SEC-BLOCKED] Dispatch UX führt nicht zum Contract-Fix | worker=atlas | progress=- | summary=Failed after 2 attempts: Worker failed | note=Worker failed
 - 2026-04-13T22:10:15.513Z | START | d7479948-96c0-4c7a-97f1-5f439502afa4 | [AUDIT] Pixel: UI/UX Polish + Customer-Ready | worker=agent | progress=- | summary=-
+- 2026-04-13T22:15:01.974Z | FAILED | d7479948-96c0-4c7a-97f1-5f439502afa4 | [AUDIT] Pixel: UI/UX Polish + Customer-Ready | worker=agent | progress=- | summary=Failed after 2 attempts: Worker failed | note=Worker failed
