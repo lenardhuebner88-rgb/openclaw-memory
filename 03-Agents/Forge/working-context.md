@@ -69,10 +69,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4c41b21f-8e6e-42b4-94d5-c3cd8dc29ed7 [Fix] Mission Control Restart-Storm + 500er auflösen
+- task: 1e55c39d-53b5-46f0-b1d3-dc2e4b69e65b [Follow-up] Forge Failure-Pattern Audit für 8 Failures der letzten 7 Tage
 - stage: DONE
 - next: await next assignment
-- checkpoint: Restart-Storm wurde auf Port-3000-Kollisionen durch parallele/alte MC-Instanzen eingegrenzt und mit einem sicheren Start-Guard stabilisiert.
+- checkpoint: 8 Forge-Failures clustern auf 3 Hauptursachen: 3/8 Sandbox-Root-Restriction, 2/8 bekannte Worker-/Retry-Artefakte (live-run drift + retry-latch), 3/8 Dispatch/Worker-Fallback-Fehler; damit sind 8/8 durch bereits bekannte
 - blocker: -
-- updated: 2026-04-13T07:19:05.573Z
+- updated: 2026-04-13T11:32:22.017Z
 <!-- mc:auto-working-context:end -->

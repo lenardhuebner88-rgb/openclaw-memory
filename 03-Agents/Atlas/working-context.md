@@ -11,7 +11,7 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
-- [[../OpenClaw/operational-state]]
+- [[../Shared/checkpoints]]
 - [[atlas-session-handover]]
 - [[../Shared/task-lifecycle-canon]]
 
@@ -239,9 +239,10 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- worker-monitor: v5 (P0/P1 fixes deployed, syntax OK)
-- fixes deployed: token validation, priority dispatch, assigned-timeout, contract logging
-- pending: MC rebuild für /api/agents/concurrency (server-load abwarten)
-- next: System-Status prüfen, ggf. neue Sprint-Tasks erstellen
-- updated: 2026-04-13
+- task: 5caa87f1-642d-48dd-a278-02c9a344c120 [Follow-up] dispatchTask respektiert agentId-Override im Retry/Dispatch-Pfad
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-13T11:45:01.840Z
 <!-- mc:auto-working-context:end -->

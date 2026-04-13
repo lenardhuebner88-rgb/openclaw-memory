@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: -
-- stage: -
+- task: f67ed79c-6002-45c6-891d-9e0b3ced8955 [Audit] Technologie & Modell-Research
+- stage: FAILED
 - next: await next assignment
-- checkpoint: -
-- blocker: -
-- updated: -
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-13T11:30:01.698Z
 <!-- mc:auto-working-context:end -->
