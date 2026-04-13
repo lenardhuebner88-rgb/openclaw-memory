@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 01e746bf-16f7-439c-b28f-6a963a3d9fb6 [P0][RCA] Worker failed: Agents starten, crashen aber intern nach erfolgreichem Spawn
+- task: e6b1b3be-ff5e-42cc-bb95-06ebee89d93c [P0][Infra] GET /api/agents/concurrency Endpoint implementieren
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T15:02:04.051Z
+- updated: 2026-04-13T15:30:01.757Z
 <!-- mc:auto-working-context:end -->
