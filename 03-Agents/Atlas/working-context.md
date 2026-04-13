@@ -11,8 +11,8 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
-- [[../Shared/reporting-routing-canon]]
 - [[../Shared/checkpoints]]
+- [[../Shared/reporting-routing-canon]]
 - [[atlas-session-handover]]
 - [[../Shared/task-lifecycle-canon]]
 
@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 84ace37a-afe6-4f4e-980e-1beb56370456 [Follow-up][Forge] Board Confidence/Intervention auf offene operative Tasks begrenzen
+- task: f75bb8a3-9d4b-4d90-81e2-4c5f385e88f8 [Sprint 2.0][Forge] Routing- und Reporting-Wahrheit dokumentieren
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T19:00:01.672Z
+- updated: 2026-04-13T19:20:01.975Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

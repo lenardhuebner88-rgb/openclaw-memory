@@ -11,8 +11,8 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
-- [[../Shared/reporting-routing-canon]]
 - [[../Shared/checkpoints]]
+- [[../Shared/reporting-routing-canon]]
 - [[../Shared/task-lifecycle-canon]]
 - [[../../04-Operations/Validations]]
 
@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4eeb30d2-2005-442e-813f-aa93ce587334 [Sprint 2.0][Forge] Reporting-Dedup und Channel-Trennung für Lifecycle vs Agent-Result
+- task: abcdec10-e364-4b3c-989a-adedebef440f [Sprint][Forge] Vault-/Memory-Bootstrap operativ zuschneiden und kanonisch dokumentieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Lifecycle-Reports in #execution-reports wurden auf lifecycle-only umgestellt; fachliche Result-Summaries bleiben beim dispatch-router für Agent-Channels.
+- checkpoint: Kanonische Bootstrap-Regeln wurden in VAULT_BOOTSTRAP.md verankert, mit klarer Read-Order, Trennung von Shared/Operational/Bootstrap/History und Verweisen aus AGENTS.md sowie BOOTSTRAP.md.
 - blocker: -
-- updated: 2026-04-13T18:59:31.375Z
+- updated: 2026-04-13T19:38:06.525Z
 <!-- mc:auto-working-context:end -->

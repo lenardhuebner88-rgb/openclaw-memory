@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a4542e48-5a41-472e-96d1-dafeb08e7ad7 [E2E][James] Best-in-slot Mission Control Board Research
+- task: 042c1b2e-03f8-475f-8e2a-68249ce9057a [Sprint][James] Zielbild Zukunft für Vault-/Memory-Architektur und Bootstrap-Design
 - stage: DONE
 - next: await next assignment
-- checkpoint: Kurzresearch zu best-in-slot Mission Control Boards abgeschlossen; Pflicht-Sichten, best-in-class Merkmale, nice-to-haves und die 3 wichtigsten Chancen fuer unser Board sind verdichtet.
+- checkpoint: Ein umsetzungsnahes Zielbild trennt jetzt klar zwischen kleinem Core-Bootstrap, on-demand Operational Layer, agentenspezifischen Profilen sowie selektiver Memory-/History-Nutzung per Retrieval statt Default-Load.
 - blocker: -
-- updated: 2026-04-13T18:11:39.222Z
+- updated: 2026-04-13T19:38:37.955Z
 <!-- mc:auto-working-context:end -->

@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 87105644-2781-4680-88e4-3b45594563d6 [P1][Follow-up][Pixel] Task-/Agent-Drilldown mit Timeline und Artefakten schaerfen
+- task: b2d54faf-ee21-4845-9129-65c4ad939b7c [P1][Follow-up][Pixel] Decision-/Artefakt-Drilldown auch im Agent/Team-Tab spiegeln
 - stage: DONE
 - next: await next assignment
-- checkpoint: Task Detail zeigt jetzt einen echten Drilldown mit verdichteten Entscheidungen/Outputs, absoluten Timeline-Zeitstempeln und reicheren Artefakten aus Board-, Run- und Trace-Daten.
+- checkpoint: Expanded the Team/Agents drilldown for agent detail cards, adding condensed decisions, outputs, artifacts, and a clearer timeline via shared agent drilldown data.
 - blocker: -
-- updated: 2026-04-13T18:56:59.009Z
+- updated: 2026-04-13T19:19:34.205Z
 <!-- mc:auto-working-context:end -->
