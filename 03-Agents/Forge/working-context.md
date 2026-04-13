@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8e517554-1772-434a-a13e-2ac306a6ec24 [Sprint][Forge] Spark auf GPT-5.3 Codex Spark als Forge-Relief sauber einführen, Flash/quick gezielt entfernen
-- stage: DONE
+- task: 2e89fa6f-f26b-4530-9000-327f695e9999 [DONE-BUT-SECURITY-BLOCKED] [PARKED-SEC-BLOCKED] Dispatch UX führt nicht zum Contract-Fix
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Spark Relief ist jetzt als eigener GPT-5.3-Codex-Spark-Agent verankert, an den Spark-Discord-Channel gebunden und Flash/quick wurde aus den aktiven Mission-Control- und Discord-Pfaden entfernt.
-- blocker: -
-- updated: 2026-04-13T20:04:14.302Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-13T22:05:01.502Z
 <!-- mc:auto-working-context:end -->

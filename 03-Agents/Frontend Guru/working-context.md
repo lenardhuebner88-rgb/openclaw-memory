@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ff389ff3-549d-4587-aa28-06423f4e11b8 MC Frontend Upgrade 3/3: Motion Animation Stack voll ausschöpfen
-- stage: DONE
+- task: febf318e-5d91-45ca-ba05-0276eac390cb [PARKED-UI-NOT-STABILITY] [P5] MC: Brain Health Sicht (read-only, 4 operative Signale)
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Historischer Alt-Task verifiziert und als fehlgeschlagenes Artefakt außerhalb der aktiven Recovery-Last finalisiert; keine Live-Frontend-Arbeit ausgeführt.
-- blocker: -
-- updated: 2026-04-13T21:41:13.350Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-13T22:05:01.483Z
 <!-- mc:auto-working-context:end -->

@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 167663ce-5f8c-442f-86f8-0616e8c22eec FORGE-P3-A-dispatch-complete
+- task: 2e89fa6f-f26b-4530-9000-327f695e9999 [DONE-BUT-SECURITY-BLOCKED] [PARKED-SEC-BLOCKED] Dispatch UX führt nicht zum Contract-Fix
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T21:40:02.186Z
+- updated: 2026-04-13T22:10:02.517Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)
@@ -366,3 +366,6 @@ Diese Jobs brauchen keine Reasoning-Tiefe. MiniMax M2.7-HS läuft bei Pixel/Jame
 - **Status quo (nur Timeout erhöhen):** Mitigation, kein Fix — dispatch-router bereits bei 198s/300s
 
 **Nächster Schritt (wenn Lenard gibt grünes Licht):** Forge-Task für `cron-relay`-Implementierung erstellen.
+
+- 2026-04-13 21:57 UTC: worker-monitor auto-trigger, API-State wird geprüft und Dispatch nach Slots abgearbeitet.
+- 2026-04-13 22:00 UTC: worker-monitor auto-trigger geprüft. Live-`/api/agents/concurrency` liefert 404; Concurrency daher aus Board-State berechnet: Forge 3/3 voll, Pixel 2/2 voll, Lens 1/1 voll, Researcher 0/1 frei. 12 assigned Tasks vorhanden, aber kein dispatchbarer Researcher-Task. Daher in diesem Zyklus kein Dispatch-PATCH möglich.

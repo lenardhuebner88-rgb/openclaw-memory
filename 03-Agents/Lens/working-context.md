@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1577a42a-2a43-457f-a738-e3af557ca492 [Sprint][Lens] System-Inventur Spark vs Flash: Dateien, Endpunkte, Routing, Channels, Altlasten
+- task: 034252a1-4eb4-4f34-b76c-4507137f8b3e [AUDIT] Lens: Management Reporting + Data Accuracy
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T21:25:02.936Z
+- updated: 2026-04-13T22:05:01.446Z
 <!-- mc:auto-working-context:end -->
