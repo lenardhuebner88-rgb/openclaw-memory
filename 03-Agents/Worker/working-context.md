@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4bb694af-28a5-4311-8511-f1307d246977 [Sprint][Lens] Ist-Analyse Memory + Obsidian Vault: Startkontext, Lücken, Kontextverschwendung
+- task: fbd1d3a8-8a7e-4e4b-9163-5c77ea75f8c0 [P2][Follow-up][Forge] Doku auf kanonische Runtime-Bootstrap-Filterung nachziehen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-13T19:38:33.000Z
+- updated: 2026-04-13T19:55:40.058Z
 <!-- mc:auto-working-context:end -->

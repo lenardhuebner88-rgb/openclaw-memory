@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: abcdec10-e364-4b3c-989a-adedebef440f [Sprint][Forge] Vault-/Memory-Bootstrap operativ zuschneiden und kanonisch dokumentieren
+- task: 8e517554-1772-434a-a13e-2ac306a6ec24 [Sprint][Forge] Spark auf GPT-5.3 Codex Spark als Forge-Relief sauber einführen, Flash/quick gezielt entfernen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Kanonische Bootstrap-Regeln wurden in VAULT_BOOTSTRAP.md verankert, mit klarer Read-Order, Trennung von Shared/Operational/Bootstrap/History und Verweisen aus AGENTS.md sowie BOOTSTRAP.md.
+- checkpoint: Spark Relief ist jetzt als eigener GPT-5.3-Codex-Spark-Agent verankert, an den Spark-Discord-Channel gebunden und Flash/quick wurde aus den aktiven Mission-Control- und Discord-Pfaden entfernt.
 - blocker: -
-- updated: 2026-04-13T19:38:06.525Z
+- updated: 2026-04-13T20:04:14.302Z
 <!-- mc:auto-working-context:end -->

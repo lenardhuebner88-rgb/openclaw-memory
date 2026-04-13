@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: -
-- stage: -
-- next: await next assignment
+- task: 8e517554-1772-434a-a13e-2ac306a6ec24 [Sprint][Forge] Spark auf GPT-5.3 Codex Spark als Forge-Relief sauber einführen, Flash/quick gezielt entfernen
+- stage: START
+- next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: -
+- updated: 2026-04-13T19:55:25.813Z
 <!-- mc:auto-working-context:end -->
