@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f66d6010-85f7-4a60-988f-5cb179f72aa5 [Follow-up][Forge] Owner- und Result-Disziplin im Task Lifecycle erzwingen
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-13T18:36:19.730Z
+- task: f75bb8a3-9d4b-4d90-81e2-4c5f385e88f8 [Sprint 2.0][Forge] Routing- und Reporting-Wahrheit dokumentieren
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-13T19:00:01.643Z
 <!-- mc:auto-working-context:end -->

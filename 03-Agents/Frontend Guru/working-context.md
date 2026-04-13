@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d3d77178-2f08-4da0-aceb-258a029c7b23 [P1][Follow-up][Pixel] Operator Now View fuer akute Steuerung aufbauen
+- task: 87105644-2781-4680-88e4-3b45594563d6 [P1][Follow-up][Pixel] Task-/Agent-Drilldown mit Timeline und Artefakten schaerfen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Im Taskboard gibt es jetzt eine klickbare Operator-Now-View, die Active, Blocked, Failed, Waiting, Aging sowie Approval- und Alert-Hotspots direkt priorisiert sichtbar macht.
+- checkpoint: Task Detail zeigt jetzt einen echten Drilldown mit verdichteten Entscheidungen/Outputs, absoluten Timeline-Zeitstempeln und reicheren Artefakten aus Board-, Run- und Trace-Daten.
 - blocker: -
-- updated: 2026-04-13T18:34:24.384Z
+- updated: 2026-04-13T18:56:59.009Z
 <!-- mc:auto-working-context:end -->
