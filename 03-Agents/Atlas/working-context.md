@@ -81,15 +81,20 @@ return format: POST /api/tasks/abc123/complete mit resultSummary (Kurzbeschreibu
 
 **Deine Aufgabe als Atlas:**
 1. Tasks erstellen (mit Execution Contract — Pflicht, siehe oben)
-2. Tasks dispatchen: `PATCH /api/tasks/{id}` mit `{"dispatched": true, "dispatchState": "dispatched"}`
+2. Tasks dispatchen: `PATCH /api/tasks/{id}` mit `{"dispatched": true, "dispatchState": "dispatched", "status": "in-progress"}`
 3. Auf Completion-Pings reagieren (kommen automatisch alle 15 min wenn Tasks fertig sind)
 
 **Dispatch via API:**
 ```
 PATCH http://127.0.0.1:3000/api/tasks/{task_id}
 Headers: x-actor-kind: automation, x-request-class: write
-Body: {"dispatched": true, "dispatchState": "dispatched", "lastExecutionEvent": "dispatch"}
+Body: {"dispatched": true, "dispatchState": "dispatched", "status": "in-progress", "lastExecutionEvent": "dispatch"}
 ```
+
+**Wichtig:** `status: "in-progress"` muss beim Dispatch mitgesendet werden damit:
+- Das Board sofort den richtigen State zeigt (nicht "assigned" obwohl dispatcht)
+- Der Agents-Tab die Task als aktiv erkennt
+- Der Pipeline-Tab die Task korrekt in "Building" zeigt
 
 ## E2E Feedback-Loop (Audit → Findings → Tasks → Execution → Report)
 
