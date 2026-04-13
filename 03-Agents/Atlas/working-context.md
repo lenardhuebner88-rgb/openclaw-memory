@@ -269,7 +269,7 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T23:10:01.593Z
+- updated: 2026-04-13T23:20:01.550Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)
@@ -369,3 +369,4 @@ Diese Jobs brauchen keine Reasoning-Tiefe. MiniMax M2.7-HS läuft bei Pixel/Jame
 
 - 2026-04-13 21:57 UTC: worker-monitor auto-trigger, API-State wird geprüft und Dispatch nach Slots abgearbeitet.
 - 2026-04-13 22:00 UTC: worker-monitor auto-trigger geprüft. Live-`/api/agents/concurrency` liefert 404; Concurrency daher aus Board-State berechnet: Forge 3/3 voll, Pixel 2/2 voll, Lens 1/1 voll, Researcher 0/1 frei. 12 assigned Tasks vorhanden, aber kein dispatchbarer Researcher-Task. Daher in diesem Zyklus kein Dispatch-PATCH möglich.
+- 2026-04-14 01:22 Europe/Berlin: worker-monitor auto-trigger geprüft. `/api/tasks?status=assigned` zeigt genau 1 Candidate (`e456e4d5-5567-4a19-ae19-edcaf34f9ea2`), aber `assigned_agent=unassigned` und kein `dispatchTarget`; daher trotz freier Slots kein Dispatch möglich. Lokale Concurrency aus Route/Live-State: Forge 0/3, Pixel 0/2, Lens 1/1, James 0/1.

@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c00839f1-22b1-4caf-8f98-c86c87f57bb0 Non-Atlas Runtime Retest
-- stage: FAILED
+- task: aae75656-44a6-4b3d-9e39-70825b763942 [P2][Follow-up][Forge] Negative PATCH-Transitions außerhalb definierter Reopen-Pfade mit 409 absichern
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-13T23:00:01.752Z
+- checkpoint: Ein gezielter negativer PATCH-Regressionstest wurde ergänzt, der einen verbotenen Rücksprung außerhalb der Reopen-Pfade weiterhin mit 409 absichert.
+- blocker: -
+- updated: 2026-04-13T23:42:03.192Z
 <!-- mc:auto-working-context:end -->
