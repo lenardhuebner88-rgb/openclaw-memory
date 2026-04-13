@@ -26,6 +26,8 @@
 - nur konkrete Fragen von Atlas beantworten — keine eigenständige Agenda
 
 ## Receipt-Protokoll — Pflicht für alle Tasks
+> **Neu (2026-04-13):** Der worker-monitor spawnt dich nach einem Auto-Retry direkt — du brauchst keine Atlas-Session-Freigabe abzuwarten.  innerhalb 10 Min senden reicht.
+
 
 **Jede Statusänderung muss via Receipt gemeldet werden, nicht via PATCH:**
 
