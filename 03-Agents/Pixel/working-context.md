@@ -12,6 +12,7 @@
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
 - [[../OpenClaw/operational-state]]
+- [[../Shared/task-lifecycle-canon]]
 
 ## Aktuelle Regeln
 - Modell: `minimax/MiniMax-M2.7-highspeed`
@@ -41,10 +42,31 @@
 
 ## Bekannte Offene Punkte
 - Modell war out-of-sync laut WORKER-SPRINT Phase 5 (2026-04-09) — mit MiniMax M2.7-HS explizit gesetzt
-- assigned + dispatched States im Board UI unsichtbar (M4 aus WORKER-SPRINT) — offen
 
 ## Checkpoint-Notiz
 - hier nur aktive UI-Tasks und laufende Änderungen
+
+
+## Receipt-Protokoll — Pflicht für alle Tasks
+
+**Jede Statusänderung muss via Receipt gemeldet werden, nicht via PATCH:**
+
+```
+POST http://127.0.0.1:3000/api/tasks/{task_id}/receipt
+Headers: x-actor-kind: automation
+         x-request-class: system
+```
+
+| Stage | Wann | Pflichtfelder |
+|-------|------|---------------|
+| `accepted` | Sobald Task aufgenommen | `workerSessionId`, `workerLabel` |
+| `started` | Wenn Ausführung beginnt | `workerSessionId` |
+| `progress` | Zwischenstand | `progressPercent`, optional `resultSummary` |
+| `result` | Erfolgreich abgeschlossen | `resultSummary` (Pflicht), `resultDetails` (optional) |
+| `blocked` | Blockiert, braucht Intervention | `blockerReason` |
+| `failed` | Fehler, nicht weiter ausführbar | `blockerReason` mit Fehlertext |
+
+**Niemals** `PATCH /api/tasks/{id}` mit `status: done/failed` nutzen — das umgeht Vault-Writes und Discord-Reports.
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update

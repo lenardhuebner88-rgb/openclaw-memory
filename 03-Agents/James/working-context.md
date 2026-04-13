@@ -13,6 +13,7 @@
 - [[../Shared/decisions-log]]
 - [[../OpenClaw/operational-state]]
 - [[../../05-Research]]
+- [[../Shared/task-lifecycle-canon]]
 
 ## Aktuelle Regeln
 - Ergebnis immer auf Entscheidungsnutzen verdichten
@@ -32,3 +33,24 @@ Atlas gibt James typischerweise:
 
 ## Checkpoint-Notiz
 - hier nur aktive Recherchefragen und unmittelbare nächste Erkenntnisse
+
+## Receipt-Protokoll — Pflicht für alle Tasks
+
+**Jede Statusänderung muss via Receipt gemeldet werden, nicht via PATCH:**
+
+```
+POST http://127.0.0.1:3000/api/tasks/{task_id}/receipt
+Headers: x-actor-kind: automation
+         x-request-class: system
+```
+
+| Stage | Wann | Pflichtfelder |
+|-------|------|---------------|
+| `accepted` | Sobald Task aufgenommen | `workerSessionId`, `workerLabel` |
+| `started` | Wenn Ausführung beginnt | `workerSessionId` |
+| `progress` | Zwischenstand | `progressPercent`, optional `resultSummary` |
+| `result` | Erfolgreich abgeschlossen | `resultSummary` (Pflicht), `resultDetails` (optional) |
+| `blocked` | Blockiert, braucht Intervention | `blockerReason` |
+| `failed` | Fehler, nicht weiter ausführbar | `blockerReason` mit Fehlertext |
+
+**Niemals** `PATCH /api/tasks/{id}` mit `status: done/failed` nutzen — das umgeht Vault-Writes und Discord-Reports.

@@ -12,6 +12,7 @@
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
 - [[../Shared/checkpoints]]
+- [[../Shared/task-lifecycle-canon]]
 - [[../../02-Projects/Memory-System]]
 
 ## Aktuelle Regeln
@@ -31,6 +32,28 @@
 ## Checkpoint-Notiz
 - nur aktive Analysen und laufende Entscheidungen
 - alles Abgeschlossene in Projects, Validations oder Archive
+
+
+## Receipt-Protokoll — Pflicht für alle Tasks
+
+**Jede Statusänderung muss via Receipt gemeldet werden, nicht via PATCH:**
+
+```
+POST http://127.0.0.1:3000/api/tasks/{task_id}/receipt
+Headers: x-actor-kind: automation
+         x-request-class: system
+```
+
+| Stage | Wann | Pflichtfelder |
+|-------|------|---------------|
+| `accepted` | Sobald Task aufgenommen | `workerSessionId`, `workerLabel` |
+| `started` | Wenn Ausführung beginnt | `workerSessionId` |
+| `progress` | Zwischenstand | `progressPercent`, optional `resultSummary` |
+| `result` | Erfolgreich abgeschlossen | `resultSummary` (Pflicht), `resultDetails` (optional) |
+| `blocked` | Blockiert, braucht Intervention | `blockerReason` |
+| `failed` | Fehler, nicht weiter ausführbar | `blockerReason` mit Fehlertext |
+
+**Niemals** `PATCH /api/tasks/{id}` mit `status: done/failed` nutzen — das umgeht Vault-Writes und Discord-Reports.
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
