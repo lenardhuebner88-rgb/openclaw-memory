@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e6b1b3be-ff5e-42cc-bb95-06ebee89d93c [P0][Infra] GET /api/agents/concurrency Endpoint implementieren
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-13T15:30:01.757Z
+- task: 428839fc-c3cd-48dc-acbe-3f124d2133c4 [P0][RCA/Fix] Dispatch/Reconcile-State-Drift: accepted/workerSessionId gehen verloren oder fallen auf assigned zurück
+- stage: START
+- next: continue current task
+- checkpoint: Failed after 4 attempts: Worker failed
+- blocker: -
+- updated: 2026-04-13T16:21:37.632Z
 <!-- mc:auto-working-context:end -->

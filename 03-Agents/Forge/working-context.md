@@ -69,10 +69,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b96b7813-4b4d-4ca6-8832-2704ffafb5bb [P0][RCA/Fix] Mission-Control Restart-Storm, EADDRINUSE und /api/tasks-500er beheben
-- stage: FAILED
+- task: e6b1b3be-ff5e-42cc-bb95-06ebee89d93c [P0][Infra] GET /api/agents/concurrency Endpoint implementieren
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-13T16:03:04.699Z
+- checkpoint: GET /api/agents/concurrency implementiert und verifiziert, liefert 200 mit Agent-Counts und canDispatch-Status.
+- blocker: -
+- updated: 2026-04-13T16:27:13.390Z
 <!-- mc:auto-working-context:end -->
