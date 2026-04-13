@@ -36,3 +36,5 @@
 - Neue Agent-Contexts: Pixel, Forge-Opus, Flash
 - Modell-Zuweisung neu geregelt (noch nicht live in openclaw.json — offener Task für Forge)
 - Atlas-Session-Handover aktualisiert — Atlas braucht kein separates Handover-Prompt
+
+- Automated worker pickup trigger received; checking /api/worker-pickups and dispatching ready tasks.

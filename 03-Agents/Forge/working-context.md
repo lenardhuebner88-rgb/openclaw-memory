@@ -41,10 +41,10 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2bf0ae4a-1ddd-453f-83b4-509b97a4d258 [Fix] Secret-Leak in Logs unterbinden + Key-Rotation vorbereiten
+- task: 4c41b21f-8e6e-42b4-94d5-c3cd8dc29ed7 [Fix] Mission Control Restart-Storm + 500er auflösen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root Cause im dreaming_pipeline_cycle-Logging bestätigt, Redaction-Fix verifiziert und ein konkreter Key-Rotationspfad dokumentiert.
+- checkpoint: Restart-Storm wurde auf Port-3000-Kollisionen durch parallele/alte MC-Instanzen eingegrenzt und mit einem sicheren Start-Guard stabilisiert.
 - blocker: -
-- updated: 2026-04-13T07:17:35.920Z
+- updated: 2026-04-13T07:19:05.573Z
 <!-- mc:auto-working-context:end -->
