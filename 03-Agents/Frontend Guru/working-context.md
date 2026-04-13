@@ -8,10 +8,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ef45569e-302e-419d-bba2-6c07e1a8d1e7 [Audit] Mission Control UI & UX
+- task: 96920689-d1f3-4823-a056-e0a20ef2e958 [Fix] Calendar-Datenqualität und Mobile-Viewport-Probleme bereinigen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Audit abgeschlossen: 4 klare UI/UX-Issues gefunden, davon 2 hochkritisch für tägliche Operator-Nutzung.
+- checkpoint: Kalender-Zeitdarstellung gegen undefined/ungültige Cron-Zeiten gehärtet, Mobile-Breitenprobleme auf Team und Taskboard entschärft, kompakter 390px-Live-Check für Calendar/Taskboard/Memory/Team durchgeführt.
 - blocker: -
-- updated: 2026-04-13T05:07:28.245Z
+- updated: 2026-04-13T06:14:59.367Z
 <!-- mc:auto-working-context:end -->

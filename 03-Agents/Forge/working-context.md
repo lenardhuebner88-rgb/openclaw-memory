@@ -41,10 +41,10 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 861fbdaa-b927-43a5-a183-b0dabcff38d9 [Spark Relief] Agent-Definition + Routing/Board-Regeln umsetzen
+- task: 21df35da-3eff-4007-8e29-51618daefc5e [Ops] Dispatch- und Recovery-Crons auf Effizienz trimmen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Spark Relief ist als dedizierter Agent mit codex-spark modelliert, Routing aktiv und kritische Spark-Fälle werden hart zu Forge eskaliert inkl. Handoff-Block.
+- checkpoint: P1/P2 umgesetzt: dispatch-router-cron auf 15 Minuten reduziert, unnötige Recovery-Crons bleiben deaktiviert; erwartete Cron-Last beim Routing sinkt um 66.7% ohne Dispatch-Regression im Live-Check.
 - blocker: -
-- updated: 2026-04-13T05:07:42.957Z
+- updated: 2026-04-13T06:08:03.867Z
 <!-- mc:auto-working-context:end -->
