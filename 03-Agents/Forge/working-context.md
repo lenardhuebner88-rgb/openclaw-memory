@@ -41,10 +41,10 @@ Vorgehen: Forge beschreibt Befund + Optionen → Atlas entscheidet ob Forge-Opus
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 21df35da-3eff-4007-8e29-51618daefc5e [Ops] Dispatch- und Recovery-Crons auf Effizienz trimmen
+- task: 6a6cb692-2c15-4094-92ce-b1d51f3ed267 [P1][Nightly] Harden live-agents API route with fail-soft error handling
 - stage: DONE
 - next: await next assignment
-- checkpoint: P1/P2 umgesetzt: dispatch-router-cron auf 15 Minuten reduziert, unnötige Recovery-Crons bleiben deaktiviert; erwartete Cron-Last beim Routing sinkt um 66.7% ohne Dispatch-Regression im Live-Check.
+- checkpoint: Die Live-Agents-Route wurde mit einem top-level fail-soft Try/Catch gehärtet und liefert bei unerwarteten Fehlern nun eine strukturierte JSON-500-Antwort statt zu crashen.
 - blocker: -
-- updated: 2026-04-13T06:08:03.867Z
+- updated: 2026-04-13T06:25:34.156Z
 <!-- mc:auto-working-context:end -->

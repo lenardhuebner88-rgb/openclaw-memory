@@ -8,10 +8,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 96920689-d1f3-4823-a056-e0a20ef2e958 [Fix] Calendar-Datenqualität und Mobile-Viewport-Probleme bereinigen
+- task: 110f5547-4131-4d1a-a162-472207f30c28 [UI] Spark Relief im Agents-/Team-UI sichtbar integrieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Kalender-Zeitdarstellung gegen undefined/ungültige Cron-Zeiten gehärtet, Mobile-Breitenprobleme auf Team und Taskboard entschärft, kompakter 390px-Live-Check für Calendar/Taskboard/Memory/Team durchgeführt.
+- checkpoint: Spark Relief ist jetzt als eigener Agent in der Team-UI sichtbar, mit expliziter Relief-vor-Forge-Eskalationssemantik und Taskboard-Unterstützung für die Zuweisung.
 - blocker: -
-- updated: 2026-04-13T06:14:59.367Z
+- updated: 2026-04-13T06:22:24.399Z
 <!-- mc:auto-working-context:end -->
