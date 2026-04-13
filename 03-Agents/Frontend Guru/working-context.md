@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6bdd1cc7-3bfc-46bd-80d9-e959ae98dac2 [Follow-up] Pixel Failure-Cluster RCA für letzte 3 fehlgeschlagene Tasks
+- task: 0450e6af-532f-4c0b-9dda-281d7b5f44e9 [Spark Relief] UI-Metadaten + Agent-Card für Spark sichtbar machen
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T12:53:30.989Z
+- updated: 2026-04-13T14:00:01.486Z
 <!-- mc:auto-working-context:end -->

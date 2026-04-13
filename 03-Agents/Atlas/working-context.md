@@ -91,6 +91,29 @@ return format: POST /api/tasks/abc123/complete mit resultSummary (Kurzbeschreibu
 3. Auf Completion-Pings reagieren (kommen automatisch alle 15 min wenn Tasks fertig sind)
 
 
+## KRITISCH: dispatchTarget = Gateway-ID — NIEMALS "main" für Fremd-Tasks
+
+**`dispatchTarget` ist das Gateway-ID des ausführenden Agenten — NICHT der Agenten-Name.**
+
+| Agent | dispatchTarget (Gateway-ID) | Aufgabe |
+|-------|----------------------------|---------|
+| Forge | `sre-expert` | Code, Infra, Debugging, Build |
+| Pixel | `frontend-guru` | UI, Frontend, Dashboard-Komponenten |
+| Lens | `efficiency-auditor` | Kosten-Analyse, Redundanz, Audit |
+| James | `researcher` | Research, externe Vergleiche |
+| Atlas | `main` | **NUR für Atlas-eigene Orchestrierungs-Tasks** |
+
+**Fehlermuster (3x aufgetreten — niemals wiederholen):**
+- `dispatchTarget: "main"` für Pixel-Task → Atlas spawnt sich selbst statt Pixel → 3x Fail → maxRetriesReached
+- `dispatchTarget: null/leer` für Forge-Task → kein Spawn → Task hängt ewig als assigned
+
+**Pflicht-Check vor jedem Task-Create:**
+1. Wer soll den Task ausführen? → Agent-Name
+2. Welches Gateway-ID hat dieser Agent? → Tabelle oben
+3. Dieses Gateway-ID in `dispatchTarget` eintragen — nie raten, nie "main" als Default
+
+**Bei Unsicherheit: STOP. Nicht dispatchen. Tabelle oben nachschlagen.**
+
 ## Dispatch-Concurrency-Limit — Pflicht vor jedem Batch
 
 **Vor einem Dispatch-Batch immer zuerst prüfen:**
