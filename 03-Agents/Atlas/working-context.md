@@ -13,6 +13,7 @@
 - [[../Shared/decisions-log]]
 - [[../OpenClaw/operational-state]]
 - [[atlas-session-handover]]
+- [[../Shared/task-lifecycle-canon]]
 
 ## Aktuelle Regeln
 - Worker-Core ist fachlich abgeschlossen
