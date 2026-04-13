@@ -14,6 +14,28 @@
 - [[../OpenClaw/operational-state]]
 - [[../Shared/task-lifecycle-canon]]
 
+## KRITISCH: Lokale URL-Verifikation — KEIN web_fetch für 127.0.0.1
+
+Der Gateway blockiert alle Fetches auf `127.0.0.1` / `localhost` aus Security-Gründen (hardcoded, nicht konfigurierbar).
+
+**Stattdessen für lokale Verifikation immer `exec` + `curl` verwenden:**
+
+```bash
+# Seite erreichbar?
+curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3000/trends
+
+# JSON-Response prüfen
+curl -s http://127.0.0.1:3000/api/tasks | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d.get('tasks',[])))"
+
+# React-Fehler in Next.js-Output prüfen
+journalctl --user -u openclaw-mission-control --no-pager --since "5 minutes ago" | grep -i error | tail -20
+
+# Build-Fehler prüfen
+cd /home/piet/.openclaw/workspace/mission-control && npx tsc --noEmit 2>&1 | tail -20
+```
+
+**Niemals `web_fetch({ url: "http://127.0.0.1:3000/..." })` — wird immer mit "Blocked hostname" fehlschlagen.**
+
 ## Aktuelle Regeln
 - Modell: `minimax/MiniMax-M2.7-highspeed`
 - Mission Control läuft auf Port 3000 (Next.js production)

@@ -269,3 +269,98 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 - blocker: Worker failed
 - updated: 2026-04-13T12:45:01.398Z
 <!-- mc:auto-working-context:end -->
+
+## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)
+
+**Problem:** GPT-5.4 hat hohe first-token-Latenz (~40-80s) — Cron-Jobs mit kurzen Timeouts (60-90s) scheitern regelmäßig. Betroffen:  (90s, timeout),  (60s, timeout),  (198s/300s Budget — knapp).
+
+**Keine -Override-Möglichkeit in jobs.json-Payload.** Das Modell erbt sich vom . Wechsel für einzelne Cron-Jobs erfordert entweder:
+- Globalen Modell-Wechsel des Agenten (betrifft alle Sessions)
+- Neuen dedizierten Cron-Agenten (z.B. ) mit anderem Modell
+
+### Empfohlene Lösung: Zwei-Klassen-Split
+
+**Klasse A — Deterministisch/strukturiert → MiniMax M2.7-HS:**
+
+| Cron-Job | agentId | Charakter |
+|----------|---------|-----------|
+| dispatch-router | main | JSON lesen → Discord post |
+| Atlas HTTP Heartbeat | main | Stats lesen → Ausgabe |
+| efficiency-auditor-heartbeat | efficiency-auditor | Zählen → Alert-Check |
+| daily-cost-report | main | Taskboard lesen → Formatieren |
+
+Diese Jobs brauchen keine Reasoning-Tiefe. MiniMax M2.7-HS läuft bei Pixel/James bereits stabil, first-token <10s.
+
+**Klasse B — Komplex/Reasoning → GPT-5.4 behalten:**
+
+| Cron-Job | Grund |
+|----------|-------|
+| nightly-self-improvement | Komplexe Analyse, Build-Checks, Forge-Delegation |
+| evening-debrief | Synthese, strukturierte Zusammenfassung |
+| task-executor | Moderates Reasoning, PATCH-Entscheidungen |
+
+### Umsetzungsplan (wenn beschlossen):
+
+1. Neuen Agent  in  anlegen:
+   - 
+   - Gleiche Tools wie main (exec, taskboard MCP, discord)
+   - sessionTarget-kompatibel
+2. Klasse-A-Cron-Jobs in  auf  umstellen
+3. Timeouts anpassen: 30-60s reichen für MiniMax-basierte strukturierte Jobs
+4. Validieren: ein Testlauf des dispatch-router unter neuem Agent
+
+### Bewertung Alternativen:
+
+- **OpenRouter:** Mehr Komplexität (neue Provider-Integration), variable Latenz, erst sinnvoll wenn Fallback-Redundanz wirklich gebraucht wird — kein Vorteil jetzt
+- **Anthropic-Modelle:** Explizit ausgeschlossen (Operator-Entscheidung 2026-04-13)
+- **Status quo (nur Timeout erhöhen):** Mitigation, kein Fix — dispatch-router bereits bei 198s/300s
+
+**Nächster Schritt (wenn Lenard gibt grünes Licht):** Forge-Task für -Implementierung erstellen.
+
+
+## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)
+
+**Problem:** GPT-5.4 hat hohe first-token-Latenz (~40-80s) — Cron-Jobs mit kurzen Timeouts (60-90s) scheitern regelmäßig. Betroffen: `daily-cost-report` (90s, timeout), `efficiency-auditor-heartbeat` (60s, timeout), `dispatch-router` (198s/300s Budget — knapp).
+
+**Keine `model`-Override-Möglichkeit in jobs.json-Payload.** Das Modell erbt sich vom `agentId`. Wechsel für einzelne Cron-Jobs erfordert entweder:
+- Globalen Modell-Wechsel des Agenten (betrifft alle Sessions)
+- Neuen dedizierten Cron-Agenten (z.B. `cron-relay`) mit anderem Modell
+
+### Empfohlene Lösung: Zwei-Klassen-Split
+
+**Klasse A — Deterministisch/strukturiert → MiniMax M2.7-HS:**
+
+| Cron-Job | agentId | Charakter |
+|----------|---------|-----------|
+| dispatch-router | main | JSON lesen → Discord post |
+| Atlas HTTP Heartbeat | main | Stats lesen → Ausgabe |
+| efficiency-auditor-heartbeat | efficiency-auditor | Zählen → Alert-Check |
+| daily-cost-report | main | Taskboard lesen → Formatieren |
+
+Diese Jobs brauchen keine Reasoning-Tiefe. MiniMax M2.7-HS läuft bei Pixel/James bereits stabil, first-token <10s.
+
+**Klasse B — Komplex/Reasoning → GPT-5.4 behalten:**
+
+| Cron-Job | Grund |
+|----------|-------|
+| nightly-self-improvement | Komplexe Analyse, Build-Checks, Forge-Delegation |
+| evening-debrief | Synthese, strukturierte Zusammenfassung |
+| task-executor | Moderates Reasoning, PATCH-Entscheidungen |
+
+### Umsetzungsplan (wenn beschlossen):
+
+1. Neuen Agent `cron-relay` in `openclaw.json` anlegen:
+   - `model: minimax/m2.7-hs`
+   - Gleiche Tools wie main (exec, taskboard MCP, discord)
+   - sessionTarget-kompatibel
+2. Klasse-A-Cron-Jobs in `jobs.json` auf `agentId: "cron-relay"` umstellen
+3. Timeouts anpassen: 30-60s reichen für MiniMax-basierte strukturierte Jobs
+4. Validieren: ein Testlauf des dispatch-router unter neuem Agent
+
+### Bewertung Alternativen:
+
+- **OpenRouter:** Mehr Komplexität (neue Provider-Integration), variable Latenz, erst sinnvoll wenn Fallback-Redundanz wirklich gebraucht wird — kein Vorteil jetzt
+- **Anthropic-Modelle:** Explizit ausgeschlossen (Operator-Entscheidung 2026-04-13)
+- **Status quo (nur Timeout erhöhen):** Mitigation, kein Fix — dispatch-router bereits bei 198s/300s
+
+**Nächster Schritt (wenn Lenard gibt grünes Licht):** Forge-Task für `cron-relay`-Implementierung erstellen.

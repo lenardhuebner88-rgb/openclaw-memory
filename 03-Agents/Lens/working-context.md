@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: de16016f-b95d-4950-ad9d-509f4d8fe7b8 [MC-9-10] T6: Trend-Dashboard für Costs + Velocity
+- task: 2bd809a0-9c50-4c24-bb7d-9029cc3da7a4 [RCA/Fix] dispatch-router + Recovery-Runs auf Redundanz und Takt härten
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T14:00:01.506Z
+- updated: 2026-04-13T14:30:01.468Z
 <!-- mc:auto-working-context:end -->

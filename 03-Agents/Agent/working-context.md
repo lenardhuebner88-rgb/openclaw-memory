@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0716c190-748e-462f-89de-f8bccd0f9091 [P1][Fix] App-Router-Route-Helper aus API-Routen entkoppeln und TypeScript-Contract bereinigen
+- task: 6f05473f-ce95-4bc1-93e7-b01780fc9d99 [Fix] /trends 404 und /team React-Error beheben
 - stage: START
 - next: continue current task
 - checkpoint: Failed after 1 attempt: Worker failed
 - blocker: -
-- updated: 2026-04-13T12:32:33.718Z
+- updated: 2026-04-13T14:00:25.769Z
 <!-- mc:auto-working-context:end -->

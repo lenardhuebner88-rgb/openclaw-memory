@@ -69,10 +69,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c4593f99-7756-49f1-ba4b-6ea797239679 [P1][Follow-up] Dispatch/Retry-Pfad mit agentId-/target-Override durchgängig härten
+- task: 5107c8ab-1ad7-4f3e-8538-f3c1630b49dc [P1][System] Atlas Schritt-8 Trigger-Policy implementieren (harte Signalschwelle)
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T13:15:01.705Z
+- updated: 2026-04-13T14:30:01.489Z
 <!-- mc:auto-working-context:end -->

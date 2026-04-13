@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0450e6af-532f-4c0b-9dda-281d7b5f44e9 [Spark Relief] UI-Metadaten + Agent-Card für Spark sichtbar machen
-- stage: FAILED
+- task: 6f05473f-ce95-4bc1-93e7-b01780fc9d99 [Fix] /trends 404 und /team React-Error beheben
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-13T14:00:01.486Z
+- checkpoint: Die laufende Mission-Control-Instanz wurde auf den aktuellen Stand gebracht; /trends ist live wieder erreichbar und /team rendert ohne den React-Client-Error #418.
+- blocker: -
+- updated: 2026-04-13T14:05:41.485Z
 <!-- mc:auto-working-context:end -->
