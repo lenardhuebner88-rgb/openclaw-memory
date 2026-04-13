@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5d62ff16-0278-46f9-828e-172e993aa01b [Audit] Kosteneffizienz & Redundanzcheck
-- stage: DONE
+- task: de16016f-b95d-4950-ad9d-509f4d8fe7b8 [MC-9-10] T6: Trend-Dashboard für Costs + Velocity
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Kosteneffizienz-Audit abgeschlossen. 0% Failure-Rate, 1 Retry in 7 Tagen. 3主线 Effizienzprobleme: dispatch-router (5min) ~129 redundante Dispatches, ~31 PARKED/SUPERSEDED + ~20 Security-blocked Tasks belasten Board. Einsp
-- blocker: -
-- updated: 2026-04-13T05:06:08.182Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-13T12:30:01.844Z
 <!-- mc:auto-working-context:end -->

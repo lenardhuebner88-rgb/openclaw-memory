@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2bf0ae4a-1ddd-453f-83b4-509b97a4d258 [Fix] Secret-Leak in Logs unterbinden + Key-Rotation vorbereiten
+- task: c4593f99-7756-49f1-ba4b-6ea797239679 [P1][Follow-up] Dispatch/Retry-Pfad mit agentId-/target-Override durchgängig härten
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T07:00:01.628Z
+- updated: 2026-04-13T12:30:01.697Z
 <!-- mc:auto-working-context:end -->

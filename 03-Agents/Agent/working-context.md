@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1e55c39d-53b5-46f0-b1d3-dc2e4b69e65b [Follow-up] Forge Failure-Pattern Audit für 8 Failures der letzten 7 Tage
+- task: 0716c190-748e-462f-89de-f8bccd0f9091 [P1][Fix] App-Router-Route-Helper aus API-Routen entkoppeln und TypeScript-Contract bereinigen
 - stage: START
 - next: continue current task
 - checkpoint: Failed after 1 attempt: Worker failed
 - blocker: -
-- updated: 2026-04-13T11:30:31.660Z
+- updated: 2026-04-13T12:32:33.718Z
 <!-- mc:auto-working-context:end -->

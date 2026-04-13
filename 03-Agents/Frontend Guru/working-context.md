@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: -
-- stage: -
+- task: 6bdd1cc7-3bfc-46bd-80d9-e959ae98dac2 [Follow-up] Pixel Failure-Cluster RCA für letzte 3 fehlgeschlagene Tasks
+- stage: FAILED
 - next: await next assignment
-- checkpoint: -
-- blocker: -
-- updated: -
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-13T12:53:30.989Z
 <!-- mc:auto-working-context:end -->

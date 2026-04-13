@@ -239,10 +239,10 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5caa87f1-642d-48dd-a278-02c9a344c120 [Follow-up] dispatchTask respektiert agentId-Override im Retry/Dispatch-Pfad
+- task: de16016f-b95d-4950-ad9d-509f4d8fe7b8 [MC-9-10] T6: Trend-Dashboard für Costs + Velocity
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T11:45:01.840Z
+- updated: 2026-04-13T12:45:01.398Z
 <!-- mc:auto-working-context:end -->
