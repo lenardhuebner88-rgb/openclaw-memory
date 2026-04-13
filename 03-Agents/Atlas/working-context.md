@@ -90,9 +90,10 @@ return format: POST /api/tasks/abc123/complete mit resultSummary (Kurzbeschreibu
 
 **Vor einem Dispatch-Batch immer zuerst prüfen:**
 ```
-GET http://127.0.0.1:3000/api/tasks
-→ zähle tasks mit status=in-progress pro assigned_agent
+GET http://127.0.0.1:3000/api/agents/concurrency
 ```
+Antwort enthält pro Agent: `inProgress`, `limit`, `available`, `canDispatch`.
+Nur dispatchen wenn `canDispatch: true` für den jeweiligen Agent.
 
 **Harte Limits pro Agent (gleichzeitig in-progress):**
 | Agent | agentId | Max parallel |
@@ -106,6 +107,24 @@ GET http://127.0.0.1:3000/api/tasks
 Wenn Limit erreicht → diesen Task überspringen, nächsten Zyklus erneut prüfen.
 
 **Niemals alle assigned Tasks in einem Zug dispatchen** — immer per Agent zählen und limitieren.
+
+
+## Dispatch in Prioritätswellen — Pflicht
+
+**Niemals alle Tasks in einem Zug dispatchen.** Immer in Wellen:
+
+1. **Welle 1 — P0:** Alle P0-Tasks dispatchen (wenn Agent-Slots frei)
+2. **Welle 2 — P1:** Nur wenn Welle 1 vollständig dispatcht oder Slots verfügbar
+3. **Welle 3 — P2+/Follow-ups:** Nur wenn P0+P1 laufen und Slots frei
+
+**Ablauf pro Welle:**
+```
+GET /api/agents/concurrency → canDispatch prüfen
+→ Nur Tasks dispatchen wo canDispatch: true
+→ Nächste Welle erst wenn vorherige Welle alle verfügbaren Slots belegt hat
+```
+
+**Harte Grenze:** Nie mehr Tasks an einen Agent dispatchen als `available` anzeigt.
 
 **Dispatch via API:**
 ```

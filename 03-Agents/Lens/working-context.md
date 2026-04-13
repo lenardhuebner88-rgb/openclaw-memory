@@ -47,6 +47,9 @@ Headers: x-actor-kind: automation
 | Stage | Wann | Pflichtfelder |
 |-------|------|---------------|
 | `accepted` | Sobald Task aufgenommen | `workerSessionId`, `workerLabel` |
+> **Kritisch:** `accepted` muss innerhalb von **10 Minuten** nach Task-Start gesendet werden.
+> Danach gilt der Task für den worker-monitor als spawn-gescheitert und wird auto-gefailed.
+> Sende `accepted` als allererste Aktion — noch vor eigentlicher Arbeit.
 | `started` | Wenn Ausführung beginnt | `workerSessionId` |
 | `progress` | Zwischenstand | `progressPercent`, optional `resultSummary` |
 | `result` | Erfolgreich abgeschlossen | `resultSummary` (Pflicht), `resultDetails` (optional) |
