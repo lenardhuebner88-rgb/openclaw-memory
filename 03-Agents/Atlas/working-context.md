@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f75bb8a3-9d4b-4d90-81e2-4c5f385e88f8 [Sprint 2.0][Forge] Routing- und Reporting-Wahrheit dokumentieren
+- task: 167663ce-5f8c-442f-86f8-0616e8c22eec FORGE-P3-A-dispatch-complete
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T19:20:01.975Z
+- updated: 2026-04-13T21:40:02.186Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

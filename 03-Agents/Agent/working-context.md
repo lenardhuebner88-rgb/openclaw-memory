@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f75bb8a3-9d4b-4d90-81e2-4c5f385e88f8 [Sprint 2.0][Forge] Routing- und Reporting-Wahrheit dokumentieren
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-13T19:00:01.643Z
+- task: e5817f2c-13f1-4808-9533-a9aea49734f1 [MC-9-10] T4: Incident-Tabelle als recordType
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-13T21:41:46.876Z
 <!-- mc:auto-working-context:end -->

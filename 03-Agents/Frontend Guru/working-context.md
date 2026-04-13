@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b2d54faf-ee21-4845-9129-65c4ad939b7c [P1][Follow-up][Pixel] Decision-/Artefakt-Drilldown auch im Agent/Team-Tab spiegeln
+- task: ff389ff3-549d-4587-aa28-06423f4e11b8 MC Frontend Upgrade 3/3: Motion Animation Stack voll ausschöpfen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Expanded the Team/Agents drilldown for agent detail cards, adding condensed decisions, outputs, artifacts, and a clearer timeline via shared agent drilldown data.
+- checkpoint: Historischer Alt-Task verifiziert und als fehlgeschlagenes Artefakt außerhalb der aktiven Recovery-Last finalisiert; keine Live-Frontend-Arbeit ausgeführt.
 - blocker: -
-- updated: 2026-04-13T19:19:34.205Z
+- updated: 2026-04-13T21:41:13.350Z
 <!-- mc:auto-working-context:end -->
