@@ -38,3 +38,4 @@
 - Atlas-Session-Handover aktualisiert — Atlas braucht kein separates Handover-Prompt
 
 - Automated worker pickup trigger received; checking /api/worker-pickups and dispatching ready tasks.
+- 2026-04-13T14:51:45Z Dispatch-Check gestartet: assigned Tasks prüfen und gemäß worker-monitor Trigger dispatchen.\n

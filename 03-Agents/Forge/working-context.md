@@ -69,10 +69,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5107c8ab-1ad7-4f3e-8538-f3c1630b49dc [P1][System] Atlas Schritt-8 Trigger-Policy implementieren (harte Signalschwelle)
+- task: b96b7813-4b4d-4ca6-8832-2704ffafb5bb [P0][RCA/Fix] Mission-Control Restart-Storm, EADDRINUSE und /api/tasks-500er beheben
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T14:30:01.489Z
+- updated: 2026-04-13T15:02:04.126Z
 <!-- mc:auto-working-context:end -->

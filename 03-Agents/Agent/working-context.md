@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6f05473f-ce95-4bc1-93e7-b01780fc9d99 [Fix] /trends 404 und /team React-Error beheben
-- stage: START
-- next: continue current task
-- checkpoint: Failed after 1 attempt: Worker failed
-- blocker: -
-- updated: 2026-04-13T14:00:25.769Z
+- task: 01e746bf-16f7-439c-b28f-6a963a3d9fb6 [P0][RCA] Worker failed: Agents starten, crashen aber intern nach erfolgreichem Spawn
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-13T15:02:04.051Z
 <!-- mc:auto-working-context:end -->
