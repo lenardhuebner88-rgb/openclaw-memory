@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 68ced946-e896-4a86-a5fb-b85f6cd6bcd8 [AUDIT] Forge: Data Stability + Backend
+- task: eb40fd15-a924-41c1-8c78-31e19b693d88 [Sprint Brain] Canonical Hierarchy in Runtime-/Write-Pfade integrieren
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T19:45:09.482Z
+- updated: 2026-04-14T20:05:24.282Z
 <!-- mc:auto-working-context:end -->

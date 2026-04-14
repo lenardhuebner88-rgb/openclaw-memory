@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 875431ba-b1ce-487c-afc5-202da44c467d [MC-9-10] T3: SLA-Monitoring Histogramm
+- task: ff389ff3-549d-4587-aa28-06423f4e11b8 MC Frontend Upgrade 3/3: Motion Animation Stack voll ausschöpfen
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T19:30:18.655Z
+- updated: 2026-04-14T20:05:26.606Z
 <!-- mc:auto-working-context:end -->

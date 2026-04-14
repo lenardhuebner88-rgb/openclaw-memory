@@ -12,6 +12,7 @@
 - 2026-04-08: Opus stays constrained to high-value cases (root-cause, architecture, severe bugs).
 
 ## Historical decisions
+- 2026-04-14: [P0][Audit][MC] Mini-Audit auf Worker-E2E-Stabilität und kritische Lifecycle-Brüche failed: Worker failed <!-- mc:auto-decision:d302e11f-722e-48e2-a544-9333bdcd7c24|failed|p0-audit-mc-mini-audit-auf-worker-e2e-stabilit-t-und-kritische-lifecycle-br-che- -->
 - 2026-04-14: SMOKE-AUTOWRITE-2026-04-10T15:08Z blocked-path decision failed: Worker failed <!-- mc:auto-decision:3b91bccc-2ce4-466e-96ea-7b51a2f2db44|failed|smoke-autowrite-2026-04-10t15-08z-blocked-path-decision-failed-worker-failed -->
 - 2026-04-14: SMOKE-AUTOWRITE-2026-04-10T15:08Z failed-path decision failed: Worker failed <!-- mc:auto-decision:ec960817-6f44-4e80-8d12-be83d4be0652|failed|smoke-autowrite-2026-04-10t15-08z-failed-path-decision-failed-worker-failed -->
 - 2026-04-14: [VERIFIED-NO-CODE] [Fix] Completion-Flow für Research-/QA-Artefakte trotz Security-Gate sauber machen failed: Worker failed <!-- mc:auto-decision:bb069b8e-857f-410e-b223-85b52463ea4b|failed|verified-no-code-fix-completion-flow-f-r-research-qa-artefakte-trotz-security-ga -->
