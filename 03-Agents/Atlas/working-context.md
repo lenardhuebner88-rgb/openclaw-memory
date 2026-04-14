@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e13a8cc3-3a8f-480f-aaa7-b32f208e1508 [AUDIT-PROOF] Worker fail+retry mini-proof
+- task: 16aae8d0-733b-4d8d-826b-f94b6ff9b703 [P1][Follow-up][Forge] Specialist-Bridge-Pfad entscheiden und robust absichern
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Audit-induced synthetic failure
-- blocker: Audit-induced synthetic failure
-- updated: 2026-04-14T06:22:57.553Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T06:50:02.019Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)
@@ -372,3 +372,5 @@ Diese Jobs brauchen keine Reasoning-Tiefe. MiniMax M2.7-HS läuft bei Pixel/Jame
 - 2026-04-14 01:22 Europe/Berlin: worker-monitor auto-trigger geprüft. `/api/tasks?status=assigned` zeigt genau 1 Candidate (`e456e4d5-5567-4a19-ae19-edcaf34f9ea2`), aber `assigned_agent=unassigned` und kein `dispatchTarget`; daher trotz freier Slots kein Dispatch möglich. Lokale Concurrency aus Route/Live-State: Forge 0/3, Pixel 0/2, Lens 1/1, James 0/1.
 
 - worker-monitor follow-up 2026-04-14 02:27 UTC: Forge result zu projektweiten TS-Blockern geprueft. Finding abgeleitet: globales `npx tsc --noEmit` soll als explizites Nightly-/Stability-Gate vor Receipt/Done verankert werden. Folge-Task erstellt und dispatcht: `b156afe5-8b04-4ff7-81ae-ae8a79dc345a` -> Forge/sre-expert. Concurrency-API live weiterhin 404; Fallback aus `mission-control/data/tasks.json` ergab Forge 2/3 in-progress, daher Dispatch innerhalb Limit.
+
+- worker-monitor auto-trigger geprüft: live bleibt nur Gate-A-Testtask `e456e4d5-5567-4a19-ae19-edcaf34f9ea2` auf `assigned`, aber ohne Ziel-Agent (`assigned_agent=unassigned`). Concurrency-Fallback zeigt freie Slots (`sre-expert` 1, `frontend-guru` 1, `efficiency-auditor` 1, `researcher` 1). Kein Dispatch ausgeführt.

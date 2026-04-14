@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 34c822a7-5fd9-4e4e-96da-eb80f11957c4 [AUDIT-PROOF] Specialist spawn bridge check
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: specialist worker requires external execution bridge (researcher)
-- updated: 2026-04-14T06:25:28.730Z
+- task: 16aae8d0-733b-4d8d-826b-f94b6ff9b703 [P1][Follow-up][Forge] Specialist-Bridge-Pfad entscheiden und robust absichern
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T06:35:01.232Z
 <!-- mc:auto-working-context:end -->
