@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c26f05f5-0bad-4c67-b39a-09d2f72ef31f [P2][Follow-up][Forge] Historische Alt-Tasks auf veraltete Workspace-Ground-Truth-Bloecke pruefen und gezielt migrieren
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-14T07:58:15.644Z
+- task: d80da3a2-b5c7-46b2-8344-6150de1788df [probe-temp] stale-main retry verify
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T08:30:01.268Z
 <!-- mc:auto-working-context:end -->

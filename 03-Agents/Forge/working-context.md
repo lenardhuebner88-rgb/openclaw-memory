@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c9439f84-2990-40cb-ba91-166e75b48107 [probe-local] retry target stale-main verification
-- stage: FAILED
+- task: c26f05f5-0bad-4c67-b39a-09d2f72ef31f [P2][Follow-up][Forge] Historische Alt-Tasks auf veraltete Workspace-Ground-Truth-Bloecke pruefen und gezielt migrieren
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-14T07:55:01.615Z
+- checkpoint: Historische Task-Datenquellen wurden auf veraltete Workspace-Ground-Truth-Einbettungen geprueft; in aktiven/alt materialisierten Task-Descriptions wurden keine migrationsbeduerftigen Altlasten gefunden, daher wurde der k
+- blocker: -
+- updated: 2026-04-14T08:24:20.704Z
 <!-- mc:auto-working-context:end -->

@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: febf318e-5d91-45ca-ba05-0276eac390cb [PARKED-UI-NOT-STABILITY] [P5] MC: Brain Health Sicht (read-only, 4 operative Signale)
-- stage: FAILED
+- task: b2d54faf-ee21-4845-9129-65c4ad939b7c [P1][Follow-up][Pixel] Decision-/Artefakt-Drilldown auch im Agent/Team-Tab spiegeln
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-13T22:05:01.483Z
+- checkpoint: Agent-/Team-Drilldown in TeamClient und Agents-Board gespiegelt, mit verdichteten Decisions, Timeline und Artefakten aus der gemeinsamen Agent-Drilldown-Quelle.
+- blocker: -
+- updated: 2026-04-14T08:09:33.141Z
 <!-- mc:auto-working-context:end -->
