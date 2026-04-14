@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6e288989-4b33-428a-84ec-789386a65a86 [P2][Follow-up][Forge] Kanonischen Probe-Draft-Hide-Doc-Pfad in Board-Artefakten und Referenzen geradeziehen
+- task: e80e7cd2-7cb7-4a8b-b295-e1675fda260e [AUDIT] Forge: Data Stability + Backend Hardening
 - stage: DONE
 - next: await next assignment
-- checkpoint: Die operator-facing Referenzen wurden auf den kanonischen Probe-Draft-Hide-Doku-Pfad unter mission-control vereinheitlicht und kurz validiert.
+- checkpoint: Mission Control Backend-Stability-Audit abgeschlossen, kritischen Secret-Redaction-Fix implementiert und vollständigen Report inklusive Findings/Empfehlungen geliefert.
 - blocker: -
-- updated: 2026-04-14T13:42:39.236Z
+- updated: 2026-04-14T14:38:51.830Z
 <!-- mc:auto-working-context:end -->

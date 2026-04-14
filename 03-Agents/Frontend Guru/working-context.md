@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0e078394-e56d-429c-bfe1-01c0c34f6387 [E2E Probe][Pixel] Single Workflow Verification
+- task: 9243bd33-be8e-422d-a7c2-8bbfb7ba841d [Sprint][MC] Pipeline Tab auf dem Mission-Control Board umsetzen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Ein vollständiger Pixel-Workflow wurde über einen dedizierten Probe-Task live erstellt, dispatcht, per Receipt abgeschlossen und im Finalzustand validiert.
+- checkpoint: Pipeline tab is live on /kanban with agent tool timelines and mobile bottom sheet, backed by live agent and pipeline APIs.
 - blocker: -
-- updated: 2026-04-14T11:53:51.390Z
+- updated: 2026-04-14T14:39:07.655Z
 <!-- mc:auto-working-context:end -->
