@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7f4708b2-6630-419b-bf16-d2b6d06a89cd [P1][Follow-up][Forge] Historisch exponierte Mission-Control-Credentials rotieren oder Exposure belastbar schließen
+- task: d7048869-93c5-48b4-96d1-292ec2e65b53 [P1][Follow-up][Forge] Externe Brave/Google-Provider-Revocation bis zum echten Ungültigkeitsnachweis schließen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Historisch exponierte Brave- und Google-Credentials inventarisiert, lokal ausser Betrieb genommen bzw. quarantainisiert, Mission Control bleibt gesund; provider-seitige Revocation bleibt offen.
+- checkpoint: Brave- und Google-Provider-Closure erneut eng verifiziert; beide alten Credentials sind weiterhin gueltig, der externe Owner-Pfad und der konkrete Blocker sind jetzt belastbar aktualisiert.
 - blocker: -
-- updated: 2026-04-14T15:10:29.019Z
+- updated: 2026-04-14T15:33:04.558Z
 <!-- mc:auto-working-context:end -->
