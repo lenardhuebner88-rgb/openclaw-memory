@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2aa516d8-7c54-46cb-bc2f-ea34139c5f31 [E2E][James] Voller Workflow-Durchlauf einmal sauber verifizieren
+- task: 34c822a7-5fd9-4e4e-96da-eb80f11957c4 [AUDIT-PROOF] Specialist spawn bridge check
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T19:30:11.640Z
+- updated: 2026-04-14T20:40:08.493Z
 <!-- mc:auto-working-context:end -->

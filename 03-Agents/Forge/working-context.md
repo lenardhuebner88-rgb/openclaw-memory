@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: eb40fd15-a924-41c1-8c78-31e19b693d88 [Sprint Brain] Canonical Hierarchy in Runtime-/Write-Pfade integrieren
-- stage: FAILED
+- task: e13a8cc3-3a8f-480f-aaa7-b32f208e1508 [AUDIT-PROOF] Worker fail+retry mini-proof
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-14T20:05:24.282Z
+- checkpoint: Fail- und Recovery-Retry-Pfad erfolgreich verifiziert: Fail setzt Retry-Metadaten, Recovery-Retry re-primet und redispatched den Task.
+- blocker: -
+- updated: 2026-04-14T20:44:13.568Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a7a946b2-b0a1-4a67-b9fc-caa3c35fca52 [P1][Forge] Pixel-Produktivtask-Fehlpfad root-causen und fuer stabilen Re-Run vorbereiten
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-14T20:15:02.161Z
+- task: d86e0fa6-de09-4252-bb4c-36431b302b5d [AUDIT-PROOF] worker fail+retry path validation run
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-14T20:45:13.488Z
 <!-- mc:auto-working-context:end -->
