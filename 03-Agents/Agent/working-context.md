@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c4a4de0d-6263-4f84-95eb-e3d54cecb123 [Ignored Residue][E2E Probe Pixel Single][20260414115301] Unused Draft Placeholder
+- task: 04a42750-7b64-41f1-8704-aab614e646cd [P0][Forge] Pixel-Dispatch bleibt auf gateway-Session haengen — final root-causen und fixen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-14T17:15:31.552Z
+- updated: 2026-04-14T18:35:22.877Z
 <!-- mc:auto-working-context:end -->

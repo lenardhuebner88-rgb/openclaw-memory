@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a7a946b2-b0a1-4a67-b9fc-caa3c35fca52 [P1][Forge] Pixel-Produktivtask-Fehlpfad root-causen und fuer stabilen Re-Run vorbereiten
+- task: 04a42750-7b64-41f1-8704-aab614e646cd [P0][Forge] Pixel-Dispatch bleibt auf gateway-Session haengen — final root-causen und fixen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Pixel rerun is unblocked by restoring canonical dispatch/acceptance flow and validating the recovery path.
+- checkpoint: Pixel gateway placeholders can now be rebound to a real worker session.
 - blocker: -
-- updated: 2026-04-14T17:20:23.400Z
+- updated: 2026-04-14T18:41:01.379Z
 <!-- mc:auto-working-context:end -->
