@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7c7ad80e-86f5-4712-9704-75e8259871dd [E2E][Forge] Voller Workflow-Durchlauf einmal sauber verifizieren
+- task: 4a4b9493-f2d3-48ed-b037-63ac29312161 [P2][Follow-up][Forge] worker-monitor Gateway-Session-Bindung mit Task-Ownership sauber ausrichten
 - stage: DONE
 - next: await next assignment
-- checkpoint: Forge-Workflow einmal vollständig über Receipt-Lifecycle bis done verifiziert.
+- checkpoint: worker-monitor bindet Gateway-Follow-ups jetzt konsistent an `gateway:{taskId}` statt an kollidierende `monitor:`-IDs.
 - blocker: -
-- updated: 2026-04-14T11:31:49.853Z
+- updated: 2026-04-14T12:04:47.041Z
 <!-- mc:auto-working-context:end -->

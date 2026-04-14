@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b2d54faf-ee21-4845-9129-65c4ad939b7c [P1][Follow-up][Pixel] Decision-/Artefakt-Drilldown auch im Agent/Team-Tab spiegeln
+- task: 0e078394-e56d-429c-bfe1-01c0c34f6387 [E2E Probe][Pixel] Single Workflow Verification
 - stage: DONE
 - next: await next assignment
-- checkpoint: Agent-/Team-Drilldown in TeamClient und Agents-Board gespiegelt, mit verdichteten Decisions, Timeline und Artefakten aus der gemeinsamen Agent-Drilldown-Quelle.
+- checkpoint: Ein vollständiger Pixel-Workflow wurde über einen dedizierten Probe-Task live erstellt, dispatcht, per Receipt abgeschlossen und im Finalzustand validiert.
 - blocker: -
-- updated: 2026-04-14T08:09:33.141Z
+- updated: 2026-04-14T11:53:51.390Z
 <!-- mc:auto-working-context:end -->

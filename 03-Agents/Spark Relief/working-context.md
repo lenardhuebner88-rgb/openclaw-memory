@@ -1,4 +1,4 @@
-# Agent Working Context
+# Spark Relief Working Context
 
 ## Lies zuerst
 - [[../Shared/project-state]]
@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6b04d04e-ec96-4d75-97f7-8dea049ee8f5 [E2E Probe][Pixel] Workflow-Verifikation
-- stage: START
+- task: 38f8cdde-acdc-4f93-b608-2de77eef89fc [E2E][Spark Relief] Voller Workflow-Durchlauf einmal sauber verifizieren
+- stage: CHECKPOINT
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-14T11:45:29.473Z
+- updated: 2026-04-14T11:35:50.182Z
 <!-- mc:auto-working-context:end -->
