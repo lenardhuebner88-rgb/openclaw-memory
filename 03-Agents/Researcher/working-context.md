@@ -63,9 +63,9 @@ Headers: x-actor-kind: automation
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 2aa516d8-7c54-46cb-bc2f-ea34139c5f31 [E2E][James] Voller Workflow-Durchlauf einmal sauber verifizieren
-- stage: DONE
+- stage: FAILED
 - next: await next assignment
-- checkpoint: James validation succeeded; no orphan auto-fail observed.
-- blocker: -
-- updated: 2026-04-14T12:29:03.887Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T19:30:11.640Z
 <!-- mc:auto-working-context:end -->

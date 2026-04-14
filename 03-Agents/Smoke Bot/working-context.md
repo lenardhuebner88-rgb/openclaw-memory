@@ -1,4 +1,4 @@
-# Unassigned Working Context
+# Smoke Bot Working Context
 
 ## Lies zuerst
 - [[../Shared/project-state]]
@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 536d9bf1-12e2-4bbc-9e3c-c0a35fc8868c test task
+- task: c6a53682-50f6-4b4e-951b-083d9a10a728 SMOKE-AUTOWRITE-2026-04-10T15:08Z done-path
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T19:20:03.534Z
+- updated: 2026-04-14T19:20:02.839Z
 <!-- mc:auto-working-context:end -->

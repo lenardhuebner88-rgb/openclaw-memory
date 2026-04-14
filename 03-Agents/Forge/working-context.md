@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9b63c849-dad4-440e-ba02-d33761452339 Final Worker E2E Proof
+- task: 68ced946-e896-4a86-a5fb-b85f6cd6bcd8 [AUDIT] Forge: Data Stability + Backend
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T19:15:10.277Z
+- updated: 2026-04-14T19:45:09.482Z
 <!-- mc:auto-working-context:end -->

@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2aa516d8-7c54-46cb-bc2f-ea34139c5f31 [E2E][James] Voller Workflow-Durchlauf einmal sauber verifizieren
-- stage: START
-- next: continue current task
-- checkpoint: Failed after 1 attempt: Worker failed
-- blocker: -
-- updated: 2026-04-14T12:29:03.599Z
+- task: 6f796600-f45c-4f50-9f10-4e6b581d0bb3 [Sprint Brain] Retrieval Smoke-Pack Board-Reconcile + Harness-Härtung
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T19:45:09.604Z
 <!-- mc:auto-working-context:end -->

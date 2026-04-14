@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 160f1e9d-5243-4f4d-ad02-d722dba1f2ed Live vault smoke RCA temp
+- task: bd024fe2-7f0d-4f01-944e-af41e8761feb Vault stage result test
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T19:15:02.066Z
+- updated: 2026-04-14T19:30:02.612Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

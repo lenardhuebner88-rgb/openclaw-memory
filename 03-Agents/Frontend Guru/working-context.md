@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3e7d14cb-dee4-4646-9a5e-b178277b9982 [Sprint][MC] Task Tab radikal verschlanken zur klaren Operator-Kanban-Fläche
+- task: 875431ba-b1ce-487c-afc5-202da44c467d [MC-9-10] T3: SLA-Monitoring Histogramm
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T19:15:01.685Z
+- updated: 2026-04-14T19:30:18.655Z
 <!-- mc:auto-working-context:end -->
