@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9243bd33-be8e-422d-a7c2-8bbfb7ba841d [Sprint][MC] Pipeline Tab auf dem Mission-Control Board umsetzen
-- stage: DONE
+- task: cf460691-feb7-434b-97b9-53182c16c168 [E2E Probe 2][Pixel] Workflow-Verifikation
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Pipeline tab is live on /kanban with agent tool timelines and mobile bottom sheet, backed by live agent and pipeline APIs.
-- blocker: -
-- updated: 2026-04-14T14:39:07.655Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T16:05:04.078Z
 <!-- mc:auto-working-context:end -->

@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d7048869-93c5-48b4-96d1-292ec2e65b53 [P1][Follow-up][Forge] Externe Brave/Google-Provider-Revocation bis zum echten Ungültigkeitsnachweis schließen
+- task: 7b242683-6af1-4fe5-b15d-206418de3c3c Fix dispatch-router timeout escalation
 - stage: DONE
 - next: await next assignment
-- checkpoint: Brave- und Google-Provider-Closure erneut eng verifiziert; beide alten Credentials sind weiterhin gueltig, der externe Owner-Pfad und der konkrete Blocker sind jetzt belastbar aktualisiert.
+- checkpoint: dispatch-router timeout escalation now skips cron sessions, preventing the live-model switch loop from blocking productive auto-dispatch.
 - blocker: -
-- updated: 2026-04-14T15:33:04.558Z
+- updated: 2026-04-14T16:06:46.415Z
 <!-- mc:auto-working-context:end -->
