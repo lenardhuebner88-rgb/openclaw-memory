@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8e517554-1772-434a-a13e-2ac306a6ec24 [Sprint][Forge] Spark auf GPT-5.3 Codex Spark als Forge-Relief sauber einführen, Flash/quick gezielt entfernen
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-13T19:55:25.813Z
+- task: f7ab3e34-4930-4ca8-8749-74f4efa41563 [P0][MC] Split-brain dauerhaft beseitigen: Kanonischen Workspace festziehen, zweiten Pfad entwaffnen, Worker-Dokumente korrigieren
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T06:15:01.619Z
 <!-- mc:auto-working-context:end -->

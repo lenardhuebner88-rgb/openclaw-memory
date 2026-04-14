@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b156afe5-8b04-4ff7-81ae-ae8a79dc345a [P2][Follow-up][Forge] Nightly-Stability-Slices mit explizitem globalem TypeScript-Gate absichern
+- task: d302e11f-722e-48e2-a544-9333bdcd7c24 [P0][Audit][MC] Mini-Audit auf Worker-E2E-Stabilität und kritische Lifecycle-Brüche
 - stage: DONE
 - next: await next assignment
-- checkpoint: Explizites globales TypeScript-Gate vor dem Nightly/Stability-Receipt ist aktiv und fuer Green/Failure validiert.
+- checkpoint: Mini-Audit abgeschlossen: reale E2E-Proofs für Erfolg/Fail+Retry durchgeführt und kritische Specialist-/Recovery-Brüche klar priorisiert.
 - blocker: -
-- updated: 2026-04-14T02:41:16.482Z
+- updated: 2026-04-14T06:24:45.864Z
 <!-- mc:auto-working-context:end -->

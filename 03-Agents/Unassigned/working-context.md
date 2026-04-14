@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: nightly-ts-gate-task [Nightly] Guard TypeScript gate
+- task: e456e4d5-5567-4a19-ae19-edcaf34f9ea2 [GATE-A] Test Task
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Global TypeScript gate failed (npx tsc --noEmit, exit 2).
-- blocker: Global TypeScript gate failed (npx tsc --noEmit, exit 2).
-- updated: 2026-04-14T02:40:51.206Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T06:20:01.289Z
 <!-- mc:auto-working-context:end -->
