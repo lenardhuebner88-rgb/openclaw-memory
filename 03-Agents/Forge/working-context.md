@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e7e256a7-7bb0-4d14-b38a-6c9cf31ed825 [Nightly] Harden execution-report API route with fail-soft error handling
+- task: b156afe5-8b04-4ff7-81ae-ae8a79dc345a [P2][Follow-up][Forge] Nightly-Stability-Slices mit explizitem globalem TypeScript-Gate absichern
 - stage: DONE
 - next: await next assignment
-- checkpoint: Die execution-report Route hat jetzt einen top-level fail-soft Guard, der unerwartete Fehler als strukturierte 500-JSON zurückgibt, während 400/404-Verhalten unverändert bleibt.
+- checkpoint: Explizites globales TypeScript-Gate vor dem Nightly/Stability-Receipt ist aktiv und fuer Green/Failure validiert.
 - blocker: -
-- updated: 2026-04-14T02:06:21.783Z
+- updated: 2026-04-14T02:41:16.482Z
 <!-- mc:auto-working-context:end -->
