@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7c7ad80e-86f5-4712-9704-75e8259871dd [E2E][Forge] Voller Workflow-Durchlauf einmal sauber verifizieren
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Forge E2E workflow smoke-run: accepted task, advanced execution to started/progress, and prepared terminal receipt validation.
-- blocker: -
-- updated: 2026-04-14T11:31:31.805Z
+- task: d4195d3e-70b3-4f5f-9c46-67525a050e1d [P2][Follow-up][Forge] Nie gestartete Probe-Drafts per legalem Cleanup-Pfad terminalisieren oder sauber ausblenden
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T12:20:01.745Z
 <!-- mc:auto-working-context:end -->

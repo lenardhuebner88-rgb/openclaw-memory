@@ -11,7 +11,7 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
-- [[../OpenClaw/operational-state]]
+- [[../Shared/checkpoints]]
 - [[../../05-Research]]
 - [[../Shared/task-lifecycle-canon]]
 
@@ -59,3 +59,13 @@ Headers: x-actor-kind: automation
 | `failed` | Fehler, nicht weiter ausführbar | `blockerReason` mit Fehlertext |
 
 **Niemals** `PATCH /api/tasks/{id}` mit `status: done/failed` nutzen — das umgeht Vault-Writes und Discord-Reports.
+
+<!-- mc:auto-working-context:start -->
+## Runtime Auto-Update
+- task: 2aa516d8-7c54-46cb-bc2f-ea34139c5f31 [E2E][James] Voller Workflow-Durchlauf einmal sauber verifizieren
+- stage: START
+- next: continue current task
+- checkpoint: Failed after 1 attempt: Worker failed
+- blocker: -
+- updated: 2026-04-14T12:29:03.599Z
+<!-- mc:auto-working-context:end -->

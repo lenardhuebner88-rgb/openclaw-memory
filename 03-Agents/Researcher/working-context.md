@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 34c822a7-5fd9-4e4e-96da-eb80f11957c4 [AUDIT-PROOF] Specialist spawn bridge check
+- task: 2aa516d8-7c54-46cb-bc2f-ea34139c5f31 [E2E][James] Voller Workflow-Durchlauf einmal sauber verifizieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Specialist dispatch to researcher blocked as expected. Bridge behavior validated.
+- checkpoint: James validation succeeded; no orphan auto-fail observed.
 - blocker: -
-- updated: 2026-04-14T06:29:13.354Z
+- updated: 2026-04-14T12:29:03.887Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d28b6b02-24a0-4617-ae20-93d8d4a32410 [P2][Follow-up][Lens] board-events Receipt-Historie auf low-value Lifecycle-Rauschen prüfen
+- task: 64bb92dc-4037-47f2-a12f-e0f63ee22ff6 [E2E][Lens] Voller Workflow-Durchlauf einmal sauber verifizieren
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T23:45:01.530Z
+- updated: 2026-04-14T12:10:01.601Z
 <!-- mc:auto-working-context:end -->
