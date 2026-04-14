@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7b242683-6af1-4fe5-b15d-206418de3c3c Fix dispatch-router timeout escalation
+- task: a7a946b2-b0a1-4a67-b9fc-caa3c35fca52 [P1][Forge] Pixel-Produktivtask-Fehlpfad root-causen und fuer stabilen Re-Run vorbereiten
 - stage: DONE
 - next: await next assignment
-- checkpoint: dispatch-router timeout escalation now skips cron sessions, preventing the live-model switch loop from blocking productive auto-dispatch.
+- checkpoint: Pixel rerun is unblocked by restoring canonical dispatch/acceptance flow and validating the recovery path.
 - blocker: -
-- updated: 2026-04-14T16:06:46.415Z
+- updated: 2026-04-14T17:20:23.400Z
 <!-- mc:auto-working-context:end -->
