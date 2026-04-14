@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4a4b9493-f2d3-48ed-b037-63ac29312161 [P2][Follow-up][Forge] worker-monitor Gateway-Session-Bindung mit Task-Ownership sauber ausrichten
+- task: 03c50cb3-87f4-416f-81ee-87aa9d62f1fa [P2][Follow-up][Forge] Operativen Hide-Pfad fuer nie gestartete Probe-Drafts kanonisch dokumentieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: worker-monitor bindet Gateway-Follow-ups jetzt konsistent an `gateway:{taskId}` statt an kollidierende `monitor:`-IDs.
+- checkpoint: Die kanonische operative Doku fuer den Hide-Pfad nie gestarteter Probe-Drafts wurde als Board-Hygiene-Regel festgeschrieben.
 - blocker: -
-- updated: 2026-04-14T12:04:47.041Z
+- updated: 2026-04-14T13:33:04.654Z
 <!-- mc:auto-working-context:end -->

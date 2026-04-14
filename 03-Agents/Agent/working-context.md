@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 56eff0c2-9b8b-4300-9a2a-81c377eeeefe [P1][Forge] E2E-Monitor-/Orphan-Tracking fuer Lens und James hart fixen
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-14T12:25:01.380Z
+- task: 03c50cb3-87f4-416f-81ee-87aa9d62f1fa [P2][Follow-up][Forge] Operativen Hide-Pfad fuer nie gestartete Probe-Drafts kanonisch dokumentieren
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-14T13:30:10.209Z
 <!-- mc:auto-working-context:end -->
