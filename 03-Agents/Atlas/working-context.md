@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 28b2f2c8-6053-424b-a3e4-fcaafa91d075 [P1][MC] Wiederholte orphaned auto-fail Reports für denselben Task analysieren und deduplizieren
+- task: b011cd36-a76c-4523-89d0-918adc025ad9 [probe] recovery-target-fix verification
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T07:15:01.852Z
+- updated: 2026-04-14T07:40:01.584Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

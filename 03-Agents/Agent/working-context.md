@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b9b88632-06a1-43fa-805e-07e151974133 [P0][RCA+Fix][MC] Dispatch-/Retry-Target drift auf main verhindern und Specialist-Routing stabilisieren
+- task: c26f05f5-0bad-4c67-b39a-09d2f72ef31f [P2][Follow-up][Forge] Historische Alt-Tasks auf veraltete Workspace-Ground-Truth-Bloecke pruefen und gezielt migrieren
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-14T07:25:17.797Z
+- updated: 2026-04-14T07:58:15.644Z
 <!-- mc:auto-working-context:end -->

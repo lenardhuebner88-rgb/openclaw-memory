@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b9b88632-06a1-43fa-805e-07e151974133 [P0][RCA+Fix][MC] Dispatch-/Retry-Target drift auf main verhindern und Specialist-Routing stabilisieren
-- stage: DONE
+- task: c9439f84-2990-40cb-ba91-166e75b48107 [probe-local] retry target stale-main verification
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Retry/Dispatch-Drift auf main wurde im Recovery-Pfad ursächlich gefixt und per Specialist-E2E-Testpfad verifiziert.
-- blocker: -
-- updated: 2026-04-14T07:26:59.286Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T07:55:01.615Z
 <!-- mc:auto-working-context:end -->
