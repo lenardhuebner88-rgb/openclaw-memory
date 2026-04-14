@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: gateway-pixel-rebind Gateway run binding regression
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Pixel worker picked up the task.
-- blocker: -
-- updated: 2026-04-14T18:40:44.354Z
+- task: 3e7d14cb-dee4-4646-9a5e-b178277b9982 [Sprint][MC] Task Tab radikal verschlanken zur klaren Operator-Kanban-Fläche
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T19:15:01.685Z
 <!-- mc:auto-working-context:end -->

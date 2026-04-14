@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 04a42750-7b64-41f1-8704-aab614e646cd [P0][Forge] Pixel-Dispatch bleibt auf gateway-Session haengen — final root-causen und fixen
-- stage: DONE
+- task: 9b63c849-dad4-440e-ba02-d33761452339 Final Worker E2E Proof
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Pixel gateway placeholders can now be rebound to a real worker session.
-- blocker: -
-- updated: 2026-04-14T18:41:01.379Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T19:15:10.277Z
 <!-- mc:auto-working-context:end -->
