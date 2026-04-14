@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e80e7cd2-7cb7-4a8b-b295-e1675fda260e [AUDIT] Forge: Data Stability + Backend Hardening
+- task: 7f4708b2-6630-419b-bf16-d2b6d06a89cd [P1][Follow-up][Forge] Historisch exponierte Mission-Control-Credentials rotieren oder Exposure belastbar schließen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Mission Control Backend-Stability-Audit abgeschlossen, kritischen Secret-Redaction-Fix implementiert und vollständigen Report inklusive Findings/Empfehlungen geliefert.
+- checkpoint: Historisch exponierte Brave- und Google-Credentials inventarisiert, lokal ausser Betrieb genommen bzw. quarantainisiert, Mission Control bleibt gesund; provider-seitige Revocation bleibt offen.
 - blocker: -
-- updated: 2026-04-14T14:38:51.830Z
+- updated: 2026-04-14T15:10:29.019Z
 <!-- mc:auto-working-context:end -->

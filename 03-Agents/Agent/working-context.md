@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 33eb3d94-9344-4a9b-8884-f26e42a02405 [P2][Follow-up][Forge] Regressionstest fuer gateway:-Sessions im worker-monitor dauerhaft absichern
+- task: 7f4708b2-6630-419b-bf16-d2b6d06a89cd [P1][Follow-up][Forge] Historisch exponierte Mission-Control-Credentials rotieren oder Exposure belastbar schließen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-14T14:40:21.245Z
+- updated: 2026-04-14T15:00:22.063Z
 <!-- mc:auto-working-context:end -->
