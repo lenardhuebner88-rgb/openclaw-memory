@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c4a4de0d-6263-4f84-95eb-e3d54cecb123 [Ignored Residue][E2E Probe Pixel Single][20260414115301] Unused Draft Placeholder
-- stage: DONE
+- task: 3e7d14cb-dee4-4646-9a5e-b178277b9982 [Sprint][MC] Task Tab radikal verschlanken zur klaren Operator-Kanban-Fläche
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Der historische Pixel-E2E-Residue-Draft wurde explizit als ungenutzter Placeholder ohne weiteren Arbeitsbedarf dokumentiert und kann final abgeschlossen werden.
-- blocker: -
-- updated: 2026-04-14T17:15:58.528Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-14T17:50:01.941Z
 <!-- mc:auto-working-context:end -->
