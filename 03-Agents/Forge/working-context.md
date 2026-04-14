@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a7b7e933-9b9e-4dcb-b48a-49dc8efa00dc [probe-live] stale-main retry verify run temp
+- task: ea567bcf-8570-4ba1-b795-df7eb800fa6a probe-live-recovery-target-fix-verification-3
 - stage: DONE
 - next: await next assignment
-- checkpoint: Live-Retry mit stale dispatchTarget=main blieb auf Specialist-Pfad und driftete nicht zu Atlas/main.
+- checkpoint: Recovery-Retry mit stale dispatchTarget=main reproduziert, Endpoint bleibt auf Specialist-Ziel (sre-expert) und driftet nicht zu Atlas/main.
 - blocker: -
-- updated: 2026-04-14T08:53:49.156Z
+- updated: 2026-04-14T09:29:33.135Z
 <!-- mc:auto-working-context:end -->
