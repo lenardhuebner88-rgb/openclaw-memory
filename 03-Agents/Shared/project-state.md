@@ -63,10 +63,8 @@
 
 Modell-Zuweisungen noch nicht live in openclaw.json — Forge-Task ausstehend.
 
-## Board-Stand 2026-04-12 Abend (letzter Heartbeat)
-- done=161 (+37 seit Backup-Restore)
-- assigned=6 | draft=1 | failed=0 ✅ | canceled=1
-- Erstes Mal sauber (failed=0) seit Backup-Restore
+## Board-Stand 2026-04-14
+- Board: done=101 | failed=0 | draft=11 | canceled=128 | in-progress=0
 
 ## Phase-4-Sprint Status (2026-04-12 Abend)
 - Build ✅ | Vitest 135 Tests ✅ | E2E 9/9 ✅
