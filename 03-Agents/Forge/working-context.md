@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5b6e69cf-02c6-4bb6-b27c-c723b3f2e2ea [P1][Forge] Diagnose memory rem-backfill cron SIGKILL and protect last JSON artifact
+- task: e7e256a7-7bb0-4d14-b38a-6c9cf31ed825 [Nightly] Harden execution-report API route with fail-soft error handling
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root cause bestätigt (SIGKILL während rem-harness + unsichere >-Umleitung), atomarer Safe-Wrapper implementiert, Cron umgestellt und Failure/Success-Verhalten mit validem JSON verifiziert.
+- checkpoint: Die execution-report Route hat jetzt einen top-level fail-soft Guard, der unerwartete Fehler als strukturierte 500-JSON zurückgibt, während 400/404-Verhalten unverändert bleibt.
 - blocker: -
-- updated: 2026-04-14T00:59:35.148Z
+- updated: 2026-04-14T02:06:21.783Z
 <!-- mc:auto-working-context:end -->

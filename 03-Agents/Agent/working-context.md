@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 19832711-9e34-42c5-b356-4726a655e64d [P2][Follow-up][Forge] Runtime-Kill-Telemetrie für Cron-/Worker-Runs bei SIGKILL sauber sichtbar machen
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-14T01:20:01.564Z
+- task: e7e256a7-7bb0-4d14-b38a-6c9cf31ed825 [Nightly] Harden execution-report API route with fail-soft error handling
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-14T02:05:14.953Z
 <!-- mc:auto-working-context:end -->
