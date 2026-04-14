@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 03c50cb3-87f4-416f-81ee-87aa9d62f1fa [P2][Follow-up][Forge] Operativen Hide-Pfad fuer nie gestartete Probe-Drafts kanonisch dokumentieren
+- task: 6e288989-4b33-428a-84ec-789386a65a86 [P2][Follow-up][Forge] Kanonischen Probe-Draft-Hide-Doc-Pfad in Board-Artefakten und Referenzen geradeziehen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-14T13:30:10.209Z
+- updated: 2026-04-14T13:40:13.569Z
 <!-- mc:auto-working-context:end -->

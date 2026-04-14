@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 03c50cb3-87f4-416f-81ee-87aa9d62f1fa [P2][Follow-up][Forge] Operativen Hide-Pfad fuer nie gestartete Probe-Drafts kanonisch dokumentieren
+- task: 6e288989-4b33-428a-84ec-789386a65a86 [P2][Follow-up][Forge] Kanonischen Probe-Draft-Hide-Doc-Pfad in Board-Artefakten und Referenzen geradeziehen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Die kanonische operative Doku fuer den Hide-Pfad nie gestarteter Probe-Drafts wurde als Board-Hygiene-Regel festgeschrieben.
+- checkpoint: Die operator-facing Referenzen wurden auf den kanonischen Probe-Draft-Hide-Doku-Pfad unter mission-control vereinheitlicht und kurz validiert.
 - blocker: -
-- updated: 2026-04-14T13:33:04.654Z
+- updated: 2026-04-14T13:42:39.236Z
 <!-- mc:auto-working-context:end -->
