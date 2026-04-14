@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e13a8cc3-3a8f-480f-aaa7-b32f208e1508 [AUDIT-PROOF] Worker fail+retry mini-proof
+- task: 808bee42-7372-4040-a18e-efc6bf221085 validate-models: Ergebnisse permanent speichern
 - stage: DONE
 - next: await next assignment
-- checkpoint: Fail- und Recovery-Retry-Pfad erfolgreich verifiziert: Fail setzt Retry-Metadaten, Recovery-Retry re-primet und redispatched den Task.
+- checkpoint: validate-models speichert Ergebnisse jetzt dauerhaft in memory/validators, nutzt persistente False-Positive-Prefixes aus der Config und kann bei echten Fehlern automatisch einen Board-Task anlegen.
 - blocker: -
-- updated: 2026-04-14T20:44:13.568Z
+- updated: 2026-04-14T21:08:13.481Z
 <!-- mc:auto-working-context:end -->

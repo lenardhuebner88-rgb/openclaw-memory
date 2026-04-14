@@ -379,3 +379,5 @@ Diese Jobs brauchen keine Reasoning-Tiefe. MiniMax M2.7-HS läuft bei Pixel/Jame
 - 2026-04-14T09:49Z worker-monitor Auto-Trigger geprüft: `GET /api/tasks?status=assigned` liefert aktuell zwar weiterhin einen Sammel-Response, aber 0 echte Tasks mit `status=assigned` und `dispatched=false`. `GET /api/agents/concurrency` antwortet live 200 mit freien Slots (Forge 2, Pixel 2, Lens 1, James 1). Kein Dispatch-PATCH gesendet, da nichts real wartete.
 
 - 2026-04-14 12:16 UTC: worker-monitor auto-trigger verarbeitet. 3 assigned Tasks innerhalb der Live-Concurrency dispatcht: d4195d3e -> sre-expert, 2aa516d8 -> researcher, 64bb92dc -> efficiency-auditor. PATCH brauchte zusaetzlich executionState=active wegen 409 auf dispatchState=dispatched + executionState=queued.
+- 2026-04-14T20:57Z worker-monitor trigger abgearbeitet: 2 alte assigned Tasks auf Forge/sre-expert korrigiert, Execution Contract ergänzt und dispatcht; aktueller Batch damit leer.
+- 2026-04-14T20:58Z worker-monitor trigger geprüft: live concurrency healthy, aber 0 echte assigned Tasks nach Statusfilterung. Kein Dispatch nötig.
