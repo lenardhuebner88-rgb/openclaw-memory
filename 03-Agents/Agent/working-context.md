@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d80da3a2-b5c7-46b2-8344-6150de1788df [probe-temp] stale-main retry verify
+- task: 273af885-0067-41a5-a1eb-7a7e78cd36aa probe-live stale-main retry verify run temp local
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T08:30:01.268Z
+- updated: 2026-04-14T09:00:01.217Z
 <!-- mc:auto-working-context:end -->
