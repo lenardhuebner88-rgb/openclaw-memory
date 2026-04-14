@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fbd1d3a8-8a7e-4e4b-9163-5c77ea75f8c0 [P2][Follow-up][Forge] Doku auf kanonische Runtime-Bootstrap-Filterung nachziehen
-- stage: START
+- task: 7c7ad80e-86f5-4712-9704-75e8259871dd [E2E][Forge] Voller Workflow-Durchlauf einmal sauber verifizieren
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Forge E2E workflow smoke-run: accepted task, advanced execution to started/progress, and prepared terminal receipt validation.
 - blocker: -
-- updated: 2026-04-13T19:55:40.058Z
+- updated: 2026-04-14T11:31:31.805Z
 <!-- mc:auto-working-context:end -->

@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2cc37e31-ced2-4f47-a352-b6d583034182 [probe] stale-main retry repro 2
+- task: 7c7ad80e-86f5-4712-9704-75e8259871dd [E2E][Forge] Voller Workflow-Durchlauf einmal sauber verifizieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Recovery-action Retry-Verhalten für stale dispatchTarget=main bestätigt; Retarget bleibt auf sre-expert ohne Drift zu main.
+- checkpoint: Forge-Workflow einmal vollständig über Receipt-Lifecycle bis done verifiziert.
 - blocker: -
-- updated: 2026-04-14T09:57:28.848Z
+- updated: 2026-04-14T11:31:49.853Z
 <!-- mc:auto-working-context:end -->
