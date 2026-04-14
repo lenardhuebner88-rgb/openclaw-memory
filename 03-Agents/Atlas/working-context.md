@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 16aae8d0-733b-4d8d-826b-f94b6ff9b703 [P1][Follow-up][Forge] Specialist-Bridge-Pfad entscheiden und robust absichern
+- task: 28b2f2c8-6053-424b-a3e4-fcaafa91d075 [P1][MC] Wiederholte orphaned auto-fail Reports für denselben Task analysieren und deduplizieren
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T06:50:02.019Z
+- updated: 2026-04-14T07:15:01.852Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)

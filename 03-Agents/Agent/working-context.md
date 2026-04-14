@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 16aae8d0-733b-4d8d-826b-f94b6ff9b703 [P1][Follow-up][Forge] Specialist-Bridge-Pfad entscheiden und robust absichern
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-14T06:35:01.232Z
+- task: b9b88632-06a1-43fa-805e-07e151974133 [P0][RCA+Fix][MC] Dispatch-/Retry-Target drift auf main verhindern und Specialist-Routing stabilisieren
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-14T07:25:17.797Z
 <!-- mc:auto-working-context:end -->

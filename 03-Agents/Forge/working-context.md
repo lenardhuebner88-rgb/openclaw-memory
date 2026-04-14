@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d302e11f-722e-48e2-a544-9333bdcd7c24 [P0][Audit][MC] Mini-Audit auf Worker-E2E-Stabilität und kritische Lifecycle-Brüche
+- task: b9b88632-06a1-43fa-805e-07e151974133 [P0][RCA+Fix][MC] Dispatch-/Retry-Target drift auf main verhindern und Specialist-Routing stabilisieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Mini-Audit abgeschlossen: reale E2E-Proofs für Erfolg/Fail+Retry durchgeführt und kritische Specialist-/Recovery-Brüche klar priorisiert.
+- checkpoint: Retry/Dispatch-Drift auf main wurde im Recovery-Pfad ursächlich gefixt und per Specialist-E2E-Testpfad verifiziert.
 - blocker: -
-- updated: 2026-04-14T06:24:45.864Z
+- updated: 2026-04-14T07:26:59.286Z
 <!-- mc:auto-working-context:end -->

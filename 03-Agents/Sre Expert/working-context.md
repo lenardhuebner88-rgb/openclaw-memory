@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f7ab3e34-4930-4ca8-8749-74f4efa41563 [P0][MC] Split-brain dauerhaft beseitigen: Kanonischen Workspace festziehen, zweiten Pfad entwaffnen, Worker-Dokumente korrigieren
+- task: 28b2f2c8-6053-424b-a3e4-fcaafa91d075 [P1][MC] Wiederholte orphaned auto-fail Reports für denselben Task analysieren und deduplizieren
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T06:15:01.619Z
+- updated: 2026-04-14T07:10:01.746Z
 <!-- mc:auto-working-context:end -->
