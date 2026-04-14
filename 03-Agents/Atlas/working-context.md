@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d28b6b02-24a0-4617-ae20-93d8d4a32410 [P2][Follow-up][Lens] board-events Receipt-Historie auf low-value Lifecycle-Rauschen prüfen
+- task: 19832711-9e34-42c5-b356-4726a655e64d [P2][Follow-up][Forge] Runtime-Kill-Telemetrie für Cron-/Worker-Runs bei SIGKILL sauber sichtbar machen
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T00:00:01.991Z
+- updated: 2026-04-14T01:35:01.379Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)
