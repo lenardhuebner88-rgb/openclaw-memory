@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7b242683-6af1-4fe5-b15d-206418de3c3c Fix dispatch-router timeout escalation
+- task: a7a946b2-b0a1-4a67-b9fc-caa3c35fca52 [P1][Forge] Pixel-Produktivtask-Fehlpfad root-causen und fuer stabilen Re-Run vorbereiten
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-14T15:56:35.087Z
+- updated: 2026-04-14T17:10:24.593Z
 <!-- mc:auto-working-context:end -->

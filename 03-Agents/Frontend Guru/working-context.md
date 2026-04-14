@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cf460691-feb7-434b-97b9-53182c16c168 [E2E Probe 2][Pixel] Workflow-Verifikation
+- task: 3e7d14cb-dee4-4646-9a5e-b178277b9982 [Sprint][MC] Task Tab radikal verschlanken zur klaren Operator-Kanban-Fläche
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T16:05:04.078Z
+- updated: 2026-04-14T17:05:02.147Z
 <!-- mc:auto-working-context:end -->

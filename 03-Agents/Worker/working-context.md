@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d4195d3e-70b3-4f5f-9c46-67525a050e1d [P2][Follow-up][Forge] Nie gestartete Probe-Drafts per legalem Cleanup-Pfad terminalisieren oder sauber ausblenden
+- task: c4a4de0d-6263-4f84-95eb-e3d54cecb123 [Ignored Residue][E2E Probe Pixel Single][20260414115301] Unused Draft Placeholder
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T12:20:01.745Z
+- updated: 2026-04-14T17:10:01.469Z
 <!-- mc:auto-working-context:end -->
