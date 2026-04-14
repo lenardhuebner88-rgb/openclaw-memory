@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: aae75656-44a6-4b3d-9e39-70825b763942 [P2][Follow-up][Forge] Negative PATCH-Transitions außerhalb definierter Reopen-Pfade mit 409 absichern
+- task: 5b6e69cf-02c6-4bb6-b27c-c723b3f2e2ea [P1][Forge] Diagnose memory rem-backfill cron SIGKILL and protect last JSON artifact
 - stage: DONE
 - next: await next assignment
-- checkpoint: Ein gezielter negativer PATCH-Regressionstest wurde ergänzt, der einen verbotenen Rücksprung außerhalb der Reopen-Pfade weiterhin mit 409 absichert.
+- checkpoint: Root cause bestätigt (SIGKILL während rem-harness + unsichere >-Umleitung), atomarer Safe-Wrapper implementiert, Cron umgestellt und Failure/Success-Verhalten mit validem JSON verifiziert.
 - blocker: -
-- updated: 2026-04-13T23:42:03.192Z
+- updated: 2026-04-14T00:59:35.148Z
 <!-- mc:auto-working-context:end -->

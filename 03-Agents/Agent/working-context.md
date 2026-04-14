@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: aae75656-44a6-4b3d-9e39-70825b763942 [P2][Follow-up][Forge] Negative PATCH-Transitions außerhalb definierter Reopen-Pfade mit 409 absichern
+- task: 19832711-9e34-42c5-b356-4726a655e64d [P2][Follow-up][Forge] Runtime-Kill-Telemetrie für Cron-/Worker-Runs bei SIGKILL sauber sichtbar machen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-13T23:40:13.490Z
+- updated: 2026-04-14T01:15:22.330Z
 <!-- mc:auto-working-context:end -->
