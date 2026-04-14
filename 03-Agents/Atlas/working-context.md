@@ -264,12 +264,12 @@ return format: POST /api/tasks/<id>/receipt mit resultDetails (## Was implementi
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f657010f-7dfe-4b56-b010-a929fbb7c3bb [DONE-BUT-SECURITY-BLOCKED] [BUG] Task Persistence — erstellte Tasks verschwinden nach MC-Restart
+- task: d28b6b02-24a0-4617-ae20-93d8d4a32410 [P2][Follow-up][Lens] board-events Receipt-Historie auf low-value Lifecycle-Rauschen prüfen
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-13T23:20:01.550Z
+- updated: 2026-04-14T00:00:01.991Z
 <!-- mc:auto-working-context:end -->
 
 ## Cron-Modell-Strategie — Empfehlung (Stand 2026-04-13)
