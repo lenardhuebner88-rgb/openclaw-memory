@@ -375,3 +375,5 @@ Diese Jobs brauchen keine Reasoning-Tiefe. MiniMax M2.7-HS läuft bei Pixel/Jame
 
 - worker-monitor auto-trigger geprüft: live bleibt nur Gate-A-Testtask `e456e4d5-5567-4a19-ae19-edcaf34f9ea2` auf `assigned`, aber ohne Ziel-Agent (`assigned_agent=unassigned`). Concurrency-Fallback zeigt freie Slots (`sre-expert` 1, `frontend-guru` 1, `efficiency-auditor` 1, `researcher` 1). Kein Dispatch ausgeführt.
 - 2026-04-14T08:19Z Forge-Probe `probe-local stale-main verification` geprueft: Live-Probe bestaetigt den erwarteten Schutzpfad. Retry eines stale `dispatchTarget=main` driftet nicht zu Atlas, sondern korrigiert auf `sre-expert` und stoppt ohne Bridge mit 409. Kein neues Finding, kein Follow-up-Task erstellt.
+
+- 2026-04-14T09:49Z worker-monitor Auto-Trigger geprüft: `GET /api/tasks?status=assigned` liefert aktuell zwar weiterhin einen Sammel-Response, aber 0 echte Tasks mit `status=assigned` und `dispatched=false`. `GET /api/agents/concurrency` antwortet live 200 mit freien Slots (Forge 2, Pixel 2, Lens 1, James 1). Kein Dispatch-PATCH gesendet, da nichts real wartete.
