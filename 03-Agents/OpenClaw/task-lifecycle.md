@@ -184,3 +184,5 @@
 - 2026-04-15T07:30:01.641Z | FAILED | cca6a63d-beb2-4e27-96f1-bfa123df2e3a | [Sprint][Atlas] Recovery/Retry-Automation Architektur-Analyse | worker=atlas | progress=- | summary=Failed after 3 attempts: Worker failed | note=Worker failed
 - 2026-04-15T07:30:03.778Z | FAILED | 9ffe3ad1-91b3-4e2d-ad5c-8c2372eca46a | [NEXT] Fix systemic LiveSessionModelSwitchError | worker=researcher | progress=- | summary=Failed after 2 attempts: Worker failed | note=Worker failed
 - 2026-04-15T07:40:02.494Z | FAILED | 9ffe3ad1-91b3-4e2d-ad5c-8c2372eca46a | [NEXT] Fix systemic LiveSessionModelSwitchError | worker=researcher | progress=- | summary=Failed after 3 attempts: Worker failed | note=Worker failed
+- 2026-04-15T08:35:12.352Z | START | 0e581133-49b3-4cc4-afb6-e4ee113d4084 | [P0] Doppelter MC Service deaktivieren (System-Service) | worker=agent | progress=- | summary=-
+- 2026-04-15T08:36:07.702Z | DONE | 0e581133-49b3-4cc4-afb6-e4ee113d4084 | [P0] Doppelter MC Service deaktivieren (System-Service) | worker=Forge | progress=- | summary=Der System-Service mission-control wurde deaktiviert und gestoppt; er ist jetzt disabled und inactive.

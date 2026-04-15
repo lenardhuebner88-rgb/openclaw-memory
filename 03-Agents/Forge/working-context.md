@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 54fa315a-169f-44e0-9221-5baf45c371fa [P1] Worker-Monitor Header für /agents/concurrency korrigieren
+- task: 0e581133-49b3-4cc4-afb6-e4ee113d4084 [P0] Doppelter MC Service deaktivieren (System-Service)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Die Header-Behandlung für GET /api/agents/concurrency in worker-monitor.py wurde korrigiert und robust gegen Query-Strings gemacht.
+- checkpoint: Der System-Service mission-control wurde deaktiviert und gestoppt; er ist jetzt disabled und inactive.
 - blocker: -
-- updated: 2026-04-15T06:06:12.405Z
+- updated: 2026-04-15T08:36:07.702Z
 <!-- mc:auto-working-context:end -->
