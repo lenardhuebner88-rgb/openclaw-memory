@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 34c822a7-5fd9-4e4e-96da-eb80f11957c4 [AUDIT-PROOF] Specialist spawn bridge check
+- task: 9ffe3ad1-91b3-4e2d-ad5c-8c2372eca46a [NEXT] Fix systemic LiveSessionModelSwitchError
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T20:50:03.052Z
+- updated: 2026-04-15T07:30:03.778Z
 <!-- mc:auto-working-context:end -->
