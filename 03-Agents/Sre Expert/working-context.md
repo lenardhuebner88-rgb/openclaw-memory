@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d84bda8d-92b5-4547-8679-369efcace6cc [P2][Follow-up][Forge] Provider-/Support-Paket für GPT-5.4-Pro-Enablement im echten OpenAI-Codex-Pfad vorbereiten
+- task: c4d5a3a2-568d-4e80-b9a1-3bedd003a1e6 [P2][Follow-up][Forge] Terminale Tasks gegen späte non-terminale Receipts härten
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T18:45:01.943Z
+- updated: 2026-04-15T21:30:03.286Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: complete-review-task Complete discipline task
-- stage: DONE
-- next: await next assignment
-- checkpoint: Review accepted, shipped
-- blocker: -
-- updated: 2026-04-15T16:13:49.907Z
+- task: receipt-blocked-task Receipt blocked task
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Needs human decision
+- blocker: Needs human decision
+- updated: 2026-04-15T21:35:59.705Z
 <!-- mc:auto-working-context:end -->

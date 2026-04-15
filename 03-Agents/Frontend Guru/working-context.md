@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 43acbb0a-490a-4802-9ad5-7db5f02fe824 [Sprint][MC] Team Tab Org Chart Multi-Sprint Redesign umsetzen
-- stage: DONE
-- next: await next assignment
-- checkpoint: Team Tab Org Chart Redesign implementiert: team-data.ts mit Departments/Hierarchie, Spark umgeschrieben, Flash+Pulse hidden, James angelegt; OrgChart-Komponente mit SVG-Baumstruktur; TeamClient mit Org/List-Toggle; npm r
+- task: 39ac1bea-57dd-43c0-84a7-366309fe3d42 [P2][Follow-up][Pixel] Team Tab Org Chart live auf Desktop und Mobile verifizieren
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-15T21:17:41.092Z
+- updated: 2026-04-15T21:30:02.354Z
 <!-- mc:auto-working-context:end -->

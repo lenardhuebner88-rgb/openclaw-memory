@@ -39,3 +39,14 @@
 
 - Automated worker pickup trigger received; checking /api/worker-pickups and dispatching ready tasks.
 - 2026-04-13T14:51:45Z Dispatch-Check gestartet: assigned Tasks prüfen und gemäß worker-monitor Trigger dispatchen.\n
+## Memory Architecture Cleanup (2026-04-15)
+- 5 parallel daily-note locations consolidated to 3 with clear ownership
+- `workspace/memory/daily/` = OpenClaw native, auto-injected (today+yesterday)
+- `vault/01-Daily/` = Human manual notes only, never auto-injected
+- `vault/03-Agents/OpenClaw/daily/` = Agent auto-writes, read on-demand
+- Removed: `vault/memory/daily/`, vault root loose dailies, `01-Daily/` stubs
+- `workspace/memory/` root is now clean — no loose dated files
+- MEMORY.md trimmed from 37.5K to 2.7K (was being truncated by bootstrapMaxChars!)
+- Dreaming promotion to MEMORY.md disabled via `promotion_target=none` directive
+- Dead-agent SQLite DBs archived, dead workspaces archived
+- Per-agent AGENTS.md/IDENTITY.md/BOOTSTRAP.md deduplicated via symlinks to workspace-shared/

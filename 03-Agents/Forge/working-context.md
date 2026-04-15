@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1e45312e-af76-4487-becb-96692ca213fe [P2] Thread-Reporting für Ergebnisse, Lückenanalyse für fehlende Threads
+- task: c4d5a3a2-568d-4e80-b9a1-3bedd003a1e6 [P2][Follow-up][Forge] Terminale Tasks gegen späte non-terminale Receipts härten
 - stage: DONE
 - next: await next assignment
-- checkpoint: Thread-bevorzugtes Result-Reporting implementiert, Gap-Ursachen identifiziert und priorisierte Fix-Empfehlungen dokumentiert.
+- checkpoint: Receipt-Writeback ist gehärtet: non-terminale Receipts auf terminalen Tasks werden jetzt idempotent ignoriert, inkl. Regressionstest.
 - blocker: -
-- updated: 2026-04-15T21:04:58.772Z
+- updated: 2026-04-15T21:36:25.256Z
 <!-- mc:auto-working-context:end -->
