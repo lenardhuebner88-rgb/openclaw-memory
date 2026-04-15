@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0d69b959-b24e-4124-983a-bf339cb6c2eb [P1][Follow-up][Forge] Deterministisches Modellrouting für Fallbacks und Background-Jobs härten
+- task: c3ca3101-e634-46d6-860b-d6a858410285 [P2][Follow-up][Forge] Provider-/Support-Anfrage für GPT-5.4-Pro-Enablement konkret auslösen oder externen Owner-Handoff belastbar abschließen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Fallback chains and background job routing were pinned to short deterministic paths.
+- checkpoint: Provider-Anfrage fuer gpt-5.4-pro wurde aus dieser Runtime belastbar externalisiert: sendefertiger Support-Text, Owner, Zielkanal und Verifikationspfad sind abgeschlossen.
 - blocker: -
-- updated: 2026-04-15T18:58:37.623Z
+- updated: 2026-04-15T20:12:10.486Z
 <!-- mc:auto-working-context:end -->

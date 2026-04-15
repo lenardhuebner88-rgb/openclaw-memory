@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f46fe6c5-9a7b-44e7-a486-f46c87b65974 startedAt persistence validation probe result
-- stage: DONE
+- task: e26eb80e-160c-458b-9ae3-1d637a34162d [TEST] startedAt persistence check
+- stage: FAILED
 - next: await next assignment
-- checkpoint: validation success
-- blocker: -
-- updated: 2026-04-15T19:22:51.611Z
+- checkpoint: Simulated failure for startedAt test
+- blocker: Simulated failure for startedAt test
+- updated: 2026-04-15T20:20:52.336Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.
