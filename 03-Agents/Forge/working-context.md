@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d98dd4aa-99d1-4175-a7fd-f08fc8214f77 [P1][Follow-up][Forge] SQLite-VACUUM-Cron von worker-Session auf robuste kanonische Bindung umstellen
+- task: 54fa315a-169f-44e0-9221-5baf45c371fa [P1] Worker-Monitor Header für /agents/concurrency korrigieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Der SQLite-VACUUM-Cron wurde von einer rotierenden Worker-Einzel-Session auf robuste isolierte Ausfuehrung umgestellt, bei unveraendert stillem alert=none-Verhalten.
+- checkpoint: Die Header-Behandlung für GET /api/agents/concurrency in worker-monitor.py wurde korrigiert und robust gegen Query-Strings gemacht.
 - blocker: -
-- updated: 2026-04-15T05:57:47.476Z
+- updated: 2026-04-15T06:06:12.405Z
 <!-- mc:auto-working-context:end -->
