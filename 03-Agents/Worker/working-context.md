@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 90a7e861-3e3b-43b2-a7ab-de2ab51a7776 [P1][Follow-up][Forge] Terminale Result-Pfade auf zentralen Thread-Reporter vereinheitlichen und Thread-Audit persistieren
+- task: 7ef76135-633d-4c51-9f5e-8a8c2e71a065 [P2][Follow-up][Forge] Operator overview CTA href-encoding fix (F7)
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T21:10:02.147Z
+- updated: 2026-04-15T22:25:02.701Z
 <!-- mc:auto-working-context:end -->

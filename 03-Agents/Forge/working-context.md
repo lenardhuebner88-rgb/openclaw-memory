@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c4d5a3a2-568d-4e80-b9a1-3bedd003a1e6 [P2][Follow-up][Forge] Terminale Tasks gegen späte non-terminale Receipts härten
+- task: a9d6f4d9-34aa-4504-9f58-bb3964ddd2ad [P2][Follow-up][Forge] Unrelated pre-existing Test-Failures nach Telemetrie-Härtung triagieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Receipt-Writeback ist gehärtet: non-terminale Receipts auf terminalen Tasks werden jetzt idempotent ignoriert, inkl. Regressionstest.
+- checkpoint: Triage der 9 pre-existing Test-Failures abgeschlossen.
 - blocker: -
-- updated: 2026-04-15T21:36:25.256Z
+- updated: 2026-04-15T22:08:38.500Z
 <!-- mc:auto-working-context:end -->
