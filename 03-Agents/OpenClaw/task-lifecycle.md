@@ -199,3 +199,7 @@
 - 2026-04-15T16:13:28.064Z | DONE | complete-review-unblock-task | Complete review unblock task | worker=unassigned | progress=- | summary=Released from review
 - 2026-04-15T16:13:49.906Z | DONE | complete-review-task | Complete discipline task | worker=unassigned | progress=- | summary=Review accepted, shipped
 - 2026-04-15T16:18:39.365Z | DONE | 4401fddc-d4f7-4010-a593-f50ff3050d5c | [P1] OpenClaw Modell- und Auth-Setup Ist-/Soll-Analyse für GPT-5.4 / GPT-5.4 Pro / MiniMax | worker=Forge | progress=- | summary=Ist-Zustand, Auth-Lage und belastbarer Soll-Zustand fuer GPT-5.4, MiniMax und den fehlenden GPT-5.4-Pro-Pfad wurden live belegt und als Minimalplan zusammengefasst.
+- 2026-04-15T16:51:06.134Z | DONE | 06bcc84c-7975-40fd-9238-f0dd9a35a406 | [P1] Completion-Flow reparieren: workerSessionId / review / done | worker=forge | progress=- | summary=E2E completion-flow check passed
+- 2026-04-15T16:54:23.705Z | DONE | a50dc837-5079-4dd9-8592-137cb6005ade | [P1] Board-/Security-Deadlocks entschärfen | worker=forge | progress=- | summary=E2E deadlocks check passed
+- 2026-04-15T16:58:18.271Z | DONE | 49a11c0e-b4ee-4669-8933-6ba011136439 | [P2] Stuck-/Altlasten-Cleanup automatisieren | worker=forge | progress=- | summary=E2E cleanup check passed
+- 2026-04-15T17:20:01.784Z | FAILED | 89011d6e-89ef-49a3-8c04-7f7d98e11583 | [P1][Follow-up][Forge] Agent-to-Agent Allowlist für Atlas und Spark Relief konsistent freischalten | worker=worker | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed

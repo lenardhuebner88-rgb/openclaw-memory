@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c4a4de0d-6263-4f84-95eb-e3d54cecb123 [Ignored Residue][E2E Probe Pixel Single][20260414115301] Unused Draft Placeholder
+- task: 89011d6e-89ef-49a3-8c04-7f7d98e11583 [P1][Follow-up][Forge] Agent-to-Agent Allowlist für Atlas und Spark Relief konsistent freischalten
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T17:10:01.469Z
+- updated: 2026-04-15T17:20:01.785Z
 <!-- mc:auto-working-context:end -->

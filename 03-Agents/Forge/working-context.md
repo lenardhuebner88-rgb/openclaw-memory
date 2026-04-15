@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4401fddc-d4f7-4010-a593-f50ff3050d5c [P1] OpenClaw Modell- und Auth-Setup Ist-/Soll-Analyse für GPT-5.4 / GPT-5.4 Pro / MiniMax
+- task: 49a11c0e-b4ee-4669-8933-6ba011136439 [P2] Stuck-/Altlasten-Cleanup automatisieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Ist-Zustand, Auth-Lage und belastbarer Soll-Zustand fuer GPT-5.4, MiniMax und den fehlenden GPT-5.4-Pro-Pfad wurden live belegt und als Minimalplan zusammengefasst.
+- checkpoint: E2E cleanup check passed
 - blocker: -
-- updated: 2026-04-15T16:18:39.366Z
+- updated: 2026-04-15T16:58:18.272Z
 <!-- mc:auto-working-context:end -->
