@@ -290,3 +290,6 @@
 - 2026-04-15T23:00:02.430Z | START | 1084a3ab-411b-4524-ad11-c96367fa131d | [ANALYSIS] Remove-Liste für Agenten-Cleanup präzisieren | worker=worker | progress=- | summary=-
 - 2026-04-15T23:00:03.096Z | START | 508d272f-cde5-4a95-ad67-7696002bf36d | [CLEANUP] Agentenstruktur auf 6 Kernagenten reduzieren | worker=worker | progress=- | summary=-
 - 2026-04-15T23:00:03.470Z | START | a668ec7f-7fe9-460b-ac85-41a923327210 | [Research+E2E][Spark] GPT-5.3 Codex Spark Stand prüfen, Lücken identifizieren, Worker-E2E verifizieren | worker=worker | progress=- | summary=-
+- 2026-04-15T23:30:01.926Z | FAILED | 7ef76135-633d-4c51-9f5e-8a8c2e71a065 | [P2][Follow-up][Forge] Operator overview CTA href-encoding fix (F7) | worker=agent | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
+- 2026-04-15T23:30:02.649Z | FAILED | cfe8dbe9-5492-4ced-b0fb-b2b1814656e8 | [P1][Follow-up][Pixel] Mobile modal small-viewport Verify (F12) | worker=agent | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
+- 2026-04-15T23:42:50.830Z | DONE | cfe8dbe9-5492-4ced-b0fb-b2b1814656e8 | [P1][Follow-up][Pixel] Mobile modal small-viewport Verify (F12) | worker=frontend-guru | progress=- | summary=F12 = Testdrift (falsche testid), kein Produktfehler. Reproduziert und klar eingeordnet. Test in mobile-operative-gates.spec.ts gefixt.

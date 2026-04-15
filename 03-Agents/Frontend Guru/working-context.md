@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 39ac1bea-57dd-43c0-84a7-366309fe3d42 [P2][Follow-up][Pixel] Team Tab Org Chart live auf Desktop und Mobile verifizieren
-- stage: FAILED
+- task: cfe8dbe9-5492-4ced-b0fb-b2b1814656e8 [P1][Follow-up][Pixel] Mobile modal small-viewport Verify (F12)
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-15T22:55:02.300Z
+- checkpoint: F12 = Testdrift (falsche testid), kein Produktfehler. Reproduziert und klar eingeordnet. Test in mobile-operative-gates.spec.ts gefixt.
+- blocker: -
+- updated: 2026-04-15T23:42:50.832Z
 <!-- mc:auto-working-context:end -->
