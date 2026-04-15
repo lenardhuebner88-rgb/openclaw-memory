@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0e581133-49b3-4cc4-afb6-e4ee113d4084 [P0] Doppelter MC Service deaktivieren (System-Service)
+- task: 19d0de4c-0975-4d69-8017-1a7bd16c3b90 Obsidian #3 — Session-Start Auto-Read Atlas
 - stage: DONE
 - next: await next assignment
-- checkpoint: Der System-Service mission-control wurde deaktiviert und gestoppt; er ist jetzt disabled und inactive.
+- checkpoint: Atlas Session-Start Auto-Read lädt jetzt konsistent user-profile, Shared/Operational/Working-Context sowie standardmäßig das heutige Daily für AGENT=atlas.
 - blocker: -
-- updated: 2026-04-15T08:36:07.702Z
+- updated: 2026-04-15T08:43:38.992Z
 <!-- mc:auto-working-context:end -->

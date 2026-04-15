@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0e581133-49b3-4cc4-afb6-e4ee113d4084 [P0] Doppelter MC Service deaktivieren (System-Service)
+- task: 19d0de4c-0975-4d69-8017-1a7bd16c3b90 Obsidian #3 — Session-Start Auto-Read Atlas
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T08:35:12.353Z
+- updated: 2026-04-15T08:40:22.654Z
 <!-- mc:auto-working-context:end -->

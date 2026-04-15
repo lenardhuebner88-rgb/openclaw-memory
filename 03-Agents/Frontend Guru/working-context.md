@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ff389ff3-549d-4587-aa28-06423f4e11b8 MC Frontend Upgrade 3/3: Motion Animation Stack voll ausschöpfen
-- stage: FAILED
+- task: a3cbcacd-a7b1-41bb-835c-8fc19f1244a3 Obsidian #2 — Windows Sync automatisieren
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-14T20:05:26.606Z
+- checkpoint: Die drei Windows-Sync-Optionen wurden verglichen und als beste Praxis ein Task-Scheduler-gestuetztes, ping-barriered Git-Sync-Script fuer den Vault empfohlen.
+- blocker: -
+- updated: 2026-04-15T08:42:01.240Z
 <!-- mc:auto-working-context:end -->

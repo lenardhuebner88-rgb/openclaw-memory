@@ -51,3 +51,5 @@
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.
 - 2026-04-15 08:31 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` zeigte 4 Assigned-Tasks; 1 dispatchbarer Forge-Task (`0e581133-49b3-4cc4-afb6-e4ee113d4084`) wurde wegen freiem `sre-expert`-Slot auf `status=in-progress`, `dispatchState=dispatched`, `executionState=active`, `lastExecutionEvent=dispatch` gepatcht. 3 verbleibende Assigned-Tasks sind weiter `assigned_agent=unassigned` und daher nicht regelkonform dispatchbar.
+
+- 2026-04-15 10:42 Europe/Berlin: Session-start auto-read angepasst: lädt jetzt user-profile + project-state + decisions-log + checkpoints + operational-state + Atlas working-context; Daily für Atlas standardmäßig aktiv (INCLUDE_DAILY auto=1).
