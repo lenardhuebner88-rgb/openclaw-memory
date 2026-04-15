@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d84bda8d-92b5-4547-8679-369efcace6cc [P2][Follow-up][Forge] Provider-/Support-Paket für GPT-5.4-Pro-Enablement im echten OpenAI-Codex-Pfad vorbereiten
+- task: 0d69b959-b24e-4124-983a-bf339cb6c2eb [P1][Follow-up][Forge] Deterministisches Modellrouting für Fallbacks und Background-Jobs härten
 - stage: DONE
 - next: await next assignment
-- checkpoint: Provider-/Support-Paket fuer die finale Klaerung des gpt-5.4-pro-Enablements ist fertig, inklusive Evidenz, Fragenkatalog und kleinem Entscheidungsbaum ohne produktive Aenderung.
+- checkpoint: Fallback chains and background job routing were pinned to short deterministic paths.
 - blocker: -
-- updated: 2026-04-15T18:47:33.095Z
+- updated: 2026-04-15T18:58:37.623Z
 <!-- mc:auto-working-context:end -->

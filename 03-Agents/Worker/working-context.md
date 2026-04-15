@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f6c1a006-3827-4b9c-8830-734640cb54ab [P2][Follow-up][Forge] OpenAI-Codex-Auth-Pfad für echtes GPT-5.4-Pro-Enablement belastbar klären
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-15T18:30:01.254Z
+- task: c3ca3101-e634-46d6-860b-d6a858410285 [P2][Follow-up][Forge] Provider-/Support-Anfrage für GPT-5.4-Pro-Enablement konkret auslösen oder externen Owner-Handoff belastbar abschließen
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-15T18:55:03.594Z
 <!-- mc:auto-working-context:end -->

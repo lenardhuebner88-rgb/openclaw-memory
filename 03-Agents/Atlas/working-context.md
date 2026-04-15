@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cca6a63d-beb2-4e27-96f1-bfa123df2e3a [Sprint][Atlas] Recovery/Retry-Automation Architektur-Analyse
+- task: fb4734c7-f304-4d83-8077-fc3f3761c2e0 startedAt persistence validation probe
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-15T07:30:01.641Z
+- checkpoint: validation terminal receipt
+- blocker: validation terminal receipt
+- updated: 2026-04-15T19:21:58.141Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.
