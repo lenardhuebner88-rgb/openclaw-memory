@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 808bee42-7372-4040-a18e-efc6bf221085 validate-models: Ergebnisse permanent speichern
+- task: fc2f4471-6722-428c-8e9e-d5b4322353e8 [P2][Follow-up][Forge] Automatisierten fail-soft Regressionstest für Task-Move-Route ergänzen
 - stage: DONE
 - next: await next assignment
-- checkpoint: validate-models speichert Ergebnisse jetzt dauerhaft in memory/validators, nutzt persistente False-Positive-Prefixes aus der Config und kann bei echten Fehlern automatisch einen Board-Task anlegen.
+- checkpoint: Gezielter Fail-Soft-Regressionstest für die Task-Move-Route ergänzt und lokal grün validiert.
 - blocker: -
-- updated: 2026-04-14T21:08:13.481Z
+- updated: 2026-04-15T02:22:50.262Z
 <!-- mc:auto-working-context:end -->

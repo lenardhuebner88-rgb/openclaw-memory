@@ -19,3 +19,8 @@
 
 ## Nächster operativer Schritt
 - Neue Findings direkt als Tasks mit Execution Contract erstellen und in Prioritätswellen dispatchen.
+
+
+- 2026-04-15 04:00 Europe/Berlin: Nightly self-improvement run started, scanning all 6 required sources for highest-stability candidate.
+
+- 2026-04-15 04:03 Europe/Berlin: Nightly run completed. Delegated Forge task 76d18b7f-6445-4858-8498-34790a4a079a to harden tasks/[id]/move route with fail-soft error handling.
