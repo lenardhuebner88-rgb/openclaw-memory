@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 28b2f2c8-6053-424b-a3e4-fcaafa91d075 [P1][MC] Wiederholte orphaned auto-fail Reports für denselben Task analysieren und deduplizieren
+- task: a11c2ce2-4d30-4aa5-96aa-0b45d3c34e2e [P1] Discord Token aus override.conf in .env verschieben
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T07:10:01.746Z
+- updated: 2026-04-15T05:30:01.696Z
 <!-- mc:auto-working-context:end -->

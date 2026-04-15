@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fc2f4471-6722-428c-8e9e-d5b4322353e8 [P2][Follow-up][Forge] Automatisierten fail-soft Regressionstest für Task-Move-Route ergänzen
+- task: 7bab80f9-a870-40d3-9708-3bccf5366610 [P1] Reporting-Matrix sauber definieren und Atlas-Entscheidungslogik ableiten
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T02:20:17.703Z
+- updated: 2026-04-15T05:05:13.169Z
 <!-- mc:auto-working-context:end -->

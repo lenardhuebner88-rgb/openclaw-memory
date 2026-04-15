@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fc2f4471-6722-428c-8e9e-d5b4322353e8 [P2][Follow-up][Forge] Automatisierten fail-soft Regressionstest für Task-Move-Route ergänzen
+- task: 7bab80f9-a870-40d3-9708-3bccf5366610 [P1] Reporting-Matrix sauber definieren und Atlas-Entscheidungslogik ableiten
 - stage: DONE
 - next: await next assignment
-- checkpoint: Gezielter Fail-Soft-Regressionstest für die Task-Move-Route ergänzt und lokal grün validiert.
+- checkpoint: Eine kompakte Reporting-Matrix mit Atlas-Filterlogik, Schwellenwerten und Kanalempfehlungen für OpenClaw wurde ausgearbeitet.
 - blocker: -
-- updated: 2026-04-15T02:22:50.262Z
+- updated: 2026-04-15T05:07:16.533Z
 <!-- mc:auto-working-context:end -->
