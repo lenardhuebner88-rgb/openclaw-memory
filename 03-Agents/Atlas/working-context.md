@@ -24,3 +24,4 @@
 - 2026-04-15 04:00 Europe/Berlin: Nightly self-improvement run started, scanning all 6 required sources for highest-stability candidate.
 
 - 2026-04-15 04:03 Europe/Berlin: Nightly run completed. Delegated Forge task 76d18b7f-6445-4858-8498-34790a4a079a to harden tasks/[id]/move route with fail-soft error handling.
+- 2026-04-15 06:56 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` zeigt 3 echte Assigned-Tasks (`7bab80f9-a870-40d3-9708-3bccf5366610`, `731b522c-38ba-4382-b777-23a1f7676ae9`, `f3e59dba-0427-4ae2-a6e5-c12df1ec45a0`), alle Forge -> `sre-expert`, jeweils `dispatched=false`, `dispatchState=queued`. `GET /api/agents/concurrency` antwortet 200 mit `sre-expert` bei 3/3 (`available=0`), daher kein Dispatch-PATCH ausgeführt.
