@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a9d6f4d9-34aa-4504-9f58-bb3964ddd2ad [P2][Follow-up][Forge] Unrelated pre-existing Test-Failures nach Telemetrie-Härtung triagieren
+- task: 90a7e861-3e3b-43b2-a7ab-de2ab51a7776 [P1][Follow-up][Forge] Terminale Result-Pfade auf zentralen Thread-Reporter vereinheitlichen und Thread-Audit persistieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Triage der 9 pre-existing Test-Failures abgeschlossen.
+- checkpoint: Terminale Pfade vereinheitlicht: threadId/threadError persistiert, /fail ruft emitTaskLifecycleReport, 3 Regressionstests.
 - blocker: -
-- updated: 2026-04-15T22:08:38.500Z
+- updated: 2026-04-15T22:44:41.608Z
 <!-- mc:auto-working-context:end -->

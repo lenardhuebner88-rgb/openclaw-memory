@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: gateway-pixel-rebind Gateway run binding regression
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Pixel worker picked up the task.
-- blocker: -
-- updated: 2026-04-15T21:57:46.128Z
+- task: 39ac1bea-57dd-43c0-84a7-366309fe3d42 [P2][Follow-up][Pixel] Team Tab Org Chart live auf Desktop und Mobile verifizieren
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-15T22:55:02.300Z
 <!-- mc:auto-working-context:end -->

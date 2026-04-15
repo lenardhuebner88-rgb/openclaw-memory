@@ -272,3 +272,18 @@
 - 2026-04-15T22:25:01.652Z | FAILED | 90a7e861-3e3b-43b2-a7ab-de2ab51a7776 | [P1][Follow-up][Forge] Terminale Result-Pfade auf zentralen Thread-Reporter vereinheitlichen und Thread-Audit persistieren | worker=agent | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
 - 2026-04-15T22:25:02.200Z | START | cfe8dbe9-5492-4ced-b0fb-b2b1814656e8 | [P1][Follow-up][Pixel] Mobile modal small-viewport Verify (F12) | worker=worker | progress=- | summary=-
 - 2026-04-15T22:25:02.700Z | START | 7ef76135-633d-4c51-9f5e-8a8c2e71a065 | [P2][Follow-up][Forge] Operator overview CTA href-encoding fix (F7) | worker=worker | progress=- | summary=-
+- 2026-04-15T22:35:02.056Z | FAILED | 39ac1bea-57dd-43c0-84a7-366309fe3d42 | [P2][Follow-up][Pixel] Team Tab Org Chart live auf Desktop und Mobile verifizieren | worker=agent | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
+- 2026-04-15T22:37:04.198Z | DONE | audit-task-1 | Audit task | worker=Forge | progress=- | summary=Done
+- 2026-04-15T22:38:37.261Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-15T22:38:37.296Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
+- 2026-04-15T22:38:38.469Z | DONE | move-guard-review-task | Move guard task | worker=unassigned | progress=- | summary=Released from review
+- 2026-04-15T22:38:39.823Z | BLOCKED | patch-canceled-invalid-combo | Lifecycle guard | worker=Atlas | progress=- | summary=-
+- 2026-04-15T22:38:41.319Z | DONE | task-terminal-patch | Terminal patch guard task | worker=Forge | progress=- | summary=Released
+- 2026-04-15T22:39:15.531Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-15T22:39:15.562Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
+- 2026-04-15T22:41:40.954Z | FAILED | fail-report-task | Fail report task | worker=forge | progress=- | summary=Failed after 1 attempt: Spawn failed: test error | note=Spawn failed: test error
+- 2026-04-15T22:44:41.605Z | DONE | 90a7e861-3e3b-43b2-a7ab-de2ab51a7776 | [P1][Follow-up][Forge] Terminale Result-Pfade auf zentralen Thread-Reporter vereinheitlichen und Thread-Audit persistieren | worker=Forge | progress=- | summary=Terminale Pfade vereinheitlicht: threadId/threadError persistiert, /fail ruft emitTaskLifecycleReport, 3 Regressionstests.
+- 2026-04-15T22:45:04.907Z | FAILED | 39ac1bea-57dd-43c0-84a7-366309fe3d42 | [P2][Follow-up][Pixel] Team Tab Org Chart live auf Desktop und Mobile verifizieren | worker=frontend-guru | progress=- | summary=Failed after 2 attempts: Worker failed | note=Worker failed
+- 2026-04-15T22:55:02.299Z | FAILED | 39ac1bea-57dd-43c0-84a7-366309fe3d42 | [P2][Follow-up][Pixel] Team Tab Org Chart live auf Desktop und Mobile verifizieren | worker=frontend-guru | progress=- | summary=Failed after 3 attempts: Worker failed | note=Worker failed
+- 2026-04-15T22:55:02.444Z | START | 1e3504a5-27a8-4a6a-b4ef-4ec2ef78bdb6 | [P2][Follow-up][Forge] Thread-Audit-Backfill für bestehende Result-Tasks ohne Audit-Spur durchführen | worker=worker | progress=- | summary=-
+- 2026-04-15T22:55:02.839Z | START | de16016f-b95d-4950-ad9d-509f4d8fe7b8 | [MC-9-10] T6: Trend-Dashboard für Costs + Velocity | worker=Lens | progress=- | summary=-

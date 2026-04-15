@@ -1,0 +1,1 @@
+- 2026-04-15T22:56Z worker-monitor dispatch: Tasks 1084a3ab, 508d272f, a668ec7f von assigned/queued auf in-progress/dispatched/active gesetzt; worker-monitor spawn uebernimmt Session-Start.

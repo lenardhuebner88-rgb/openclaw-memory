@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7ef76135-633d-4c51-9f5e-8a8c2e71a065 [P2][Follow-up][Forge] Operator overview CTA href-encoding fix (F7)
+- task: 1e3504a5-27a8-4a6a-b4ef-4ec2ef78bdb6 [P2][Follow-up][Forge] Thread-Audit-Backfill für bestehende Result-Tasks ohne Audit-Spur durchführen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T22:25:02.701Z
+- updated: 2026-04-15T22:55:02.444Z
 <!-- mc:auto-working-context:end -->
