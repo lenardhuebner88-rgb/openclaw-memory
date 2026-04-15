@@ -287,3 +287,6 @@
 - 2026-04-15T22:55:02.299Z | FAILED | 39ac1bea-57dd-43c0-84a7-366309fe3d42 | [P2][Follow-up][Pixel] Team Tab Org Chart live auf Desktop und Mobile verifizieren | worker=frontend-guru | progress=- | summary=Failed after 3 attempts: Worker failed | note=Worker failed
 - 2026-04-15T22:55:02.444Z | START | 1e3504a5-27a8-4a6a-b4ef-4ec2ef78bdb6 | [P2][Follow-up][Forge] Thread-Audit-Backfill für bestehende Result-Tasks ohne Audit-Spur durchführen | worker=worker | progress=- | summary=-
 - 2026-04-15T22:55:02.839Z | START | de16016f-b95d-4950-ad9d-509f4d8fe7b8 | [MC-9-10] T6: Trend-Dashboard für Costs + Velocity | worker=Lens | progress=- | summary=-
+- 2026-04-15T23:00:02.430Z | START | 1084a3ab-411b-4524-ad11-c96367fa131d | [ANALYSIS] Remove-Liste für Agenten-Cleanup präzisieren | worker=worker | progress=- | summary=-
+- 2026-04-15T23:00:03.096Z | START | 508d272f-cde5-4a95-ad67-7696002bf36d | [CLEANUP] Agentenstruktur auf 6 Kernagenten reduzieren | worker=worker | progress=- | summary=-
+- 2026-04-15T23:00:03.470Z | START | a668ec7f-7fe9-460b-ac85-41a923327210 | [Research+E2E][Spark] GPT-5.3 Codex Spark Stand prüfen, Lücken identifizieren, Worker-E2E verifizieren | worker=worker | progress=- | summary=-
