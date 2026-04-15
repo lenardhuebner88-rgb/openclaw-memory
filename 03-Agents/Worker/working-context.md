@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 89011d6e-89ef-49a3-8c04-7f7d98e11583 [P1][Follow-up][Forge] Agent-to-Agent Allowlist für Atlas und Spark Relief konsistent freischalten
+- task: f6c1a006-3827-4b9c-8830-734640cb54ab [P2][Follow-up][Forge] OpenAI-Codex-Auth-Pfad für echtes GPT-5.4-Pro-Enablement belastbar klären
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-15T17:20:01.785Z
+- updated: 2026-04-15T18:30:01.254Z
 <!-- mc:auto-working-context:end -->

@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 16e4ac7e-cb2c-4ff9-ace0-60656be215db [P1][Follow-up][Forge] GPT-5.4-Pro-Verfügbarkeit belastbar klären und Premium-Pfad sauber ergänzen
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-15T17:30:01.260Z
+- task: d84bda8d-92b5-4547-8679-369efcace6cc [P2][Follow-up][Forge] Provider-/Support-Paket für GPT-5.4-Pro-Enablement im echten OpenAI-Codex-Pfad vorbereiten
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-15T18:45:01.943Z
 <!-- mc:auto-working-context:end -->
