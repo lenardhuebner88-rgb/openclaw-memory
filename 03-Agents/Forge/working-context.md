@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 19d0de4c-0975-4d69-8017-1a7bd16c3b90 Obsidian #3 — Session-Start Auto-Read Atlas
+- task: 4401fddc-d4f7-4010-a593-f50ff3050d5c [P1] OpenClaw Modell- und Auth-Setup Ist-/Soll-Analyse für GPT-5.4 / GPT-5.4 Pro / MiniMax
 - stage: DONE
 - next: await next assignment
-- checkpoint: Atlas Session-Start Auto-Read lädt jetzt konsistent user-profile, Shared/Operational/Working-Context sowie standardmäßig das heutige Daily für AGENT=atlas.
+- checkpoint: Ist-Zustand, Auth-Lage und belastbarer Soll-Zustand fuer GPT-5.4, MiniMax und den fehlenden GPT-5.4-Pro-Pfad wurden live belegt und als Minimalplan zusammengefasst.
 - blocker: -
-- updated: 2026-04-15T08:43:38.992Z
+- updated: 2026-04-15T16:18:39.366Z
 <!-- mc:auto-working-context:end -->
