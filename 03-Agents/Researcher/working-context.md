@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9ffe3ad1-91b3-4e2d-ad5c-8c2372eca46a [NEXT] Fix systemic LiveSessionModelSwitchError
+- task: f4e5949e-9c8d-40ca-8fec-2b0d16285cbc Obsidian #4 — Struktur verfeinern (Templates)
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-15T07:40:02.495Z
+- updated: 2026-04-15T10:00:02.693Z
 <!-- mc:auto-working-context:end -->
