@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e26eb80e-160c-458b-9ae3-1d637a34162d [TEST] startedAt persistence check
-- stage: FAILED
+- task: 862594a0-e5c6-4461-aff8-2ed82510edf0 [P1][DONE] OpenClaw Modell- & Auth-Setup — Ist-/Soll-Analyse GPT-5.4 / GPT-5.4 Pro / MiniMax
+- stage: DONE
 - next: await next assignment
-- checkpoint: Simulated failure for startedAt test
-- blocker: Simulated failure for startedAt test
-- updated: 2026-04-15T20:20:52.336Z
+- checkpoint: Task resolved and closed
+- blocker: -
+- updated: 2026-04-15T20:51:07.706Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.

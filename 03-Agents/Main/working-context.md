@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d302e11f-722e-48e2-a544-9333bdcd7c24 [P0][Audit][MC] Mini-Audit auf Worker-E2E-Stabilität und kritische Lifecycle-Brüche
+- task: fb4734c7-f304-4d83-8077-fc3f3761c2e0 startedAt persistence validation probe
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T20:10:02.224Z
+- updated: 2026-04-15T20:30:01.825Z
 <!-- mc:auto-working-context:end -->

@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c3ca3101-e634-46d6-860b-d6a858410285 [P2][Follow-up][Forge] Provider-/Support-Anfrage für GPT-5.4-Pro-Enablement konkret auslösen oder externen Owner-Handoff belastbar abschließen
+- task: 58e485fd-79d6-469f-b302-5784a3724678 [P1] Model-Fallback-Hardening: MiniMax M2.7 direkt nach Codex für alle Agents
 - stage: DONE
 - next: await next assignment
-- checkpoint: Provider-Anfrage fuer gpt-5.4-pro wurde aus dieser Runtime belastbar externalisiert: sendefertiger Support-Text, Owner, Zielkanal und Verifikationspfad sind abgeschlossen.
+- checkpoint: Fallback-Ketten in /home/piet/.openclaw/openclaw.json agentübergreifend vereinheitlicht und auf MiniMax-first hinter Codex umgestellt.
 - blocker: -
-- updated: 2026-04-15T20:12:10.486Z
+- updated: 2026-04-15T20:38:50.556Z
 <!-- mc:auto-working-context:end -->

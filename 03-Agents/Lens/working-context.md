@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 66f2c2e4-83d2-4aae-8f4d-446917b056a2 MEMORY.md: Operative TODOs ins Board migrieren
+- task: 7ce06653-f1ae-4608-a4b1-72f14925e361 [P1] Cron-Load-Shedding Analyse: OpenAI-Last durch Modellverteilung senken
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-14T20:40:30.266Z
+- updated: 2026-04-15T20:50:06.209Z
 <!-- mc:auto-working-context:end -->
