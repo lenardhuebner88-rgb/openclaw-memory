@@ -183,3 +183,4 @@
 - 2026-04-15T07:25:01.566Z | FAILED | 9ffe3ad1-91b3-4e2d-ad5c-8c2372eca46a | [NEXT] Fix systemic LiveSessionModelSwitchError | worker=researcher | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
 - 2026-04-15T07:30:01.641Z | FAILED | cca6a63d-beb2-4e27-96f1-bfa123df2e3a | [Sprint][Atlas] Recovery/Retry-Automation Architektur-Analyse | worker=atlas | progress=- | summary=Failed after 3 attempts: Worker failed | note=Worker failed
 - 2026-04-15T07:30:03.778Z | FAILED | 9ffe3ad1-91b3-4e2d-ad5c-8c2372eca46a | [NEXT] Fix systemic LiveSessionModelSwitchError | worker=researcher | progress=- | summary=Failed after 2 attempts: Worker failed | note=Worker failed
+- 2026-04-15T07:40:02.494Z | FAILED | 9ffe3ad1-91b3-4e2d-ad5c-8c2372eca46a | [NEXT] Fix systemic LiveSessionModelSwitchError | worker=researcher | progress=- | summary=Failed after 3 attempts: Worker failed | note=Worker failed
