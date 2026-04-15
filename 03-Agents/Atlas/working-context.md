@@ -1,5 +1,11 @@
 # Atlas Working Context (Trimmed)
 
+## Lies zuerst
+- [[../Shared/project-state]]
+- [[../Shared/decisions-log]]
+- [[../Shared/checkpoints]]
+
+
 ## Aktueller Systemstand (2026-04-14)
 - Atlas ist Orchestrator, technische Umsetzung bleibt delegiert.
 - Worker-Monitor läuft im Auto-Dispatch-Modus.
@@ -32,3 +38,15 @@
 - 2026-04-15 10:03 Europe/Berlin: Forge-Resultat zum SQLite-VACUUM-Cron geprueft. Live-Cron bestaetigt sessionTarget=isolated, delivery.mode=none und kanonischen Script-Pfad; sichtbares sessionKey-Readback derzeit nur als Legacy-Metadatum eingeordnet, daher kein neuer Follow-up-Task.
 
 - 2026-04-15 08:21 UTC: worker-monitor Auto-Trigger geprueft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgefuehrt.\n
+
+<!-- mc:auto-working-context:start -->
+## Runtime Auto-Update
+- task: cca6a63d-beb2-4e27-96f1-bfa123df2e3a [Sprint][Atlas] Recovery/Retry-Automation Architektur-Analyse
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-15T07:00:02.319Z
+<!-- mc:auto-working-context:end -->
+
+- 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.
