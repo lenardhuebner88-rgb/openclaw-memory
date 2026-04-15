@@ -221,3 +221,11 @@
 - 2026-04-15T19:21:56.384Z | START | fb4734c7-f304-4d83-8077-fc3f3761c2e0 | startedAt persistence validation probe | worker=startedat-validation | progress=- | summary=-
 - 2026-04-15T19:21:57.779Z | CHECKPOINT | fb4734c7-f304-4d83-8077-fc3f3761c2e0 | startedAt persistence validation probe | worker=startedat-validation | progress=42% | summary=- | note=progress checkpoint
 - 2026-04-15T19:21:58.140Z | FAILED | fb4734c7-f304-4d83-8077-fc3f3761c2e0 | startedAt persistence validation probe | worker=Atlas | progress=42% | summary=- | note=validation terminal receipt
+- 2026-04-15T19:22:28.647Z | START | f931fb26-9f52-42d0-af71-8eac26646f92 | startedAt persistence validation probe | worker=startedat-validation | progress=- | summary=-
+- 2026-04-15T19:22:29.128Z | CHECKPOINT | f931fb26-9f52-42d0-af71-8eac26646f92 | startedAt persistence validation probe | worker=startedat-validation | progress=42% | summary=- | note=progress checkpoint
+- 2026-04-15T19:22:29.594Z | FAILED | f931fb26-9f52-42d0-af71-8eac26646f92 | startedAt persistence validation probe | worker=Atlas | progress=42% | summary=- | note=validation terminal receipt
+- 2026-04-15T19:22:49.909Z | START | f46fe6c5-9a7b-44e7-a486-f46c87b65974 | startedAt persistence validation probe result | worker=startedat-validation | progress=- | summary=-
+- 2026-04-15T19:22:51.263Z | CHECKPOINT | f46fe6c5-9a7b-44e7-a486-f46c87b65974 | startedAt persistence validation probe result | worker=startedat-validation | progress=67% | summary=- | note=progress checkpoint
+- 2026-04-15T19:22:51.611Z | DONE | f46fe6c5-9a7b-44e7-a486-f46c87b65974 | startedAt persistence validation probe result | worker=Atlas | progress=67% | summary=validation success
+- 2026-04-15T19:25:04.019Z | START | 58e485fd-79d6-469f-b302-5784a3724678 | [P1] Model-Fallback-Hardening: MiniMax M2.7 direkt nach Codex für alle Agents | worker=worker | progress=- | summary=-
+- 2026-04-15T19:35:12.016Z | START | 7ce06653-f1ae-4608-a4b1-72f14925e361 | [P1] Cron-Load-Shedding Analyse: OpenAI-Last durch Modellverteilung senken | worker=worker | progress=- | summary=-
