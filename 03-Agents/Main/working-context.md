@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fb4734c7-f304-4d83-8077-fc3f3761c2e0 startedAt persistence validation probe
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-15T20:30:01.825Z
+- task: fecdca54-6068-42c4-898e-87190fc8907f [P1][Follow-up][Atlas] startedAt-Probe-Cleanup-Pfad root-causen und belastbare Ergebniswahrheit wiederherstellen
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-15T21:05:02.232Z
 <!-- mc:auto-working-context:end -->

@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 862594a0-e5c6-4461-aff8-2ed82510edf0 [P1][DONE] OpenClaw Modell- & Auth-Setup — Ist-/Soll-Analyse GPT-5.4 / GPT-5.4 Pro / MiniMax
+- task: fecdca54-6068-42c4-898e-87190fc8907f [P1][Follow-up][Atlas] startedAt-Probe-Cleanup-Pfad root-causen und belastbare Ergebniswahrheit wiederherstellen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Task resolved and closed
+- checkpoint: Admin-Cleanup-RCA abgeschlossen: Terminal-Wahrheit bleibt jetzt erhalten, offene Cleanup-Faelle werden nur noch canceled.
 - blocker: -
-- updated: 2026-04-15T20:51:07.706Z
+- updated: 2026-04-15T21:18:00.859Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.

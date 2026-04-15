@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a3cbcacd-a7b1-41bb-835c-8fc19f1244a3 Obsidian #2 — Windows Sync automatisieren
+- task: 43acbb0a-490a-4802-9ad5-7db5f02fe824 [Sprint][MC] Team Tab Org Chart Multi-Sprint Redesign umsetzen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Die drei Windows-Sync-Optionen wurden verglichen und als beste Praxis ein Task-Scheduler-gestuetztes, ping-barriered Git-Sync-Script fuer den Vault empfohlen.
+- checkpoint: Team Tab Org Chart Redesign implementiert: team-data.ts mit Departments/Hierarchie, Spark umgeschrieben, Flash+Pulse hidden, James angelegt; OrgChart-Komponente mit SVG-Baumstruktur; TeamClient mit Org/List-Toggle; npm r
 - blocker: -
-- updated: 2026-04-15T08:42:01.240Z
+- updated: 2026-04-15T21:17:41.092Z
 <!-- mc:auto-working-context:end -->

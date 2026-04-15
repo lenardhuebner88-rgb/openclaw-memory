@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 58e485fd-79d6-469f-b302-5784a3724678 [P1] Model-Fallback-Hardening: MiniMax M2.7 direkt nach Codex für alle Agents
+- task: 1e45312e-af76-4487-becb-96692ca213fe [P2] Thread-Reporting für Ergebnisse, Lückenanalyse für fehlende Threads
 - stage: DONE
 - next: await next assignment
-- checkpoint: Fallback-Ketten in /home/piet/.openclaw/openclaw.json agentübergreifend vereinheitlicht und auf MiniMax-first hinter Codex umgestellt.
+- checkpoint: Thread-bevorzugtes Result-Reporting implementiert, Gap-Ursachen identifiziert und priorisierte Fix-Empfehlungen dokumentiert.
 - blocker: -
-- updated: 2026-04-15T20:38:50.556Z
+- updated: 2026-04-15T21:04:58.772Z
 <!-- mc:auto-working-context:end -->
