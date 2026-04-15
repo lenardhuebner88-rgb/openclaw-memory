@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7bab80f9-a870-40d3-9708-3bccf5366610 [P1] Reporting-Matrix sauber definieren und Atlas-Entscheidungslogik ableiten
+- task: d98dd4aa-99d1-4175-a7fd-f08fc8214f77 [P1][Follow-up][Forge] SQLite-VACUUM-Cron von worker-Session auf robuste kanonische Bindung umstellen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Eine kompakte Reporting-Matrix mit Atlas-Filterlogik, Schwellenwerten und Kanalempfehlungen für OpenClaw wurde ausgearbeitet.
+- checkpoint: Der SQLite-VACUUM-Cron wurde von einer rotierenden Worker-Einzel-Session auf robuste isolierte Ausfuehrung umgestellt, bei unveraendert stillem alert=none-Verhalten.
 - blocker: -
-- updated: 2026-04-15T05:07:16.533Z
+- updated: 2026-04-15T05:57:47.476Z
 <!-- mc:auto-working-context:end -->

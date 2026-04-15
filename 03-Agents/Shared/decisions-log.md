@@ -12,6 +12,8 @@
 - 2026-04-08: Opus stays constrained to high-value cases (root-cause, architecture, severe bugs).
 
 ## Historical decisions
+- 2026-04-15: [P1][Follow-up][Forge] SQLite-VACUUM-Cron auf kanonischen Script-Pfad zurückführen: Den SQLite-VACUUM-Cron auf den kanonischen Script-Pfad unter /home/piet/.openclaw/workspace umgestellt und die Pfad-/Alert-Konsistenz verifiziert. ## Finding Der Job `memory-sqlite <!-- mc:auto-decision:f95804cc-a063-48e6-97ab-a04159f92fe9|result|p1-follow-up-forge-sqlite-vacuum-cron-auf-kanonischen-script-pfad-zur-ckf-hren-d -->
+- 2026-04-15: [P1][Follow-up][Forge] Reporting-Artefakte aus workspace-worker in kanonischen Workspace überführen: Die drei Reporting-Artefakte wurden in den kanonischen Workspace übernommen und per Verifikationslauf auf Existenz, Kerninhalte und referenzsaubere Pfade geprüft. ## Finding Die dr <!-- mc:auto-decision:06a99811-cf72-473d-822b-8d54ab3e8a56|result|p1-follow-up-forge-reporting-artefakte-aus-workspace-worker-in-kanonischen-works -->
 - 2026-04-14: [P0][Audit][MC] Mini-Audit auf Worker-E2E-Stabilität und kritische Lifecycle-Brüche failed: Worker failed <!-- mc:auto-decision:d302e11f-722e-48e2-a544-9333bdcd7c24|failed|p0-audit-mc-mini-audit-auf-worker-e2e-stabilit-t-und-kritische-lifecycle-br-che- -->
 - 2026-04-14: SMOKE-AUTOWRITE-2026-04-10T15:08Z blocked-path decision failed: Worker failed <!-- mc:auto-decision:3b91bccc-2ce4-466e-96ea-7b51a2f2db44|failed|smoke-autowrite-2026-04-10t15-08z-blocked-path-decision-failed-worker-failed -->
 - 2026-04-14: SMOKE-AUTOWRITE-2026-04-10T15:08Z failed-path decision failed: Worker failed <!-- mc:auto-decision:ec960817-6f44-4e80-8d12-be83d4be0652|failed|smoke-autowrite-2026-04-10t15-08z-failed-path-decision-failed-worker-failed -->

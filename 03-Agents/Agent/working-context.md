@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7bab80f9-a870-40d3-9708-3bccf5366610 [P1] Reporting-Matrix sauber definieren und Atlas-Entscheidungslogik ableiten
+- task: d98dd4aa-99d1-4175-a7fd-f08fc8214f77 [P1][Follow-up][Forge] SQLite-VACUUM-Cron von worker-Session auf robuste kanonische Bindung umstellen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T05:05:13.169Z
+- updated: 2026-04-15T05:55:10.762Z
 <!-- mc:auto-working-context:end -->

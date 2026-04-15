@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a11c2ce2-4d30-4aa5-96aa-0b45d3c34e2e [P1] Discord Token aus override.conf in .env verschieben
+- task: aaa981b5-9558-4863-97c3-6ea4532d6fa2 [P1] recovery-ledger.json zurücksetzen
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-15T05:30:01.696Z
+- updated: 2026-04-15T06:00:02.109Z
 <!-- mc:auto-working-context:end -->
