@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 49a11c0e-b4ee-4669-8933-6ba011136439 [P2] Stuck-/Altlasten-Cleanup automatisieren
+- task: 16e4ac7e-cb2c-4ff9-ace0-60656be215db [P1][Follow-up][Forge] GPT-5.4-Pro-Verfügbarkeit belastbar klären und Premium-Pfad sauber ergänzen
 - stage: DONE
 - next: await next assignment
-- checkpoint: E2E cleanup check passed
+- checkpoint: Live belegt, dass gpt-5.4-pro im aktuellen OpenAI-Codex-Setup mit ChatGPT-Account nicht verfügbar ist; daher wurde bewusst kein Premium-Pfad konfiguriert.
 - blocker: -
-- updated: 2026-04-15T16:58:18.272Z
+- updated: 2026-04-15T17:43:29.916Z
 <!-- mc:auto-working-context:end -->

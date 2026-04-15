@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4401fddc-d4f7-4010-a593-f50ff3050d5c [P1] OpenClaw Modell- und Auth-Setup Ist-/Soll-Analyse für GPT-5.4 / GPT-5.4 Pro / MiniMax
+- task: 16e4ac7e-cb2c-4ff9-ace0-60656be215db [P1][Follow-up][Forge] GPT-5.4-Pro-Verfügbarkeit belastbar klären und Premium-Pfad sauber ergänzen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T16:10:16.901Z
+- updated: 2026-04-15T17:35:26.048Z
 <!-- mc:auto-working-context:end -->

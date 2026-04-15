@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: aaa981b5-9558-4863-97c3-6ea4532d6fa2 [P1] recovery-ledger.json zurücksetzen
+- task: 16e4ac7e-cb2c-4ff9-ace0-60656be215db [P1][Follow-up][Forge] GPT-5.4-Pro-Verfügbarkeit belastbar klären und Premium-Pfad sauber ergänzen
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-15T06:00:02.109Z
+- updated: 2026-04-15T17:30:01.260Z
 <!-- mc:auto-working-context:end -->
