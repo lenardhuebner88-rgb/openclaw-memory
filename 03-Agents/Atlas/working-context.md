@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 29f6c578-430c-42d1-bc61-e209341f11c8 Obsidian Vault — Git Auto-Push Hooks einrichten
+- task: patch-canceled-invalid-combo Lifecycle guard
 - stage: FAILED
 - next: await next assignment
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T17:41:24.301Z
+- updated: 2026-04-16T20:11:26.732Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.

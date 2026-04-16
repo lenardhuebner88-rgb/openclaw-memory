@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e5171d51-ecb6-478f-837e-3202ef8e9fc6 [P2][Follow-up][Forge] 29f6c578 Terminal-State-Inkonsistenz bereinigen
+- task: 75e719f3-00aa-460c-9a96-befb8cc4c8c5 [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T17:35:22.565Z
+- updated: 2026-04-16T20:26:42.802Z
 <!-- mc:auto-working-context:end -->

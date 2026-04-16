@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: nightly-ts-gate-task [Nightly] Guard TypeScript gate
-- stage: FAILED
+- task: 4a9ddcbf-4b35-4fce-b025-6181d2bfdb89 [P2][Forge] Heartbeat dispatch validation probe
+- stage: DONE
 - next: await next assignment
-- checkpoint: Global TypeScript gate failed (npx tsc --noEmit, exit 2).
-- blocker: Global TypeScript gate failed (npx tsc --noEmit, exit 2).
-- updated: 2026-04-15T22:39:15.563Z
+- checkpoint: Task resolved and closed
+- blocker: -
+- updated: 2026-04-16T20:23:11.160Z
 <!-- mc:auto-working-context:end -->

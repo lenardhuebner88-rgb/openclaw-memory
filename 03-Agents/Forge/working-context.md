@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 75e719f3-00aa-460c-9a96-befb8cc4c8c5 [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: Security check failed (critical)
-- blocker: Security check failed (critical)
-- updated: 2026-04-16T18:39:40.767Z
+- task: 38fc8432-93d0-4ee5-9e23-429c5b16c7b4 [P2][Forge] Worker-runs stale system-label + orphaned UUID cleanup
+- stage: DONE
+- next: await next assignment
+- checkpoint: worker-runs.json bereinigt: 974->217 Eintraege, alle DoD-Punkte erfuellt
+- blocker: -
+- updated: 2026-04-16T20:20:02.661Z
 <!-- mc:auto-working-context:end -->

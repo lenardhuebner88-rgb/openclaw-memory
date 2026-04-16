@@ -422,3 +422,12 @@
 - 2026-04-16T17:35:22.564Z | START | e5171d51-ecb6-478f-837e-3202ef8e9fc6 | [P2][Follow-up][Forge] 29f6c578 Terminal-State-Inkonsistenz bereinigen | worker=agent | progress=- | summary=-
 - 2026-04-16T17:41:24.299Z | FAILED | 29f6c578-430c-42d1-bc61-e209341f11c8 | Obsidian Vault — Git Auto-Push Hooks einrichten | worker=Atlas | progress=- | summary=-
 - 2026-04-16T18:39:40.766Z | BLOCKED | 75e719f3-00aa-460c-9a96-befb8cc4c8c5 | [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge | worker=Forge | progress=- | summary=- | note=Security check failed (critical)
+- 2026-04-16T20:11:26.731Z | FAILED | patch-canceled-invalid-combo | Lifecycle guard | worker=Atlas | progress=- | summary=-
+- 2026-04-16T20:11:29.282Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-16T20:11:29.314Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
+- 2026-04-16T20:15:22.286Z | START | 7c697580-b76b-4607-822a-4ca6e9e0cb2b | [Sprint Brain] Brain Health Drilldown + Operator Usefulness Review | worker=agent | progress=- | summary=-
+- 2026-04-16T20:17:29.661Z | START | 38fc8432-93d0-4ee5-9e23-429c5b16c7b4 | [P2][Forge] Worker-runs stale system-label + orphaned UUID cleanup | worker=agent | progress=- | summary=-
+- 2026-04-16T20:20:02.660Z | DONE | 38fc8432-93d0-4ee5-9e23-429c5b16c7b4 | [P2][Forge] Worker-runs stale system-label + orphaned UUID cleanup | worker=Forge | progress=- | summary=worker-runs.json bereinigt: 974->217 Eintraege, alle DoD-Punkte erfuellt
+- 2026-04-16T20:23:06.553Z | BLOCKED | 4a9ddcbf-4b35-4fce-b025-6181d2bfdb89 | [P2][Forge] Heartbeat dispatch validation probe | worker=unassigned | progress=- | summary=- | note=Security check failed (critical)
+- 2026-04-16T20:23:11.159Z | DONE | 4a9ddcbf-4b35-4fce-b025-6181d2bfdb89 | [P2][Forge] Heartbeat dispatch validation probe | worker=unassigned | progress=- | summary=Task resolved and closed
+- 2026-04-16T20:26:42.800Z | START | 75e719f3-00aa-460c-9a96-befb8cc4c8c5 | [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge | worker=agent | progress=- | summary=-
