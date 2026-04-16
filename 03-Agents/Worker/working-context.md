@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 60dfc2db-5c5c-4a1f-b7a3-b91ecd4aeac7 [P1][Follow-up][Forge] Spark-Dispatch-Timeout und manuellen Cleanup-Pfad root-causen
+- task: 0ce7ca00-b4c0-4f58-a0e8-902632f3db75 [P1][Atlas] Stability Gate, Validation und HEARTBEAT Go/No-Go sauber steuern
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T07:10:01.476Z
+- updated: 2026-04-16T08:00:02.309Z
 <!-- mc:auto-working-context:end -->

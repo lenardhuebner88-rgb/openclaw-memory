@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a394965d-1468-47cd-bc53-584bdc5eaf13 [P2][Follow-up][Forge] KPI für historische Thread-Audit-Lücken einführen
+- task: ea61132e-dd2a-4b19-9e39-3159ca379b50 [P1][Forge] Diagnose and stabilize Next.js build and restart cycle
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T00:15:02.223Z
+- updated: 2026-04-16T07:40:02.093Z
 <!-- mc:auto-working-context:end -->

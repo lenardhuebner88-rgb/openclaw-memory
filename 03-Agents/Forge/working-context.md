@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: aecaee53-27cb-4f9d-b1f6-8f1826032c05 [E2E] Forge Dispatch-Test
+- task: ea61132e-dd2a-4b19-9e39-3159ca379b50 [P1][Forge] Diagnose and stabilize Next.js build and restart cycle
 - stage: DONE
 - next: await next assignment
-- checkpoint: E2E Forge-Test erfolgreich: dispatch→active→review→done
+- checkpoint: Build-OOM + SIGKILL-Restart-Cycle behoben: maxGatewayRssMb von 1536 auf 2048 MB angehoben. Build laeuft durch, Server stabil.
 - blocker: -
-- updated: 2026-04-16T07:00:51.043Z
+- updated: 2026-04-16T07:48:23.170Z
 <!-- mc:auto-working-context:end -->
