@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b867a8b9-6d56-4dfa-a529-e3407e7cb8e3 [ANALYSIS] Remove-Liste Agenten-Cleanup — präzise Top-3 priorisieren
-- stage: DONE
+- task: 29f6c578-430c-42d1-bc61-e209341f11c8 Obsidian Vault — Git Auto-Push Hooks einrichten
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Top-3 Remove-Liste: researcher, spark-relief, flash. Analyse in Vault 03-Agents/OpenClaw/daily/2026-04-16.md
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-16T14:57:10.141Z
+- updated: 2026-04-16T17:41:24.301Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.

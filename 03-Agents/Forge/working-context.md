@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 24eb909d-5409-4bbd-adfd-34c9085b0f03 [B1] learnings-to-tasks Pipeline reparieren
+- task: 8482a1db-572c-4aa5-81d6-ad683341dd1a [P2][Follow-up][Forge] Vault-Git-Auto-Push-Duplikatstatus konsistent bereinigen
 - stage: DONE
 - next: await next assignment
-- checkpoint: learnings-to-tasks repariert: Ollama→MiniMax Fallback, MINIMAX_API_KEY env gesetzt, Discord-403 Diagnostik verbessert; manueller Lauf erfolgreich ohne Crash.
-- blocker: Security check failed (critical)
-- updated: 2026-04-16T17:19:53.175Z
+- checkpoint: Inkonsistenter resultSummary auf b2f4a9b1 korrigiert: Bezug auf 29f6c578 als completed war faktisch falsch (task ist canceled/failed). Board-Wahrheit wiederhergestellt.
+- blocker: -
+- updated: 2026-04-16T17:29:53.385Z
 <!-- mc:auto-working-context:end -->
