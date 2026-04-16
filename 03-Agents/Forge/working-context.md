@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b8b94a70-5763-40b9-a19d-b8ace984e89e [P1][Follow-up][Forge] Worker-Finalize/Timeout-Pfad so härten, dass keine dangling Tasks und kein Signalverlust mehr entstehen
+- task: 5edb4839-1c63-4d07-9200-68a9e700ae41 [P1][Probe][Forge] Validate post-restart worker binding has no phantom accepted state
 - stage: DONE
 - next: await next assignment
-- checkpoint: Finalize-/Recovery-Pfad gehärtet: Timeout/Kill-Ursachen bleiben als terminaler Grund erhalten, und stale accepted/dispatched Tasks ohne lebende Runtime werden jetzt automatisch konsistent abgeschlossen.
+- checkpoint: Probe passed: no accepted/started receipt existed before the real accepted receipt; task closed cleanly after verification.
 - blocker: -
-- updated: 2026-04-16T09:04:31.207Z
+- updated: 2026-04-16T09:16:19.532Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 65a16e79-10eb-453b-bcbc-67be6d74a19a [E2E] Spark Dispatch-Test
+- task: 3b0d991b-3109-4408-96db-0ff084e223b7 [E2E] Stability-Gate Dispatch-Test
 - stage: DONE
 - next: await next assignment
-- checkpoint: E2E Spark: timeout bei Subagent — Task verworfen, Board-State manuell bereinigt
+- checkpoint: Stability-Gate Dispatch-Test erfolgreich: draft→in-progress→done, korrekter State-Übergang validiert.
 - blocker: -
-- updated: 2026-04-16T07:02:53.736Z
+- updated: 2026-04-16T09:17:43.681Z
 <!-- mc:auto-working-context:end -->

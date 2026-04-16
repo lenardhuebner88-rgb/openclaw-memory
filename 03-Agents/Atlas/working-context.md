@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: patch-canceled-invalid-combo Lifecycle guard
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: -
+- task: 0435ca96-12bc-4cf9-8ef7-3cb3be146e32 [CLEANUP] Agentenstruktur auf 6 Kernagenten — konkrete Liste
+- stage: DONE
+- next: await next assignment
+- checkpoint: Kontrollierter Atlas-Dispatch-Test erfolgreich abgeschlossen.
 - blocker: -
-- updated: 2026-04-15T22:38:39.824Z
+- updated: 2026-04-16T09:19:18.780Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.
