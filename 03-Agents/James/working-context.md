@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fe1fc559-49c9-4d02-91fa-b6eb76c43229 [E2E] James Dispatch-Test
+- task: 44c5b799-de44-4f9b-8b1d-637be3f3efa4 [JAMES E2E PROBE] Specialist worker pickup verification for James
 - stage: DONE
 - next: await next assignment
-- checkpoint: E2E James-Test erfolgreich: dispatch→active→review→done
+- checkpoint: James E2E probe verified: gateway placeholder was rebound to a real session in worker-runs.json and no duplicate run entry was created.
 - blocker: -
-- updated: 2026-04-16T06:58:48.032Z
+- updated: 2026-04-16T13:42:55.813Z
 <!-- mc:auto-working-context:end -->

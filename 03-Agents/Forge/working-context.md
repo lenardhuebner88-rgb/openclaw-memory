@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2da6cdd3-17a8-495b-93c2-6acc8954f679 [STEP1 VERIFY] Gateway placeholder test
+- task: 15b34b00-653b-4e0e-af16-f54d0a098d49 [STEP1 V2] Verify new build has fix
 - stage: DONE
 - next: await next assignment
-- checkpoint: Verifiziert: worker-runs.json enthält workerSessionId im Format gateway:{taskId} für den Task.
+- checkpoint: Neue Build-Artefakte enthalten den Gateway-Placeholder und der aktuelle Worker-Run ist korrekt auf gateway:{taskId} gebunden.
 - blocker: -
-- updated: 2026-04-16T13:15:51.223Z
+- updated: 2026-04-16T13:47:07.822Z
 <!-- mc:auto-working-context:end -->
