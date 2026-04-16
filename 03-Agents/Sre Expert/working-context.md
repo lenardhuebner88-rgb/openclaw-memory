@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 15b34b00-653b-4e0e-af16-f54d0a098d49 [STEP1 V2] Verify new build has fix
+- task: 5868c845-2d34-49cd-92ec-56e0eae5e13d [FAILED PATH PROBE] Intentionally failing task
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-16T13:40:01.928Z
+- updated: 2026-04-16T14:50:02.838Z
 <!-- mc:auto-working-context:end -->

@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5868c845-2d34-49cd-92ec-56e0eae5e13d [FAILED PATH PROBE] Intentionally failing task
+- task: dab07eb7-39ac-4e4d-bd91-59820856309b [FAILED-PATH VALIDATION] Test fix for duplicate worker-runs
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Intentional failed-path probe executed: forcing terminal failed state for validation.
-- blocker: Intentional failed-path probe executed: forcing terminal failed state for validation.
-- updated: 2026-04-16T14:15:31.797Z
+- checkpoint: Validation task confirms failed-path: duplicate worker-runs entries were deduplicated to one canonical failed run.
+- blocker: Validation task confirms failed-path: duplicate worker-runs entries were deduplicated to one canonical failed run.
+- updated: 2026-04-16T14:46:03.731Z
 <!-- mc:auto-working-context:end -->
