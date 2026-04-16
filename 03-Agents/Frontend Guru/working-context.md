@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cfe8dbe9-5492-4ced-b0fb-b2b1814656e8 [P1][Follow-up][Pixel] Mobile modal small-viewport Verify (F12)
-- stage: DONE
+- task: 87805295-66aa-4ee0-ba59-4fe01356aee9 [P3][Follow-up][Pixel] testid-Konsistenz zwischen heute-focus und task-card für Open-Details-CTA härten
+- stage: FAILED
 - next: await next assignment
-- checkpoint: F12 = Testdrift (falsche testid), kein Produktfehler. Reproduziert und klar eingeordnet. Test in mobile-operative-gates.spec.ts gefixt.
-- blocker: -
-- updated: 2026-04-15T23:42:50.832Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-16T00:20:01.890Z
 <!-- mc:auto-working-context:end -->

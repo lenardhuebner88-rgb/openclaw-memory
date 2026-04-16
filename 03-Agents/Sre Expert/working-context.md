@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c4d5a3a2-568d-4e80-b9a1-3bedd003a1e6 [P2][Follow-up][Forge] Terminale Tasks gegen späte non-terminale Receipts härten
+- task: a394965d-1468-47cd-bc53-584bdc5eaf13 [P2][Follow-up][Forge] KPI für historische Thread-Audit-Lücken einführen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T21:30:03.286Z
+- updated: 2026-04-16T00:15:02.223Z
 <!-- mc:auto-working-context:end -->

@@ -63,9 +63,9 @@ Headers: x-actor-kind: automation
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: de16016f-b95d-4950-ad9d-509f4d8fe7b8 [MC-9-10] T6: Trend-Dashboard für Costs + Velocity
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-15T22:55:02.840Z
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-16T00:15:02.091Z
 <!-- mc:auto-working-context:end -->

@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 90a7e861-3e3b-43b2-a7ab-de2ab51a7776 [P1][Follow-up][Forge] Terminale Result-Pfade auf zentralen Thread-Reporter vereinheitlichen und Thread-Audit persistieren
+- task: a394965d-1468-47cd-bc53-584bdc5eaf13 [P2][Follow-up][Forge] KPI für historische Thread-Audit-Lücken einführen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Terminale Pfade vereinheitlicht: threadId/threadError persistiert, /fail ruft emitTaskLifecycleReport, 3 Regressionstests.
+- checkpoint: KPI für Result ohne echte Thread-Audit-Spur ist definiert, als Script produktiv messbar und mit aktueller Baseline (141/142=99.30%) verifiziert.
 - blocker: -
-- updated: 2026-04-15T22:44:41.608Z
+- updated: 2026-04-16T00:16:47.443Z
 <!-- mc:auto-working-context:end -->

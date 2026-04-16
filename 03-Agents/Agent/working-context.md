@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cfe8dbe9-5492-4ced-b0fb-b2b1814656e8 [P1][Follow-up][Pixel] Mobile modal small-viewport Verify (F12)
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-15T23:30:02.649Z
+- task: 87805295-66aa-4ee0-ba59-4fe01356aee9 [P3][Follow-up][Pixel] testid-Konsistenz zwischen heute-focus und task-card für Open-Details-CTA härten
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-16T00:25:13.925Z
 <!-- mc:auto-working-context:end -->

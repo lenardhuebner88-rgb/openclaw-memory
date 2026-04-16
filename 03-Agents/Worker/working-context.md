@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a668ec7f-7fe9-460b-ac85-41a923327210 [Research+E2E][Spark] GPT-5.3 Codex Spark Stand prüfen, Lücken identifizieren, Worker-E2E verifizieren
+- task: c1605052-738f-47f3-a000-7d1e1cc96afc [P2][Follow-up][Forge] Einzelnen Result-Driftfall ohne Thread-Audit-Felder bereinigen oder explizit backfillen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-15T23:00:03.471Z
+- updated: 2026-04-16T00:25:02.251Z
 <!-- mc:auto-working-context:end -->
