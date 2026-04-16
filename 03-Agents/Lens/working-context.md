@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a30a3fba-f9e1-4955-8682-bacf86a953ab [E2E] Lens Dispatch-Test
+- task: f6ba9b5f-c645-4422-910a-08c9db6eeeae [LENS E2E PROBE] Specialist worker pickup verification for Lens
 - stage: DONE
 - next: await next assignment
-- checkpoint: E2E Lens-Test erfolgreich: dispatch→active→done
+- checkpoint: Lens E2E specialist pickup test completed successfully
 - blocker: -
-- updated: 2026-04-16T06:59:07.760Z
+- updated: 2026-04-16T13:52:00.316Z
 <!-- mc:auto-working-context:end -->

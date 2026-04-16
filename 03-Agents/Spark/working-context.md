@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1498cc52-5ec8-4696-a98a-06b73331d3f4 [E2E PROBE] Worker dispatch test task
+- task: 17f6d12c-2168-4beb-840c-cdd4a0c261c8 [SPARK E2E PROBE] Specialist worker pickup verification for Spark
 - stage: DONE
 - next: await next assignment
-- checkpoint: E2E dispatch path verified: task dispatched, worker pickup confirmed, receipt endpoint functional, terminal state reached.
+- checkpoint: Spark pickup probe erfolgreich verifiziert: Placeholder wurde an reale Session gebunden, ohne Duplicate-Run.
 - blocker: -
-- updated: 2026-04-16T13:12:18.341Z
+- updated: 2026-04-16T14:01:46.169Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 64bb92dc-4037-47f2-a12f-e0f63ee22ff6 [E2E][Lens] Voller Workflow-Durchlauf einmal sauber verifizieren
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-14T12:10:01.601Z
+- task: f6ba9b5f-c645-4422-910a-08c9db6eeeae [LENS E2E PROBE] Specialist worker pickup verification for Lens
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Security check failed (critical)
+- blocker: Security check failed (critical)
+- updated: 2026-04-16T13:50:51.247Z
 <!-- mc:auto-working-context:end -->

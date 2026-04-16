@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 15b34b00-653b-4e0e-af16-f54d0a098d49 [STEP1 V2] Verify new build has fix
-- stage: DONE
+- task: 5868c845-2d34-49cd-92ec-56e0eae5e13d [FAILED PATH PROBE] Intentionally failing task
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Neue Build-Artefakte enthalten den Gateway-Placeholder und der aktuelle Worker-Run ist korrekt auf gateway:{taskId} gebunden.
-- blocker: -
-- updated: 2026-04-16T13:47:07.822Z
+- checkpoint: Intentional failed-path probe executed: forcing terminal failed state for validation.
+- blocker: Intentional failed-path probe executed: forcing terminal failed state for validation.
+- updated: 2026-04-16T14:15:31.797Z
 <!-- mc:auto-working-context:end -->
