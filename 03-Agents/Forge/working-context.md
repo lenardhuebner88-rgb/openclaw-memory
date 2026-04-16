@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8482a1db-572c-4aa5-81d6-ad683341dd1a [P2][Follow-up][Forge] Vault-Git-Auto-Push-Duplikatstatus konsistent bereinigen
-- stage: DONE
-- next: await next assignment
-- checkpoint: Inkonsistenter resultSummary auf b2f4a9b1 korrigiert: Bezug auf 29f6c578 als completed war faktisch falsch (task ist canceled/failed). Board-Wahrheit wiederhergestellt.
-- blocker: -
-- updated: 2026-04-16T17:29:53.385Z
+- task: 75e719f3-00aa-460c-9a96-befb8cc4c8c5 [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Security check failed (critical)
+- blocker: Security check failed (critical)
+- updated: 2026-04-16T18:39:40.767Z
 <!-- mc:auto-working-context:end -->

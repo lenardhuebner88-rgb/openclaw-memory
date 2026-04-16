@@ -421,3 +421,4 @@
 - 2026-04-16T17:29:53.384Z | DONE | 8482a1db-572c-4aa5-81d6-ad683341dd1a | [P2][Follow-up][Forge] Vault-Git-Auto-Push-Duplikatstatus konsistent bereinigen | worker=Forge | progress=- | summary=Inkonsistenter resultSummary auf b2f4a9b1 korrigiert: Bezug auf 29f6c578 als completed war faktisch falsch (task ist canceled/failed). Board-Wahrheit wiederhergestellt.
 - 2026-04-16T17:35:22.564Z | START | e5171d51-ecb6-478f-837e-3202ef8e9fc6 | [P2][Follow-up][Forge] 29f6c578 Terminal-State-Inkonsistenz bereinigen | worker=agent | progress=- | summary=-
 - 2026-04-16T17:41:24.299Z | FAILED | 29f6c578-430c-42d1-bc61-e209341f11c8 | Obsidian Vault — Git Auto-Push Hooks einrichten | worker=Atlas | progress=- | summary=-
+- 2026-04-16T18:39:40.766Z | BLOCKED | 75e719f3-00aa-460c-9a96-befb8cc4c8c5 | [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge | worker=Forge | progress=- | summary=- | note=Security check failed (critical)
