@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c1605052-738f-47f3-a000-7d1e1cc96afc [P2][Follow-up][Forge] Einzelnen Result-Driftfall ohne Thread-Audit-Felder bereinigen oder explizit backfillen
+- task: 187af1a6-d851-4ebc-970d-565dfb1bb7d8 [P2][Follow-up][Forge] Weitere Task-CTA-Linkpfade auf kanonischen URLSearchParams-Builder umstellen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T00:25:02.251Z
+- updated: 2026-04-16T01:00:01.524Z
 <!-- mc:auto-working-context:end -->

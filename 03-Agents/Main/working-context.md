@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fecdca54-6068-42c4-898e-87190fc8907f [P1][Follow-up][Atlas] startedAt-Probe-Cleanup-Pfad root-causen und belastbare Ergebniswahrheit wiederherstellen
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-15T21:05:02.232Z
+- task: 508d272f-cde5-4a95-ad67-7696002bf36d [CLEANUP] Agentenstruktur auf 6 Kernagenten reduzieren
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-16T01:15:01.856Z
 <!-- mc:auto-working-context:end -->
