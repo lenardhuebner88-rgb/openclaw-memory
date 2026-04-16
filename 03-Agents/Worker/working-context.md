@@ -16,9 +16,9 @@
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 0ce7ca00-b4c0-4f58-a0e8-902632f3db75 [P1][Atlas] Stability Gate, Validation und HEARTBEAT Go/No-Go sauber steuern
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-16T08:00:02.309Z
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-16T09:05:02.067Z
 <!-- mc:auto-working-context:end -->

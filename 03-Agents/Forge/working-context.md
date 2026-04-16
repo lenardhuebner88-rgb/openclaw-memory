@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ea61132e-dd2a-4b19-9e39-3159ca379b50 [P1][Forge] Diagnose and stabilize Next.js build and restart cycle
+- task: b8b94a70-5763-40b9-a19d-b8ace984e89e [P1][Follow-up][Forge] Worker-Finalize/Timeout-Pfad so härten, dass keine dangling Tasks und kein Signalverlust mehr entstehen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Build-OOM + SIGKILL-Restart-Cycle behoben: maxGatewayRssMb von 1536 auf 2048 MB angehoben. Build laeuft durch, Server stabil.
+- checkpoint: Finalize-/Recovery-Pfad gehärtet: Timeout/Kill-Ursachen bleiben als terminaler Grund erhalten, und stale accepted/dispatched Tasks ohne lebende Runtime werden jetzt automatisch konsistent abgeschlossen.
 - blocker: -
-- updated: 2026-04-16T07:48:23.170Z
+- updated: 2026-04-16T09:04:31.207Z
 <!-- mc:auto-working-context:end -->
