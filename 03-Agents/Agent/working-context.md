@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2d114fa1-8f50-43d0-885d-f004e1102b32 [P1][Follow-up][Forge] Top-3 Remove-Liste technisch bereinigen: researcher, spark-relief, flash
+- task: 3bec9eb5-611e-45a4-8ae3-20aaa60404cd [P3][Follow-up][Forge] Mission-Control-Build-Artefakte von Legacy-Agent-Referenzen bereinigen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T15:05:43.263Z
+- updated: 2026-04-16T15:35:14.797Z
 <!-- mc:auto-working-context:end -->

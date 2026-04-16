@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fail-dup-test Fail-path duplicate run test
+- task: 33144be4-2363-4211-aa24-6e4f5fb19a88 [CLEAN FAILED-PATH] Validate exactly 1 worker-runs entry
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-16T15:17:49.590Z
+- checkpoint: Validated canonical failed-path: deduplicated worker-runs to a single failed ended entry.
+- blocker: Validated canonical failed-path: deduplicated worker-runs to a single failed ended entry.
+- updated: 2026-04-16T15:46:08.301Z
 <!-- mc:auto-working-context:end -->
