@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3bec9eb5-611e-45a4-8ae3-20aaa60404cd [P3][Follow-up][Forge] Mission-Control-Build-Artefakte von Legacy-Agent-Referenzen bereinigen
+- task: 24eb909d-5409-4bbd-adfd-34c9085b0f03 [B1] learnings-to-tasks Pipeline reparieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Legacy-Agent-Referenzen auf researcher/flash wurden aus Mission-Control-Build-Artefakten entfernt; Source im produktiven Pfad enthält nur nicht-agentische flash-Begriffe.
-- blocker: -
-- updated: 2026-04-16T16:50:42.037Z
+- checkpoint: learnings-to-tasks repariert: Ollama→MiniMax Fallback, MINIMAX_API_KEY env gesetzt, Discord-403 Diagnostik verbessert; manueller Lauf erfolgreich ohne Crash.
+- blocker: Security check failed (critical)
+- updated: 2026-04-16T17:19:53.175Z
 <!-- mc:auto-working-context:end -->
