@@ -342,3 +342,5 @@
 - 2026-04-16T09:18:46.390Z | DONE | 0ce7ca00-b4c0-4f58-a0e8-902632f3db75 | [P1][Atlas] Stability Gate, Validation und HEARTBEAT Go/No-Go sauber steuern | worker=Atlas | progress=- | summary=Stabilisierung abgeschlossen: Forge-Fix validiert, Build Exit 0 (34 Routes), Dispatch-Test erfolgreich. HEARTBEAT: bedingtes GO.
 - 2026-04-16T09:19:18.710Z | START | 0435ca96-12bc-4cf9-8ef7-3cb3be146e32 | [CLEANUP] Agentenstruktur auf 6 Kernagenten — konkrete Liste | worker=agent | progress=- | summary=-
 - 2026-04-16T09:19:18.779Z | DONE | 0435ca96-12bc-4cf9-8ef7-3cb3be146e32 | [CLEANUP] Agentenstruktur auf 6 Kernagenten — konkrete Liste | worker=Atlas | progress=- | summary=Kontrollierter Atlas-Dispatch-Test erfolgreich abgeschlossen.
+- 2026-04-16T12:46:00.030Z | START | 1cca8f66-f5d9-496d-b56e-520dad43fd25 | [E2E MAIN PROBE] Atlas worker terminal callback chain | worker=agent | progress=- | summary=-
+- 2026-04-16T12:46:33.490Z | DONE | 1cca8f66-f5d9-496d-b56e-520dad43fd25 | [E2E MAIN PROBE] Atlas worker terminal callback chain | worker=Atlas | progress=- | summary=E2E main probe completed successfully
