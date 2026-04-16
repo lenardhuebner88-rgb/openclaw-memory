@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 05f78c96-3933-4202-a48e-5fb879377d99 [P10] MC: Brain Health Drilldown schmal ergänzen
+- task: c4726998-63ae-4789-8760-ddb92d9bf035 [P1][MC] Pipeline + Task Tab UX Cleanup (Summary-First)
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T20:46:09.948Z
+- updated: 2026-04-16T21:56:02.973Z
 <!-- mc:auto-working-context:end -->
