@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 57d94fd5-d9f2-473a-9680-5826bea7b9e7 [P3][Follow-up][Forge] Overview-CTA auf gemeinsamen taskboard-link-Helper konsolidieren
+- task: 60dfc2db-5c5c-4a1f-b7a3-b91ecd4aeac7 [P1][Follow-up][Forge] Spark-Dispatch-Timeout und manuellen Cleanup-Pfad root-causen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T02:15:01.911Z
+- updated: 2026-04-16T07:10:01.476Z
 <!-- mc:auto-working-context:end -->

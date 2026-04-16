@@ -327,3 +327,4 @@
 - 2026-04-16T06:59:39.515Z | DONE | c69dcc6d-fe7d-457b-80cf-624a4d5d4a75 | [E2E] Pixel Dispatch-Test | worker=Pixel | progress=- | summary=E2E Pixel-Test erfolgreich: dispatch→active→done
 - 2026-04-16T07:00:51.041Z | DONE | aecaee53-27cb-4f9d-b1f6-8f1826032c05 | [E2E] Forge Dispatch-Test | worker=Forge | progress=- | summary=E2E Forge-Test erfolgreich: dispatch→active→review→done
 - 2026-04-16T07:02:53.735Z | DONE | 65a16e79-10eb-453b-bcbc-67be6d74a19a | [E2E] Spark Dispatch-Test | worker=Spark | progress=- | summary=E2E Spark: timeout bei Subagent — Task verworfen, Board-State manuell bereinigt
+- 2026-04-16T07:10:01.475Z | START | 60dfc2db-5c5c-4a1f-b7a3-b91ecd4aeac7 | [P1][Follow-up][Forge] Spark-Dispatch-Timeout und manuellen Cleanup-Pfad root-causen | worker=worker | progress=- | summary=-
