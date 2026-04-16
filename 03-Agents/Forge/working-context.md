@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 33144be4-2363-4211-aa24-6e4f5fb19a88 [CLEAN FAILED-PATH] Validate exactly 1 worker-runs entry
-- stage: FAILED
+- task: 3bec9eb5-611e-45a4-8ae3-20aaa60404cd [P3][Follow-up][Forge] Mission-Control-Build-Artefakte von Legacy-Agent-Referenzen bereinigen
+- stage: DONE
 - next: await next assignment
-- checkpoint: Validated canonical failed-path: deduplicated worker-runs to a single failed ended entry.
-- blocker: Validated canonical failed-path: deduplicated worker-runs to a single failed ended entry.
-- updated: 2026-04-16T15:46:08.301Z
+- checkpoint: Legacy-Agent-Referenzen auf researcher/flash wurden aus Mission-Control-Build-Artefakten entfernt; Source im produktiven Pfad enthält nur nicht-agentische flash-Begriffe.
+- blocker: -
+- updated: 2026-04-16T16:50:42.037Z
 <!-- mc:auto-working-context:end -->
