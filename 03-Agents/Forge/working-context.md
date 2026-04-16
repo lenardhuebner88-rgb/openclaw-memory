@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 75e719f3-00aa-460c-9a96-befb8cc4c8c5 [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge
+- task: 256d0fde-14cb-4041-b2e5-7c91f4b66011 [Follow-up][Forge] cleanup-runs cron claim vs live cron registry prüfen und korrigieren
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Probe confirms gateway placeholder dispatch and one real-session pickup, but worker-runs has duplicate entries for task 75e719f3-00aa-460c-9a96-befb8cc4c8c5 and a dangling active run (runId 0d6715b6-65d0-4127-9aa7-6be695
-- blocker: Probe confirms gateway placeholder dispatch and one real-session pickup, but worker-runs has duplicate entries for task 75e719f3-00aa-460c-9a96-befb8cc4c8c5 and a dangling active run (runId 0d6715b6-65d0-4127-9aa7-6be695
-- updated: 2026-04-16T20:35:52.745Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-16T22:10:01.472Z
 <!-- mc:auto-working-context:end -->

@@ -438,3 +438,13 @@
 - 2026-04-16T20:46:09.947Z | START | 05f78c96-3933-4202-a48e-5fb879377d99 | [P10] MC: Brain Health Drilldown schmal ergänzen | worker=agent | progress=- | summary=-
 - 2026-04-16T21:45:19.874Z | START | 84fb938a-c86f-4930-8a4e-0345752ab55a | [P0][MC] Terminal-State + Receipt Trust Hardening | worker=agent | progress=- | summary=-
 - 2026-04-16T21:56:02.971Z | START | c4726998-63ae-4789-8760-ddb92d9bf035 | [P1][MC] Pipeline + Task Tab UX Cleanup (Summary-First) | worker=agent | progress=- | summary=-
+- 2026-04-16T22:00:01.279Z | FAILED | 0c3d3e76-726a-4b52-8c4b-17d92000c6a7 | [P1][MC] Post-Implementation Trust + UX Validation | worker=Lens | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
+- 2026-04-16T22:05:02.016Z | FAILED | 0c3d3e76-726a-4b52-8c4b-17d92000c6a7 | [P1][MC] Post-Implementation Trust + UX Validation | worker=efficiency-auditor | progress=- | summary=Failed after 2 attempts: Worker failed | note=Worker failed
+- 2026-04-16T22:05:21.363Z | START | ebaa4a45-81bc-4ccb-9d59-d6ae2b80abc4 | [P1][OpenClaw] Lifecycle-Hygiene: Audit + Härtung | worker=agent | progress=- | summary=-
+- 2026-04-16T22:10:01.472Z | FAILED | 256d0fde-14cb-4041-b2e5-7c91f4b66011 | [Follow-up][Forge] cleanup-runs cron claim vs live cron registry prüfen und korrigieren | worker=Forge | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
+- 2026-04-16T22:10:03.172Z | FAILED | 0c3d3e76-726a-4b52-8c4b-17d92000c6a7 | [P1][MC] Post-Implementation Trust + UX Validation | worker=efficiency-auditor | progress=- | summary=Failed after 3 attempts: Worker failed | note=Worker failed
+- 2026-04-16T22:12:11.917Z | START | 2a484630-6601-46d6-b495-b3e2170188b0 | [P1][OpenClaw] Kommunikations-Standard als Betriebsregel verankern | worker=agent | progress=- | summary=-
+- 2026-04-16T22:13:08.735Z | DONE | 2a484630-6601-46d6-b495-b3e2170188b0 | [P1][OpenClaw] Kommunikations-Standard als Betriebsregel verankern | worker=Atlas | progress=- | summary=MEMORY.md Kommunikations-Standard war bereits vollständig dokumentiert — einekorrupte Texteintrag (sessions_send-Zeile) wurde bereinigt.
+- 2026-04-16T22:15:02.861Z | FAILED | 256d0fde-14cb-4041-b2e5-7c91f4b66011 | [Follow-up][Forge] cleanup-runs cron claim vs live cron registry prüfen und korrigieren | worker=sre-expert | progress=- | summary=Failed after 2 attempts: Worker failed | note=Worker failed
+- 2026-04-16T22:19:52.567Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-16T22:19:52.595Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).

@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: dab07eb7-39ac-4e4d-bd91-59820856309b [FAILED-PATH VALIDATION] Test fix for duplicate worker-runs
+- task: 256d0fde-14cb-4041-b2e5-7c91f4b66011 [Follow-up][Forge] cleanup-runs cron claim vs live cron registry prüfen und korrigieren
 - stage: FAILED
 - next: await next assignment
 - checkpoint: Worker failed
 - blocker: Worker failed
-- updated: 2026-04-16T15:20:02.007Z
+- updated: 2026-04-16T22:15:02.862Z
 <!-- mc:auto-working-context:end -->
