@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5edb4839-1c63-4d07-9200-68a9e700ae41 [P1][Probe][Forge] Validate post-restart worker binding has no phantom accepted state
+- task: 2da6cdd3-17a8-495b-93c2-6acc8954f679 [STEP1 VERIFY] Gateway placeholder test
 - stage: DONE
 - next: await next assignment
-- checkpoint: Probe passed: no accepted/started receipt existed before the real accepted receipt; task closed cleanly after verification.
+- checkpoint: Verifiziert: worker-runs.json enthält workerSessionId im Format gateway:{taskId} für den Task.
 - blocker: -
-- updated: 2026-04-16T09:16:19.532Z
+- updated: 2026-04-16T13:15:51.223Z
 <!-- mc:auto-working-context:end -->

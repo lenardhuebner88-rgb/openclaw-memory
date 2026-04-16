@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3b0d991b-3109-4408-96db-0ff084e223b7 [E2E] Stability-Gate Dispatch-Test
+- task: 1498cc52-5ec8-4696-a98a-06b73331d3f4 [E2E PROBE] Worker dispatch test task
 - stage: DONE
 - next: await next assignment
-- checkpoint: Stability-Gate Dispatch-Test erfolgreich: draft→in-progress→done, korrekter State-Übergang validiert.
+- checkpoint: E2E dispatch path verified: task dispatched, worker pickup confirmed, receipt endpoint functional, terminal state reached.
 - blocker: -
-- updated: 2026-04-16T09:17:43.681Z
+- updated: 2026-04-16T13:12:18.341Z
 <!-- mc:auto-working-context:end -->

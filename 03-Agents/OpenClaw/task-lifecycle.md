@@ -344,3 +344,8 @@
 - 2026-04-16T09:19:18.779Z | DONE | 0435ca96-12bc-4cf9-8ef7-3cb3be146e32 | [CLEANUP] Agentenstruktur auf 6 Kernagenten — konkrete Liste | worker=Atlas | progress=- | summary=Kontrollierter Atlas-Dispatch-Test erfolgreich abgeschlossen.
 - 2026-04-16T12:46:00.030Z | START | 1cca8f66-f5d9-496d-b56e-520dad43fd25 | [E2E MAIN PROBE] Atlas worker terminal callback chain | worker=agent | progress=- | summary=-
 - 2026-04-16T12:46:33.490Z | DONE | 1cca8f66-f5d9-496d-b56e-520dad43fd25 | [E2E MAIN PROBE] Atlas worker terminal callback chain | worker=Atlas | progress=- | summary=E2E main probe completed successfully
+- 2026-04-16T12:55:01.722Z | FAILED | 1498cc52-5ec8-4696-a98a-06b73331d3f4 | [E2E PROBE] Worker dispatch test task | worker=spark | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
+- 2026-04-16T13:11:52.431Z | START | 1498cc52-5ec8-4696-a98a-06b73331d3f4 | [E2E PROBE] Worker dispatch test task | worker=agent | progress=- | summary=-
+- 2026-04-16T13:12:18.340Z | DONE | 1498cc52-5ec8-4696-a98a-06b73331d3f4 | [E2E PROBE] Worker dispatch test task | worker=Spark | progress=- | summary=E2E dispatch path verified: task dispatched, worker pickup confirmed, receipt endpoint functional, terminal state reached.
+- 2026-04-16T13:15:19.269Z | START | 2da6cdd3-17a8-495b-93c2-6acc8954f679 | [STEP1 VERIFY] Gateway placeholder test | worker=agent | progress=- | summary=-
+- 2026-04-16T13:15:51.222Z | DONE | 2da6cdd3-17a8-495b-93c2-6acc8954f679 | [STEP1 VERIFY] Gateway placeholder test | worker=Forge | progress=- | summary=Verifiziert: worker-runs.json enthält workerSessionId im Format gateway:{taskId} für den Task.
