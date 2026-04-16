@@ -15,10 +15,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 187af1a6-d851-4ebc-970d-565dfb1bb7d8 [P2][Follow-up][Forge] Weitere Task-CTA-Linkpfade auf kanonischen URLSearchParams-Builder umstellen
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-16T02:00:02.094Z
+- task: 57d94fd5-d9f2-473a-9680-5826bea7b9e7 [P3][Follow-up][Forge] Overview-CTA auf gemeinsamen taskboard-link-Helper konsolidieren
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-16T02:15:01.911Z
 <!-- mc:auto-working-context:end -->

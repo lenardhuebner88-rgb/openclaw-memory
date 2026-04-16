@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7ef76135-633d-4c51-9f5e-8a8c2e71a065 [P2][Follow-up][Forge] Operator overview CTA href-encoding fix (F7)
+- task: 57d94fd5-d9f2-473a-9680-5826bea7b9e7 [P3][Follow-up][Forge] Overview-CTA auf gemeinsamen taskboard-link-Helper konsolidieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Operator-overview CTA erzeugt Task-Links jetzt über einen kanonischen URLSearchParams-Pfad, wodurch href-Encoding für task IDs deterministisch bleibt.
+- checkpoint: Lokaler buildTaskboardHref in overview-dashboard.tsx durch buildTaskboardTaskHref aus @/lib/taskboard-links ersetzt; Test angepasst; TypeScript clean.
 - blocker: -
-- updated: 2026-04-16T00:54:58.445Z
+- updated: 2026-04-16T02:18:04.817Z
 <!-- mc:auto-working-context:end -->
