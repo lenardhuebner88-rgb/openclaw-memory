@@ -16,9 +16,9 @@
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 187af1a6-d851-4ebc-970d-565dfb1bb7d8 [P2][Follow-up][Forge] Weitere Task-CTA-Linkpfade auf kanonischen URLSearchParams-Builder umstellen
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-16T01:00:01.524Z
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-16T02:00:02.094Z
 <!-- mc:auto-working-context:end -->
