@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 87805295-66aa-4ee0-ba59-4fe01356aee9 [P3][Follow-up][Pixel] testid-Konsistenz zwischen heute-focus und task-card für Open-Details-CTA härten
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-16T00:25:13.925Z
+- task: 7ef76135-633d-4c51-9f5e-8a8c2e71a065 [P2][Follow-up][Forge] Operator overview CTA href-encoding fix (F7)
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-16T00:45:01.673Z
 <!-- mc:auto-working-context:end -->

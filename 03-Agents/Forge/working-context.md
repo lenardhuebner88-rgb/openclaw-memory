@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a394965d-1468-47cd-bc53-584bdc5eaf13 [P2][Follow-up][Forge] KPI für historische Thread-Audit-Lücken einführen
+- task: 7ef76135-633d-4c51-9f5e-8a8c2e71a065 [P2][Follow-up][Forge] Operator overview CTA href-encoding fix (F7)
 - stage: DONE
 - next: await next assignment
-- checkpoint: KPI für Result ohne echte Thread-Audit-Spur ist definiert, als Script produktiv messbar und mit aktueller Baseline (141/142=99.30%) verifiziert.
+- checkpoint: Operator-overview CTA erzeugt Task-Links jetzt über einen kanonischen URLSearchParams-Pfad, wodurch href-Encoding für task IDs deterministisch bleibt.
 - blocker: -
-- updated: 2026-04-16T00:16:47.443Z
+- updated: 2026-04-16T00:54:58.445Z
 <!-- mc:auto-working-context:end -->

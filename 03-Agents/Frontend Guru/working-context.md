@@ -66,9 +66,9 @@ Headers: x-actor-kind: automation
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 87805295-66aa-4ee0-ba59-4fe01356aee9 [P3][Follow-up][Pixel] testid-Konsistenz zwischen heute-focus und task-card für Open-Details-CTA härten
-- stage: FAILED
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-16T00:20:01.890Z
+- checkpoint: Open-Details-CTA nutzt jetzt eine gemeinsame kanonische testid auf heute-focus und task-card, und relevante Playwright-Pfade laufen mit der vereinheitlichten Kennung.
+- blocker: -
+- updated: 2026-04-16T00:29:54.472Z
 <!-- mc:auto-working-context:end -->
