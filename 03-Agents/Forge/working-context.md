@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 57d94fd5-d9f2-473a-9680-5826bea7b9e7 [P3][Follow-up][Forge] Overview-CTA auf gemeinsamen taskboard-link-Helper konsolidieren
+- task: aecaee53-27cb-4f9d-b1f6-8f1826032c05 [E2E] Forge Dispatch-Test
 - stage: DONE
 - next: await next assignment
-- checkpoint: Lokaler buildTaskboardHref in overview-dashboard.tsx durch buildTaskboardTaskHref aus @/lib/taskboard-links ersetzt; Test angepasst; TypeScript clean.
+- checkpoint: E2E Forge-Test erfolgreich: dispatch→active→review→done
 - blocker: -
-- updated: 2026-04-16T02:18:04.817Z
+- updated: 2026-04-16T07:00:51.043Z
 <!-- mc:auto-working-context:end -->

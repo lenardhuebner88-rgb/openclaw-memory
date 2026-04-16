@@ -11,7 +11,7 @@
 ## Lies zuerst
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
-- [[../OpenClaw/operational-state]]
+- [[../Shared/checkpoints]]
 - [[../Shared/task-lifecycle-canon]]
 
 ## KRITISCH: Lokale URL-Verifikation — KEIN web_fetch für 127.0.0.1
@@ -97,10 +97,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: -
-- stage: CHECKPOINT
-- next: -
-- checkpoint: -
+- task: c69dcc6d-fe7d-457b-80cf-624a4d5d4a75 [E2E] Pixel Dispatch-Test
+- stage: DONE
+- next: await next assignment
+- checkpoint: E2E Pixel-Test erfolgreich: dispatch→active→done
 - blocker: -
-- updated: -
+- updated: 2026-04-16T06:59:39.516Z
 <!-- mc:auto-working-context:end -->
