@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 38fc8432-93d0-4ee5-9e23-429c5b16c7b4 [P2][Forge] Worker-runs stale system-label + orphaned UUID cleanup
-- stage: DONE
+- task: 75e719f3-00aa-460c-9a96-befb8cc4c8c5 [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge
+- stage: FAILED
 - next: await next assignment
-- checkpoint: worker-runs.json bereinigt: 974->217 Eintraege, alle DoD-Punkte erfuellt
-- blocker: -
-- updated: 2026-04-16T20:20:02.661Z
+- checkpoint: Probe confirms gateway placeholder dispatch and one real-session pickup, but worker-runs has duplicate entries for task 75e719f3-00aa-460c-9a96-befb8cc4c8c5 and a dangling active run (runId 0d6715b6-65d0-4127-9aa7-6be695
+- blocker: Probe confirms gateway placeholder dispatch and one real-session pickup, but worker-runs has duplicate entries for task 75e719f3-00aa-460c-9a96-befb8cc4c8c5 and a dangling active run (runId 0d6715b6-65d0-4127-9aa7-6be695
+- updated: 2026-04-16T20:35:52.745Z
 <!-- mc:auto-working-context:end -->

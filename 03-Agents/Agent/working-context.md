@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 75e719f3-00aa-460c-9a96-befb8cc4c8c5 [E2E FORGE PROBE] Verify gateway placeholder + worker pickup for Forge
+- task: 05f78c96-3933-4202-a48e-5fb879377d99 [P10] MC: Brain Health Drilldown schmal ergänzen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T20:26:42.802Z
+- updated: 2026-04-16T20:46:09.948Z
 <!-- mc:auto-working-context:end -->
