@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2a484630-6601-46d6-b495-b3e2170188b0 [P1][OpenClaw] Kommunikations-Standard als Betriebsregel verankern
+- task: 154447c9-6621-454c-8de9-ee4de4611a8d [P1][OpenClaw] Config-Patch: main in agentToAgent.allow
 - stage: DONE
 - next: await next assignment
-- checkpoint: MEMORY.md Kommunikations-Standard war bereits vollständig dokumentiert — einekorrupte Texteintrag (sessions_send-Zeile) wurde bereinigt.
+- checkpoint: Validated tools.agentToAgent.allow already includes main and confirmed the gateway restarted cleanly without errors.
 - blocker: -
-- updated: 2026-04-16T22:13:08.736Z
+- updated: 2026-04-16T22:43:14.660Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.

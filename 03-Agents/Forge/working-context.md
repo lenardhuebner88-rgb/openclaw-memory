@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 256d0fde-14cb-4041-b2e5-7c91f4b66011 [Follow-up][Forge] cleanup-runs cron claim vs live cron registry prüfen und korrigieren
-- stage: FAILED
+- task: 84fb938a-c86f-4930-8a4e-0345752ab55a [P0][MC] Terminal-State + Receipt Trust Hardening
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-16T22:10:01.472Z
+- checkpoint: Terminal-/Receipt-Trust-Hardening ist wirksam; alle angefragten Konsistenzmetriken stehen bei 0 Widersprüchen.
+- blocker: -
+- updated: 2026-04-16T22:36:14.673Z
 <!-- mc:auto-working-context:end -->
