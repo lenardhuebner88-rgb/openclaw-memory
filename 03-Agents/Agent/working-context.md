@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: dab07eb7-39ac-4e4d-bd91-59820856309b [FAILED-PATH VALIDATION] Test fix for duplicate worker-runs
+- task: 2d114fa1-8f50-43d0-885d-f004e1102b32 [P1][Follow-up][Forge] Top-3 Remove-Liste technisch bereinigen: researcher, spark-relief, flash
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-16T14:30:13.315Z
+- updated: 2026-04-16T15:05:43.263Z
 <!-- mc:auto-working-context:end -->

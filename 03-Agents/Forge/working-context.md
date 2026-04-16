@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: dab07eb7-39ac-4e4d-bd91-59820856309b [FAILED-PATH VALIDATION] Test fix for duplicate worker-runs
+- task: fail-dup-test Fail-path duplicate run test
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Validation task confirms failed-path: duplicate worker-runs entries were deduplicated to one canonical failed run.
-- blocker: Validation task confirms failed-path: duplicate worker-runs entries were deduplicated to one canonical failed run.
-- updated: 2026-04-16T14:46:03.731Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-16T15:17:49.590Z
 <!-- mc:auto-working-context:end -->
