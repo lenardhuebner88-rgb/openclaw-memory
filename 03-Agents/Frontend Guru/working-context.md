@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b8b3477a-951b-456c-9317-4d8cc61ada02 [Cockpit Pack 2] Heartbeat-Strip Zone A — 4 Lichter für System-Status
-- stage: START
+- task: 0dfd7afe-4854-418e-88cf-3ff50f59cd8d [Costs-v2 Pack 6-A] Heartbeat-Strip Zone A (Pixel)
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Implemented src/app/costs/components/cost-heartbeat.tsx, integrated it above the existing costs layout behind NEXT_PUBLIC_COSTS_COCKPIT_V2 default-on semantics, and verified build wrapper passes.
 - blocker: -
-- updated: 2026-04-17T14:43:56.431Z
+- updated: 2026-04-17T19:41:00.234Z
 <!-- mc:auto-working-context:end -->

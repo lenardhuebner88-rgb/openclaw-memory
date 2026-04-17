@@ -71,12 +71,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a9c70d19-7ac3-4d56-a660-ad39caa6f141 [Plan-Runner Pack D] Core-Runner DRY-RUN
+- task: 0cdfeccb-238e-43aa-afe2-34a8a9241ca1 [Plan-Runner Pack G] plan-cli.py Operator-Commands
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: done
-
-RESULT_SUMMARY: Plan-Runner Pack D implemented in DRY_RUN mode. Added /home/piet/.openclaw/scripts/plan-runner.py that reads active plans from /home/piet/.openclaw/workspace/memory/working/active-pla
+RESULT_SUMMARY: Implemented /home/piet/.openclaw/scripts/plan-cli.py using argparse with commands status, show <plan-id>, pause <plan-id>, resume <plan-id>, skip <plan-id> <step-id>, abort <plan-id>. 
 - blocker: -
-- updated: 2026-04-17T19:01:07.764Z
+- updated: 2026-04-17T19:44:34.674Z
 <!-- mc:auto-working-context:end -->

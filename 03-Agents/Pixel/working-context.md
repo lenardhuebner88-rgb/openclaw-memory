@@ -97,10 +97,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: bbcf2b0e-5903-4800-b819-30f748f829c4 [Cockpit Pack 5 UI] Next-Best-Action Banner — Zone B
+- task: 0dfd7afe-4854-418e-88cf-3ff50f59cd8d [Costs-v2 Pack 6-A] Heartbeat-Strip Zone A (Pixel)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Zone B NBA-Banner: laedt /api/board/next-action, zeigt 1 Satz + Button, POST loggt nba-acted Event.
+- checkpoint: RESULT_STATUS: done
+RESULT_SUMMARY: Added the new Zone A Costs Cockpit v2 heartbeat strip with four traffic-light indicators, integrated it above the existing costs layout behind NEXT_PUBLIC_COSTS_COCKPIT_V2 default-on b
 - blocker: -
-- updated: 2026-04-17T15:17:14.071Z
+- updated: 2026-04-17T19:47:26.466Z
 <!-- mc:auto-working-context:end -->

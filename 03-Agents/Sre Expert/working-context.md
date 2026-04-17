@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4e6f678d-f2a9-418d-9b1b-2e75a02edb39 [Costs-v2 Pack 2] Budget-Engine Multi-Mode + Alerts
+- task: 0cdfeccb-238e-43aa-afe2-34a8a9241ca1 [Plan-Runner Pack G] plan-cli.py Operator-Commands
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Pack 2 progress: added src/lib/budget-engine.ts (billing-mode + threshold parsing, mode-specific budget evaluation, eta_to_limit, and policy-event emission), added endpoint GET /api/costs/budget-status, and extended boar
+- checkpoint: Pack G progress: created /home/piet/.openclaw/scripts/plan-cli.py (argparse) with commands status/show/pause/resume/skip/abort, all loading plans via plan_schema.validate_plan and persisting YAML via validated atomic wri
 - blocker: -
-- updated: 2026-04-17T19:06:09.745Z
+- updated: 2026-04-17T19:44:02.970Z
 <!-- mc:auto-working-context:end -->
