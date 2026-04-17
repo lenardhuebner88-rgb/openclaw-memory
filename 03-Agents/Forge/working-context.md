@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ebaa4a45-81bc-4ccb-9d59-d6ae2b80abc4 [P1][OpenClaw] Lifecycle-Hygiene: Audit + Härtung
-- stage: DONE
+- task: 2e38068c-59d8-41b7-99ad-78e05c908516 E2E Smoke Test
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Lifecycle-Report-Hygiene gehaertet: per-Task Report-Lock + Audit-Events fuer Terminal-Report-Fehler implementiert und Tests gruen.
-- blocker: -
-- updated: 2026-04-17T03:05:21.068Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-17T08:10:01.843Z
 <!-- mc:auto-working-context:end -->

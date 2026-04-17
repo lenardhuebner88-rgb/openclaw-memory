@@ -477,3 +477,4 @@
 - 2026-04-17T03:13:25.729Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
 - 2026-04-17T03:13:57.069Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
 - 2026-04-17T03:13:57.099Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
+- 2026-04-17T08:10:01.842Z | FAILED | 2e38068c-59d8-41b7-99ad-78e05c908516 | E2E Smoke Test | worker=Forge | progress=- | summary=Failed after 1 attempt: Worker failed | note=Worker failed
