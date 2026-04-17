@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 84fb938a-c86f-4930-8a4e-0345752ab55a [P0][MC] Terminal-State + Receipt Trust Hardening
+- task: 82fc9653-a904-4bb9-8cf6-cb1ca192bd0f [P0][MC] Wiederkehrende Cron/Worker-Systemausfälle — Root Cause + Langfrist Lösung
 - stage: DONE
 - next: await next assignment
-- checkpoint: Terminal-/Receipt-Trust-Hardening ist wirksam; alle angefragten Konsistenzmetriken stehen bei 0 Widersprüchen.
+- checkpoint: Root Cause = systemd Restart-Loops (nicht API-500). P0-Containment vorhanden. Lessons Learned archiviert.
 - blocker: -
-- updated: 2026-04-16T22:36:14.673Z
+- updated: 2026-04-17T02:57:52.143Z
 <!-- mc:auto-working-context:end -->

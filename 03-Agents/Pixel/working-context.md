@@ -97,10 +97,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c69dcc6d-fe7d-457b-80cf-624a4d5d4a75 [E2E] Pixel Dispatch-Test
+- task: c4726998-63ae-4789-8760-ddb92d9bf035 [P1][MC] Pipeline + Task Tab UX Cleanup (Summary-First)
 - stage: DONE
 - next: await next assignment
-- checkpoint: E2E Pixel-Test erfolgreich: dispatch→active→done
+- checkpoint: Pipeline and Taskboard were cleaned up into a summary-first, mobile-safer UX with technical details moved behind progressive disclosure.
 - blocker: -
-- updated: 2026-04-16T06:59:39.516Z
+- updated: 2026-04-17T02:37:59.074Z
 <!-- mc:auto-working-context:end -->
