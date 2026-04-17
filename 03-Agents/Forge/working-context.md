@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2e38068c-59d8-41b7-99ad-78e05c908516 E2E Smoke Test
+- task: e64f75c1-6388-456c-bcf9-8db6ca4cf67d E2E Hardening Test
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-17T08:10:01.843Z
+- checkpoint: E2E verification task — cancel after hardening checks passed
+- blocker: E2E verification task — cancel after hardening checks passed
+- updated: 2026-04-17T08:27:34.457Z
 <!-- mc:auto-working-context:end -->
