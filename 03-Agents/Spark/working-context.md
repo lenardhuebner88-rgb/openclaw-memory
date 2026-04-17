@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 17f6d12c-2168-4beb-840c-cdd4a0c261c8 [SPARK E2E PROBE] Specialist worker pickup verification for Spark
+- task: edd017e9-4fac-4959-811e-b05661fbe52c [Costs-v2 Pack 8 Concept] Cost-Story-Modal UX-Prototyp (Spark)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Spark pickup probe erfolgreich verifiziert: Placeholder wurde an reale Session gebunden, ohne Duplicate-Run.
+- checkpoint: Cost-Story Modal UX-Concept erstellt. DoD verifiziert: (1) User Story 3 Sätze ✓, (2) ASCII Wireframe 90 chars ✓, (3) MC API Field Mapping (9 rows) ✓, (4) 3 reale Narratives (UX Sprint, Restart Loop, Batched Packs) basier
 - blocker: -
-- updated: 2026-04-16T14:01:46.169Z
+- updated: 2026-04-17T18:59:45.482Z
 <!-- mc:auto-working-context:end -->

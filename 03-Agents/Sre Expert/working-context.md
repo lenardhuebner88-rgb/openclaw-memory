@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a5f10eaa-f62c-456d-aa58-130247632932 [Costs-v2 Pack 3] Burn-Rate + Projection per Billing-Mode
-- stage: START
+- task: 4e6f678d-f2a9-418d-9b1b-2e75a02edb39 [Costs-v2 Pack 2] Budget-Engine Multi-Mode + Alerts
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Pack 2 progress: added src/lib/budget-engine.ts (billing-mode + threshold parsing, mode-specific budget evaluation, eta_to_limit, and policy-event emission), added endpoint GET /api/costs/budget-status, and extended boar
 - blocker: -
-- updated: 2026-04-17T18:48:22.194Z
+- updated: 2026-04-17T19:06:09.745Z
 <!-- mc:auto-working-context:end -->
