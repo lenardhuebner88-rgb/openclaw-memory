@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: caaa9dbb-0b41-4eee-a063-59efd1141d57 [Intervention] AC-08: LTM-Write-Verstöße finden und stoppen
+- task: da9608e1-f23e-41ab-8a70-421fa5d23122 [P0] Max-Session-Length Guard: 70% Hinto-Trigger in Runtime
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done | RESULT_SUMMARY: AC08 root cause fixed. Two reported violations were regex false positives from text content, not real worker writes. Guard implemented in scripts/atlas-review-gate-scanner.py: AC-
+- checkpoint: EXECUTION_STATUS: done | RESULT_SUMMARY: Implemented session-toolcall-guard script with session-type limits (Incident=30, Analyse=80, Umsetzung=40, E2E=120), counting assistant toolCall events from session JSONL and prin
 - blocker: -
-- updated: 2026-04-17T13:44:28.703Z
+- updated: 2026-04-17T14:12:28.601Z
 <!-- mc:auto-working-context:end -->

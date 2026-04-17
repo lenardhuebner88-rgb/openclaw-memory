@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: caaa9dbb-0b41-4eee-a063-59efd1141d57 [Intervention] AC-08: LTM-Write-Verstöße finden und stoppen
+- task: e334d997-17c0-401d-aa4c-3643c757cf46 [P0] Handoff-DoD in Mission Control: Handoff-Bloc als Pflichtfeld
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-17T13:44:28.325Z
+- updated: 2026-04-17T14:10:08.578Z
 <!-- mc:auto-working-context:end -->
