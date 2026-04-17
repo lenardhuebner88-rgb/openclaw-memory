@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ee0031c1-8e99-448c-8db0-b479cc6073fc [Cockpit Pack 7 Backend] SSE /api/board/events Endpoint
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: SUCCESS\nRESULT_SUMMARY: Implemented /api/board/events SSE stream with chunked headers, event mapping, poll fallback, and added board log events (task-created, task-dispatched, task-status-change, nba-a
-- blocker: -
-- updated: 2026-04-17T15:10:45.352Z
+- task: e12b3603-549e-44bd-a71a-b6b037b02897 [QW2] openclaw.json Schema-Lock + edit-config Wrapper
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Cannot apply immutable lock in this runtime: chattr +i requires sudo password (sudo -n not available). Implemented backup, wrapper script, invariant note, and validation test path, but immutable-lock and direct-write-fai
+- blocker: Cannot apply immutable lock in this runtime: chattr +i requires sudo password (sudo -n not available). Implemented backup, wrapper script, invariant note, and validation test path, but immutable-lock and direct-write-fai
+- updated: 2026-04-17T17:41:42.371Z
 <!-- mc:auto-working-context:end -->

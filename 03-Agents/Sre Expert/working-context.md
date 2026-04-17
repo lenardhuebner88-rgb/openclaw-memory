@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0b1f3e07-4e83-49d2-a188-121a5af15623 [Cockpit Pack 5 Backend] /api/board/next-action + NBA-Regelwerk
-- stage: START
+- task: e12b3603-549e-44bd-a71a-b6b037b02897 [QW2] openclaw.json Schema-Lock + edit-config Wrapper
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: QW2 progress: backup+wrapper+invariant note implemented; blocker found for immutable lock because chattr requires sudo password in this runtime (cannot apply +i non-interactively).
 - blocker: -
-- updated: 2026-04-17T15:01:58.951Z
+- updated: 2026-04-17T17:41:24.096Z
 <!-- mc:auto-working-context:end -->
