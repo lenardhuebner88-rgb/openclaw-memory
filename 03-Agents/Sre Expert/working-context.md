@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6cf8c720-cb08-4271-834c-8c60302a45fb [Smoke] pending-pickup lifecycle
+- task: 6f6d32a9-12fc-4484-9c21-897355cfbe16 Layer-C Script-Bereinigung: Archive + Backups aufräumen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-17T20:31:23.983Z
+- updated: 2026-04-17T21:09:25.893Z
 <!-- mc:auto-working-context:end -->
