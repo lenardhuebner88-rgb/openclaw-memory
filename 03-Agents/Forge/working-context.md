@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2d9923e2-2b8a-44ef-a044-b5fa043ae0a4 [Woche-1] Memory-Layer-Struktur anlegen: LTM/Working/Archive-Verzeichnisse
+- task: c5a2006f-5349-44a2-a69b-bfca4712c723 [Worker-Hardening Pack 7] admin-close failureReason Preservation
 - stage: DONE
 - next: await next assignment
-- checkpoint: Memory-Layer umgesetzt: Verzeichnisse memory/invariants, memory/working, memory/archive/2026-Q2 vorhanden; MEMORY.md in Layer-Index umgebaut und Alteintrag archiviert unter memory/archive/2026-Q2/MEMORY-pre-layering-2026
+- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: Pack 7 delivered: admin-close now preserves failure metadata into preservedFailure* fields, sets failureCategory=admin-override and failureSource=admin on preservation path, emits ev
 - blocker: -
-- updated: 2026-04-17T10:48:28.355Z
+- updated: 2026-04-17T12:03:21.824Z
 <!-- mc:auto-working-context:end -->

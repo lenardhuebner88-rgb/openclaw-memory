@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e7b5ad64-5c09-49fd-8073-3781ad320ca6 [Smoke] pending-pickup lifecycle
+- task: e9353286-6e09-4fec-8b0c-d3a40c359ed0 [Board-Cockpit Pack 1] boardLane Klassifikation API-Projektion
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-17T11:35:57.492Z
+- updated: 2026-04-17T12:14:23.802Z
 <!-- mc:auto-working-context:end -->
