@@ -466,3 +466,14 @@
 - 2026-04-17T02:37:59.072Z | DONE | c4726998-63ae-4789-8760-ddb92d9bf035 | [P1][MC] Pipeline + Task Tab UX Cleanup (Summary-First) | worker=Pixel | progress=- | summary=Pipeline and Taskboard were cleaned up into a summary-first, mobile-safer UX with technical details moved behind progressive disclosure.
 - 2026-04-17T02:52:31.849Z | DONE | idempotency-task-1 | Idempotency task | worker=Forge | progress=- | summary=Done
 - 2026-04-17T02:57:52.141Z | DONE | 82fc9653-a904-4bb9-8cf6-cb1ca192bd0f | [P0][MC] Wiederkehrende Cron/Worker-Systemausfälle — Root Cause + Langfrist Lösung | worker=Forge | progress=- | summary=Root Cause = systemd Restart-Loops (nicht API-500). P0-Containment vorhanden. Lessons Learned archiviert.
+- 2026-04-17T03:05:21.066Z | DONE | ebaa4a45-81bc-4ccb-9d59-d6ae2b80abc4 | [P1][OpenClaw] Lifecycle-Hygiene: Audit + Härtung | worker=Forge | progress=- | summary=Lifecycle-Report-Hygiene gehaertet: per-Task Report-Lock + Audit-Events fuer Terminal-Report-Fehler implementiert und Tests gruen.
+- 2026-04-17T03:12:04.950Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-17T03:12:04.977Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
+- 2026-04-17T03:12:35.166Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-17T03:12:35.194Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
+- 2026-04-17T03:13:06.556Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-17T03:13:06.583Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
+- 2026-04-17T03:13:25.695Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-17T03:13:25.729Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).
+- 2026-04-17T03:13:57.069Z | DONE | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=Implemented nightly guard
+- 2026-04-17T03:13:57.099Z | FAILED | nightly-ts-gate-task | [Nightly] Guard TypeScript gate | worker=unassigned | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 2).

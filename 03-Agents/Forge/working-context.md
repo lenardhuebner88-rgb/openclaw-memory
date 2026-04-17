@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 82fc9653-a904-4bb9-8cf6-cb1ca192bd0f [P0][MC] Wiederkehrende Cron/Worker-Systemausfälle — Root Cause + Langfrist Lösung
+- task: ebaa4a45-81bc-4ccb-9d59-d6ae2b80abc4 [P1][OpenClaw] Lifecycle-Hygiene: Audit + Härtung
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root Cause = systemd Restart-Loops (nicht API-500). P0-Containment vorhanden. Lessons Learned archiviert.
+- checkpoint: Lifecycle-Report-Hygiene gehaertet: per-Task Report-Lock + Audit-Events fuer Terminal-Report-Fehler implementiert und Tests gruen.
 - blocker: -
-- updated: 2026-04-17T02:57:52.143Z
+- updated: 2026-04-17T03:05:21.068Z
 <!-- mc:auto-working-context:end -->
