@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0cdfeccb-238e-43aa-afe2-34a8a9241ca1 [Plan-Runner Pack G] plan-cli.py Operator-Commands
-- stage: CHECKPOINT
+- task: 6cf8c720-cb08-4271-834c-8c60302a45fb [Smoke] pending-pickup lifecycle
+- stage: START
 - next: continue current task
-- checkpoint: Pack G progress: created /home/piet/.openclaw/scripts/plan-cli.py (argparse) with commands status/show/pause/resume/skip/abort, all loading plans via plan_schema.validate_plan and persisting YAML via validated atomic wri
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-17T19:44:02.970Z
+- updated: 2026-04-17T20:31:23.983Z
 <!-- mc:auto-working-context:end -->
