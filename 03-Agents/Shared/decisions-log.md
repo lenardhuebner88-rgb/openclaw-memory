@@ -13,6 +13,7 @@
 - 2026-04-08: Opus stays constrained to high-value cases (root-cause, architecture, severe bugs).
 
 ## Historical decisions
+- 2026-04-17: [Intervention] MEMORY-Truncation beheben: Bootstrap lädt L1 vollständig: INTERVENTION-MEMORY-TRUNCATION-FIX umgesetzt: openclaw.json ergänzt mit agents.defaults.bootstrapMaxChars=8192 und agents.defaults.bootstrapTotalMaxChars=120000. session-start-auto <!-- mc:auto-decision:576599e4-1fd2-4e8c-a4e9-f60684cc6266|result|intervention-memory-truncation-beheben-bootstrap-l-dt-l1-vollst-ndig-interventio -->
 - 2026-04-17: [Woche-1] Memory-Layer-Struktur anlegen: LTM/Working/Archive-Verzeichnisse: Memory-Layer umgesetzt: Verzeichnisse memory/invariants, memory/working, memory/archive/2026-Q2 vorhanden; MEMORY.md in Layer-Index umgebaut und Alteintrag archiviert unter memory/ <!-- mc:auto-decision:2d9923e2-2b8a-44ef-a044-b5fa043ae0a4|result|woche-1-memory-layer-struktur-anlegen-ltm-working-archive-verzeichnisse-memory-l -->
 - 2026-04-16: [P1][OpenClaw] Config-Patch: main in agentToAgent.allow: Validated tools.agentToAgent.allow already includes main and confirmed the gateway restarted cleanly without errors. ## Was wurde gemacht - Schema fuer `tools.agentToAgent.allow` g <!-- mc:auto-decision:154447c9-6621-454c-8de9-ee4de4611a8d|result|p1-openclaw-config-patch-main-in-agenttoagent-allow-validated-tools-agenttoagent -->
 - 2026-04-16: [P1][OpenClaw] Kommunikations-Standard als Betriebsregel verankern: MEMORY.md Kommunikations-Standard war bereits vollständig dokumentiert — einekorrupte Texteintrag (sessions_send-Zeile) wurde bereinigt. ## Was wurde gemacht - MEMORY.md (Zeile 53) <!-- mc:auto-decision:2a484630-6601-46d6-b495-b3e2170188b0|result|p1-openclaw-kommunikations-standard-als-betriebsregel-verankern-memory-md-kommun -->
@@ -77,3 +78,19 @@
 - 2026-04-12 Abend: Root-Cause Phase 4 war echte Integrationslücken (Runtime-Libs, App-Router-Basis, leere Task-Routen) — nicht nur Testnoise.
 
 - 2026-04-13: Mission Control UI/text preference confirmed: keep product-facing UI copy and user-visible app language in English only; do not normalize tests or product output toward German. German can be used in internal chat, but MC product surface stays English.
+## 2026-04-17: Review-Gate Verschiebung + Option B Enforcement (Intervention-Plan)
+- Review-Gate verschoben auf **Do, 22. April 2026**
+- Option B gewählt: Verschiebung + Enforcement-Regel für Session-Typ-Deklaration
+- Verschärfung: kein Work ohne deklarierten Session-Typ (Atlas SOUL.md gehärtet)
+- Phase 1 Tasks:
+  - Forge: MEMORY-Truncation fix (Task `576599e4`)
+  - Atlas: Session-Typ-Enforcement ab jetzt aktiv
+- Phase 2 (bis Do): Long-Session-Drift bekämpfen, AC-06/07 Messlücken schließen
+- Pass-Kriterium: 7/10 AC müssen erfüllt sein (unverändert)
+
+## 2026-04-17: Review-Gate realistisch verschoben
+- Review-Gate von Do 22. April auf **Fr, 25. April** verschoben
+- Grund: SOUL.md-Regeln erst ~13:20 eingeführt, brauchen 3-5 Tage Realbetrieb
+- Scan #3 geplant: Mo 20. April (Tendencia-Check)
+- Scan #4 geplant: Mi 22. April (Trend-Bestätigung)
+- Entscheidung: 7/10 AC bleibt Pass-Kriterium, aber ehrliche Erwartung dass AC-05/09/10 kurzfristig noch nicht bei 95% liegen werden
