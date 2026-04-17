@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e9353286-6e09-4fec-8b0c-d3a40c359ed0 [Board-Cockpit Pack 1] boardLane Klassifikation API-Projektion
-- stage: START
+- task: eaba7fad-90f2-42a8-8b7c-dbf53bc40761 [Board-Cockpit Pack 4] Agent-Load Aggregat-Endpoint
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Pack 4 implementation in progress: created /api/board/agent-load aggregate endpoint with per-agent active/picked counts, maxConcurrent, and derived state for all 6 known agents.
 - blocker: -
-- updated: 2026-04-17T12:14:23.802Z
+- updated: 2026-04-17T12:37:26.257Z
 <!-- mc:auto-working-context:end -->

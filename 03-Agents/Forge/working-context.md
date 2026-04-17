@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c5a2006f-5349-44a2-a69b-bfca4712c723 [Worker-Hardening Pack 7] admin-close failureReason Preservation
+- task: eaba7fad-90f2-42a8-8b7c-dbf53bc40761 [Board-Cockpit Pack 4] Agent-Load Aggregat-Endpoint
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: Pack 7 delivered: admin-close now preserves failure metadata into preservedFailure* fields, sets failureCategory=admin-override and failureSource=admin on preservation path, emits ev
+- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: Pack 4 delivered: added /api/board/agent-load aggregate endpoint with 6 known agents, per-agent active/picked counts, maxConcurrent and derived state; ingress/cache requirements met;
 - blocker: -
-- updated: 2026-04-17T12:03:21.824Z
+- updated: 2026-04-17T12:42:38.594Z
 <!-- mc:auto-working-context:end -->
