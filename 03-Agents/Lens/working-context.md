@@ -62,10 +62,19 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 27203eb6-6be2-4414-91da-aa5fa1b8dc48 [Woche-2] Review-Gate Messinfrastruktur: AC-Metriken tracken
+- task: f225df08-c505-49e4-8edd-5e32cae2c028 [Costs-v2 Phase 1] Cost-Audit Baseline + Billing-Mode-Klassifikation (Lens)
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done | RESULT_SUMMARY: Review-Gate-Messinfrastruktur vollständig aufgebaut. Alle 10 AC-Metriken mit Woche-0-Baseline + Woche-2-Ziel dokumentiert. Scanner: scripts/atlas-review-gate-scanner.py (48h Windo
+- checkpoint: RESULT_STATUS: done
+
+== Costs-v2 Phase 1 — Billing-Mode-Aware Baseline ==
+Window: 2026-04-17 | Source: GET /api/costs + subscriptionStatus
+
+---
+
+## FINDING 1: PROVIDER → BILLING MODE MAPPING
+
+| Provider | Model(s) | Bill
 - blocker: -
-- updated: 2026-04-17T13:13:26.915Z
+- updated: 2026-04-17T16:48:07.817Z
 <!-- mc:auto-working-context:end -->

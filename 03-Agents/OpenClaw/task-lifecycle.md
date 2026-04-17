@@ -686,3 +686,216 @@ Notes:
 - 2026-04-17T15:10:45.351Z | DONE | ee0031c1-8e99-448c-8db0-b479cc6073fc | [Cockpit Pack 7 Backend] SSE /api/board/events Endpoint | worker=Forge | progress=- | summary=EXECUTION_STATUS: SUCCESS\nRESULT_SUMMARY: Implemented /api/board/events SSE stream with chunked headers, event mapping, poll fallback, and added board log events (task-created, task-dispatched, task-status-change, nba-acted).
 - 2026-04-17T15:16:12.331Z | START | bbcf2b0e-5903-4800-b819-30f748f829c4 | [Cockpit Pack 5 UI] Next-Best-Action Banner — Zone B | worker=pixel-cockpit-pack5 | progress=- | summary=-
 - 2026-04-17T15:17:14.069Z | DONE | bbcf2b0e-5903-4800-b819-30f748f829c4 | [Cockpit Pack 5 UI] Next-Best-Action Banner — Zone B | worker=Pixel | progress=- | summary=Zone B NBA-Banner: laedt /api/board/next-action, zeigt 1 Satz + Button, POST loggt nba-acted Event.
+- 2026-04-17T16:40:31.682Z | START | cbfdee30-aaed-44be-a519-ffecc872e0e8 | [Costs-v2 Phase 1] Cost-Audit Baseline (Lens) — Re-Run | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-17T16:43:22.414Z | DONE | cbfdee30-aaed-44be-a519-ffecc872e0e8 | [Costs-v2 Phase 1] Cost-Audit Baseline (Lens) — Re-Run | worker=Lens | progress=- | summary=RESULT_STATUS: done
+
+== Costs-v2 Phase 1 — Baseline Report ==
+Window: 2026-04-17 (all 30 recorded sessions are today; no prior cost telemetry)
+Source: GET /api/costs | costs-data.ts
+
+---
+
+## FINDING 1: TOP-5 SESSIONS BY COST
+
+| # | Agent | Session | Cost | In Tokens | Out Tokens | Model |
+|---|---|---|---|---|---|---|
+| 1 | main | 2d6cf63b-...-edd327b6b4ff | $62.67 | 31,196,014 | 85,587 | GPT-5.4 |
+| 2 | sre-expert | 9b87be6e-...bdbfe1f7e (cp) | $4.83 | 579,002 | 41,739 | GPT-5.3-codex |
+| 3 | main | 95f07854-...bb3405db9a9 (cp) | $3.19 | 7,592,843 | 43,003 | GPT-5.4 |
+| 4 | sre-expert | 9b87be6e-...bdbfe1f7e (cp, 2nd) | $2.34 | 362,546 | 16,889 | GPT-5.3-codex |
+| 5 | frontend-guru | de39d11a-...766efa0eb2 (cp) | $1.15 | 89,178 | 10,326 | GPT-5.4-mini |
+
+Dominant driver: Session #1 alone = 80.4% of total $77.94 spend.
+
+---
+
+## FINDING 2: PROVIDER BREAKDOWN vs BENCHMARK
+
+| Provider | Cost | Share | Benchmark Context |
+|---|---|---|---|
+| openai-codex (GPT-5.4/5.3) | $72.98 | 93.7% | Flatrate — API waste from large context sessions not visible in flatrate price |
+| MiniMax-M2.7-highspeed | $4.89 | 6.3% | EUR40/month subscription, 500 RPM, 20M TPM |
+| openrouter/auto | $0.09 | 0.1% | Minor fallback routing |
+
+Note: Timeline shows ALL $77.94 on 2026-04-17. Zero cost recorded for any prior day. Cost telemetry may have started today or historical data is lost.
+
+---
+
+## FINDING 3: BUGS FOUND IN COST PIPELINE
+
+BUG-1 — todayPct display bug (costs-data.ts:409):
+  Code: todayPct = todayCost / 3
+  API returns: 25.97 for todayCost=$77.94
+  Expected: todayCost / 3 * 100 = 2598%
+  Actual display: 25.97 (missing *100 multiplier)
+  Risk: Operator sees "26%" and thinks budget is healthy. It is NOT.
+
+BUG-2 — Alert text misleading:
+  Alert fires at todayCost > $2.70 (90% of $3 dailyBudget)
+  Text says "Tagesbudget > 90%" — technically correct trigger, but for $77.94 vs $3 budget the real overshoot is 2598%
+  The threshold is right; the narrative framing is wrong for large overruns
+
+BUG-3 — anomalyStats inconsistency:
+  anomalyStats reports anomalies: 0, qualityScore: 100
+  anomalies array has 4 entries (2 red + 2 yellow)
+  Stats are not counting the anomalies array entries
+
+---
+
+## FINDING 4: UNATTRIBUTED SESSIONS
+
+9 checkpoint/continuation sessions cannot be linked to task IDs via board-event-log:
+
+| Session Type | Agent | Cost | Gap |
+|---|---|---|---|
+| checkpoint (2 entries) | sre-expert | $7.17 | No taskId in board-events |
+| checkpoint | main | $3.19 | Parent also checkpoint — no root task |
+| checkpoint | frontend-guru | $1.15 | No taskId |
+| checkpoint (2 entries) | sre-expert | $0.79 | No taskId |
+| truncated filename | efficiency-auditor | $0.55 | Filename truncated in detailRows |
+
+Total unattributed: ~$12.85 (16.5% of total $77.94)
+Root cause: Checkpoint sessions break the task attribution chain. Pack 1 (Cost-Attribution-Foundation) will resolve via session-to-task matching.
+
+---
+
+## FINDING 5: MINIMAX-271% ROOT CAUSE
+
+Incident: MiniMax subscription at 271% ($72.04 / EUR40 monthly budget)
+
+ROOT CAUSE:
+The EUR40/month MiniMax budget is calibrated for light intermittent use. Autonomous multi-agent runs consume it in hours, not weeks.
+
+Contributing factors:
+1. Today's 3-hour autonomous run burned ~$4.89 on MiniMax (12.2% of monthly budget in one session)
+2. The subscription was already at ~$67 before today's $4.89 — the 271% figure means $72.04 total against $40 budget
+3. Multiple agents (efficiency-auditor, sre-expert, main) using MiniMax-M2.7-highspeed simultaneously
+
+PROXIMATE TRIGGER: No Discord webhook on subscription-breach. The alert exists only as an API string. The operator did not receive a push notification.
+
+The alert IS firing correctly (tone=red, alertLabel=CRITICAL) — but the notification path is missing (Pack 5 addresses this).
+
+---
+
+## RECOMMENDED THRESHOLDS FOR PACK 4 (empirical basis: todays 30-session dataset)
+
+| Threshold | Value | Basis |
+|---|---|---|
+| Session cost anomaly | >$10/session | ~4x mean ($2.60); covers GPT-5.4 large-context runs |
+| Daily budget warn | >75% of dailyBudget | Earlier than current 90% — catches overruns before they compound |
+| Daily budget critical | >150% of dailyBudget | Clear overshoot signal |
+| Subscription warn | >80% of monthly | 2-week advance notice |
+| Subscription critical | >100% of monthly | Immediate alert; no grace |
+| Burn rate anomaly | >3x 7-day avg $/h | Detects runaway sessions |
+| Projection critical | EOM >150% of monthly budget | Escalate before end-of-month shock |
+| Cache miss ratio | <10% on repeat sessions | Token waste detection |
+| Output/input ratio | <0.1% | Prompt bloat without useful output |
+- 2026-04-17T16:46:26.981Z | START | f225df08-c505-49e4-8edd-5e32cae2c028 | [Costs-v2 Phase 1] Cost-Audit Baseline + Billing-Mode-Klassifikation (Lens) | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-17T16:48:07.815Z | DONE | f225df08-c505-49e4-8edd-5e32cae2c028 | [Costs-v2 Phase 1] Cost-Audit Baseline + Billing-Mode-Klassifikation (Lens) | worker=Lens | progress=- | summary=RESULT_STATUS: done
+
+== Costs-v2 Phase 1 — Billing-Mode-Aware Baseline ==
+Window: 2026-04-17 | Source: GET /api/costs + subscriptionStatus
+
+---
+
+## FINDING 1: PROVIDER → BILLING MODE MAPPING
+
+| Provider | Model(s) | Billing Mode | Budget | Real Cost Today |
+|---|---|---|---|---|
+| OpenAI Codex | gpt-5.4, gpt-5.3-codex, gpt-5.4-mini | FLATRATE | $200/month flat | $0 (sunk cost) |
+| MiniMax | MiniMax-M2.7-highspeed, moonshotai/kimi-k2.5 | PREPAID | EUR40/month pool | EUR72.46 consumed |
+| OpenRouter | openrouter/auto | PAY-PER-USE | per-token | $0.09 |
+| Spark Codex | gpt-5.3-codex-spark | FLATRATE | (inherited) | $0 (sunk) |
+
+Key distinction:
+- FLATRATE = fixed subscription, no incremental cash for additional usage
+- PREPAID = bucket consumed at per-token rates, overage = real loss of pre-paid credits
+- PAY-PER-USE = direct cash cost per token
+
+---
+
+## FINDING 2: REAL COST vs IMPLIED COST (TOP-5 SESSIONS)
+
+| # | Agent | Model | Billing Mode | Real Cost | Implied Cost | Note |
+|---|---|---|---|---|---|---|
+| 1 | main | gpt-5.4 | FLATRATE | $0.00 | $62.83 | Sunk cost — session would cost $62.83 pp |
+| 2 | sre-expert | gpt-5.3-codex | FLATRATE | $0.00 | $4.83 | Sunk cost |
+| 3 | main | MiniMax-M2.7-highspeed | PREPAID | $3.19 | $3.19 | Real — from EUR40 pool |
+| 4 | sre-expert | gpt-5.3-codex | FLATRATE | $0.00 | $2.34 | Sunk cost |
+| 5 | frontend-guru | gpt-5.4-mini | FLATRATE | $0.00 | $1.15 | Sunk cost |
+
+TOTAL real cost today: ~EUR72.46 (MiniMax prepaid) + $0.09 (OpenRouter) ≈ $78.55 cash out
+TOTAL implied cost: $78.61 (full API cost at pay-per-token rates)
+
+The discrepancy between real and implied is irrelevant for cash flow but critical for:
+- Understanding true burn rate: EUR72.46 of prepaid credits consumed today
+- Attribution: Pool depletion is the real cost metric for MiniMax, not $/day
+
+---
+
+## FINDING 3: MINIMAX-275% INCIDENT — ROOT CAUSE ANALYSIS
+
+The MiniMax subscriptionStatus shows:
+  usedCost: EUR72.46 | monthlyBudget: EUR40 | usedPct: 275
+  Alert: "275% des 20M TPM-Limits erreicht (55.0M / 20M Tokens)!"
+
+DUAL OVERRUN — TWO SEPARATE METRICS:
+
+METRIC A — Token Volume (the 275% figure):
+  - 20M TPM limit, 55.0M tokens consumed = 275% of token quota
+  - This is a RATE limit, not a cash limit
+  - Exceeding TPM causes throttling/slowdown, not additional cost
+  - Driver: main session alone consumed 31.2M tokens in one 3h run
+
+METRIC B — EUR Pool Depletion:
+  - EUR40 prepaid pool, EUR72.46 consumed = 181% of budget
+  - This IS a cash metric — credits are exhausted
+  - After EUR40, per-token pricing applies at standard rates
+  - Driver: multiple sessions across days depleted the pool; today加速ed depletion
+
+RECONCILIATION:
+  The 268% cited in the incident was an earlier snapshot (EUR71/EUR40 = 181% or earlier token ratio).
+  The current 275% is the TOKEN ratio (55M/20M TPM).
+  The alert correctly identifies BOTH: the TPM limit is the active throttling signal.
+
+WHY OPERATOR MISSED IT:
+  - Alert exists as API string only — no Discord push
+  - The MiniMax pool depletion (EUR72.46 vs EUR40) was not surfaced as a separate alert
+  - The TPM% was the primary signal, but without context (TPM limits reset monthly)
+
+ROOT CAUSE:
+  MiniMax plan (EUR40/month, 20M TPM, 500 RPM) is calibrated for light use.
+  Autonomous multi-agent runs consume the token bucket in hours.
+  The subscription was already near-exhausted before today's main session.
+
+---
+
+## FINDING 4: THRESHOLDS BY BILLING MODE
+
+FLATRATE — alert on USAGE PATTERN, not cost:
+  - TPM session limit: warn at >150K tokens/session (75% of 200K soft limit)
+  - TPM session limit: critical at >200K tokens/session (hard throttle)
+  - Context reuse ratio: warn if cache-hit < 30% on repeat sessions
+  - Anomaly: session with >5M input tokens with <1% output = prompt bloat
+
+PREPAID — alert on POOL DEPLETION, not $/day:
+  - Pool warn: >70% of monthly pool consumed (EUR28 of EUR40)
+  - Pool critical: >95% of pool consumed (EUR38 of EUR40)
+  - Pool exhausted: 100% — switch to fallback model immediately
+  - TPM warn: >80% of 20M TPM monthly quota
+  - TPM critical: >100% of TPM quota — throttling active
+  - Rate: >3 sessions/hour on MiniMax = burn rate anomaly
+
+PAY-PER-USE — alert on COST + ANOMALY:
+  - Cost anomaly: session >$1 = investigate
+  - Daily warn: >$5/day on pay-per-use
+  - Daily critical: >$20/day on pay-per-use
+  - Output/input ratio: <0.1% = prompt bloat (same as flatrate)
+
+---
+
+## FINDING 5: UNATTRIBUTED SESSION BUCKET
+
+Same as Phase 1 baseline task: ~$12.85 (16.3%) in checkpoint files without task attribution.
+Root cause: checkpoint sessions break the session→task link.
+Pack 1 (Cost-Attribution-Foundation) will resolve via board-event-log session matching.

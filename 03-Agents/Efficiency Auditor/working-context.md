@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9e593608-c4c9-4767-832b-a7a7d0cc3153 [Woche-1] Baseline-Messung Session-Pilot
-- stage: CHECKPOINT
+- task: f225df08-c505-49e4-8edd-5e32cae2c028 [Costs-v2 Phase 1] Cost-Audit Baseline + Billing-Mode-Klassifikation (Lens)
+- stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-17T11:10:07.580Z
+- updated: 2026-04-17T16:46:26.982Z
 <!-- mc:auto-working-context:end -->
