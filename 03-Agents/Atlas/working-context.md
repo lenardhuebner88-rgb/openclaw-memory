@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 154447c9-6621-454c-8de9-ee4de4611a8d [P1][OpenClaw] Config-Patch: main in agentToAgent.allow
+- task: 75f1f719-640c-4710-b1aa-58d75a69cdc0 OptA E2E Test
 - stage: DONE
 - next: await next assignment
-- checkpoint: Validated tools.agentToAgent.allow already includes main and confirmed the gateway restarted cleanly without errors.
+- checkpoint: OptA E2E passed
 - blocker: -
-- updated: 2026-04-16T22:43:14.660Z
+- updated: 2026-04-17T08:55:28.651Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.
