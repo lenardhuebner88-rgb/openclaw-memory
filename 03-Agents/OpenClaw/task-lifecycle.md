@@ -600,3 +600,6 @@ authority for all auto-promotion and terminal normalization behavior.
 - 2026-04-17T09:31:44.246Z | START | e926483f-bf44-4eac-96f4-ebfcd58abe24 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
 - 2026-04-17T09:31:44.532Z | DONE | e926483f-bf44-4eac-96f4-ebfcd58abe24 | [Smoke] pending-pickup lifecycle | worker=Forge | progress=- | summary=Smoke cleanup for e926483f-bf44-4eac-96f4-ebfcd58abe24
 - 2026-04-17T09:32:19.645Z | DONE | 49245039-a242-40bd-a4ac-53704d883ba3 | [Smoke] Pending-Pickup Lifecycle Cron Smoke Test | worker=Forge | progress=- | summary=RESULT_STATUS: done | RESULT_SUMMARY: script=/home/piet/.openclaw/scripts/mc-pending-pickup-smoke.sh cron=0f9d0f2e-9839-4a14-ad18-cb75ff7f49c7 first_run=SMOKE_OK
+- 2026-04-17T10:00:07.378Z | START | 4907d3ac-d864-4ed8-8410-9c2f693ac672 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T10:00:08.668Z | DONE | 4907d3ac-d864-4ed8-8410-9c2f693ac672 | [Smoke] pending-pickup lifecycle | worker=Forge | progress=- | summary=Smoke cleanup for 4907d3ac-d864-4ed8-8410-9c2f693ac672
+- 2026-04-17T10:07:02.682Z | START | 92e8495e-d778-4252-bd1c-65174e7ff29c | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-

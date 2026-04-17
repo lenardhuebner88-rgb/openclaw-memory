@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 49245039-a242-40bd-a4ac-53704d883ba3 [Smoke] Pending-Pickup Lifecycle Cron Smoke Test
+- task: 4907d3ac-d864-4ed8-8410-9c2f693ac672 [Smoke] pending-pickup lifecycle
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: script=/home/piet/.openclaw/scripts/mc-pending-pickup-smoke.sh cron=0f9d0f2e-9839-4a14-ad18-cb75ff7f49c7 first_run=SMOKE_OK
+- checkpoint: Smoke cleanup for 4907d3ac-d864-4ed8-8410-9c2f693ac672
 - blocker: -
-- updated: 2026-04-17T09:32:19.646Z
+- updated: 2026-04-17T10:00:08.669Z
 <!-- mc:auto-working-context:end -->
