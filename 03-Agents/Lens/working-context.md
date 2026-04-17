@@ -62,15 +62,18 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 082cdad5-78ef-4447-b205-399b0a6fbdf9 [Audit] AGENTS.md Phase 4 Option A Documentation Gap Review
+- task: 9e593608-c4c9-4767-832b-a7a7d0cc3153 [Woche-1] Baseline-Messung Session-Pilot
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: done
 
-== FINDINGS (Phase 4 Option A Documentation Gaps in mission-control/AGENTS.md) ==
+== Woche-1 Baseline Messung Session-Pilot ==
+Measuring window: 2026-04-16 11:10 UTC to 2026-04-17 11:10 UTC (24h)
+Source: /home/piet/.openclaw/agents/*/sessions/*.jsonl
 
-[F-1] State table missing pending-pickup row
-  HEARTBEAT.md canonical table has 6 rows; AGENTS.md has no tabular rep
+| Metric | Value |
+|---|---|
+
 - blocker: -
-- updated: 2026-04-17T09:28:05.500Z
+- updated: 2026-04-17T11:10:15.266Z
 <!-- mc:auto-working-context:end -->

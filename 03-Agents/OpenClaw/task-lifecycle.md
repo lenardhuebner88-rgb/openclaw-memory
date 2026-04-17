@@ -609,3 +609,29 @@ authority for all auto-promotion and terminal normalization behavior.
 - 2026-04-17T10:38:46.816Z | DONE | 9771a7fe-87c3-4952-bd9e-9d6c31f08f00 | [AutoPickup-E2E] Forge self-pickup validation | worker=Forge | progress=- | summary=RESULT_STATUS: done | RESULT_SUMMARY: auto-picked lifecycle validated successfully.
 - 2026-04-17T10:43:09.402Z | START | a60105d3-a340-4db8-9a9e-4b424375cc47 | [P2-Verify-Regression v2] Bare Write-Verify Trace | worker=sre-expert | progress=- | summary=-
 - 2026-04-17T10:43:18.057Z | CHECKPOINT | a60105d3-a340-4db8-9a9e-4b424375cc47 | [P2-Verify-Regression v2] Bare Write-Verify Trace | worker=sre-expert | progress=- | summary=- | note=Auto-pickup verification in progress, trigger confirmed without SSH intervention.
+- 2026-04-17T10:43:28.005Z | DONE | a60105d3-a340-4db8-9a9e-4b424375cc47 | [P2-Verify-Regression v2] Bare Write-Verify Trace | worker=Forge | progress=- | summary=RESULT_STATUS: done | RESULT_SUMMARY: auto-picked trigger verified without SSH intervention.
+- 2026-04-17T10:48:28.354Z | DONE | 2d9923e2-2b8a-44ef-a044-b5fa043ae0a4 | [Woche-1] Memory-Layer-Struktur anlegen: LTM/Working/Archive-Verzeichnisse | worker=Forge | progress=- | summary=Memory-Layer umgesetzt: Verzeichnisse memory/invariants, memory/working, memory/archive/2026-Q2 vorhanden; MEMORY.md in Layer-Index umgebaut und Alteintrag archiviert unter memory/archive/2026-Q2/MEMORY-pre-layering-2026-04-17.md; 3 Invariant-Dateien angelegt (01-truth-order.md=384B, 02-routing-map.md=648B, 03-operating-rules.md=503B; total=1535B <30KB, jede <3KB); Bootstrap-Config ergänzt in openclaw.json: agents.defaults.bootstrap.memoryLayers (invariants alwaysInclude+limits, working includeIfUpdatedWithinDays=14, archive autoInclude=false) inkl. bootstrapMaxChars=3072/bootstrapTotalMaxChars=40720; Sweep-Script angelegt: scripts/memory-layer-sweep.py (14d Working-Sweep nach archive/<year>-Q<q>/working-sweep + Quarterly REVIEW.md Stub); Cron aktiv: täglich 02:15 memory-working-sweep, quartalsweise 1. Tag 04:00 memory-quarterly-review.
+- 2026-04-17T11:00:17.316Z | START | 4613084f-7d81-4c16-ba38-885466c8643f | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T11:06:15.421Z | START | 9e593608-c4c9-4767-832b-a7a7d0cc3153 | [Woche-1] Baseline-Messung Session-Pilot | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-17T11:10:07.579Z | CHECKPOINT | 9e593608-c4c9-4767-832b-a7a7d0cc3153 | [Woche-1] Baseline-Messung Session-Pilot | worker=efficiency-auditor | progress=80% | summary=-
+- 2026-04-17T11:10:15.264Z | DONE | 9e593608-c4c9-4767-832b-a7a7d0cc3153 | [Woche-1] Baseline-Messung Session-Pilot | worker=Lens | progress=80% | summary=RESULT_STATUS: done
+
+== Woche-1 Baseline Messung Session-Pilot ==
+Measuring window: 2026-04-16 11:10 UTC to 2026-04-17 11:10 UTC (24h)
+Source: /home/piet/.openclaw/agents/*/sessions/*.jsonl
+
+| Metric | Value |
+|---|---|
+| Sessions created (24h) | 347 |
+| Crash events (tool isError=true) | 3 |
+| Sessions with crash events | 3 |
+| Average tool-calls/session | 23.5 |
+| Tool error rate | 0.86% |
+| Result events (error/timeout) | 0 |
+
+Notes:
+- Tool calls counted via message.content[].type=toolCall across all agent session stores
+- Crash events = toolResult with isError=true (3 unique sessions affected)
+- No result-type error or timeout events observed in session store
+- Baseline suitable as comparison ground for Woche-2 review gate
+- Pilot health: healthy — low crash rate, 347 sessions in 24h

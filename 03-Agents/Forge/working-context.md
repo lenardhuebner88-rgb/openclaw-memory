@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9771a7fe-87c3-4952-bd9e-9d6c31f08f00 [AutoPickup-E2E] Forge self-pickup validation
+- task: 2d9923e2-2b8a-44ef-a044-b5fa043ae0a4 [Woche-1] Memory-Layer-Struktur anlegen: LTM/Working/Archive-Verzeichnisse
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: auto-picked lifecycle validated successfully.
+- checkpoint: Memory-Layer umgesetzt: Verzeichnisse memory/invariants, memory/working, memory/archive/2026-Q2 vorhanden; MEMORY.md in Layer-Index umgebaut und Alteintrag archiviert unter memory/archive/2026-Q2/MEMORY-pre-layering-2026
 - blocker: -
-- updated: 2026-04-17T10:38:46.817Z
+- updated: 2026-04-17T10:48:28.355Z
 <!-- mc:auto-working-context:end -->
