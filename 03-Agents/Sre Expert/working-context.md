@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8e833e04-69af-4801-8683-6f03824ac851 [Woche-2] Worker-Prompt-Template: kein LTM-Write + resultSummary-Pflicht
+- task: caaa9dbb-0b41-4eee-a063-59efd1141d57 [Intervention] AC-08: LTM-Write-Verstöße finden und stoppen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-17T13:09:54.784Z
+- updated: 2026-04-17T13:44:28.325Z
 <!-- mc:auto-working-context:end -->

@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8e833e04-69af-4801-8683-6f03824ac851 [Woche-2] Worker-Prompt-Template: kein LTM-Write + resultSummary-Pflicht
+- task: caaa9dbb-0b41-4eee-a063-59efd1141d57 [Intervention] AC-08: LTM-Write-Verstöße finden und stoppen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Forge, Pixel und Lens Worker-Templates aktualisiert: L1/LTM-Write verboten, Findings nur in resultSummary. Test-Dispatch ausgefuehrt, memory/invariants unveraendert (Hash gleich vor/nach Test), Findings nur in resultSumm
+- checkpoint: EXECUTION_STATUS: done | RESULT_SUMMARY: AC08 root cause fixed. Two reported violations were regex false positives from text content, not real worker writes. Guard implemented in scripts/atlas-review-gate-scanner.py: AC-
 - blocker: -
-- updated: 2026-04-17T13:09:55.142Z
+- updated: 2026-04-17T13:44:28.703Z
 <!-- mc:auto-working-context:end -->
