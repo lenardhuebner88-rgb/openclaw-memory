@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 05f78c96-3933-4202-a48e-5fb879377d99 [P10] MC: Brain Health Drilldown schmal ergänzen
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-16T20:40:02.077Z
+- task: 2a9d0b17-ecde-498a-9af9-9b903bae9f92 [Docs] Pending-Pickup Lifecycle Walkthrough
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Walkthrough note drafted in Obsidian with lifecycle explanation, mermaid diagram, and screenshot placeholders. Verifying final output now.
+- blocker: -
+- updated: 2026-04-17T09:28:00.368Z
 <!-- mc:auto-working-context:end -->

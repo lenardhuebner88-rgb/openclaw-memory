@@ -97,10 +97,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c4726998-63ae-4789-8760-ddb92d9bf035 [P1][MC] Pipeline + Task Tab UX Cleanup (Summary-First)
+- task: 2a9d0b17-ecde-498a-9af9-9b903bae9f92 [Docs] Pending-Pickup Lifecycle Walkthrough
 - stage: DONE
 - next: await next assignment
-- checkpoint: Pipeline and Taskboard were cleaned up into a summary-first, mobile-safer UX with technical details moved behind progressive disclosure.
+- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: Created /home/piet/vault/02-Docs/taskboard-pending-pickup.md with a 500-word operator walkthrough covering the Pending column, assigned -> pending-pickup -> in-progress lifecycle, au
 - blocker: -
-- updated: 2026-04-17T02:37:59.074Z
+- updated: 2026-04-17T09:29:18.933Z
 <!-- mc:auto-working-context:end -->

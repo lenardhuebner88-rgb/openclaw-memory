@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 256d0fde-14cb-4041-b2e5-7c91f4b66011 [Follow-up][Forge] cleanup-runs cron claim vs live cron registry prüfen und korrigieren
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-16T22:40:02.818Z
+- task: e926483f-bf44-4eac-96f4-ebfcd58abe24 [Smoke] pending-pickup lifecycle
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-17T09:31:44.247Z
 <!-- mc:auto-working-context:end -->

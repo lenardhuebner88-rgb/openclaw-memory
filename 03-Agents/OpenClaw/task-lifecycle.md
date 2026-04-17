@@ -483,3 +483,120 @@
 - 2026-04-17T08:27:34.456Z | FAILED | e64f75c1-6388-456c-bcf9-8db6ca4cf67d | E2E Hardening Test | worker=Forge | progress=- | summary=E2E verification task — cancel after hardening checks passed | note=E2E verification task — cancel after hardening checks passed
 - 2026-04-17T08:55:28.233Z | START | 75f1f719-640c-4710-b1aa-58d75a69cdc0 | OptA E2E Test | worker=main | progress=- | summary=-
 - 2026-04-17T08:55:28.650Z | DONE | 75f1f719-640c-4710-b1aa-58d75a69cdc0 | OptA E2E Test | worker=Atlas | progress=- | summary=OptA E2E passed
+- 2026-04-17T09:26:26.131Z | START | 082cdad5-78ef-4447-b205-399b0a6fbdf9 | [Audit] AGENTS.md Phase 4 Option A Documentation Gap Review | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-17T09:27:05.620Z | START | 2a9d0b17-ecde-498a-9af9-9b903bae9f92 | [Docs] Pending-Pickup Lifecycle Walkthrough | worker=frontend-guru | progress=- | summary=-
+- 2026-04-17T09:27:16.635Z | CHECKPOINT | 2a9d0b17-ecde-498a-9af9-9b903bae9f92 | [Docs] Pending-Pickup Lifecycle Walkthrough | worker=frontend-guru | progress=- | summary=- | note=Gathering lifecycle source details and drafting the pending-pickup walkthrough.
+- 2026-04-17T09:28:00.367Z | CHECKPOINT | 2a9d0b17-ecde-498a-9af9-9b903bae9f92 | [Docs] Pending-Pickup Lifecycle Walkthrough | worker=frontend-guru | progress=- | summary=- | note=Walkthrough note drafted in Obsidian with lifecycle explanation, mermaid diagram, and screenshot placeholders. Verifying final output now.
+- 2026-04-17T09:28:05.499Z | DONE | 082cdad5-78ef-4447-b205-399b0a6fbdf9 | [Audit] AGENTS.md Phase 4 Option A Documentation Gap Review | worker=Lens | progress=- | summary=RESULT_STATUS: done
+
+== FINDINGS (Phase 4 Option A Documentation Gaps in mission-control/AGENTS.md) ==
+
+[F-1] State table missing pending-pickup row
+  HEARTBEAT.md canonical table has 6 rows; AGENTS.md has no tabular representation of the full state machine. The pending-pickup state is described in prose only.
+  → Risk: Agent reading only AGENTS.md would not know pending-pickup exists.
+
+[F-2] executionState column entirely absent
+  AGENTs.md never documents executionState or its valid values (queued|active|review|done|failed|blocked). Option A core invariant: pending-pickup = executionState=queued.
+  → Risk: No way to verify the pending-pickup invariant from docs.
+
+[F-3] lastExecutionEvent field undocumented
+  Valid values (dispatch|started|result|blocked|failed) and when each is set are defined in HEARTBEAT.md but completely absent from AGENTS.md.
+  → Risk: Agents cannot reason about execution event sequencing.
+
+[F-4] Terminal-completion triple-normalization missing
+  HEARTBEAT.md Rule 1 (binding): status=done must atomically set dispatchState=completed + executionState=done + receiptStage=result. AGENTS.md has zero documentation of the completion path.
+  → Risk: The most critical data-integrity rule is invisible.
+
+[F-5] startedAt secondary update rule undocumented
+  startedAt=now is set both during auto-promotion AND when accepted arrives on an already-in-progress task lacking startedAt. The second rule is only in code comments.
+  → Risk: startedAt can appear to jump with no obvious user action.
+
+[F-6] receiptStage enum and non-terminal/terminal boundary undocumented
+  accepted→started→progress (non-terminal) vs result/blocked/failed (terminal) sequence and their effects are only implicit in the Option A prose.
+  → Risk: Agents cannot predict receipt behavior from docs.
+
+[F-7] Minor: Gateway MCP hygiene section has no cross-reference to timing fields
+  No link between MCP reaper and startedAt/lastExecutionEvent.
+
+== UNIFIED DIFF PATCH PROPOSAL (apply only via Atlas follow-up task) ==
+
+--- a/mission-control/AGENTS.md
++++ b/mission-control/AGENTS.md
+@@ -62,6 +62,38 @@ The MC API enforces these rules. If your code/tool hits a 4xx here, the rules are
+ The intended lifecycle is:
+ 
+ 
++draft → assigned → (dispatch) → pending-pickup → (first receipt) → in-progress → done/failed/blocked
++       ^ PATCH        ^ POST         ^ agent not         ^ auto-promote
++                        /dispatch     yet picked up       on first receipt
++
++
++### Canonical task state table (source: HEARTBEAT.md, 2026-04-17)
++
++| status | executionState | dispatchState | Notes |
++|---|---|---|---|
++| draft + dispatched=false | queued | draft | Task created, not yet assigned |
++| draft + dispatched=true | active | dispatched | Manually dispatched draft |
++| assigned | queued | queued | Assigned but not yet dispatched |
++| pending-pickup | queued | dispatched | Dispatched; agent has not yet picked up (Option A, 2026-04-17) |
++| in-progress | active | dispatched | Agent actively working |
++| review | review | dispatched | In human review |
++| done [terminal] | done | completed | All three terminal fields must be set atomically |
++| failed [terminal] | failed | dispatched | — |
++| blocked | blocked | dispatched | — |
++| canceled | failed | completed | — |
++
++**Terminal completion rule (binding):** Every `status=done` writeback must atomically
++set `dispatchState=completed` + `executionState=done` + `receiptStage=result`.
++Setting only `status=done` without the other two is a data-integrity violation.
++
++### lastExecutionEvent field
++
++| Value | When it is set |
++|---|---|
++| dispatch | POST /dispatch completes |
++| started | First non-terminal receipt (accepted/started/progress) on pending-pickup, or explicit started receipt |
++| progress | Any progress receipt |
++| result | Terminal result receipt → also sets status=done |
++| blocked | Terminal blocked receipt |
++| failed | Terminal failed receipt |
++
++### startedAt semantics
++
++- Set to `now` during auto-promotion (pending-pickup → in-progress on first receipt)
++- Also set to `now` if an accepted receipt arrives on an already-in-progress task
++  that has no `startedAt` yet (late acceptance)
++
++### receiptStage enum (non-terminal → terminal boundary)
++
++Non-terminal: `accepted` → `started` → `progress`
++Terminal: `result` | `blocked` | `failed`
++The first non-terminal receipt on `status=pending-pickup` triggers auto-promotion to
++`status=in-progress` + `executionState=active` atomically in the same write.
++
+ ### pending-pickup (Option A, HARDENED 2026-04-17)
+ A dispatched task stays in `status=pending-pickup` + `executionState=queued`
+ until the assigned agent sends its **first non-terminal receipt**
+@@ -103,7 +135,7 @@ sticks open beyond session end). Without intervention this grows to 12+ process
+ **Reaper installed:** `/home/piet/.openclaw/scripts/mcp-taskboard-reaper.sh`
+ runs every 30 min via cron. Keeps the newest N (default 4) taskboard MCP
+ processes, SIGTERMs the rest. Log: `~/.openclaw/workspace/logs/mcp-reaper.log`.
+-
++The reaper correlates with task timing via `startedAt` and `lastExecutionEvent` fields.
+ **If Gateway RAM spikes again:** check MCP count with
+ `pgrep -cf mcp-servers/taskboard/server.js`. If > cap, run the reaper manually
+ or `systemctl --user restart openclaw-gateway.service` (kills all MCP processes,
+
+RISK_NOTE: AGENTS.md (this file) documents dispatch and Option A prose accurately.
+The gaps are: (1) missing state-table representation, (2) absent executionState field
+docs, (3) no lastExecutionEvent documentation, (4) no terminal-completion rule.
+The receipt route code in src/app/api/tasks/[id]/receipt/route.ts is the live
+authority for all auto-promotion and terminal normalization behavior.
+- 2026-04-17T09:29:08.380Z | START | 49245039-a242-40bd-a4ac-53704d883ba3 | [Smoke] Pending-Pickup Lifecycle Cron Smoke Test | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T09:29:18.932Z | DONE | 2a9d0b17-ecde-498a-9af9-9b903bae9f92 | [Docs] Pending-Pickup Lifecycle Walkthrough | worker=Pixel | progress=- | summary=RESULT_STATUS: done | RESULT_SUMMARY: Created /home/piet/vault/02-Docs/taskboard-pending-pickup.md with a 500-word operator walkthrough covering the Pending column, assigned -> pending-pickup -> in-progress lifecycle, auto-promote on first receipt, and 3 screenshot placeholders. | ARTIFACT_PATH: /home/piet/vault/02-Docs/taskboard-pending-pickup.md
+- 2026-04-17T09:29:36.443Z | CHECKPOINT | 49245039-a242-40bd-a4ac-53704d883ba3 | [Smoke] Pending-Pickup Lifecycle Cron Smoke Test | worker=sre-expert | progress=- | summary=- | note=Implementing smoke script and hourly cron registration.
+- 2026-04-17T09:30:35.100Z | START | 5bef1771-18a9-4671-a541-dc4198fef389 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T09:30:35.324Z | DONE | 5bef1771-18a9-4671-a541-dc4198fef389 | [Smoke] pending-pickup lifecycle | worker=Forge | progress=- | summary=Smoke cleanup for 5bef1771-18a9-4671-a541-dc4198fef389
+- 2026-04-17T09:31:44.246Z | START | e926483f-bf44-4eac-96f4-ebfcd58abe24 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T09:31:44.532Z | DONE | e926483f-bf44-4eac-96f4-ebfcd58abe24 | [Smoke] pending-pickup lifecycle | worker=Forge | progress=- | summary=Smoke cleanup for e926483f-bf44-4eac-96f4-ebfcd58abe24
+- 2026-04-17T09:32:19.645Z | DONE | 49245039-a242-40bd-a4ac-53704d883ba3 | [Smoke] Pending-Pickup Lifecycle Cron Smoke Test | worker=Forge | progress=- | summary=RESULT_STATUS: done | RESULT_SUMMARY: script=/home/piet/.openclaw/scripts/mc-pending-pickup-smoke.sh cron=0f9d0f2e-9839-4a14-ad18-cb75ff7f49c7 first_run=SMOKE_OK

@@ -62,10 +62,15 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0c3d3e76-726a-4b52-8c4b-17d92000c6a7 [P1][MC] Post-Implementation Trust + UX Validation
-- stage: FAILED
+- task: 082cdad5-78ef-4447-b205-399b0a6fbdf9 [Audit] AGENTS.md Phase 4 Option A Documentation Gap Review
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-16T22:00:01.280Z
+- checkpoint: RESULT_STATUS: done
+
+== FINDINGS (Phase 4 Option A Documentation Gaps in mission-control/AGENTS.md) ==
+
+[F-1] State table missing pending-pickup row
+  HEARTBEAT.md canonical table has 6 rows; AGENTS.md has no tabular rep
+- blocker: -
+- updated: 2026-04-17T09:28:05.500Z
 <!-- mc:auto-working-context:end -->
