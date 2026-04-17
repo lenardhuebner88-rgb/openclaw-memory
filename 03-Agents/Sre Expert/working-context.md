@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 92e8495e-d778-4252-bd1c-65174e7ff29c [Smoke] pending-pickup lifecycle
-- stage: START
+- task: a60105d3-a340-4db8-9a9e-4b424375cc47 [P2-Verify-Regression v2] Bare Write-Verify Trace
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Auto-pickup verification in progress, trigger confirmed without SSH intervention.
 - blocker: -
-- updated: 2026-04-17T10:07:02.683Z
+- updated: 2026-04-17T10:43:18.058Z
 <!-- mc:auto-working-context:end -->

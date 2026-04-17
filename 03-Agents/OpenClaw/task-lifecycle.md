@@ -603,3 +603,9 @@ authority for all auto-promotion and terminal normalization behavior.
 - 2026-04-17T10:00:07.378Z | START | 4907d3ac-d864-4ed8-8410-9c2f693ac672 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
 - 2026-04-17T10:00:08.668Z | DONE | 4907d3ac-d864-4ed8-8410-9c2f693ac672 | [Smoke] pending-pickup lifecycle | worker=Forge | progress=- | summary=Smoke cleanup for 4907d3ac-d864-4ed8-8410-9c2f693ac672
 - 2026-04-17T10:07:02.682Z | START | 92e8495e-d778-4252-bd1c-65174e7ff29c | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T10:15:00.740Z | START | ddf150e2-720a-43bb-ba37-5e5853600bf2 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T10:38:24.602Z | START | 9771a7fe-87c3-4952-bd9e-9d6c31f08f00 | [AutoPickup-E2E] Forge self-pickup validation | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T10:38:36.850Z | CHECKPOINT | 9771a7fe-87c3-4952-bd9e-9d6c31f08f00 | [AutoPickup-E2E] Forge self-pickup validation | worker=sre-expert | progress=- | summary=- | note=Auto-pickup validation in progress: accepted receipt promoted task to in-progress as expected.
+- 2026-04-17T10:38:46.816Z | DONE | 9771a7fe-87c3-4952-bd9e-9d6c31f08f00 | [AutoPickup-E2E] Forge self-pickup validation | worker=Forge | progress=- | summary=RESULT_STATUS: done | RESULT_SUMMARY: auto-picked lifecycle validated successfully.
+- 2026-04-17T10:43:09.402Z | START | a60105d3-a340-4db8-9a9e-4b424375cc47 | [P2-Verify-Regression v2] Bare Write-Verify Trace | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T10:43:18.057Z | CHECKPOINT | a60105d3-a340-4db8-9a9e-4b424375cc47 | [P2-Verify-Regression v2] Bare Write-Verify Trace | worker=sre-expert | progress=- | summary=- | note=Auto-pickup verification in progress, trigger confirmed without SSH intervention.

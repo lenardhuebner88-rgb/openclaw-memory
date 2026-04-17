@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4907d3ac-d864-4ed8-8410-9c2f693ac672 [Smoke] pending-pickup lifecycle
+- task: 9771a7fe-87c3-4952-bd9e-9d6c31f08f00 [AutoPickup-E2E] Forge self-pickup validation
 - stage: DONE
 - next: await next assignment
-- checkpoint: Smoke cleanup for 4907d3ac-d864-4ed8-8410-9c2f693ac672
+- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: auto-picked lifecycle validated successfully.
 - blocker: -
-- updated: 2026-04-17T10:00:08.669Z
+- updated: 2026-04-17T10:38:46.817Z
 <!-- mc:auto-working-context:end -->
