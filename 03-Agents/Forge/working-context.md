@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: da9608e1-f23e-41ab-8a70-421fa5d23122 [P0] Max-Session-Length Guard: 70% Hinto-Trigger in Runtime
+- task: ee0031c1-8e99-448c-8db0-b479cc6073fc [Cockpit Pack 7 Backend] SSE /api/board/events Endpoint
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done | RESULT_SUMMARY: Implemented session-toolcall-guard script with session-type limits (Incident=30, Analyse=80, Umsetzung=40, E2E=120), counting assistant toolCall events from session JSONL and prin
+- checkpoint: EXECUTION_STATUS: SUCCESS\nRESULT_SUMMARY: Implemented /api/board/events SSE stream with chunked headers, event mapping, poll fallback, and added board log events (task-created, task-dispatched, task-status-change, nba-a
 - blocker: -
-- updated: 2026-04-17T14:12:28.601Z
+- updated: 2026-04-17T15:10:45.352Z
 <!-- mc:auto-working-context:end -->

@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e334d997-17c0-401d-aa4c-3643c757cf46 [P0] Handoff-DoD in Mission Control: Handoff-Bloc als Pflichtfeld
+- task: 0b1f3e07-4e83-49d2-a188-121a5af15623 [Cockpit Pack 5 Backend] /api/board/next-action + NBA-Regelwerk
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-17T14:10:08.578Z
+- updated: 2026-04-17T15:01:58.951Z
 <!-- mc:auto-working-context:end -->

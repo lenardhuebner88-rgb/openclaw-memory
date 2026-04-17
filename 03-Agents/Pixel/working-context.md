@@ -97,10 +97,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b8b3477a-951b-456c-9317-4d8cc61ada02 [Cockpit Pack 2] Heartbeat-Strip Zone A — 4 Lichter für System-Status
+- task: bbcf2b0e-5903-4800-b819-30f748f829c4 [Cockpit Pack 5 UI] Next-Best-Action Banner — Zone B
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done | RESULT_SUMMARY: Implemented Zone A heartbeat strip in the taskboard as a compact 4-light row above the board. It polls /api/health every 30s and renders MC, Gateway, Dispatch-Consistency, and Rec
+- checkpoint: Zone B NBA-Banner: laedt /api/board/next-action, zeigt 1 Satz + Button, POST loggt nba-acted Event.
 - blocker: -
-- updated: 2026-04-17T14:44:05.413Z
+- updated: 2026-04-17T15:17:14.071Z
 <!-- mc:auto-working-context:end -->
