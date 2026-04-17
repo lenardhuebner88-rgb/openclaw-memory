@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: eaba7fad-90f2-42a8-8b7c-dbf53bc40761 [Board-Cockpit Pack 4] Agent-Load Aggregat-Endpoint
+- task: 8e833e04-69af-4801-8683-6f03824ac851 [Woche-2] Worker-Prompt-Template: kein LTM-Write + resultSummary-Pflicht
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: Pack 4 delivered: added /api/board/agent-load aggregate endpoint with 6 known agents, per-agent active/picked counts, maxConcurrent and derived state; ingress/cache requirements met;
+- checkpoint: Forge, Pixel und Lens Worker-Templates aktualisiert: L1/LTM-Write verboten, Findings nur in resultSummary. Test-Dispatch ausgefuehrt, memory/invariants unveraendert (Hash gleich vor/nach Test), Findings nur in resultSumm
 - blocker: -
-- updated: 2026-04-17T12:42:38.594Z
+- updated: 2026-04-17T13:09:55.142Z
 <!-- mc:auto-working-context:end -->

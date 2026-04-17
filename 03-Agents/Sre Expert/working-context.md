@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: eaba7fad-90f2-42a8-8b7c-dbf53bc40761 [Board-Cockpit Pack 4] Agent-Load Aggregat-Endpoint
-- stage: CHECKPOINT
+- task: 8e833e04-69af-4801-8683-6f03824ac851 [Woche-2] Worker-Prompt-Template: kein LTM-Write + resultSummary-Pflicht
+- stage: START
 - next: continue current task
-- checkpoint: Pack 4 implementation in progress: created /api/board/agent-load aggregate endpoint with per-agent active/picked counts, maxConcurrent, and derived state for all 6 known agents.
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-17T12:37:26.257Z
+- updated: 2026-04-17T13:09:54.784Z
 <!-- mc:auto-working-context:end -->

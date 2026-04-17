@@ -62,18 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9e593608-c4c9-4767-832b-a7a7d0cc3153 [Woche-1] Baseline-Messung Session-Pilot
+- task: 27203eb6-6be2-4414-91da-aa5fa1b8dc48 [Woche-2] Review-Gate Messinfrastruktur: AC-Metriken tracken
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done
-
-== Woche-1 Baseline Messung Session-Pilot ==
-Measuring window: 2026-04-16 11:10 UTC to 2026-04-17 11:10 UTC (24h)
-Source: /home/piet/.openclaw/agents/*/sessions/*.jsonl
-
-| Metric | Value |
-|---|---|
-
+- checkpoint: EXECUTION_STATUS: done | RESULT_SUMMARY: Review-Gate-Messinfrastruktur vollständig aufgebaut. Alle 10 AC-Metriken mit Woche-0-Baseline + Woche-2-Ziel dokumentiert. Scanner: scripts/atlas-review-gate-scanner.py (48h Windo
 - blocker: -
-- updated: 2026-04-17T11:10:15.266Z
+- updated: 2026-04-17T13:13:26.915Z
 <!-- mc:auto-working-context:end -->
