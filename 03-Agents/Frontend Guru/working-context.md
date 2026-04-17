@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2a9d0b17-ecde-498a-9af9-9b903bae9f92 [Docs] Pending-Pickup Lifecycle Walkthrough
-- stage: CHECKPOINT
+- task: b8b3477a-951b-456c-9317-4d8cc61ada02 [Cockpit Pack 2] Heartbeat-Strip Zone A — 4 Lichter für System-Status
+- stage: START
 - next: continue current task
-- checkpoint: Walkthrough note drafted in Obsidian with lifecycle explanation, mermaid diagram, and screenshot placeholders. Verifying final output now.
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-17T09:28:00.368Z
+- updated: 2026-04-17T14:43:56.431Z
 <!-- mc:auto-working-context:end -->

@@ -97,10 +97,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2a9d0b17-ecde-498a-9af9-9b903bae9f92 [Docs] Pending-Pickup Lifecycle Walkthrough
+- task: b8b3477a-951b-456c-9317-4d8cc61ada02 [Cockpit Pack 2] Heartbeat-Strip Zone A — 4 Lichter für System-Status
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done | RESULT_SUMMARY: Created /home/piet/vault/02-Docs/taskboard-pending-pickup.md with a 500-word operator walkthrough covering the Pending column, assigned -> pending-pickup -> in-progress lifecycle, au
+- checkpoint: EXECUTION_STATUS: done | RESULT_SUMMARY: Implemented Zone A heartbeat strip in the taskboard as a compact 4-light row above the board. It polls /api/health every 30s and renders MC, Gateway, Dispatch-Consistency, and Rec
 - blocker: -
-- updated: 2026-04-17T09:29:18.933Z
+- updated: 2026-04-17T14:44:05.413Z
 <!-- mc:auto-working-context:end -->
