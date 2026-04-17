@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f225df08-c505-49e4-8edd-5e32cae2c028 [Costs-v2 Phase 1] Cost-Audit Baseline + Billing-Mode-Klassifikation (Lens)
+- task: 9d1579ba-b7c4-489f-af27-a9ac45362d6e [Costs-v2 Pack 2 Policy] Budget-Threshold-Matrix Multi-Mode (Lens)
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-17T16:46:26.982Z
+- updated: 2026-04-17T18:37:34.678Z
 <!-- mc:auto-working-context:end -->

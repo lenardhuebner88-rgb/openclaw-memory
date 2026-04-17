@@ -62,19 +62,18 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f225df08-c505-49e4-8edd-5e32cae2c028 [Costs-v2 Phase 1] Cost-Audit Baseline + Billing-Mode-Klassifikation (Lens)
+- task: 9d1579ba-b7c4-489f-af27-a9ac45362d6e [Costs-v2 Pack 2 Policy] Budget-Threshold-Matrix Multi-Mode (Lens)
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: done
 
-== Costs-v2 Phase 1 — Billing-Mode-Aware Baseline ==
-Window: 2026-04-17 | Source: GET /api/costs + subscriptionStatus
+== Costs-v2 Pack 2 — Budget-Threshold-Matrix ==
 
----
+Produced two evidence-based artifacts:
 
-## FINDING 1: PROVIDER → BILLING MODE MAPPING
-
-| Provider | Model(s) | Bill
+ARTIFACT_PATHS:
+  1. /home/piet/.openclaw/workspace/memory/invariants/budget-thresholds.yaml
+  2. /home/piet/.
 - blocker: -
-- updated: 2026-04-17T16:48:07.817Z
+- updated: 2026-04-17T18:39:33.724Z
 <!-- mc:auto-working-context:end -->

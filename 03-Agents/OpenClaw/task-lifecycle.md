@@ -902,3 +902,81 @@ Pack 1 (Cost-Attribution-Foundation) will resolve via board-event-log session ma
 - 2026-04-17T17:39:34.313Z | START | e12b3603-549e-44bd-a71a-b6b037b02897 | [QW2] openclaw.json Schema-Lock + edit-config Wrapper | worker=sre-expert | progress=- | summary=-
 - 2026-04-17T17:41:24.095Z | CHECKPOINT | e12b3603-549e-44bd-a71a-b6b037b02897 | [QW2] openclaw.json Schema-Lock + edit-config Wrapper | worker=sre-expert | progress=- | summary=- | note=QW2 progress: backup+wrapper+invariant note implemented; blocker found for immutable lock because chattr requires sudo password in this runtime (cannot apply +i non-interactively).
 - 2026-04-17T17:41:42.369Z | BLOCKED | e12b3603-549e-44bd-a71a-b6b037b02897 | [QW2] openclaw.json Schema-Lock + edit-config Wrapper | worker=Forge | progress=- | summary=- | note=Cannot apply immutable lock in this runtime: chattr +i requires sudo password (sudo -n not available). Implemented backup, wrapper script, invariant note, and validation test path, but immutable-lock and direct-write-fails checks remain blocked until privileged chattr commands are executed.
+- 2026-04-17T18:28:30.087Z | START | 41c82fb1-a19a-45db-88cf-1d6ca557c8fe | [Costs-v2 Pack 1] Cost-Attribution (Task+Plan+Pack) | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T18:33:13.587Z | CHECKPOINT | 41c82fb1-a19a-45db-88cf-1d6ca557c8fe | [Costs-v2 Pack 1] Cost-Attribution (Task+Plan+Pack) | worker=sre-expert | progress=- | summary=- | note=Costs-v2 Pack 1 implementation in progress: added src/lib/cost-attribution.ts, extended costs-data detailRows with taskId/planId/packId, added /api/costs/by-task/[id], /api/tasks/api/costs/by-task/[id], and /api/costs/by-plan/[id], plus backups (.bak-costs-pack1-2026-04-17). Running build and smoke tests now.
+- 2026-04-17T18:37:34.676Z | START | 9d1579ba-b7c4-489f-af27-a9ac45362d6e | [Costs-v2 Pack 2 Policy] Budget-Threshold-Matrix Multi-Mode (Lens) | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-17T18:39:33.722Z | DONE | 9d1579ba-b7c4-489f-af27-a9ac45362d6e | [Costs-v2 Pack 2 Policy] Budget-Threshold-Matrix Multi-Mode (Lens) | worker=Lens | progress=- | summary=RESULT_STATUS: done
+
+== Costs-v2 Pack 2 — Budget-Threshold-Matrix ==
+
+Produced two evidence-based artifacts:
+
+ARTIFACT_PATHS:
+  1. /home/piet/.openclaw/workspace/memory/invariants/budget-thresholds.yaml
+  2. /home/piet/.openclaw/workspace/memory/working/lens-thresholds-rationale-2026-04-17.md
+
+EVIDENCE BASE:
+  - Phase-1 baseline (task cbfdee30): 30 sessions, 2026-04-17
+  - billing-modes-reference.yaml (James research)
+  - provider-pricing.yaml (James research)
+
+THRESHOLD MATRIX SUMMARY:
+
+FLATRATE (GPT-5.4/5.3-codex) — alert on token bloat, NOT cost:
+  session_tokens_total:    warn=150K | crit=200K | emerg=250K
+  cache_hit_ratio:        warn=30%  | crit=10%
+  output_input_ratio:     warn=0.5% | crit=0.1%
+  session_rpm:            warn=50    | crit=100
+
+PREPAID (MiniMax EUR40 pool) — alert on pool depletion + TPM:
+  pool_depletion_eur:    warn=EUR28 | crit=EUR38 | emerg=EUR40 (pool empty)
+  pool_depletion_pct:    warn=70%   | crit=95%   | emerg=100%
+  tpm_utilization:       warn=16M   | crit=20M   | emerg=22M (110% overage)
+  burn_rate_eur_per_h:   warn=EUR5  | crit=EUR10 | emerg=EUR20
+
+PAY-PER-USE (OpenRouter variable) — alert on real USD cost:
+  session_cost_usd:      warn=$1    | crit=$5    | emerg=$20
+  daily_cost_usd:         warn=$5    | crit=$20   | emerg=$50
+  burn_rate_usd_per_h:   warn=$2    | crit=$5    | emerg=$15
+
+CROSS-CUTTING (all modes):
+  session_duration:       warn=60min | crit=120min | emerg=240min
+  tool_error_rate:        warn=5%    | crit=15%   | emerg=30%
+  repeated_same_tool:     warn=20    | crit=50    | emerg=100
+
+KEY DESIGN DECISION:
+  FLATRATE warns on token bloat (efficiency), not cost (sunk).
+  PREPAID warns on pool depletion (EUR runway) and TPM quota.
+  PAY-PER-USE warns on real cash burn.
+  This prevents alert fatigue from false-positive cost alerts on flatrate.
+
+READY FOR: Forge Pack 2 implementation (budget-engine.yaml + budget-status endpoint).
+- 2026-04-17T18:44:11.950Z | DONE | 41c82fb1-a19a-45db-88cf-1d6ca557c8fe | [Costs-v2 Pack 1] Cost-Attribution (Task+Plan+Pack) | worker=Forge | progress=- | summary=RESULT_STATUS: done
+
+RESULT_SUMMARY: Costs-v2 Pack 1 delivered. Added task/plan/pack attribution foundation via src/lib/cost-attribution.ts, extended /api/costs detailRows to expose taskId/planId/packId (or null), and added aggregate endpoints for task and plan cost rollups without tasks.json schema changes. Created required backups: src/lib/costs-data.ts.bak-costs-pack1-2026-04-17 and src/app/api/costs/route.ts.bak-costs-pack1-2026-04-17. Clean rebuild + restart + /api/health ok.
+
+ENDPOINT_PATHS:
+- GET /api/costs
+- GET /api/costs/by-task/[id]
+- GET /api/tasks/api/costs/by-task/[id]
+- GET /api/costs/by-plan/[id]
+
+SMOKE_TEST_OUTPUT:
+- /api/costs detailRows: rows=30, attributed taskId rows=21 (taskId/planId/packId fields present)
+- /api/costs/by-task/41c82fb1-a19a-45db-88cf-1d6ca557c8fe => events=2 input_tokens=1836409 output_tokens=106224 cache_tokens=0 total_usd=12.912019749999995
+- /api/tasks/api/costs/by-task/41c82fb1-a19a-45db-88cf-1d6ca557c8fe => same aggregate response
+- /api/costs/by-plan/costs-v2 => events=4 input_tokens=4667863 output_tokens=150534 cache_tokens=0 total_usd=13.997369199999994
+- /api/health => status=ok
+- 2026-04-17T18:44:49.113Z | START | cf39bd0e-f685-41fc-a631-d3eebe661074 | [Plan-Runner Pack A] Schema + YAML-Validator | worker=sre-expert | progress=- | summary=-
+- 2026-04-17T18:47:03.170Z | CHECKPOINT | cf39bd0e-f685-41fc-a631-d3eebe661074 | [Plan-Runner Pack A] Schema + YAML-Validator | worker=sre-expert | progress=- | summary=- | note=Pack A implemented: created /home/piet/.openclaw/scripts/plan_schema.py with Plan/Step schema + validate_plan(path), added /home/piet/.openclaw/scripts/plan_schema_example.yaml, and verified self-test round-trip diff=0 plus example validation OK. Preparing final result receipt.
+- 2026-04-17T18:47:17.095Z | DONE | cf39bd0e-f685-41fc-a631-d3eebe661074 | [Plan-Runner Pack A] Schema + YAML-Validator | worker=Forge | progress=- | summary=RESULT_STATUS: done
+
+RESULT_SUMMARY: Pack A completed. Added YAML schema/validator module at /home/piet/.openclaw/scripts/plan_schema.py with dataclass-based Plan and Step schemas, validate_plan(path), clear validation errors, ISO timestamp checks, and CLI modes for --self-test and file validation. Added valid example file /home/piet/.openclaw/scripts/plan_schema_example.yaml. No cron and no runner implementation added (Pack A scope only).
+
+SCRIPT_PATH: /home/piet/.openclaw/scripts/plan_schema.py
+
+SELF_TEST_OUTPUT:
+- python3 /home/piet/.openclaw/scripts/plan_schema.py --self-test => SELF_TEST: ok, ROUND_TRIP_DIFF_LINES: 0
+- python3 /home/piet/.openclaw/scripts/plan_schema.py /home/piet/.openclaw/scripts/plan_schema_example.yaml => VALIDATION_OK, PLAN_ID: worker-hardening-2026-04, STEPS: 3
+- Dependency check completed: pydantic installed=True, yaml installed=True (stdlib-preferred implementation used with PyYAML parser)
+- 2026-04-17T18:48:22.193Z | START | a5f10eaa-f62c-456d-aa58-130247632932 | [Costs-v2 Pack 3] Burn-Rate + Projection per Billing-Mode | worker=sre-expert | progress=- | summary=-
