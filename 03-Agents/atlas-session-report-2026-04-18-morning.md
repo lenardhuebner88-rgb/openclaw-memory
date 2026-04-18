@@ -198,19 +198,71 @@ Atlas hat den Plan quittiert mit einer Reihenfolge-Korrektur:
 
 ## Quittung — Atlas hat quittiert 10:40 UTC ✅
 
-**Top 3 für morgen (Atlas-Prio):**
-1. Legacy-Script-Entscheidung (7 MISSING restaurieren oder Cron/Unit-Referenzen bereinigen)
-2. WK-10 + WK-12 Mini-Fixes (Stabilität vor Ausbau)
-3. UI-Refactor Phase 1 + 3 (Design-Tokens + Overview-Hero) — größter UX-Hebel bei geringem Risiko
+### Legacy-Script-Entscheidung erledigt (Operator, 10:52 UTC)
 
-**UI-Refactor-Stellungnahme:** zugestimmt mit Reihenfolge-Korrektur siehe oben (Hero-Zielbild vor Navigation-Refactor).
+**Entscheidungsmatrix + Ausführung:**
+| Script | Referenz | Entscheidung | Status |
+|---|---|---|---|
+| `cleanup.sh` | Crontab `0 3 * * *` daily | Restore aus scripts-archive | ✅ done |
+| `sqlite-memory-maintenance.sh` | Crontab weekly | Restore | ✅ done |
+| `gpt54-upgrade.sh` | Crontab (obsoleter Model-Upgrade-Flow) | Cron-Eintrag entfernt | ✅ done |
+| `forge-heartbeat.sh` | Unit `forge-heartbeat.service` (static/failed) | Unit deaktiviert → `.disabled-obsolete-2026-04-18` | ✅ done |
+| `healthcheck-watchdog.sh` | Unit `openclaw-healthcheck.service` (static/failed) | Unit deaktiviert | ✅ done |
+| `lens-cost-check.sh` | Unit `lens-cost-check.service` (static/inactive) | Unit deaktiviert | ✅ done |
+| `researcher-run.sh` | Unit `researcher-run.service` (static/failed) | Unit deaktiviert (researcher → james obsolet) | ✅ done |
 
-**Self-Optimizer-Live-Schaltung:** **Atlas sagt Nein für morgen 08:42.** Begründung:
-- System erst seit heute morgen wieder sauber stabilisiert
-- script-health-Endpoint steht erst frisch
-- 3/10 Scripts noch bedingt dead
-- Legacy-Script-Referenzen ungeklärt
+**Ergebnis:** `script-integrity-check.sh` liefert jetzt `SUMMARY status=OK checked=16 missing=0`.
 
-**Live-Schaltung erst nach:** Legacy-Script-Entscheid + keine falschen Positives im Dry-Run + mindestens ein kompletter stabiler Tageszyklus ohne Crisis.
+### Angepasste Top-3 Prioritäten (Legacy-Block erledigt)
 
-**Atlas-Kurzfazit:** *"Priorität morgen: Operative Klarheit vor weiterer Automatisierungs-Schärfe."*
+1. **WK-10 + WK-12 Mini-Fixes** (Stabilität):
+   - WK-10: Health-Metrik zählt admin-closed-failed Tasks als open (`src/lib/operational-health.ts` — `resolvedAt != null` als Closed-Kriterium respektieren)
+   - WK-12: `worker-monitor.py` `urllib not defined` im Atlas-Ping (fehlender Import)
+   - Aufwand gesamt: ~30min Forge
+
+2. **UI-Refactor Phase 1 + 3** (Atlas-Reihenfolge):
+   - Phase 1 Design-System (Design-Tokens + Component-Library auf shadcn/ui + cva)
+   - Phase 3 Overview-Hero (Zone A/B/C/D aus Board-Cockpit-Plan auf Overview-Tab)
+   - Pixel Lead, Aufwand ~2 Tage
+   - **Hinweis:** Phase 2 (Navigation 13→7 Tabs) kommt NACH Hero — Atlas' Begründung: erst Zielbild festziehen, dann Navigation darum konsolidieren
+
+3. **Self-Optimizer-Live-Freigabe-Review** (morgen ~08:42 UTC = 24h Dry-Run-Ende):
+   - Atlas' Freigabe-Bedingungen: Legacy-Script-Entscheid ✅ erledigt / Keine False-Positives im Dry-Run / ein kompletter stabiler Tageszyklus
+   - Review-Trigger: Log-Scan `/home/piet/.openclaw/workspace/logs/self-optimizer.log` über alle 96 Cycles → wenn 0 ungerechtfertigte Suggestions → Live
+
+### Atlas-Kurzfazit (gültig):
+*"Priorität: Operative Klarheit vor weiterer Automatisierungs-Schärfe."*
+
+### Was NICHT auf der Liste steht (parkiert bis Stabilität-Block durch)
+- Audit P3 Context-Overflow (komplex, verschoben)
+- Audit P6 Sandbox-Relaxation
+- Audit P7 MCP-Leak Root-Cause (Sprint-Item, 3-5 Tage)
+- Worker-Hardening Packs 2/4/5/6/8
+- Continuation-Orchestrator Pack B/E/F (Plan-Runner live schalten)
+- Costs-Cockpit Zone C/D + Pack 8 Impl
+- LONG5/6/7 (Monat+)
+
+## Session-Start für neuen Atlas (nach /reset)
+
+**Trigger-Phrase 1 (empfohlen, Gesamt-Handoff):**
+```
+Bootstrap aus /home/piet/vault/03-Agents/atlas-session-report-2026-04-18-morning.md.
+Quittiere Top-3-Prio + UI-Reihenfolge + Self-Optimizer-Status kurz.
+Starte mit Priorität 1: WK-10 + WK-12 Mini-Fixes.
+Lege EINEN Task an für Forge der beide Fixes in einem Turn erledigt:
+  WK-10: src/lib/operational-health.ts — openTasks-Zähler muss 
+    resolvedAt != null als Closed-Kriterium respektieren
+  WK-12: scripts/worker-monitor.py — fehlender import urllib.request 
+    in der Atlas-Ping-Funktion
+Voller Verify-Cycle, keine openclaw.json-Edits.
+```
+
+**Trigger-Phrase 2 (wenn UI-Refactor lieber zuerst):**
+```
+Bootstrap aus /home/piet/vault/03-Agents/atlas-session-report-2026-04-18-morning.md.
+Starte UI-Refactor Phase 1: Lege Task für Pixel an —
+  Design-Tokens in tailwind.config festpinnen, shadcn/ui + cva als
+  Component-Library einführen, StatusPill-Primitive für alle 9 
+  Task-Stati, Dark-Only-Confirm. Referenz: Report § UI-Upgrade Phase 1.
+Anti-Scope: Keine Navigation-Refactor, keine Overview-Hero in diesem Turn.
+```
