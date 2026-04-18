@@ -41,12 +41,13 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9da99d8c-9be1-42d0-b2ca-71eba7b0fff9 [SMOKE] Synthetic orphan kill resolvedAt
-- stage: FAILED
+- task: c3e0e8d4-b977-42bd-b185-0faf7da25fe4 [Verify-Consolidation] Nacht 2026-04-18 - 7-Pack-Plan aus Operator-Retro
+- stage: DONE
 - next: await next assignment
-- checkpoint: Task 9da99d8c has untracked session (worker:synthetic-orphan-…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
-- blocker: Task 9da99d8c has untracked session (worker:synthetic-orphan-…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
-- updated: 2026-04-18T13:07:35.842Z
+- checkpoint: EXECUTION_STATUS: completed-with-warnings
+RESULT_SUMMARY: V1=ok; V2=warning; V3=ok via retry task 090fdc54-9ad4-4d42-a080-b939ff433f65; V4=warning; V5=gap; V6=warning; V7=gap due Discord ingress/cross-context block. Next
+- blocker: -
+- updated: 2026-04-18T18:00:43.436Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.
