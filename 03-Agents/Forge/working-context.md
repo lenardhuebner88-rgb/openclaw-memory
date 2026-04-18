@@ -71,11 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0cdfeccb-238e-43aa-afe2-34a8a9241ca1 [Plan-Runner Pack G] plan-cli.py Operator-Commands
+- task: f385d791-b068-476b-9bf5-f3b33733bca0 [Nightly] Harden heartbeat status API route with fail-soft error handling
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done
-RESULT_SUMMARY: Implemented /home/piet/.openclaw/scripts/plan-cli.py using argparse with commands status, show <plan-id>, pause <plan-id>, resume <plan-id>, skip <plan-id> <step-id>, abort <plan-id>. 
+- checkpoint: Heartbeat-Status-Route ist jetzt fail-soft gehärtet und liefert bei unerwarteten Laufzeitfehlern strukturiertes JSON mit HTTP 500 statt Route-Crash.
 - blocker: -
-- updated: 2026-04-17T19:44:34.674Z
+- updated: 2026-04-18T02:11:22.571Z
 <!-- mc:auto-working-context:end -->
