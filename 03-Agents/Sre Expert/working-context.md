@@ -65,9 +65,9 @@ Headers: x-actor-kind: automation
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: b7a7fd98-c40f-4bc9-b661-f1c84a6b8fce [Task-Tab B1] T2 Agent-Load-from-Tasks (Flag-gated)
-- stage: START
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Implemented /api/agents/live task-load gating in live payload: NEXT_PUBLIC_AGENT_LIVE_FROM_TASKS=1 (or AGENT_LOAD_FROM_TASKS=1 compat) now uses in-progress task-derived load when tasks exist, otherwise heartbeat fallback
 - blocker: -
-- updated: 2026-04-18T23:11:31.077Z
+- updated: 2026-04-18T23:16:49.823Z
 <!-- mc:auto-working-context:end -->

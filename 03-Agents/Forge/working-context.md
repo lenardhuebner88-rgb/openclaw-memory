@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b2fb60d6-12d5-4539-9ee9-3357bceb9130 [Worker-Pack 8] Retry-Single-Path Guard
-- stage: DONE
+- task: d072ca52-a7a5-4c7c-ac4b-a6d700bd3aa4 [Task-Tab B2 Follow-up] receiptStage failed → no-receipt Refactoring
+- stage: FAILED
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS=success. Worker-monitor retry path is now single-path guarded by parent status: retries execute only when parent is failed or canceled-with-error; resolved parents are skipped with Already resolved alert
-- blocker: -
-- updated: 2026-04-18T23:09:50.085Z
+- checkpoint: Task in-progress/dispatched 16m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
+- blocker: Task in-progress/dispatched 16m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
+- updated: 2026-04-18T23:35:01.897Z
 <!-- mc:auto-working-context:end -->
