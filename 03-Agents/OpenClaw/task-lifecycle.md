@@ -1363,3 +1363,4 @@ Diff:
 - Check C predicate changed to: dispatchState=dispatched AND executionState NOT IN {active,queued,review} AND status NOT IN {in-progress,pending-pickup,review,done,failed,canceled}
 Backup: /home/piet/.openclaw/workspace/scripts/mc-ops-monitor.sh.bak-wk22-2026-04-18
 Commit: ff8a66e7
+- 2026-04-18T16:00:15.108Z | START | d44fc520-5fd6-4290-be9d-e07ca385b5df | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
