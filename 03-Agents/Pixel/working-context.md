@@ -97,11 +97,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 33c63a97-a865-4adb-9e7c-effe40194d73 [Stab-Sprint P1-4] Playwright-UI-Smoke-Framework Foundation
+- task: 5836c85c-14c1-4949-8d41-0fb401cd5965 [Costs-v2 Pack 8] Cost-Story-Modal Implementation
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: done
-RESULT_SUMMARY: Added a local-first Playwright smoke framework foundation for Mission Control. package.json was backed up before editing, npm run test:smoke was added, a dedicated playwright.smoke.con
+RESULT_SUMMARY: Implemented Cost Story modal for Costs Zone C with Framer Motion transitions, loading/empty/error states, row hover/click behavior, and narrative lines sourced from /api/costs/detailRo
 - blocker: -
-- updated: 2026-04-18T13:29:41.007Z
+- updated: 2026-04-18T14:16:14.744Z
 <!-- mc:auto-working-context:end -->

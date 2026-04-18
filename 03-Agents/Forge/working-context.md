@@ -71,11 +71,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0c66e1e6-f9d2-40cc-b467-2d1dbafc971e [Stab-Sprint P0-2] MCP-Cold-Start-Audit + differenzierte Agent-Timeouts
+- task: bcc61ebb-557a-4df1-b867-56f47192d902 [WK-20] Auto-Pickup sortiert pending-pickup nach Wartezeit (FIFO)
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: DONE
-RESULT_SUMMARY: P0-2 completed. Added per-agent accepted-timeout policy in worker-monitor (james/researcher=30m, spark=25m, lens/efficiency-auditor=15m, default=15m) and replaced global accepted-timeo
+RESULT_SUMMARY: Implemented FIFO ordering for pending-pickup by dispatchedAt ascending in /home/piet/.openclaw/scripts/auto-pickup.py. Added stable fallback ordering for missing/invalid dispatchedAt (
 - blocker: -
-- updated: 2026-04-18T13:45:52.566Z
+- updated: 2026-04-18T14:34:04.841Z
 <!-- mc:auto-working-context:end -->

@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6f223026-b0ce-45f8-930c-c713fba2fc3a [Audit P3] Worker-Session Context-Overflow Auto-Compaction
+- task: bcc61ebb-557a-4df1-b867-56f47192d902 [WK-20] Auto-Pickup sortiert pending-pickup nach Wartezeit (FIFO)
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Synthetic 150k token context smoke after restart.
+- checkpoint: WK-20 progress: backup created (auto-pickup.py.bak-wk20-2026-04-18), FIFO sort by dispatchedAt ascending implemented via sort_pending_tasks(), and main pending-pickup loop now consumes sorted list. Smoke test script conf
 - blocker: -
-- updated: 2026-04-18T14:06:50.544Z
+- updated: 2026-04-18T14:33:47.432Z
 <!-- mc:auto-working-context:end -->
