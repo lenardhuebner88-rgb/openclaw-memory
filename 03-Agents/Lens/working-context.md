@@ -62,15 +62,16 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ee409ea7-1757-417b-9174-7229e4df0ac6 [SelfOpt Freigabe] Lens Dry-Run-Log-Review
+- task: de98ce74-b75d-4796-bf12-8dde384ac469 [Lens-Audit] Weekly Cost-Trend + Agent-Efficiency-Report
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: done
-GO_OR_NO_GO: EXTEND DRY-RUN 24H
-ARTIFACT_PATH: /home/piet/.openclaw/workspace/memory/working/lens-selfopt-review-2026-04-18.md
 
-TOP_3_FINDINGS:
-1. [HIGH] rule-dead-script-health fires on 3 quiet-when-
+ARTIFAKT: /home/piet/.openclaw/workspace/memory/working/lens-weekly-cost-audit-2026-04-18.md
+
+TOP_5_COST_DRIVER_SESSIONS:
+1. Atlas/GPT-5.4: $74.70 | 33.6M input | 0.5%% output ratio
+2. Forge/GPT-5.3-
 - blocker: -
-- updated: 2026-04-18T11:11:16.792Z
+- updated: 2026-04-18T13:25:02.670Z
 <!-- mc:auto-working-context:end -->

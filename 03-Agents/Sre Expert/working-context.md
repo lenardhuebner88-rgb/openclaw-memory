@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d2ae2d8d-8111-416d-ab12-dcbdc5e6ae73 [Stab-Sprint P0-1] worker-monitor resolvedAt beim Orphan-Kill
+- task: 0b73bfea-2120-411a-aa7d-f260ca4c0d4d [Stab-Sprint B3] Board-Recovery-Scripts (L1 Progress-Receipt + L2 Task-Timeout + L3 Stale-Active)
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: P0-1 umgesetzt: orphan-kill path in workspace/scripts/worker-monitor.py verwendet jetzt PATCH /api/tasks/{id} mit status=failed + blocker/failure Feldern und resolvedAt=now (statt nur POST /fail). Dadurch wird resolvedAt
+- checkpoint: B3 code complete: L1 progress-timeout stall enforcement, L2 runTimeoutSeconds timeout auto-fail+resolvedAt, L3 stale dispatched rescue. Added dispatch/PATCH runTimeoutSeconds plumbing + receipt lastProgressAt tracking. S
 - blocker: -
-- updated: 2026-04-18T13:08:04.670Z
+- updated: 2026-04-18T13:36:24.298Z
 <!-- mc:auto-working-context:end -->

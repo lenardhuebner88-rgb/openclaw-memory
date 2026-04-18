@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 55da2be9-defc-4197-9f4b-9a8136928795 [UI-Refactor Phase 3] Overview-Hero Zone A/B/C/D Implementation
+- task: 33c63a97-a865-4adb-9e7c-effe40194d73 [Stab-Sprint P1-4] Playwright-UI-Smoke-Framework Foundation
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Overview Hero Phase 3 UI implemented: new clean-cockpit entrypoint, Zone A 6-card heartbeat strip using /api/health + /api/costs + /api/ops/script-health, Zone B next-best-action banner with anomaly/board rule fallback, 
+- checkpoint: Playwright smoke foundation wired: package.json backup created, test:smoke script added, dedicated playwright.smoke.config.ts added, and 3 smoke specs created under tests/ui-smoke for Overview Zone A, Costs heartbeat str
 - blocker: -
-- updated: 2026-04-18T12:47:06.026Z
+- updated: 2026-04-18T13:24:53.830Z
 <!-- mc:auto-working-context:end -->

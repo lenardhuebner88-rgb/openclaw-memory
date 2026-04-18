@@ -97,11 +97,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 55da2be9-defc-4197-9f4b-9a8136928795 [UI-Refactor Phase 3] Overview-Hero Zone A/B/C/D Implementation
+- task: 33c63a97-a865-4adb-9e7c-effe40194d73 [Stab-Sprint P1-4] Playwright-UI-Smoke-Framework Foundation
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: done
-RESULT_SUMMARY: Rebuilt the Overview entrypoint behind default-on NEXT_PUBLIC_CLEAN_COCKPIT with a four-zone hero. Zone A now renders six heartbeat cards from /api/health, /api/costs, /api/costs/anoma
+RESULT_SUMMARY: Added a local-first Playwright smoke framework foundation for Mission Control. package.json was backed up before editing, npm run test:smoke was added, a dedicated playwright.smoke.con
 - blocker: -
-- updated: 2026-04-18T12:54:11.457Z
+- updated: 2026-04-18T13:29:41.007Z
 <!-- mc:auto-working-context:end -->
