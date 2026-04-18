@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0b73bfea-2120-411a-aa7d-f260ca4c0d4d [Stab-Sprint B3] Board-Recovery-Scripts (L1 Progress-Receipt + L2 Task-Timeout + L3 Stale-Active)
+- task: 6f223026-b0ce-45f8-930c-c713fba2fc3a [Audit P3] Worker-Session Context-Overflow Auto-Compaction
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: B3 code complete: L1 progress-timeout stall enforcement, L2 runTimeoutSeconds timeout auto-fail+resolvedAt, L3 stale dispatched rescue. Added dispatch/PATCH runTimeoutSeconds plumbing + receipt lastProgressAt tracking. S
+- checkpoint: Synthetic 150k token context smoke after restart.
 - blocker: -
-- updated: 2026-04-18T13:36:24.298Z
+- updated: 2026-04-18T14:06:50.544Z
 <!-- mc:auto-working-context:end -->

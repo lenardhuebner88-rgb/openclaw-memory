@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 33c63a97-a865-4adb-9e7c-effe40194d73 [Stab-Sprint P1-4] Playwright-UI-Smoke-Framework Foundation
-- stage: CHECKPOINT
+- task: 5836c85c-14c1-4949-8d41-0fb401cd5965 [Costs-v2 Pack 8] Cost-Story-Modal Implementation
+- stage: START
 - next: continue current task
-- checkpoint: Playwright smoke foundation wired: package.json backup created, test:smoke script added, dedicated playwright.smoke.config.ts added, and 3 smoke specs created under tests/ui-smoke for Overview Zone A, Costs heartbeat str
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-18T13:24:53.830Z
+- updated: 2026-04-18T13:59:38.105Z
 <!-- mc:auto-working-context:end -->

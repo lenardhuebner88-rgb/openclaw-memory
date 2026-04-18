@@ -71,11 +71,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0b73bfea-2120-411a-aa7d-f260ca4c0d4d [Stab-Sprint B3] Board-Recovery-Scripts (L1 Progress-Receipt + L2 Task-Timeout + L3 Stale-Active)
+- task: 0c66e1e6-f9d2-40cc-b467-2d1dbafc971e [Stab-Sprint P0-2] MCP-Cold-Start-Audit + differenzierte Agent-Timeouts
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: DONE
-RESULT_SUMMARY: Implemented B3 recovery pack across worker-monitor + Mission Control task APIs. L1 now marks active tasks stalled when no progress receipt for 15m and emits Discord alert. L2 now suppo
+RESULT_SUMMARY: P0-2 completed. Added per-agent accepted-timeout policy in worker-monitor (james/researcher=30m, spark=25m, lens/efficiency-auditor=15m, default=15m) and replaced global accepted-timeo
 - blocker: -
-- updated: 2026-04-18T13:37:14.604Z
+- updated: 2026-04-18T13:45:52.566Z
 <!-- mc:auto-working-context:end -->
