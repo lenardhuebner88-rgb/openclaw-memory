@@ -71,10 +71,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6f6d32a9-12fc-4484-9c21-897355cfbe16 Layer-C Script-Bereinigung: Archive + Backups aufräumen
+- task: 71f84ba2-8646-4e15-a2a4-a5d992d057cf [WK-NEW-1] Script-Referential-Integrity Cron-Check
 - stage: DONE
 - next: await next assignment
-- checkpoint: Layer-C Script-Bereinigung abgeschlossen: 56 Scripts auditiert, 5 REDUNDANT identifiziert (Löschen), 47 USEFUL dokumentiert (Archiv-Kandidat), 1 .bak-File bereinigt
+- checkpoint: RESULT_STATUS: done
+REPORT_SNIPPET: 2026-04-18T08:53:21Z ALERT channel=discord missing=9 | 2026-04-18T08:53:21Z SMOKE_OK path=/home/piet/.openclaw/scripts/gateway-port-guard.sh | 2026-04-18T08:53:21Z SMOKE_OK path=/home/
 - blocker: -
-- updated: 2026-04-18T06:58:43.403Z
+- updated: 2026-04-18T08:53:47.597Z
 <!-- mc:auto-working-context:end -->
