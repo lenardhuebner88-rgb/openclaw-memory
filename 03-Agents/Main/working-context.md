@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c3e0e8d4-b977-42bd-b185-0faf7da25fe4 [Verify-Consolidation] Nacht 2026-04-18 - 7-Pack-Plan aus Operator-Retro
+- task: ea776d57-48fe-4858-8e4e-0203c8834813 [Coordinator] Atlas-Heartbeat 2h Night-Sprint 2026-04-18
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: V1 Task-Feld-Trace für 5 Sprint-Tasks erfasst, V2 Disk-Checks gestartet, V3 Review-Fall fe36a3eb zeigt Code auf Disk aber aktuell ohne resultAt/receiptStage, V4-V6 Log/Test/KPI-Prüfungen laufen jetzt.
+- checkpoint: Board jetzt: assigned=1 pending-pickup=4 review=1 done=91 failed=2. V5b und V6b sind done; V2b, V7b, T1, T3 stehen auf pending-pickup; 090fdc54 ist assigned/queued; T2 und T4 existieren bereits als drafts. Discord-Debrie
 - blocker: -
-- updated: 2026-04-18T17:52:59.151Z
+- updated: 2026-04-18T18:21:48.332Z
 <!-- mc:auto-working-context:end -->

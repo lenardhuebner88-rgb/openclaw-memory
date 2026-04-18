@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 31c5344a-c164-4cd8-947b-f52457ae61b6 [V6b] Executive-KPI closed-24h Bug-Fix (WK-26)
-- stage: START
+- task: d2e9e08f-0d72-4026-b437-add5b137c7c6 [V7b] Discord-End-Report alternativer Ingress-Pfad
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Validated MC ingress path: x-request-class=write rejected on /api/discord/send. Proceeding with direct Discord Bot API post using explicit User-Agent as alternate ingress path.
 - blocker: -
-- updated: 2026-04-18T18:09:23.352Z
+- updated: 2026-04-18T18:39:55.634Z
 <!-- mc:auto-working-context:end -->

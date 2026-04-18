@@ -97,10 +97,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f696c9e3-af66-4505-9baa-a48dc9a6394b [Sprint C-UI] Automations-Tab UI — Grid + Kill-Switch + Log-Modal
+- task: 1346ac28-43d4-4534-b597-f0e963a4185d [V5b] Playwright-Smoke-Shells fuer memory/files/automations/palette
 - stage: DONE
 - next: await next assignment
-- checkpoint: Sprint C-UI complete: added /automations route with live automation card grid, pause/resume controls, framer-motion log modal with last 50 lines, global pause-all confirm flow, API log endpoint, nav wiring, and a focused
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY: Created 4 smoke shell specs for memory, files, automations, and palette; adjusted Playwright default config so `npx playwright test --grep smoke` targets the new shell suite cleanly
 - blocker: -
-- updated: 2026-04-18T17:29:36.106Z
+- updated: 2026-04-18T18:20:46.087Z
 <!-- mc:auto-working-context:end -->

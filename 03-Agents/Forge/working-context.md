@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1733f39d-f1e9-4c63-91aa-e778a6c79545 [Sprint D] Command-Palette — cmd+K Cross-Tab Search
+- task: d2e9e08f-0d72-4026-b437-add5b137c7c6 [V7b] Discord-End-Report alternativer Ingress-Pfad
 - stage: DONE
 - next: await next assignment
-- checkpoint: Sprint D complete: globale Command-Palette (cmd/ctrl+K) in MissionShell integriert, Search-Index via /api/tasks + /api/files(memory,vault,scripts) + /api/agents/live + /api/ops/automations, Fuse.js-Fuzzy-Suche, Recent-It
+- checkpoint: EXECUTION_STATUS: done. RESULT_SUMMARY: MC ingress /api/discord/send with x-request-class=write was rejected ('request_class write is not allowed for this ingress'). Alternate ingress used: direct Discord Bot API POST to
 - blocker: -
-- updated: 2026-04-18T17:19:25.252Z
+- updated: 2026-04-18T18:40:23.501Z
 <!-- mc:auto-working-context:end -->
