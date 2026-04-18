@@ -1345,3 +1345,21 @@ Diff-Snippet:
 - tasks = [t for t in all_tasks if t.get("status") == "pending-pickup"]
 + tasks = sort_pending_tasks([t for t in all_tasks if t.get("status") == "pending-pickup"])
 - 2026-04-18T15:00:13.118Z | START | 2d6ff5f5-b3d4-4f05-ad9a-c559a2d99e48 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-04-18T15:23:26.454Z | START | acf3bef4-418c-4d1d-8896-c0c64d68aabb | [WK-23] Monitoring-Separation Rule zwischen mc-ops + heartbeat + worker-monitor | worker=sre-expert | progress=- | summary=-
+- 2026-04-18T15:24:08.968Z | CHECKPOINT | acf3bef4-418c-4d1d-8896-c0c64d68aabb | [WK-23] Monitoring-Separation Rule zwischen mc-ops + heartbeat + worker-monitor | worker=sre-expert | progress=- | summary=- | note=WK-23 progress: created monitoring-separation invariant doc, updated HEARTBEAT.md section 2C with terminal-task skip rule for failed/canceled (never spawn subagent), and added R19-R21 to memory/invariants/03-operating-rules.md.
+- 2026-04-18T15:24:32.240Z | DONE | acf3bef4-418c-4d1d-8896-c0c64d68aabb | [WK-23] Monitoring-Separation Rule zwischen mc-ops + heartbeat + worker-monitor | worker=Forge | progress=- | summary=RESULT_STATUS: DONE
+RESULT_SUMMARY: Monitoring-Separation Invariant dokumentiert und Heartbeat-Terminal-Guard nachgeschärft (failed/canceled werden in 2C explizit geskippt, kein Subagent-Spawn). Zusätzlich R19-R21 für Verantwortlichkeitstrennung ergänzt.
+neue Doku-Pfade:
+- /home/piet/.openclaw/workspace/memory/invariants/monitoring-separation.md
+- /home/piet/.openclaw/workspace/HEARTBEAT.md
+- /home/piet/.openclaw/workspace/memory/invariants/03-operating-rules.md
+Commit: 68e6abb2
+- 2026-04-18T15:24:54.946Z | START | 8d5c592a-e7d1-4b98-9936-cd44ec286e8b | [WK-22] mc-ops-monitor Check C filtert terminale States aus | worker=sre-expert | progress=- | summary=-
+- 2026-04-18T15:26:17.551Z | CHECKPOINT | 8d5c592a-e7d1-4b98-9936-cd44ec286e8b | [WK-22] mc-ops-monitor Check C filtert terminale States aus | worker=sre-expert | progress=- | summary=- | note=WK-22 progress: backup created (scripts/mc-ops-monitor.sh.bak-wk22-2026-04-18), Check A changed to alert-only (no auto-fail/admin-close), and Check C filter tightened to exclude terminal and healthy execution states. Synthetic smoke verified: failed/canceled no longer counted in Check C, pending-pickup remains Check A alert case.
+- 2026-04-18T15:26:32.761Z | DONE | 8d5c592a-e7d1-4b98-9936-cd44ec286e8b | [WK-22] mc-ops-monitor Check C filtert terminale States aus | worker=Forge | progress=- | summary=RESULT_STATUS: DONE
+RESULT_SUMMARY: Check C in scripts/mc-ops-monitor.sh now excludes terminal states (done/failed/canceled) plus non-orphan statuses and healthy execution states, removing false orphaned positives. Check A is now alert-only for pending-pickup >10m and no longer auto-fails/admin-closes tasks. Backup created and smoke test passed for failed/canceled/pending-pickup synthetic set.
+Diff:
+- Check A switched from auto-fail/admin-close loop to alert-only message + check status=alert
+- Check C predicate changed to: dispatchState=dispatched AND executionState NOT IN {active,queued,review} AND status NOT IN {in-progress,pending-pickup,review,done,failed,canceled}
+Backup: /home/piet/.openclaw/workspace/scripts/mc-ops-monitor.sh.bak-wk22-2026-04-18
+Commit: ff8a66e7

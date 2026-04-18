@@ -71,11 +71,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: bcc61ebb-557a-4df1-b867-56f47192d902 [WK-20] Auto-Pickup sortiert pending-pickup nach Wartezeit (FIFO)
+- task: 8d5c592a-e7d1-4b98-9936-cd44ec286e8b [WK-22] mc-ops-monitor Check C filtert terminale States aus
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: DONE
-RESULT_SUMMARY: Implemented FIFO ordering for pending-pickup by dispatchedAt ascending in /home/piet/.openclaw/scripts/auto-pickup.py. Added stable fallback ordering for missing/invalid dispatchedAt (
+RESULT_SUMMARY: Check C in scripts/mc-ops-monitor.sh now excludes terminal states (done/failed/canceled) plus non-orphan statuses and healthy execution states, removing false orphaned positives. Check
 - blocker: -
-- updated: 2026-04-18T14:34:04.841Z
+- updated: 2026-04-18T15:26:32.763Z
 <!-- mc:auto-working-context:end -->

@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2d6ff5f5-b3d4-4f05-ad9a-c559a2d99e48 [Smoke] pending-pickup lifecycle
-- stage: START
+- task: 8d5c592a-e7d1-4b98-9936-cd44ec286e8b [WK-22] mc-ops-monitor Check C filtert terminale States aus
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: WK-22 progress: backup created (scripts/mc-ops-monitor.sh.bak-wk22-2026-04-18), Check A changed to alert-only (no auto-fail/admin-close), and Check C filter tightened to exclude terminal and healthy execution states. Syn
 - blocker: -
-- updated: 2026-04-18T15:00:13.120Z
+- updated: 2026-04-18T15:26:17.553Z
 <!-- mc:auto-working-context:end -->
