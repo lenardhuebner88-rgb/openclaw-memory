@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1d598770-f73b-4d2c-a124-a2ad24751233 [Naming-P2-C] openclaw.json: displayName Feld pro Agent
-- stage: CHECKPOINT
+- task: f6d9a2f7-1069-435d-8f1c-87e425445fd9 [Prompt-Cache-Opt] Task-Description-Template fuer OpenAI-Cache-Hit-Rate optimieren
+- stage: START
 - next: continue current task
-- checkpoint: Updated task-assignees.ts to source agent display labels from openclaw.json (displayName/name) with runtime-ID fallback mapping.
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-18T21:29:12.122Z
+- updated: 2026-04-18T22:00:17.440Z
 <!-- mc:auto-working-context:end -->

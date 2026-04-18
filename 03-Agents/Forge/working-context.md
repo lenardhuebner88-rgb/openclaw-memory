@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1d598770-f73b-4d2c-a124-a2ad24751233 [Naming-P2-C] openclaw.json: displayName Feld pro Agent
-- stage: FAILED
+- task: 054bc0b6-1799-49d1-bace-b39df4c8002f [Naming-P1-C] costs-data.ts: ALL_PRO_AGENTS + Mixed-Buckets Runtime-normalisieren
+- stage: DONE
 - next: await next assignment
-- checkpoint: Task 1d598770 has untracked session (worker:atlas-1d598770-20…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
-- blocker: Task 1d598770 has untracked session (worker:atlas-1d598770-20…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
-- updated: 2026-04-18T21:30:06.996Z
+- checkpoint: EXECUTION_STATUS=success. costs-data.ts agent constants normalized to runtime IDs.
+- blocker: -
+- updated: 2026-04-18T21:59:40.493Z
 <!-- mc:auto-working-context:end -->
