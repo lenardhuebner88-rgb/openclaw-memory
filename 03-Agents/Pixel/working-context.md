@@ -97,11 +97,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0dfd7afe-4854-418e-88cf-3ff50f59cd8d [Costs-v2 Pack 6-A] Heartbeat-Strip Zone A (Pixel)
+- task: 59d008ec-9879-4e78-a9c3-ca64dea7cf96 [Costs-v2 Pack 6-B] Next-Best-Action-Banner Zone B (Pixel)
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: done
-RESULT_SUMMARY: Added the new Zone A Costs Cockpit v2 heartbeat strip with four traffic-light indicators, integrated it above the existing costs layout behind NEXT_PUBLIC_COSTS_COCKPIT_V2 default-on b
+RESULT_SUMMARY: Implemented Zone B as src/app/costs/components/cost-next-action.tsx, kept it integrated directly under the heartbeat strip in costs-client.tsx, sorted anomalies by severity plus recenc
 - blocker: -
-- updated: 2026-04-17T19:47:26.466Z
+- updated: 2026-04-18T07:17:45.661Z
 <!-- mc:auto-working-context:end -->
