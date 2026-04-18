@@ -97,11 +97,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d35d3145-6856-4670-aaad-a4cb391cdf5f [UI-Refactor Phase 1] Design-System Foundation
+- task: 55da2be9-defc-4197-9f4b-9a8136928795 [UI-Refactor Phase 3] Overview-Hero Zone A/B/C/D Implementation
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: done
-RESULT_SUMMARY: Added Phase 1 design-system foundation in Mission Control. Pinned color/radius/spacing tokens in tailwind.config.ts plus globals.css for the Tailwind v4 setup, aligned shadcn/ui metada
+RESULT_SUMMARY: Rebuilt the Overview entrypoint behind default-on NEXT_PUBLIC_CLEAN_COCKPIT with a four-zone hero. Zone A now renders six heartbeat cards from /api/health, /api/costs, /api/costs/anoma
 - blocker: -
-- updated: 2026-04-18T11:51:41.614Z
+- updated: 2026-04-18T12:54:11.457Z
 <!-- mc:auto-working-context:end -->

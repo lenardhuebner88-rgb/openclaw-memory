@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 75f1f719-640c-4710-b1aa-58d75a69cdc0 OptA E2E Test
-- stage: DONE
+- task: 9da99d8c-9be1-42d0-b2ca-71eba7b0fff9 [SMOKE] Synthetic orphan kill resolvedAt
+- stage: FAILED
 - next: await next assignment
-- checkpoint: OptA E2E passed
-- blocker: -
-- updated: 2026-04-17T08:55:28.651Z
+- checkpoint: Task 9da99d8c has untracked session (worker:synthetic-orphan-…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
+- blocker: Task 9da99d8c has untracked session (worker:synthetic-orphan-…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
+- updated: 2026-04-18T13:07:35.842Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.

@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f8605f02-3cb1-42f0-8ff5-20203c3331e6 [SelfOpt v1.1] Regel-Schaerfung nach Lens-Review
+- task: d2ae2d8d-8111-416d-ab12-dcbdc5e6ae73 [Stab-Sprint P0-1] worker-monitor resolvedAt beim Orphan-Kill
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: SelfOpt v1.1 rule sharpening umgesetzt: (1) rule-dead-script-health filtert quiet scripts (gateway-port-guard.sh, mission-control-port-guard.sh, script-integrity-check.sh) bei log-missing (inkl. lastError-Feld). (2) rule
+- checkpoint: P0-1 umgesetzt: orphan-kill path in workspace/scripts/worker-monitor.py verwendet jetzt PATCH /api/tasks/{id} mit status=failed + blocker/failure Feldern und resolvedAt=now (statt nur POST /fail). Dadurch wird resolvedAt
 - blocker: -
-- updated: 2026-04-18T12:33:46.695Z
+- updated: 2026-04-18T13:08:04.670Z
 <!-- mc:auto-working-context:end -->

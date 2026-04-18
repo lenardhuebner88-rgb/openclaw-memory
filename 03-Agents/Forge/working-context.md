@@ -71,11 +71,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f8605f02-3cb1-42f0-8ff5-20203c3331e6 [SelfOpt v1.1] Regel-Schaerfung nach Lens-Review
+- task: d2ae2d8d-8111-416d-ab12-dcbdc5e6ae73 [Stab-Sprint P0-1] worker-monitor resolvedAt beim Orphan-Kill
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT_STATUS: DONE
-RESULT_SUMMARY: SelfOpt v1.1 Lens findings umgesetzt. rule-dead-script-health ignoriert jetzt quiet scripts mit reinem log-missing (inkl. lastError handling), rule-auto-pickup-failure-tail wird bei be
+RESULT_SUMMARY: worker-monitor orphan-kill path (reconcile_orphaned_tasks) patched to use PATCH /api/tasks/{id} and include resolvedAt=now alongside failed terminal fields. Backup created: scripts/wor
 - blocker: -
-- updated: 2026-04-18T12:34:17.278Z
+- updated: 2026-04-18T13:08:18.491Z
 <!-- mc:auto-working-context:end -->

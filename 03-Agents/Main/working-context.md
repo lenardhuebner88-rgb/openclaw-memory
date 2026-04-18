@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 75f1f719-640c-4710-b1aa-58d75a69cdc0 OptA E2E Test
-- stage: START
+- task: ae137d1a-d44c-4f0a-baaf-bfa0e362e3ac [Stab-Sprint P2-6] Atlas Sleep-Mode bei aktivem Agent (Heartbeat-Regel)
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Backup erstellt, Heartbeat-Sleep-Mode-Regel in AGENTS.md ergänzt und zurückgelesen.
 - blocker: -
-- updated: 2026-04-17T08:55:28.250Z
+- updated: 2026-04-18T12:56:00.395Z
 <!-- mc:auto-working-context:end -->
