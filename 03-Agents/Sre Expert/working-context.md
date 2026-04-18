@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: bcc61ebb-557a-4df1-b867-56f47192d902 [WK-20] Auto-Pickup sortiert pending-pickup nach Wartezeit (FIFO)
-- stage: CHECKPOINT
+- task: 2d6ff5f5-b3d4-4f05-ad9a-c559a2d99e48 [Smoke] pending-pickup lifecycle
+- stage: START
 - next: continue current task
-- checkpoint: WK-20 progress: backup created (auto-pickup.py.bak-wk20-2026-04-18), FIFO sort by dispatchedAt ascending implemented via sort_pending_tasks(), and main pending-pickup loop now consumes sorted list. Smoke test script conf
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-18T14:33:47.432Z
+- updated: 2026-04-18T15:00:13.120Z
 <!-- mc:auto-working-context:end -->
