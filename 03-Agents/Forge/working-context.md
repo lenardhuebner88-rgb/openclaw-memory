@@ -71,11 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8d5c592a-e7d1-4b98-9936-cd44ec286e8b [WK-22] mc-ops-monitor Check C filtert terminale States aus
-- stage: DONE
-- next: await next assignment
-- checkpoint: RESULT_STATUS: DONE
-RESULT_SUMMARY: Check C in scripts/mc-ops-monitor.sh now excludes terminal states (done/failed/canceled) plus non-orphan statuses and healthy execution states, removing false orphaned positives. Check
-- blocker: -
-- updated: 2026-04-18T15:26:32.763Z
+- task: fe36a3eb-09fa-47c6-818b-c8299d4509a1 [Sprint C-Backend] Automations-API — Endpoint + Kill-Switch
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Security check failed (critical)
+- blocker: Security check failed (critical)
+- updated: 2026-04-18T17:09:29.784Z
 <!-- mc:auto-working-context:end -->

@@ -97,11 +97,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5836c85c-14c1-4949-8d41-0fb401cd5965 [Costs-v2 Pack 8] Cost-Story-Modal Implementation
+- task: b246ba0f-858e-4909-a7f8-0c70cc133493 [Sprint A] Memory-Tab Redesign — LTM/Working/Archive Schichten
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done
-RESULT_SUMMARY: Implemented Cost Story modal for Costs Zone C with Framer Motion transitions, loading/empty/error states, row hover/click behavior, and narrative lines sourced from /api/costs/detailRo
+- checkpoint: Sprint A umgesetzt: Memory-Tab auf 3 Layer (Invariants/Working/Archive) umgestellt, Tree-Views mit Size+Last-Modified ergänzt, Author-Filter und Cross-Layer-Search verdrahtet, Promote-to-Invariants Review-Dialog für Work
 - blocker: -
-- updated: 2026-04-18T14:16:14.744Z
+- updated: 2026-04-18T17:08:15.902Z
 <!-- mc:auto-working-context:end -->

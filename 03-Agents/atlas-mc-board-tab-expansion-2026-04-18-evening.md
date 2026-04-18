@@ -1,7 +1,7 @@
 ---
 title: MC-Board Tab-Expansion — Memory + Files + Automations (neu) + Cross-Tab-Integration
 version: 1.0
-status: ready-for-execution
+status: in-execution
 created: 2026-04-18 evening
 owner: Operator + Atlas
 sprints: 4 parallel + sequential
@@ -230,6 +230,16 @@ Wenn alle 4 Sprints durch:
 - Board hat **6 hochwertige Tabs**: Overview, Costs, Tasks, Memory, Files, Automations
 - Command-Palette als Cross-Tab-Glue
 - Nächster logischer Schritt (morgen): Phase-2-Navigation 13→7 Tabs finalisieren + Tabs-Tab mit unified Activity-Feed
+
+## Execution Tracking (2026-04-18 18:55 UTC)
+
+| Sprint | Task ID | Board | Status |
+|---|---|---|---|
+| A | SPRINT-A-MEMORY-TAB-2026-04-18 | b246ba0f-858e-4909-a7f8-0c70cc133493 | running (Pixel) |
+| C-Backend | SPRINT-C-BACKEND-AUTOMATIONS-API-2026-04-18 | fe36a3eb-09fa-47c6-818b-c8299d4509a1 | running (Forge) |
+| B | SPRINT-B-FILES-TAB-2026-04-18 | 65b3f58e-733d-43d5-9797-37930137e872 | queued (Pixel, after A) |
+| C-UI | SPRINT-C-UI-AUTOMATIONS-TAB-2026-04-18 | f696c9e3-af66-4505-9baa-a48dc9a6394b | queued (Pixel, after B) |
+| D | SPRINT-D-COMMAND-PALETTE-2026-04-18 | 1733f39d-f1e9-4c63-91aa-e778a6c79545 | queued (Forge, after C-BE) |
 
 ## Trigger für Atlas
 
