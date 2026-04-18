@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5ad536ba-59e1-4db6-846c-c49b88df19c5 [WK-27] Retry-Task Parent-Resolution-Guard (3 Massnahmen)
-- stage: START
+- task: 2a300e0e-2ff1-44f7-8cd1-d122a859021e [Deploy] Vault-Plans Task-Tab + Pipeline-Tab in 03-Agents
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Decoded PLAN1_B64 and PLAN2_B64 into /home/piet/vault/03-Agents; collected ls/wc/head evidence.
 - blocker: -
-- updated: 2026-04-18T19:40:34.788Z
+- updated: 2026-04-18T20:03:36.223Z
 <!-- mc:auto-working-context:end -->
