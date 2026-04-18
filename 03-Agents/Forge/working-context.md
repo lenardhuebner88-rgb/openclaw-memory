@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f6d9a2f7-1069-435d-8f1c-87e425445fd9 [Prompt-Cache-Opt] Task-Description-Template fuer OpenAI-Cache-Hit-Rate optimieren
+- task: b2fb60d6-12d5-4539-9ee9-3357bceb9130 [Worker-Pack 8] Retry-Single-Path Guard
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS=success. Cache template reorder shipped: before ~40.00% cache-hit proxy, after 99.65% on 10-sample window; estimated savings ~$60.47/month (assumption: 300 comparable Forge runs).
+- checkpoint: EXECUTION_STATUS=success. Worker-monitor retry path is now single-path guarded by parent status: retries execute only when parent is failed or canceled-with-error; resolved parents are skipped with Already resolved alert
 - blocker: -
-- updated: 2026-04-18T22:13:22.338Z
+- updated: 2026-04-18T23:09:50.085Z
 <!-- mc:auto-working-context:end -->

@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1346ac28-43d4-4534-b597-f0e963a4185d [V5b] Playwright-Smoke-Shells fuer memory/files/automations/palette
+- task: 4fded088-c9b4-4fea-a8ea-41307db66a5d [Task-Tab A4] 'Later'-Label → 'Archive' umbenennen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-18T18:09:36.850Z
+- updated: 2026-04-18T23:04:08.934Z
 <!-- mc:auto-working-context:end -->
