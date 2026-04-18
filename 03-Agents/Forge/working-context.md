@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 39cb100d-c59e-4b00-b208-7cea560464df [Plan-Runner Pack C] Atlas Prompt-Template-Library + E2E Worker Flow Test
-- stage: DONE
+- task: 8177b2f2-4982-4a10-9186-9be928336288 WK-10 + WK-12: operational-health Metrik + worker-monitor urllib
+- stage: FAILED
 - next: await next assignment
-- checkpoint: E2E complete: accepted→in-progress→done. Added docs/plan-templates with 5 files (session-handoff.md, code-review.md, research.md, task-briefing.md, retrospective.md), added plan-cli.py support for `show --templates`, and
-- blocker: -
-- updated: 2026-04-18T09:56:48.707Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-04-18T11:15:02.509Z
 <!-- mc:auto-working-context:end -->

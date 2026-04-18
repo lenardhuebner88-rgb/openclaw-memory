@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cbc64112-b55a-46b3-ae6f-b7ab70fbac4c [Smoke] pending-pickup lifecycle
+- task: 6a6b1f34-648c-47f8-ad47-f34aa2980ca5 [Retry] WK-10 + WK-12 Mini-Fixes
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-18T11:00:13.614Z
+- updated: 2026-04-18T11:37:30.320Z
 <!-- mc:auto-working-context:end -->
