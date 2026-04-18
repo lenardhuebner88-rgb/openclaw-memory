@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d2e9e08f-0d72-4026-b437-add5b137c7c6 [V7b] Discord-End-Report alternativer Ingress-Pfad
-- stage: DONE
+- task: 090fdc54-9ad4-4d42-a080-b939ff433f65 [Retry] Sprint C-Backend Security-Gate Receipt Abschluss
+- stage: FAILED
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done. RESULT_SUMMARY: MC ingress /api/discord/send with x-request-class=write was rejected ('request_class write is not allowed for this ingress'). Alternate ingress used: direct Discord Bot API POST to
-- blocker: -
-- updated: 2026-04-18T18:40:23.501Z
+- checkpoint: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
+- blocker: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
+- updated: 2026-04-18T19:30:03.602Z
 <!-- mc:auto-working-context:end -->

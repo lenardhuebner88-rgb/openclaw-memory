@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 293ae71b-7276-416d-b6d7-f38018d9965e [Smoke] pending-pickup lifecycle
+- task: 5ad536ba-59e1-4db6-846c-c49b88df19c5 [WK-27] Retry-Task Parent-Resolution-Guard (3 Massnahmen)
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-18T19:03:58.802Z
+- updated: 2026-04-18T19:40:34.788Z
 <!-- mc:auto-working-context:end -->

@@ -126,3 +126,23 @@
 
 ## 2026-04-18: OS Timezone
 - System läuft auf Etc/UTC. Lenard übernimmt Umstellung auf Europe/Berlin selbst.
+
+## 2026-04-18: Forge-Bottleneck behoben — Concurrency + Spark-Aktivierung
+
+### Was entschieden wurde
+1. **Forge-Concurrency erhöht:** sre-expert limit 3→5 (MC /api/agents/concurrency/route.ts AGENT_LIMITS)
+2. **Spark-Concurrency erhöht:** spark limit 2→3 (ebenda)
+3. **Routing-Regel:** UI/Frontend-Tasks (Tab-Redesigns, Dashboard-Builds, Design) → Pixel. Forge nur für Backend (API-Routes, Config, Infra, Security). Reduziert Forge-Queue ~40%.
+4. **Spark-Aktivierung:** Spark ist ab jetzt primärer Entlastungs-Agent für kleine Coding-Tasks, Ops-Reviews, Smoke-Tests, Log-Analyse. Darf eigenständig small Fixes über PATCH /api/tasks abschließen.
+
+### Dateien geändert
+-  (AGENT_LIMITS: sre-expert 5, spark 3)
+-  (Routing-Regel + Spark-Aktivierung dokumentiert)
+
+### Begründung
+Forge heute mit 5 Sprints unter Druck. UI-Sprints (A,B,C-UI) in 31min von Pixel durchgezogen. Routing-Umstellung + Spark-Aktivierung reduziert Forge-Last dauerhaft.
+
+### Review
+- Monitoring: Forge-Queue-Length über 1 Woche beobachten (target: <3 wartende Tasks)
+- Spark-Einsatz messen: Spark-Runs pro Woche sollten steigen (vorher ~5/w, nachher ~15/w)
+- Bei Bedarf: Spark limit further erhöhen auf 4
