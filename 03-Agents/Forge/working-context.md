@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 054bc0b6-1799-49d1-bace-b39df4c8002f [Naming-P1-C] costs-data.ts: ALL_PRO_AGENTS + Mixed-Buckets Runtime-normalisieren
+- task: f6d9a2f7-1069-435d-8f1c-87e425445fd9 [Prompt-Cache-Opt] Task-Description-Template fuer OpenAI-Cache-Hit-Rate optimieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS=success. costs-data.ts agent constants normalized to runtime IDs.
+- checkpoint: EXECUTION_STATUS=success. Cache template reorder shipped: before ~40.00% cache-hit proxy, after 99.65% on 10-sample window; estimated savings ~$60.47/month (assumption: 300 comparable Forge runs).
 - blocker: -
-- updated: 2026-04-18T21:59:40.493Z
+- updated: 2026-04-18T22:13:22.338Z
 <!-- mc:auto-working-context:end -->

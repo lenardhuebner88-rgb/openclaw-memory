@@ -126,3 +126,8 @@ Das sind kein Planungs-Content sondern Worker-Data. Nicht durchsuchen für Plan-
 
 ## Anti-Drift: dieser Index wird gepflegt
 Jede neue Plan-Creation oder Abschluss eines Plans = Update dieses Index. Alte Index-Files (`atlas_plans_index.md` in Memory) sind Pointer hierher.
+
+## Stabilization & Pipeline Plans
+| Date | Plan | Status |
+|------|------|--------|
+| 2026-04-19 | stabilization-plan-2026-04-19.md | Aktiv — Mo 09:00 start |

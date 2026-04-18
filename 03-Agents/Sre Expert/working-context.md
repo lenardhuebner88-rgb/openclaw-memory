@@ -65,9 +65,9 @@ Headers: x-actor-kind: automation
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: f6d9a2f7-1069-435d-8f1c-87e425445fd9 [Prompt-Cache-Opt] Task-Description-Template fuer OpenAI-Cache-Hit-Rate optimieren
-- stage: START
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Implemented prompt-cache template reorder in POST /api/tasks: Agent-Role-Declaration and static handoff prefix first, Task ID/dynamic block at tail; added worker-bound order enforcement and static-prefix token estimator 
 - blocker: -
-- updated: 2026-04-18T22:00:17.440Z
+- updated: 2026-04-18T22:12:45.095Z
 <!-- mc:auto-working-context:end -->
