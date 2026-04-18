@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: da9608e1-f23e-41ab-8a70-421fa5d23122 [P0] Max-Session-Length Guard: 70% Hinto-Trigger in Runtime
-- stage: START
+- task: 28b689d3-cc49-4b8b-9dd1-0ee11c831012 [Audit P5] Script-Health-Endpoint /api/ops/script-health
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Implemented new read-only endpoint mission-control/src/app/api/ops/script-health/route.ts with monitored coverage for all 6 required scripts and status heuristics based on log recency, interval multipliers (2x degraded, 
 - blocker: -
-- updated: 2026-04-17T14:12:05.537Z
+- updated: 2026-04-18T07:05:46.317Z
 <!-- mc:auto-working-context:end -->
