@@ -1,123 +1,91 @@
 # Atlas Session Handover
 
-## Stand: 2026-04-12 Abend — Phase-4-Sprint im Closeout
+## Stand: 2026-04-18 06:00 UTC — Nach Overnight Session
 
 ---
 
-## 0. Aktueller Sprint-Status — LESEN ZUERST
+## 0. Aktueller System-Status — LESEN ZUERST
 
-**Phase 4: Letzter Gate-Check läuft gerade**
+**Board: LEER** — 0 nicht-terminale Tasks
+- done=51, canceled=35, failed=1 (alter orphan, terminal)
+- Keine offenen operativen Tasks
 
-| Check | Status |
-|-------|--------|
-| Build | ✅ grün |
-| Vitest | ✅ 135 Tests grün |
-| E2E (Playwright) | ✅ 9/9 grün (nach afa88eb) |
-| James Gate-Check | ⏳ läuft gerade (auf Stand afa88eb) |
-
-**Board-Stand (letzter Heartbeat)**
-- done=161 (+37 seit Backup-Restore)
-- assigned=6 (war 16 — 10 aufgelöst)
-- draft=1 (war 13 — 12 aufgelöst)
-- **failed=0** — erstes Mal sauber seit Backup-Restore ✅
-- canceled=1
-
-**Commits heute (chronologisch)**
-| Commit | Was |
-|--------|-----|
-| 51c0b6e | fix: missing runtime libs for build-integrated api routes |
-| 86830ab | test: stabilize vitest proof run + dispatch gate assertions |
-| 27fe521 | fix: app-router roots + server-only dependency |
-| e2e7715 | fix: harden e2e dev-server locks + restore missing task route exports |
-| afa88eb | fix: restore task id routes + stabilize e2e server/test flow |
-
-**Was der Sprint gelöst hat**
-- Root-Cause war nicht nur Symptome: echte Integrationslücken in Runtime-Libs + App-Router-Basis
-- Task-API-Routen (`app/api/tasks/[id]/...`) waren im Proof-Stand leer → wiederhergestellt
-- E2E-Startpfad durch stale Locks/PIDs fragil → gehärtet
-- State-Normalisierung in Taskboard-Transition-Logik → nachhaltig gefixt
-- Vitest-Parallelitätsdrift + Dispatch-Gate-Assertions → stabilisiert
-
-**Wartet jetzt auf:** James finaler Gate-Check nach afa88eb
-- Wenn grün → Phase 4 GO, Sprint abgeschlossen
-- Wenn rot → James isoliert verbliebenen Root-Cause, Forge/Pixel schließen letzten Block
+**System operativ:**
+- Mission Control ✅ Port 3000
+- Gateway ✅ Port 18789
+- Build: npm run build ✅
+- Alle Agenten konsistent (Naming Audit ✅)
 
 ---
 
-## 1. Was heute gemacht wurde (Lens — Vault-Seite)
+## 1. Was gestern (2026-04-17) lief
 
-### Vault-Bereinigung (komplett)
-- Merge-Konflikte in 8 Core-Vault-Files aufgelöst + gepusht
-- Strikte Delegationsregeln in alle working-contexts eingebaut
-- Fehlende working-context.md erstellt für: Pixel, Forge-Opus, Flash
-- Forge-Opus: korrekt als Anthropic API Key dokumentiert (nicht OAuth)
-- Execution Contract Pflichtformat in Atlas working-context verankert
+### Woche-2 Intervention
+- SOUL.md verschärft: kein Work ohne Session-Typ-Deklaration
+- MEMORY-Truncation Fix (bootstrapMaxChars erhöht)
+- AC-06/07/08 Messlücken geschlossen
+- Review-Gate verschoben auf Do 22. April
 
-### Modell-Zuweisung neu geregelt (noch nicht live in openclaw.json)
-| Agent      | Modell                           | Pool                       |
-| ---------- | -------------------------------- | -------------------------- |
-| Atlas      | `gpt-5.4`                        | OpenAI Pro (€200 flat)     |
-| Forge      | `GPT-5.3 Codex`                  | OpenAI Pro (fix)           |
-| Lens       | `gpt-5.4`                        | OpenAI Pro                 |
-| James      | `minimax/MiniMax-M2.7-highspeed` | MiniMax (€40 token)        |
-| Pixel      |  gpt-5.4`                        | MiniMax                    |
-| Flash      | `minimax/MiniMax-M2.7-highspeed` | MiniMax (noch nicht aktiv) |
-| Forge-Opus | `anthropic/claude-opus-4-6`      | Anthropic API Key          |
+### Mission Control Cockpit (Pixel + Forge)
+- Zone A: Heartbeat-Strip mit 4 Lichter (/api/health)
+- Zone B: NBA-Banner (/api/board/next-action)
+- Zone C: Live-Flow Lanes + Age-Badge (boardLane)
+- Zone D: Agent-Load Sidebar (/api/board/agent-load)
+- SSE: /api/board/events
 
----
+### Costs-v2 (Lens + Forge)
+- Phase 1 Baseline: $77.94/minimax 275% Overrun
+- Budget-Engine, Burn-Rate, Discord-Alerts live
+- Costs Heartbeat Strip UI
 
-## 2. Offene Tasks nach Phase-4-Abschluss
+### pending-pickup Lifecycle
+- Smoke Script + Cron aktiv
+- Docs: taskboard-pending-pickup.md
 
-### Sofort nach Phase-4-GO:
-
-**[4] Pulse-Entfernung final bestätigen**
-- `model-monitor` aus `TEAM_AGENT_ORDER` / `route.ts` prüfen → als DONE schließen
-
-### Danach:
-
-**[5] Zombie-Agenten aus openclaw.json entfernen**
-- ideen, projekte, orchestrator-free, prompt-optimizer, quick
-
-**[6] Cron-Channels korrigieren**
-- `efficiency-auditor-heartbeat` + `daily-cost-report`: telegram → discord
-
-**[7] sre-expert-fresh klären**
-- Entweder sauber einführen oder aus Config entfernen
-
-### Atlas-Entscheidung ausstehend:
-
-**[8] Flash aktivieren?**
-- Platzhalter-Context: `03-Agents/Flash/working-context.md`
-
-**[9] Heartbeat-Controller: implementieren oder Doku anpassen?**
-- Korrekturvorlage liegt bereit: [[../../04-Operations/Audits/heartbeat-realitaet-2026-04-12]]
-- Empfehlung: Option A (Dispatch-Loop in worker-monitor.py) — Sprint-Dokument beschreibt genau wie
+### Handoff + Session Guards
+- Handoff-Block Pflichtfeld in MC POST /api/tasks
+- Max-Session-Length Guard (70% Hint)
 
 ---
 
-## 3. Systemregel (ab heute aktiv)
+## 2. Entscheidungen (binding)
+
+- **pending-pickup**: Section 5 HEARTBEAT.md bleibt DEAKTIVIERT. Section 2C Receipt-Timeout (>10min) fängt Stuck-Tasks ab. Synthetischer Attach in auto-dispatch ist DEAKTIVIERT (Sicherheitsgrund).
+- **Naming**: 6 Agenten alle konsistent. Nur Spark hatte Chaos (spark-relief → spark), rest sauber.
+- **Review-Gate verschoben**: Do 22. April
+
+---
+
+## 3. Offene Punkte (2026-04-18)
+
+| Prio | Was | Status |
+|---|---|---|
+| P1 | OS Timezone → Europe/Berlin | Lenard selbst |
+| P2 | Flash aktivieren? | Offen — Entscheidung |
+| P2 | Woche-2 Review Gate Do 22. April | AC-01/09/10 Trends |
+
+---
+
+## 4. Systemregel (unverändert)
 
 **Atlas delegiert immer — handelt nie selbst technisch.**
 
 | Aufgabe | Agent |
 |---------|-------|
-| Code, Infra, Build, Deploy | Forge |
+| Code, Infra, Build, Deploy | Forge (sre-expert) |
 | Root-Cause, Architektur-Risiko | Forge-Opus |
 | Recherche, externe Vergleiche | James |
-| UI, Frontend, Dashboard | Pixel |
-| Kosten, Audit, Konsolidierung | Lens |
-| Leichte Forge-Entlastung | Flash (sobald aktiv) |
+| UI, Frontend, Dashboard | Pixel (frontend-guru) |
+| Kosten, Audit, Konsolidierung | Lens (efficiency-auditor) |
+| Leichte Forge-Entlastung | Spark |
+| Leichte Forge-Entlastung | Flash (noch nicht aktiv) |
 
 ---
 
-## 4. Operative Leitplanken (unverändert gültig)
+## 5. Operative Leitplanken (unverändert gültig)
 
-- `groupPolicy = allowlist` für Discord + Telegram — nicht zurückdrehen
-- `exec.security = allowlist` für main, sre-expert, sre-expert-fresh — nicht zurückdrehen
-- Mission Control bleibt auf `next start` (production, nicht dev)
+- `groupPolicy = allowlist` für Discord + Telegram
+- `exec.security = allowlist` für main, sre-expert, sre-expert-fresh
+- Mission Control: `npm run build` — kein direkter next build
 - Forge nicht blind als Wahrheitsquelle für Gesamtzustand verwenden
-- Keine parallelen Großbaustellen — ein Block nach dem anderen
-
----
-
-
+- Keine parallelen Großbaustellen

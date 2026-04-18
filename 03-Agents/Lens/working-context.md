@@ -62,18 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9d1579ba-b7c4-489f-af27-a9ac45362d6e [Costs-v2 Pack 2 Policy] Budget-Threshold-Matrix Multi-Mode (Lens)
+- task: f2c5eeee-049c-4507-942f-27becce2392f [Audit] Forge/sre-expert Naming + Lens Agent-Naming vereinheitlichen
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done
-
-== Costs-v2 Pack 2 — Budget-Threshold-Matrix ==
-
-Produced two evidence-based artifacts:
-
-ARTIFACT_PATHS:
-  1. /home/piet/.openclaw/workspace/memory/invariants/budget-thresholds.yaml
-  2. /home/piet/.
+- checkpoint: Alle 6 Agenten konsistent. Forge/sre-expert sauber. Nur stale UI-Relikte (ideen, model-monitor) in agent-health-bar.tsx + TeamClient.tsx — keine Runtime-Probleme, nur Wartungsschmutz.
 - blocker: -
-- updated: 2026-04-17T18:39:33.724Z
+- updated: 2026-04-18T05:48:05.281Z
 <!-- mc:auto-working-context:end -->

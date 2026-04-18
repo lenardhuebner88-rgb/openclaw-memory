@@ -100,3 +100,17 @@
 - Scan #3 geplant: Mo 20. April (Tendencia-Check)
 - Scan #4 geplant: Mi 22. April (Trend-Bestätigung)
 - Entscheidung: 7/10 AC bleibt Pass-Kriterium, aber ehrliche Erwartung dass AC-05/09/10 kurzfristig noch nicht bei 95% liegen werden
+
+
+## 2026-04-18: pending-pickup Fix + Naming Cleanup
+- Root Cause: auto-dispatch-agent-processor.js nutzt synthetischen Attach (DEAKTIVIERT). Section 5 DEAKTIVIERT. Kein Auto-Spawn für dispatched Tasks.
+- Fix: HEARTBEAT.md Section 2C — Receipt Timeout (>10min pending-pickup → fail + Alert via runs.json Check). PM2 mc-auto-dispatch gelöscht.
+- Naming: alle 6 Agenten konsistent. Spark (spark-relief → spark) vereinheitlicht. ideen/model-monitor Relikte aus UI entfernt (agent-health-bar.tsx, TeamClient.tsx).
+- Board leer: 0 non-terminale Tasks.
+
+## 2026-04-18: Review-Gate Status
+- Review-Gate von Do 22. April auf Fr 25. April verschoben (laut Atlas daily log 2026-04-17)
+- 3 AC-Metriken kritisch: AC-01 SWW-Rate 10.25%, AC-09 Scope-Creep 17.41%, AC-10 Forget-Rate 6.19%
+
+## 2026-04-18: OS Timezone
+- System läuft auf Etc/UTC. Lenard übernimmt Umstellung auf Europe/Berlin selbst.

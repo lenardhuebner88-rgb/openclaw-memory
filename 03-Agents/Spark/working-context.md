@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: edd017e9-4fac-4959-811e-b05661fbe52c [Costs-v2 Pack 8 Concept] Cost-Story-Modal UX-Prototyp (Spark)
+- task: d7de042a-ae90-4d9d-b26b-4adf85fd8d4d [Research] pending-pickup Recovery — Best Practices
 - stage: DONE
 - next: await next assignment
-- checkpoint: Cost-Story Modal UX-Concept erstellt. DoD verifiziert: (1) User Story 3 Sätze ✓, (2) ASCII Wireframe 90 chars ✓, (3) MC API Field Mapping (9 rows) ✓, (4) 3 reale Narratives (UX Sprint, Restart Loop, Batched Packs) basier
+- checkpoint: pending-pickup Recovery Recherche abgeschlossen. Option A (Automatic Receipt Timeout): OpenClaw built-in lost-State (5-min grace) vorhanden, aber MC Board-level Receipt-Timeout muss selbst gebaut werden. Option B (Heartb
 - blocker: -
-- updated: 2026-04-17T18:59:45.482Z
+- updated: 2026-04-18T05:39:34.449Z
 <!-- mc:auto-working-context:end -->

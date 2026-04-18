@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f385d791-b068-476b-9bf5-f3b33733bca0 [Nightly] Harden heartbeat status API route with fail-soft error handling
-- stage: CHECKPOINT
+- task: b423604b-0dad-41b8-ad6d-5e4bb5001630 [Smoke] pending-pickup lifecycle
+- stage: START
 - next: continue current task
-- checkpoint: Fail-soft hardening implemented in heartbeat status route: wrapped handler logic in top-level try/catch, preserved ingress validation and success response/cache headers, added structured JSON 500 fallback for unexpected 
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-18T02:05:42.585Z
+- updated: 2026-04-18T06:00:28.419Z
 <!-- mc:auto-working-context:end -->
