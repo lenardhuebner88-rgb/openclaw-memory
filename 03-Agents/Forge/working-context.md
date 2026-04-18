@@ -71,11 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 71f84ba2-8646-4e15-a2a4-a5d992d057cf [WK-NEW-1] Script-Referential-Integrity Cron-Check
+- task: ee33c8c0-ad72-445d-a8e0-1a8bb7d6183b [Ops] /api/ops/script-health — Script-Pfade korrigieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done
-REPORT_SNIPPET: 2026-04-18T08:53:21Z ALERT channel=discord missing=9 | 2026-04-18T08:53:21Z SMOKE_OK path=/home/piet/.openclaw/scripts/gateway-port-guard.sh | 2026-04-18T08:53:21Z SMOKE_OK path=/home/
+- checkpoint: Done: /api/ops/script-health path/log mapping corrected in src/app/api/ops/script-health/route.ts (backup: route.ts.bak-ops-script-health-paths-2026-04-18). Added mc-ops-monitor.sh row and switched auto-pickup/cost-alert
 - blocker: -
-- updated: 2026-04-18T08:53:47.597Z
+- updated: 2026-04-18T09:15:38.671Z
 <!-- mc:auto-working-context:end -->

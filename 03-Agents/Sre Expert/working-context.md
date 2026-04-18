@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1218e7d5-770e-45d3-abcf-ce93879ebbbc [Smoke] pending-pickup lifecycle
-- stage: START
+- task: ee33c8c0-ad72-445d-a8e0-1a8bb7d6183b [Ops] /api/ops/script-health — Script-Pfade korrigieren
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Progress: /api/ops/script-health Pfad-/Log-Mapping korrigiert (auto-pickup und cost-alert auf aktive *.log Quellen), mc-ops-monitor.sh als eigener Row ergänzt, Backup route.ts.bak-ops-script-health-paths-2026-04-18 erste
 - blocker: -
-- updated: 2026-04-18T09:00:12.491Z
+- updated: 2026-04-18T09:15:18.489Z
 <!-- mc:auto-working-context:end -->
