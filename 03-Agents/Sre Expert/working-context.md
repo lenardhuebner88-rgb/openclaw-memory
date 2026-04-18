@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2a300e0e-2ff1-44f7-8cd1-d122a859021e [Deploy] Vault-Plans Task-Tab + Pipeline-Tab in 03-Agents
+- task: 515b940f-943f-4dbb-bb0b-57b68aaabd1a [Wave 1 / A2] NBA-Regel reagiert auf FAILED und REVIEW
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Decoded PLAN1_B64 and PLAN2_B64 into /home/piet/vault/03-Agents; collected ls/wc/head evidence.
+- checkpoint: Validated NBA behavior after deploy: failed>0 now yields open-task guidance instead of all-clear; review path added with dedicated operator decision prompt.
 - blocker: -
-- updated: 2026-04-18T20:03:36.223Z
+- updated: 2026-04-18T20:40:43.009Z
 <!-- mc:auto-working-context:end -->

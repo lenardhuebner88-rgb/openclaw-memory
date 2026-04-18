@@ -41,12 +41,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ea776d57-48fe-4858-8e4e-0203c8834813 [Coordinator] Atlas-Heartbeat 2h Night-Sprint 2026-04-18
+- task: 7fde1e0e-a6ab-48ba-8fc8-3157aeab5d95 [Atlas-Orchestrate] Task-Tab Plan v2 — 4 Wellen A/B/C sequenziell
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Task ea776d57 has untracked session (agent:main:ea776d57-48fe…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
-- blocker: Task ea776d57 has untracked session (agent:main:ea776d57-48fe…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
-- updated: 2026-04-18T18:25:02.188Z
+- checkpoint: Task 7fde1e0e has untracked session (agent:main:7fde1e0e-a6ab…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
+- blocker: Task 7fde1e0e has untracked session (agent:main:7fde1e0e-a6ab…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
+- updated: 2026-04-18T20:20:04.971Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.

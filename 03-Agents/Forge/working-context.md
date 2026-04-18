@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2a300e0e-2ff1-44f7-8cd1-d122a859021e [Deploy] Vault-Plans Task-Tab + Pipeline-Tab in 03-Agents
+- task: 515b940f-943f-4dbb-bb0b-57b68aaabd1a [Wave 1 / A2] NBA-Regel reagiert auf FAILED und REVIEW
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS=success; wrote 2 files in /home/piet/vault/03-Agents; wc -l: task-tab-plan=314, pipeline-tab-plan=398; YAML first line check passed for both (---).
+- checkpoint: EXECUTION_STATUS=success. NBA now reacts to failed and review workload and no longer returns all-clear when failed tasks exist.
 - blocker: -
-- updated: 2026-04-18T20:03:54.985Z
+- updated: 2026-04-18T20:40:57.693Z
 <!-- mc:auto-working-context:end -->
