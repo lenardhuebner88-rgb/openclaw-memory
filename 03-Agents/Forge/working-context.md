@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fe36a3eb-09fa-47c6-818b-c8299d4509a1 [Sprint C-Backend] Automations-API — Endpoint + Kill-Switch
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: Security check failed (critical)
-- blocker: Security check failed (critical)
-- updated: 2026-04-18T17:09:29.784Z
+- task: 1733f39d-f1e9-4c63-91aa-e778a6c79545 [Sprint D] Command-Palette — cmd+K Cross-Tab Search
+- stage: DONE
+- next: await next assignment
+- checkpoint: Sprint D complete: globale Command-Palette (cmd/ctrl+K) in MissionShell integriert, Search-Index via /api/tasks + /api/files(memory,vault,scripts) + /api/agents/live + /api/ops/automations, Fuse.js-Fuzzy-Suche, Recent-It
+- blocker: -
+- updated: 2026-04-18T17:19:25.252Z
 <!-- mc:auto-working-context:end -->

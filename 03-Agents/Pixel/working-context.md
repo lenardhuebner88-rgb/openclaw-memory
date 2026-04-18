@@ -97,10 +97,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b246ba0f-858e-4909-a7f8-0c70cc133493 [Sprint A] Memory-Tab Redesign — LTM/Working/Archive Schichten
+- task: f696c9e3-af66-4505-9baa-a48dc9a6394b [Sprint C-UI] Automations-Tab UI — Grid + Kill-Switch + Log-Modal
 - stage: DONE
 - next: await next assignment
-- checkpoint: Sprint A umgesetzt: Memory-Tab auf 3 Layer (Invariants/Working/Archive) umgestellt, Tree-Views mit Size+Last-Modified ergänzt, Author-Filter und Cross-Layer-Search verdrahtet, Promote-to-Invariants Review-Dialog für Work
+- checkpoint: Sprint C-UI complete: added /automations route with live automation card grid, pause/resume controls, framer-motion log modal with last 50 lines, global pause-all confirm flow, API log endpoint, nav wiring, and a focused
 - blocker: -
-- updated: 2026-04-18T17:08:15.902Z
+- updated: 2026-04-18T17:29:36.106Z
 <!-- mc:auto-working-context:end -->
