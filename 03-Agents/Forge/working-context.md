@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ee33c8c0-ad72-445d-a8e0-1a8bb7d6183b [Ops] /api/ops/script-health — Script-Pfade korrigieren
+- task: 39cb100d-c59e-4b00-b208-7cea560464df [Plan-Runner Pack C] Atlas Prompt-Template-Library + E2E Worker Flow Test
 - stage: DONE
 - next: await next assignment
-- checkpoint: Done: /api/ops/script-health path/log mapping corrected in src/app/api/ops/script-health/route.ts (backup: route.ts.bak-ops-script-health-paths-2026-04-18). Added mc-ops-monitor.sh row and switched auto-pickup/cost-alert
+- checkpoint: E2E complete: accepted→in-progress→done. Added docs/plan-templates with 5 files (session-handoff.md, code-review.md, research.md, task-briefing.md, retrospective.md), added plan-cli.py support for `show --templates`, and
 - blocker: -
-- updated: 2026-04-18T09:15:38.671Z
+- updated: 2026-04-18T09:56:48.707Z
 <!-- mc:auto-working-context:end -->
