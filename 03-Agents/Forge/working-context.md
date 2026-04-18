@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8177b2f2-4982-4a10-9186-9be928336288 WK-10 + WK-12: operational-health Metrik + worker-monitor urllib
-- stage: FAILED
+- task: 6a6b1f34-648c-47f8-ad47-f34aa2980ca5 [Retry] WK-10 + WK-12 Mini-Fixes
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-18T11:15:02.509Z
+- checkpoint: WK-10 fixed: mission-control/src/lib/operational-health.ts now treats resolvedAt as closed in openTasks (isOpen returns false when resolvedAt is set). WK-12 fixed: workspace/scripts/worker-monitor.py now includes import 
+- blocker: -
+- updated: 2026-04-18T11:38:35.951Z
 <!-- mc:auto-working-context:end -->
