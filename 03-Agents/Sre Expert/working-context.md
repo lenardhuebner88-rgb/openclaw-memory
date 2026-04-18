@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 146cd07f-94c2-48f7-84b4-45f42d5d54dd [Smoke] pending-pickup lifecycle
-- stage: START
+- task: f8605f02-3cb1-42f0-8ff5-20203c3331e6 [SelfOpt v1.1] Regel-Schaerfung nach Lens-Review
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: SelfOpt v1.1 rule sharpening umgesetzt: (1) rule-dead-script-health filtert quiet scripts (gateway-port-guard.sh, mission-control-port-guard.sh, script-integrity-check.sh) bei log-missing (inkl. lastError-Feld). (2) rule
 - blocker: -
-- updated: 2026-04-18T12:00:12.600Z
+- updated: 2026-04-18T12:33:46.695Z
 <!-- mc:auto-working-context:end -->

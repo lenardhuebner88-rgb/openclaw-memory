@@ -71,10 +71,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6a6b1f34-648c-47f8-ad47-f34aa2980ca5 [Retry] WK-10 + WK-12 Mini-Fixes
+- task: f8605f02-3cb1-42f0-8ff5-20203c3331e6 [SelfOpt v1.1] Regel-Schaerfung nach Lens-Review
 - stage: DONE
 - next: await next assignment
-- checkpoint: WK-10 fixed: mission-control/src/lib/operational-health.ts now treats resolvedAt as closed in openTasks (isOpen returns false when resolvedAt is set). WK-12 fixed: workspace/scripts/worker-monitor.py now includes import 
+- checkpoint: RESULT_STATUS: DONE
+RESULT_SUMMARY: SelfOpt v1.1 Lens findings umgesetzt. rule-dead-script-health ignoriert jetzt quiet scripts mit reinem log-missing (inkl. lastError handling), rule-auto-pickup-failure-tail wird bei be
 - blocker: -
-- updated: 2026-04-18T11:38:35.951Z
+- updated: 2026-04-18T12:34:17.278Z
 <!-- mc:auto-working-context:end -->
