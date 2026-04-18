@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 515b940f-943f-4dbb-bb0b-57b68aaabd1a [Wave 1 / A2] NBA-Regel reagiert auf FAILED und REVIEW
+- task: 270b2ac8-1b4d-402c-bcfa-7374571ab09c [Naming-P2-B] heartbeat-data.ts + live-agents-payload.ts: zentrale Lookup via task-assignees
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Validated NBA behavior after deploy: failed>0 now yields open-task guidance instead of all-clear; review path added with dedicated operator decision prompt.
+- checkpoint: Refactored heartbeat-data and live-agents-payload to use central task-assignees lookup (resolveRuntimeAgentId/resolveAssigneeAlias) and removed local assignee mapping dictionaries.
 - blocker: -
-- updated: 2026-04-18T20:40:43.009Z
+- updated: 2026-04-18T21:03:46.215Z
 <!-- mc:auto-working-context:end -->

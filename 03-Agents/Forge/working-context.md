@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 515b940f-943f-4dbb-bb0b-57b68aaabd1a [Wave 1 / A2] NBA-Regel reagiert auf FAILED und REVIEW
+- task: 270b2ac8-1b4d-402c-bcfa-7374571ab09c [Naming-P2-B] heartbeat-data.ts + live-agents-payload.ts: zentrale Lookup via task-assignees
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS=success. NBA now reacts to failed and review workload and no longer returns all-clear when failed tasks exist.
+- checkpoint: EXECUTION_STATUS=success. heartbeat-data and live-agents-payload now use centralized task-assignees runtime/alias lookup with no local assignee mapping dictionary.
 - blocker: -
-- updated: 2026-04-18T20:40:57.693Z
+- updated: 2026-04-18T21:08:33.228Z
 <!-- mc:auto-working-context:end -->

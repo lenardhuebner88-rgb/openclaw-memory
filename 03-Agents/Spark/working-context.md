@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 13134d5a-c39c-47e1-9f5f-052c10f4b513 [UX-Audit] Mobile-UI Lesbarkeit + Operativer Nutzen
-- stage: DONE
-- next: await next assignment
-- checkpoint: Mobile-UI Audit abgeschlossen. DoD komplett. 722 Woerter. Top-3-Probleme: Kanban drag <44px, Cost hidden on mobile, text-4xl overflow. Artefakt: /home/piet/vault/03-Agents/spark-mobile-ui-audit-2026-04-18.md
+- task: 28d81ae4-1c90-4577-a174-065cb9878e6c [Naming-Spark-UX] Agent-Display-Konventions-Guide (Name/Emoji/Mobile-Short)
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-18T14:26:47.910Z
+- updated: 2026-04-18T20:54:45.905Z
 <!-- mc:auto-working-context:end -->

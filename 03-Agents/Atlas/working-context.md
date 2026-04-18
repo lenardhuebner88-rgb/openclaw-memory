@@ -41,12 +41,13 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7fde1e0e-a6ab-48ba-8fc8-3157aeab5d95 [Atlas-Orchestrate] Task-Tab Plan v2 — 4 Wellen A/B/C sequenziell
-- stage: FAILED
+- task: 559cd153-17f9-4295-a4fd-cbd8570a85b8 [Naming-P3] R25-Regel in feedback_system_rules.md + Naming-Invariante
+- stage: DONE
 - next: await next assignment
-- checkpoint: Task 7fde1e0e has untracked session (agent:main:7fde1e0e-a6ab…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
-- blocker: Task 7fde1e0e has untracked session (agent:main:7fde1e0e-a6ab…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
-- updated: 2026-04-18T20:20:04.971Z
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY: R25 ist jetzt in feedback_system_rules.md eingetragen, HEARTBEAT.md kennt die Naming-Invariante, und MEMORY.md verlinkt die Kurz-Version in memory/invariants/04-naming-runtime-vs-di
+- blocker: -
+- updated: 2026-04-18T21:02:29.824Z
 <!-- mc:auto-working-context:end -->
 
 - 2026-04-15 08:40 UTC: worker-monitor auto-trigger geprüft. `GET /api/tasks?status=assigned` auf Mission Control live (:3000) liefert aktuell 0 Assigned-Tasks; `GET /api/agents/concurrency` antwortet 200 mit freien Slots (`sre-expert` 0/3, `frontend-guru` 0/2, `efficiency-auditor` 0/1, `researcher` 1/1). Daher kein Dispatch-PATCH ausgeführt.
