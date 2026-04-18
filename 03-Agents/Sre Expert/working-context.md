@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 270b2ac8-1b4d-402c-bcfa-7374571ab09c [Naming-P2-B] heartbeat-data.ts + live-agents-payload.ts: zentrale Lookup via task-assignees
+- task: 1d598770-f73b-4d2c-a124-a2ad24751233 [Naming-P2-C] openclaw.json: displayName Feld pro Agent
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Refactored heartbeat-data and live-agents-payload to use central task-assignees lookup (resolveRuntimeAgentId/resolveAssigneeAlias) and removed local assignee mapping dictionaries.
+- checkpoint: Updated task-assignees.ts to source agent display labels from openclaw.json (displayName/name) with runtime-ID fallback mapping.
 - blocker: -
-- updated: 2026-04-18T21:03:46.215Z
+- updated: 2026-04-18T21:29:12.122Z
 <!-- mc:auto-working-context:end -->

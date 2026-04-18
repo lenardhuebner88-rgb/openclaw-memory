@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 270b2ac8-1b4d-402c-bcfa-7374571ab09c [Naming-P2-B] heartbeat-data.ts + live-agents-payload.ts: zentrale Lookup via task-assignees
-- stage: DONE
+- task: 1d598770-f73b-4d2c-a124-a2ad24751233 [Naming-P2-C] openclaw.json: displayName Feld pro Agent
+- stage: FAILED
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS=success. heartbeat-data and live-agents-payload now use centralized task-assignees runtime/alias lookup with no local assignee mapping dictionary.
-- blocker: -
-- updated: 2026-04-18T21:08:33.228Z
+- checkpoint: Task 1d598770 has untracked session (worker:atlas-1d598770-20…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
+- blocker: Task 1d598770 has untracked session (worker:atlas-1d598770-20…) and no active runs exist in runs.json. Auto-failed by worker-monitor (ghost state).
+- updated: 2026-04-18T21:30:06.996Z
 <!-- mc:auto-working-context:end -->
