@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b7a7fd98-c40f-4bc9-b661-f1c84a6b8fce [Task-Tab B1] T2 Agent-Load-from-Tasks (Flag-gated)
+- task: ef1c3bae-72e9-4176-b658-6fc0cdbfc641 [Task-Tab A2] NBA-Regel reaktiv auf FAILED/REVIEW
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Implemented /api/agents/live task-load gating in live payload: NEXT_PUBLIC_AGENT_LIVE_FROM_TASKS=1 (or AGENT_LOAD_FROM_TASKS=1 compat) now uses in-progress task-derived load when tasks exist, otherwise heartbeat fallback
+- checkpoint: Validated board-next-action priority chain already enforces failed -> review -> all-clear and is covered by focused tests. Collecting live verification snapshots and finalizing.
 - blocker: -
-- updated: 2026-04-18T23:16:49.823Z
+- updated: 2026-04-19T06:43:17.997Z
 <!-- mc:auto-working-context:end -->

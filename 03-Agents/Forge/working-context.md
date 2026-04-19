@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d072ca52-a7a5-4c7c-ac4b-a6d700bd3aa4 [Task-Tab B2 Follow-up] receiptStage failed → no-receipt Refactoring
-- stage: FAILED
+- task: ef1c3bae-72e9-4176-b658-6fc0cdbfc641 [Task-Tab A2] NBA-Regel reaktiv auf FAILED/REVIEW
+- stage: DONE
 - next: await next assignment
-- checkpoint: Task in-progress/dispatched 16m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
-- blocker: Task in-progress/dispatched 16m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
-- updated: 2026-04-18T23:35:01.897Z
+- checkpoint: EXECUTION_STATUS=success. NBA now resolves reactively to failed/review/blocked before all-clear; verification confirms failed-first behavior and green build.
+- blocker: -
+- updated: 2026-04-19T06:44:08.693Z
 <!-- mc:auto-working-context:end -->
