@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ef1c3bae-72e9-4176-b658-6fc0cdbfc641 [Task-Tab A2] NBA-Regel reaktiv auf FAILED/REVIEW
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Validated board-next-action priority chain already enforces failed -> review -> all-clear and is covered by focused tests. Collecting live verification snapshots and finalizing.
-- blocker: -
-- updated: 2026-04-19T06:43:17.997Z
+- task: a16a167d-7d70-4207-9122-29c2ed068888 [WK-35] Operator-Lock persistiert nicht trotz Apply-Block
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
+- blocker: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
+- updated: 2026-04-19T08:10:05.717Z
 <!-- mc:auto-working-context:end -->
