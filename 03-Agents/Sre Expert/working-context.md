@@ -65,9 +65,9 @@ Headers: x-actor-kind: automation
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 3de50c49-c1b8-4188-bbcb-0436aa84d6d1 [WK-36] Pending-Pickup Stuck Alert — earlier warning before auto-fail
-- stage: START
-- next: continue current task
-- checkpoint: -
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS=success. Added early pending-pickup stuck alert (>8m, no workerSessionId/receipt) to #alerts before 15m auto-fail window.
 - blocker: -
-- updated: 2026-04-19T08:47:42.958Z
+- updated: 2026-04-19T08:49:18.514Z
 <!-- mc:auto-working-context:end -->
