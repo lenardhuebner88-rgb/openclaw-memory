@@ -27,6 +27,7 @@ originSessionId: 71413231-e7bd-4ca4-a3fd-8154166039a0
 | **H7** | **Deploy-Queue-Lock (MC-Restart-Serializer)** | **R46 Live-Case MC-Flap Sprint-E 17:06-17:08 UTC** | **P0 stability** | Forge | 2h |
 | H8 | Budget-Alert $3 bug | False-alarms spammen logs + Discord | low-noise fix | Forge | 1h |
 | **H9** | **Dark-Token-Contrast-Audit** | Sprint-E Playwright-Mobile-Audit fand 4× AA-Violations (`/monitoring` ratio 1.10, `/alerts` ratio 2.57) | P1 UX-Polish | Forge | 2h |
+| **H10** | **Cron-Inventory-Consolidation + Observability** | 47 Schedules fragmentiert über 3 Scheduler (crontab + systemd + openclaw-cron), 11 Memory-Crons separat, keine Healthchecks-Monitoring | P1 Ops-Simplification | Forge + Pixel | 4-5h |
 
 ---
 
@@ -164,26 +165,144 @@ Beide Rules zusammen via shared Agent-Prompt-Preamble enforcen (H6 Layer 1).
 
 ---
 
-## Dispatch-Empfehlung
+## H10 — Cron-Inventory-Consolidation + Observability (Detail, added 2026-04-19 23:15 UTC)
 
-**NICHT** jetzt während Sprint-E läuft. Sprint-E aktuell @ E2+E3. Warten bis E1-E5 fertig, dann:
+### Problem
+Audit 2026-04-19 zeigte **47 aktive Schedules** über 3 Scheduler fragmentiert:
+- 30 user-crontab entries
+- 6 systemd user-timers
+- 16 enabled openclaw-cron jobs (+ 9 disabled legacy)
 
-1. Sprint-F Ops-Inventory (queued ee455d69) läuft erst
-2. Post-Sprint-F Abschlussbericht Sprint-D+E+F
-3. Sprint-H Dispatch sequenziell — H4, H6, H7 als P0-Cluster (System-Stabilität > Features)
-4. H2, H3, H5, H8 als P1-Follow-ups
+**Fragmentierung-Probleme:**
+- 11 Memory-Crons separate statt 1 orchestrator (Scheduling-Overhead + unklare Dependencies)
+- 3 high-reliability Crons (worker-monitor, mc-watchdog, auto-pickup) in plain-cron statt systemd-timer (keine Auto-Flock, kein Persistent=true, kein journalctl-Integration, kein OnFailure-Hook)
+- Keine Cron-Health-Observability (Healthchecks.io-pattern) — missed-runs werden nicht detected
+- Keine Cron-Inventory-UI für Operator — alle 47 schedules nur via Shell abfragbar
+- 219 untracked files in mission-control/src/ wegen Atlas-Cascade (addressed separately durch Sprint-G/H Consolidation Forge-Task 2026-04-19 23:15 UTC)
 
-**Geschätzte Gesamt-Zeit Sprint-H:** 12-15h orchestriert (H6+H7 sind die großen Items).
+### Live-Case (2026-04-19 22:18-22:42 UTC)
+Discord-Spam `⚠️ Cron job "Sprint-Debrief-Watch" failed: cron: job execution timed out` alle ~12min.
+Root-Cause: Atlas-Agent-Cron-Job (120s timeout) für stale-context "MC-Tab-Expansion" Sprint-Tracking. Ersetzt durch lightweight shell-script (sub-second runs) — documented in vault/03-Agents/cron-audit-2026-04-19.md.
+
+### Referenz-Report
+**`vault/03-Agents/cron-audit-2026-04-19.md`** (338 Zeilen) — komplettes Inventory + Best-Practice-Research (Systemd-Timers vs Cron, Kestra Event-Driven, Healthchecks.io pattern) + Kategorisierung + Recommendations.
+
+### H10 Scope (4 Layers)
+
+**Layer 1: Dead-Cron Cleanup (30 min) — ALREADY DONE 2026-04-19 23:12 UTC**
+- ✅ 9 disabled openclaw-cron legacy jobs aus jobs.json entfernt (25→16)
+- ✅ 2 stale *.cron.log files deleted
+- ✅ Board 2 stale drafts admin-closed
+
+**Layer 2: Memory-Crons-Consolidation (1-2h Forge)**
+
+11 Memory-Crons → 1 orchestrator `workspace/scripts/memory-maintenance-suite.sh`:
+```sh
+# Runs 03:00-05:00 UTC window sequentially:
+03:00  qmd update (30min)
+03:00  openclaw-dreaming (light/deep/rem phases)
+03:30  sqlite-maintenance + vacuum
+04:00  kb-compiler.py
+04:15  graph-edge-builder.py
+04:30  memory-layer-sweep.py
+05:00  importance-recalc.py (weekly Sunday)
+```
+Each step logs to `/tmp/memory-maintenance-suite.log` with clear step-markers.  
+Old individual crons werden removed (backup: crontab.bak-pre-H10).
+
+**Layer 3: Systemd-Timer-Migration (2h Forge)**
+
+3 High-Reliability Crons → systemd user timers:
+
+| Cron | Migration-Reason |
+|---|---|
+| `worker-monitor.py` */5min | Persistent=true catches missed-runs during MC-downtime; OnFailure= hook for alerts |
+| `mc-watchdog.sh` */2min | RefuseManualStart prevents parallel-run races; journalctl integration |
+| `auto-pickup.py` */1min | Every-minute job benefits from systemd resource-control (MemoryMax/CPUQuota) |
+
+Pro Migration:
+- `~/.config/systemd/user/<name>.service` + `.timer` files
+- `systemctl --user enable --now <name>.timer`
+- Remove corresponding cron-entry
+- Verify via `systemctl --user list-timers`
+
+**Layer 4: Healthchecks.io-style Observability (1-2h Forge)**
+
+Local healthchecks-Server deployen (Docker image `healthchecks/healthchecks:latest`):
+- UI auf Port z.B. 8080
+- Jeder Cron pingt auf success: `curl https://healthchecks.local/ping/<slug>`
+- Missed-Ping → Discord-Alert via webhook
+- Dashboard: alle 47 schedules up/down + grace-period-violations
+
+Alternative (simpler MVP): `/home/piet/.openclaw/scripts/cron-health-monitor.sh` hourly cron:
+- Parses `/var/log/cron`, correlates with expected schedules
+- Alerts via Discord bei missed > 2× consecutive runs
+
+**Layer 5 (optional): Cron-Inventory-Dashboard (2h Pixel)**
+
+Neue MC-Route `/admin/crons` visualisiert:
+- Alle 47 active schedules (Kategorie-Grouping)
+- Last-Run + Next-Run + lastError per cron
+- Click-to-Disable-Toggle (für non-critical)
+- Healthchecks-Status-Integration
+- Export/Import-Config für disaster-recovery
+
+### H10 Acceptance
+
+- [ ] Layer 1: 9+2 cleanup verified ✅ (done heute)
+- [ ] Layer 2: 11 Memory-Crons → 1 orchestrator, alte Einträge aus crontab entfernt
+- [ ] Layer 3: 3 systemd timers operational (`systemctl --user list-timers` shows them + Persistent=true)
+- [ ] Layer 4: Healthchecks-server up OR cron-health-monitor deployed; test-scenario "disable cron, verify missed-ping-alert"
+- [ ] Layer 5 (optional): `/admin/crons` route live, mobile-responsive
+- [ ] Report: `vault/03-Agents/cron-consolidation-report-2026-04-XX.md` with before/after schedule-count, systemd-migration-log, observability-test-results
+- [ ] Pre-Flight-Sprint-Dispatch-Script updated to consider systemd-timer-state als health-indicator
+
+### H10 Estimate (revised)
+
+| Layer | Aufwand | Priorität | Agent |
+|---|---|---|---|
+| L1 Cleanup | ✅ DONE 30 min | — | Assistant |
+| L2 Memory-Orchestrator | 1-2h | P1 | Forge |
+| L3 Systemd-Migration | 2h | P0 (reliability-critical) | Forge |
+| L4 Healthchecks-Observability | 1-2h | P1 | Forge |
+| L5 Dashboard | 2h | P2 (nice-to-have) | Pixel |
+
+**Total Sprint-K H10**: 4-5h Forge + 2h Pixel optional.
+
+### Related Rules
+
+- R32 Cron-Script-Pfad-Integrität (existing)
+- R33 Cron-Script-Pfad-Integrität präventiv (existing)
+- R40 Stall-Detection-Thresholds (via worker-monitor)
+- R48 Board-Hygiene-Cron (implemented Layer 1)
+- Prospective R50: "Cron-Health-Monitoring Pflicht" (candidate after H10 L4)
+
+---
+
+## Dispatch-Empfehlung (updated)
+
+**ALT (Sprint-H-Naming):** Dispatch NACH Sprint-E done, sequenziell Cluster.
+
+**NEU (Sprint-K post-Sprint-I):**
+1. **Sprint-I** Mobile-Polish v2 (7 subs, 16-20h) — FIRST
+2. **Sprint-K** Infra-Hardening post-Sprint-I:
+   - P0-Cluster: H4, H6, H7 (MC-Restart-Race + Receipt-Lifecycle + Deploy-Queue-Lock)
+   - P1-Cluster: H2, H5, H8, H9, H10-Layer-3 (Tool-Allowlist + R44-Enforcement + Budget-Bug + Contrast + Systemd-Migration)
+   - P2-Cluster: H3, H10-L2+L4+L5 (Memory-Orchestrator + Observability + Dashboard)
+
+**Geschätzte Gesamt-Zeit Sprint-K:** 18-23h orchestriert (8 offene Subs + 4-5h für H10).
 
 ---
 
 ## Anti-Scope
 
-- KEINE neuen Features in Sprint-H — nur Infra/Rules/Stabilität
+- KEINE neuen Features in Sprint-K — nur Infra/Rules/Stabilität
 - KEINE Agent-Prompt-Revolutionen — minimal-invasive Preamble-Additions
 - KEINE Lock-File-Orchestrierung über multiple Files — nur /tmp/mc-deploy.lock
-- NICHT in Sprint-H: Full Receipt-Scheduler-Redesign (bleibt lokal in Agent-Prompts)
+- NICHT in Sprint-K: Full Receipt-Scheduler-Redesign (bleibt lokal in Agent-Prompts)
+- NICHT in H10: Event-Driven-Migration zu Kestra/Temporal (L3-Roadmap-Item, zu viel scope)
 
 ## Signoff
 
-Operator (pieter_pan) 2026-04-19 17:10 UTC — Sprint-H Plan erweitert um H6+H7 nach Sprint-E Live-Incidents.
+Operator (pieter_pan) 2026-04-19 17:10 UTC — Sprint-H Plan erweitert um H6+H7 nach Sprint-E Live-Incidents.  
+Assistant (Claude) 2026-04-19 23:15 UTC — H10 Cron-Consolidation formally added nach Cron-Audit (vault/03-Agents/cron-audit-2026-04-19.md, 338 Zeilen).
