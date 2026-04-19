@@ -65,11 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 190474ff-7aa8-4918-8bd8-8543e088c635 [Pixel-Sub] A2 NBA-Regel Auto-Suggest Engine
+- task: 51508132-5fc8-44f7-9011-dc93dcb59abf Sprint-E E2: Command Palette (Ctrl+K)
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: Replaced the Taskboard auto-suggest engine with the three Sprint 3 NBA rules in /home/piet/.openclaw/workspace/mission-control/src/components/taskboard/taskboard-client.tsx: (1) rea
+- checkpoint: Implemented Ctrl+K command palette across MissionShell with server-backed /api/command-search, fuzzy search for tasks/routes/vault docs, keyboard navigation, click-outside/Esc dismiss, and Create task quick action. Verif
 - blocker: -
-- updated: 2026-04-19T11:36:27.319Z
+- updated: 2026-04-19T17:09:38.025Z
 <!-- mc:auto-working-context:end -->

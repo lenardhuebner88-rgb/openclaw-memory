@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 325413eb-3fe3-46dc-bbe7-e4766d32dae7 [WK-Follow-up] Receipt result without summary must not auto-complete silently
+- task: 70369331-f950-4884-a1f9-234cb5e97b56 Sprint-E E3: Real-Time SSE Board Updates (Forge)
 - stage: DONE
 - next: await next assignment
-- checkpoint: WK-Follow-up complete: Receipt result without summary handled; task is now done.
+- checkpoint: Sprint-E E3 umgesetzt: SSE Backend mit board-sse connection manager, /api/board-events Alias + erweitertem /api/board/events Event-Stream, und Task-Update/Event-Emission in board-event-log + tasks/[id]/PATCH. Verify: npm
 - blocker: -
-- updated: 2026-04-19T16:16:17.150Z
+- updated: 2026-04-19T17:17:37.674Z
 <!-- mc:auto-working-context:end -->
