@@ -8,6 +8,37 @@ rule_count: 4
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+We need to produce 3 paragraphs in German, plain text, no markdown, no bullets, no headers. Must follow the content: paragraph 1 core purpose of sub-agent coordination: what problem it solves. Paragraph 2: 2-3 most important rules/patterns with rationale. Paragraph 3: one or two concrete live-case learnings from recent incidents.
+
+We have facts: many episodic entries about tasks, dispatch, failures, OOM, etc. Also a semantic fact: Sprint-B sequence started: B2-B4 merged into a single delegated Forge task to reduce spawn overhead. Also failure of Forge subagents blocking Sprint 1. Also confirm subagent spawn failure: openclaw agent failing silently. Also OOM killed Forge sessions but code changes in git. Also agent activity counts.
+
+We need to synthesize.
+
+Paragraph 1: Core purpose: coordinate sub-agents, manage dispatch, visibility rules, WIP limits to avoid overload, ensure tasks progress, prevent deadlock, handle failures.
+
+Paragraph 2: Important rules/patterns: e.g., visibility-rules (only show tasks to agents based on state), WIP-limits (limit number of concurrent tasks per agent to prevent overload), sub-agent dispatch with explicit state transitions (pending-pickup → assigned → in-progress → completed/failed) and retry logic, also merging delegated tasks to reduce spawn overhead (Sprint-B pattern). Provide rationale.
+
+Paragraph 3: Concrete live-case learnings: from recent incidents: OOM killing Forge sessions taught need for resource monitoring and graceful shutdown; also failure of Forge subagents due to silent openclaw agent failure highlighted need for health checks and explicit error propagation; also dispatchState=queued blocking setting failed state showed need to adjust state machine to allow forced failure or timeout.
+
+We need to keep it flowing, no bullet points. Use German. Provide about 3-4 sentences each paragraph.
+
+Let's craft.
+
+Paragraph 1 (~3-4 sentences): "Die Koordination von Sub-Agenten in Mission Control dient dazu, die komplexen Abhängigkeiten zwischen einzelnen Arbeitspaketen zu steuern, Engpässe zu vermeiden und die Gesamtdurchsatzrate zu sichern. Durch klare Dispatch-Regeln, Visibility-Regeln und WIP-Limits wird sichergestellt, dass nur die Aufgaben bearbeitet werden, die aktuell verarbeitet werden können, während andere im Wartestatus verbleiben. Dadurch werden Blockaden wie etwa ein stillstehender Forge-Subagent vermieden und das System bleibt reaktionsschnell auf Änderungen im Task‑Flow."
+
+Paragraph 2 (~4-5 sentences): "Zentral sind dabei drei Muster: Erstens die Visibility‑Regel, die einem Sub‑Agenten nur Tasks anzeigt, deren dispatchState nicht queued oder blocked ist, sodass er keine Arbeit aufnimmt, die er nicht sofort verarbeiten kann. Zweitens das WIP‑Limit, das die maximale Anzahl gleichzeitig bearbeiteter Tasks pro Agent (z. B. maximal zwei Forge‑Tasks) festlegt, um Ressourcenüberlast und OOM‑Situationen zu verhindern. Drittens das Dispatch‑Pattern mit expliziten Zustandsübergängen (pending‑pickup → assigned → in‑progress → completed/failed) kombiniert mit automatischen Retry‑Mechanismen, die bei fehlgeschlagenen Versuchen den Task zurück in die Warteschleife stellen, bevor er endgültig als failed markiert wird. Zusätzlich wird das Merging von mehreren kleinen Forge‑Tasks zu einem delegierten Task (wie im Sprint‑B‑Ansatz) eingesetzt, um den Overhead beim Spawn von Sub‑Agenten zu reduzieren."
+
+Paragraph 3 (~3-4 sentences): "Aus den jüngsten Vorfällen lässt sich lernen, dass ein plötzliches OOM‑Event Forge‑Sessions abschießen kann, obwohl der Code im Git‑Repository unverändert bleibt – hier zeigte sich, dass proaktive Ressourcen‑Monitoring und automatische Skalierung der Agent‑Instanzen notwendig sind, um solche Ausfälle zu verhindern. Ebenfalls zeigte das stille Versagen des openclaw‑Agents bei Forge‑Parametern, dass fehlende Fehler‑Propagation zu blockierten Sprint‑Fortschritten führt; daher wurde ein Health‑Check‑Hook eingeführt, der bei Nicht‑Response sofort einen Failed‑Status
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Sub-Agent Coordination
 
 **Description:** Multi-agent coordination patterns, sub-agent dispatch, visibility-rules, WIP-limits.

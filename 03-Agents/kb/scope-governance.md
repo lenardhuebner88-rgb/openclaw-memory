@@ -8,6 +8,21 @@ rule_count: 2
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Der Plan‑Doc‑Level Scope‑Lock dient dazu, dass autonome Agenten keine Sprint‑Dispatch‑Aktionen ausführen können, ohne dass ein verantwortlicher Operator den entsprechenden Bereich explizit freigegeben hat. Damit wird verhindert, dass Änderungen am Plan‑Dokument unbemerkt in die Ausführung übergehen und das System außerhalb der vereinbarten Sprint‑Grenzen agiert. Der Lock schafft eine klare Trennungslinie zwischen Planung und Ausführung und sorgt dafür dass jede Abweichung sofort erkennbar und blockiert wird.
+
+Die zentrale Regel lautet, dass vor jeder Modifikation eines Plan‑Dokuments ein gültiger operatorLock‑Token erworben und während der gesamten Transaktion gehalten werden muss; fehlt der Token oder läuft er ab, wird die Operation automatisch zurückgewiesen und ein Audit‑Eintrag erzeugt. Zusätzlich wird beim Start eines Sprint‑Dispatchs der aktuelle Scope‑Lock geprüft und nur bei Übereinstimmung mit dem im Plan‑Dokument hinterlegten Zustand fortgefahren – sonst wird der Dispatch abgebrochen und der Operator benachrichtigt. Diese Muster stellen sicher dass nur autorisierte Eingriffe möglich sind und dass jeder Versuch, die Governance zu umgehen, sofort sichtbar wird und korrigiert werden kann.
+
+In einem jüngsten Vorfall versuchte ein Agent, einen Sprint ohne vorherigen Lock zu starten; das System blockierte den Dispatch, löste eine Warnung aus und loggte den Versuch, sodass der Operator eingreifen und die Fehlkonfiguration des Agents korrigieren konnte. Ein weiteres Ereignis zeigte, dass ein zu kurzer Lock‑Timeout zu fälschlich abgelehnten legitimen Änderungen führte, was zu unnötigen Verzögerungen führte; daraufhin wurde der Timeout‑Wert nach Analyse der Durchlaufzeiten angepasst und die Lock‑Validierung um eine Grace‑Period erweitert, wodurch sowohl Sicherheit als auch Betriebsfluss verbessert wurden.
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Scope Governance & operatorLock
 
 **Description:** Plan-Doc-Level scope-lock enforcement, preventing autonomous sprint-dispatch bypass.

@@ -8,6 +8,19 @@ rule_count: 7
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Die zentrale Aufgabe der Sprint‑Orchestrierung in Atlas‑Main besteht darin, die Zusammenarbeit mehrerer Agenten während eines Sprints so zu steuern, dass jede Aufgabe eindeutig verfolgt, rechtzeitig verarbeitet und das Board stets einen korrekten Überblick über den aktuellen Stand bietet. Dabei geht es vor allem darum, das Entstehen von „verwaiste“ Tasks zu verhindern, die sonst das Board verstopfen und die Planung gefährden, sowie sicherzustellen, dass Dispatch‑Entscheidungen nur auf gesunden, verfügbaren Worker‑Sessions beruhen. Auf diese Weise wird die Zuverlässigkeit des gesamten Multi‑Agent‑Systems erhöht und das Team kann sich auf die eigentliche Wertschöpfung konzentrieren, statt ständig nach verlorenen Arbeiten zu suchen.
+
+Die beiden wichtigsten Regeln, die diese Ziele unterstützen, sind zunächst die Orphaned‑Task‑Erkennung: Eine Aufgabe gilt als verwaisst, wenn ihr dispatchState auf „dispatched“ steht, ihr execState weder active, queued noch review ist und ihr Status nicht zu den erlaubten Werten (in‑progress, pending‑pickup, review, done, failed, canceled) gehört; danach wird sie nach einem definierten Schwellenwert automatisch als failed markiert. Diese Regel verhindert, dass Aufgaben unbeaufsichtigt im System verbleiben und das Board verfälscht. Zweitens gilt die Board‑Visibility‑Disziplin: Nur Tasks mit einer gültigen workerSessionId und einem erhaltenen receipt/accepted‑Signal werden als „in‑progress“ angezeigt; alle anderen werden entweder als orphaned gekennzeichnet oder aus der aktiven Ansicht entfernt. Dadurch erhalten Operatoren ein unverfälschtes Bild des tatsächlichen Fortschritts und können frühzeitig eingreifen, bevor ein Problem eskaliert. Zusätzlich wird ein Dispatch‑Pattern angewendet, das neue Tasks nur dann in die Warteschlange stellt, wenn eine freie Worker‑Session vorhanden ist und das execState auf „queued“ gesetzt werden kann; sonst bleibt das Task im dispatched‑Zustand, bis Ressourcen frei werden. Dieses Pattern sorgt für eine gleichmäßige Auslastung und verhindert Überlastungen, die zu OOM‑Ab
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Sprint Orchestration
 
 **Description:** How Atlas-main orchestriert multi-agent sprints, dispatch-patterns, Board-visibility discipline.

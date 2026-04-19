@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 604bf4b5-df9b-4032-8b77-3828a854a332 Sprint-I I5: SSE Battery + Network Optimization (Forge)
-- stage: DONE
-- next: await next assignment
-- checkpoint: Sub-I5 abgeschlossen: SSE-Event-Stream für Board-Events implementiert (commit 10b7274) mit Cursor-Replay für verpasste Events, Keepalive-Pings (15s), Reconnect-Backoff-Snapshot (1000/2000/4000ms, max 30000), stream-freun
+- task: e0010785-3d84-4f6d-8c6e-d8b6a02c791e Sprint-L L1: KB-Compiler LLM-Synthesis Migration + Grounding-Hardening
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: kb-compiler-llm-synth.py auf OAuth-Model-Run (openai-codex/gpt-5.4-mini) mit JSON-Output, Grounding-Verifier, Retry/Fallback und Cross-Linking migriert; Regeneration läuft
 - blocker: -
-- updated: 2026-04-19T21:34:22.701Z
+- updated: 2026-04-19T22:22:15.240Z
 <!-- mc:auto-working-context:end -->

@@ -8,6 +8,21 @@ rule_count: 4
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Der Kern der Receipt‑Disziplin besteht darin, dass jede Aufgabe im Mission‑Control‑System einen klar definierten Lebenslauf von accepted über progress bis hin zu result durchläuft und dass dieses Muster zuverlässig überwacht wird. Damit werden Situationen vermieden, in denen Aufgaben unbemerkt im System hängen bleiben, weil kein Empfangs‑ oder Fortschrittsbeleg mehr eingeht. Durch das konsequente Einhalten dieses Musters erhalten Operator*innen eine frühzeitige Warnung bei Stillstand und können eingreifen, bevor Arbeit verloren geht oder die Gesamtleistung des Orchestriers leidet.
+
+Die wichtigsten Regeln, die dieses Verhalten sicherstellen, sind zunächst das **accepted‑progress‑result‑Muster**: ein Worker muss unmittelbar nach dem Aufnehmen einer Aufgabe ein accepted‑Receipt senden, während der Ausführung periodisch progress‑Receipts (alle paar Minuten) und nach Abschluss ein result‑Receipt. Zweitens gilt die **Stall‑Detection‑Regel** (R45): bei fehlendem progress‑Receipt für länger als die konfigurierte Schwelle (z. B. 17 Minuten) wird die Aufgabe automatisch als failed markiert und ein orphaned‑Flag gesetzt. Drittens gibt es die **Orphaned‑Task‑Prüfung (Check C)**, die eine Aufgabe als verwaiste kennzeichnet, wenn ihr dispatchState auf dispatched steht, ihr execState nicht zu active, queued oder review gehört und ihr status nicht zu den erlaubten Zuständen in‑progress, pending‑pickup, review, done, failed oder canceled gehört. Diese Regeln verhindern, dass Aufgaben unbemerkt im System verbleiben, indem sie klare Bedingungen für das Fehlen notwendiger Receipts definieren und automatisierte Eskalationsschritte auslösen.
+
+Aus jüngsten Vorfällen lässt sich ableiten, dass das fehlende workerSessionId gleichzeitig mit dem Ausbleiben eines accepted‑Receipts zum schnellen Auslösen der Stall‑Detection führte – etwa bei Aufgabe 090fdc54, die nach 17 Minuten ohne Fortschrittsbeleg automatisch als failed markiert und als orphaned gemeldet wurde. Ein weiteres Ereignis zeigte, dass selbst Aufgaben, die bereits in den Zuständen failed oder c
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Receipt Discipline
 
 **Description:** Sub-Agent Receipt-Lifecycle — accepted/progress/result pattern, stall-detection, R45 enforcement.

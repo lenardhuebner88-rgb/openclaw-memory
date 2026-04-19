@@ -8,6 +8,21 @@ rule_count: 1
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Der Kernzweck der Board‑Hygiene und des Lebenszyklus‑Managements besteht darin, veraltete Drafts und verwaiste Aufgaben automatisch zu erkennen und zu entfernen, damit die Boards übersichtlich bleiben, Ressourcen nicht unnötig blockiert werden und der Admin‑Close‑API‑Mechanismus einen definierten Sauber‑Schritt auslösen kann. Ohne solche Aufräumprozesse würden sich stale Drafts und orphaned Tasks ansammeln, die den Überblick erschweren und die Leistung des Orchestriersystems beeinträchtigen.
+
+Die wichtigsten Regeln sind zunächst die präzise Definition von „orphaned“ in Check C: Eine Aufgabe gilt nur dann als verwaiste, wenn ihr dispatchState auf dispatched steht, ihr execState weder active, queued noch review ist und ihr Status nicht zu den erlaubten Zuständen in‑progress, pending‑pickup, review, done, failed oder canceled gehört. Dadurch werden ausschließlich wirklich hängende Aufgaben erfasst und Fehlalarme vermieden. Zweitens wurde im HEARTBEAT.md‑Abschnitt 2C ergänzt, dass bei Tasks mit status = failed oder canceled kein weiterer Subagent mehr mittels Heartbeat SPAWNED gestartet wird, was unnötige Agentenzyklen verhindert. Drittens ermöglicht das Admin‑Close‑API‑Pattern einen expliziten Schließungsbefehl, der die Aufräumlogik gezielt triggert und somit einen kontrollierten Abschluss von Boards sicherstellt.
+
+Aus jüngsten Vorfällen zeigte ein Smoke‑Test mit
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Board Hygiene & Lifecycle
 
 **Description:** Auto-cleanup of stale drafts, board state management, admin-close API patterns.
