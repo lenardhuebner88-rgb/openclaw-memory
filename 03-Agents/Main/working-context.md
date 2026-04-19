@@ -8,9 +8,9 @@
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 1ada23e9-0db8-4be2-9c8e-536c689314b9 [Atlas-Sprint-3] Task-Tab A1/A2 + Pipeline-Tab v3 Sprint 2 — UX Completeness
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Pixel-Umsetzungsrun gestartet fuer Task-Tab A1/A2 + Pipeline-v3 Sprint 2 unter childSession agent:frontend-guru:subagent:38a22ece-9c99-4e6a-b0e2-bbf99683d8d5. Accepted verifiziert, jetzt Implementierung + Tests + Commit.
+- stage: DONE
+- next: await next assignment
+- checkpoint: A1+A2+Pipeline-v3-Sprint-2 implementiert. A1: FAILED-Counter-Badge+Failed-Cluster. A2: 3 NBA-Regeln. Pipeline Sprint 2: Step-DAG-Drawer+Inline-Actions+Filter-Chips+Mobile. Playwright-E2E spec erstellt.
 - blocker: -
-- updated: 2026-04-19T11:16:06.301Z
+- updated: 2026-04-19T11:31:20.237Z
 <!-- mc:auto-working-context:end -->

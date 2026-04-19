@@ -65,10 +65,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ff5757bb-5450-48fb-bb1a-078b40f1cda1 [Task-Tab A5] Dispatched-Metric mit Zeitfenster-Context
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Updated the Task Board header metric to use a 24-hour dispatched window and renamed the confidence copy to Board confidence. Verifying the live UI now.
+- task: 190474ff-7aa8-4918-8bd8-8543e088c635 [Pixel-Sub] A2 NBA-Regel Auto-Suggest Engine
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY: Replaced the Taskboard auto-suggest engine with the three Sprint 3 NBA rules in /home/piet/.openclaw/workspace/mission-control/src/components/taskboard/taskboard-client.tsx: (1) rea
 - blocker: -
-- updated: 2026-04-19T06:00:07.833Z
+- updated: 2026-04-19T11:36:27.319Z
 <!-- mc:auto-working-context:end -->
