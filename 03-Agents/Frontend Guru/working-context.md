@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4fded088-c9b4-4fea-a8ea-41307db66a5d [Task-Tab A4] 'Later'-Label → 'Archive' umbenennen
-- stage: START
+- task: ff5757bb-5450-48fb-bb1a-078b40f1cda1 [Task-Tab A5] Dispatched-Metric mit Zeitfenster-Context
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Updated the Task Board header metric to use a 24-hour dispatched window and renamed the confidence copy to Board confidence. Verifying the live UI now.
 - blocker: -
-- updated: 2026-04-18T23:04:08.934Z
+- updated: 2026-04-19T06:00:07.833Z
 <!-- mc:auto-working-context:end -->

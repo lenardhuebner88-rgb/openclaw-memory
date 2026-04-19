@@ -97,11 +97,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4fded088-c9b4-4fea-a8ea-41307db66a5d [Task-Tab A4] 'Later'-Label → 'Archive' umbenennen
+- task: ff5757bb-5450-48fb-bb1a-078b40f1cda1 [Task-Tab A5] Dispatched-Metric mit Zeitfenster-Context
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: Verified the Task Board UI label is already Archive, not Later, in the live Task Board shell. No product code change was required. Accepted, progress, and result receipts were writt
+RESULT_SUMMARY: Updated Mission Control Task Board statusLabel to show a 24-hour dispatched window instead of an all-time dispatched total, and renamed the secondary metric copy to Board confidence
 - blocker: -
-- updated: 2026-04-18T23:11:02.190Z
+- updated: 2026-04-19T06:01:53.548Z
 <!-- mc:auto-working-context:end -->
