@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 908a01d8-6c2b-4e20-920b-bdbb2d95a7ae [Sprint-A/A4] Script-Integrity-Check Expansion
-- stage: DONE
+- task: 3797fd5e-a7cb-4f6e-bdda-e3db723637db [Sprint-C/C1-C2] Worker-Retry + FIND-A Dispatch-Fix
+- stage: FAILED
 - next: await next assignment
-- checkpoint: A4 done: script-integrity-check extended for six new scripts, smoke verification passed with exit 0.
-- blocker: -
-- updated: 2026-04-19T13:52:56.661Z
+- checkpoint: No progress for 7m (hard-threshold=5m). Auto-failed by worker-monitor.
+- blocker: No progress for 7m (hard-threshold=5m). Auto-failed by worker-monitor.
+- updated: 2026-04-19T15:00:04.071Z
 <!-- mc:auto-working-context:end -->

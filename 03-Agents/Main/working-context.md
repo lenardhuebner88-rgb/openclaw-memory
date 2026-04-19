@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3b0c592c-073c-4c8f-b906-7c7d2210cbb4 [Atlas-Sprint-B] Memory-Intelligence Level-2 — Embed Finalize + Mem0-Facts + Per-Agent-Collections + Auto-Compact Hook
+- task: bff4c422-b009-4cfd-8661-1946cbbd0e99 [Atlas-Sprint-C] Worker-Hardening Pack-8 + Monitoring-UI — Retry-Single-Path + FIND-A + Health-Dashboard + Cost-Trend + Alerts-Feed
 - stage: FAILED
 - next: await next assignment
-- checkpoint: No progress for 6m (hard-threshold=5m). Auto-failed by worker-monitor.
-- blocker: No progress for 6m (hard-threshold=5m). Auto-failed by worker-monitor.
-- updated: 2026-04-19T14:40:02.897Z
+- checkpoint: No progress for 7m (hard-threshold=5m). Auto-failed by worker-monitor.
+- blocker: No progress for 7m (hard-threshold=5m). Auto-failed by worker-monitor.
+- updated: 2026-04-19T15:00:04.486Z
 <!-- mc:auto-working-context:end -->
