@@ -1,34 +1,19 @@
 ---
 title: "Receipt Discipline"
 slug: receipt-discipline
-last_compiled: 2026-04-19T20:46:30.335402Z
+last_compiled: 2026-04-19T22:34:34.193245Z
 compiler: kb-compiler.py@v1-mvp
-fact_count: 34
+fact_count: 40
 rule_count: 4
 memory_level: 3
 ---
-
-
-<!-- llm-synth: start -->
-## 📖 Synthesis (LLM-generated, 2026-04-19)
-
-*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
-
-Der Kern der Receipt‑Disziplin besteht darin, dass jede Aufgabe im Mission‑Control‑System einen klar definierten Lebenslauf von accepted über progress bis hin zu result durchläuft und dass dieses Muster zuverlässig überwacht wird. Damit werden Situationen vermieden, in denen Aufgaben unbemerkt im System hängen bleiben, weil kein Empfangs‑ oder Fortschrittsbeleg mehr eingeht. Durch das konsequente Einhalten dieses Musters erhalten Operator*innen eine frühzeitige Warnung bei Stillstand und können eingreifen, bevor Arbeit verloren geht oder die Gesamtleistung des Orchestriers leidet.
-
-Die wichtigsten Regeln, die dieses Verhalten sicherstellen, sind zunächst das **accepted‑progress‑result‑Muster**: ein Worker muss unmittelbar nach dem Aufnehmen einer Aufgabe ein accepted‑Receipt senden, während der Ausführung periodisch progress‑Receipts (alle paar Minuten) und nach Abschluss ein result‑Receipt. Zweitens gilt die **Stall‑Detection‑Regel** (R45): bei fehlendem progress‑Receipt für länger als die konfigurierte Schwelle (z. B. 17 Minuten) wird die Aufgabe automatisch als failed markiert und ein orphaned‑Flag gesetzt. Drittens gibt es die **Orphaned‑Task‑Prüfung (Check C)**, die eine Aufgabe als verwaiste kennzeichnet, wenn ihr dispatchState auf dispatched steht, ihr execState nicht zu active, queued oder review gehört und ihr status nicht zu den erlaubten Zuständen in‑progress, pending‑pickup, review, done, failed oder canceled gehört. Diese Regeln verhindern, dass Aufgaben unbemerkt im System verbleiben, indem sie klare Bedingungen für das Fehlen notwendiger Receipts definieren und automatisierte Eskalationsschritte auslösen.
-
-Aus jüngsten Vorfällen lässt sich ableiten, dass das fehlende workerSessionId gleichzeitig mit dem Ausbleiben eines accepted‑Receipts zum schnellen Auslösen der Stall‑Detection führte – etwa bei Aufgabe 090fdc54, die nach 17 Minuten ohne Fortschrittsbeleg automatisch als failed markiert und als orphaned gemeldet wurde. Ein weiteres Ereignis zeigte, dass selbst Aufgaben, die bereits in den Zuständen failed oder c
-
-*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
-<!-- llm-synth: end -->
 
 # Receipt Discipline
 
 **Description:** Sub-Agent Receipt-Lifecycle — accepted/progress/result pattern, stall-detection, R45 enforcement.
 
-**Compiled:** 2026-04-19T20:46:30.335402Z  
-**Source:** 34 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-19T22:34:34.193245Z  
+**Source:** 40 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
 
@@ -54,26 +39,26 @@ Wenn mehrere Sub-Agents parallel laufen UND jeder einen systemctl --user restart
 
 ## Key Facts (Top-20 by Importance)
 
-- **[0.77]** `episodic` (2026-04-19T08:24:13 main#4cea56c3) — **Aktueller Stand:** | Task | Status | |------|--------| | WK-35 Retry (Operator-Lock) | pending-pickup → Forge | | Spark Naming-P2 | assigned | | Spark Naming-Audit | assigned | Falls wieder `failed`...
-- **[0.77]** `episodic` (2026-04-19T08:24:13 main#1075b705) — **Aktueller Stand:** | Task | Status | |------|--------| | WK-35 Retry (Operator-Lock) | pending-pickup → Forge | | Spark Naming-P2 | assigned | | Spark Naming-Audit | assigned | Falls wieder `failed`...
-- **[0.66]** `episodic` (2026-04-18T19:30:55 main#7cdcfb8e) — ⚠️ Orphaned task auto-failed 090fdc54 [Retry] Sprint C-Backend Security-Gate Receipt Abs Reason: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=...
-- **[0.66]** `episodic` (2026-04-18T19:30:55 main#d489467a) — ⚠️ Orphaned task auto-failed 090fdc54 [Retry] Sprint C-Backend Security-Gate Receipt Abs Reason: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=...
-- **[0.66]** `episodic` (2026-04-18T19:04:14 main#755ff0a3) — Description should include Board counts (open/assigned, in-progress, pending-pickup, failed, review), V-Closure states, T1/T3/T2 status, blockers, and next 30min.
-- **[0.66]** `episodic` (2026-04-18T19:30:55 main#541c1234) — BOARD_STATUS: failed TIMESTAMP: 2026-04-18T19:30:03.587Z ⚠️ Progress timeout, task stalled 090fdc54 [Retry] Sprint C-Backend Security-Gate Receipt Abschluss Reason: No progress receipt for 17m (thresh...
-- **[0.66]** `episodic` (2026-04-18T19:30:55 main#77c4d4b2) — BOARD_STATUS: failed TIMESTAMP: 2026-04-18T19:30:03.587Z ⚠️ Progress timeout, task stalled 090fdc54 [Retry] Sprint C-Backend Security-Gate Receipt Abschluss Reason: No progress receipt for 17m (thresh...
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#3145f347) — Aktuell matched dispatchState=dispatched + nicht active + nicht in-progress -> auch failed/canceled/done als orphaned gemeldet.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#7ba8af28) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/queued/review AND status not in in-progress/pending-pickup/review/done/failed/canceled 2.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#25fc66a2) — Aktuell matched dispatchState=dispatched + nicht active + nicht in-progress -> auch failed/canceled/done als orphaned gemeldet.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#81acfcc6) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/queued/review AND status not in in-progress/pending-pickup/review/done/failed/canceled 2.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#e4f16607) — Aktuell matched dispatchState=dispatched + nicht active + nicht in-progress -> auch failed/canceled/done als orphaned gemeldet.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#1d2119e8) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/queued/review AND status not in in-progress/pending-pickup/review/done/failed/canceled 2.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#00441830) — Aktuell matched dispatchState=dispatched + nicht active + nicht in-progress -> auch failed/canceled/done als orphaned gemeldet.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#4257d42f) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/queued/review AND status not in in-progress/pending-pickup/review/done/failed/canceled 2.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#ea2f3c57) — Aktuell matched dispatchState=dispatched + nicht active + nicht in-progress -> auch failed/canceled/done als orphaned gemeldet.
-- **[0.66]** `episodic` (2026-04-18T15:20:39 main#a48697e9) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/queued/review AND status not in in-progress/pending-pickup/review/done/failed/canceled 2.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#744da69d) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#8b7de057) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#1bb1d33d) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
+- **[0.95]** `procedural` (2026-04-19T21:35:11 system#cfa2ead4) — R45 Sub-Agent-Receipt-Discipline deployed 2026-04-19 17:20 UTC nach Live-Case Sprint-E E2+E3 wo Sub-Agents 2h+ in status=assigned stecken blieben ohne Receipts zu posten. Fix: AGENTS.md Preamble + ses...
+- **[0.90]** `procedural` (2026-04-19T21:35:11 system#362e267d) — Rules-Stack erweitert auf R1-R49 (49 total) am 2026-04-19. Heute neu: R45 Sub-Agent-Receipt-Discipline, R46 Parallel-Deploy-Serialization, R47 Scope-Lock-Plan-Doc, R48 Board-Hygiene-Cron, R49 Atlas An...
+- **[0.90]** `episodic` (2026-04-19T21:35:11 system#ead36dfd) — Atlas autonomous-cascade Sprint-F+G+H ohne Operator-Approval dispatched 2026-04-19 17:56-19:30 UTC. Sprint-F F1+F2 done autonomously (Lens/Forge), Sprint-G G1-G4 done (4 commits), Sprint-H H1-H3 mit 2...
+- **[0.85]** `reflective` (2026-04-19T21:50:01 system#5ee1ed4a) — Today's highest-importance facts:   - [1.00] R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:3   - [0.95] R45 Sub-Agent-Receipt-Discipline deployed 2026-04-19 17:20 UTC ...
+- **[0.76]** `episodic` (2026-04-19T08:24:13 main#4cea56c3) — **Aktueller Stand:** | Task | Status | |------|--------| | WK-35 Retry (Operator-Lock) | pending-pickup → Forge | | Spark Naming-P2 | assigned | | Spark Naming-Audit | assigned | Falls wieder `failed`...
+- **[0.76]** `episodic` (2026-04-19T08:24:13 main#1075b705) — **Aktueller Stand:** | Task | Status | |------|--------| | WK-35 Retry (Operator-Lock) | pending-pickup → Forge | | Spark Naming-P2 | assigned | | Spark Naming-Audit | assigned | Falls wieder `failed`...
+- **[0.70]** `semantic` (2026-04-19T21:35:11 system#1db9c9d9) — 10 Karpathy-KB-Articles compiled 2026-04-19 20:46 UTC in vault/03-Agents/kb/: sprint-orchestration (27f/7r), receipt-discipline (34f/4r), deploy-contracts (12f/3r), atlas-hallucination-prevention (0f/...
+- **[0.66]** `episodic` (2026-04-19T10:35:08 main#816f127f) — [Retry after the previous model attempt failed or timed out] worker-monitor (automated): 1 Task(s) abgeschlossen seit letztem Zyklus: - [spark] receipt-seq-test-2: Completed (summary missing, auto-nor...
+- **[0.66]** `episodic` (2026-04-19T13:43:51 main#485ac6ca) — Reply with only: EXECUTION_STATUS: <ok|blocked|failed> RESULT_SUMMARY: <5-10 bullet style clauses, concise> Constraints: - No config writes.
+- **[0.66]** `episodic` (2026-04-19T13:44:54 efficiency-auditor#09ea09d7) — Reply with only: EXECUTION_STATUS: <ok|blocked|failed> RESULT_SUMMARY: <5-10 bullet style clauses, concise> Constraints: - No config writes.
+- **[0.65]** `episodic` (2026-04-18T19:30:55 main#7cdcfb8e) — ⚠️ Orphaned task auto-failed 090fdc54 [Retry] Sprint C-Backend Security-Gate Receipt Abs Reason: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=...
+- **[0.65]** `episodic` (2026-04-18T19:30:55 main#d489467a) — ⚠️ Orphaned task auto-failed 090fdc54 [Retry] Sprint C-Backend Security-Gate Receipt Abs Reason: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=...
+- **[0.65]** `episodic` (2026-04-18T19:04:14 main#755ff0a3) — Description should include Board counts (open/assigned, in-progress, pending-pickup, failed, review), V-Closure states, T1/T3/T2 status, blockers, and next 30min.
+- **[0.65]** `episodic` (2026-04-18T19:30:55 main#541c1234) — BOARD_STATUS: failed TIMESTAMP: 2026-04-18T19:30:03.587Z ⚠️ Progress timeout, task stalled 090fdc54 [Retry] Sprint C-Backend Security-Gate Receipt Abschluss Reason: No progress receipt for 17m (thresh...
+- **[0.65]** `episodic` (2026-04-18T19:30:55 main#77c4d4b2) — BOARD_STATUS: failed TIMESTAMP: 2026-04-18T19:30:03.587Z ⚠️ Progress timeout, task stalled 090fdc54 [Retry] Sprint C-Backend Security-Gate Receipt Abschluss Reason: No progress receipt for 17m (thresh...
+- **[0.65]** `episodic` (2026-04-18T15:20:39 main#3145f347) — Aktuell matched dispatchState=dispatched + nicht active + nicht in-progress -> auch failed/canceled/done als orphaned gemeldet.
+- **[0.65]** `episodic` (2026-04-18T15:20:39 main#7ba8af28) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/queued/review AND status not in in-progress/pending-pickup/review/done/failed/canceled 2.
+- **[0.65]** `episodic` (2026-04-18T15:20:39 main#25fc66a2) — Aktuell matched dispatchState=dispatched + nicht active + nicht in-progress -> auch failed/canceled/done als orphaned gemeldet.
+- **[0.65]** `episodic` (2026-04-18T15:20:39 main#81acfcc6) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/queued/review AND status not in in-progress/pending-pickup/review/done/failed/canceled 2.
+- **[0.65]** `episodic` (2026-04-18T15:20:39 main#e4f16607) — Aktuell matched dispatchState=dispatched + nicht active + nicht in-progress -> auch failed/canceled/done als orphaned gemeldet.
 
 ## Related KB Articles
 
@@ -93,4 +78,4 @@ Wenn mehrere Sub-Agents parallel laufen UND jeder einen systemctl --user restart
 
 ---
 
-*Auto-compiled from 34 facts + 4 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 40 facts + 4 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*

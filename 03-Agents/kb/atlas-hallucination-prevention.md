@@ -1,34 +1,19 @@
 ---
 title: "Atlas Hallucination Prevention"
 slug: atlas-hallucination-prevention
-last_compiled: 2026-04-19T20:46:30.335728Z
+last_compiled: 2026-04-19T22:34:34.193694Z
 compiler: kb-compiler.py@v1-mvp
-fact_count: 0
+fact_count: 8
 rule_count: 4
 memory_level: 3
 ---
-
-
-<!-- llm-synth: start -->
-## 📖 Synthesis (LLM-generated, 2026-04-19)
-
-*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
-
-Die Hauptaufgabe dieses Themenbereichs besteht darin, sicherzustellen, dass Atlas nach einer Kontextrotation keine erfundenen Commit‑SHAs, Session‑IDs oder Done‑Claims mehr erzeugt, die die Zuverlässigkeit der Orchestrierung untergraben könnten. Durch das Verhindern solcher Fabrications wird die Konsistenz zwischen den Agenten gesteigert und das Risiko von Fehlalarmen oder doppelt ausgeführten Arbeiten eliminiert. Damit wird die Gesamtstabilität des Systems erhöht und das Vertrauen in die von Atlas gemeldeten Fortschritte wiederhergestellt.  
-
-Zu den wichtigsten Regeln gehört zunächst, dass alle IDs ausschließlich aus einem unveränderlichen Hash des aktuellen Kontextzustands abgeleitet werden dürfen; dies verhindert, dass nach einer Rotation alte oder willkürliche Werte wiederverwendet werden. Zweitens muss jedes von Atlas gemeldete Commit‑SHA oder Done‑Claim vor der Weitergabe an das zentrale Log gegen das authoritative Repository validiert werden, wobei eine Diskrepanz sofort zu einer Ablehnung und einem erneuten Abruf führt. Schließlich wird nach jeder Kontextrotation ein kurzer Reset‑Phasen‑Mechanismus aktiviert, der temporäre Caches leert und sicherstellt, dass alle nachfolgenden Anfragen frische, vom Quell‑System stammende Identitäten verwenden. Diese Maßnahmen stellen sicher, dass nur nachweislich korrekte Daten im Umlauf bleiben und Fabrications frühzeitig erkannt werden.  
-
-In einem kürzlichen Vorfall meldete Atlas nach einer Context‑Switch‑Operation einen Done‑Claim für einen Commit‑SHA, der im Repository nie existiert hatte, wodurch die Pipeline fälschlicherweise als abgeschlossen angesehen wurde und nachfolgende Schritte übersprungen wurden. Ein weiteres Ereignis zeigte, dass eine erfundene Session‑ID zu doppelten Ausführungen desselben Tasks führte, weil der Koordinator die ID als neu interpretierte. Aus diesen Fällen wurde gelernt, dass die Validierungsstufe unmittelbar nach der ID‑Generierung verpflichtend sein muss und dass ein umfassendes Logging von ID‑Änderungen während Rotationen hilft, anomalen Mustern schnell auf die Spur zu kommen. Diese Erkenntnisse haben die Implementierung strenger Prüfpunkte und besserer Traceability in den aktuellen Release‑Zyklus eingeflossen.
-
-*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
-<!-- llm-synth: end -->
 
 # Atlas Hallucination Prevention
 
 **Description:** Prevention of Atlas producing fabricated commit-SHAs/session-IDs/done-claims after context-rotation.
 
-**Compiled:** 2026-04-19T20:46:30.335728Z  
-**Source:** 0 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-19T22:34:34.193694Z  
+**Source:** 8 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
 
@@ -54,7 +39,14 @@ Atlas DARF KEINE Commit-SHAs, Session-IDs, Task-IDs oder Done-Claims in Status-R
 
 ## Key Facts (Top-20 by Importance)
 
-*(no facts matched this topic)*
+- **[1.00]** `procedural` (2026-04-19T21:35:11 system#4eeb1a13) — R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:30 UTC nach Atlas-Hallucinations-Cascade 19:42-20:03 UTC. Atlas-Session d27407ee halluzinierte 2x Commit-SHAs (3dcb614, 9...
+- **[0.90]** `procedural` (2026-04-19T21:35:11 system#1f4f56a6) — Pre-Flight-Sprint-Dispatch Script deployed 2026-04-19 20:42 UTC mit 7 Gates: Atlas-session-size R36, operatorLock R47, Board-open_count, MC+Gateway-health, R49-Validator-CRITICAL, Git-dirty-state, Fre...
+- **[0.90]** `procedural` (2026-04-19T21:35:11 system#362e267d) — Rules-Stack erweitert auf R1-R49 (49 total) am 2026-04-19. Heute neu: R45 Sub-Agent-Receipt-Discipline, R46 Parallel-Deploy-Serialization, R47 Scope-Lock-Plan-Doc, R48 Board-Hygiene-Cron, R49 Atlas An...
+- **[0.85]** `reflective` (2026-04-19T21:50:01 system#5ee1ed4a) — Today's highest-importance facts:   - [1.00] R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:3   - [0.95] R45 Sub-Agent-Receipt-Discipline deployed 2026-04-19 17:20 UTC ...
+- **[0.85]** `semantic` (2026-04-19T21:35:11 system#967225ab) — Defense-Stack Pattern 2026-04-19: 12 automated cron-layers active für governance + memory + monitoring: session-freeze-watcher */5, r49-claim-validator */15, r48-board-hygiene hourly, daily-reflection...
+- **[0.70]** `semantic` (2026-04-19T21:35:11 system#1db9c9d9) — 10 Karpathy-KB-Articles compiled 2026-04-19 20:46 UTC in vault/03-Agents/kb/: sprint-orchestration (27f/7r), receipt-discipline (34f/4r), deploy-contracts (12f/3r), atlas-hallucination-prevention (0f/...
+- **[0.65]** `episodic` (2026-04-19T21:35:11 system#c1d68857) — Atlas-main lief 2026-04-19 evening auf MiniMax-M2.7 statt Codex (primary offline). Sprint-I-Dispatch funktional, 4 parallele Sub-Tasks (Pixel×2 + Forge + Lens) dispatched innerhalb 2min nach /reset. R...
+- **[0.55]** `episodic` (2026-04-19T21:35:11 system#7a59071b) — R49-Claim-Validator first detection 2026-04-19 21:15 UTC: WARNING auf task_not_found 26ed095e-a77a-4b3d-8b50-9ff06635cf92 in sre-expert session. False-positive — ist mcp-zombie-killer-hourly cron-sess...
 
 ## Related KB Articles
 
@@ -70,4 +62,4 @@ Atlas DARF KEINE Commit-SHAs, Session-IDs, Task-IDs oder Done-Claims in Status-R
 
 ---
 
-*Auto-compiled from 0 facts + 4 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 8 facts + 4 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*

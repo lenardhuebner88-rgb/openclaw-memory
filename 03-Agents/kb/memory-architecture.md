@@ -1,34 +1,19 @@
 ---
 title: "Memory Architecture"
 slug: memory-architecture
-last_compiled: 2026-04-19T20:46:30.335972Z
+last_compiled: 2026-04-19T22:34:34.194018Z
 compiler: kb-compiler.py@v1-mvp
-fact_count: 4
+fact_count: 16
 rule_count: 2
 memory_level: 3
 ---
-
-
-<!-- llm-synth: start -->
-## 📖 Synthesis (LLM-generated, 2026-04-19)
-
-*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
-
-Der mehrstufige Memory‑Stack dient dazu, die Informationsflüsse zwischen den Agenten von Mission Control kohärent, schnell und lernfähig zu halten. Durch die Trennung von sofort abrufbaren L1‑Daten, langfristig konsolidierten L2‑Fakten und einer reflektierenden Taxonomie wird das Problem gelöst, dass Wissen entweder im flüchtigen Cache verloren geht oder in unstrukturierten Speichern schwer wiederauffindbar ist. Damit können Agenten aktuelle Kontexte nutzen, gleichzeitig aber auf ein wachsendes Wissensfundament zugreifen und aus ihren Erfahrungen verbesserte Entscheidungen ableiten.
-
-Die zentrale Regel ist, dass L1‑QMD‑Abfragen stets den aktuellen Schema‑v2‑Standard entsprechen müssen; dadurch wird sichergestellt, dass schnelle Zugriffe keine veralteten oder inkonsistenten Lieferungen produzieren. Eine zweite wichtige Regel sieht vor, dass im L2‑Stadium Mem0‑Fakten zusammen mit einer Dreaming‑Phase episodische Erinnerungen in semantisches Wissen überführen, wobei die Taxonomie als Leitplankenschema dient, um die Konsolidierung zu steuern und Redundanz zu vermeiden. Schließlich muss nach jedem Aufgabenzyklus ein Reflexionsschritt erfolgen, der die Taxonomie aktualisiert, die Gewichtung zwischen episodischem und semiotischem Speicher justiert und etwaige Anomalien im Kosten‑ oder Leistungsprotokoll ausgleicht.
-
-Aus dem jüngsten Vorfall, bei dem ein Kostenanomalie‑ und veralteter In‑Memory‑Store zu
-
-*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
-<!-- llm-synth: end -->
 
 # Memory Architecture
 
 **Description:** Multi-level memory-stack: QMD retrieval (L1), Mem0-facts + Dreaming (L2), Schema-v2 taxonomy + reflection.
 
-**Compiled:** 2026-04-19T20:46:30.335972Z  
-**Source:** 4 facts from workspace/memory/facts/*.jsonl, 2 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-19T22:34:34.194018Z  
+**Source:** 16 facts from workspace/memory/facts/*.jsonl, 2 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
 
@@ -44,10 +29,22 @@ Für Konzept-Suche ("was haben wir über X dokumentiert?") → `qmd_query` verwe
 
 ## Key Facts (Top-20 by Importance)
 
+- **[0.90]** `episodic` (2026-04-19T21:35:11 system#26e954cf) — Sprint-L Memory-Level-3 MVPs deployed 2026-04-19 20:00-21:30 UTC: L1 KB-Compiler 10 articles, L2 Graph-Edges 1024 edges, L3 Retrieval-Feedback hourly, L4 Per-Agent-Scoping 257 facts migrated, L5 Budge...
+- **[0.90]** `procedural` (2026-04-19T21:35:11 system#1f4f56a6) — Pre-Flight-Sprint-Dispatch Script deployed 2026-04-19 20:42 UTC mit 7 Gates: Atlas-session-size R36, operatorLock R47, Board-open_count, MC+Gateway-health, R49-Validator-CRITICAL, Git-dirty-state, Fre...
+- **[0.85]** `procedural` (2026-04-19T21:35:11 system#ffb386a3) — Memory Schema v2 Migration 2026-04-19 20:34 UTC: 252 facts upgraded mit memory_type (episodic/semantic/procedural/reflective), importance 0-1, decay_half_life_days, Graphiti-temporal-windows (valid_fr...
+- **[0.85]** `semantic` (2026-04-19T21:35:11 system#967225ab) — Defense-Stack Pattern 2026-04-19: 12 automated cron-layers active für governance + memory + monitoring: session-freeze-watcher */5, r49-claim-validator */15, r48-board-hygiene hourly, daily-reflection...
+- **[0.85]** `episodic` (2026-04-19T21:35:11 system#5f8f0efe) — Memory-Budget-Meter first real CRITICAL caught 2026-04-19 21:20 UTC: Atlas-session 48f8d0f0 explodierte auf 373% (559k tokens / 150k budget) während Forge Sprint-G/H Consolidation-Task. Vorheriger che...
 - **[0.85]** `reflective` (2026-04-19T20:34:51 system#5ee1ed4a) — Today's highest-importance facts:   - [0.77] - Mehrere operative Incidents gelöst, am Ende 0 offene Tasks und 0 failed.   - [0.77] **Sub-Plan A Status:** - A1 ✅ `b84ac186` done - A2 ✅ `515b940f` done ...
+- **[0.85]** `procedural` (2026-04-19T21:35:11 system#098d7a25) — Cron-Audit 2026-04-19 23:00 UTC: 51 aktive Schedules über 3 Scheduler fragmentiert (34 crontab + 6 systemd-timer + 16 openclaw-cron). 0 active errors, historische nur aus Sprint-E MC-Flap 17:00-17:32....
+- **[0.85]** `reflective` (2026-04-19T21:50:01 system#5ee1ed4a) — Today's highest-importance facts:   - [1.00] R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:3   - [0.95] R45 Sub-Agent-Receipt-Discipline deployed 2026-04-19 17:20 UTC ...
+- **[0.80]** `episodic` (2026-04-19T21:35:11 system#258f56ec) — Sprint-G/H Consolidation 2026-04-19 21:16-21:18 UTC (Forge 5a10491a): 4 commits konsolidierten Sprint-G/H autonomous-cascade Arbeit: b941b36 (.bak removes), 5fac96a (sprint-g ops-dashboard), daee0c7 (...
+- **[0.75]** `procedural` (2026-04-19T21:35:11 system#8bb6b4eb) — Sprint-K H10 Cron-Inventory-Consolidation + Observability formally added 2026-04-19 23:15 UTC. 5 Layers: L1 Cleanup (DONE), L2 Memory-Orchestrator (1-2h), L3 Systemd-Migration 3 crons (2h), L4 Healthc...
+- **[0.70]** `semantic` (2026-04-19T21:35:11 system#1db9c9d9) — 10 Karpathy-KB-Articles compiled 2026-04-19 20:46 UTC in vault/03-Agents/kb/: sprint-orchestration (27f/7r), receipt-discipline (34f/4r), deploy-contracts (12f/3r), atlas-hallucination-prevention (0f/...
+- **[0.70]** `semantic` (2026-04-19T21:35:11 system#ba5eb42d) — Memory-Graph 1024 typed edges inferred 2026-04-19 20:47 UTC aus 257 facts: 720 related-to (shared-rule or token-overlap), 241 precedes (temporal same-agent <1h), 63 supersedes (keyword-pattern). graph...
+- **[0.60]** `reflective` (2026-04-19T21:50:01 system#8f90370d) — Memory-Type split: {'episodic': 259, 'semantic': 4, 'procedural': 14}
 - **[0.60]** `reflective` (2026-04-19T20:34:51 system#8f90370d) — Memory-Type split: {'episodic': 251, 'semantic': 1}
-- **[0.55]** `episodic` (2026-04-19T06:16:41 main#6ea41111) — System: Reason: MC degraded (cost anomaly + stale in-memory store).
 - **[0.55]** `episodic` (2026-04-19T13:54:51 main#80bee875) — This will be cleaner and less error-prone than building a Python script to wrap the openclaw CLI calling the QMD MCP server.
+- **[0.54]** `episodic` (2026-04-19T06:16:41 main#6ea41111) — System: Reason: MC degraded (cost anomaly + stale in-memory store).
 
 ## Related KB Articles
 
@@ -61,4 +58,4 @@ Für Konzept-Suche ("was haben wir über X dokumentiert?") → `qmd_query` verwe
 
 ---
 
-*Auto-compiled from 4 facts + 2 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 16 facts + 2 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*

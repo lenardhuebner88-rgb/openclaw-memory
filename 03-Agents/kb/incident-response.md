@@ -1,34 +1,19 @@
 ---
 title: "Incident Response & RCA"
 slug: incident-response
-last_compiled: 2026-04-19T20:46:30.336317Z
+last_compiled: 2026-04-19T22:34:34.194536Z
 compiler: kb-compiler.py@v1-mvp
-fact_count: 36
+fact_count: 44
 rule_count: 6
 memory_level: 3
 ---
-
-
-<!-- llm-synth: start -->
-## 📖 Synthesis (LLM-generated, 2026-04-19)
-
-*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
-
-Der Kern dieses Themengebiets besteht darin, Vorfälle im Betrieb schnell zu erkennen, ihre Ursachen systematisch zu analysieren und gezielte Wiederherstellungsmaßnahmen einzuleiten, damit die Systemverfügbarkeit maximiert und Ausfallzeiten minimiert werden. Durch ein strukturiertes Vorgehen lassen sich nicht nur unmittelbare Störungen beheben, sondern auch langfristige Schwachstellen identifizieren und beheben, sodass ähnliche Vorfälle künftig verhindert werden können. Damit unterstützt das Incident‑Response‑ und RCA‑Framework die Zuverlässigkeit des gesamten Orchestrations‑Systems und schafft eine klare Basis für kontinuierliche Verbesserungen.
-
-Ein zentrales Muster ist die Frühwarnung anhand von Schlüsselindikatoren wie den Status‑Werten „failed“, „parity_check_failed“, „output“ und „contains“, die im Monitoring sofort auffallen und eine schnelle Eskalation auslösen. Ebenso wichtig ist die Durchführung von Sub‑Plan A, bei dem einzelne Arbeitspakete (A1‑A5) nacheinander abgearbeitet und ihr Status dokumentiert wird, um einen nachvollziehbaren Ablauf und eine klare Freigabe jedes Schritts zu gewährleisten. Schließlich sieht das Recovery‑Workflow‑Modell vor, bei extern gefehlerten Tasks zunächst eine Ghost‑Cleanup‑Phase einzuleiten und anschließend per `recovery-action: retry` den Vorgang erneut zu starten, wobei das Ergebnis anschließend auf `accepted` und schließlich auf `final result` geprüft wird, um Fehlalarme zu vermeiden.
-
-Aus den aktuellen Fällen lässt sich ableiten, dass ein OOM‑Absturz des `atlas-main`‑Services beim Start darauf hinweist, dass Speichergrenzen und Start‑Checks dynamisch angepasst werden müssen, um ähnliche Start‑Fehler zu verhindern. Außerdem zeigte sich, dass externe Monitore gelegentlich Tasks fälschlicherweise auf `failed` setzen (ghost‑fail); die Einführung einer zusätzlichen Validierungsstufe vor dem Retry hat die Zahl der falsch abgeschlagenen Vorgänge deutlich reduziert und die Gesamtstabilität des Systems erhöht. Diese Erkenntnisse fließen direkt in die Anpassung der Detektions‑ und Wiederherstellungsregeln ein, um zukünftige Vorfälle noch robuster zu handhaben.
-
-*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
-<!-- llm-synth: end -->
 
 # Incident Response & RCA
 
 **Description:** Incident-detection patterns, RCA methodology, recovery-workflows from today's live-cases.
 
-**Compiled:** 2026-04-19T20:46:30.336317Z  
-**Source:** 36 facts from workspace/memory/facts/*.jsonl, 6 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-19T22:34:34.194536Z  
+**Source:** 44 facts from workspace/memory/facts/*.jsonl, 6 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
 
@@ -64,26 +49,26 @@ Aus den aktuellen Fällen lässt sich ableiten, dass ein OOM‑Absturz des `atla
 
 ## Key Facts (Top-20 by Importance)
 
+- **[1.00]** `procedural` (2026-04-19T21:35:11 system#4eeb1a13) — R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:30 UTC nach Atlas-Hallucinations-Cascade 19:42-20:03 UTC. Atlas-Session d27407ee halluzinierte 2x Commit-SHAs (3dcb614, 9...
+- **[0.90]** `episodic` (2026-04-19T21:35:11 system#ead36dfd) — Atlas autonomous-cascade Sprint-F+G+H ohne Operator-Approval dispatched 2026-04-19 17:56-19:30 UTC. Sprint-F F1+F2 done autonomously (Lens/Forge), Sprint-G G1-G4 done (4 commits), Sprint-H H1-H3 mit 2...
+- **[0.90]** `procedural` (2026-04-19T21:35:11 system#1f4f56a6) — Pre-Flight-Sprint-Dispatch Script deployed 2026-04-19 20:42 UTC mit 7 Gates: Atlas-session-size R36, operatorLock R47, Board-open_count, MC+Gateway-health, R49-Validator-CRITICAL, Git-dirty-state, Fre...
 - **[0.85]** `reflective` (2026-04-19T20:34:51 system#5ee1ed4a) — Today's highest-importance facts:   - [0.77] - Mehrere operative Incidents gelöst, am Ende 0 offene Tasks und 0 failed.   - [0.77] **Sub-Plan A Status:** - A1 ✅ `b84ac186` done - A2 ✅ `515b940f` done ...
+- **[0.85]** `reflective` (2026-04-19T21:50:01 system#5ee1ed4a) — Today's highest-importance facts:   - [1.00] R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:3   - [0.95] R45 Sub-Agent-Receipt-Discipline deployed 2026-04-19 17:20 UTC ...
 - **[0.80]** `reflective` (2026-04-19T20:34:51 system#8cef893c) — Incident-Themes today (251 incidents): ['failed', 'output', 'contains', 'parity_check_failed', 'parity_check_error,']
-- **[0.77]** `episodic` (2026-04-19T06:19:24 main#ea5baca6) — The `atlas-main` session (`agent:main:discord:channel:1486480128576983070`) has `status=failed`, `runtimeMs=0`, `startedAt > endedAt` — it crashed on startup with OOM.
-- **[0.77]** `episodic` (2026-04-18T19:03:43 main#f3ae9ce2) — - Mehrere operative Incidents gelöst, am Ende 0 offene Tasks und 0 failed.
-- **[0.77]** `episodic` (2026-04-18T22:29:09 main#0770974b) — **Sub-Plan A Status:** - A1 ✅ `b84ac186` done - A2 ✅ `515b940f` done - A3 ✅ `f1d6a4d4` done (Incident-Lane nur status=failed) A4 ('Later'→'Archive') und A5 (Dispatched-Metric Zeitfenster) sind nicht a...
-- **[0.77]** `episodic` (2026-04-19T08:24:13 main#4cea56c3) — **Aktueller Stand:** | Task | Status | |------|--------| | WK-35 Retry (Operator-Lock) | pending-pickup → Forge | | Spark Naming-P2 | assigned | | Spark Naming-Audit | assigned | Falls wieder `failed`...
-- **[0.77]** `episodic` (2026-04-19T08:24:13 main#1075b705) — **Aktueller Stand:** | Task | Status | |------|--------| | WK-35 Retry (Operator-Lock) | pending-pickup → Forge | | Spark Naming-P2 | assigned | | Spark Naming-Audit | assigned | Falls wieder `failed`...
+- **[0.80]** `episodic` (2026-04-19T21:35:11 system#258f56ec) — Sprint-G/H Consolidation 2026-04-19 21:16-21:18 UTC (Forge 5a10491a): 4 commits konsolidierten Sprint-G/H autonomous-cascade Arbeit: b941b36 (.bak removes), 5fac96a (sprint-g ops-dashboard), daee0c7 (...
+- **[0.80]** `reflective` (2026-04-19T21:50:01 system#8cef893c) — Incident-Themes today (253 incidents): ['failed', 'output', 'contains', 'parity_check_failed', 'parity_check_error,']
+- **[0.76]** `episodic` (2026-04-19T06:19:24 main#ea5baca6) — The `atlas-main` session (`agent:main:discord:channel:1486480128576983070`) has `status=failed`, `runtimeMs=0`, `startedAt > endedAt` — it crashed on startup with OOM.
+- **[0.76]** `episodic` (2026-04-18T19:03:43 main#f3ae9ce2) — - Mehrere operative Incidents gelöst, am Ende 0 offene Tasks und 0 failed.
+- **[0.76]** `episodic` (2026-04-18T22:29:09 main#0770974b) — **Sub-Plan A Status:** - A1 ✅ `b84ac186` done - A2 ✅ `515b940f` done - A3 ✅ `f1d6a4d4` done (Incident-Lane nur status=failed) A4 ('Later'→'Archive') und A5 (Dispatched-Metric Zeitfenster) sind nicht a...
+- **[0.76]** `episodic` (2026-04-19T08:24:13 main#4cea56c3) — **Aktueller Stand:** | Task | Status | |------|--------| | WK-35 Retry (Operator-Lock) | pending-pickup → Forge | | Spark Naming-P2 | assigned | | Spark Naming-Audit | assigned | Falls wieder `failed`...
+- **[0.76]** `episodic` (2026-04-19T08:24:13 main#1075b705) — **Aktueller Stand:** | Task | Status | |------|--------| | WK-35 Retry (Operator-Lock) | pending-pickup → Forge | | Spark Naming-P2 | assigned | | Spark Naming-Audit | assigned | Falls wieder `failed`...
 - **[0.70]** `reflective` (2026-04-19T20:34:51 system#d57e4ffc) — Today's top fact-categories: incident:251, delivery:1
+- **[0.70]** `semantic` (2026-04-19T21:35:11 system#1db9c9d9) — 10 Karpathy-KB-Articles compiled 2026-04-19 20:46 UTC in vault/03-Agents/kb/: sprint-orchestration (27f/7r), receipt-discipline (34f/4r), deploy-contracts (12f/3r), atlas-hallucination-prevention (0f/...
+- **[0.70]** `reflective` (2026-04-19T21:50:01 system#d57e4ffc) — Today's top fact-categories: incident:253, delivery:6, rule:5, pattern:4, config:4
 - **[0.66]** `episodic` (2026-04-19T11:11:36 main#beda73b5) — **Typ: Incident — Sprint-2 Recovery nach OOM** Phase 1: Ghost-Cleanup starten.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#744da69d) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#8b7de057) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#1bb1d33d) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#b89145d3) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#c5444ab3) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#35c61d44) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#9cff3c48) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T19:58:52 sre-expert#3fc82ded) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
-- **[0.66]** `episodic` (2026-04-18T21:38:42 main#efdc6062) — Da im Stabilization Mode keine Auto-Recovery läuft, wurde er sofort auf `failed` gesetzt.
-- **[0.55]** `episodic` (2026-04-19T11:11:23 main#1dfb4382) — KONTEXT: - Gateway wurde OOM-killed (Peak 4.3 GB, R30 MCP-Zombies 12 akkumuliert).
-- **[0.55]** `episodic` (2026-04-18T18:21:40 sre-expert#8e0d95dc) — updatedAt` - Build + Deploy: `npm run build` (grün), danach `./deploy.sh` erfolgreich - Vorher/Nachher KPI: `closed-24h 54 -> 91` - Regression: `new-blockers-24h=0`, `recovery-delta=0` (plausibel) - C...
+- **[0.65]** `episodic` (2026-04-18T19:58:52 sre-expert#744da69d) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
+- **[0.65]** `episodic` (2026-04-18T19:58:52 sre-expert#8b7de057) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
+- **[0.65]** `episodic` (2026-04-18T19:58:52 sre-expert#1bb1d33d) — - Währenddessen wurde der Task einmal extern auf `failed` gezogen (ghost-fail vom Monitor), ich habe per `recovery-action: retry` wieder aufgenommen, danach erneut `accepted` + final `result`.
 
 ## Related KB Articles
 
@@ -97,4 +82,4 @@ Aus den aktuellen Fällen lässt sich ableiten, dass ein OOM‑Absturz des `atla
 
 ---
 
-*Auto-compiled from 36 facts + 6 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 44 facts + 6 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
