@@ -24,7 +24,7 @@ Nach Sprint-E/F/G/H/I (Mobile-Polish) ist das System feature-komplett aber hat 8
 Plan-Doku: /home/piet/vault/03-Agents/sprint-k-infra-hardening-plan-2026-04-19.md
 (qmd deep_search "sprint-k infra hardening")
 
-8 Sub-Tasks (H1 bereits done = V8-Heap + MemoryMax erhöht):
+9 Sub-Tasks (H1 bereits done + H10-L1 cleanup done by Assistant 2026-04-19 23:12 UTC):
 - Sub-K2 (Forge): Tool-Allowlist statt Tool-Denylist (Sub-Agents dürfen `systemctl` nicht mehr direkt → mc-restart-safe zwingen). 2-3h
 - Sub-K3 (James→Forge): memory-core reconcile debug (Background-Reconciler spams logs). 1-2h
 - Sub-K4 (Forge): Concurrent-Subagent-Limit mit MC-Restart-Contract (max 1 mit deploy-verify gleichzeitig). 2h
@@ -37,11 +37,18 @@ Plan-Doku: /home/piet/vault/03-Agents/sprint-k-infra-hardening-plan-2026-04-19.m
 - Sub-K7 (Forge): Deploy-Queue-Lock (mc-restart-safe Wrapper Integration in alle Agent-Prompt-Templates + Worker-Verify-Step). 2h
 - Sub-K8 (Forge): Budget-Alert $3 bug (False-alarm spammt Discord + logs). 1h
 - Sub-K9 (Forge): Dark-Token-Contrast-Audit (Sprint-E Playwright 4× AA-Violations auf /monitoring ratio 1.10 + /alerts 2.57). 2h
+- Sub-K10 (Forge + Pixel optional): Cron-Inventory-Consolidation + Observability — 4-5h, 5 Layers
+  - L1 Dead-Cron Cleanup (✅ DONE 2026-04-19 23:12 UTC — 9 disabled + 2 stale log cleaned by Assistant)
+  - L2 Memory-Crons-Consolidation (11 separate → 1 orchestrator memory-maintenance-suite.sh @ 03:00-05:00 window) — 1-2h
+  - L3 Systemd-Timer-Migration (worker-monitor + mc-watchdog + auto-pickup → systemd timers with Persistent=true + OnFailure hooks) — 2h
+  - L4 Healthchecks.io-Observability (Docker healthchecks/healthchecks OR simple cron-health-monitor.sh) — 1-2h
+  - L5 /admin/crons MC-Route Dashboard (Pixel optional, 2h) — analog /memory static portal
+  - Referenz-Report: vault/03-Agents/cron-audit-2026-04-19.md (338 Zeilen) als baseline
 
 Playbook:
 1. qmd deep_search "sprint-k infra hardening" — Plan lesen
 2. qmd deep_search "r47 scope-lock design" + "sprint-h h1 rca" — J2+J1 outputs als Baseline
-3. POST 8 Board-Tasks via taskboard_create_task (R44 PFLICHT!)
+3. POST 9 Board-Tasks via taskboard_create_task (R44 PFLICHT!)
 4. Dispatch-Order:
    - Batch 1 (parallel, disjoint): K2 + K3 + K8 (Forge) + K9 (Forge)
    - Batch 2 (sequential nach K2/K3 done): K4 + K5 + K6 (alle Forge)
@@ -63,7 +70,7 @@ Anti-Scope:
 - Keine UI-Polish (→ Sprint-I done)
 - Keine Agent-Prompt-Revolutionen (nur R45/R46/R47/R49 bestehende Preambles preservieren)
 
-Zeit-Budget: 14-18h orchestriert. Operator monitort passiv, R49-Validator-Cron läuft automatisch */15min (erkennt Hallucinations-Patterns).
+Zeit-Budget: 18-23h orchestriert (+4-5h durch H10 Cron-Consolidation). Operator monitort passiv, R49-Validator-Cron läuft automatisch */15min (erkennt Hallucinations-Patterns).
 
 Return format:
 - EXECUTION_STATUS

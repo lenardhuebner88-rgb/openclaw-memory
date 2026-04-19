@@ -8,6 +8,21 @@ rule_count: 6
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Der Kern dieses Themengebiets besteht darin, Vorfälle im Betrieb schnell zu erkennen, ihre Ursachen systematisch zu analysieren und gezielte Wiederherstellungsmaßnahmen einzuleiten, damit die Systemverfügbarkeit maximiert und Ausfallzeiten minimiert werden. Durch ein strukturiertes Vorgehen lassen sich nicht nur unmittelbare Störungen beheben, sondern auch langfristige Schwachstellen identifizieren und beheben, sodass ähnliche Vorfälle künftig verhindert werden können. Damit unterstützt das Incident‑Response‑ und RCA‑Framework die Zuverlässigkeit des gesamten Orchestrations‑Systems und schafft eine klare Basis für kontinuierliche Verbesserungen.
+
+Ein zentrales Muster ist die Frühwarnung anhand von Schlüsselindikatoren wie den Status‑Werten „failed“, „parity_check_failed“, „output“ und „contains“, die im Monitoring sofort auffallen und eine schnelle Eskalation auslösen. Ebenso wichtig ist die Durchführung von Sub‑Plan A, bei dem einzelne Arbeitspakete (A1‑A5) nacheinander abgearbeitet und ihr Status dokumentiert wird, um einen nachvollziehbaren Ablauf und eine klare Freigabe jedes Schritts zu gewährleisten. Schließlich sieht das Recovery‑Workflow‑Modell vor, bei extern gefehlerten Tasks zunächst eine Ghost‑Cleanup‑Phase einzuleiten und anschließend per `recovery-action: retry` den Vorgang erneut zu starten, wobei das Ergebnis anschließend auf `accepted` und schließlich auf `final result` geprüft wird, um Fehlalarme zu vermeiden.
+
+Aus den aktuellen Fällen lässt sich ableiten, dass ein OOM‑Absturz des `atlas-main`‑Services beim Start darauf hinweist, dass Speichergrenzen und Start‑Checks dynamisch angepasst werden müssen, um ähnliche Start‑Fehler zu verhindern. Außerdem zeigte sich, dass externe Monitore gelegentlich Tasks fälschlicherweise auf `failed` setzen (ghost‑fail); die Einführung einer zusätzlichen Validierungsstufe vor dem Retry hat die Zahl der falsch abgeschlagenen Vorgänge deutlich reduziert und die Gesamtstabilität des Systems erhöht. Diese Erkenntnisse fließen direkt in die Anpassung der Detektions‑ und Wiederherstellungsregeln ein, um zukünftige Vorfälle noch robuster zu handhaben.
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Incident Response & RCA
 
 **Description:** Incident-detection patterns, RCA methodology, recovery-workflows from today's live-cases.

@@ -8,6 +8,21 @@ rule_count: 2
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Der mehrstufige Memory‑Stack dient dazu, die Informationsflüsse zwischen den Agenten von Mission Control kohärent, schnell und lernfähig zu halten. Durch die Trennung von sofort abrufbaren L1‑Daten, langfristig konsolidierten L2‑Fakten und einer reflektierenden Taxonomie wird das Problem gelöst, dass Wissen entweder im flüchtigen Cache verloren geht oder in unstrukturierten Speichern schwer wiederauffindbar ist. Damit können Agenten aktuelle Kontexte nutzen, gleichzeitig aber auf ein wachsendes Wissensfundament zugreifen und aus ihren Erfahrungen verbesserte Entscheidungen ableiten.
+
+Die zentrale Regel ist, dass L1‑QMD‑Abfragen stets den aktuellen Schema‑v2‑Standard entsprechen müssen; dadurch wird sichergestellt, dass schnelle Zugriffe keine veralteten oder inkonsistenten Lieferungen produzieren. Eine zweite wichtige Regel sieht vor, dass im L2‑Stadium Mem0‑Fakten zusammen mit einer Dreaming‑Phase episodische Erinnerungen in semantisches Wissen überführen, wobei die Taxonomie als Leitplankenschema dient, um die Konsolidierung zu steuern und Redundanz zu vermeiden. Schließlich muss nach jedem Aufgabenzyklus ein Reflexionsschritt erfolgen, der die Taxonomie aktualisiert, die Gewichtung zwischen episodischem und semiotischem Speicher justiert und etwaige Anomalien im Kosten‑ oder Leistungsprotokoll ausgleicht.
+
+Aus dem jüngsten Vorfall, bei dem ein Kostenanomalie‑ und veralteter In‑Memory‑Store zu
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Memory Architecture
 
 **Description:** Multi-level memory-stack: QMD retrieval (L1), Mem0-facts + Dreaming (L2), Schema-v2 taxonomy + reflection.

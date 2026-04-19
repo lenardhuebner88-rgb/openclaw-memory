@@ -8,6 +8,19 @@ rule_count: 4
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Der Zweck der Build‑&‑Deploy‑Regeln besteht darin, einen zuverlässigen und wiederholbaren Ablauf vom Quellcode über den Build bis hin zur produktiven Bereitstellung sicherzustellen, dabei Ressourcenausfälle und Serviceunterbrechungen zu vermeiden. Durch fest definierte Sequenzen, Muster und systemd‑Konventionen wird sichergestellt, dass nur erfolgreich kompilierte Artefakte ausgeliefert werden, dass Speicher‑ und CPU‑Grenzen eingehalten werden und dass im Fehlerfall automatisierte Wiederherstellungsmechanismen greifen.
+
+Die wichtigsten Regeln sind: Erstens muss `npm run build` mit einem grünen Exit‑Status abgeschlossen sein, bevor das Deploy‑Skript `./deploy.sh` aufgerufen wird – dies verhindert die Auslieferung fehlerhafter Builds. Zweitens wird die Anwendung als systemd‑Service betrieben, wobei `Restart=on-failure`, ein explizites `MemoryLimit=` und `CPUQuota=` auf Basis der beobachteten V8‑Heap‑Auslastung gesetzt werden und der Node‑Prozess mit `--max-old-space
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Build & Deploy Rules
 
 **Description:** Build-sequence, deploy-patterns, systemd-service conventions, V8-heap+memory limits.

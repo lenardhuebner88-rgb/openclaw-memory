@@ -8,6 +8,19 @@ rule_count: 3
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Der Kern dieses Themas besteht darin, das Risiko von Race‑Conditions zu eliminieren, die auftreten können, wenn Verträge gleichzeitig bereitgestellt werden, während das Mission‑Control‑System neu gestartet wird oder im degraded Zustand ist. Ohne geeignete Synchronisation führen parallele Deployments zu inkonsistenten Zuständen, veralteten Sessions und fehlgeschlagenen Vertragsverifikationen, was die Betriebssicherheit gefährdet. Der mc‑restart‑safe Wrapper und der Deploy‑Verify‑Contract‑Prozess schaffen eine deterministische Abfolge, die sicherstellt, dass ein Deployment nur nach erfolgreichem Build und nur ein einzelner Vorgang zur gleichen Zeit ausgeführt wird. Dadurch werden KPI‑Einbrüche verhindert und das System bleibt auch nach Neustarts stabil.
+
+Die wichtigste Regel ist, stets zuerst `npm run build` auszuführen und nur bei einem grünen Ergebnis das Deploy‑Skript zu starten; dies stellt sicher, dass nur kompilierbarer Code weiterverarbeitet wird. Zweitens muss das eigentliche Deploy über den mc‑restart‑safe Wrapper erfolgen, der ein Sperrmechanismus bereitstellt, um parallele Ausführungen zu blockieren und gleichzeitig Neustarts des Systems abzufangen, ohne dass der Vorgang abbricht. Drittens folgt unmittelbar nach dem Deploy die Deploy‑Verify‑Contract‑Phase, bei der das bereitgestellte Vertragsartefakt auf Korrektheit geprüft wird; erst bei erfolgreicher Verifikation wird das Deployment als abgeschlossen angesehen, wodurch Regressionsfälle frühzeitig erkannt werden. Diese Muster zusammen reduzieren das Risiko von inkonsistenten Zuständen und verbessern
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Deploy Contracts & MC-Restart
 
 **Description:** Deploy-Verify-Contract, parallel-deploy-race prevention via mc-restart-safe wrapper.

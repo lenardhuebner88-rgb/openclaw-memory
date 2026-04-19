@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5a10491a-b73d-41d3-a405-6c15ca4a99b9 Sprint-Consolidation: Sprint-G/H autonomous-cascade commit-cleanup
+- task: 604bf4b5-df9b-4032-8b77-3828a854a332 Sprint-I I5: SSE Battery + Network Optimization (Forge)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Sprint-G/H consolidation executed with 4 commits (b941b36, 5fac96a, daee0c7 allow-empty, 6a7fa8d), untracked-file classification completed (219 total), report written to vault, and Sprint-I pre-flight run completed with 
+- checkpoint: Sub-I5 abgeschlossen: SSE-Event-Stream für Board-Events implementiert (commit 10b7274) mit Cursor-Replay für verpasste Events, Keepalive-Pings (15s), Reconnect-Backoff-Snapshot (1000/2000/4000ms, max 30000), stream-freun
 - blocker: -
-- updated: 2026-04-19T21:18:50.553Z
+- updated: 2026-04-19T21:34:22.701Z
 <!-- mc:auto-working-context:end -->

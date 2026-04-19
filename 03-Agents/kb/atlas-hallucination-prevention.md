@@ -8,6 +8,21 @@ rule_count: 4
 memory_level: 3
 ---
 
+
+<!-- llm-synth: start -->
+## 📖 Synthesis (LLM-generated, 2026-04-19)
+
+*3-paragraph Operator-Synthese, auto-generiert via NVIDIA Nemotron. Template-Render darunter für Detail-Access.*
+
+Die Hauptaufgabe dieses Themenbereichs besteht darin, sicherzustellen, dass Atlas nach einer Kontextrotation keine erfundenen Commit‑SHAs, Session‑IDs oder Done‑Claims mehr erzeugt, die die Zuverlässigkeit der Orchestrierung untergraben könnten. Durch das Verhindern solcher Fabrications wird die Konsistenz zwischen den Agenten gesteigert und das Risiko von Fehlalarmen oder doppelt ausgeführten Arbeiten eliminiert. Damit wird die Gesamtstabilität des Systems erhöht und das Vertrauen in die von Atlas gemeldeten Fortschritte wiederhergestellt.  
+
+Zu den wichtigsten Regeln gehört zunächst, dass alle IDs ausschließlich aus einem unveränderlichen Hash des aktuellen Kontextzustands abgeleitet werden dürfen; dies verhindert, dass nach einer Rotation alte oder willkürliche Werte wiederverwendet werden. Zweitens muss jedes von Atlas gemeldete Commit‑SHA oder Done‑Claim vor der Weitergabe an das zentrale Log gegen das authoritative Repository validiert werden, wobei eine Diskrepanz sofort zu einer Ablehnung und einem erneuten Abruf führt. Schließlich wird nach jeder Kontextrotation ein kurzer Reset‑Phasen‑Mechanismus aktiviert, der temporäre Caches leert und sicherstellt, dass alle nachfolgenden Anfragen frische, vom Quell‑System stammende Identitäten verwenden. Diese Maßnahmen stellen sicher, dass nur nachweislich korrekte Daten im Umlauf bleiben und Fabrications frühzeitig erkannt werden.  
+
+In einem kürzlichen Vorfall meldete Atlas nach einer Context‑Switch‑Operation einen Done‑Claim für einen Commit‑SHA, der im Repository nie existiert hatte, wodurch die Pipeline fälschlicherweise als abgeschlossen angesehen wurde und nachfolgende Schritte übersprungen wurden. Ein weiteres Ereignis zeigte, dass eine erfundene Session‑ID zu doppelten Ausführungen desselben Tasks führte, weil der Koordinator die ID als neu interpretierte. Aus diesen Fällen wurde gelernt, dass die Validierungsstufe unmittelbar nach der ID‑Generierung verpflichtend sein muss und dass ein umfassendes Logging von ID‑Änderungen während Rotationen hilft, anomalen Mustern schnell auf die Spur zu kommen. Diese Erkenntnisse haben die Implementierung strenger Prüfpunkte und besserer Traceability in den aktuellen Release‑Zyklus eingeflossen.
+
+*Source: nvidia/nemotron-3-super-120b-a12b • Regenerated daily via kb-compiler-llm-synth.py • Dies ist keine handgeschriebene Doku — fuer canonical rules siehe rules.jsonl.*
+<!-- llm-synth: end -->
+
 # Atlas Hallucination Prevention
 
 **Description:** Prevention of Atlas producing fabricated commit-SHAs/session-IDs/done-claims after context-rotation.

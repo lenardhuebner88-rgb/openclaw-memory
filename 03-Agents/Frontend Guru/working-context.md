@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0423431e-45aa-47c4-a124-7362c3e20bff Sprint-G G4: Ops-Dashboard UI
+- task: c13d55ba-0b4c-4f26-8446-c7b8d4a3be49 Sprint-I I4: Mobile Command-Palette (FAB + Full-Screen-Sheet)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Ops dashboard UI implemented for /ops with KPI cards, tabbed views, nav entry, and verification completed.
+- checkpoint: I4 fertig: CommandPalette auf Mobile als Full-Screen-Sheet umgebaut. FAB unten rechts nur auf Mobile sichtbar, mit Offset bei aktivem Bulk-Mode. Triple-Tap auf die Top-Bar öffnet die Palette. Recent-Search-Chips unter de
 - blocker: -
-- updated: 2026-04-19T18:29:19.928Z
+- updated: 2026-04-19T21:49:12.301Z
 <!-- mc:auto-working-context:end -->
