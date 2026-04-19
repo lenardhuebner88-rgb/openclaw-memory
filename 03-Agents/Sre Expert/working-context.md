@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 30cb80a0-92f9-4c79-9e0c-7fe2514ce9f0 [Forge-Sub] DeepSeek-Qualitaets-Review
-- stage: START
-- next: continue current task
-- checkpoint: -
+- task: b8277372-de3f-4596-ae1a-6d7ded11f1d3 [Forge-Sub] FIND-B: Gateway-Restart-Race Fix
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS=success. Implemented low-risk Gateway-Restart race guard in worker-monitor; external untracked worker:atlas sessions now use 60m orphan threshold and passed 2min non-fail acceptance smoke.
 - blocker: -
-- updated: 2026-04-19T10:17:59.205Z
+- updated: 2026-04-19T10:44:17.199Z
 <!-- mc:auto-working-context:end -->
