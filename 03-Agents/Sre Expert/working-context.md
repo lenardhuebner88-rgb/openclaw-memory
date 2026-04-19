@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 70369331-f950-4884-a1f9-234cb5e97b56 Sprint-E E3: Real-Time SSE Board Updates (Forge)
+- task: 400840a0-fb56-4789-99dc-0b66b3ca963e Sprint-E E5 Forge: Bulk API Route
 - stage: DONE
 - next: await next assignment
-- checkpoint: Sprint-E E3 umgesetzt: SSE Backend mit board-sse connection manager, /api/board-events Alias + erweitertem /api/board/events Event-Stream, und Task-Update/Event-Emission in board-event-log + tasks/[id]/PATCH. Verify: npm
+- checkpoint: Implemented /api/tasks/bulk with cancel/retry/assign actions; build passed and endpoint validation verified.
 - blocker: -
-- updated: 2026-04-19T17:17:37.674Z
+- updated: 2026-04-19T17:32:05.903Z
 <!-- mc:auto-working-context:end -->
