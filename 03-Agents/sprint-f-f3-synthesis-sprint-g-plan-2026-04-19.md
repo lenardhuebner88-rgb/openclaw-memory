@@ -87,3 +87,39 @@ Heartbeat: Auto-Respawn + Zombie-Detection + Orphaned-Detection alle bewusst dea
 ---
 
 **Status:** Sprint-F F1+F2 complete. Sprint-G Plan ready for Operator Approval.
+
+---
+
+## Sprint-G Final Status (2026-04-19 20:29 UTC+2)
+
+| Sub | Board | Agent | Status | Result |
+|-----|-------|-------|--------|--------|
+| G1 Broken Schedulers | `ba5e654b` | Forge | ✅ done | 4 systemd fixed, 0 failed, Debrief-Watch consecutiveErrors=0 |
+| G2 Alert-Dedupe | `b8b40aaf` | Lens | ✅ done | alert-dispatcher.sh (5min cooldown), 5 sources consolidated |
+| G3 Ops-Dashboard API | `42fa712d` | Forge | ✅ done | 4 endpoints, 65 schedulers, 86 scripts, curl 200 |
+| G4 Ops-Dashboard UI | `0423431e` | Pixel | ✅ done | /ops route, 4 tabs, KPI cards, filter tables, curl 200 |
+
+### G4 Changed Files:
+- `src/app/ops/page.tsx`
+- `src/components/ops/ops-dashboard-client.tsx`
+- `src/components/ops/kpi-cards.tsx`
+- `src/components/ops/dependency-graph.tsx`
+- `src/components/ops/scheduler-table.tsx`
+- `src/components/ops/script-table.tsx`
+- `src/components/ops/health-panel.tsx`
+- `src/components/mission-shell.tsx`
+- `src/components/bottom-tab-bar.tsx`
+- `src/lib/memory-layers.ts` (typecheck fix)
+- `tailwind.config.ts` (typecheck fix)
+
+### Verification Summary:
+- `/api/ops` → 200 ✅
+- `/api/ops/schedulers` → 200 ✅
+- `/api/ops/scripts` → 200 ✅
+- `/api/ops/health` → 200 ✅
+- `/ops` → 200 ✅
+- `npm run build` ✅
+- `systemd --failed` → 0 ✅
+- alert-dispatcher cooldown test: dispatch + suppress ✅
+
+**Sprint-G abgeschlossen** — System nun vollständig inventarisiert + visualisiert.

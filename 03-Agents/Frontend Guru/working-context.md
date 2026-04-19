@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: bc657825-e25f-429c-9472-d748feba091a Sprint-E E4: Unified Navigation (7 Primary Navs)
+- task: 0423431e-45aa-47c4-a124-7362c3e20bff Sprint-G G4: Ops-Dashboard UI
 - stage: DONE
 - next: await next assignment
-- checkpoint: Unified navigation shipped: desktop nav now uses 7 primary sections with section-local links, root redirects to /overview, added /vault and /cron-jobs aliases, and mobile bottom tab bar is live across MissionShell routes
+- checkpoint: Ops dashboard UI implemented for /ops with KPI cards, tabbed views, nav entry, and verification completed.
 - blocker: -
-- updated: 2026-04-19T17:22:48.396Z
+- updated: 2026-04-19T18:29:19.928Z
 <!-- mc:auto-working-context:end -->
