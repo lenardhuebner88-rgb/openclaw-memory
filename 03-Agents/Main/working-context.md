@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0cfa885f-3b31-45ed-a3ed-478f621e88b6 [Atlas-Sprint-A] Validation + Hygiene — Cost-Anomaly + Safeguard-Live-Test + Build-Cleanup + Script-Integrity + Dreaming-Verify
-- stage: DONE
+- task: 3b0c592c-073c-4c8f-b906-7c7d2210cbb4 [Atlas-Sprint-B] Memory-Intelligence Level-2 — Embed Finalize + Mem0-Facts + Per-Agent-Collections + Auto-Compact Hook
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Sprint-A complete: A1 fix/flip (MiniMax+hardcoded $3), A2 safeguard verified, A3 cleanup cron enabled, A4 integrity expanded and verified, A5 follow-up prepared; recommendation: proceed to Sprint-B before Sprint-C (Forge
-- blocker: -
-- updated: 2026-04-19T13:53:37.745Z
+- checkpoint: No progress for 6m (hard-threshold=5m). Auto-failed by worker-monitor.
+- blocker: No progress for 6m (hard-threshold=5m). Auto-failed by worker-monitor.
+- updated: 2026-04-19T14:40:02.897Z
 <!-- mc:auto-working-context:end -->
