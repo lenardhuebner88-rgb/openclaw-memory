@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a16a167d-7d70-4207-9122-29c2ed068888 [WK-35] Operator-Lock persistiert nicht trotz Apply-Block
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
-- blocker: Task in-progress/dispatched 17m ago but no workerSessionId and no receipt/accepted received (threshold=15m). Spawn likely failed. Auto-failed by worker-monitor.
-- updated: 2026-04-19T08:10:05.717Z
+- task: 3de50c49-c1b8-4188-bbcb-0436aa84d6d1 [WK-36] Pending-Pickup Stuck Alert — earlier warning before auto-fail
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-19T08:47:42.958Z
 <!-- mc:auto-working-context:end -->
