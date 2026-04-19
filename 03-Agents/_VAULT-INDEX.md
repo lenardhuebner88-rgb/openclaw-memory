@@ -17,6 +17,64 @@ Trigger-Phrases verwenden genau den Wortlaut *"Lade `…` und starte …"* — A
 
 ---
 
+## 🆕 TODAY 2026-04-19 — Stabilization + Memory-Level-Up
+
+Operator-direkte Session (pieter_pan ohne Atlas, wegen R30 Atlas-Orphan). Alle Deliverables dieser Session sind hier gebündelt.
+
+### Reports & RCAs (chronologisch)
+- **`e2e-worker-audit-report-2026-04-19.md`** — 5-Scenario-Audit (76/76 done mit resultSummary, 4 Ghost-Fails als Gateway-Issue identifiziert)
+- **`e2e-live-worker-test-2026-04-19.md`** — 15/15 PASS API-Contract-Test (Naming, Lifecycle, Receipt-Sequence, Operator-Lock persist)
+- **`atlas-remaining-plan-2026-04-19.md`** — Sprint-2 ENRICHED + Sprint-3 Spec nach no-go Sprint-1
+- **`sprint-2-3-autonomous-report-2026-04-19.md`** — Atlas-Autonomous-Run Ergebnis: Sprint-1 no-go-close, Sprint-2 partial (3/5 deployed), Sprint-3 full done (A1+A2+Pipeline-v3 Sprint 2)
+- **`final-report-autonomous-run-2026-04-19.md`** — End-of-Run Summary + R30-Incident-Recovery
+- **`rca-2026-04-19-incident-cluster.md`** — Deep RCA der 7 Incident-Klassen + 5-Schichten-Analyse + 5 Minimal-Fixes + Roadmap
+- **`stabilization-day-2026-04-19.md`** — 6 Fixes deployed: PR #68846 cherry-pick, Stall 2/5min, R37-Markers, Healthcheck-URL, Atlas-Orphan-Detect-Cron, MCP-Reaper-Alert
+- **`memory-system-level-up-2026-04-19.md`** — QMD-Integration (3 Collections, 1042 docs indexed, MCP :8181) + Cost-Guard Dreaming + Session-Maintenance enforce
+
+### Deployed Fixes (Code + Config)
+| # | Deliverable | File | Backup |
+|---|---|---|---|
+| F1 | Stall-Thresholds 10/30 → 2/5 min | `worker-monitor.py` L49-50 | `.bak-2026-04-19-stall-fix` |
+| F2 | Gateway-Healthcheck /api/health → /healthz | `worker-monitor.py` L2039 | (inkl. F1) |
+| F3 | PR #68846 cleanupBundleMcpOnRunEnd | `attempt-execution.runtime-*.js:371` | `.bak-2026-04-19-pr68846` |
+| F4 | R37 REAL_TASK + ORCHESTRATOR_MODE Markers | `auto-pickup.py` trigger_worker() | `.bak-2026-04-19-r37` |
+| F5 | MCP-Reaper Discord-Alert | `mcp-taskboard-reaper.sh` | (inline edit) |
+| F6 | Atlas-Orphan-Detect-Cron | `atlas-orphan-detect.sh` (NEW) | (new file) |
+| F7 | Session-Maintenance enforce + 500MB/150 entries cap | `openclaw.json`.session.maintenance | `.bak-2026-04-19-session-maintenance` |
+| F8 | QMD collections + MCP-Daemon + memory.qmd config | `openclaw.json`.memory.qmd + mcp.servers.qmd | `.bak-2026-04-19-qmd-integrate` |
+| F9 | Dreaming cost-guard: phase-limits light=30/deep=10/rem=5 | `openclaw.json`.plugins.entries.memory-core | (inkl. F8) |
+| F10 | Agent defaults.memorySearch.qmd extraCollections | `openclaw.json`.agents.defaults.memorySearch | (inkl. F8) |
+
+### Crons Added / Modified
+| Cron | Schedule | Purpose |
+|---|---|---|
+| **openclaw sessions cleanup** | `0 */6 * * *` | Session-Maintenance enforcement |
+| **qmd update** | `*/30 * * * *` | QMD re-index refresh |
+| **qmd mcp --daemon (respawn)** | `@reboot` | QMD MCP-Daemon auto-start |
+| **atlas-orphan-detect.sh** | `*/10 * * * *` | R39 Atlas-Orphan-Detection |
+| **dreaming-cost-guard.sh** | (manual) | External circuit-breaker (Issue #65550) |
+| **mcp-taskboard-reaper.sh (existing)** | `*/15 * * * *` | + NEW Discord-Alert on kill |
+
+### Rules R38/R39/R40 (neu)
+- **R38** MCP-Zombie-Defense-in-depth (existierender Reaper + Discord-Alert Patch)
+- **R39** Atlas-main braucht Session-Resume-Pattern (CLI ist One-Shot)
+- **R40** Stall-Thresholds sind Kern-Infra (2/5min nicht 10/30min)
+
+### System-State at Session-End
+- MC: 200 OK, active
+- Gateway: 200 OK, RSS 1.5 GB (Peak war 4.3 GB im Incident, danach clean)
+- QMD-MCP-Daemon: :8181 live, 1042 docs indexed (BM25)
+- Session-Usage: main 410 MB (war 705 MB, -42%)
+- Patch-Tracker: `/home/piet/.openclaw/patches/PR68846-applied.md`
+
+### Trigger-Phrases für heute aktive Content
+- *"Lade Stabilization-Day 2026-04-19 Report"* → `stabilization-day-2026-04-19.md`
+- *"Lade RCA Incident-Cluster"* → `rca-2026-04-19-incident-cluster.md`
+- *"Lade Memory-Level-Up"* → `memory-system-level-up-2026-04-19.md`
+- *"Zeige mir alle today's Fixes"* → Query via QMD: `qmd search '2026-04-19 fix' -n 10`
+
+---
+
 ## 🔴 ACTIVE — heute/morgen laufende Pläne
 
 ### 1. `atlas-stabilization-plan-2026-04-19.md` (7.9 KB, 151 Zeilen) — **P0**
