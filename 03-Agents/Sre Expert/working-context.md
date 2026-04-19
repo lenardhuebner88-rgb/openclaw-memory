@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1bcacbc6-a8a6-407d-84d2-35ba0cebe9fc [Pack2 Verify] Sequence violation proof-3
-- stage: START
-- next: continue current task
-- checkpoint: -
+- task: 03045f2c-8a33-415d-bc28-3c4aeb9590ea [Pack2 Verify] Sequence violation proof-7
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS=success. Sequence violation proof verified in-task: out-of-order result after accepted returns 409 with nextAllowedStages.
 - blocker: -
-- updated: 2026-04-19T11:49:08.272Z
+- updated: 2026-04-19T12:00:50.932Z
 <!-- mc:auto-working-context:end -->
