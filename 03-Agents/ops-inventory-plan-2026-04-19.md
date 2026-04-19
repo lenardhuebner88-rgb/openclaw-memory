@@ -204,3 +204,104 @@ Operator-Approval der Phase-1-Synthesis triggert Phase-2.
 ## Signoff
 
 Operator (pieter_pan) 2026-04-19 16:00 UTC. Plan ready, Phase-1 kann sofort starten, Phase-2 nach Operator-Approval.
+
+---
+
+---
+
+## Update 2026-04-19 16:15 UTC: Mobile-Ops-Emergency-Controls
+
+Nach Diskussion am 19.04. Nachmittag zusätzlich in den Plan aufgenommen.
+
+### Warum
+
+Operator ist häufig **nicht am Rechner** (unterwegs, Handy). Aktuell keine Möglichkeit vom Handy aus:
+- Atlas zu respawnen bei Orphan
+- MCP-Zombies zu killen
+- Gateway/MC zu restarten
+- Boards zu bereinigen
+
+SSH vom Handy via Termius wäre möglich, aber kein Zero-Friction.
+
+### Phase-1 Erweiterung
+
+**Sub-F1 (Lens) zusätzliche Aufgabe:** Pro Script `emergency-action-candidate` klassifizieren:
+- `one-click-safe` — kann als Button exponiert werden (z.B. kill-zombies, restart-gateway)
+- `requires-prompt` — braucht Parameter (z.B. atlas-respawn mit custom-prompt)
+- `dangerous` — nicht exponieren (z.B. destructive cleanup)
+
+**Sub-F2 (Forge) zusätzliche Aufgabe:** Top-5 häufigste manuelle Interventionen pro Monat bestimmen (aus log-Analyse). Welche Scripts wurden am häufigsten ad-hoc getriggert?
+
+**Sub-F3 (James) zusätzliche Aufgabe:** Research zu Mobile-Emergency-Ops-Patterns:
+- PagerDuty Mobile (Incident-Ack, Silence)
+- Datadog Mobile (One-Tap-Actions)
+- Slack/Discord-Slash-Bot-Patterns für Admin-Actions
+- Auth-Patterns für Mobile-Ops (Basic-Auth vs Token vs LAN-only vs mTLS)
+
+### Phase-2 Erweiterung
+
+**Sub-G6 (Pixel + Forge): Mobile-Emergency-Operator-Controls**
+
+Neue MC-Route `/ops/emergency` plus API-Endpoints:
+
+| Endpoint | Method | Action | Safety |
+|---|---|---|---|
+| GET `/api/ops/snapshot` | read | Gateway RAM + Zombies + Sessions + Board-Summary | read-only |
+| POST `/api/ops/atlas-respawn` | write | spawn openclaw-agent main mit optional prompt | Operator-Token |
+| POST `/api/ops/kill-zombies` | write | pkill mcp-servers/taskboard | LAN-only + Rate-Limit |
+| POST `/api/ops/gateway-restart` | write | systemctl restart openclaw-gateway | Operator-Token |
+| POST `/api/ops/mc-restart` | write | self-restart via systemd | Operator-Token |
+| POST `/api/ops/board-cleanup` | write | admin-close stale tasks älter als N min | LAN-only |
+| POST `/api/ops/prompt-atlas` | write | custom-prompt an Atlas senden | Operator-Token |
+
+Plus Mobile-First-Page `/ops/emergency`:
+- 5 grosse Touch-Targets (Daumen-Zone)
+- Confirmation-Dialog bei destruktiven Actions
+- Live-Health-Snapshot oben (SSE)
+- Audit-Log der letzten Ops (Transparenz)
+
+**Security:**
+- Operator-Token in `openclaw.json` oder env-var
+- LAN-IP-Check als fallback
+- Rate-Limit 3 Actions pro Minute pro Token
+- Jede Action → Discord-Webhook Audit-Post + Vault-log-Entry
+
+### Sub-G7 (L3, optional): Discord-Slash-Bot
+
+Native Discord-Bot (nicht Webhook) für Zero-Friction-Mobile-Ops.
+
+**Commands:**
+- `/respawn-atlas` mit optional prompt-argument
+- `/kill-zombies`
+- `/health`
+- `/restart-gateway`
+- `/restart-mc`
+- `/ops-snapshot`
+- `/board-cleanup` mit age-argument
+
+**Constraints:**
+- Channel-restricted auf `#operator-commands` only
+- Role-based (Operator-Rolle required)
+- Audit-Log in Vault
+- Jede Command-Execution triggert Discord-Reply mit Resultat + Full-Output-Log-Link
+
+**Positionierung:** L3 Roadmap-Item, **NICHT** zwingend in Sprint-G scope aber als Follow-up-Sprint-H dokumentiert.
+
+### Acceptance-Erweiterung
+
+| Sub | Metric |
+|---|---|
+| F1 Erweiterung | Jedes Script hat emergency-action-Klassifikation |
+| F2 Erweiterung | Top-5 manual-interventions identifiziert |
+| F3 Erweiterung | Mobile-Emergency-Patterns aus 4+ Tools extrahiert |
+| G6 MVP | 7 API-Endpoints + Mobile-First-Page live, curl-verified, Playwright-mobile smoke passing |
+| G7 (L3) | dokumentiert als Sprint-H-Kandidat, nicht zwingend in Sprint-G gebaut |
+
+### Risk
+
+- **G6 ist sicherheitssensitiv** — Remote-Actions können MC/Gateway kompromittieren wenn Token leakt
+- **Mitigation:** Token default unset. Nur bei expliziter Config-Aktivierung. LAN-only als erste Verteidigung. Discord-Audit-Post macht Missbrauch sichtbar.
+
+### Signoff-Update
+
+Operator (pieter_pan) 2026-04-19 16:15 UTC. Mobile-Ops-Emergency-Controls als Sub-G6 integriert, Sub-G7 Discord-Slash-Bot als Sprint-H-Kandidat dokumentiert.
