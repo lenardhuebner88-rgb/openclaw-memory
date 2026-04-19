@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b8277372-de3f-4596-ae1a-6d7ded11f1d3 [Forge-Sub] FIND-B: Gateway-Restart-Race Fix
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS=success. Implemented low-risk Gateway-Restart race guard in worker-monitor; external untracked worker:atlas sessions now use 60m orphan threshold and passed 2min non-fail acceptance smoke.
+- task: 7ad7c09f-287f-41ac-9b9e-d7fc2720b392 [Forge-Sub] Pack-5: Stall-Detector in worker-monitor
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-19T10:44:17.199Z
+- updated: 2026-04-19T11:17:25.635Z
 <!-- mc:auto-working-context:end -->
