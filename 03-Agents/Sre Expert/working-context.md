@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 400840a0-fb56-4789-99dc-0b66b3ca963e Sprint-E E5 Forge: Bulk API Route
+- task: 42fa712d-2433-4e1f-8d63-052b768258e8 Sprint-G G3: Ops-Dashboard Route
 - stage: DONE
 - next: await next assignment
-- checkpoint: Implemented /api/tasks/bulk with cancel/retry/assign actions; build passed and endpoint validation verified.
+- checkpoint: Implemented Ops-Dashboard API routes (/api/ops, /api/ops/schedulers, /api/ops/scripts, /api/ops/health) with JSONL-backed scheduler/script inventory, query filters (status/risk/type), scheduler-type live health checks, a
 - blocker: -
-- updated: 2026-04-19T17:32:05.903Z
+- updated: 2026-04-19T18:16:50.244Z
 <!-- mc:auto-working-context:end -->
