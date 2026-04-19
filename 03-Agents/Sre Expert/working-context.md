@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4333b65a-67db-471e-afd3-034d0a7d9682 [Sprint-A/A5] Dreaming Live-Verify Follow-up
+- task: 908a01d8-6c2b-4e20-920b-bdbb2d95a7ae [Sprint-A/A4] Script-Integrity-Check Expansion
 - stage: DONE
 - next: await next assignment
-- checkpoint: A5 complete as scheduled-prep: dreaming verification checklist/report stub created at vault/03-Agents/dreaming-verify-2026-04-20.md; tomorrow follow-up required but not blocking.
+- checkpoint: A4 done: script-integrity-check extended for six new scripts, smoke verification passed with exit 0.
 - blocker: -
-- updated: 2026-04-19T13:46:47.891Z
+- updated: 2026-04-19T13:52:56.661Z
 <!-- mc:auto-working-context:end -->
