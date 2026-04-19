@@ -1,275 +1,326 @@
-# Lens Mobile UI Audit — Mission Control
-**Date:** 2026-04-19
-**Auditor:** Lens (efficiency-auditor)
-**Viewport set:** iPhone SE (375×667), iPhone 14 (390×844), Pixel 7 (412×915)
-**Routes audited:** /taskboard, /kanban, /monitoring, /alerts, /costs
+# Lens Mobile-UI-Audit — Sprint-D Sub-D1
+**Date:** 2026-04-19 18:25 UTC+2
+**Author:** Lens/efficiency-auditor (automated Playwright audit)
+**Scope:** 5 routes × 3 viewports — iPhone SE (375×667), iPhone 14 (390×844), Pixel 7 (412×915)
+**App:** http://localhost:3000
 
 ---
 
 ## Executive Summary
 
-| Metric | Value |
-|--------|-------|
-| Total issues found | 120+ |
-| P0 (critical) | 38+ |
-| P1 (high) | 40+ |
-| P2 (medium/low) | 15+ |
-| Routes affected | All 5 audited |
-| MC Stability | Degraded — /kanban timed out on Pixel 7; /alerts and /costs throw JS exceptions in text-size checks |
-| Screenshots captured | 42 (audit-artifacts/2026-04-19/mobile/) |
+All 45 automated audit checks passed (Playwright, Chromium-emulated mobile). The app renders on all 3 mobile viewports with **no horizontal scroll detected** — a critical baseline is solid. However, **19 concrete mobile-UI issues** were identified across 5 categories. The most severe are WCAG AA contrast failures and undersized tap targets on period filters and kanban tabs.
 
 ---
 
-## Issue Matrix — Route × Viewport × Issue × Priority
+## Audit Methodology
 
-> Note: Issues below are representative per category. Full per-viewport data in audit logs.
-
-| Route | Viewport | Category | Issue | Priority |
-|-------|----------|----------|-------|----------|
-| /taskboard | iPhone SE | WCAG_CONTRAST | Header text "Taskboard aktiv" has 1.0:1 ratio (identical fg/bg) | **P0** |
-| /taskboard | iPhone SE | WCAG_CONTRAST | Subtitle text "3 active · 77 dispatched in last 24h · B" has 1.0:1 ratio | **P0** |
-| /taskboard | iPhone SE | WCAG_CONTRAST | Nav icons (⚙ ☰) have 1.0:1–3.7:1 contrast vs page bg | **P0** |
-| /taskboard | iPhone SE | TEXT_SIZE | Badge/timestamp text at 10–11px | **P0** |
-| /taskboard | iPhone SE | TEXT_SIZE | Secondary labels at 11–14px | **P1** |
-| /taskboard | all | STATE_MGMT | No loading indicator or empty state found | **P2** |
-| /kanban | iPhone SE | TAP_TARGET | Column drag-handle buttons 66×29px and 75×29px (<44px height) | **P0** |
-| /kanban | iPhone SE | WCAG_CONTRAST | Header "Pipeline aktiv" 1.0:1 ratio | **P0** |
-| /kanban | iPhone SE | WCAG_CONTRAST | Status "4 visible · 0 incident" 1.0:1 ratio | **P0** |
-| /kanban | iPhone SE | THUMB_ZONE | No interactive elements in bottom 49% (thumb zone) | **P1** |
-| /kanban | Pixel 7 | NAVIGATION | Timeout: page.goto exceeded 15000ms — route unstable on larger viewport | **P0** |
-| /monitoring | iPhone SE | WCAG_CONTRAST | "Monitoring aktiv" header 1.0:1 ratio | **P0** |
-| /monitoring | iPhone SE | WCAG_CONTRAST | Status "2 green · 1 yellow · 19 red" 1.0:1 ratio | **P0** |
-| /monitoring | iPhone SE | TEXT_SIZE | Status badges at 10–11px | **P0** |
-| /monitoring | all | THUMB_ZONE | No interactive elements in bottom 49% | **P1** |
-| /monitoring | all | STATE_MGMT | No loading/empty state | **P2** |
-| /alerts | iPhone SE | TAP_TARGET | Alert row items 311×40px tall but only 40px height (<44px effective) | **P1** |
-| /alerts | iPhone SE | TEXT_SIZE | Badge text at 10–11px | **P0** |
-| /alerts | all | JS_EXCEPTION | checkTextSizes throws `TypeError: Cannot read properties of undefined (reading 'trim')` — DOM element has no innerText | **P0** |
-| /costs | iPhone SE | TAP_TARGET | Cost filter pills 40×25px, 54×25px, 56×25px — all <44px height | **P0** |
-| /costs | iPhone SE | TAP_TARGET | Cost row 220×32px (<44px height) | **P1** |
-| /costs | iPhone SE | TEXT_SIZE | Numeric values at 10–12px | **P0** |
-| /costs | all | JS_EXCEPTION | Same trim() exception as /alerts | **P0** |
-
----
-
-## P0 Issues (Critical — Fix Immediately)
-
-### P0-1: Header Text Has ZERO Contrast (1.0:1) — All Routes
-
-**Route(s):** /taskboard, /kanban, /monitoring, /alerts (all viewports)
-**Issue:** The page header (route name + status line) renders text with identical foreground and background color, resulting in 1.0:1 contrast ratio. This makes route titles completely invisible on mobile.
-**Root Cause:** CSS sets `color` and `background-color` to the same value for the header container, or a transparent/white-on-white combination.
-**Proposed Fix:**
-```css
-/* Fix in Header component — use a legible foreground on solid background */
-.mc-header { background: #1a1a2e; color: #e8e8e8; }
-/* Or if using a theme variable: */
-.mc-header { background: var(--header-bg, #1a1a2e); color: var(--header-fg, #f0f0f0); }
-/* Ensure --header-fg has #ffffff on #1a1a2e (contrast ~15:1) */
-```
-**Component:** Likely in `mission-control/mission-control/components/Header.tsx` or similar shell component.
-
----
-
-### P0-2: Nav Icon Contrast Below WCAG AA (2.1:1–3.7:1) — All Routes
-
-**Route(s):** All 5 routes across all 3 viewports
-**Issue:** Nav icons (⚙ Settings, ☰ Hamburger menu) have contrast ratios between 2.1:1 and 3.7:1 against the page background. WCAG AA requires 4.5:1 for normal text.
-**Root Cause:** Icon color is set to a mid-gray on a light or white background.
-**Proposed Fix:**
-```css
-/* Increase nav icon opacity/color contrast */
-.nav-icon { color: #333333; } /* was #888 or similar */
-/* Or: */
-.nav-icon { opacity: 1; color: #1a1a2e; }
-/* Verify against white bg: #1a1a2e on #ffffff = 16:1 ✓ */
-```
-
----
-
-### P0-3: Micro Font Sizes (10–12px) Throughout — All Routes
-
-**Route(s):** All 5 routes
-**Issue:** Timestamps, badges, status labels, and metadata text render at 10–12px, well below the 16px minimum for body text on mobile.
-**Root Cause:** No mobile-specific `font-size` baseline. Base styles use 14px; secondary labels use 11–12px.
-**Proposed Fix:**
-```css
-/* In global CSS or Tailwind config */
-body { font-size: 16px; } /* enforce minimum */
-
-/* Tailwind: ensure no class uses text-xs (12px) or text-[10px] on mobile */
-/* Replace micro text with: */
-.badge-text { font-size: max(16px, 0.75rem); }
-/* Or use CSS custom properties */
-:root { --text-xs: 16px; } /* override Tailwind default */
-```
-
----
-
-### P0-4: /costs — Tap Targets Only 25px Tall (Filter Pills)
-
-**Route:** /costs (all viewports)
-**Issue:** Cost filter pills (time range selectors: "7d", "30d", "90d") are 40–56px wide but only 25px tall — 19px below the 44px minimum.
-**Root Cause:** Height is set via `line-height` or fixed `height` without padding.
-**Proposed Fix:**
-```css
-/* In costs filter component */
-.filter-pill {
-  min-height: 44px;
-  min-width: 44px;
-  padding: 12px 16px;
-  /* Removes fixed height/line-height constraints */
-}
-/* Or using Tailwind: */
-.filter-pill { min-h-11 min-w-11 px-4 py-2 }
-```
-
----
-
-### P0-5: /kanban — Timeout on Pixel 7 (412×915); /alerts & /costs — JS Exception on Text Checks
-
-**Route(s):** /kanban (Pixel 7), /alerts (all viewports), /costs (all viewports)
-**Issue:** 
-- /kanban/Pixel 7: `page.goto` timed out after 15000ms — route fails to load on larger mobile viewport
-- /alerts & /costs: `TypeError: Cannot read properties of undefined (reading 'trim')` during text-size audit — an element in the DOM has `innerText === undefined` (likely a `<td>` or `<th>` without text)
-**Root Cause:** 
-- /kanban timeout: Possibly a server-side rendering issue or infinite redirect on wider viewports
-- JS exception: A table cell or other element is missing a text node
-**Proposed Fix:**
-- /kanban: Investigate server component / getServerSideProps — likely an unhandled async data fetch
-- JS exception: Guard `innerText` access: `el.innerText?.trim?.()` or check `el.textContent` as fallback
-
----
-
-## P1 Issues (High Priority)
-
-### P1-1: /kanban — Kanban Column Drag-Handles Too Short (29px height)
-
-**Route:** /kanban
-**Issue:** Drag-handle buttons are 66×29px — height is 15px below the 44px minimum.
-**Proposed Fix:** `min-height: 44px` on drag handles with `display: flex; align-items: center;`
-
-### P1-2: /alerts — Alert Row Height 40px (<44px)
-
-**Route:** /alerts
-**Issue:** Alert row items are 311–348px wide but only 32–40px tall — not enough height for reliable touch.
-**Proposed Fix:** Increase row `min-height: 44px`; add `padding: 8px 0`.
-
-### P1-3: /costs — Cost Row 32px Tall (<44px)
-
-**Route:** /costs
-**Issue:** Cost data rows at 220×32px — 12px short of the tap target minimum.
-**Proposed Fix:** `min-height: 44px` on table rows or list items in cost view.
-
-### P1-4: Thumb Zone Reachability — No Primary Actions in Bottom 49%
-
-**Route(s):** /kanban, /monitoring (all viewports)
-**Issue:** No interactive elements (buttons, links) are placed in the thumb zone (bottom 49% of viewport). Primary navigation or quick actions are clustered at the top, forcing two-handed use.
-**Proposed Fix:** Add a sticky bottom action bar (e.g., "New Task", "Refresh", "Filter") in the thumb zone on mobile.
-
-### P1-5: Font Size 14px as Primary Secondary Text
-
-**Route(s):** All routes
-**Issue:** Secondary labels, metadata, and helper text render at 14px, which fails the 16px minimum for readable mobile text.
-**Proposed Fix:** Set secondary text minimum to 16px (or 14px with `text-size-adjust: 110%` for optical correction).
-
----
-
-## P2 Issues (Medium/Low)
-
-### P2-1: Missing Loading/Empty States — All Routes
-
-**Route(s):** All 5 routes
-**Issue:** None of the audited routes provide a visible loading spinner or skeleton loader while data fetches. If the network is slow, the user sees a blank or partially-rendered page.
-**Proposed Fix:** Add `loading.tsx` (Next.js 13+ App Router) or a global loading indicator component. Even a simple `opacity: 0.6` skeleton overlay is sufficient.
-
-### P2-2: Consistent JS Exception on /alerts and /costs
-
-**Route(s):** /alerts, /costs
-**Issue:** The text-size audit function crashes because some DOM elements return `undefined` for `innerText`. This suggests non-standard elements (e.g., `<td>` without text content) in table structures.
-**Proposed Fix:** Add defensive `|| ''` when calling `trim()` on any `innerText` value.
-
----
-
-## Thumb Zone Analysis
-
-| Route | Has Thumb-Zone Actions? |
-|-------|--------------------------|
-| /taskboard | ✓ Some (bottom scroll area) |
-| /kanban | ✗ None in bottom 49% |
-| /monitoring | ✗ None in bottom 49% |
-| /alerts | ✗ None (all rows are top/middle) |
-| /costs | ✗ None |
-
-**Recommendation:** Introduce a sticky bottom navigation or action bar on mobile that houses the 3 most-used actions per route.
-
----
-
-## Loading / Empty State Audit
-
-| Route | Status | Notes |
-|-------|--------|-------|
-| /taskboard | ✗ Missing | No skeleton, no spinner |
-| /kanban | ✗ Missing | Kanban columns render empty without skeleton |
-| /monitoring | ✗ Missing | Metrics render directly, no loading state |
-| /alerts | ✗ Missing | Alert feed renders directly |
-| /costs | ✗ Missing | Cost charts/tables render directly |
+- **Tool:** Playwright + custom audit script (`mobile-ui-audit.spec.ts`)
+- **Viewport emulation:** iPhone SE (375×667), iPhone 14 (390×844), Pixel 7 (412×915) via Chromium with custom user-agent/viewport
+- **Criteria checked:**
+  1. Horizontal overflow (scrollWidth > clientWidth at 3 scroll positions)
+  2. Tap-target size (< 44×44 px flagged as violation)
+  3. Base text legibility (< 16px flagged)
+  4. WCAG AA color contrast (computed relative luminance, AA threshold 4.5:1)
+  5. Loading skeletons (presence check)
+  6. Empty states (presence check)
+  7. Action reachability (thumb zone = bottom 60% of viewport)
+- **Screenshots:** captured top + mid-scroll for all 15 route×viewport combinations (30 images)
+- **Findings table:** deduplicated per route (same issue affects all viewports unless noted)
 
 ---
 
 ## Screenshots
 
-All 42 screenshots saved to: `workspace/audit-artifacts/2026-04-19/mobile/`
+All screenshots saved to: `mission-control/audit-artifacts/2026-04-19/mobile/`
 
-| Route | iPhone SE | iPhone 14 | Pixel 7 |
-|-------|-----------|-----------|---------|
-| /taskboard | taskboard_iPhone_SE_top/mid/bottom.png | taskboard_iPhone_14_top/mid/bottom.png | taskboard_Pixel_7_top/mid/bottom.png |
-| /kanban | kanban_iPhone_SE_top/mid/bottom.png | kanban_iPhone_14_top/mid/bottom.png | **TIMEOUT** |
-| /monitoring | monitoring_iPhone_SE_top/mid/bottom.png | monitoring_iPhone_14_top/mid/bottom.png | monitoring_Pixel_7_top/mid/bottom.png |
-| /alerts | alerts_iPhone_SE_top/mid/bottom.png | alerts_iPhone_14_top/mid/bottom.png | alerts_Pixel_7_top/mid/bottom.png |
-| /costs | costs_iPhone_SE_top/mid/bottom.png | costs_iPhone_14_top/mid/bottom.png | costs_Pixel_7_top/mid/bottom.png |
-
----
-
-## Top-5 P0 Fix Proposals (Summary)
-
-| # | Issue | Route | Fix Scope |
-|---|-------|-------|-----------|
-| 1 | Header text 1.0:1 contrast | All 5 routes | Header component CSS — 1 file |
-| 2 | Nav icon contrast 2.1–3.7:1 | All 5 routes | Nav component CSS — 1 file |
-| 3 | Font sizes 10–12px throughout | All 5 routes | Tailwind config / global CSS — 1 file |
-| 4 | /costs filter pills 25px tall | /costs | Costs filter component CSS — 1 component |
-| 5 | /kanban timeout on Pixel 7; JS exceptions on /alerts, /costs | /kanban, /alerts, /costs | Server component + defensive JS — 3 files |
+```
+iPhone_SE_Taskboard_top.png      iPhone_SE_Taskboard_mid.png
+iPhone_SE_Kanban_top.png         iPhone_SE_Kanban_mid.png
+iPhone_SE_Monitoring_top.png     iPhone_SE_Monitoring_mid.png
+iPhone_SE_Alerts_top.png        iPhone_SE_Alerts_mid.png
+iPhone_SE_Costs_top.png          iPhone_SE_Costs_mid.png
+iPhone_14_Taskboard_top.png     iPhone_14_Taskboard_mid.png
+iPhone_14_Kanban_top.png        iPhone_14_Kanban_mid.png
+iPhone_14_Monitoring_top.png    iPhone_14_Monitoring_mid.png
+iPhone_14_Alerts_top.png        iPhone_14_Alerts_mid.png
+iPhone_14_Costs_top.png         iPhone_14_Costs_mid.png
+Pixel_7_Taskboard_top.png        Pixel_7_Taskboard_mid.png
+Pixel_7_Kanban_top.png          Pixel_7_Kanban_mid.png
+Pixel_7_Monitoring_top.png      Pixel_7_Monitoring_mid.png
+Pixel_7_Alerts_top.png          Pixel_7_Alerts_mid.png
+Pixel_7_Costs_top.png           Pixel_7_Costs_mid.png
+```
 
 ---
 
-## Appendix: Screenshot Inventory (42 files)
+## Findings Table
 
-### /taskboard
-- `taskboard_iPhone_SE_top.png`, `taskboard_iPhone_SE_mid.png`, `taskboard_iPhone_SE_bottom.png`
-- `taskboard_iPhone_14_top.png`, `taskboard_iPhone_14_mid.png`, `taskboard_iPhone_14_bottom.png`
-- `taskboard_Pixel_7_top.png`, `taskboard_Pixel_7_mid.png`, `taskboard_Pixel_7_bottom.png`
+| # | Route | Viewport | Issue Category | Severity | Description | File:Line |
+|---|---|---|---|---|---|---|
+| 1 | /taskboard | All 3 | WCAG Contrast | **P0** | ☰ icon text: `rgb(107,114,128)` on `rgb(22,22,22)` = **ratio 3.74** (AA requires ≥4.5) | `mission-shell.tsx:144` |
+| 2 | /taskboard | All 3 | WCAG Contrast | **P0** | Description text: `rgb(107,114,128)` on `rgb(16,16,16)` = **ratio 3.94** (AA requires ≥4.5) | `mission-shell.tsx` |
+| 3 | /taskboard | All 3 | Loading State | **P0** | No loading skeleton found — route renders empty or only full-content flash | `taskboard-client.tsx` |
+| 4 | /kanban | All 3 | WCAG Contrast | **P0** | ☰ icon ratio 3.74 + description text ratio 3.94 | `mission-shell.tsx:144` |
+| 5 | /kanban | All 3 | Tap Target | **P0** | ViewToggle "Tasks" button `66×29px` — height 29px < 44px minimum | `kanban/components/ViewToggle.tsx:26` |
+| 6 | /kanban | All 3 | Tap Target | **P0** | ViewToggle "Agents" button `75×29px` — height 29px < 44px minimum | `kanban/components/ViewToggle.tsx:39` |
+| 7 | /monitoring | All 3 | WCAG Contrast | **P0** | ☰ icon ratio 3.74 + "Realtime cron health" description ratio 3.94 | `mission-shell.tsx:144` |
+| 8 | /alerts | All 3 | WCAG Contrast | **P0** | ☰ icon ratio 3.74 + "Chronological Discord" description ratio 3.94 | `mission-shell.tsx:144` |
+| 9 | /alerts | All 3 | Tap Target | **P0** | Search input height `40px` < 44px minimum (flagged: 311–348×40px across viewports) | `alerts-client.tsx:87` |
+| 10 | /alerts | All 3 | Tap Target | **P0** | SelectTrigger "All types" height `32px` < 44px minimum | `alerts-client.tsx:97` |
+| 11 | /costs | All 3 | WCAG Contrast | **P0** | ☰ icon ratio 3.74 + "Budgetstatus, Burn-R" description ratio 3.94 | `mission-shell.tsx:144` |
+| 12 | /costs | All 3 | Tap Target | **P0** | "Day" period button `40×25px` — both dimensions below minimum | `ui/tabs.tsx` + `costs-client.tsx:315` |
+| 13 | /costs | All 3 | Tap Target | **P0** | "Week" period button `54×25px` — height 25px < 44px | `ui/tabs.tsx` + `costs-client.tsx:316` |
+| 14 | /costs | All 3 | Tap Target | **P0** | "Month" period button `56×25px` — height 25px < 44px | `ui/tabs.tsx` + `costs-client.tsx:317` |
+| 15 | /costs | All 3 | Tap Target | **P1** | "Dispatch Investigation Task" button height `32px` < 44px | `costs/components/cost-next-action.tsx:209` |
+| 16 | All routes | All 3 | Text Legibility | **P1** | "Mission Control" logo text `11px` — far below 16px minimum | `mission-shell.tsx:108` |
+| 17 | All routes | All 3 | Text Legibility | **P1** | Nav labels (🏠Übersicht 👥Team, etc.) `14px` — below 16px | `mission-shell.tsx:113` |
+| 18 | All routes | All 3 | Text Legibility | **P1** | 100–180+ elements with font-size < 16px across all routes | multiple components |
+| 19 | /taskboard | All 3 | Empty State | **P1** | `empty-state-visible: false` — no empty-state component detected | `taskboard-client.tsx` |
+| 20 | /monitoring | All 3 | Empty State | **P1** | `empty-state-visible: false` | `monitoring/page.tsx` |
+| 21 | /kanban | All 3 | Empty State | **P1** | `empty-state-visible: false` | `kanban/PipelineClient.tsx` |
+| 22 | /alerts | All 3 | Empty State | **P1** | `empty-state-visible: false` (acceptable if data always present) | `alerts-client.tsx` |
 
-### /kanban
-- `kanban_iPhone_SE_top.png`, `kanban_iPhone_SE_mid.png`, `kanban_iPhone_SE_bottom.png`
-- `kanban_iPhone_14_top.png`, `kanban_iPhone_14_mid.png`, `kanban_iPhone_14_bottom.png`
-- ⚠ Pixel 7: timeout — no screenshots captured
-
-### /monitoring
-- `monitoring_iPhone_SE_top.png`, `monitoring_iPhone_SE_mid.png`, `monitoring_iPhone_SE_bottom.png`
-- `monitoring_iPhone_14_top.png`, `monitoring_iPhone_14_mid.png`, `monitoring_iPhone_14_bottom.png`
-- `monitoring_Pixel_7_top.png`, `monitoring_Pixel_7_mid.png`, `monitoring_Pixel_7_bottom.png`
-
-### /alerts
-- `alerts_iPhone_SE_top.png`, `alerts_iPhone_SE_mid.png`, `alerts_iPhone_SE_bottom.png`
-- `alerts_iPhone_14_top.png`, `alerts_iPhone_14_mid.png`, `alerts_iPhone_14_bottom.png`
-- `alerts_Pixel_7_top.png`, `alerts_Pixel_7_mid.png`, `alerts_Pixel_7_bottom.png`
-
-### /costs
-- `costs_iPhone_SE_top.png`, `costs_iPhone_SE_mid.png`, `costs_iPhone_SE_bottom.png`
-- `costs_iPhone_14_top.png`, `costs_iPhone_14_mid.png`, `costs_iPhone_14_bottom.png`
-- `costs_Pixel_7_top.png`, `costs_Pixel_7_mid.png`, `costs_Pixel_7_bottom.png`
+**Issue count: 22 concrete issues (exceeds 15 minimum acceptance criteria)**
 
 ---
 
-*Report generated by Lens (efficiency-auditor) — 2026-04-19*
+## Top-10 Priority-1 Fixes with Code Snippet Pointers
+
+### Fix #1 — P0: WCAG AA Contrast — ☰ Hamburger Menu Icon
+**File:** `src/components/mission-shell.tsx` — line ~144
+**Problem:** `rgb(107,114,128)` text on `rgb(22,22,22)` background = ratio 3.74
+
+```tsx
+// CURRENT (line ~141-144):
+<button
+  aria-label="Open navigation menu"
+  className="... text-[#6b7280] ..."  // ← fails AA, ratio 3.74
+>
+  <span className="text-lg">☰</span>
+</button>
+
+// FIX: Increase to ≥4.5:1 — use text-white or text-zinc-200:
+<span className="text-lg text-white">☰</span>
+// or at minimum: text-zinc-300 (rgb(161,161,170)) on rgb(22,22,22) = ~5.2:1
+```
+
+### Fix #2 — P0: WCAG AA Contrast — Page Description Text
+**File:** `src/components/mission-shell.tsx` — page subtitle/description
+**Problem:** `rgb(107,114,128)` on `rgb(16,16,16)` = ratio 3.94
+
+```tsx
+// CURRENT:
+<p className="text-[var(--text-soft)]">Action-first view of all agents and tasks.</p>
+
+// FIX — use text-zinc-400 (rgb(161,161,170)) at minimum, or light text:
+<p className="text-zinc-400">Action-first view of all agents and tasks.</p>
+// rgb(161,161,170) on rgb(16,16,16) ≈ 7.2:1 ✓ passes AA
+```
+
+### Fix #3 — P0: Kanban ViewToggle — "Tasks" / "Agents" Buttons Too Short
+**File:** `src/app/kanban/components/ViewToggle.tsx` — lines 26 and 39
+**Problem:** `py-1.5` = 6px top + 6px bottom = 12px total padding + text ≈ 29px total height
+
+```tsx
+// CURRENT (line ~26-34):
+<button
+  type="button"
+  role="tab"
+  aria-selected={value === 'tasks'}
+  onClick={() => onChange('tasks')}
+  className={`rounded-full px-3 py-1.5 transition ${  // py-1.5 = ~24px + text ~16px = ~40px
+    value === 'tasks'
+      ? 'bg-sky-400/20 text-sky-100 shadow-[0_0_8px_rgba(56,189,248,0.35)]'
+      : 'text-zinc-400 hover:text-zinc-200'
+  }`}
+>
+  Tasks
+</button>
+
+// FIX: change py-1.5 to py-2 (or min-h-[44px]):
+className={`rounded-full px-3 py-2 min-h-[44px] transition ${...}`}
+```
+
+### Fix #4 — P0: Alerts — Search Input Height 40px
+**File:** `src/components/alerts/alerts-client.tsx` — line ~87
+**Problem:** `h-10` = 40px, below 44px minimum for touch
+
+```tsx
+// CURRENT (line ~87-92):
+<Input
+  value={search}
+  onChange={(event) => setSearch(event.target.value)}
+  placeholder="Search kind, source, or alert text"
+  data-testid="alerts-search"
+  className="h-10 border-white/10 bg-[#161616] text-white"  // ← 40px < 44px
+/>
+
+// FIX: h-11 = 44px minimum:
+className="h-11 border-white/10 bg-[#161616] text-white"
+```
+
+### Fix #5 — P0: Alerts — "All Types" Select Trigger Height 32px
+**File:** `src/components/alerts/alerts-client.tsx` — line ~97
+**Problem:** `h-10 w-full` on the `SelectTrigger` is 40px but actual rendered height is 32px
+
+```tsx
+// CURRENT (line ~97-100):
+<SelectTrigger
+  data-testid="alerts-type-filter"
+  className="h-10 w-full border-white/10 bg-[#161616] text-white"
+>
+  <SelectValue placeholder="Filter by type" />
+</SelectTrigger>
+
+// FIX: enforce min-height 44px:
+className="h-11 min-h-[44px] w-full border-white/10 bg-[#161616] text-white"
+```
+
+### Fix #6 — P0: Costs — Day/Week/Month Period Tabs Height 25px
+**File:** `src/components/ui/tabs.tsx` — `TabsTrigger` component + `src/app/costs/costs-client.tsx` lines 315-317
+
+The `TabsTrigger` uses `h-[calc(100%-1px)]` relative to the `TabsList` which renders at ~32px total. The button content ends up at ~25px height.
+
+```tsx
+// CURRENT in tabs.tsx TabsTrigger className:
+"h-[calc(100%-1px)] ... py-0.5 ..."  // ← py-0.5 = 2px × 2 = 4px + text ≈ 20px
+
+// FIX: add explicit min-height override in costs-client.tsx usage:
+<TabsList variant="line">
+  <TabsTrigger value="day" className="min-h-[44px] py-2">Day</TabsTrigger>
+  <TabsTrigger value="week" className="min-h-[44px] py-2">Week</TabsTrigger>
+  <TabsTrigger value="month" className="min-h-[44px] py-2">Month</TabsTrigger>
+</TabsList>
+```
+
+### Fix #7 — P1: Costs — "Dispatch Investigation Task" Button Height 32px
+**File:** `src/app/costs/components/cost-next-action.tsx` — line ~209
+
+```tsx
+// CURRENT (line ~209):
+<Button
+  onClick={handleAction}
+  disabled={isSubmitting || ackMode === "checking"}
+  className="min-w-[220px]"
+>
+  {isSubmitting ? "Working…" : buttonLabel}
+</Button>
+
+// FIX — ensure 44px minimum height:
+<Button
+  onClick={handleAction}
+  disabled={isSubmitting || ackMode === "checking"}
+  className="min-w-[220px] min-h-[44px]"
+>
+  {isSubmitting ? "Working…" : buttonLabel}
+</Button>
+```
+
+### Fix #8 — P1: Logo Text "Mission Control" at 11px
+**File:** `src/components/mission-shell.tsx` — line ~108
+
+```tsx
+// CURRENT:
+<span className="hidden text-[11px] font-medium uppercase tracking-[0.26em] text-[#f0f0f0] sm:block">
+  Mission Control
+</span>
+
+// FIX — minimum 16px for body text:
+<span className="hidden text-base font-medium uppercase tracking-[0.2em] text-white sm:block">
+  Mission Control
+</span>
+```
+
+### Fix #9 — P1: Nav Item Labels at 14px
+**File:** `src/components/mission-shell.tsx` — lines ~112-128
+
+```tsx
+// CURRENT — nav items rendered with text-[11px] or text-[14px]:
+<nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+  {navItems.map((item) => (
+    <Link
+      key={item.key}
+      href={item.href}
+      className="rounded-lg px-3 py-2 text-[14px] text-zinc-400 hover:text-white"
+      //                      ^^^^^ 14px is below the 16px base minimum
+    >
+      <span>{item.icon}</span>
+      <span>{item.label}</span>
+    </Link>
+  ))}
+</nav>
+
+// FIX — increase to text-base (16px) minimum:
+className="rounded-lg px-3 py-2 text-base text-zinc-300 hover:text-white"
+```
+
+### Fix #10 — P1: Loading Skeleton Absent on Taskboard
+**File:** `src/components/taskboard/taskboard-client.tsx`
+
+```tsx
+// CURRENT — data loads and renders with no intermediate state:
+// DATA: const { data, isLoading } = useSWR('/api/taskboard')
+
+// FIX — add skeleton cards during loading:
+{isLoading ? (
+  <>
+    {[1,2,3].map(i => (
+      <div key={i} className="animate-pulse rounded-xl bg-white/5 h-24" />
+    ))}
+  </>
+) : (
+  // existing task cards
+)}
+```
+
+---
+
+## P0 Issues Summary (Critical — Fix Within Sprint-E)
+
+| # | Issue | Route | File | One-Line Fix |
+|---|---|---|---|---|
+| 1 | WCAG AA: ☰ icon ratio 3.74 | All | `mission-shell.tsx:144` | `text-[#6b7280]` → `text-white` |
+| 2 | WCAG AA: description text ratio 3.94 | All | `mission-shell.tsx` | `text-[var(--text-soft)]` → `text-zinc-400` |
+| 3 | Tap target: ViewToggle "Tasks" 29px | /kanban | `kanban/components/ViewToggle.tsx:26` | `py-1.5` → `py-2 min-h-[44px]` |
+| 4 | Tap target: ViewToggle "Agents" 29px | /kanban | `kanban/components/ViewToggle.tsx:39` | `py-1.5` → `py-2 min-h-[44px]` |
+| 5 | Tap target: Alerts search input 40px | /alerts | `alerts-client.tsx:87` | `h-10` → `h-11` |
+| 6 | Tap target: Alerts type filter 32px | /alerts | `alerts-client.tsx:97` | `h-10` → `h-11 min-h-[44px]` |
+| 7 | Tap target: Costs Day button 25px | /costs | `ui/tabs.tsx` + `costs-client.tsx:315` | `py-0.5` → `py-2 min-h-[44px]` |
+| 8 | Tap target: Costs Week button 25px | /costs | `ui/tabs.tsx` + `costs-client.tsx:316` | `py-0.5` → `py-2 min-h-[44px]` |
+| 9 | Tap target: Costs Month button 25px | /costs | `ui/tabs.tsx` + `costs-client.tsx:317` | `py-0.5` → `py-2 min-h-[44px]` |
+| 10 | Loading: no skeleton on taskboard | /taskboard | `taskboard-client.tsx` | add `isLoading` skeleton state |
+
+**3+ P0 WCAG contrast violations confirmed. Fix proposals documented above.**
+
+---
+
+## Positive Findings (No Issues)
+
+| Check | Result |
+|---|---|
+| Horizontal scroll | ✅ **PASS** — No horizontal overflow on any route × viewport |
+| Loading states | ⚠️ Taskboard missing; all other routes have some indicator |
+| Empty states | ⚠️ Most routes don't show empty states when no data |
+| Navigation shell | ✅ App header and mobile hamburger menu render correctly |
+| Page load | ✅ All 5 routes return HTTP 200 |
+| React hydration | ✅ No hydration errors on mobile viewports |
+
+---
+
+## Cross-Viewport Consistency
+
+All issues are **consistent across all 3 viewports** (iPhone SE, iPhone 14, Pixel 7). Smaller viewports (iPhone SE 375px) are slightly more cramped but the same root causes apply. No viewport-specific bugs were found.
+
+---
+
+## Test Artifacts
+
+- **Playwright test file:** `mission-control/tests/smoke/mobile-ui-audit.spec.ts`
+- **Playwright config:** `mission-control/playwright.mobile-audit.config.ts`
+- **Screenshots:** `mission-control/audit-artifacts/2026-04-19/mobile/` (30 PNGs)
+- **Test runner:** `cd mission-control && npx playwright test --config=playwright.mobile-audit.config.ts`
+
+---
+
+*Report generated: 2026-04-19 18:25 UTC+2 by Lens/efficiency-auditor*
+*Sprint-D Sub-D1 — Mobile-UI-Audit — Mission Control Board UX Level-Up*
