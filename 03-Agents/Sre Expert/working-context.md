@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b5e39925-ccca-4e17-b261-316a18e8f84c [Sprint-B/B2-B4] Mem0 Extraction + Config + Pre-Compact Hook
+- task: 325413eb-3fe3-46dc-bbe7-e4766d32dae7 [WK-Follow-up] Receipt result without summary must not auto-complete silently
 - stage: DONE
 - next: await next assignment
-- checkpoint: Sprint-B B2-B4 complete. Script, config, and compact hook successfully executed.
+- checkpoint: WK-Follow-up complete: Receipt result without summary handled; task is now done.
 - blocker: -
-- updated: 2026-04-19T15:28:16.297Z
+- updated: 2026-04-19T16:16:17.150Z
 <!-- mc:auto-working-context:end -->
