@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 37dbc58f-ba25-40a5-96e4-5be57c5c57d3 Sprint-K H7: mc-restart-safe Wrapper + Deploy-Queue-Lock
-- stage: DONE
-- next: await next assignment
-- checkpoint: H7 erledigt: /home/piet/.local/bin/mc-restart-safe erstellt (chmod +x), Locking per flock aktiv; Paralleltest zeigte erwartetes lock held (rc=2).
+- task: 71264c14-07aa-4918-8d15-575e186e2230 Sprint-K H4: Concurrent-Subagent-Limit
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: openclaw.json geprüft: defaults.maxConcurrent=2 bestätigt, sre-expert.maxConcurrent nicht gesetzt, R42/R46 mc-restart-safe in agents.defaults.systemPrompt ergänzt
 - blocker: -
-- updated: 2026-04-20T04:48:57.128Z
+- updated: 2026-04-20T05:32:25.042Z
 <!-- mc:auto-working-context:end -->

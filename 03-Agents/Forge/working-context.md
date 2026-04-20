@@ -71,10 +71,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ef1c3bae-72e9-4176-b658-6fc0cdbfc641 [Task-Tab A2] NBA-Regel reaktiv auf FAILED/REVIEW
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS=success. NBA now resolves reactively to failed/review/blocked before all-clear; verification confirms failed-first behavior and green build.
+- task: 02f9d4b4-da10-486d-847f-03d08a73d398 Sprint-K H6: Receipt-Lifecycle-Enforcement
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Forge schreibt H6 Abschluss-Details
 - blocker: -
-- updated: 2026-04-19T06:44:08.693Z
+- updated: 2026-04-20T05:14:37.035Z
 <!-- mc:auto-working-context:end -->
