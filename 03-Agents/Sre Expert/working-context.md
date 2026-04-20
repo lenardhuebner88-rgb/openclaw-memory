@@ -67,7 +67,7 @@ Headers: x-actor-kind: automation
 - task: 855153b6-07b4-4203-9be1-0be540099fe9 Sprint-L L1 Finalize: KB-Compiler LLM-Synthesis Commit + Cron + First-Run Verification
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Commit erledigt: kb-compiler-llm-synth.py + kb-compiler.py committed, SHA cfbd32fa verifiziert via git log -1.
+- checkpoint: Cron installiert (30 4 * * * ...kb-compiler-llm-synth.py). First-run ist gestartet und laeuft aktuell.
 - blocker: -
-- updated: 2026-04-20T06:54:13.377Z
+- updated: 2026-04-20T07:09:20.562Z
 <!-- mc:auto-working-context:end -->

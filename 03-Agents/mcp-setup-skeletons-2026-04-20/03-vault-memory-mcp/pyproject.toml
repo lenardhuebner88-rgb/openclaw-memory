@@ -1,0 +1,15 @@
+[project]
+name = "vault-memory-mcp"
+version = "0.1.0"
+description = "MCP server exposing OpenClaw memory layer to Claude Code"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.0.0",
+]
+
+[project.scripts]
+vault-memory-mcp = "server:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

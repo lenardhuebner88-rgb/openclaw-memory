@@ -1,0 +1,64 @@
+{
+  "_comment": "Copy this file to <project-root>/.claude/settings.local.json and adjust paths.",
+  "_paths_reference": {
+    "windows_sshfs": "\\\\sshfs\\piet@homeserver\\home\\piet",
+    "wsl_sshfs": "/home/<your-user>/homeserver",
+    "native_linux": "/home/piet"
+  },
+
+  "mcp": {
+    "servers": {
+      "fs-homeserver": {
+        "_purpose": "Filesystem access to vault and workspace via SSHFS mount",
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem",
+          "\\\\sshfs\\piet@homeserver\\home\\piet\\vault",
+          "\\\\sshfs\\piet@homeserver\\home\\piet\\.openclaw\\workspace"
+        ],
+        "env": {}
+      },
+
+      "vault-memory": {
+        "_purpose": "Query OpenClaw memory layer (facts, rules, graph edges)",
+        "command": "python",
+        "args": [
+          "C:\\Users\\Lenar\\.claude\\mcp-servers\\vault-memory-mcp\\server.py"
+        ],
+        "env": {
+          "VAULT_MEMORY_WORKSPACE": "\\\\sshfs\\piet@homeserver\\home\\piet\\.openclaw\\workspace"
+        }
+      }
+    }
+  },
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude\\hooks\\pre-dispatch-gate.sh",
+            "timeout_ms": 30000,
+            "_note": "Only activates for commands matching 'sprint-dispatch' or '/api/tasks/*/dispatch'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude\\hooks\\post-config-write-verify.sh",
+            "timeout_ms": 15000,
+            "_note": "Only activates after commands that touch openclaw.json"
+          }
+        ]
+      }
+    ]
+  }
+}
