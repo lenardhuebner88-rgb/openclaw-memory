@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8c4dd5d5-1cd0-4488-a055-48ca1996e049 Sprint-K H13: Schema-Validation-Gate + Auto-Pickup Silent-Fail-Detection + Config-in-Git-Path
-- stage: START
-- next: continue current task
-- checkpoint: -
+- task: 92cef72c-9dae-4687-8627-ef2b52cf52de Sprint-K H12: Board-State-Machine Bug-Fix — /complete guard + admin-close semantic + canceled-to-done recovery
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS: done. Bug A fixed: worker terminal guard now bypasses when no workerSessionId and receiptStage in progress/result/failed/blocked (src/lib/task-terminal-guards.ts). Bug B fixed: admin-close supports over
 - blocker: -
-- updated: 2026-04-20T08:31:40.437Z
+- updated: 2026-04-20T09:07:25.644Z
 <!-- mc:auto-working-context:end -->
