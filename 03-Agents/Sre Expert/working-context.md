@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8c42b0e2-f360-45ac-9227-56988c93fe5d Sprint N.3d — Subagent Timeout Root Cause
-- stage: CHECKPOINT
+- task: 3b35b736-44db-4426-b5bf-23d7c4aad32b [P1][Follow-up][Forge] Timeout-Retry-Session-Isolation + Kill-Telemetrie härten
+- stage: START
 - next: continue current task
-- checkpoint: Milestone: Pattern+Artefakte geprüft. 2m25-Fall korreliert mit Task 558ea42f (accepted 18:51:38, failed run 18:54:00, retry, success 18:54:33). Worker-monitor zeigt state-wipe/orphan handling, nicht OOM.
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-20T19:17:48.232Z
+- updated: 2026-04-20T19:39:49.057Z
 <!-- mc:auto-working-context:end -->
