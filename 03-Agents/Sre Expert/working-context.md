@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c7d9aa4f-68f7-446a-b216-806fa5890870 [Sprint-M v1.2.1 M5a] cron-reconciler.py READ-ONLY diff + validator
+- task: e6e5b22a-2ce5-4f37-89d6-53a8e1afef39 [Sprint-M v1.2.1 M7] top-5 kernel crons to systemd-user timers
 - stage: DONE
 - next: await next assignment
-- checkpoint: cron-reconciler.py shipped as read-only dry-run validator. apply rejected with exit 3. Clean fixture exit 0, drift fixture exit 1, error path exit 2. Live dry-run currently reports drift vs M4 crontab changes, indicating
+- checkpoint: M7 complete: 5 services + 5 timers created and enabled, service policy verified, timer policy Persistent=true verified, safe cutover completed with no overlap, rollback script and pointer created, registry updated to sys
 - blocker: -
-- updated: 2026-04-20T21:52:18.147Z
+- updated: 2026-04-20T22:21:08.260Z
 <!-- mc:auto-working-context:end -->
