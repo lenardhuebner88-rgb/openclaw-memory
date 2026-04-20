@@ -1806,3 +1806,18 @@ Key Finding — Auto-Retry Reset: After failed state + backoff expiry, system au
 DoD: 13/14 checks passed. 1 cosmetic artifact: lastReportedStatus=failed persists after successful retry (display-only, task terminal state is correct).
 
 Full Evidence: /tmp/sprint-n-workstream-e-evidence.md
+- 2026-04-20T17:25:43.060Z | START | 8aab6154-a19f-41d1-af0a-791ea207397f | Sprint-O Workstream 1: Analysis — lastReportedStatus Root Cause | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-20T17:25:45.189Z | START | 51ac5b3e-a9ab-4a83-8f4b-4c7c66789115 | Sprint-O Workstream 2: Fix — lastReportedStatus in terminalPatch | worker=sre-expert | progress=- | summary=-
+- 2026-04-20T17:26:26.102Z | DONE | 51ac5b3e-a9ab-4a83-8f4b-4c7c66789115 | Sprint-O Workstream 2: Fix — lastReportedStatus in terminalPatch | worker=sre-expert | progress=- | summary=Dual-Fix umgesetzt und typecheck gruen. Belege: mission-control/src/app/api/tasks/[id]/complete/route.ts:116-117 -> lastReportedStatus: 'result' as const, lastReportedAt: now; mission-control/src/app/api/tasks/[id]/receipt/route.ts:521-522 -> lastReportedStatus: 'result' as const, lastReportedAt: now. Validation: npm --prefix mission-control run -s typecheck erfolgreich.
+- 2026-04-20T17:28:55.506Z | DONE | 8aab6154-a19f-41d1-af0a-791ea207397f | Sprint-O Workstream 1: Analysis — lastReportedStatus Root Cause | worker=efficiency-auditor | progress=- | summary=RESULT_STATUS: done
+
+ARTIFAKT: /home/piet/.openclaw/workspace/memory/working/sprint-o-ws1-analysis-2026-04-20.md
+
+ROOT_CAUSE:
+complete/route.ts und receipt/route.ts setzen lastReportedStatus NICHT im terminalPatch. Wird nur durch emitTaskLifecycleReport() (side-effect) gesetzt. Bei Deduplizierung bleibt lastReportedStatus beim alten Wert.
+
+FIX_MATRIX:
+A) complete/route.ts terminalPatch lastReportedStatus=result — MAHEN
+B) receipt/route.ts stage=result Patch lastReportedStatus=result — MAHEN
+C) recovery-action/route.ts Z179-180: lastReportedStatus=undefined bei Retry — bereits korrekt
+D) Deduplizierung aendern — nicht noetig

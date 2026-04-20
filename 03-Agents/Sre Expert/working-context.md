@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 74fb56ff-fad6-47ec-83af-e4f05b6adcb7 Sprint-N Workstream D: Terminal Audit Parity — terminale Pfade audit-gleich machen
+- task: 51ac5b3e-a9ab-4a83-8f4b-4c7c66789115 Sprint-O Workstream 2: Fix — lastReportedStatus in terminalPatch
 - stage: DONE
 - next: await next assignment
-- checkpoint: Workstream D erledigt: lifecycle-receipt-result Audit-Event in /complete und /receipt(result) ergänzt, report-deduplicated Event bei 24h Lifecycle-Suppress ergänzt, Retry-Prime härtet Report-Reset mit threadId/threadErro
+- checkpoint: Dual-Fix umgesetzt und typecheck gruen. Belege: mission-control/src/app/api/tasks/[id]/complete/route.ts:116-117 -> lastReportedStatus: 'result' as const, lastReportedAt: now; mission-control/src/app/api/tasks/[id]/recei
 - blocker: -
-- updated: 2026-04-20T16:47:27.490Z
+- updated: 2026-04-20T17:26:26.104Z
 <!-- mc:auto-working-context:end -->

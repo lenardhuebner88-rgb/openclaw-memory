@@ -7,12 +7,15 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 68ef7505-86cd-4aaa-a080-097bc0d6faf1 Sprint-N Workstream E: Controlled Regression — 2 E2E-Fälle nachweisen
+- task: 8aab6154-a19f-41d1-af0a-791ea207397f Sprint-O Workstream 1: Analysis — lastReportedStatus Root Cause
 - stage: DONE
 - next: await next assignment
-- checkpoint: FALL 1 (Happy Path): Task a663a552 done. status=done, dispatchState=completed, executionState=done, lastReportedStatus=result, receiptStage=result.
+- checkpoint: RESULT_STATUS: done
 
-FALL 2 (Fail->Retry->Success): Task 1c26c034 done. status=done, dispatc
+ARTIFAKT: /home/piet/.openclaw/workspace/memory/working/sprint-o-ws1-analysis-2026-04-20.md
+
+ROOT_CAUSE:
+complete/route.ts und receipt/route.ts setzen lastReportedStatus NICHT im terminalPatch. Wird 
 - blocker: -
-- updated: 2026-04-20T16:56:22.071Z
+- updated: 2026-04-20T17:28:55.509Z
 <!-- mc:auto-working-context:end -->
