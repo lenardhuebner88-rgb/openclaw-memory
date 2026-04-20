@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 55cf61a2-ece7-496b-a72f-aaf375f9bbd9 Sprint-K H2: Tool-Allowlist statt Denylist
-- stage: CHECKPOINT
+- task: 9d15b528-6cc5-4929-bace-642a5b30039d Sprint-K H11 (neu): Session-Lock-Governance + Auto-Pickup-Awareness + R50 Rule
+- stage: START
 - next: continue current task
-- checkpoint: Result-Receipt versucht, API lieferte terminal-transition-conflict (Task bleibt status=assigned, dispatchState=queued). Fachliche Änderungen sind fertig; Abschluss braucht Board-Status-Transition in pending-pickup/in-pro
-- blocker: -
-- updated: 2026-04-20T05:59:03.612Z
+- checkpoint: -
+- blocker: Receipt timeout: pending-pickup >10min without active run, no subagent run found in runs.json
+- updated: 2026-04-20T06:34:17.702Z
 <!-- mc:auto-working-context:end -->
