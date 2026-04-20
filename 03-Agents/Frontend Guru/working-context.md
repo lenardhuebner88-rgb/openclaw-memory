@@ -65,10 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c13d55ba-0b4c-4f26-8446-c7b8d4a3be49 Sprint-I I4: Mobile Command-Palette (FAB + Full-Screen-Sheet)
-- stage: DONE
+- task: b5f27a85-8eb7-4689-9216-d54e326e72f3 Sprint-M P1: Implement Taskboard v2 Mobile-First from Claude Design Handoff
+- stage: FAILED
 - next: await next assignment
-- checkpoint: I4 fertig: CommandPalette auf Mobile als Full-Screen-Sheet umgebaut. FAB unten rechts nur auf Mobile sichtbar, mit Offset bei aktivem Bulk-Mode. Triple-Tap auf die Top-Bar öffnet die Palette. Recent-Search-Chips unter de
-- blocker: -
-- updated: 2026-04-19T21:49:12.301Z
+- checkpoint: No progress for 7m (hard-threshold=5m). Auto-failed by worker-monitor.
+- blocker: No progress for 7m (hard-threshold=5m). Auto-failed by worker-monitor.
+- updated: 2026-04-20T09:15:02.482Z
 <!-- mc:auto-working-context:end -->
