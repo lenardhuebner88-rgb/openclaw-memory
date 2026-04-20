@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9327310f-b2fa-4234-aaea-30e105770c37 Forge: session-size-guard.py für Atlas-Main-Session-Guard
-- stage: DONE
-- next: await next assignment
-- checkpoint: session-size-guard.py umgesetzt: Hybrid-Thresholds (600KB/150, 900KB/200, 1.1MB/250), Discord-Alerts nach #atlas-main, Immediate-Trigger via Gateway-Log-Scan, Cron aktiviert (*/5 full + * immediate log-only), Smoke-Test 
+- task: 897bc8d3-afd1-4ee8-8d04-a660ef50ffa6 Forge: Session-Guard v4 — UTC-Timestamp-Deprecation im Self-Test beseitigen
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-20T20:17:20.771Z
+- updated: 2026-04-20T20:50:38.863Z
 <!-- mc:auto-working-context:end -->
