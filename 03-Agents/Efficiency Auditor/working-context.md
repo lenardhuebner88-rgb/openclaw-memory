@@ -7,16 +7,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e6c349a0-9c27-477e-b35c-6de9018c7240 Sprint-N Workstream A: Evidence Freeze — Lifecycle-Probleme belegen
+- task: 68ef7505-86cd-4aaa-a080-097bc0d6faf1 Sprint-N Workstream E: Controlled Regression — 2 E2E-Fälle nachweisen
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done
+- checkpoint: FALL 1 (Happy Path): Task a663a552 done. status=done, dispatchState=completed, executionState=done, lastReportedStatus=result, receiptStage=result.
 
-ARTIFAKT: /home/piet/.openclaw/workspace/memory/working/sprint-n-workstream-a-evidence-freeze-2026-04-20.md
-
-5_PROBLEM_BEREICHE_BELEGT:
-
-1. [worker-monitor.py:49-52] STALL_WARN=2m / STALL_HARD=5m (in
+FALL 2 (Fail->Retry->Success): Task 1c26c034 done. status=done, dispatc
 - blocker: -
-- updated: 2026-04-20T16:35:16.320Z
+- updated: 2026-04-20T16:56:22.071Z
 <!-- mc:auto-working-context:end -->

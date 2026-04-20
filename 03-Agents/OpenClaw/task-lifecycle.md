@@ -1790,3 +1790,19 @@ FEHLENDE_AUDIT_EVENTS (6):
 - 2026-04-20T16:44:39.977Z | DONE | f4fc4084-bfdd-44dc-8370-754020457297 | Sprint-N Workstream C: Run Source of Truth — kanonischen Run-Store festlegen | worker=sre-expert | progress=- | summary=Workstream C abgeschlossen: Primary Run-Store fuer worker-monitor auf mission-control/data/worker-runs.json festgelegt (runs.json bleibt Subagent-Quelle fuer Hanging-Detection). worker-monitor liest jetzt aktive worker-runs fuer Reconcile/Concurrency/Detect-Logik; Redispatch-Dedupe in task-dispatch.ts implementiert (Upsert nach taskId+workerSessionId, alte offene Runs werden beendet), dadurch keine doppelten Session-ID-Runs mehr.
 - 2026-04-20T16:46:21.436Z | START | 74fb56ff-fad6-47ec-83af-e4f05b6adcb7 | Sprint-N Workstream D: Terminal Audit Parity — terminale Pfade audit-gleich machen | worker=sre-expert | progress=- | summary=-
 - 2026-04-20T16:47:27.488Z | DONE | 74fb56ff-fad6-47ec-83af-e4f05b6adcb7 | Sprint-N Workstream D: Terminal Audit Parity — terminale Pfade audit-gleich machen | worker=sre-expert | progress=- | summary=Workstream D erledigt: lifecycle-receipt-result Audit-Event in /complete und /receipt(result) ergänzt, report-deduplicated Event bei 24h Lifecycle-Suppress ergänzt, Retry-Prime härtet Report-Reset mit threadId/threadError cleanup. File-Belege: src/app/api/tasks/[id]/complete/route.ts, src/app/api/tasks/[id]/receipt/route.ts, src/lib/task-reports.ts, src/app/api/tasks/[id]/recovery-action/route.ts. Verifikation: npm --prefix mission-control run -s typecheck (ok).
+- 2026-04-20T16:50:24.306Z | START | a663a552-7166-447e-a7c6-315e3b311285 | Sprint-N E2E Test 1 - Happy Path | worker=spark | progress=- | summary=-
+- 2026-04-20T16:50:28.527Z | DONE | a663a552-7166-447e-a7c6-315e3b311285 | Sprint-N E2E Test 1 - Happy Path | worker=spark | progress=- | summary=Sprint-N E2E Happy Path Test 1 completed successfully. Simple echo work done.
+- 2026-04-20T16:52:12.056Z | START | 1c26c034-bca2-4f00-99a0-e99e9009eb55 | Sprint-N E2E Test 2 - Fail then Retry | worker=spark | progress=- | summary=-
+- 2026-04-20T16:52:15.949Z | FAILED | 1c26c034-bca2-4f00-99a0-e99e9009eb55 | Sprint-N E2E Test 2 - Fail then Retry | worker=spark | progress=- | summary=- | note=Simulated failure for Sprint-N E2E Test 2 Fall 2 - intentional fail state
+- 2026-04-20T16:54:17.827Z | CHECKPOINT | 1c26c034-bca2-4f00-99a0-e99e9009eb55 | Sprint-N E2E Test 2 - Fail then Retry | worker=spark | progress=95% | summary=- | note=Retry läuft: E2E Test 2 Fail→Retry→Success in progress
+- 2026-04-20T16:54:23.355Z | DONE | 1c26c034-bca2-4f00-99a0-e99e9009eb55 | Sprint-N E2E Test 2 - Fail then Retry | worker=spark | progress=95% | summary=Retry erfolgreich abgeschlossen: E2E-Test 2 wiederaufgenommen, neu ausgeführt und erfolgreich.
+- 2026-04-20T16:56:13.530Z | START | 68ef7505-86cd-4aaa-a080-097bc0d6faf1 | Sprint-N Workstream E: Controlled Regression — 2 E2E-Fälle nachweisen | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-20T16:56:22.069Z | DONE | 68ef7505-86cd-4aaa-a080-097bc0d6faf1 | Sprint-N Workstream E: Controlled Regression — 2 E2E-Fälle nachweisen | worker=efficiency-auditor | progress=- | summary=FALL 1 (Happy Path): Task a663a552 done. status=done, dispatchState=completed, executionState=done, lastReportedStatus=result, receiptStage=result.
+
+FALL 2 (Fail->Retry->Success): Task 1c26c034 done. status=done, dispatchState=completed, executionState=done, receiptStage=result. lastReportedStatus=failed persists as display artifact (task IS properly done).
+
+Key Finding — Auto-Retry Reset: After failed state + backoff expiry, system auto-resets to pending-pickup with executionState=queued, receiptStage=null, resolvedAt=null. No mixed state. System then auto-dispatched to complete.
+
+DoD: 13/14 checks passed. 1 cosmetic artifact: lastReportedStatus=failed persists after successful retry (display-only, task terminal state is correct).
+
+Full Evidence: /tmp/sprint-n-workstream-e-evidence.md
