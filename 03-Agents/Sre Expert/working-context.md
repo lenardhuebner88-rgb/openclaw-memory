@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 855153b6-07b4-4203-9be1-0be540099fe9 Sprint-L L1 Finalize: KB-Compiler LLM-Synthesis Commit + Cron + First-Run Verification
-- stage: CHECKPOINT
+- task: 8c4dd5d5-1cd0-4488-a055-48ca1996e049 Sprint-K H13: Schema-Validation-Gate + Auto-Pickup Silent-Fail-Detection + Config-in-Git-Path
+- stage: START
 - next: continue current task
-- checkpoint: Cron installiert (30 4 * * * ...kb-compiler-llm-synth.py). First-run ist gestartet und laeuft aktuell.
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-20T07:09:20.562Z
+- updated: 2026-04-20T08:31:40.437Z
 <!-- mc:auto-working-context:end -->
