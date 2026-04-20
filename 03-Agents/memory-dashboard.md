@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-04-19T21:29:12.374612+00:00
+last_generated: 2026-04-20T02:30:01.603404+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-04-19 21:29 UTC  
+**Last Generated:** 2026-04-20 02:30 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -18,10 +18,10 @@ auto_refresh: daily 04:30 UTC (cron)
 
 | Level | Component | Status | Notes |
 |---|---|---|---|
-| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 735 files indexed |
-| **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 257 facts, 46 rules |
-| **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1024 graph edges, 0 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-19T21:25:01Z] OK session=dd82eeec-d02 size=16598 tokens_est=4149 pct=2% |
+| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 762 files indexed |
+| **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 46 rules |
+| **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 2 retrieval-events logged |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-20T02:30:01Z] OK session=627e95fd-e2a size=4987 tokens_est=1246 pct=0% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -114,87 +114,61 @@ auto_refresh: daily 04:30 UTC (cron)
 - **R16** [active] V8-Heap-Limit muss explizit sein
 - **R17** [active] systemd MemoryMax > V8 Heap-Limit
 
-## 3. Facts Today (2026-04-19) — 257 total
+## 3. Facts Today (2026-04-20) — 0 total
 
-### Memory-Type
+*(no facts extracted today yet)*
 
-- `episodic`: 251
-- `reflective`: 5
-- `semantic`: 1
-
-### Category
-
-- `incident`: 251
-- `reflection`: 5
-- `delivery`: 1
-
-### Agent
-
-- `main`: 141
-- `sre-expert`: 104
-- `system`: 5
-- `spark`: 3
-- `frontend-guru`: 2
-- `efficiency-auditor`: 2
-
-### Top-5 High-Importance Facts Today
-
-- **[0.85]** Today's highest-importance facts:   - [0.77] - Mehrere operative Incidents gelöst, am Ende 0 offene Tasks und 0 failed.   - [0.77] **Sub-Pla
-- **[0.80]** Incident-Themes today (251 incidents): ['failed', 'output', 'contains', 'parity_check_failed', 'parity_check_error,']
-- **[0.76]** - Mehrere operative Incidents gelöst, am Ende 0 offene Tasks und 0 failed.
-- **[0.76]** **Sub-Plan A Status:** - A1 ✅ `b84ac186` done - A2 ✅ `515b940f` done - A3 ✅ `f1d6a4d4` done (Incident-Lane nur status=failed) A4 ('Later'→'A
-- **[0.76]** The `atlas-main` session (`agent:main:discord:channel:1486480128576983070`) has `status=failed`, `runtimeMs=0`, `startedAt > endedAt` — it c
-
-## 4. Facts All-Time — 257 total
+## 4. Facts All-Time — 287 total
 
 ### Last 7 Days
 
-- `2026-04-19`: 124
+- `2026-04-19`: 154
 - `2026-04-18`: 133
 
 ### Decay-Status
 
 - Low-importance (<0.3): 0 (0%)
-- High-importance (>0.7): 8
-- Schema v2: 257
+- High-importance (>0.7): 30
+- Schema v2: 287
 
 ## 5. KB Articles (Karpathy-style cross-refs)
 
-- [Atlas Hallucination Prevention](kb/atlas-hallucination-prevention.md) — 57 Zeilen
+- [Atlas Hallucination Prevention](kb/atlas-hallucination-prevention.md) — 64 Zeilen
 - [Board Hygiene & Lifecycle](kb/board-hygiene.md) — 62 Zeilen
-- [Build & Deploy Rules](kb/build-deploy-regeln.md) — 72 Zeilen
-- [Deploy Contracts & MC-Restart](kb/deploy-contracts.md) — 62 Zeilen
+- [Build & Deploy Rules](kb/build-deploy-regeln.md) — 74 Zeilen
+- [Deploy Contracts & MC-Restart](kb/deploy-contracts.md) — 70 Zeilen
 - [Incident Response & RCA](kb/incident-response.md) — 84 Zeilen
-- [Memory Architecture](kb/memory-architecture.md) — 48 Zeilen
+- [Memory Architecture](kb/memory-architecture.md) — 60 Zeilen
 - [Receipt Discipline](kb/receipt-discipline.md) — 80 Zeilen
-- [Scope Governance & operatorLock](kb/scope-governance.md) — 50 Zeilen
+- [Scope Governance & operatorLock](kb/scope-governance.md) — 57 Zeilen
 - [Sprint Orchestration](kb/sprint-orchestration.md) — 95 Zeilen
-- [Sub-Agent Coordination](kb/sub-agent-coordination.md) — 72 Zeilen
+- [Sub-Agent Coordination](kb/sub-agent-coordination.md) — 80 Zeilen
 
-## 6. Memory-Graph — 1024 edges
+## 6. Memory-Graph — 1279 edges
 
 ### Edges by Type
 
-- `related-to`: 720
-- `precedes`: 241
-- `supersedes`: 63
+- `related-to`: 933
+- `precedes`: 266
+- `supersedes`: 71
+- `caused-by`: 9
 
 ### Top-10 Most-Connected Facts (in-degree)
 
+- `967225ab2f8d` (22 in-edges) — Defense-Stack Pattern 2026-04-19: 12 automated cron-layers active für governance
+- `362e267df04c` (19 in-edges) — Rules-Stack erweitert auf R1-R49 (49 total) am 2026-04-19. Heute neu: R45 Sub-Ag
+- `c1d688578e59` (18 in-edges) — Atlas-main lief 2026-04-19 evening auf MiniMax-M2.7 statt Codex (primary offline
+- `5ee1ed4ac247` (18 in-edges) — Today's highest-importance facts:   - [1.00] R49 Atlas Anti-Hallucination Claim-
+- `26e954cf4d0d` (15 in-edges) — Sprint-L Memory-Level-3 MVPs deployed 2026-04-19 20:00-21:30 UTC: L1 KB-Compiler
+- `1f4f56a6a7d3` (13 in-edges) — Pre-Flight-Sprint-Dispatch Script deployed 2026-04-19 20:42 UTC mit 7 Gates: Atl
+- `5f8f0efea364` (13 in-edges) — Memory-Budget-Meter first real CRITICAL caught 2026-04-19 21:20 UTC: Atlas-sessi
 - `4257d42fb7d9` (13 in-edges) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/
 - `a48697e9b5ae` (13 in-edges) — Check C: orphaned NUR wenn dispatchState=dispatched AND execState not in active/
 - `9c16dbac1998` (13 in-edges) — If output contains PARITY_CHECK_FAILED or PARITY_CHECK_ERROR, reply with first 1
-- `f3051bebc125` (13 in-edges) — If output contains PARITY_CHECK_FAILED or PARITY_CHECK_ERROR, reply with first 1
-- `c1874c000f38` (13 in-edges) — If output contains PARITY_CHECK_FAILED or PARITY_CHECK_ERROR, reply with first 1
-- `670524f3646a` (13 in-edges) — If output contains PARITY_CHECK_FAILED or PARITY_CHECK_ERROR, reply with first 1
-- `158764a6c016` (13 in-edges) — If output contains PARITY_CHECK_FAILED or PARITY_CHECK_ERROR, reply with first 1
-- `babb817f7f30` (12 in-edges) — If output contains PARITY_CHECK_FAILED or PARITY_CHECK_ERROR, reply with first 1
-- `6ef35fed9adf` (12 in-edges) — If output contains PARITY_CHECK_FAILED or PARITY_CHECK_ERROR, reply with first 1
-- `1bfba500348a` (12 in-edges) — If output contains PARITY_CHECK_FAILED or PARITY_CHECK_ERROR, reply with first 1
 
 ## 7. Retrieval-Feedback (L3 reinforcement)
 
-- Total access-events logged: 0
+- Total access-events logged: 2
 
 ### Top-10 Most-Accessed Facts
 
@@ -203,33 +177,30 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-04-19T20:48:28Z] OK session=55c774a7-94a size=310175 tokens_est=77543 pct=51%
-[2026-04-19T20:50:01Z] CRITICAL session=dee5d735-6c6 size=642513 tokens_est=160628 pct=107%
-[2026-04-19T20:55:01Z] OK session=13ad19dc-04b size=289253 tokens_est=72313 pct=48%
-[2026-04-19T21:00:01Z] OK session=b2d0f4a7-07c size=210088 tokens_est=52522 pct=35%
-[2026-04-19T21:05:01Z] OK session=39f1c029-1db size=5459 tokens_est=1364 pct=0%
-[2026-04-19T21:10:01Z] OK session=b2d0f4a7-07c size=221177 tokens_est=55294 pct=36%
-[2026-04-19T21:15:01Z] OK session=b2d0f4a7-07c size=258761 tokens_est=64690 pct=43%
-[2026-04-19T21:20:01Z] CRITICAL session=48f8d0f0-2f0 size=2239098 tokens_est=559774 pct=373%
-[2026-04-19T21:25:01Z] OK session=dd82eeec-d02 size=16598 tokens_est=4149 pct=2%
+[2026-04-20T01:45:01Z] OK session=4fae4fc3-5e2 size=5108 tokens_est=1277 pct=0%
+[2026-04-20T01:50:01Z] CRITICAL session=48f8d0f0-2f0 size=2538715 tokens_est=634678 pct=423%
+[2026-04-20T01:55:01Z] CRITICAL session=48f8d0f0-2f0 size=2538715 tokens_est=634678 pct=423%
+[2026-04-20T02:00:01Z] CRITICAL session=48f8d0f0-2f0 size=2538715 tokens_est=634678 pct=423%
+[2026-04-20T02:05:01Z] CRITICAL session=d35ffda0-76c size=600459 tokens_est=150114 pct=100%
+[2026-04-20T02:10:01Z] OK session=5d15dacf-279 size=5118 tokens_est=1279 pct=0%
+[2026-04-20T02:15:01Z] OK session=5d15dacf-279 size=5118 tokens_est=1279 pct=0%
+[2026-04-20T02:20:01Z] OK session=627e95fd-e2a size=4987 tokens_est=1246 pct=0%
+[2026-04-20T02:25:01Z] OK session=627e95fd-e2a size=4987 tokens_est=1246 pct=0%
+[2026-04-20T02:30:01Z] OK session=627e95fd-e2a size=4987 tokens_est=1246 pct=0%
 ```
 
 ## 9. Active Crons (summary)
 
-- User-crontab: 38 active
-- Systemd user-timers: 7
+- User-crontab: 40 active
+- Systemd user-timers: 
 - OpenClaw-Cron-Plugin (enabled): 16
-- **Total: ~61 schedules**
+- **Total: ~56 schedules**
 
 Full inventory: [cron-audit-2026-04-19.md](cron-audit-2026-04-19.md)
 
-## 10. Reflective Memory Today (5 entries)
+## 10. Reflective Memory Today (0 entries)
 
-- **[0.70]** Today's top fact-categories: incident:251, delivery:1
-- **[0.60]** Memory-Type split: {'episodic': 251, 'semantic': 1}
-- **[0.85]** Today's highest-importance facts:   - [0.77] - Mehrere operative Incidents gelöst, am Ende 0 offene Tasks und 0 failed.   - [0.77] **Sub-Plan A Status:** - A1 ✅ `b84ac186` done - A2 ✅ `515b940f` done 
-- **[0.50]** Agent-activity today: {'main': 141, 'sre-expert': 104, 'spark': 3, 'frontend-guru': 2, 'efficiency-auditor': 2}
-- **[0.80]** Incident-Themes today (251 incidents): ['failed', 'output', 'contains', 'parity_check_failed', 'parity_check_error,']
+*(no reflective entries yet — will be generated at 23:50 UTC by daily-reflection-cron)*
 
 
 ---

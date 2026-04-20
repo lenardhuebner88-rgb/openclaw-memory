@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e0010785-3d84-4f6d-8c6e-d8b6a02c791e Sprint-L L1: KB-Compiler LLM-Synthesis Migration + Grounding-Hardening
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: KB-Compiler 60s test result head: [CALL] atlas-hallucination-prevention.md | timeout raised to 90s and retested, process remained running without further output
+- task: 608c706f-e70c-45b3-8be1-e09bacb8f2af [Nightly] Harden ops health API route with fail-soft error handling
+- stage: DONE
+- next: await next assignment
+- checkpoint: Ops-Health-Route ist jetzt fail-soft gehärtet und liefert bei unerwarteten Fehlern strukturiertes JSON mit HTTP 500.
 - blocker: -
-- updated: 2026-04-19T23:01:53.388Z
+- updated: 2026-04-20T02:10:46.706Z
 <!-- mc:auto-working-context:end -->
