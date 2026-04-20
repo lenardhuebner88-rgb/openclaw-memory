@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3b35b736-44db-4426-b5bf-23d7c4aad32b [P1][Follow-up][Forge] Timeout-Retry-Session-Isolation + Kill-Telemetrie härten
-- stage: START
-- next: continue current task
-- checkpoint: -
+- task: 9327310f-b2fa-4234-aaea-30e105770c37 Forge: session-size-guard.py für Atlas-Main-Session-Guard
+- stage: DONE
+- next: await next assignment
+- checkpoint: session-size-guard.py umgesetzt: Hybrid-Thresholds (600KB/150, 900KB/200, 1.1MB/250), Discord-Alerts nach #atlas-main, Immediate-Trigger via Gateway-Log-Scan, Cron aktiviert (*/5 full + * immediate log-only), Smoke-Test 
 - blocker: -
-- updated: 2026-04-20T19:39:49.057Z
+- updated: 2026-04-20T20:17:20.771Z
 <!-- mc:auto-working-context:end -->
