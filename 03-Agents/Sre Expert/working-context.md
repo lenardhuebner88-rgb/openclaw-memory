@@ -64,12 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 897bc8d3-afd1-4ee8-8d04-a660ef50ffa6 Forge: Session-Guard v4 — UTC-Timestamp-Deprecation im Self-Test beseitigen
+- task: c7d9aa4f-68f7-446a-b216-806fa5890870 [Sprint-M v1.2.1 M5a] cron-reconciler.py READ-ONLY diff + validator
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT_STATUS: done
-RESULT_SUMMARY: session-size-guard.py nutzt jetzt timezone-aware UTC via dt.datetime.now(dt.UTC); alle utcnow()-Aufrufe entfernt. Self-Test läuft erfolgreich ohne DeprecationWarning.
-TEST_ARTIFACT: /h
+- checkpoint: cron-reconciler.py shipped as read-only dry-run validator. apply rejected with exit 3. Clean fixture exit 0, drift fixture exit 1, error path exit 2. Live dry-run currently reports drift vs M4 crontab changes, indicating
 - blocker: -
-- updated: 2026-04-20T20:58:22.420Z
+- updated: 2026-04-20T21:52:18.147Z
 <!-- mc:auto-working-context:end -->
