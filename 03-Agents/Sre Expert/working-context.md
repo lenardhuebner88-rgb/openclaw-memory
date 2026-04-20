@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9d15b528-6cc5-4929-bace-642a5b30039d Sprint-K H11 (neu): Session-Lock-Governance + Auto-Pickup-Awareness + R50 Rule
-- stage: START
+- task: 855153b6-07b4-4203-9be1-0be540099fe9 Sprint-L L1 Finalize: KB-Compiler LLM-Synthesis Commit + Cron + First-Run Verification
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
-- blocker: Receipt timeout: pending-pickup >10min without active run, no subagent run found in runs.json
-- updated: 2026-04-20T06:34:17.702Z
+- checkpoint: Commit erledigt: kb-compiler-llm-synth.py + kb-compiler.py committed, SHA cfbd32fa verifiziert via git log -1.
+- blocker: -
+- updated: 2026-04-20T06:54:13.377Z
 <!-- mc:auto-working-context:end -->

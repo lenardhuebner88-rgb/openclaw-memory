@@ -1707,3 +1707,27 @@ VERIFICATION: npm run build ✅, monitoring=200, alerts=200, costs=200
 - 2026-04-20T06:05:01.857Z | FAILED | c7550f3e-4cb1-4429-b2af-24461ec85116 | Sprint-K H8: Budget-Alert False-Alarms fix (Retry) | worker=spark | progress=- | summary=- | note=Task c7550f3e has untracked session (agent:31f6fc4a-e801-44c0…) and no active runs exist in runs.json after 184s (confidence-window=90s). Auto-failed by worker-monitor (ghost state).
 - 2026-04-20T06:15:16.817Z | DONE | 71264c14-07aa-4918-8d15-575e186e2230 | Sprint-K H4: Concurrent-Subagent-Limit | worker=sre-expert | progress=- | summary=H4 Concurrent-Subagent-Limit — verified + hardened
 - 2026-04-20T06:34:17.699Z | START | 9d15b528-6cc5-4929-bace-642a5b30039d | Sprint-K H11 (neu): Session-Lock-Governance + Auto-Pickup-Awareness + R50 Rule | worker=sre-expert | progress=- | summary=-
+- 2026-04-20T06:40:08.016Z | CHECKPOINT | 9d15b528-6cc5-4929-bace-642a5b30039d | Sprint-K H11 (neu): Session-Lock-Governance + Auto-Pickup-Awareness + R50 Rule | worker=sre-expert | progress=80% | summary=- | note=Ebene 3+4 umgesetzt: auto-pickup lock-awareness eingebaut (skip-alive-lock/spawn-new-for-orphan/proceed-normal + session-id override), session-health-monitor.py erstellt und als */10min Cron eingehängt, R50 in rules.jsonl + AGENTS.md + feedback_render aktualisiert, Report im Vault erzeugt und getestet.
+- 2026-04-20T06:42:21.882Z | CHECKPOINT | 9d15b528-6cc5-4929-bace-642a5b30039d | Sprint-K H11 (neu): Session-Lock-Governance + Auto-Pickup-Awareness + R50 Rule | worker=sre-expert | progress=95% | summary=- | note=Finalisierung: Verifikation, Report und Abschlussdaten vorbereitet; sende jetzt result.
+- 2026-04-20T06:42:39.721Z | DONE | 9d15b528-6cc5-4929-bace-642a5b30039d | Sprint-K H11 (neu): Session-Lock-Governance + Auto-Pickup-Awareness + R50 Rule | worker=sre-expert | progress=95% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY:
+- auto-pickup.py: lock-awareness + decision logging + fresh session-id override bei orphan lock
+- session-health-monitor.py: neu, ausführbar, cron */10 aktiv
+- R50: in memory/rules.jsonl + AGENTS.md, feedback_system_rules.md neu gerendert
+- Report: /home/piet/vault/03-Agents/sprint-k-h11-session-lock-governance-report-2026-04-20.md (70 lines)
+- Test: alive=>skip-alive-lock, orphan=>spawn-new-for-orphan, none=>proceed-normal
+- Post-deploy fallback-related count: 0 (ab 06:37Z)
+CHANGED_FILES:
+/home/piet/.openclaw/scripts/auto-pickup.py
+/home/piet/.openclaw/scripts/session-health-monitor.py
+/home/piet/.openclaw/workspace/memory/rules.jsonl
+/home/piet/.openclaw/workspace/AGENTS.md
+/home/piet/.openclaw/workspace/feedback_system_rules.md
+/home/piet/vault/03-Agents/sprint-k-h11-session-lock-governance-report-2026-04-20.md
+VERIFICATION:
+- py_compile: ok
+- crontab: session-health-monitor */10 present
+- stale-lock-cleaner */5 active
+- commit: c8ed7a14
+- 2026-04-20T06:53:43.630Z | START | 855153b6-07b4-4203-9be1-0be540099fe9 | Sprint-L L1 Finalize: KB-Compiler LLM-Synthesis Commit + Cron + First-Run Verification | worker=sre-expert | progress=- | summary=-
+- 2026-04-20T06:54:13.376Z | CHECKPOINT | 855153b6-07b4-4203-9be1-0be540099fe9 | Sprint-L L1 Finalize: KB-Compiler LLM-Synthesis Commit + Cron + First-Run Verification | worker=sre-expert | progress=35% | summary=- | note=Commit erledigt: kb-compiler-llm-synth.py + kb-compiler.py committed, SHA cfbd32fa verifiziert via git log -1.
