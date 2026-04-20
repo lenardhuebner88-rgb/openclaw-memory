@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 558ea42f-a462-420e-9389-700ed45a4b10 Sprint N.3 — Observability + Operations + Governance
-- stage: FAILED
-- next: await next assignment
-- checkpoint: No progress for 6m (hard-threshold=5m). Auto-failed by worker-monitor.
-- blocker: No progress for 6m (hard-threshold=5m). Auto-failed by worker-monitor.
-- updated: 2026-04-20T18:45:02.083Z
+- task: 8c42b0e2-f360-45ac-9227-56988c93fe5d Sprint N.3d — Subagent Timeout Root Cause
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Milestone: Pattern+Artefakte geprüft. 2m25-Fall korreliert mit Task 558ea42f (accepted 18:51:38, failed run 18:54:00, retry, success 18:54:33). Worker-monitor zeigt state-wipe/orphan handling, nicht OOM.
+- blocker: -
+- updated: 2026-04-20T19:17:48.232Z
 <!-- mc:auto-working-context:end -->
