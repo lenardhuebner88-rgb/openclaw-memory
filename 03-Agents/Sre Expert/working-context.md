@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 608c706f-e70c-45b3-8be1-e09bacb8f2af [Nightly] Harden ops health API route with fail-soft error handling
+- task: 37dbc58f-ba25-40a5-96e4-5be57c5c57d3 Sprint-K H7: mc-restart-safe Wrapper + Deploy-Queue-Lock
 - stage: DONE
 - next: await next assignment
-- checkpoint: Ops-Health-Route ist jetzt fail-soft gehärtet und liefert bei unerwarteten Fehlern strukturiertes JSON mit HTTP 500.
+- checkpoint: H7 erledigt: /home/piet/.local/bin/mc-restart-safe erstellt (chmod +x), Locking per flock aktiv; Paralleltest zeigte erwartetes lock held (rc=2).
 - blocker: -
-- updated: 2026-04-20T02:10:46.706Z
+- updated: 2026-04-20T04:48:57.128Z
 <!-- mc:auto-working-context:end -->
