@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1c26c034-bca2-4f00-99a0-e99e9009eb55 Sprint-N E2E Test 2 - Fail then Retry
+- task: d3d4e47d-8321-4659-aac7-aa19652ef30b Fix AGENTS.md Write-Gate projected-size enforcement
 - stage: DONE
 - next: await next assignment
-- checkpoint: Retry erfolgreich abgeschlossen: E2E-Test 2 wiederaufgenommen, neu ausgeführt und erfolgreich.
+- checkpoint: DONE: scripts/agents-md-append.sh now enforces projected-size write gate using current size + payload length (+2 newlines) before append.
 - blocker: -
-- updated: 2026-04-20T16:54:23.356Z
+- updated: 2026-04-20T18:14:15.111Z
 <!-- mc:auto-working-context:end -->

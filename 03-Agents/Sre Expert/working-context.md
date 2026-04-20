@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 51ac5b3e-a9ab-4a83-8f4b-4c7c66789115 Sprint-O Workstream 2: Fix — lastReportedStatus in terminalPatch
+- task: af325525-e635-4730-b892-07540ca83869 Phase 3: AGENTS.md Size-Guard + MEMORY.md Struktur
 - stage: DONE
 - next: await next assignment
-- checkpoint: Dual-Fix umgesetzt und typecheck gruen. Belege: mission-control/src/app/api/tasks/[id]/complete/route.ts:116-117 -> lastReportedStatus: 'result' as const, lastReportedAt: now; mission-control/src/app/api/tasks/[id]/recei
+- checkpoint: Implemented Phase-3: scripts/agents-md-size-check.sh (+x), scripts/agents-md-append.sh write-gate (+x), memory/MEMORY.md index (334 bytes). Cron active: 0 6 * * * .../agents-md-size-check.sh. Write-gate test: WRITE_BLOCK
 - blocker: -
-- updated: 2026-04-20T17:26:26.104Z
+- updated: 2026-04-20T18:06:37.766Z
 <!-- mc:auto-working-context:end -->
