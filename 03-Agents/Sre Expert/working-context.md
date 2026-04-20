@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 59cafbdb-223f-4150-9556-ac6761386b22 [PROBE][Forge] System-Script Health-Check
+- task: 74fb56ff-fad6-47ec-83af-e4f05b6adcb7 Sprint-N Workstream D: Terminal Audit Parity — terminale Pfade audit-gleich machen
 - stage: DONE
 - next: await next assignment
-- checkpoint: degraded — Health-Status: degraded
+- checkpoint: Workstream D erledigt: lifecycle-receipt-result Audit-Event in /complete und /receipt(result) ergänzt, report-deduplicated Event bei 24h Lifecycle-Suppress ergänzt, Retry-Prime härtet Report-Reset mit threadId/threadErro
 - blocker: -
-- updated: 2026-04-20T15:06:42.254Z
+- updated: 2026-04-20T16:47:27.490Z
 <!-- mc:auto-working-context:end -->
