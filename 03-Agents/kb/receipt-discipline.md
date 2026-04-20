@@ -1,7 +1,7 @@
 ---
 title: "Receipt Discipline"
 slug: receipt-discipline
-last_compiled: 2026-04-19T22:34:34.193245Z
+last_compiled: 2026-04-20T02:00:01.349213Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 40
 rule_count: 4
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Sub-Agent Receipt-Lifecycle — accepted/progress/result pattern, stall-detection, R45 enforcement.
 
-**Compiled:** 2026-04-19T22:34:34.193245Z  
+**Compiled:** 2026-04-20T02:00:01.349213Z  
 **Source:** 40 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
