@@ -1934,3 +1934,8 @@ CLARIFICATION: simulated=false, dryRun=false, runtimeRotation=true
 VERIFICATION: python3 -m py_compile /home/piet/.openclaw/scripts/session-size-guard.py ; python3 /home/piet/.openclaw/scripts/session-size-guard.py --self-test-rotation --self-test-rotation-artifact /home/piet/.openclaw/workspace/logs/session-size-guard.rotation-selftest.json
 - 2026-04-20T20:49:33.876Z | START | 897bc8d3-afd1-4ee8-8d04-a660ef50ffa6 | Forge: Session-Guard v4 — UTC-Timestamp-Deprecation im Self-Test beseitigen | worker=sre-expert | progress=- | summary=-
 - 2026-04-20T20:50:38.861Z | CHECKPOINT | 897bc8d3-afd1-4ee8-8d04-a660ef50ffa6 | Forge: Session-Guard v4 — UTC-Timestamp-Deprecation im Self-Test beseitigen | worker=sre-expert | progress=90% | summary=-
+- 2026-04-20T20:55:13.876Z | CHECKPOINT | 897bc8d3-afd1-4ee8-8d04-a660ef50ffa6 | Forge: Session-Guard v4 — UTC-Timestamp-Deprecation im Self-Test beseitigen | worker=sre-expert | progress=99% | summary=-
+- 2026-04-20T20:58:22.417Z | DONE | 897bc8d3-afd1-4ee8-8d04-a660ef50ffa6 | Forge: Session-Guard v4 — UTC-Timestamp-Deprecation im Self-Test beseitigen | worker=sre-expert | progress=99% | summary=RESULT_STATUS: done
+RESULT_SUMMARY: session-size-guard.py nutzt jetzt timezone-aware UTC via dt.datetime.now(dt.UTC); alle utcnow()-Aufrufe entfernt. Self-Test läuft erfolgreich ohne DeprecationWarning.
+TEST_ARTIFACT: /home/piet/.openclaw/workspace/logs/session-size-guard.rotation-selftest.json
+VERIFICATION: python3 /home/piet/.openclaw/scripts/session-size-guard.py --self-test-rotation --self-test-rotation-artifact /home/piet/.openclaw/workspace/logs/session-size-guard.rotation-selftest.json

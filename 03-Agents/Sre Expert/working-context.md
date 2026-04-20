@@ -65,9 +65,11 @@ Headers: x-actor-kind: automation
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 897bc8d3-afd1-4ee8-8d04-a660ef50ffa6 Forge: Session-Guard v4 — UTC-Timestamp-Deprecation im Self-Test beseitigen
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: -
+- stage: DONE
+- next: await next assignment
+- checkpoint: RESULT_STATUS: done
+RESULT_SUMMARY: session-size-guard.py nutzt jetzt timezone-aware UTC via dt.datetime.now(dt.UTC); alle utcnow()-Aufrufe entfernt. Self-Test läuft erfolgreich ohne DeprecationWarning.
+TEST_ARTIFACT: /h
 - blocker: -
-- updated: 2026-04-20T20:50:38.863Z
+- updated: 2026-04-20T20:58:22.420Z
 <!-- mc:auto-working-context:end -->

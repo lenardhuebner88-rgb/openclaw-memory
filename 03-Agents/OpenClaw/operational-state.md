@@ -50,3 +50,11 @@
 - Dreaming promotion to MEMORY.md disabled via `promotion_target=none` directive
 - Dead-agent SQLite DBs archived, dead workspaces archived
 - Per-agent AGENTS.md/IDENTITY.md/BOOTSTRAP.md deduplicated via symlinks to workspace-shared/
+
+## Session-Guard (2026-04-20)
+- Script: /home/piet/.openclaw/scripts/session-size-guard.py
+- Cron: */5 * * * * (full scan) + * * * * * (immediate log scan)
+- v1: 9327310f | v2: 3c66a946 | v3: 779f8995 | v4: 15217cdc
+- Guard-v4 Status: OPERATIONAL — echte Runtime-Session-Umschaltung + Integrationstest ok
+- Thresholds: Warning≥600KB/150msg, HardAlert≥900KB/200msg, RotationTrigger≥1.1MB/250msg
+- Immediate-Trigger: alert-only (keine blinde Auto-Rotation)
