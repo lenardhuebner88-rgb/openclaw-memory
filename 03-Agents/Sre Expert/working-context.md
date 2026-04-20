@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 71264c14-07aa-4918-8d15-575e186e2230 Sprint-K H4: Concurrent-Subagent-Limit
+- task: 55cf61a2-ece7-496b-a72f-aaf375f9bbd9 Sprint-K H2: Tool-Allowlist statt Denylist
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: openclaw.json geprüft: defaults.maxConcurrent=2 bestätigt, sre-expert.maxConcurrent nicht gesetzt, R42/R46 mc-restart-safe in agents.defaults.systemPrompt ergänzt
+- checkpoint: Result-Receipt versucht, API lieferte terminal-transition-conflict (Task bleibt status=assigned, dispatchState=queued). Fachliche Änderungen sind fertig; Abschluss braucht Board-Status-Transition in pending-pickup/in-pro
 - blocker: -
-- updated: 2026-04-20T05:32:25.042Z
+- updated: 2026-04-20T05:59:03.612Z
 <!-- mc:auto-working-context:end -->

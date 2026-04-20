@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c9f10705-d421-43b1-8e0a-35254b030a20 dispatchToken acceptance test 3
-- stage: DONE
+- task: c7550f3e-4cb1-4429-b2af-24461ec85116 Sprint-K H8: Budget-Alert False-Alarms fix (Retry)
+- stage: FAILED
 - next: await next assignment
-- checkpoint: DispatchToken-Idempotenz für Task 3 erfolgreich validiert.
-- blocker: -
-- updated: 2026-04-19T11:16:58.004Z
+- checkpoint: Task c7550f3e has untracked session (agent:31f6fc4a-e801-44c0…) and no active runs exist in runs.json after 184s (confidence-window=90s). Auto-failed by worker-monitor (ghost state).
+- blocker: Task c7550f3e has untracked session (agent:31f6fc4a-e801-44c0…) and no active runs exist in runs.json after 184s (confidence-window=90s). Auto-failed by worker-monitor (ghost state).
+- updated: 2026-04-20T06:05:01.860Z
 <!-- mc:auto-working-context:end -->

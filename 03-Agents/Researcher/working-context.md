@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f4e5949e-9c8d-40ca-8fec-2b0d16285cbc Obsidian #4 — Struktur verfeinern (Templates)
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-04-15T10:00:02.693Z
+- task: 1b1a5c90-ada6-4f00-95ff-896e5bd54a29 Sprint-K H3: memory-core reconcile debug
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-20T05:41:49.849Z
 <!-- mc:auto-working-context:end -->
