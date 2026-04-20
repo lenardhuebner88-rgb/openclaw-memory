@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: af325525-e635-4730-b892-07540ca83869 Phase 3: AGENTS.md Size-Guard + MEMORY.md Struktur
-- stage: DONE
+- task: 558ea42f-a462-420e-9389-700ed45a4b10 Sprint N.3 — Observability + Operations + Governance
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Implemented Phase-3: scripts/agents-md-size-check.sh (+x), scripts/agents-md-append.sh write-gate (+x), memory/MEMORY.md index (334 bytes). Cron active: 0 6 * * * .../agents-md-size-check.sh. Write-gate test: WRITE_BLOCK
-- blocker: -
-- updated: 2026-04-20T18:06:37.766Z
+- checkpoint: No progress for 6m (hard-threshold=5m). Auto-failed by worker-monitor.
+- blocker: No progress for 6m (hard-threshold=5m). Auto-failed by worker-monitor.
+- updated: 2026-04-20T18:45:02.083Z
 <!-- mc:auto-working-context:end -->
