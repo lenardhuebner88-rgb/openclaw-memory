@@ -33,3 +33,24 @@ Observation: the vast majority of untracked files are outside the requested Spri
 - Failed gates:
   - Gate 1: Atlas-session-size critical (372% of budget)
   - Gate 5: R49-Validator critical in last 60min
+
+## 2026-04-20 Re-run (Task 5a10491a)
+
+### New consolidation commits
+| # | Commit | Message |
+|---|---|---|
+| 1 | `b27f97f` | chore(sprint-gh): remove obsolete .bak artifacts |
+| 2 | `eff4c8e` | feat(sprint-g): add ops dashboard route components |
+| 3 | `212a866` | feat(sprint-h): add analytics dashboard/api scaffolding |
+| 4 | `913f949` | refactor(sprint-g/h): consolidate shared lifecycle libs and ui updates |
+
+### Workspace cleanliness after cleanup
+- `git status --short`: only runtime drift remains
+  - `data/board-events.json`
+  - `data/board-events.jsonl`
+  - `data/tasks.json`
+
+### Pre-Flight result (re-check)
+- Script: `/home/piet/.openclaw/scripts/pre-flight-sprint-dispatch.sh /home/piet/vault/03-Agents/sprint-k-infra-hardening-plan-2026-04-19.md --verbose`
+- Verdict: **GREEN — Safe to dispatch**
+- Summary: **7 PASSED | 0 WARNED | 0 FAILED**

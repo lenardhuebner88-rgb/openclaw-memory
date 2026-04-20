@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 92cef72c-9dae-4687-8627-ef2b52cf52de Sprint-K H12: Board-State-Machine Bug-Fix — /complete guard + admin-close semantic + canceled-to-done recovery
+- task: 5a10491a-b73d-41d3-a405-6c15ca4a99b9 Sprint-Consolidation: Sprint-G/H autonomous-cascade commit-cleanup
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done. Bug A fixed: worker terminal guard now bypasses when no workerSessionId and receiptStage in progress/result/failed/blocked (src/lib/task-terminal-guards.ts). Bug B fixed: admin-close supports over
+- checkpoint: EXECUTION_STATUS: done. RESULT_SUMMARY: Commit1=b27f97f (chore(sprint-gh): remove obsolete .bak artifacts); Commit2=eff4c8e (feat(sprint-g): add ops dashboard route components); Commit3=212a866 (feat(sprint-h): add analy
 - blocker: -
-- updated: 2026-04-20T09:07:25.644Z
+- updated: 2026-04-20T10:31:14.482Z
 <!-- mc:auto-working-context:end -->
