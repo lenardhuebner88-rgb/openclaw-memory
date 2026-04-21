@@ -1,10 +1,10 @@
 ---
 title: "Sub-Agent Coordination"
 slug: sub-agent-coordination
-last_compiled: 2026-04-20T02:00:01.351174Z
+last_compiled: 2026-04-21T02:00:01.750148Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 20
-rule_count: 4
+rule_count: 5
 memory_level: 3
 ---
 
@@ -12,8 +12,8 @@ memory_level: 3
 
 **Description:** Multi-agent coordination patterns, sub-agent dispatch, visibility-rules, WIP-limits.
 
-**Compiled:** 2026-04-20T02:00:01.351174Z  
-**Source:** 20 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-21T02:00:01.750148Z  
+**Source:** 20 facts from workspace/memory/facts/*.jsonl, 5 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
 
@@ -26,6 +26,11 @@ Atlas-Sprint-Tasks als `draft` + `operatorLock=true` anlegen (Auto-Pickup skippe
 *Status: resolved | Since: 2026-04-19*
 
 
+
+### R44 — Board-Discipline: Board-Task required before sessions_spawn
+*Status: active | Since: 2026-04-19*
+
+Sub-Agent-Arbeit darf nie sessions_spawn-only laufen. Vor jeder delegierten Ausfuehrung MUSS ein Board-Task via taskboard_create_task existieren oder ein vorhandener Task genutzt werden. Wenn kein Board-Task vorhanden ist: zuerst taskboard_create_tas...
 
 ### R45 — Sub-Agent-Receipt-Discipline
 *Status: active | Since: 2026-04-19*
@@ -78,4 +83,4 @@ Wenn mehrere Sub-Agents parallel laufen UND jeder einen systemctl --user restart
 
 ---
 
-*Auto-compiled from 20 facts + 4 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 20 facts + 5 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*

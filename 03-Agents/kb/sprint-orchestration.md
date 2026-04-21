@@ -1,10 +1,10 @@
 ---
 title: "Sprint Orchestration"
 slug: sprint-orchestration
-last_compiled: 2026-04-20T02:00:01.348667Z
+last_compiled: 2026-04-21T02:00:01.740280Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 47
-rule_count: 7
+rule_count: 9
 memory_level: 3
 ---
 
@@ -12,8 +12,8 @@ memory_level: 3
 
 **Description:** How Atlas-main orchestriert multi-agent sprints, dispatch-patterns, Board-visibility discipline.
 
-**Compiled:** 2026-04-20T02:00:01.348667Z  
-**Source:** 47 facts from workspace/memory/facts/*.jsonl, 7 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-21T02:00:01.740280Z  
+**Source:** 47 facts from workspace/memory/facts/*.jsonl, 9 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
 
@@ -36,6 +36,16 @@ Atlas-Sprint-Tasks als `draft` + `operatorLock=true` anlegen (Auto-Pickup skippe
 *Status: active | Since: 2026-04-19*
 
 Bei Atlas-Orphan-State resumed der Operator oder ein Wrapper-Cron die Session via `openclaw agent --session-id <id> --message "continue orchestration"`. Alternativ: Multi-Sprint-Orchestration auf minions-Subsystem (PR #68718 upstream) migrieren sobal...
+
+### R42 — Deploy-Restart-Discipline via mc-restart-safe
+*Status: active | Since: 2026-04-19*
+
+Wenn eine Task einen Mission-Control-Restart erfordert, MUSS mc-restart-safe <timeout> <tag> verwendet werden. Direktes systemctl --user restart mission-control ist verboten. mc-restart-safe serialisiert via Deploy-Lock, wartet bis /api/health 200 li...
+
+### R44 — Board-Discipline: Board-Task required before sessions_spawn
+*Status: active | Since: 2026-04-19*
+
+Sub-Agent-Arbeit darf nie sessions_spawn-only laufen. Vor jeder delegierten Ausfuehrung MUSS ein Board-Task via taskboard_create_task existieren oder ein vorhandener Task genutzt werden. Wenn kein Board-Task vorhanden ist: zuerst taskboard_create_tas...
 
 ### R45 — Sub-Agent-Receipt-Discipline
 *Status: active | Since: 2026-04-19*
@@ -79,6 +89,7 @@ Atlas MUSS vor Sprint-Dispatch das Plan-Doc-Frontmatter lesen. Wenn operatorLock
 
 - [Atlas Hallucination Prevention](atlas-hallucination-prevention.md)
 - [Board Hygiene & Lifecycle](board-hygiene.md)
+- [Build & Deploy Rules](build-deploy-regeln.md)
 - [Deploy Contracts & MC-Restart](deploy-contracts.md)
 - [Incident Response & RCA](incident-response.md)
 - [Receipt Discipline](receipt-discipline.md)
@@ -93,4 +104,4 @@ Atlas MUSS vor Sprint-Dispatch das Plan-Doc-Frontmatter lesen. Wenn operatorLock
 
 ---
 
-*Auto-compiled from 47 facts + 7 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 47 facts + 9 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*

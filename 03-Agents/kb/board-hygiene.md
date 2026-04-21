@@ -1,10 +1,10 @@
 ---
 title: "Board Hygiene & Lifecycle"
 slug: board-hygiene
-last_compiled: 2026-04-20T02:00:01.350208Z
+last_compiled: 2026-04-21T02:00:01.749056Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 38
-rule_count: 1
+rule_count: 2
 memory_level: 3
 ---
 
@@ -12,10 +12,15 @@ memory_level: 3
 
 **Description:** Auto-cleanup of stale drafts, board state management, admin-close API patterns.
 
-**Compiled:** 2026-04-20T02:00:01.350208Z  
-**Source:** 38 facts from workspace/memory/facts/*.jsonl, 1 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-21T02:00:01.749056Z  
+**Source:** 38 facts from workspace/memory/facts/*.jsonl, 2 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
+
+### R44 — Board-Discipline: Board-Task required before sessions_spawn
+*Status: active | Since: 2026-04-19*
+
+Sub-Agent-Arbeit darf nie sessions_spawn-only laufen. Vor jeder delegierten Ausfuehrung MUSS ein Board-Task via taskboard_create_task existieren oder ein vorhandener Task genutzt werden. Wenn kein Board-Task vorhanden ist: zuerst taskboard_create_tas...
 
 ### R48 — Board-Hygiene-Cron auto-cancel stale drafts
 *Status: kandidiert | Since: 2026-04-19*
@@ -47,6 +52,8 @@ Cron */60min admin-close: (A) status=draft AND age>48h -> canceled reason 'auto-
 
 ## Related KB Articles
 
+- [Atlas Hallucination Prevention](atlas-hallucination-prevention.md)
+- [Incident Response & RCA](incident-response.md)
 - [Receipt Discipline](receipt-discipline.md)
 - [Scope Governance & operatorLock](scope-governance.md)
 - [Sprint Orchestration](sprint-orchestration.md)
@@ -60,4 +67,4 @@ Cron */60min admin-close: (A) status=draft AND age>48h -> canceled reason 'auto-
 
 ---
 
-*Auto-compiled from 38 facts + 1 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 38 facts + 2 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
