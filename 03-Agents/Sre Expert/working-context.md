@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4c80ad93-29e4-4a9e-8d22-371836cce1d4 [AGENT_FLEET_E2E_20260421T1725] sre-expert read-only board-flow proof
+- task: a89b8666-7302-4904-8675-b1c934224fc3 [REAL_USECASE_DEAD_UNCLAIMED_20260421T1802] real child for dead-unclaimed normal-path classification
 - stage: DONE
 - next: await next assignment
-- checkpoint: Claim, Read-only-Checks und terminaler Board-Abschluss für sre-expert wurden ohne Code-, Config- oder Dateiänderungen erfolgreich durchgeführt.
+- checkpoint: Normal-path claim succeeded in this run; dead-unclaimed did not reproduce now, while historical board evidence confirms prior occurrences.
 - blocker: -
-- updated: 2026-04-21T15:38:56.049Z
+- updated: 2026-04-21T16:31:19.957Z
 <!-- mc:auto-working-context:end -->
