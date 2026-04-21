@@ -65,10 +65,13 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 564b78ad-f814-45a1-ba0f-b7d8706fb3df [E2E Pixel] Auto-pickup current-path probe
+- task: f1ca6b08-837f-4e33-a25d-78b159d87c36 Pixel Audit: Mission Control Overview + Taskboard UI/Interaction-Usability
 - stage: DONE
 - next: await next assignment
-- checkpoint: frontend-guru completed the read-only auto-pickup probe after confirming hostname huebners and UTC time 2026-04-21T17:51:27Z.
+- checkpoint: EXECUTION_STATUS: SUCCESS
+RESULT_SUMMARY: Overview und Taskboard sind operativ nutzbar, verlieren aber Tempo und Sicherheit durch schwache Klick-Affordance, flache Hierarchie und unklare Next-Actions.
+FINDINGS:
+P1 - Schw
 - blocker: -
-- updated: 2026-04-21T17:51:45.911Z
+- updated: 2026-04-21T18:09:58.739Z
 <!-- mc:auto-working-context:end -->

@@ -248,3 +248,107 @@ Best-supported reading from IST data:
 1. Preserve the `sessionKey` Gateway CLI hotfix as a reproducible patch so it survives package updates.
 2. Keep `KillMode=process` and watch whether the historical `dead-unclaimed` rate drops on the real timer path.
 3. Investigate the `code=1006` Gateway transport issue separately from worker routing.
+
+## Claude Prompt Verification Addendum
+
+### (1) KillMode effect on the real path
+- Change timestamp for `m7-auto-pickup.service`: `2026-04-21T17:53:09.759287Z`
+- Pre-window: `2026-04-21T15:53:09.759287Z` to `2026-04-21T17:53:09.759287Z`
+- Post-window: `2026-04-21T17:53:09.759287Z` to `2026-04-21T18:13:40.517841Z`
+
+Artifact table from `auto-pickup-runs/` plus `LOCK_REAP` correlation:
+
+| Window | Agent Group | empty-live | empty-dead | non-empty |
+| --- | --- | ---: | ---: | ---: |
+| Pre | sre-expert | 2 | 44 | 4 |
+| Pre | rest | 0 | 3 | 3 |
+| Post | sre-expert | 0 | 0 | 0 |
+| Post | rest | 0 | 0 | 3 |
+
+Verdict:
+- `empty-dead` on the real timer path disappeared in the measured post-fix window.
+- The cgroup-kill class is therefore considered eliminated on the patched `m7-auto-pickup.service` path.
+- The still-existing second `0`-byte class is not visible as final `0`-byte artifacts here because those logs flush on process completion.
+
+### (2) Live split of the two `0`-byte mechanisms
+- Fresh live probe: direct `openclaw agent --agent frontend-guru ... --json > /tmp/openclaw-fdproof-frontend.log`
+- While process `3508904` was alive, the log file stayed at `0` bytes.
+
+Verbatim evidence:
+
+```text
+LOG_SIZE_DURING=0
+ERR_SIZE_DURING=0
+FD_LS_BEGIN
+l-wx------ 1 piet piet 64 Apr 21 20:12 /proc/3508904/fd/1 -> /tmp/openclaw-fdproof-frontend.log
+l-wx------ 1 piet piet 64 Apr 21 20:12 /proc/3508904/fd/2 -> /tmp/openclaw-fdproof-frontend.err
+FD_LS_END
+FD1_READLINK_BEGIN
+/tmp/openclaw-fdproof-frontend.log
+FD1_READLINK_END
+STACK_BEGIN
+cat: /proc/3508904/stack: Permission denied
+STACK_END
+LSOF_BEGIN
+openclaw 3508904 piet    1w      REG  252,0         0  3593451 /tmp/openclaw-fdproof-frontend.log
+openclaw 3508904 piet    5r     FIFO   0,15       0t0 27254201 pipe
+openclaw 3508904 piet    6w     FIFO   0,15       0t0 27254201 pipe
+openclaw 3508904 piet    7r     FIFO   0,15       0t0 27254202 pipe
+openclaw 3508904 piet    8w     FIFO   0,15       0t0 27254202 pipe
+openclaw 3508904 piet   12r     FIFO   0,15       0t0 27261956 pipe
+openclaw 3508904 piet   13w     FIFO   0,15       0t0 27261956 pipe
+openclaw 3508904 piet   17r     FIFO   0,15       0t0 27254204 pipe
+openclaw 3508904 piet   18w     FIFO   0,15       0t0 27254204 pipe
+LSOF_END
+WAIT_STATUS=0
+LOG_SIZE_FINAL=13710
+ERR_SIZE_FINAL=0
+```
+
+Verdict:
+- `fd/1` pointed to the final log file while the process was alive and the file was still `0` bytes.
+- This confirms a real buffered-output / write-at-end class independent of the old cgroup-kill failure mode.
+
+### (3) `mission-control.service` ExecReload trap fixed
+- `ExecReload` no longer does build-only.
+- New path: `/home/piet/.openclaw/scripts/mission-control-reload.sh`
+- Mechanism: build, then enqueue restart via transient systemd unit with `--on-active=1s`, so `reload` returns cleanly and the real process restart follows.
+
+Proof cycle:
+- `systemctl --user reload mission-control.service`
+- Journal:
+
+```text
+2026-04-21T20:11:21+02:00 ... Reloading mission-control.service ...
+2026-04-21T20:11:22+02:00 ... Recent build exists (99s old), skipping rebuild
+2026-04-21T20:11:22+02:00 ... MISSION_CONTROL_RELOAD build_ok restart_enqueued_via_transient_unit
+2026-04-21T20:11:22+02:00 ... Reloaded mission-control.service - Mission Control (Next.js Production).
+2026-04-21T20:11:23+02:00 ... Stopping mission-control.service ...
+2026-04-21T20:11:25+02:00 ... Started mission-control.service ...
+2026-04-21T20:11:26+02:00 ... [reload-proof] api/health RELOAD_PROOF_20260421T181121Z_V3
+```
+
+This is the missing proof that a route code change becomes live after `reload`, not only after manual `restart`.
+
+### (4) `sessionKey` patch persisted
+- Patch file: `/home/piet/.openclaw/patches/openclaw-sessionkey.patch`
+- Reapply script: `/home/piet/.openclaw/scripts/openclaw-sessionkey-patch-check.sh`
+- Trigger: `openclaw-sessionkey-patch.path`
+- Service: `openclaw-sessionkey-patch.service`
+
+Verification:
+- Touch trigger on package metadata:
+  - `touch /home/piet/.npm-global/lib/node_modules/openclaw/package.json`
+- Journal:
+
+```text
+2026-04-21T20:11:54+02:00 ... Starting openclaw-sessionkey-patch.service ...
+2026-04-21T20:11:54+02:00 ... OPENCLAW_SESSIONKEY_PATCH already_present
+2026-04-21T20:11:54+02:00 ... Finished openclaw-sessionkey-patch.service ...
+```
+
+- Patch file also validates against a fresh `openclaw@2026.4.15` tarball and applies cleanly in a temp root.
+
+### New Defect found during verification
+- The first version of the reapply helper used `rg`, but `/usr/local/bin/rg` on this host is not executable (`Exec format error`).
+- The helper was hardened to use `grep -Fq` instead.

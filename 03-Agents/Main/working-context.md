@@ -7,20 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 46eaad01-879b-4934-95e1-e7370cd18b4e Atlas Real Use Case: dead-unclaimed on normal board path
+- task: 0689b9de-4cbe-4326-8844-2244e728c46d Execution report terminal send test v2
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS
-FAILED
-
-RESULT_SUMMARY
-The real use-case reproduced the normal-path dead-unclaimed failure on sre-expert.
-
-CHILD_TASKS
-- sre-expert: a89b8666-7302-4904-8675-b1c934224fc3 [REAL-USE-CASE]
-
-VERIFICATION
-sta
+- checkpoint: Execution report terminal send live test v2 completed successfully.
 - blocker: -
-- updated: 2026-04-21T16:06:44.464Z
+- updated: 2026-04-21T18:29:41.035Z
 <!-- mc:auto-working-context:end -->
