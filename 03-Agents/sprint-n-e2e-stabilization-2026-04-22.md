@@ -93,9 +93,8 @@ Review-Gate: Forge
 - **Konkrete Aktion**
   - Ergänze in `auto-pickup.py` eine rollende 10-Minuten-Heuristik pro Task-ID mit hartem Cap von 3 Retries. Der 4. Versuch setzt den Task auf `blocked`, schreibt `ALERT_SENT` in den Logpfad und unterdrückt jeden weiteren Spawn.
 - **Acceptance-Kriterium**
-  - In 2 Stunden Post-Fix gibt es keinen Task mit mehr als 3 Retries innerhalb von 10 Minuten.
-  - Für den 4. Konfliktfall erscheint ein eindeutiger Block-/Alert-Eintrag und es wird keine neue Session mehr gestartet.
-  - Das Tagesbudget steigt im selben 2h-Fenster nicht weiter im bisherigen Spike-Muster an.
+  - **Execute-Acceptance:** Code-Cap ist implementiert, per Unit-Test abgedeckt, und der nächste reale 409-Fall erzeugt `blocked` plus `ALERT_SENT` ohne neue Session.
+  - **Observation-Followup (separate Task, +2h):** Das Tagesbudget stagniert im Beobachtungsfenster und es gibt keinen Task mit mehr als 3 Retries innerhalb von 10 Minuten.
 - **Rollback-Befehl falls der Fix kippt**
   - `cp /home/piet/.openclaw/scripts/auto-pickup.py.bak-pre-sprint-n /home/piet/.openclaw/scripts/auto-pickup.py && systemctl --user restart m7-auto-pickup.service`
 
