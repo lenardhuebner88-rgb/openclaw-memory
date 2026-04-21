@@ -64,11 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 903e563a-8d3d-473e-ba2f-c5339eed0937 Forge Re-Review: Sprint N E2E Stabilization Plan
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: APPROVE
-RESULT_SUMMARY: Single-Line-Fix ist korrekt umgesetzt, M3 nutzt nun `blocked` (Plan L94) statt `pending-pickup-blocked`; damit ist die zuvor beanstandete Status-Inkonsistenz behoben und der Plan
-- blocker: -
-- updated: 2026-04-21T19:03:48.125Z
+- task: 06f2405b-1296-47bc-bbd2-eb2446e3f7e4 Sprint N Execute: E2E Stabilization
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: M3 Acceptance verlangt 2h Post-Fix-Live-Nachweis (Retry- und Budget-Verhalten). Dieses Zeitfenster ist unmittelbar nach Implementierung noch nicht erfüllbar.
+- blocker: M3 Acceptance verlangt 2h Post-Fix-Live-Nachweis (Retry- und Budget-Verhalten). Dieses Zeitfenster ist unmittelbar nach Implementierung noch nicht erfüllbar.
+- updated: 2026-04-21T19:29:52.390Z
 <!-- mc:auto-working-context:end -->
