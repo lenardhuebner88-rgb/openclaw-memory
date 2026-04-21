@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4fec080d-f05f-43c3-ac06-8272c06c6eac Sprint N Execute: E2E Stabilization (Retry)
+- task: d4db61ab-d714-4dd3-a6f5-9d2fcb11e6b2 Forge Delta Review: Sprint O Tool Names + Paths + memory_search Status
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: DONE | RESULT_SUMMARY: Sprint N Execute-Retry erfolgreich im freigegebenen Scope abgeschlossen (M1+M2+M3 Execute-Acceptance, ohne Observation-Followup). | M1: mission-control-reload.sh bleibt build-frei
+- checkpoint: EXECUTION_STATUS: CHANGES_REQUESTED | RESULT_SUMMARY: Delta enthält sichtbare Nachbesserungen, ist aber noch nicht konsistent genug für APPROVE. (1) Authoritative Tool-Namen: Plan nutzt in der Mapping-Tabelle `qmd_search
 - blocker: -
-- updated: 2026-04-21T19:57:08.148Z
+- updated: 2026-04-21T20:38:47.873Z
 <!-- mc:auto-working-context:end -->
