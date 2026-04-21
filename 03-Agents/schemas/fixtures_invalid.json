@@ -1,0 +1,113 @@
+[
+  {
+    "_case": "1. schema_version wrong (v0)",
+    "_expected_error": "schema_version must be 'v1'",
+    "schema_version": "v0",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cost_usd": 0.01}
+  },
+  {
+    "_case": "2. status unknown",
+    "_expected_error": "status must be one of done|partial|blocked|failed",
+    "schema_version": "v1",
+    "status": "reviewing",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cost_usd": 0.01}
+  },
+  {
+    "_case": "3. next_action owner unknown",
+    "_expected_error": "owner must be one of valid enum",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [
+      {"id": "x", "owner": "pat_pal", "priority": "P0", "due": null, "reason_code": "dep_met"}
+    ],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cost_usd": 0.01}
+  },
+  {
+    "_case": "4. next_action priority out of range",
+    "_expected_error": "priority must be P0|P1|P2|P3",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [
+      {"id": "x", "owner": "forge", "priority": "P5", "due": null, "reason_code": "dep_met"}
+    ],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cost_usd": 0.01}
+  },
+  {
+    "_case": "5. artifact sha256 wrong length",
+    "_expected_error": "sha256 must be 64 hex chars",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [
+      {"path": "src/x.py", "sha256": "abc123", "type": "code"}
+    ],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cost_usd": 0.01}
+  },
+  {
+    "_case": "6. artifact type unknown",
+    "_expected_error": "type must be valid enum",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [
+      {"path": "src/x.py", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "type": "python-file"}
+    ],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cost_usd": 0.01}
+  },
+  {
+    "_case": "7. metrics cache_hit_rate out of range",
+    "_expected_error": "cache_hit_rate must be 0.0-1.0",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cache_hit_rate": 1.5, "cost_usd": 0.01}
+  },
+  {
+    "_case": "8. metrics negative tokens",
+    "_expected_error": "tokens_in must be >= 0",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": -100, "tokens_out": 20, "cost_usd": 0.01}
+  },
+  {
+    "_case": "9. extra unexpected field (extra=forbid)",
+    "_expected_error": "extra fields forbidden",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cost_usd": 0.01},
+    "custom_evil_field": "surprise"
+  },
+  {
+    "_case": "10. blocker severity unknown",
+    "_expected_error": "severity must be critical|high|medium|low",
+    "schema_version": "v1",
+    "status": "blocked",
+    "next_actions": [],
+    "blockers": [
+      {"id": "x", "severity": "apocalyptic", "evidence_ref": "foo:1"}
+    ],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": 100, "tokens_out": 20, "cost_usd": 0.01}
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "_case": "1. minimal done",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 12.5, "tokens_in": 500, "tokens_out": 100, "cache_hit_rate": 0.8, "cost_usd": 0.01}
+  },
+  {
+    "_case": "2. done with artifacts and follow-up",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [
+      {"id": "S-FND-T2-start", "owner": "forge", "priority": "P0", "due": null, "reason_code": "dep_met"}
+    ],
+    "blockers": [],
+    "artifacts": [
+      {"path": "src/schemas/sprint_outcome.py", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "type": "code", "bytes": 4200}
+    ],
+    "metrics": {"duration_s": 3720.5, "tokens_in": 12000, "tokens_out": 2400, "cache_hit_rate": 0.72, "cost_usd": 0.18}
+  },
+  {
+    "_case": "3. partial with multiple follow-ups",
+    "schema_version": "v1",
+    "status": "partial",
+    "next_actions": [
+      {"id": "retry-fixture-7", "owner": "forge", "priority": "P1", "due": "2026-04-23T10:00:00Z", "reason_code": "retry_due_transient"},
+      {"id": "backfill-149-tasks", "owner": "atlas", "priority": "P2", "due": null, "reason_code": "scope_extension"}
+    ],
+    "blockers": [],
+    "artifacts": [
+      {"path": "logs/run-042.jsonl", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "type": "log"}
+    ],
+    "metrics": {"duration_s": 840.1, "tokens_in": 8500, "tokens_out": 1800, "cache_hit_rate": 0.65, "cost_usd": 0.12}
+  },
+  {
+    "_case": "4. blocked with high-severity blocker",
+    "schema_version": "v1",
+    "status": "blocked",
+    "next_actions": [
+      {"id": "operator-review-schema", "owner": "operator", "priority": "P0", "due": null, "reason_code": "human_decision_required"}
+    ],
+    "blockers": [
+      {"id": "schema-version-ambiguity", "severity": "high", "evidence_ref": "src/schemas/foo.py:42", "note": "v1 vs v1.1 convention unresolved"}
+    ],
+    "artifacts": [],
+    "metrics": {"duration_s": 60, "tokens_in": 3000, "tokens_out": 400, "cache_hit_rate": 0.5, "cost_usd": 0.04}
+  },
+  {
+    "_case": "5. failed with retry action",
+    "schema_version": "v1",
+    "status": "failed",
+    "next_actions": [
+      {"id": "retry-attempt-2", "owner": "atlas", "priority": "P1", "due": "2026-04-22T22:00:00Z", "reason_code": "retry_due_transient"}
+    ],
+    "blockers": [
+      {"id": "mcp-not-connected", "severity": "critical", "evidence_ref": "logs/atlas-session-04-22.jsonl:line-1402", "note": "pre-crash stdio client dead"}
+    ],
+    "artifacts": [],
+    "metrics": {"duration_s": 30, "tokens_in": 2000, "tokens_out": 100, "cache_hit_rate": 0.4, "cost_usd": 0.03}
+  },
+  {
+    "_case": "6. done with attempt_id and emitted_at (post-ingress)",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 5.0, "tokens_in": 100, "tokens_out": 20, "cache_hit_rate": 1.0, "cost_usd": 0.001},
+    "attempt_id": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "emitted_at": "2026-04-22T20:15:00Z"
+  },
+  {
+    "_case": "7. done with human_narrative for Discord",
+    "schema_version": "v1",
+    "status": "done",
+    "next_actions": [],
+    "blockers": [],
+    "artifacts": [
+      {"path": "docs/system/jobs/index.md", "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "type": "doc", "bytes": 8400}
+    ],
+    "metrics": {"duration_s": 180, "tokens_in": 5500, "tokens_out": 900, "cache_hit_rate": 0.78, "cost_usd": 0.08},
+    "human_narrative": "SH2 generator MVP done. catalog.json validated, 3 generated pages live."
+  },
+  {
+    "_case": "8. blocked with cross-sprint blocker pointing to artifact",
+    "schema_version": "v1",
+    "status": "blocked",
+    "next_actions": [
+      {"id": "wait-s-fnd-t2", "owner": "forge", "priority": "P0", "due": null, "reason_code": "dep_upstream_pending"}
+    ],
+    "blockers": [
+      {"id": "attemptId-not-live", "severity": "critical", "evidence_ref": "sprints/s-reliab-p0-2026-04-22.md#T3", "note": "S-FND T2 must merge first"}
+    ],
+    "artifacts": [],
+    "metrics": {"duration_s": 10, "tokens_in": 500, "tokens_out": 80, "cache_hit_rate": 0.6, "cost_usd": 0.01}
+  },
+  {
+    "_case": "9. partial with low cache-hit (indicates CE2 not active)",
+    "schema_version": "v1",
+    "status": "partial",
+    "next_actions": [
+      {"id": "enable-context-edit", "owner": "forge", "priority": "P1", "due": null, "reason_code": "ce2_not_active"}
+    ],
+    "blockers": [],
+    "artifacts": [],
+    "metrics": {"duration_s": 1200, "tokens_in": 95000, "tokens_out": 12000, "cache_hit_rate": 0.18, "cost_usd": 1.45}
+  },
+  {
+    "_case": "10. failed with critical blocker and no cache-hit-rate (pre-CE4 measurement)",
+    "schema_version": "v1",
+    "status": "failed",
+    "next_actions": [
+      {"id": "abort-document", "owner": "operator", "priority": "P0", "due": null, "reason_code": "incident_triage"}
+    ],
+    "blockers": [
+      {"id": "gateway-oom-cascade", "severity": "critical", "evidence_ref": "journalctl:openclaw-gateway.service", "note": "3rd OOM in 4h"}
+    ],
+    "artifacts": [
+      {"path": "logs/gateway-oom-04-22-11-04.log", "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", "type": "log", "bytes": 120400}
+    ],
+    "metrics": {"duration_s": 240, "tokens_in": 4200, "tokens_out": 300, "cache_hit_rate": null, "cost_usd": 0.06}
+  }
+]

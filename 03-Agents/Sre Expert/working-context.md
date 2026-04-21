@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d4db61ab-d714-4dd3-a6f5-9d2fcb11e6b2 Forge Delta Review: Sprint O Tool Names + Paths + memory_search Status
+- task: be4a34fb-2a09-4bcb-8bb4-2ffd52840296 Forge Delta Review: Sprint O final tool/path/memorySearch corrections
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: CHANGES_REQUESTED | RESULT_SUMMARY: Delta enthält sichtbare Nachbesserungen, ist aber noch nicht konsistent genug für APPROVE. (1) Authoritative Tool-Namen: Plan nutzt in der Mapping-Tabelle `qmd_search
+- checkpoint: EXECUTION_STATUS: APPROVE | RESULT_SUMMARY: Die finalen Delta-Korrekturen sind jetzt gate-tauglich. (1) 7-Zeilen-Tabelle mit Operative+Canonical ist vorhanden (Z98-106) und trennt sauber operative MCP-Namen von semantisc
 - blocker: -
-- updated: 2026-04-21T20:38:47.873Z
+- updated: 2026-04-21T20:49:50.636Z
 <!-- mc:auto-working-context:end -->

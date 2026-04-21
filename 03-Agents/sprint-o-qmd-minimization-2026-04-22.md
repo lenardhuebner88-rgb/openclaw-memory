@@ -44,9 +44,10 @@ Current live vault size snapshot:
 
 ```text
 memory_search registration check in /home/piet/.openclaw/openclaw.json:
-- grep for `memory_search` returned no live hit
-- current working assumption: `memory_search` is not explicitly registered there as MCP tool-name
-- implication for review: treat `memory_search` as a facade/target concept that may need completion rather than assuming it already exists as a registered MCP tool in openclaw.json
+- `/home/piet/.openclaw/openclaw.json:501` contains a camelCase `memorySearch` config block
+- this confirms backend/config presence for MemorySearch behavior
+- grep for literal MCP tool registration names `memory_search` or `qmd__memory_search` returned no live hit
+- implication for review: `memory_search` is currently not evidenced as registered MCP tool-name; M1 should be read as memory_search MCP registration/completion using the already existing `memorySearch` backend config
 ```
 
 ## Milestones
@@ -54,7 +55,7 @@ memory_search registration check in /home/piet/.openclaw/openclaw.json:
 ### O1 — QMD-Nutzung auf Minimalbedarf zurückschneiden
 - **Ziel**
   - QMD nur dort behalten, wo keyword/vector retrieval echten Mehrwert liefert; fragile deep-search-Pfade aus dem operativen Default-Pfad entfernen.
-  - Falls `memory_search` nicht bereits als registrierter MCP-Endpunkt vorliegt, ist O1 als `memory_search` komplettieren zu lesen, nicht als komplett neue Capability aus dem Nichts bauen.
+  - Da `memory_search` aktuell nicht als registrierter MCP-Endpunkt belegt ist, ist O1 als `memory_search` komplettieren/registrieren zu lesen, nicht als komplett neue Backend-Capability aus dem Nichts bauen.
 - **Betroffene Bereiche**
   - `qmd__deep_search`
   - `qmd__search`
@@ -94,14 +95,15 @@ memory_search registration check in /home/piet/.openclaw/openclaw.json:
 
 ## Call-Site-Inventar & Mapping
 
-| Tool | Authoritative Call-Site | Ziel-Routing | Owner |
-|---|---|---|---|
-| `qmd_search` | `/home/piet/.openclaw/workspace/scripts/retrieval-feedback-loop.py:39` + `/home/piet/.openclaw/workspace/memory/SCHEMA.md:166` | `memory_search` (rg-first) | Atlas |
-| `qmd_query` | `/home/piet/.openclaw/workspace/memory/SCHEMA.md:166` (hybrid BM25+vector+rerank) | `memory_search` (full hybrid path) | Atlas |
-| `qmd_vsearch` | `/home/piet/.openclaw/workspace/memory/SCHEMA.md:166` | `memory_search` (semantic-hint only) | Atlas |
-| `qmd_get` | `/home/piet/.openclaw/workspace/memory/SCHEMA.md:169` | `vault_find + Read` | Forge |
-| `qmd_deep_search` | `/home/piet/.openclaw/workspace/scripts/retrieval-feedback-loop.py:39` | manual/forensic only, kein Default | Forge |
-| `memory_search` | `/home/piet/.openclaw/workspace/scripts/retrieval-feedback-loop.py:39` | facade target, prüfen ob bereits registriert/teil-implementiert | Atlas |
+| Operative Name (MCP) | Canonical Name (semantic) | Call-Site | Ziel-Routing | Owner |
+|---|---|---|---|---|
+| `qmd__search` | `qmd_search` | logs + `/home/piet/.openclaw/workspace/scripts/retrieval-feedback-loop.py:39` + `/home/piet/.openclaw/workspace/memory/SCHEMA.md:166` | `memory_search` (rg-first) | Atlas |
+| `qmd__vector_search` | `qmd_vsearch` | logs + `/home/piet/.openclaw/workspace/scripts/retrieval-feedback-loop.py:39` + `/home/piet/.openclaw/workspace/memory/SCHEMA.md:166` | `memory_search` (semantic-hint) | Atlas |
+| `qmd__deep_search` | `qmd_deep_search` | logs + `/home/piet/.openclaw/workspace/scripts/retrieval-feedback-loop.py:39` | manual/forensic only | Forge |
+| `qmd__get` | `qmd_get` | logs + `/home/piet/.openclaw/workspace/memory/SCHEMA.md:169` | `vault_find + Read` | Forge |
+| `qmd__multi_get` | `(keine)` | logs only | `vault_find + batched Read` | Forge |
+| `qmd__status` | `(keine)` | logs only | diagnostic only, kein User-Default | Forge |
+| `(kein MCP-invoke)` | `qmd_query` | `/home/piet/.openclaw/workspace/memory/SCHEMA.md:166` nur dokumentiert | Schema-Drift klären, im Facade-Mapping auf `memory_search` (hybrid path) | Atlas |
 
 Kontext, nicht Teil der Call-Site-Tabelle:
 - MCP-Server-Registration in `openclaw.json` relevant bei `/home/piet/.openclaw/openclaw.json:504`, `:544`, `:595`, `:649`, `:682`, `:725`, `:767` (per-agent) sowie `:1069`, `:1096` (server-def)
@@ -116,7 +118,7 @@ Kontext, nicht Teil der Call-Site-Tabelle:
 | Manual-Override-Requests | > 5 pro Tag | Operator-/Agent-Overrides, Beobachtungsreport | Semantic-Sidecar als Sprint P priorisieren, kein stilles Weiterso |
 
 Zusätzliche Beobachtungspflicht:
-- täglicher 08:00-UTC-Checkpoint-Cron: Script `/home/piet/.openclaw/scripts/vault-search-daily-checkpoint.sh`
+- täglicher 08:00-UTC-Checkpoint-Cron: Script `/home/piet/.openclaw/scripts/vault-search-daily-checkpoint.sh` (zu erstellen im M2/Execute, kein Pre-Existing-Artefakt)
 - Cron-Zeile: `0 8 * * *`
 - Output-Target: `/home/piet/vault/03-Agents/vault-search-observation-<YYYY-MM-DD>.md`
 - QMD bleibt während des 7-Tage-Fensters parallel funktionsfähig und gezielt zuschaltbar
