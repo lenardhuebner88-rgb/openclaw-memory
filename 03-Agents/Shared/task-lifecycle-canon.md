@@ -20,17 +20,18 @@ Jeder Task trägt gleichzeitig vier Zustandsfelder. Sie müssen konsistent sein 
 ### 1.1 Legale `status`-Werte und Übergänge
 
 ```
-draft       → assigned, canceled
-assigned    → in-progress, failed, blocked, canceled
-in-progress → review, done, failed, blocked, canceled
-blocked     → assigned, in-progress, done, failed, canceled
-review      → done, failed, blocked, canceled
-done        → []   ← TERMINAL
-failed      → []   ← TERMINAL
-canceled    → []   ← TERMINAL
+draft          → assigned, canceled
+assigned       → pending-pickup, failed, blocked, canceled
+pending-pickup → in-progress, assigned, failed, blocked, canceled
+in-progress    → review, done, failed, blocked, canceled
+blocked        → assigned, pending-pickup, done, failed, canceled
+review         → done, failed, blocked, canceled
+done           → []   ← TERMINAL
+failed         → assigned
+canceled       → []   ← TERMINAL
 ```
 
-**Wichtig:** `done` und `failed` sind absolut terminal. Kein PATCH, kein Move kann sie verlassen. Nur `recovery-action` (retry) kann einen `failed`/`blocked` Task zurück in `assigned` bringen — und nur wenn `maxRetriesReached=false` oder es ein Dispatch-Router-Timeout ist.
+**Wichtig:** `done` und `canceled` sind absolut terminal. `failed` ist fuer den normalen Worker-Lifecycle terminal, darf aber nur ueber den expliziten Recovery-Pfad `POST /api/tasks/{id}/recovery-action` wieder nach `assigned` ueberfuehrt werden. Kein blindes PATCH, kein synthetischer Worker-Receipt.
 
 ### 1.2 `dispatchState`-Übergänge
 
@@ -60,15 +61,22 @@ failed   → []
 |---|---|---|---|
 | `draft` | `false` | `draft` | `queued` |
 | `assigned` | `false` | `queued` | `queued` |
-| `in-progress` | `true` | `dispatched` | `active` |
-| `blocked` | `true`\* | `dispatched`\* | `blocked` |
-| `review` | `true` | `dispatched` | `review` |
+| `pending-pickup` | `true` | `dispatched` | `queued` |
+| `in-progress` | `true` | `dispatched` | `active`\* |
+| `blocked` | `true`\*\* | `dispatched` | `blocked` |
+| `review` | `true` | `completed` | `review` |
 | `done` | `true` | `completed` | `done` |
-| `failed` | `true` | `completed`\* | `failed` |
-| `canceled` | — | `completed` | — |
+| `failed` | kontextabhaengig | `queued|dispatched|completed` | `failed` |
+| `canceled` | `false` | `completed` | `failed` |
 
-\* `blocked` behält `dispatched=true` und `dispatchState=dispatched` (Open-State-Pattern).
-\* `failed` erhält immer `executionState=failed`, `dispatchState` bleibt `completed` wenn bereits completed.
+\* `in-progress` darf intern auch `stalled` oder `stalled-warning` tragen; operativ bleibt der Business-Status dennoch `in-progress`.
+\*\* `blocked` ist Open-State. Der Task bleibt fuer Recovery sichtbar; `dispatchState` bleibt absichtlich `dispatched`.
+
+**Wichtig fuer `failed`:**
+- Es gibt bewusst keine einzelne starre `dispatchState`-Kombination mehr.
+- Historische Artifact-Shells koennen `queued` sein.
+- Live unresolved Fails koennen weiter `dispatched` oder `completed` tragen.
+- Die operative Wahrheit fuer Recovery kommt aus `resolvedAt`, `maxRetriesReached` und der aktuellen Recovery-Klassifikation, nicht aus `completedAt` allein.
 
 **Verbotene Kombinationen** (werden von `getImpossibleStateError` abgelehnt):
 - `dispatchState=dispatched` + `executionState=queued`
@@ -80,30 +88,39 @@ failed   → []
 
 ## 3. Atlas Dispatch-Protokoll (KRITISCH)
 
-Wenn Atlas einen Task an einen Spezialisten oder Worker dispatcht, **muss** der PATCH diese Felder enthalten:
+Atlas dispatcht **nicht** mehr per Direkt-PATCH nach `in-progress`.
+
+Der kanonische Dispatch ist:
+
+```http
+POST /api/tasks/{id}/dispatch
+```
+
+Danach ist **verpflichtend**:
+
+```http
+GET /api/tasks/{id}
+```
+
+Der verifizierte Soll-Zustand nach einem erfolgreichen Dispatch ist:
 
 ```json
 {
+  "status": "pending-pickup",
   "dispatched": true,
   "dispatchState": "dispatched",
-  "status": "in-progress",
-  "lastExecutionEvent": "dispatch"
+  "executionState": "queued",
+  "workerSessionId": null,
+  "acceptedAt": null
 }
 ```
 
-**Das `status: "in-progress"` ist nicht optional.**
-
-Ohne es bleibt der Task auf `assigned`, `normalizeTaskRecord` setzt `dispatched=false, dispatchState=queued` zurück (weil `assigned` das erzwingt). Das Board zeigt dann falschen State, und der Worker-Monitor klassifiziert den Task falsch.
-
-Optional aber empfohlen:
-```json
-{
-  "workerSessionId": "gateway:{agentId}:{taskId}:{timestamp}",
-  "workerLabel": "{agentId}",
-  "dispatchTarget": "{agentId}",
-  "dispatchChannelId": "{channelId}"
-}
-```
+Operative Regeln:
+- Kein Direkt-PATCH nach `in-progress` oder `active`.
+- Kein synthetisches Setzen von `workerSessionId` als Atlas-Ersatz.
+- Kein synthetischer `accepted`-/`started`-Receipt zur "Begradigung".
+- Der erste gueltige Worker-Receipt ist der einzige kanonische Claim fuer `pending-pickup -> in-progress`.
+- Wenn Atlas direkt per API dispatcht, ist `dispatchToken` Board-Provenance und darf nicht durch Fantasiewerte ersetzt werden.
 
 ---
 
@@ -162,13 +179,15 @@ Bereinigt Zombie-Sessions und veraltete Locks.
 
 **Endpunkt:** `POST /api/tasks/{id}/receipt`
 
-**Pflichtfeld:** `stage` (einer von: `accepted`, `started`, `progress`, `result`, `blocked`, `failed`)
+**Pflichtfeld:** `receiptStage` oder `stage` (einer von: `accepted`, `started`, `progress`, `result`, `blocked`, `failed`)
 
 ### Stage-Anforderungen
 
 **`accepted` / `started`:**
 - Validiert via `validateBoardTransition`
 - Setzt `workerSessionId` und `workerLabel` aus Body
+- Fuer den ersten Claim eines `pending-pickup`-Tasks ist ein passender `dispatchToken` Pflicht, wenn der Task bereits einen Token traegt
+- `accepted` promoted den Task kanonisch nach `in-progress`
 
 **`progress`:**
 - Checkpoint wird in Vault geschrieben
@@ -189,11 +208,11 @@ Bereinigt Zombie-Sessions und veraltete Locks.
 - Emittiert Task-Lifecycle-Report + Discord-Notification
 
 **`failed` (Fehler):**
-- Terminal — kein Zurück
-- Setzt `status=failed`, `executionState=failed`, `retryCount++` (via worker-monitor)
-- Setzt `maxRetriesReached=true` wenn Limit erreicht
+- Terminal fuer den aktuellen Worker-Lauf
+- Setzt `status=failed`, `executionState=failed`
 - Schreibt `writeTaskFailed()` in Vault
 - Emittiert Task-Lifecycle-Report + Discord-Notification
+- Ein erneuter Start darf danach nur ueber `recovery-action:retry` passieren
 
 ---
 
@@ -210,10 +229,13 @@ Bereinigt Zombie-Sessions und veraltete Locks.
 
 **Was passiert:**
 1. Task wird auf `assigned/queued` geprimed (alle Worker-Felder gecleart)
-2. `dispatchTask(taskId, 'main')` wird aufgerufen → Atlas bekommt den Task erneut
-3. Atlas muss dann selbst entscheiden, ob er direkt bearbeitet oder erneut an Spezialisten delegiert
+2. Danach wird wieder kanonisch `dispatchTask(...)` aufgerufen
+3. Das Retry-Ziel wird aus dem aktuellen Task-Kontext aufgeloest; es geht nicht mehr pauschal immer an `main`
 
-**Wichtig:** Recovery-Action dispatcht immer an `main` (Atlas), NICHT direkt an den ursprünglichen Spezialisten.
+**Wichtig:**
+- Recovery ist der einzige legale Weg, einen `failed`/`blocked` Task wieder anzulaufen
+- Kein synthetischer Worker-Receipt als Ersatz fuer Recovery
+- Vor einem Retry immer Task-State per GET verifizieren
 
 ---
 
@@ -221,9 +243,15 @@ Bereinigt Zombie-Sessions und veraltete Locks.
 
 **Endpunkt:** `GET /api/worker-pickups`
 
-Ein Task gilt als `ready=true` für Worker-Pickup wenn:
+Ein Task erscheint dort nur, wenn er bereits:
+- `status=pending-pickup`
+- `dispatched=true`
+- `dispatchState=dispatched`
+
+Ein Task gilt dort nur dann als `ready=true`, wenn zusätzlich:
 - `hasExecutionContract=true` (Beschreibung enthält alle Pflicht-Marker)
-- `workerSessionId` ist leer/nicht gesetzt
+- `workerSessionId` ist leer oder nur ein Gateway-Placeholder
+- `status`/`executionState` sind nicht `blocked`
 - `executionState` ist nicht `done` oder `failed`
 
 **Pflicht-Marker für `hasExecutionContract`:**
@@ -255,29 +283,34 @@ Board-State wird immer angezeigt — Live-Runtime-Signals (workerSessionId etc.)
 ```
 1. Task erstellen (status=draft)
 2. Atlas assigned (status=assigned, dispatched=false, dispatchState=queued)
-3. Atlas dispatcht Worker:
-   PATCH {status:"in-progress", dispatched:true, dispatchState:"dispatched",
-          workerSessionId:"gateway:...", lastExecutionEvent:"dispatch"}
-4. Worker sendet receipt stage=accepted → Board zeigt acceptedAt
-5. Worker sendet receipt stage=started → Board zeigt startedAt
-6. Worker sendet receipt stage=progress → Vault-Checkpoint
+3. Atlas dispatcht kanonisch:
+   POST /api/tasks/{id}/dispatch
+4. Atlas verifiziert per GET:
+   status=pending-pickup, dispatched=true, dispatchState=dispatched,
+   executionState=queued
+5. Worker sendet receipt stage=accepted (+ dispatchToken wenn gefordert)
+   → status=in-progress, executionState=active
+6. Worker sendet optional receipt stage=started / progress
 7. Worker sendet receipt stage=result → status=done, Vault, Discord
 ```
 
 **Bei Fehler:**
 ```
 7b. Worker sendet receipt stage=failed
-    → status=failed (terminal), retryCount++
-8b. Worker-Monitor oder Atlas ruft recovery-action:retry auf
-    → status=assigned (zurück zu Schritt 2)
+    → status=failed, executionState=failed
+8b. Atlas/Operator macht RCA und entscheidet:
+    - historisches Artefakt? → sauber admin-close / dokumentieren
+    - echter offener Fail? → recovery-action:retry
+9b. recovery-action:retry
+    → status=assigned, dann wieder dispatch → pending-pickup
 ```
 
 **Bei Blockade:**
 ```
 7c. Worker sendet receipt stage=blocked
     → status=blocked, dispatchState bleibt dispatched (Open-State)
-8c. Worker-Monitor prüft nextRetryAt, ruft recovery-action:retry
-    → status=assigned (zurück zu Schritt 2)
+8c. Atlas/Operator entscheidet explizit Recovery, Reassign oder Nacharbeit
+    → nie blind retriggern, nie synthetischen accepted-Receipt schreiben
 ```
 
 ---
@@ -295,7 +328,7 @@ Board-State wird immer angezeigt — Live-Runtime-Signals (workerSessionId etc.)
 | Accepted nicht erzwungen | worker-monitor.py | SPECIALIST_DISPATCH_PROMPT enthielt keinen accepted-Schritt | SCHRITT 1 mit explizitem Receipt-Aufruf im Prompt ergänzt |
 | Gateway-Kapazität blind | worker-monitor.py | Kein Status-Check vor Spawn — Überlastung | `/agents/{id}/status` wird vor jedem Spawn geprüft |
 | maxRetriesReached lautlos | worker-monitor.py | Tasks stuck ohne Operator-Alert | Discord-Notification bei maxRetriesReached=true |
-| Recovery wartet auf Atlas | worker-monitor.py | Recovery-Action dispatcht immer an main — Verzögerung | Nach Recovery direkt `_spawn_specialist()` wenn dispatchTarget bekannt |
+| Recovery wartet auf Atlas | worker-monitor.py | Frueher dispatchte Recovery-Action pauschal an `main` — Verzoegerung | Nach Recovery direkt `_spawn_specialist()` wenn dispatchTarget bekannt |
 | Atlas-Ping nicht idempotent | worker-monitor.py | Completion-Pings bei gw_chat-Fehler verloren | pending-pings.json — Retry über Zyklen hinweg |
 | Fehlender Token-Check | worker-monitor.py | Ungültiger/fehlender GW-Token erst beim Spawn sichtbar | validate_gateway_token() am Cron-Start mit Discord-Alert |
 | Unkontrollierte Dispatch-Order | worker-monitor.py | Alle ready-Tasks ohne Prio dispatcht | Priority-Sort: [P0] → [P1] → [P2] → Rest in dispatch_ready_tasks() |
