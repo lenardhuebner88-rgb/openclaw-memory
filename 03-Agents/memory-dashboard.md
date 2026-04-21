@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-04-20T02:30:01.603404+00:00
+last_generated: 2026-04-21T02:30:01.671824+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-04-20 02:30 UTC  
+**Last Generated:** 2026-04-21 02:30 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -18,10 +18,10 @@ auto_refresh: daily 04:30 UTC (cron)
 
 | Level | Component | Status | Notes |
 |---|---|---|---|
-| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 762 files indexed |
-| **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 46 rules |
+| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 688 files indexed |
+| **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 52 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 2 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-20T02:30:01Z] OK session=627e95fd-e2a size=4987 tokens_est=1246 pct=0% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-21T02:30:01Z] OK session=0de9a308-d09 size=6842 tokens_est=1710 pct=1% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -56,7 +56,7 @@ auto_refresh: daily 04:30 UTC (cron)
 - **R7** [active] Kanonische Build-Sequenz (nicht `deploy.sh`)
 - **R8** [active] Jeder Edit bekommt `.bak-<scope>-<datum>`
 
-### Build-Deploy-Regeln (14)
+### Build-Deploy-Regeln (17)
 
 - **R29** [active] Build-Storm-Debounce
 - **R30** [pending] MCP-Taskboard-Server-Zombies
@@ -71,17 +71,25 @@ auto_refresh: daily 04:30 UTC (cron)
 - **R39** [active] Atlas-main braucht Session-Resume-Pattern
 - **R40** [resolved] Stall-Detection-Thresholds sind Kern-Infra
 - **R41** [active] Memory-Retrieval: QMD vor File-Read
+- **R42** [active] Deploy-Restart-Discipline via mc-restart-safe
 - **R46** [active] Parallel-Deploy-Serialization
+- **R50** [active] Session-Lock-Governance fuer Auto-Pickup
+- **R52** [active] Auto-Pickup Silent-Fail-Detection
 
-### Config-Regeln (3)
+### Config-Regeln (4)
 
 - **R4** [active] openclaw.json NIE direkt editieren
 - **R5** [active] Kanonischer MC-Service ist User-Level, Port 3000
+- **R51** [active] Schema-Validation-Gate fuer openclaw.json
 - **R6** [active] `worker-pickup-loop.py` bleibt tot
 
 ### Governance (1)
 
 - **R47** [active] Scope-Lock-auf-Plan-Doc nicht Task-ID
+
+### Hygiene (1)
+
+- **R53** [active] Config/Scripts Daily Snapshot in Vault
 
 ### Integrations-Regeln (2)
 
@@ -97,8 +105,9 @@ auto_refresh: daily 04:30 UTC (cron)
 - **R22** [resolved] Task ohne Result-Receipt ≠ erfolgsfrei
 - **R23** [active] Retry-Task nur bei Parent in failed/error-State
 
-### Multi-Agent-Orchestration (1)
+### Multi-Agent-Orchestration (2)
 
+- **R44** [active] Board-Discipline: Board-Task required before sessions_spawn
 - **R45** [active] Sub-Agent-Receipt-Discipline
 
 ### Naming & Runtime-Regeln (2)
@@ -114,7 +123,7 @@ auto_refresh: daily 04:30 UTC (cron)
 - **R16** [active] V8-Heap-Limit muss explizit sein
 - **R17** [active] systemd MemoryMax > V8 Heap-Limit
 
-## 3. Facts Today (2026-04-20) — 0 total
+## 3. Facts Today (2026-04-21) — 0 total
 
 *(no facts extracted today yet)*
 
@@ -134,15 +143,15 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 5. KB Articles (Karpathy-style cross-refs)
 
 - [Atlas Hallucination Prevention](kb/atlas-hallucination-prevention.md) — 64 Zeilen
-- [Board Hygiene & Lifecycle](kb/board-hygiene.md) — 62 Zeilen
+- [Board Hygiene & Lifecycle](kb/board-hygiene.md) — 69 Zeilen
 - [Build & Deploy Rules](kb/build-deploy-regeln.md) — 74 Zeilen
-- [Deploy Contracts & MC-Restart](kb/deploy-contracts.md) — 70 Zeilen
+- [Deploy Contracts & MC-Restart](kb/deploy-contracts.md) — 76 Zeilen
 - [Incident Response & RCA](kb/incident-response.md) — 84 Zeilen
 - [Memory Architecture](kb/memory-architecture.md) — 60 Zeilen
-- [Receipt Discipline](kb/receipt-discipline.md) — 80 Zeilen
-- [Scope Governance & operatorLock](kb/scope-governance.md) — 57 Zeilen
-- [Sprint Orchestration](kb/sprint-orchestration.md) — 95 Zeilen
-- [Sub-Agent Coordination](kb/sub-agent-coordination.md) — 80 Zeilen
+- [Receipt Discipline](kb/receipt-discipline.md) — 85 Zeilen
+- [Scope Governance & operatorLock](kb/scope-governance.md) — 62 Zeilen
+- [Sprint Orchestration](kb/sprint-orchestration.md) — 106 Zeilen
+- [Sub-Agent Coordination](kb/sub-agent-coordination.md) — 85 Zeilen
 
 ## 6. Memory-Graph — 1279 edges
 
@@ -177,24 +186,24 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-04-20T01:45:01Z] OK session=4fae4fc3-5e2 size=5108 tokens_est=1277 pct=0%
-[2026-04-20T01:50:01Z] CRITICAL session=48f8d0f0-2f0 size=2538715 tokens_est=634678 pct=423%
-[2026-04-20T01:55:01Z] CRITICAL session=48f8d0f0-2f0 size=2538715 tokens_est=634678 pct=423%
-[2026-04-20T02:00:01Z] CRITICAL session=48f8d0f0-2f0 size=2538715 tokens_est=634678 pct=423%
-[2026-04-20T02:05:01Z] CRITICAL session=d35ffda0-76c size=600459 tokens_est=150114 pct=100%
-[2026-04-20T02:10:01Z] OK session=5d15dacf-279 size=5118 tokens_est=1279 pct=0%
-[2026-04-20T02:15:01Z] OK session=5d15dacf-279 size=5118 tokens_est=1279 pct=0%
-[2026-04-20T02:20:01Z] OK session=627e95fd-e2a size=4987 tokens_est=1246 pct=0%
-[2026-04-20T02:25:01Z] OK session=627e95fd-e2a size=4987 tokens_est=1246 pct=0%
-[2026-04-20T02:30:01Z] OK session=627e95fd-e2a size=4987 tokens_est=1246 pct=0%
+[2026-04-21T01:45:01Z] OK session=fb23b226-54c size=4820 tokens_est=1205 pct=0%
+[2026-04-21T01:50:01Z] CRITICAL session=ae86077d-b11 size=595042 tokens_est=148760 pct=99%
+[2026-04-21T01:55:01Z] CRITICAL session=ae86077d-b11 size=595042 tokens_est=148760 pct=99%
+[2026-04-21T02:00:01Z] CRITICAL session=ae86077d-b11 size=595042 tokens_est=148760 pct=99%
+[2026-04-21T02:05:01Z] CRITICAL session=d7b58bcf-909 size=746159 tokens_est=186539 pct=124%
+[2026-04-21T02:10:01Z] OK session=c696c263-012 size=7864 tokens_est=1966 pct=1%
+[2026-04-21T02:15:01Z] OK session=c696c263-012 size=7864 tokens_est=1966 pct=1%
+[2026-04-21T02:20:01Z] OK session=0de9a308-d09 size=6842 tokens_est=1710 pct=1%
+[2026-04-21T02:25:01Z] OK session=0de9a308-d09 size=6842 tokens_est=1710 pct=1%
+[2026-04-21T02:30:01Z] OK session=0de9a308-d09 size=6842 tokens_est=1710 pct=1%
 ```
 
 ## 9. Active Crons (summary)
 
-- User-crontab: 40 active
+- User-crontab: 46 active
 - Systemd user-timers: 
 - OpenClaw-Cron-Plugin (enabled): 16
-- **Total: ~56 schedules**
+- **Total: ~62 schedules**
 
 Full inventory: [cron-audit-2026-04-19.md](cron-audit-2026-04-19.md)
 
