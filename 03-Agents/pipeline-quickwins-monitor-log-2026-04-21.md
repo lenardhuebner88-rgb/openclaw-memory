@@ -84,3 +84,35 @@ Gateway agent failed; falling back to embedded:
 **Eingriffs-Schwelle:** Operator hat explizit `nur Analyse` angeordnet — kein Patch durch mich. Der Loop frisst Ressourcen aber korrumpiert nichts (Lock-Reaper sauber, `alive_lock=0`). Beobachten.
 
 **Kollateralbefund:** `[E2E] assigned-no-dispatch-control` (frontend-guru, 11:38 UTC) — vom Operator als Kontroll-Probe eingestellt? Status `assigned`/`queued`, noch nicht `pending-pickup` — evtl. E2E-Harness um das Problem zu reproduzieren.
+
+## 11:50 UTC — RECOVERY
+- **Task 1.1: `in-progress` seit 11:49:21Z** ✅ Sprint läuft.
+- **Autopickup-Fix angewendet um 11:48:49:** `TRIGGER ... agent=sre-expert` (korrekte ID) statt `agent=Forge` — Operator oder Hotfix. Welcher Fix-Pfad (Script, Task-Update, Alias) bleibt noch zu verifizieren.
+- E2E-Kontroll-Probe `3998164b` `canceled` um 11:41:54 — Operator räumt auf.
+- **API-Hiccup 11:48:15:** `<urlopen error 111 Connection refused>` auf mc-api → selbst-erholt binnen 30s (11:48:49 Trigger OK). Möglicherweise MC-Hot-Reload oder Discord-Webhook-Fail. Nicht ursächlich für den Loop.
+- W4 (Autopickup-Loop) gelöst, aber Root-Cause-Fix (auto-pickup.py 1-liner) und R51/R52 noch als Todo.
+
+### Schwachstelle W5 — Fix-Pfad nicht dokumentiert
+**Beobachtung:** Recovery passierte extern (nicht durch Atlas), aber welcher Fix gewählt wurde (Option 1/2/3 aus W4) ist aus den Logs nicht sichtbar. Git-History auf auto-pickup.py + openclaw.json wäre aufschlussreich.
+**Eingriffs-Schwelle:** Nicht dringend — nur für Lessons-Learned nach Sprint-Ende.
+
+## 12:17 UTC — Phase 1 stagniert nach Task 1.1
+- Task 1.1 done 11:51:39Z (in 2 min) ✅
+- 6× E2E-GREEN Vollagent-Smoke-Test 11:54-12:05 (Operator verifiziert Auto-Pickup-Fix) ✅
+- Autopickup sauber seit 12:05: pending=0, keine Reaps
+- Atlas Main-Session `ca6b2cae` zuletzt aktiv 11:58 UTC (Anzeige des 1.1-Resultats vermutlich). **Seit 19 min stumm** (nur NO_REPLY-Heartbeats 12:01/12:06/12:15).
+- Board hat weder 1.2, 1.3 noch 1.4 — Sprint hängt zwischen Phase-1 Task 1 und 2.
+
+### Schwachstelle W6 — Atlas dispatcht Phase 1 nicht weiter
+**Beobachtung:** Nach Task 1.1 done macht Atlas kein Follow-up. Dispatch-Prompt sagt "Phase 1 seriell, dann Gate vor Phase 2". Mögliche Interpretationen:
+1. Atlas hat "seriell" fälschlich als "nur 1 Task pro Prompt-Trigger" verstanden — braucht Operator-Re-Trigger für 1.2.
+2. Atlas hat Phase-1-Gate (Smoke-Test) ohne alle 4 Tasks ausgeführt und gewartet.
+3. Atlas-Codex-Responses bekommt kein Wake-Signal mehr.
+
+**Evidenz für (1):** Atlas-Sessions 11:45–12:15 sind kurz (<6 KB) und enden mit `NO_REPLY`. Kein aktiver Dispatch-Versuch in JSONL sichtbar.
+
+**Eingriffs-Schwelle:** Grenzfall. Operator-Eingriff ist kein Emergency. Wenn in 30 min weiter Stille → melden.
+**Action:** Weiter beobachten bis 12:45 UTC. Wenn dann immer noch keine 1.2-Task, direkt Operator ansprechen.
+
+### Dual-Beobachtung
+- Stale-Fail-Bumper läuft weiter (3× failed um 12:16:58 — gleiche 3 Tasks wie 11:00, 11:40, 12:16, ~40 min Periode). Vermutlich R49-Claim-Validator. Harmlos, aber erzeugt Board-Churn.

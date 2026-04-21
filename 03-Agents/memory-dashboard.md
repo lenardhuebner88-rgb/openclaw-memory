@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-04-21T09:30:02.848903+00:00
+last_generated: 2026-04-21T12:30:03.046939+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-04-21 09:30 UTC  
+**Last Generated:** 2026-04-21 12:30 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -18,10 +18,10 @@ auto_refresh: daily 04:30 UTC (cron)
 
 | Level | Component | Status | Notes |
 |---|---|---|---|
-| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 702 files indexed |
-| **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 52 rules |
+| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 713 files indexed |
+| **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 54 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 3 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-21T09:30:01Z] OK session=ca6b2cae-509 size=152715 tokens_est=38178 pct=25% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-21T12:30:01Z] CRITICAL session=ca6b2cae-509 size=568509 tokens_est=142127 pct=94% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -37,9 +37,11 @@ auto_refresh: daily 04:30 UTC (cron)
 - **R11** [active] Runtime-ID vs Alias nicht verwechseln
 - **R12** [active] Worker-Agents dürfen kein LTM schreiben
 
-### Atlas-Governance (1)
+### Atlas-Governance (3)
 
 - **R49** [active] Atlas Anti-Hallucination Claim-Verify-Before-Report
+- **R54** [active] MCP-Not-Connected erst als Session-/Gateway-Korrelation triagieren
+- **R55** [active] Gateway-Restart heilt keine stale MCP-Session-Runtimes
 
 ### Board-Hygiene (1)
 
@@ -146,7 +148,7 @@ auto_refresh: daily 04:30 UTC (cron)
 - [Board Hygiene & Lifecycle](kb/board-hygiene.md) — 69 Zeilen
 - [Build & Deploy Rules](kb/build-deploy-regeln.md) — 74 Zeilen
 - [Deploy Contracts & MC-Restart](kb/deploy-contracts.md) — 76 Zeilen
-- [Incident Response & RCA](kb/incident-response.md) — 84 Zeilen
+- [Incident Response & RCA](kb/incident-response.md) — 95 Zeilen
 - [Memory Architecture](kb/memory-architecture.md) — 60 Zeilen
 - [Receipt Discipline](kb/receipt-discipline.md) — 85 Zeilen
 - [Scope Governance & operatorLock](kb/scope-governance.md) — 62 Zeilen
@@ -186,24 +188,24 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-04-21T08:45:01Z] CRITICAL session=c3c274b0-873 size=933508 tokens_est=233377 pct=155%
-[2026-04-21T08:50:01Z] CRITICAL session=c3c274b0-873 size=1066784 tokens_est=266696 pct=177%
-[2026-04-21T08:55:01Z] OK session=ca6b2cae-509 size=146367 tokens_est=36591 pct=24%
-[2026-04-21T09:00:01Z] CRITICAL session=c3c274b0-873 size=1194203 tokens_est=298550 pct=199%
-[2026-04-21T09:05:01Z] OK session=6332d3cd-f0a size=62969 tokens_est=15742 pct=10%
-[2026-04-21T09:10:01Z] OK session=6332d3cd-f0a size=62969 tokens_est=15742 pct=10%
-[2026-04-21T09:15:01Z] OK session=6332d3cd-f0a size=107070 tokens_est=26767 pct=17%
-[2026-04-21T09:20:01Z] OK session=6332d3cd-f0a size=162401 tokens_est=40600 pct=27%
-[2026-04-21T09:25:01Z] OK session=ca6b2cae-509 size=152715 tokens_est=38178 pct=25%
-[2026-04-21T09:30:01Z] OK session=ca6b2cae-509 size=152715 tokens_est=38178 pct=25%
+[2026-04-21T11:45:01Z] OK session=24c718b4-53e size=5175 tokens_est=1293 pct=0%
+[2026-04-21T11:50:02Z] OK session=5337579d-723 size=4975 tokens_est=1243 pct=0%
+[2026-04-21T11:55:01Z] OK session=ca6b2cae-509 size=330090 tokens_est=82522 pct=55%
+[2026-04-21T12:00:01Z] OK session=ca6b2cae-509 size=416326 tokens_est=104081 pct=69%
+[2026-04-21T12:05:01Z] OK session=378179ec-08c size=6223 tokens_est=1555 pct=1%
+[2026-04-21T12:10:01Z] OK session=42b0a33e-182 size=20836 tokens_est=5209 pct=3%
+[2026-04-21T12:15:01Z] OK session=42b0a33e-182 size=20836 tokens_est=5209 pct=3%
+[2026-04-21T12:20:01Z] OK session=8adf358b-ce5 size=5002 tokens_est=1250 pct=0%
+[2026-04-21T12:25:01Z] WARN session=ca6b2cae-509 size=473971 tokens_est=118492 pct=78%
+[2026-04-21T12:30:01Z] CRITICAL session=ca6b2cae-509 size=568509 tokens_est=142127 pct=94%
 ```
 
 ## 9. Active Crons (summary)
 
-- User-crontab: 40 active
+- User-crontab: 42 active
 - Systemd user-timers: 
 - OpenClaw-Cron-Plugin (enabled): 16
-- **Total: ~56 schedules**
+- **Total: ~58 schedules**
 
 Full inventory: [cron-audit-2026-04-19.md](cron-audit-2026-04-19.md)
 

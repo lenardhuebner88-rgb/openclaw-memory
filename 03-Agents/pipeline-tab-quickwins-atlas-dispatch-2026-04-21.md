@@ -31,6 +31,15 @@ ssh homeserver "/home/piet/.openclaw/scripts/pre-flight-sprint-dispatch.sh /home
    - Task 1.4: "seit X"-Label truth-basiert in `src/app/kanban/components/TaskPipelineCard.tsx`
    - **Gate vor Phase 2:** Smoke-Test aus Plan ausführen, Filter 24h muss 0 Incidents liefern.
 
+**Wichtige Orchestrierungsregel fuer jeden einzelnen Forge-Dispatch:**
+
+- `taskboard_create_task` oder reines Assign erzeugt nur den Board-Eintrag. Das reicht NICHT fuer Auto-Pickup.
+- Nach jedem neu angelegten Forge-Task ist der explizite Dispatch-Pfad Pflicht.
+- Verify via `GET /api/tasks/<id>`:
+  - Vor Dispatch darf `status=assigned`, `dispatchState=queued` auftreten.
+  - Erst `status=pending-pickup`, `dispatchState=dispatched`, `dispatched=true` bedeutet: pickup-ready.
+- Wenn ein Task nach Create/Assign in `assigned/queued` stehen bleibt, gilt das als unvollstaendiger Handoff und muss sofort korrigiert werden, nicht erst nach Timeout.
+
 2. **Phase 2 — Ehrliche UI-Zustände (P1)** — 3 Tasks an Forge:
    - Task 2.1: Pixel-Badge Single-Source-of-Truth
    - Task 2.2: Stale-Agent-Chip bei `heartbeatAge > 3600s`

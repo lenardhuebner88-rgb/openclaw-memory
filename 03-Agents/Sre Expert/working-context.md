@@ -64,14 +64,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d4994107-f7fe-449c-9a4d-6d02547b83a0 1.1 Filter-Logik failedAt-basiert
+- task: 56051a9f-2570-409b-912b-4a47c5bd841b [E2E-GREEN] sre-expert
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
-DONE
+SUCCESS
 
 RESULT_SUMMARY
-Phase 1.1 umgesetzt: Der Failed-Zeitfilter nutzt jetzt failedAt als Truth-Basis. In src/lib/pipeline-data.ts wurde getPipelineWindowReference() eingeführt (failed => failedAt, sonst 
+Pending-pickup Task wurde sauber geclaimt und im sre-expert Lane abgeschlossen. Nur read-only Self-Checks ausgeführt (Task-Readback, Git-HEAD, Status-Abfrage). Keine Writes/Deploy
 - blocker: -
-- updated: 2026-04-21T11:51:39.049Z
+- updated: 2026-04-21T12:05:20.827Z
 <!-- mc:auto-working-context:end -->

@@ -1,10 +1,10 @@
 ---
 title: "Incident Response & RCA"
 slug: incident-response
-last_compiled: 2026-04-21T09:30:02.573912Z
+last_compiled: 2026-04-21T12:30:02.740908Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 44
-rule_count: 6
+rule_count: 8
 memory_level: 3
 ---
 
@@ -12,8 +12,8 @@ memory_level: 3
 
 **Description:** Incident-detection patterns, RCA methodology, recovery-workflows from today's live-cases.
 
-**Compiled:** 2026-04-21T09:30:02.573912Z  
-**Source:** 44 facts from workspace/memory/facts/*.jsonl, 6 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-21T12:30:02.740908Z  
+**Source:** 44 facts from workspace/memory/facts/*.jsonl, 8 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
 
@@ -47,6 +47,16 @@ memory_level: 3
 
 
 
+### R54 — MCP-Not-Connected erst als Session-/Gateway-Korrelation triagieren
+*Status: active | Since: 2026-04-21*
+
+Bei MCP-Tool-Fail mit `Not connected` oder `Connection closed` MUSS zuerst die Gateway-Restart-History gegen die betroffene Session-Zeit korreliert werden. Kein vorschneller Backend-/Tool-RCA-Pfad, bevor Session-Staleness ausgeschlossen ist.
+
+### R55 — Gateway-Restart heilt keine stale MCP-Session-Runtimes
+*Status: active | Since: 2026-04-21*
+
+Ein Gateway-Restart alleine gilt nicht als Recovery fuer `Not connected` in bestehenden Sessions. Bei Pre-Crash-Sessions: zuerst Session-Rotation oder nach Runtime-Hotfix den ersten lazy-recovery Fail einkalkulieren.
+
 ## Key Facts (Top-20 by Importance)
 
 - **[1.00]** `procedural` (2026-04-19T21:35:11 system#4eeb1a13) — R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:30 UTC nach Atlas-Hallucinations-Cascade 19:42-20:03 UTC. Atlas-Session d27407ee halluzinierte 2x Commit-SHAs (3dcb614, 9...
@@ -72,6 +82,7 @@ memory_level: 3
 
 ## Related KB Articles
 
+- [Atlas Hallucination Prevention](atlas-hallucination-prevention.md)
 - [Deploy Contracts & MC-Restart](deploy-contracts.md)
 
 ## Metadata
@@ -82,4 +93,4 @@ memory_level: 3
 
 ---
 
-*Auto-compiled from 44 facts + 6 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 44 facts + 8 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
