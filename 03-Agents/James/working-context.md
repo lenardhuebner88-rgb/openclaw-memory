@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 59e32f3e-bc82-456a-9dc4-62b2e145e0b8 [AGENT_FLEET_E2E_20260421T1725] james read-only board-flow proof
+- task: 96b66234-ddcc-410d-98d6-0cd98a79cf8b [E2E James] Auto-pickup current-path probe
 - stage: DONE
 - next: await next assignment
-- checkpoint: E2E proof passed: james claimed and completed board-flow task read-only. Taskboard API functional.
+- checkpoint: E2E probe passed — james auto-pickup read-only check complete. Workspace path verified.
 - blocker: -
-- updated: 2026-04-21T15:49:15.981Z
+- updated: 2026-04-21T17:50:55.257Z
 <!-- mc:auto-working-context:end -->
