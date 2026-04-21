@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5f18641b-c12d-4d43-845f-1d3481d0f771 [AGENT_FLEET_E2E_20260421T1725] efficiency-auditor read-only board-flow proof
-- stage: DONE
+- task: 50998199-9c48-4640-b0bb-bd1f9464812c Lens Audit: Prüfung von Live-Daten im Task Board
+- stage: FAILED
 - next: await next assignment
-- checkpoint: efficiency-auditor board lifecycle proof PASSED: MC /api/health=ok, 2 in-progress tasks, board API reachable.
-- blocker: -
-- updated: 2026-04-21T15:45:22.146Z
+- checkpoint: Auto-pickup unclaimed after 3 attempts: dead-unclaimed-spawn
+- blocker: Auto-pickup unclaimed after 3 attempts: dead-unclaimed-spawn
+- updated: 2026-04-21T17:30:27.440Z
 <!-- mc:auto-working-context:end -->
