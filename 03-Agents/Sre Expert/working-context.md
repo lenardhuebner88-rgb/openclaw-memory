@@ -64,10 +64,11 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3b45d061-d844-4225-88dd-590787d8bf0c [E2E Forge] Auto-pickup current-path probe
+- task: 903e563a-8d3d-473e-ba2f-c5339eed0937 Forge Re-Review: Sprint N E2E Stabilization Plan
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS SUCCESS; RESULT_SUMMARY The current auto-pickup path completed read-only using hostname huebners and UTC time 2026-04-21T17:50:22Z.
+- checkpoint: EXECUTION_STATUS: APPROVE
+RESULT_SUMMARY: Single-Line-Fix ist korrekt umgesetzt, M3 nutzt nun `blocked` (Plan L94) statt `pending-pickup-blocked`; damit ist die zuvor beanstandete Status-Inkonsistenz behoben und der Plan
 - blocker: -
-- updated: 2026-04-21T17:50:44.037Z
+- updated: 2026-04-21T19:03:48.125Z
 <!-- mc:auto-working-context:end -->
