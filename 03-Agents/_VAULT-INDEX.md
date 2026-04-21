@@ -32,11 +32,11 @@ Trigger-Phrases: *"Lade `sprints/s-<id>-2026-04-22.md` und starte Sprint S-\<ID\
 | **S-RELIAB-P0** | `sprints/s-reliab-p0-2026-04-22.md` | P0 | Forge | S-FND T2+T3 | S-RELIAB-P1, S-INFRA | PLANNED |
 | **S-CTX-P0** | `sprints/s-ctx-p0-2026-04-22.md` | P0 | Atlas + Forge | — | S-CTX-P1 | PLANNED |
 | **S-RPT** | `sprints/s-rpt-2026-04-22.md` | P1 | Codex + Forge | S-FND T1 | S-GOV, S-RELIAB-P1 Receipt-Chain | PLANNED |
-| **S-GOV** | `sprints/s-gov-2026-04-22.md` | P1 | Lens → Atlas → Forge | — (Lens-Review intrinsisch Blocker) | S-RELIAB-P1, S-INTEG-W1 | PLANNED |
+| **S-GOV** | `sprints/s-gov-2026-04-22.md` | P1 | Lens → Atlas → Forge | — (Lens T0 DECLINE 2026-04-21; Mini-Dispatch T2.1/T2.2/T4/T5 RUNNING) | S-RELIAB-P1, S-INTEG-W1 | **PARTIAL** — T2.1/T2.2/T4 done 2026-04-21 23:33, T4 3h-Observation läuft, T5 Mini-Patch expected-counts in flight |
 | **S-UX** | `sprints/s-ux-2026-04-22.md` | P2 | Forge + Pixel | S-FND T2 | — | PLANNED |
 | **S-INFRA** | `sprints/s-infra-2026-04-22.md` | P1 | Forge + Operator + Atlas | S-RELIAB-P0 T2 | — | PLANNED |
 | **S-INTEG-W1** | `sprints/s-integ-w1-2026-04-22.md` | P1-strategic | Operator + Forge | S-FND T3 + 7d Pre-Flight | S-INTEG W2-W4 | PLANNED |
-| **S-HANDBOOK** 🆕 | `sprints/s-handbook-2026-04-21.md` | P1 | Codex (Execution) + Atlas (Dispatch) | — (self-contained; SH3 Quality ↑ mit S-GOV T4 grün) | Agent-Orientation speed-up | **RUNNING** (SH1-SH5 done 2026-04-21 22:51, SH6 starts now) |
+| **S-HANDBOOK** | `sprints/s-handbook-2026-04-21.md` | P1 | Codex (Execution) | — | Agent-Orientation speed-up | **DONE** (2026-04-21 23:33) — SH1-SH6 + Finder-Schicht live, 0/0 gaps, MkDocs-Site builds |
 
 ## 🚀 Empfohlene Dispatch-Reihenfolge (strikt sequentiell)
 
@@ -127,8 +127,8 @@ Für zukünftige Sprint-Pläne durch Codex (Terminal-Agent): siehe [`codex-futur
 | `atlas-costs-cockpit-v2.md` | 2026-04-17 | Zone D Agent-Ladder | **Prüfen ob Backend-API dafür existiert** |
 | `atlas-continuation-orchestrator.md` | 2026-04-17 | Pack B (Seed-Konverter), E (Cron live), F (Retry-Eskalation) | **Wahrscheinlich Großteil durch Sprint-M + S-HANDBOOK obsolet** |
 | `2026-04-18_mission-control-task-tab-plan-v2.md` | 2026-04-18 | A1 FAILED-Counter, A2 NBA-Regel | **Ist A1/A2 noch gewollt?** |
-| `cron-catalog-2026-04-20.md` 🆕 | 2026-04-20 | — | **Archive nach S-HANDBOOK SH6 done** (superseded by `docs/system/jobs/index.md`) |
-| `openclaw-cron-heartbeat-analysis-2026-04-20.md` 🆕 | 2026-04-20 | — | **Archive nach S-HANDBOOK SH6 done** (superseded by `docs/system/status/`) |
+| ~~`cron-catalog-2026-04-20.md`~~ | — | — | ✅ **Archived 2026-04-22** (superseded by `docs/system/jobs/index.md`) |
+| ~~`openclaw-cron-heartbeat-analysis-2026-04-20.md`~~ | — | — | ✅ **Archived 2026-04-22** (superseded by `docs/system/status/`) |
 
 ---
 
@@ -211,6 +211,7 @@ Directory: `C:\Users\Lenar\.claude\projects\C--Users-Lenar-Neuer-Ordner\memory\`
 
 ## 🕒 Changelog
 
+- **2026-04-22 (Evening):** S-HANDBOOK → DONE (Codex 23:33 Completion-Report, Finder-Schicht + MkDocs live). S-GOV Mini-Dispatch T2.1/T2.2/T4 done, T5 in-flight. Archive +2: `cron-catalog` + `heartbeat-analysis` superseded by S-HANDBOOK outputs. Parallel Pre-Work: `scripts/vault-index-generator.py` (S-GOV T9 Prototype), `s-ux-phase0-writer-inventory-2026-04-22.md` (S-UX Phase 0 Pre-Flight), `context-baseline-2026-04-22.md` (CE1), `task-governance-signals-consumers-2026-04-22.md` (S-RPT T1 Pre-Flight), `memory-orchestrator-qmd-update-rca-2026-04-22.md` (S-GOV T4 RCA), `schemas/sprint_outcome.py` (S-FND T1 Template).
 - **2026-04-22 (Update):** S-HANDBOOK (Codex System-Handbook Sprint) als RUNNING eingefügt. Cross-Synergien + Overlap-Matrix erweitert. `codex-future-plan-protocol.md` als verbindliches Dokument verlinkt. Vault-Kanon `/home/piet/vault/` explizit gesetzt.
 - **2026-04-22:** Initial re-write. 13 superseded Docs archiviert, 8 dedizierte Sprints in `sprints/`, Owner-Matrix + Overlap-Matrix + Cross-Synergies eingefügt.
 - **2026-04-21**: (siehe `_VAULT-INDEX.md.pre-2026-04-22.bak`)

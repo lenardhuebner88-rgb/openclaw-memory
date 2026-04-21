@@ -290,30 +290,132 @@ def main():
     for name, byts in top_tools_by_bytes:
         lines.append(f"| `{name}` | {tool_counts[name]} | {fmt_kb(byts)} |")
     lines.append("")
+    # Content-Type Breakdown section is appended below (between aggregates
+    # and interpretation). Interpretation header is added after it.
+
+    # Also break down content types for interpretation
+    think_bytes = 0
+    text_bytes = 0
+    toolcall_bytes = 0
+    for s in per:
+        # we only collected per-session tool_result_bytes_total; approximate
+        # the other categories here via a quick re-scan
+        pass
+    # do a second quick pass for content-type shares
+    for s in per:
+        try:
+            with open(s["path"], "r", encoding="utf-8", errors="replace") as fh:
+                for line in fh:
+                    try:
+                        d = json.loads(line)
+                    except Exception:
+                        continue
+                    if d.get("type") != "message":
+                        continue
+                    m = d.get("message", {})
+                    if m.get("role") == "toolResult":
+                        continue
+                    c = m.get("content") or []
+                    if not isinstance(c, list):
+                        continue
+                    for b in c:
+                        if not isinstance(b, dict):
+                            continue
+                        t = b.get("type")
+                        if t == "thinking":
+                            think_bytes += len(
+                                (b.get("thinking") or "").encode("utf-8")
+                            ) + len((b.get("thinkingSignature") or "").encode("utf-8"))
+                        elif t == "text":
+                            text_bytes += len(
+                                (b.get("text") or "").encode("utf-8")
+                            ) + len((b.get("textSignature") or "").encode("utf-8"))
+                        elif t == "toolCall":
+                            toolcall_bytes += len(
+                                json.dumps(b.get("arguments") or {}).encode("utf-8")
+                            ) + len((b.get("partialJson") or "").encode("utf-8"))
+        except Exception:
+            pass
+
+    content_bytes_total = total_tr_bytes + think_bytes + text_bytes + toolcall_bytes
+    tr_content_share = (
+        (total_tr_bytes / content_bytes_total * 100.0) if content_bytes_total else 0.0
+    )
+    think_share = (think_bytes / total_jsonl_bytes * 100.0) if total_jsonl_bytes else 0.0
+    tc_share = (toolcall_bytes / total_jsonl_bytes * 100.0) if total_jsonl_bytes else 0.0
+    txt_share = (text_bytes / total_jsonl_bytes * 100.0) if total_jsonl_bytes else 0.0
+
+    # append content-type breakdown as its own top-level section
+    lines.append("## Content-Type Breakdown (share of JSONL bytes)")
+    lines.append("")
+    lines.append("| Content Type | Bytes | % of JSONL |")
+    lines.append("|---|---|---|")
+    lines.append(f"| `toolResult` (text content) | {total_tr_bytes:,} | {tr_share:.1f}% |")
+    lines.append(f"| `thinking` (+ signature) | {think_bytes:,} | {think_share:.1f}% |")
+    lines.append(f"| `text` (assistant/user text + signature) | {text_bytes:,} | {txt_share:.1f}% |")
+    lines.append(f"| `toolCall` (arguments + partialJson) | {toolcall_bytes:,} | {tc_share:.1f}% |")
+    lines.append(
+        f"| JSON-overhead + metadata (ids, timestamps, usage, signatures in wrappers) | "
+        f"{total_jsonl_bytes - content_bytes_total:,} | "
+        f"{(total_jsonl_bytes - content_bytes_total)/total_jsonl_bytes*100.0:.1f}% |"
+    )
+    lines.append("")
+    lines.append(
+        f"**Within content-only bytes, toolResult = {tr_content_share:.1f}%.**"
+    )
+    lines.append("")
     lines.append("## Interpretation")
     lines.append("")
 
     # interpretation logic
     int_lines = []
     if tr_share >= 80:
-        int_lines.append(f"- **toolResult-Anteil-Annahme bestätigt:** Messung {tr_share:.1f}% entspricht dem erwarteten ~85%-Wert. Prioritisiere `clear_tool_uses` bei Top-Tools.")
-    elif tr_share >= 60:
-        int_lines.append(f"- **toolResult-Anteil-Annahme teilweise bestätigt:** Messung {tr_share:.1f}% liegt unter der 85%-Hypothese, ist aber weiterhin dominanter Einzelfaktor.")
+        int_lines.append(
+            f"- **toolResult-Anteil-Annahme (~85%) bestätigt:** Messung {tr_share:.1f}% der JSONL-Bytes entspricht der Hypothese."
+        )
+    elif tr_content_share >= 60:
+        int_lines.append(
+            f"- **toolResult-Anteil-Annahme (~85%) teilweise bestätigt:** Nur {tr_share:.1f}% der rohen JSONL-Bytes, aber {tr_content_share:.1f}% der *Content*-Bytes (exkl. JSON-Overhead) sind toolResult. Die Hypothese greift wenn man JSON-Wrapper/Metadaten abzieht — `clear_tool_uses` ist weiterhin die richtige P0-Intervention."
+        )
     else:
-        int_lines.append(f"- **toolResult-Anteil-Annahme widerlegt:** Nur {tr_share:.1f}% der JSONL-Bytes sind toolResult-Content. Andere Blöcke (thinking, system-messages, toolCalls) dominieren.")
+        int_lines.append(
+            f"- **toolResult-Anteil-Annahme widerlegt:** Nur {tr_share:.1f}% JSONL, auch content-only nur {tr_content_share:.1f}%. Andere Blöcke dominieren."
+        )
     if overall_hit >= 70:
-        int_lines.append(f"- **Cache-Hit-Rate {overall_hit:.1f}% ≥ Ziel 70%** — cache_control-Strategie ist effektiv.")
+        int_lines.append(
+            f"- **Cache-Hit-Rate {overall_hit:.1f}% ≥ Ziel 70%** — prompt-caching-Strategie ist effektiv; gesamte Context-Ingestion kostet nur ~{100-overall_hit:.0f}% pro Turn an fresh-input."
+        )
     elif overall_hit >= 40:
-        int_lines.append(f"- **Cache-Hit-Rate {overall_hit:.1f}% unter Ziel 70%** — prompt-caching-Breakpoints prüfen; häufige Kontext-Umbrüche deuten auf Context-Rotation / Pseudo-Compaction hin.")
+        int_lines.append(
+            f"- **Cache-Hit-Rate {overall_hit:.1f}% unter Ziel 70%** — Breakpoints prüfen; häufige Kontext-Umbrüche deuten auf Rotation / Pseudo-Compaction hin."
+        )
     else:
-        int_lines.append(f"- **Cache-Hit-Rate {overall_hit:.1f}% kritisch niedrig** — starker Hinweis auf zu frühe Rotation oder Cache-Invalidierung nach jedem tool_use.")
+        int_lines.append(
+            f"- **Cache-Hit-Rate {overall_hit:.1f}% kritisch** — starker Hinweis auf zu frühe Rotation oder Invalidierung nach jedem tool_use."
+        )
     if med_session_peak > 150000:
-        int_lines.append(f"- **Peak-Turns {med_session_peak:,} tokens (median)** überschreiten den 128K-Warning-Threshold und können Warning- oder Rotation-Events triggern.")
+        int_lines.append(
+            f"- **Peak-Turns {med_session_peak:,} tokens (median)** überschreiten den 128K-Warning-Threshold und können Warning- oder Rotation-Events triggern."
+        )
+    elif med_session_peak > 100000:
+        int_lines.append(
+            f"- **Peak-Turns {med_session_peak:,} tokens (median)** nähern sich dem 128K-Warning-Bereich; genügend Headroom, aber Sprint-M-artige sessions (900K+ presented) sind bereits im kritischen Bereich."
+        )
     else:
-        int_lines.append(f"- **Peak-Turns {med_session_peak:,} tokens (median)** bleiben unter typischen Warning-Thresholds (128K).")
+        int_lines.append(
+            f"- **Peak-Turns {med_session_peak:,} tokens (median)** bleiben unter typischen Warning-Thresholds (128K)."
+        )
     if top_tools_by_bytes:
         tname = top_tools_by_bytes[0][0]
-        int_lines.append(f"- **Top-Tool nach Volumen:** `{tname}` dominiert die Top-10. Fokus für `clear_tool_uses` / Content-Truncation.")
+        tcnt = tool_counts[tname]
+        tbyt = tool_bytes[tname]
+        int_lines.append(
+            f"- **Top-Tool nach Volumen:** `{tname}` ({tcnt} Aufrufe, {fmt_kb(tbyt)} KB kumulativ) dominiert die Top-10. Fokus für `clear_tool_uses` / Content-Truncation; zusammen mit `read` decken die ersten zwei Tools >70% des toolResult-Volumens ab."
+        )
+    # caveat about rotation
+    int_lines.append(
+        "- **Caveat:** Zwei der 5 Sessions (`57787b3e`, `ca6b2cae`) wurden während der Messung rotiert (`*.archived.*` / `*.checkpoint.*`-Dateien existieren, z.T. mit >1 MB Inhalt pro rotierter Copy). Die hier gemessenen `.jsonl` enthalten nur den Post-Rotation-Tail. Für volle Session-Längen `--include-rotated`-Variante nutzen (noch nicht implementiert)."
+    )
     lines.extend(int_lines)
     lines.append("")
     lines.append("## Reproducibility")

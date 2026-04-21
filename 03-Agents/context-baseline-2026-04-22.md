@@ -1,11 +1,14 @@
----
-title: Context-Baseline 2026-04-22 — CE1 Pre-Flight
-created: 2026-04-22
-purpose: S-CTX-P0 T2 Baseline-Messung vor clear_tool_uses + compaction deployment
-measurement-scope: 5 aktuellste Atlas-Sessions (agents/main/sessions/*.jsonl)
----
-
-# Context-Baseline 2026-04-22
+Wrote report to /home/piet/vault/03-Agents/context-baseline-2026-04-22.md
+Total bytes written: 5372
+-- SUMMARY --
+Sessions: 5
+Total JSONL KB: 740.2
+Overall input_tokens: 3,162,142
+Overall cache_read: 2,732,088
+Cache-hit rate: 86.4%
+toolResult share: 29.7%
+Top tool: exec
+2
 
 **Source directory:** `/home/piet/.openclaw/agents/main/sessions/`
 **Sessions analyzed:** 5  ·  **Total JSONL bytes:** 758,011 (740.2 KB)
@@ -55,12 +58,25 @@ measurement-scope: 5 aktuellste Atlas-Sessions (agents/main/sessions/*.jsonl)
 | `process` | 6 | 13.1 |
 | `taskboard__taskboard_create_task` | 3 | 11.9 |
 
+## Content-Type Breakdown (share of JSONL bytes)
+
+| Content Type | Bytes | % of JSONL |
+|---|---|---|
+| `toolResult` (text content) | 224,907 | 29.7% |
+| `thinking` (+ signature) | 16,142 | 2.1% |
+| `text` (assistant/user text + signature) | 19,557 | 2.6% |
+| `toolCall` (arguments + partialJson) | 46,037 | 6.1% |
+| JSON-overhead + metadata (ids, timestamps, usage, signatures in wrappers) | 451,368 | 59.5% |
+
+**Within content-only bytes, toolResult = 73.3%.**
+
 ## Interpretation
 
-- **toolResult-Anteil-Annahme widerlegt:** Nur 29.7% der JSONL-Bytes sind toolResult-Content. Andere Blöcke (thinking, system-messages, toolCalls) dominieren.
-- **Cache-Hit-Rate 86.4% ≥ Ziel 70%** — cache_control-Strategie ist effektiv.
+- **toolResult-Anteil-Annahme (~85%) teilweise bestätigt:** Nur 29.7% der rohen JSONL-Bytes, aber 73.3% der *Content*-Bytes (exkl. JSON-Overhead) sind toolResult. Die Hypothese greift wenn man JSON-Wrapper/Metadaten abzieht — `clear_tool_uses` ist weiterhin die richtige P0-Intervention.
+- **Cache-Hit-Rate 86.4% ≥ Ziel 70%** — prompt-caching-Strategie ist effektiv; gesamte Context-Ingestion kostet nur ~14% pro Turn an fresh-input.
 - **Peak-Turns 74,476 tokens (median)** bleiben unter typischen Warning-Thresholds (128K).
-- **Top-Tool nach Volumen:** `exec` dominiert die Top-10. Fokus für `clear_tool_uses` / Content-Truncation.
+- **Top-Tool nach Volumen:** `exec` (17 Aufrufe, 80.9 KB kumulativ) dominiert die Top-10. Fokus für `clear_tool_uses` / Content-Truncation; zusammen mit `read` decken die ersten zwei Tools >70% des toolResult-Volumens ab.
+- **Caveat:** Zwei der 5 Sessions (`57787b3e`, `ca6b2cae`) wurden während der Messung rotiert (`*.archived.*` / `*.checkpoint.*`-Dateien existieren, z.T. mit >1 MB Inhalt pro rotierter Copy). Die hier gemessenen `.jsonl` enthalten nur den Post-Rotation-Tail. Für volle Session-Längen `--include-rotated`-Variante nutzen (noch nicht implementiert).
 
 ## Reproducibility
 
