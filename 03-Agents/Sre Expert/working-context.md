@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: de6f9ef6-f9c4-4061-a30b-4696a93e44bb Sprint O Execute (Draft): QMD Minimization
+- task: f0af5cff-7d41-49c0-b459-240c8ed3558c Sprint N Observation Followup: Retry-Cap Post-Window
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: DONE | RESULT_SUMMARY: Sprint O Execute (O1/O2/O3) umgesetzt ohne Scope-Drift. O1: retrieval-feedback-loop auf operative qmd__* Tool-IDs erweitert (inkl. Backward-Compat-Aliases), wodurch deep-search ni
+- checkpoint: EXECUTION_STATUS: FAIL | RESULT_SUMMARY: Observation-Followup (2h Window nach Sprint-N Execute-Retry 4fec080d: 2026-04-21T19:57:08Z bis 21:57:08Z) ist nicht vollständig bestanden. Kriterium A (Budget-Stagnation) FAIL: /a
 - blocker: -
-- updated: 2026-04-21T22:05:54.768Z
+- updated: 2026-04-21T22:13:14.963Z
 <!-- mc:auto-working-context:end -->
