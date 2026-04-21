@@ -2062,3 +2062,27 @@ VERIFICATION
 
 RESIDUAL_RISK
 - Kein technisches Restrisiko aus dieser Task; es war ein reiner E2E-Claim/Receipt-Pfadtest ohne Mutationen.
+- 2026-04-21T12:41:13.542Z | START | 6acfb7a4-59a1-4d94-a8c6-750563f97c60 | [Pipeline Quick-Wins Phase 1.1] Window-Query + failedAt-Truth vervollständigen | worker=sre-expert | progress=- | summary=-
+- 2026-04-21T12:42:41.883Z | CHECKPOINT | 6acfb7a4-59a1-4d94-a8c6-750563f97c60 | [Pipeline Quick-Wins Phase 1.1] Window-Query + failedAt-Truth vervollständigen | worker=sre-expert | progress=70% | summary=- | note=Code-Fix implementiert (window-Query + failedAt-windowing), typecheck grün. Live-Endpoint zeigt noch Altverhalten (24h=14), daher als nächstes kontrollierte Runtime-Aktivierung/Verifikation.
+- 2026-04-21T12:47:19.684Z | CHECKPOINT | 6acfb7a4-59a1-4d94-a8c6-750563f97c60 | [Pipeline Quick-Wins Phase 1.1] Window-Query + failedAt-Truth vervollständigen | worker=sre-expert | progress=95% | summary=- | note=Build + safe restart durchgeführt, Live-DoD jetzt erfüllt: window=24h failed=0, window=any failed=14, non-failed count unverändert. Commit 3faf49e erstellt.
+- 2026-04-21T12:47:38.632Z | DONE | 6acfb7a4-59a1-4d94-a8c6-750563f97c60 | [Pipeline Quick-Wins Phase 1.1] Window-Query + failedAt-Truth vervollständigen | worker=sre-expert | progress=95% | summary=EXECUTION_STATUS
+SUCCESS
+
+RESULT_SUMMARY
+Phase 1.1 vollständig umgesetzt. /api/pipeline/tasks wertet window nun serverseitig aus (2h|24h|any) und filtert failed incidents truth-basiert über failedAt-Zeitfenster. Nicht-failed Karten bleiben unverändert im Payload.
+
+CHANGED_FILES
+- /home/piet/.openclaw/workspace/mission-control/src/app/api/pipeline/tasks/route.ts
+- /home/piet/.openclaw/workspace/mission-control/src/lib/task-pipeline-payload.ts
+- Commit: 3faf49e
+
+VERIFICATION
+- npm run typecheck => PASS
+- npm run build => PASS
+- Safe restart via /home/piet/.openclaw/bin/mc-restart-safe => PASS
+- curl -s http://127.0.0.1:3000/api/pipeline/tasks?window=24h | jq '[.cards[] | select(.status=="failed")] | length' => 0
+- curl -s http://127.0.0.1:3000/api/pipeline/tasks?window=any | jq '[.cards[] | select(.status=="failed")] | length' => 14
+- non-failed regression check: window=24h => 2, window=any => 2 (unverändert)
+
+RESIDUAL_RISK
+- Window-Filter wirkt aktuell gezielt auf failed incidents (DoD-konform). Falls künftig auch andere Status zeitfenster-basiert gefiltert werden sollen, braucht das ein separates Scope-Item.

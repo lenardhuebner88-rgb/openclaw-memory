@@ -64,14 +64,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 56051a9f-2570-409b-912b-4a47c5bd841b [E2E-GREEN] sre-expert
+- task: 6acfb7a4-59a1-4d94-a8c6-750563f97c60 [Pipeline Quick-Wins Phase 1.1] Window-Query + failedAt-Truth vervollständigen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 SUCCESS
 
 RESULT_SUMMARY
-Pending-pickup Task wurde sauber geclaimt und im sre-expert Lane abgeschlossen. Nur read-only Self-Checks ausgeführt (Task-Readback, Git-HEAD, Status-Abfrage). Keine Writes/Deploy
+Phase 1.1 vollständig umgesetzt. /api/pipeline/tasks wertet window nun serverseitig aus (2h|24h|any) und filtert failed incidents truth-basiert über failedAt-Zeitfenster. Nicht-fa
 - blocker: -
-- updated: 2026-04-21T12:05:20.827Z
+- updated: 2026-04-21T12:47:38.636Z
 <!-- mc:auto-working-context:end -->
