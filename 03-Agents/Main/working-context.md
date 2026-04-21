@@ -7,10 +7,20 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f5f812a2-1031-4c71-a449-f6f87850b07c Atlas Operator Sweep: Agent Fleet E2E
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Child 1/5 for sre-expert is pickup-ready and dispatched; waiting for terminal result.
+- task: 46eaad01-879b-4934-95e1-e7370cd18b4e Atlas Real Use Case: dead-unclaimed on normal board path
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS
+FAILED
+
+RESULT_SUMMARY
+The real use-case reproduced the normal-path dead-unclaimed failure on sre-expert.
+
+CHILD_TASKS
+- sre-expert: a89b8666-7302-4904-8675-b1c934224fc3 [REAL-USE-CASE]
+
+VERIFICATION
+sta
 - blocker: -
-- updated: 2026-04-21T15:34:15.576Z
+- updated: 2026-04-21T16:06:44.464Z
 <!-- mc:auto-working-context:end -->
