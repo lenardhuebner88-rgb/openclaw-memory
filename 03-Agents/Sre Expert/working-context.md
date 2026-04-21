@@ -64,14 +64,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6acfb7a4-59a1-4d94-a8c6-750563f97c60 [Pipeline Quick-Wins Phase 1.1] Window-Query + failedAt-Truth vervollständigen
+- task: 985a5c12-8a6d-469c-92d5-d80916748324 [WORKER_SYSTEM_AUDIT_20260421T1631] Forge child board-flow proof
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 SUCCESS
 
 RESULT_SUMMARY
-Phase 1.1 vollständig umgesetzt. /api/pipeline/tasks wertet window nun serverseitig aus (2h|24h|any) und filtert failed incidents truth-basiert über failedAt-Zeitfenster. Nicht-fa
+Read-only Child-Board-Flow erfolgreich nachgewiesen: Task konnte aus pending-pickup übernommen werden, in-progress Zustand war über Board/API sichtbar, und terminaler Result-Recei
 - blocker: -
-- updated: 2026-04-21T12:47:38.636Z
+- updated: 2026-04-21T14:50:09.469Z
 <!-- mc:auto-working-context:end -->
