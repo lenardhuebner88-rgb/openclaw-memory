@@ -22,3 +22,65 @@ mode: OBSERVE-ONLY (intervene only in absolute emergency)
 **Eingriffs-Schwelle:** Nicht eingreifen — Dispatch liegt in Operator-Hand laut Plan.
 **Action:** weiter beobachten, in 15 min erneut Board + Atlas-Session checken.
 
+
+## 11:20 UTC — Sprint lebt, aber langsam
+- **Serverzeit-Korrektur:** Operator-Request war ~11:10 UTC (nicht 12:55). Monitor-Fenster 11:10 → ~13:10 UTC.
+- Board: **1 `assigned` Task erschienen** — `d4994107` "1.1 Filter-Logik failedAt-basiert", assignee=sre-expert, created 11:07:49Z, last update 11:15:58Z, dispatchState `queued`.
+- Atlas 2 neue Sessions: `f32e5cfc` (11:00Z) + `f3d2f835` (11:15Z) — beide `NO_REPLY` (Heartbeat-Pings, kein Inhalt).
+- Keine Tasks 1.2/1.3/1.4 obwohl Plan parallel erlaubt.
+- W1 aufgelöst: Dispatch ist angelaufen (nur wurde von mir zu spät bemerkt, Zeitzonen-Fehlinterpretation).
+
+### Schwachstelle W2 — Task 1.1 „queued" seit ~5 min
+**Beobachtung:** Task 1.1 sitzt `assigned` + `queued` bei Forge (sre-expert), aber nicht `working`. Pickup-Cron-Tick dauert max 60s — 5 min ist grenzwertig.
+**Eingriffs-Schwelle:** Erst bei >10 min ohne `working` → check pickup-cron logs, R49-Claim-Validator.
+**Action:** nächsten Cron-Tick (11:30 UTC) abwarten.
+
+### Schwachstelle W3 — Phase 1 seriell statt parallel
+**Beobachtung:** Plan & Dispatch-Prompt sagen "Phase 1 Tasks 1.1-1.4 parallel OK (unterschiedliche Files)". Atlas hat nur 1.1 gespawnt.
+**Mögliche Ursache:** Atlas entscheidet konservativ seriell; oder wartet mit 1.2–1.4 bis 1.1 unfailed-verifiziert; oder File-Pfade überschneiden sich (PipelineClient.tsx taucht in 1.2 UND 3.3/3.4 auf — aber 1.2 allein wäre parallel OK mit 1.1/1.3/1.4).
+**Eingriffs-Schwelle:** Kein Eingriff — serielle Ausführung ist safer; nur dokumentieren als effizienz-Feedback für späteren R-Rule-Vorschlag.
+**Action:** Weiter beobachten.
+
+## 11:41 UTC — P0 INCIDENT: Autopickup-Loop (Operator-angefordert: nur Analyse)
+
+### Schwachstelle W4 (P0) — Silent-Fail-Loop in Auto-Pickup
+**Sichtbar seit:** 11:36 UTC (>5 min, bereits 4 Reaps, 5. Spawn läuft)
+**Task:** d4994107 "1.1 Filter-Logik failedAt-basiert", status=`pending-pickup`, assignee=sre-expert
+
+**Log-Evidenz `/home/piet/.openclaw/workspace/logs/auto-pickup.log`:**
+```
+11:36:25 TRIGGER task=d4994107 agent=Forge age=169s pid=3058897
+11:38:17 LOCK_REAP task=d4994107 reason=dead-unclaimed-spawn age=111s
+11:38:25 TRIGGER ...pid=3060313
+11:39:47 LOCK_REAP age=81s
+11:39:55 TRIGGER ...pid=3061493
+11:41:17 LOCK_REAP age=81s
+11:41:25 TRIGGER ...pid=3063459  ← laufend
+```
+
+**Forge-Spawn-stdout (`auto-pickup-runs/d4994107*.log`, jede Datei 134 Bytes, 1 Zeile):**
+```
+Gateway agent failed; falling back to embedded:
+  Error: Unknown agent id "Forge". Use "openclaw agents list" to see configured agents.
+```
+
+**Root Cause:**
+- `auto-pickup.py:655` resolved Agent-ID aus `t.get("dispatchTarget")`
+- Atlas schreibt **Display-Name** `"Forge"` in `dispatchTarget`, aber Agent-Registry kennt nur **ID `"sre-expert"`**
+- Task hat korrekten Wert in `assignee`/`assigned_agent`/`workerLabel`: `"sre-expert"` — Autopickup nutzt die falsche Quelle.
+- `openclaw agent --agent Forge` stirbt in <1s, Lock-Reap-Cycle alle 80-110s → Endlos-Loop.
+
+**Fix-Optionen (auf-/absteigend Blast-Radius):**
+1. **1-Zeilen-Patch `auto-pickup.py:655`:** `agent = t.get("workerLabel") or t.get("assigned_agent") or t.get("assignee") or t.get("dispatchTarget")` — minimal-invasiv
+2. Atlas-Dispatch-Template fix: `dispatchTarget = agent-id` statt display-name — sauberer, aber größer
+3. `openclaw` CLI Name→ID alias-resolve — korrekt aber tief
+
+**Warum jetzt?** Regression seit irgendwann 2026-04-21 morgen (Dispatch um 11:15 war erster echter Sprint-Dispatch des Tages). Gestern Sprint-N dispatches liefen. Verdacht: Atlas-Prompt-Templating-Drift oder Config-Change.
+
+**R51/R52-Kandidaten (aktiviert):**
+- **R51 Silent-Fail-Detection:** Auto-pickup muss bei N>2 `dead-unclaimed-spawn` am selben Task in Folge → Discord-Alert + stop-trigger statt weiter-loop.
+- **R52 Agent-ID-Canonical:** Board-Schema erzwingt Agent-IDs (nicht Display-Namen) in dispatch-Feldern.
+
+**Eingriffs-Schwelle:** Operator hat explizit `nur Analyse` angeordnet — kein Patch durch mich. Der Loop frisst Ressourcen aber korrumpiert nichts (Lock-Reaper sauber, `alive_lock=0`). Beobachten.
+
+**Kollateralbefund:** `[E2E] assigned-no-dispatch-control` (frontend-guru, 11:38 UTC) — vom Operator als Kontroll-Probe eingestellt? Status `assigned`/`queued`, noch nicht `pending-pickup` — evtl. E2E-Harness um das Problem zu reproduzieren.

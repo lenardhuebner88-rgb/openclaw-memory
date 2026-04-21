@@ -64,14 +64,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b43472d9-d939-46d8-9981-d8fde9bb60af [Sprint-M v1.2.1 M6b] Memory-Orchestrator Crontab-Mutation
+- task: d4994107-f7fe-449c-9a4d-6d02547b83a0 1.1 Filter-Logik failedAt-basiert
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 DONE
 
 RESULT_SUMMARY
-Sprint-M Wave 4 (M6b) vollständig umgesetzt: Crontab-Backup erstellt, 11 Legacy-Memory-Crons mit Prefix '# [Sprint-M M6b] superseded by memory-orchestrator ' deaktiviert, 4 memory-or
+Phase 1.1 umgesetzt: Der Failed-Zeitfilter nutzt jetzt failedAt als Truth-Basis. In src/lib/pipeline-data.ts wurde getPipelineWindowReference() eingeführt (failed => failedAt, sonst 
 - blocker: -
-- updated: 2026-04-21T07:40:36.063Z
+- updated: 2026-04-21T11:51:39.049Z
 <!-- mc:auto-working-context:end -->
