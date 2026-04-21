@@ -1,7 +1,7 @@
 ---
 title: "Scope Governance & operatorLock"
 slug: scope-governance
-last_compiled: 2026-04-21T12:30:02.740559Z
+last_compiled: 2026-04-21T13:30:02.087350Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 8
 rule_count: 3
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Plan-Doc-Level scope-lock enforcement, preventing autonomous sprint-dispatch bypass.
 
-**Compiled:** 2026-04-21T12:30:02.740559Z  
+**Compiled:** 2026-04-21T13:30:02.087350Z  
 **Source:** 8 facts from workspace/memory/facts/*.jsonl, 3 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
@@ -47,6 +47,7 @@ Atlas MUSS vor Sprint-Dispatch das Plan-Doc-Frontmatter lesen. Wenn operatorLock
 
 - [Atlas Hallucination Prevention](atlas-hallucination-prevention.md)
 - [Board Hygiene & Lifecycle](board-hygiene.md)
+- [Deploy Contracts & MC-Restart](deploy-contracts.md)
 - [Incident Response & RCA](incident-response.md)
 - [Receipt Discipline](receipt-discipline.md)
 - [Sprint Orchestration](sprint-orchestration.md)
