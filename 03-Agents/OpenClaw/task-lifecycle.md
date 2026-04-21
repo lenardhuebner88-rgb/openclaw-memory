@@ -2086,3 +2086,4 @@ VERIFICATION
 
 RESIDUAL_RISK
 - Window-Filter wirkt aktuell gezielt auf failed incidents (DoD-konform). Falls künftig auch andere Status zeitfenster-basiert gefiltert werden sollen, braucht das ein separates Scope-Item.
+- 2026-04-21T14:35:17.611Z | START | cd6e6a23-9f55-4669-9c91-8c5b4155d229 | Atlas Operator Audit: Worker System Board E2E | worker=main | progress=- | summary=-
