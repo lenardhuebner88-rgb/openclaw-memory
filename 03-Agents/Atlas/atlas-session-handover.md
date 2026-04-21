@@ -1,5 +1,40 @@
 # Atlas Session Handover
 
+## Stand: 2026-04-21 09:37 UTC — Sprint-M / Plan v1.2
+
+### Zuerst lesen
+
+- [sprint-m-v1.2-session-handover-2026-04-21.md](/home/piet/vault/03-Agents/sprint-m-v1.2-session-handover-2026-04-21.md)
+- [sprint-m-followup-status-2026-04-21.md](/home/piet/vault/03-Agents/sprint-m-followup-status-2026-04-21.md)
+
+### Aktueller Wahrheitsstand
+
+- Sprint-M bleibt `READY-WITH-KNOWN-GAPS`.
+- `mc-critical-alert` ist live verifiziert und **A**, nicht mehr `B`.
+- `memory-orchestrator.py` hatte einen Doppel-Lock-Bug; Minimalfix ist lokal gesetzt, wrapped dry-runs sind grün.
+- Der aktuelle operative Engpass ist **nicht** mehr Sprint-M allgemein, sondern ein einzelner Scheduler-Vertragsbruch:
+  - live crontab enthält `15,45 * * * * /home/piet/.openclaw/scripts/qmd-native-embed-cron.sh`
+  - live reconciler meldet dafür `missing_in_registry`
+- Parallel läuft ein 2h-Soak/Proof durch Claude bot für `qmd-native-embed`.
+
+### Verbindliche Regel für den Neustart
+
+Bis der laufende `qmd-native-embed`-Soak fertig ist:
+
+- keine Writes an
+  - user crontab
+  - `registry.jsonl`
+  - `qmd-native-embed-cron.sh`
+  - `qmd-pending-monitor.sh`
+
+Danach ist die nächste Pflicht-Reihenfolge:
+
+1. `qmd-native-embed` gegen `registry.jsonl` normalisieren
+2. `registry-validate.py` + `cron-reconciler.py --dry-run` erneut prüfen
+3. einen realen `memory-orchestrator hourly` live-fire verifizieren
+
+---
+
 ## Stand: 2026-04-18 06:00 UTC — Nach Overnight Session
 
 ---

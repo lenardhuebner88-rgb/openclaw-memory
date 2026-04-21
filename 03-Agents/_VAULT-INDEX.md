@@ -17,6 +17,16 @@ Trigger-Phrases verwenden genau den Wortlaut *"Lade `…` und starte …"* — A
 
 ---
 
+## 🆕 TODAY 2026-04-21 — Pipeline-Tab Quick-Wins (Audit + Fix-Sprint)
+
+### Plan + Sprint-Dispatch
+- **`pipeline-tab-quickwins-plan-2026-04-21.md`** — Audit gegen Live-Pipeline-Tab + 4-Phasen-Fix-Plan (ca. 10 Tasks, ~2 AT Aufwand). Adressiert 3 P0-Daten-Falschdarstellungen (KPI-Subtitle lügt, Zeitfilter auf falschem Feld, currentStage≠status), 5 P1-UI-Widersprüche, 3 P2-Performance-Punkte.
+- **`pipeline-tab-quickwins-atlas-dispatch-2026-04-21.md`** — Copy/Paste-Prompt für Atlas-Sprint-Start. Pre-Flight-Gate, Phasenreihenfolge, Acceptance-Tests.
+
+**Trigger:** *Lade `pipeline-tab-quickwins-plan-2026-04-21.md` und starte Sprint-N Pipeline-Tab Quick-Wins.*
+
+---
+
 ## 🆕 TODAY 2026-04-19 — Stabilization + Memory-Level-Up
 
 Operator-direkte Session (pieter_pan ohne Atlas, wegen R30 Atlas-Orphan). Alle Deliverables dieser Session sind hier gebündelt.
