@@ -27,7 +27,7 @@ Scope:
 Pre-Flight ist Pflicht vor jedem ersten Dispatch:
 
 ```bash
-ssh homeserver "/home/piet/.openclaw/scripts/pre-flight-sprint-dispatch.sh /home/piet/vault/03-Agents/pipeline-tab-quickwins-plan-2026-04-21.md"
+/home/piet/.openclaw/scripts/pre-flight-sprint-dispatch.sh /home/piet/vault/03-Agents/pipeline-tab-quickwins-plan-2026-04-21.md
 ```
 
 Regel:
