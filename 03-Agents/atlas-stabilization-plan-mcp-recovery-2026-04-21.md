@@ -50,7 +50,8 @@ Atlas' Session (gestartet 2026-04-21 09:29:38 auf Discord) hat zwischen 09:29 un
 | 1.1 | `MemoryHigh=3G`, `MemoryMax=4G` (von 7G runter) | Kernel throttled weich, früher Restart bei 4 GB statt 6.8 GB Hard-OOM |
 | 1.2 | Reaper `*/15` → `*/5`, `MAX_AGE_SECONDS=1800` | Zombie-Children früher eingefangen |
 | 1.3 | Session-Fingerprint in `getSessionMcpRuntimeManager().getOrCreate()` um Gateway-Boot-PID erweitern | Belt-and-suspenders zum P0: Gateway-Restart disposed **aktiv** alle Pre-Crash-Runtimes |
-| 1.4 | `ExecStopPost=pkill -f mcp-servers/.+/server.js` in Gateway-Unit | Saubere Child-Teardown vor Restart |
+| 1.4 | `ExecStopPost=pkill -f 'mcp-servers/.+/server.js|@tobilu/qmd/src/qmd.ts mcp'` in Gateway-Unit (Drop-in `mcp-child-teardown.conf`) **[DEPLOYED 2026-04-21 12:42]** | Saubere Child-Teardown für taskboard UND qmd vor Restart |
+| 1.5 | `mcp-qmd-reaper.sh` analog taskboard-reaper, Cron `*/5`, CAP=3, Orphan-Kill (ppid nicht openclaw-gateway/agent) **[DEPLOYED 2026-04-21 12:40]** | QMD-Stdio-Children akkumulieren bei ~1 neuer Proc pro 5 min, bis zu 26 Procs / 2.35 GB RSS beobachtet. Kein Recovery im Gateway. Analog-Pattern zu taskboard. |
 
 **DoD:** Provozierter OOM (`systemd-run --user --scope -p MemoryMax=100M …`) → sauberer Restart, kein Child-Zombie in `ps auxf`.
 
