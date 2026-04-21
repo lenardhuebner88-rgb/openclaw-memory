@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: be4a34fb-2a09-4bcb-8bb4-2ffd52840296 Forge Delta Review: Sprint O final tool/path/memorySearch corrections
+- task: de6f9ef6-f9c4-4061-a30b-4696a93e44bb Sprint O Execute (Draft): QMD Minimization
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: APPROVE | RESULT_SUMMARY: Die finalen Delta-Korrekturen sind jetzt gate-tauglich. (1) 7-Zeilen-Tabelle mit Operative+Canonical ist vorhanden (Z98-106) und trennt sauber operative MCP-Namen von semantisc
+- checkpoint: EXECUTION_STATUS: DONE | RESULT_SUMMARY: Sprint O Execute (O1/O2/O3) umgesetzt ohne Scope-Drift. O1: retrieval-feedback-loop auf operative qmd__* Tool-IDs erweitert (inkl. Backward-Compat-Aliases), wodurch deep-search ni
 - blocker: -
-- updated: 2026-04-21T20:49:50.636Z
+- updated: 2026-04-21T22:05:54.768Z
 <!-- mc:auto-working-context:end -->

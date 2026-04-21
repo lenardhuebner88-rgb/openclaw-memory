@@ -38,29 +38,19 @@ Trigger-Phrases: *"Lade `sprints/s-<id>-2026-04-22.md` und starte Sprint S-\<ID\
 | **S-INTEG-W1** | `sprints/s-integ-w1-2026-04-22.md` | P1-strategic | Operator + Forge | S-FND T3 + 7d Pre-Flight | S-INTEG W2-W4 | PLANNED |
 | **S-HANDBOOK** | `sprints/s-handbook-2026-04-21.md` | P1 | Codex (Execution) | — | Agent-Orientation speed-up | **DONE** (2026-04-21 23:33) — SH1-SH6 + Finder-Schicht live, 0/0 gaps, MkDocs-Site builds |
 
-## 🚀 Dispatch-Reihenfolge (Stand 2026-04-22 abends)
+## 🚀 Empfohlene Dispatch-Reihenfolge (strikt sequentiell)
 
-### ✅ Done
-- **S-HANDBOOK** (Codex, 2026-04-21 23:33) — Handbook-Schicht + Finder live
-- **S-GOV Mini-Dispatch** (Atlas, 2026-04-21 23:50) — T2.1/T2.2/T4/T5 green
+1. **S-GOV T0** Lens-Review abschließen (Blocker)
+2. **S-FND** Foundation-Bausteine (parallel zu 1)
+3. **S-HANDBOOK SH6** Codex läuft bereits — fertig abwarten
+4. **S-UX** (lowest risk, schnellster Ship, parallel zu S-HANDBOOK SH6)
+5. **S-RPT**
+6. **S-RELIAB-P0**
+7. **S-INFRA** (nach S-RELIAB T2 merged)
+8. **S-CTX-P0**
+9. **S-INTEG-W1** (nach Windows-SSHFS 7d Pre-Flight)
 
-### ⏳ In Beobachtung
-- S-GOV T4 3h-Observation (memory-orchestrator qmd-update rc=0 validation)
-
-### 🔜 Next Gates
-- S-GOV T0 Lens Re-Review anfordern (alle Gaps geschlossen → APPROVE expected)
-- Nach APPROVE: voller 48h-Plan / S-FND Dispatch frei
-
-### 📅 Queued nach T0 approve
-1. **S-FND** Foundation-Bausteine (parallel-startbar, keine Blocker)
-2. **S-UX** (lowest risk, parallel zu S-FND)
-3. **S-RPT**
-4. **S-RELIAB-P0**
-5. **S-INFRA** (nach S-RELIAB T2 merged)
-6. **S-CTX-P0**
-7. **S-INTEG-W1** (nach Windows-SSHFS 7d Pre-Flight)
-
-Parallelisierbar: S-GOV M9/M10 Spikes (T7/T8) während der Queued-Sprints.
+Parallelisierbar: S-GOV M9/M10 Spikes (T7/T8) während 4-8.
 
 ---
 
