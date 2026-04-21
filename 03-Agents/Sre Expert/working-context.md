@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a89b8666-7302-4904-8675-b1c934224fc3 [REAL_USECASE_DEAD_UNCLAIMED_20260421T1802] real child for dead-unclaimed normal-path classification
+- task: 6a385845-baef-480d-9494-9b73eb4f3e49 [E2E SRE Explicit Session] Auto-pickup real task probe
 - stage: DONE
 - next: await next assignment
-- checkpoint: Normal-path claim succeeded in this run; dead-unclaimed did not reproduce now, while historical board evidence confirms prior occurrences.
+- checkpoint: EXECUTION_STATUS SUCCESS; RESULT_SUMMARY The normal auto-pickup path completed read-only with hostname huebners and UTC time 2026-04-21T16:57:34Z.
 - blocker: -
-- updated: 2026-04-21T16:31:19.957Z
+- updated: 2026-04-21T16:58:03.522Z
 <!-- mc:auto-working-context:end -->
