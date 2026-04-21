@@ -1956,3 +1956,37 @@ VERIFICATION: python3 /home/piet/.openclaw/scripts/session-size-guard.py --self-
 - 2026-04-20T22:13:54.347Z | CHECKPOINT | e6e5b22a-2ce5-4f37-89d6-53a8e1afef39 | [Sprint-M v1.2.1 M7] top-5 kernel crons to systemd-user timers | worker=sre-expert | progress=- | summary=- | note=M7 Forge actively running
 - 2026-04-20T22:21:08.257Z | DONE | e6e5b22a-2ce5-4f37-89d6-53a8e1afef39 | [Sprint-M v1.2.1 M7] top-5 kernel crons to systemd-user timers | worker=sre-expert | progress=- | summary=M7 complete: 5 services + 5 timers created and enabled, service policy verified, timer policy Persistent=true verified, safe cutover completed with no overlap, rollback script and pointer created, registry updated to systemd-timer for all 5 jobs.
 - 2026-04-21T05:46:33.379Z | START | b43472d9-d939-46d8-9981-d8fde9bb60af | [Sprint-M v1.2.1 M6b] Memory-Orchestrator Crontab-Mutation | worker=sre-expert | progress=- | summary=-
+- 2026-04-21T07:36:45.545Z | CHECKPOINT | b43472d9-d939-46d8-9981-d8fde9bb60af | [Sprint-M v1.2.1 M6b] Memory-Orchestrator Crontab-Mutation | worker=sre-expert | progress=25% | summary=- | note=Preflight + Backup erledigt: /home/piet/.openclaw/cron/crontab.bak-m6b-20260421-093639 erstellt. Jetzt folgt kontrollierte Crontab-Mutation (11 kommentieren, 4 orchestrator hinzufügen).
+- 2026-04-21T07:38:09.771Z | CHECKPOINT | b43472d9-d939-46d8-9981-d8fde9bb60af | [Sprint-M v1.2.1 M6b] Memory-Orchestrator Crontab-Mutation | worker=sre-expert | progress=65% | summary=- | note=Crontab-Mutation ausgeführt: 11 Legacy-Memory-Lines mit Sprint-M-M6b-Marker kommentiert, 4 memory-orchestrator flock-Lines aktiv. Verifikation: marker=11, orchestrator=4, legacy-active=0.
+- 2026-04-21T07:39:43.300Z | CHECKPOINT | b43472d9-d939-46d8-9981-d8fde9bb60af | [Sprint-M v1.2.1 M6b] Memory-Orchestrator Crontab-Mutation | worker=sre-expert | progress=90% | summary=- | note=Registry aktualisiert (11 legacy -> state=superseded, superseded_by=memory-orchestrator; 4 orchestrator entries added). registry-validate.py jetzt grün (exit 0, active_counts crontab=40/systemd=6/openclaw=16). Live-fire pending note dokumentiert.
+- 2026-04-21T07:40:36.060Z | DONE | b43472d9-d939-46d8-9981-d8fde9bb60af | [Sprint-M v1.2.1 M6b] Memory-Orchestrator Crontab-Mutation | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS
+DONE
+
+RESULT_SUMMARY
+Sprint-M Wave 4 (M6b) vollständig umgesetzt: Crontab-Backup erstellt, 11 Legacy-Memory-Crons mit Prefix '# [Sprint-M M6b] superseded by memory-orchestrator ' deaktiviert, 4 memory-orchestrator Cron-Lines mit flock (hourly/nightly/weekly/quarterly) aktiviert, Registry aktualisiert (11 legacy auf state=superseded + superseded_by=memory-orchestrator, 4 neue orchestrator entries aktiv), registry-validate.py läuft mit exit 0.
+
+CHANGED_FILES
+- /home/piet/.openclaw/cron/crontab.bak-m6b-20260421-093639 (neu)
+- user crontab (installiert via crontab /tmp/crontab.after.m6b)
+- /home/piet/.openclaw/cron/registry.jsonl (11 superseded + 4 neue entries)
+- /home/piet/.openclaw/cron/registry.jsonl.bak-m6b-20260421-093841 (neu)
+- /home/piet/.openclaw/cron/registry-validate.py (expected active count auf crontab=40 angepasst)
+- /home/piet/.openclaw/cron/registry.schema.json (property scheduler ergänzt)
+- /home/piet/.openclaw/cron/m6b-live-fire-pending-20260421-0939.md (pending-first-fire note)
+
+VERIFICATION
+- grep '^# [Sprint-M M6b] superseded' => 11
+- grep '^[^#].*memory-orchestrator.py' => 4
+- grep '^[^#].*(legacy memory scripts)' => 0
+- registry check: superseded_by=memory-orchestrator => 11, new orchestrator entries => 4
+- python3 /home/piet/.openclaw/cron/registry-validate.py => exit 0
+- python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py hourly --dry-run => exit 0
+- Diff-Hinweis: line-based diff shows 26 changed lines (expected for 11 commented + 4 added); semantic relevant changes = 15
+
+ROLLBACK_PATH
+- crontab /home/piet/.openclaw/cron/crontab.bak-m6b-20260421-093639
+- cp /home/piet/.openclaw/cron/registry.jsonl.bak-m6b-20260421-093841 /home/piet/.openclaw/cron/registry.jsonl
+- python3 /home/piet/.openclaw/cron/registry-validate.py
+
+LIVE_FIRE
+- Erste natürliche Cron-Ausführung pending (nächster hourly Slot); dokumentiert in /home/piet/.openclaw/cron/m6b-live-fire-pending-20260421-0939.md mit Prüfbefehl und Rollback-Pfad.
