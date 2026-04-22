@@ -12,7 +12,7 @@
 - [[../Shared/project-state]]
 - [[../Shared/decisions-log]]
 - [[../Shared/checkpoints]]
-- [[../../05-Research]]
+- [[../../07-Research]]
 - [[../Shared/task-lifecycle-canon]]
 
 ## Aktuelle Regeln

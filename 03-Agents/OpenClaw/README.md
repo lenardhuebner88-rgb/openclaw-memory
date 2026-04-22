@@ -18,5 +18,5 @@
 
 ## Regel
 - Wenn es dauerhaft für mehrere Agenten operativ wichtig ist, eher hier.
-- Wenn es nur belegt, dass etwas geprüft wurde, nach `04-Operations/Validations`.
+- Wenn es nur belegt, dass etwas geprüft wurde, nach `06-Operations/Validations`.
 - Wenn es nur ein Agent akut braucht, eher in dessen `working-context.md`.

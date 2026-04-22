@@ -7,9 +7,9 @@
 ## Triage-Regel
 1. Gehört es zu einem laufenden Projekt? → `03-Projects/...`
 2. Ist es dauerhafter Shared-Kontext? → `03-Agents/Shared/...`
-3. Ist es operativer Systemzustand? → `03-Agents/OpenClaw/...` oder `04-Operations/...`
+3. Ist es operativer Systemzustand? → `03-Agents/OpenClaw/...` oder `06-Operations/...`
 4. Ist es nur temporär oder unklar? → erstmal hier lassen
-5. Ist es fertig und nur historisch? → `06-Archive/...`
+5. Ist es fertig und nur historisch? → `09-Archive/...`
 
 ## Nicht tun
 - keine Root-Dateien neu erzeugen

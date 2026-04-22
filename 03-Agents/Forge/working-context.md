@@ -14,7 +14,7 @@
 - [[../Shared/checkpoints]]
 - [[../Shared/reporting-routing-canon]]
 - [[../Shared/task-lifecycle-canon]]
-- [[../../04-Operations/Validations]]
+- [[../../06-Operations/Validations]]
 
 ## Aktuelle Regeln
 - Worker-Core gilt als fachlich abgeschlossen

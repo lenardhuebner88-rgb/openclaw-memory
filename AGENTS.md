@@ -20,7 +20,7 @@ All three are **live-synced via Syncthing v2** (LAN, port 22000). Changes you ma
 ## 2. Where to work — single source of truth
 
 - **Desktop filesystem** (`C:\Users\Lenar\Obsidian\openclaw-memory\`) and **server filesystem** (`/home/piet/vault/`) are **live mirrors**. Pick ONE and stay there for the session.
-  - Prefer the **desktop** for anything under `03-Projects/`, `03-Agents/codex/`, `05-Research/`.
+  - Prefer the **desktop** for anything under `03-Projects/`, `03-Agents/codex/`, `07-Research/`.
   - Prefer the **server** (via `ssh homeserver`) for any change touching `.openclaw/`, `03-Agents/OpenClaw/`, `10-KB/`, or crontab.
 - Do **not** operate on a third checkout — there is no third checkout. If you create one, you have just invented a parallel universe.
 
