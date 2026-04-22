@@ -2392,3 +2392,34 @@ VERIFICATION:
 RESIDUAL_RISK:
 - 24h-Soak-Fenster ist gestartet, aber zum Abschlusszeitpunkt noch nicht voll abgelaufen; bisher 0 crashes seit Start.
 - Für harten 24h-Nachweis ist ein Follow-up-Check nach Ablauf des Fensters erforderlich.
+- 2026-04-22T09:49:19.087Z | START | 539a0800-0c7e-4e0c-8693-1b4ffda61f13 | S-FND E2E: Smoke-Test — alle 4 Layer grün | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T09:54:05.819Z | CHECKPOINT | 539a0800-0c7e-4e0c-8693-1b4ffda61f13 | S-FND E2E: Smoke-Test — alle 4 Layer grün | worker=sre-expert | progress=90% | summary=- | note=E2E smoke evidence collected. T1 schema smoke+fixtures passed; T2 synthetic dispatch with ATTEMPT_ID_V1=1 produced 64-hex attemptId with matching board event; T3 config-apply-safe fault tests passed; T4 spans for worker-monitor/mc-watchdog/auto-pickup visible in Jaeger with required tags.
+- 2026-04-22T09:54:47.103Z | DONE | 539a0800-0c7e-4e0c-8693-1b4ffda61f13 | S-FND E2E: Smoke-Test — alle 4 Layer grün | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: S-FND E2E-Smoke erfolgreich durchgeführt. Alle 4 Layer sind grün (Outcome-Schema validiert, attemptId synthetisch erzeugt und gegen Board-Event gematcht, config-write guarded mit Fault-Tests, OTEL-Spans in Jaeger sichtbar).
+
+LAYER_STATUS:
+- T1 Outcome-Schema: GREEN
+  Evidence:
+  - python3 mission-control/src/schemas/sprint_outcome.py smoke-test -> ok=true
+  - python3 mission-control/src/schemas/sprint_outcome.py check-fixtures -> valid 10/10 accepted, invalid 10/10 rejected
+
+- T2 attemptId: GREEN
+  Evidence:
+  - synthetic dispatch run with ATTEMPT_ID_V1=1 produced attemptId:
+    c1bc7320efbea144f069564f1ad98e95d504c0a84e24bb790c422d3ab2ab4721
+  - attemptId format: 64-hex true
+  - board-event match for same attemptId: true
+
+- T3 config-write-guarded: GREEN
+  Evidence:
+  - /home/piet/.openclaw/scripts/tests/config-apply-safe.test.sh -> PASS
+  - includes schema-invalid exit 2, probe-fail exit 3 with revert+snapshot, success exit 0
+
+- T4 otel-instrumented: GREEN
+  Evidence:
+  - Jaeger API traces service=openclaw-cron shows operations:
+    cron.worker-monitor, cron.mc-watchdog, cron.auto-pickup
+  - required tags present: cron_name, schedule, exit_code, duration_ms
+
+SPRINT_CLOSED: JA

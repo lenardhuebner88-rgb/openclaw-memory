@@ -64,12 +64,12 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a192ed90-6863-46fd-bddd-6b909d17c9c3 S-FND T4 Execute: OpenTelemetry-Spine für Defense-Crons (MVP)
+- task: 539a0800-0c7e-4e0c-8693-1b4ffda61f13 S-FND E2E: Smoke-Test — alle 4 Layer grün
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: DONE
 
-RESULT_SUMMARY: S-FND T4 MVP umgesetzt. OTEL spine steht: Jaeger + OTEL Collector laufen, helper wrappt Cron-Jobs und erzeugt Spans mit cron_name/schedule/exit_code/duration_ms. Drei Ziel-Crons si
+RESULT_SUMMARY: S-FND E2E-Smoke erfolgreich durchgeführt. Alle 4 Layer sind grün (Outcome-Schema validiert, attemptId synthetisch erzeugt und gegen Board-Event gematcht, config-write guarded mit F
 - blocker: -
-- updated: 2026-04-22T09:42:06.743Z
+- updated: 2026-04-22T09:54:47.107Z
 <!-- mc:auto-working-context:end -->
