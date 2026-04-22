@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1e34edc6-4977-44f5-bb3c-89903a64068e S-RELIAB-P0 T7: MCP Streamable-HTTP Migration-Spike
+- task: fa4c98fa-5c22-42ec-baa8-816da721e50c S-HEALTH T2: Root-Cause Analyse (inkonsistente Finalize-Flags)
 - stage: DONE
 - next: await next assignment
-- checkpoint: T7 (MCP Streamable-HTTP Spike): HTTP-Variante Port 7710 deployt+aktiv. 24h-Soak laeuft autonom. Short-Run-Spike complete. Option C applied.
+- checkpoint: Root-cause analysis completed and documented in /home/piet/vault/03-Agents/s-health-inventory-2026-04-22.md. Main findings: (1) finalReportSentAt gap via report-error+dedup path, (2) maxRetriesReached stale reset gap on 
 - blocker: -
-- updated: 2026-04-22T15:17:51.092Z
+- updated: 2026-04-22T16:44:56.644Z
 <!-- mc:auto-working-context:end -->
