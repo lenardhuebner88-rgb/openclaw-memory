@@ -64,12 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 606bebaa-5504-4475-b4dc-2de0bb66e6a8 S-UX T1: Phase 0 stateTransitions[] ROOT-CAUSE-FIX
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: DONE
-
-RESULT_SUMMARY: S-UX T1 Root-Cause-Fix umgesetzt. Backend unterstützt jetzt stateTransitions[] mit dual-read hinter Feature-Flag STATE_TRANSITIONS_V1. Failed-window-Reader nutzt deterministisch fa
+- task: 3b6cdd38-5165-48be-b9b4-bc8206271740 [Forge] Root-Cause: Pixel Worker Pickup-Failure bei T4
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-22T10:43:07.945Z
+- updated: 2026-04-22T11:11:24.883Z
 <!-- mc:auto-working-context:end -->

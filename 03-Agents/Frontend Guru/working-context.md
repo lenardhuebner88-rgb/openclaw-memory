@@ -65,13 +65,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f1ca6b08-837f-4e33-a25d-78b159d87c36 Pixel Audit: Mission Control Overview + Taskboard UI/Interaction-Usability
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: SUCCESS
-RESULT_SUMMARY: Overview und Taskboard sind operativ nutzbar, verlieren aber Tempo und Sicherheit durch schwache Klick-Affordance, flache Hierarchie und unklare Next-Actions.
-FINDINGS:
-P1 - Schw
+- task: 98fc2d28-0a1f-4a1f-a3a5-7ac68dcb578c S-UX T5: Data-Confidence-Meter (3-stufig)
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-21T18:09:58.739Z
+- updated: 2026-04-22T11:14:47.718Z
 <!-- mc:auto-working-context:end -->
