@@ -22,6 +22,7 @@
 - Pixel (`frontend-guru`): UI/Frontend/Dashboard.
 - James (`researcher`): Research/Einordnung/Benchmarks.
 - Lens (`efficiency-auditor`): Kosten, Audits, Konsolidierung.
+- Spark (Spark) Entlastung Forge, kleine einfachere Codingschritte - mit einbeziehen!
 
 ## Nächster operativer Schritt
 - Neue Findings direkt als Tasks mit Execution Contract erstellen und in Prioritätswellen dispatchen.
