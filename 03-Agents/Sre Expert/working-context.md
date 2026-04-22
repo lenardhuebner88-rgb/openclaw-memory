@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 481d314e-2346-4d41-ae9c-5ca90980bf10 S-HEALTH T3: Bulk-Close A1+B1 (70 tasks)
+- task: 7bde1bb0-c19a-4fb6-8ccc-f4427b42eac6 [S-HEALTH-2] Residual Board-Consistency Investigation (15 items)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Bulk-close executed via /home/piet/.openclaw/scripts/s-health-bulk-close.py. Dry-run: A1=69, B1=2, overlap=2, expected field mutations=71. Execute applied 71/71 (ok). Post-run /api/health board consistency issues now 76 
+- checkpoint: Residual investigation completed: live set contains 15x done-state-mismatch (not draft-stale/missing-core/open-fixture). Inventory and root-cause documented in /home/piet/vault/03-Agents/s-health-inventory-2026-04-22.md.
 - blocker: -
-- updated: 2026-04-22T16:53:17.219Z
+- updated: 2026-04-22T17:55:20.878Z
 <!-- mc:auto-working-context:end -->
