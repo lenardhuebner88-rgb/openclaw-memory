@@ -1,0 +1,30 @@
+filters:
+  and:
+    - file.folder == "05-Incidents"
+    - file.ext == "md"
+    - file.name != "AGENTS"
+    - file.name != "05-Incidents"
+views:
+  - type: table
+    name: Offene Incidents
+    filters:
+      and:
+        - status != "resolved"
+    order:
+      - file.name
+      - severity
+      - detected
+      - systems_affected
+    sort:
+      - property: detected
+        direction: DESC
+  - type: table
+    name: Alle Incidents
+    order:
+      - file.name
+      - severity
+      - status
+      - detected
+    sort:
+      - property: detected
+        direction: DESC

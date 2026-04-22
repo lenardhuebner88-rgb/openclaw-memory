@@ -1,0 +1,31 @@
+filters:
+  and:
+    - file.folder == "04-Sprints"
+    - file.ext == "md"
+    - file.name != "AGENTS"
+    - file.name != "04-Sprints"
+views:
+  - type: table
+    name: Alle Sprints
+    order:
+      - file.name
+      - status
+      - priority
+      - owner
+      - created
+    sort:
+      - property: created
+        direction: DESC
+  - type: table
+    name: Aktive Sprints
+    filters:
+      and:
+        - status == "in-progress"
+        - status == "active"
+        - status == "planning"
+      or: true
+    order:
+      - file.name
+      - status
+      - priority
+      - owner

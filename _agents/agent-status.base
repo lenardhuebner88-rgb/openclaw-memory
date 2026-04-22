@@ -1,0 +1,12 @@
+filters:
+  and:
+    - file.name == "working-context"
+views:
+  - type: cards
+    name: Agent Status
+    order:
+      - file.folder
+      - file.mtime
+    sort:
+      - property: file.mtime
+        direction: DESC
