@@ -64,10 +64,12 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f27e47ac-9507-4eb2-bca9-5980ddf49ec5 S-FND T2 Execute: attemptId durable workflow-ID + T1 deployed confirmation
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: T1 mini-check done with live evidence: /api/health status=ok, commit 067562d present in mission-control git log, and all 3 T1 schema files exist under src/schemas with expected timestamps/sizes. Proceeding with T2-only i
+- task: 3805a56f-04f0-4e21-8466-6433770751e1 Forge mini-fix: failed→done report drift + board consistency for final summaries
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: Mini-fix umgesetzt. Der Drift aus f27e47ac-9507-4eb2-bca9-5980ddf49ec5 (done + stale failed-report markers) wird jetzt im finalen Result-Pfad konsistent überschrieben, ohne resultS
 - blocker: -
-- updated: 2026-04-22T05:40:33.030Z
+- updated: 2026-04-22T06:06:24.589Z
 <!-- mc:auto-working-context:end -->
