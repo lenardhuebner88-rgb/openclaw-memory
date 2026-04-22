@@ -2666,3 +2666,26 @@ RESULT_SUMMARY: Session-Fingerprint mit Gateway-Boot-PID in aktiver OpenClaw pi-
 - 2026-04-22T13:10:06.503Z | START | 865cd1a5-68bb-41a5-b74e-01223135ed62 | S-RELIAB-P0 T8: Chaos-Test als Dispatch-Gate | worker=main | progress=- | summary=-
 - 2026-04-22T13:11:03.454Z | CHECKPOINT | 865cd1a5-68bb-41a5-b74e-01223135ed62 | S-RELIAB-P0 T8: Chaos-Test als Dispatch-Gate | worker=main | progress=40% | summary=- | note=Sprint context checked. Existing script /home/piet/.openclaw/scripts/chaos-gateway-oom-test.sh found. Task anti-scope requires an approved maintenance window before any gateway-kill/OOM execution.
 - 2026-04-22T13:11:29.189Z | BLOCKED | 865cd1a5-68bb-41a5-b74e-01223135ed62 | S-RELIAB-P0 T8: Chaos-Test als Dispatch-Gate | worker=main | progress=40% | summary=- | note=No approved maintenance window is documented for a gateway OOM/kill test. The task and sprint both forbid disruptive intervention without that approval.
+- 2026-04-22T13:22:32.284Z | CHECKPOINT | 865cd1a5-68bb-41a5-b74e-01223135ed62 | S-RELIAB-P0 T8: Chaos-Test als Dispatch-Gate | worker=main | progress=60% | summary=- | note=Sprint context verified. Created and dispatched Forge child task 2b2c819f-58f5-41e9-adfe-42ac5efa4f60 to execute /home/piet/.openclaw/scripts/chaos-gateway-oom-test.sh and return evidence for each DoD checkpoint.
+- 2026-04-22T13:24:30.734Z | START | 2b2c819f-58f5-41e9-adfe-42ac5efa4f60 | S-RELIAB-P0 T8a: Execute chaos-gateway-oom-test.sh | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T13:24:52.449Z | CHECKPOINT | 2b2c819f-58f5-41e9-adfe-42ac5efa4f60 | S-RELIAB-P0 T8a: Execute chaos-gateway-oom-test.sh | worker=sre-expert | progress=- | summary=- | note=Progress: verified T8 maintenance window notes and inspected chaos script before execution.
+- 2026-04-22T13:25:29.413Z | CHECKPOINT | 2b2c819f-58f5-41e9-adfe-42ac5efa4f60 | S-RELIAB-P0 T8a: Execute chaos-gateway-oom-test.sh | worker=sre-expert | progress=- | summary=- | note=Reviewed sprint T8 scope and script; beginning controlled chaos-test execution and evidence capture.
+- 2026-04-22T13:25:42.142Z | CHECKPOINT | 2b2c819f-58f5-41e9-adfe-42ac5efa4f60 | S-RELIAB-P0 T8a: Execute chaos-gateway-oom-test.sh | worker=sre-expert | progress=- | summary=- | note=Progress: chaos script exited early; root cause isolated to synthetic task creation rejection (empty description). Collecting final blocker evidence.
+- 2026-04-22T13:25:58.793Z | FAILED | 2b2c819f-58f5-41e9-adfe-42ac5efa4f60 | S-RELIAB-P0 T8a: Execute chaos-gateway-oom-test.sh | worker=sre-expert | progress=- | summary=- | note=Chaos dispatch gate failed: script aborts before OOM step because POST /api/tasks now rejects empty description, so synthetic task ID is never created.
+- 2026-04-22T13:26:39.498Z | FAILED | 865cd1a5-68bb-41a5-b74e-01223135ed62 | S-RELIAB-P0 T8: Chaos-Test als Dispatch-Gate | worker=sre-expert | progress=60% | summary=- | note=Chaos test executed within the approved window, but the dispatch gate failed before OOM validation because /home/piet/.openclaw/scripts/chaos-gateway-oom-test.sh still creates a synthetic task without a required description. POST /api/tasks is rejected, so no synthetic task is created and the gate cannot pass.
+- 2026-04-22T13:32:08.999Z | START | 21a76cbf-3e85-43d8-81d5-ed9f8edeb583 | S-RELIAB-P0 T8: Chaos-Test Dispatch-Gate (Retry) | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T13:32:55.442Z | CHECKPOINT | 21a76cbf-3e85-43d8-81d5-ed9f8edeb583 | S-RELIAB-P0 T8: Chaos-Test Dispatch-Gate (Retry) | worker=sre-expert | progress=- | summary=- | note=Progress: chaos script preflight checked, running execution now.
+- 2026-04-22T13:33:51.557Z | FAILED | 21a76cbf-3e85-43d8-81d5-ed9f8edeb583 | S-RELIAB-P0 T8: Chaos-Test Dispatch-Gate (Retry) | worker=sre-expert | progress=- | summary=- | note=EXECUTION_STATUS: FAILED
+RESULT_SUMMARY: chaos-gateway-oom-test retry executed, but dispatch-gate DoD failed due to missing effective OOM trigger and failed post-checks.
+EVIDENCE:
+- Script executed: bash /home/piet/.openclaw/scripts/chaos-gateway-oom-test.sh (log written)
+- Synthetic task dispatched: YES (a044093d-94b5-4391-9fb2-0fa1844d3c69)
+- OOM/restart behavior: NO (gateway pid unchanged: 531579 -> 531579, health stayed 1)
+- Runtime dependency issue observed: tool output reported stress-ng not found
+- Zombie check: script logged zombies=1
+- Synthetic task terminal state: NO (task stayed draft)
+ARTIFACTS:
+- /home/piet/.openclaw/scripts/chaos-gateway-oom-test.sh
+- /home/piet/.openclaw/workspace/logs/chaos-test.log
+- /api/tasks/a044093d-94b5-4391-9fb2-0fa1844d3c69
+- /api/tasks/21a76cbf-3e85-43d8-81d5-ed9f8edeb583

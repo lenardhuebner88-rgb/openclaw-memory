@@ -64,10 +64,13 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1e34edc6-4977-44f5-bb3c-89903a64068e S-RELIAB-P0 T7: MCP Streamable-HTTP Migration-Spike
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: 24h soak requirement at 100 calls/min is time-bound and not complete in this run window; short-run spike and report are complete.
-- blocker: 24h soak requirement at 100 calls/min is time-bound and not complete in this run window; short-run spike and report are complete.
-- updated: 2026-04-22T13:00:03.916Z
+- task: 21a76cbf-3e85-43d8-81d5-ed9f8edeb583 S-RELIAB-P0 T8: Chaos-Test Dispatch-Gate (Retry)
+- stage: FAILED
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS: FAILED
+RESULT_SUMMARY: chaos-gateway-oom-test retry executed, but dispatch-gate DoD failed due to missing effective OOM trigger and failed post-checks.
+EVIDENCE:
+- Script executed: bash /home/piet/.open
+- blocker: Chaos script did not satisfy DoD: no gateway crash/restart observed (same PID), stress-ng unavailable in environment, zombie count non-zero, and synthetic task remained draft.
+- updated: 2026-04-22T13:33:51.560Z
 <!-- mc:auto-working-context:end -->
