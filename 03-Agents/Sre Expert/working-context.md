@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7bde1bb0-c19a-4fb6-8ccc-f4427b42eac6 [S-HEALTH-2] Residual Board-Consistency Investigation (15 items)
+- task: aa6b3d4b-b7ad-43f3-99e7-3fb2dc30fe1a S-RPT T3: P0.2b Write-Path-Migration (Worker-Side)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Residual investigation completed: live set contains 15x done-state-mismatch (not draft-stale/missing-core/open-fixture). Inventory and root-cause documented in /home/piet/vault/03-Agents/s-health-inventory-2026-04-22.md.
+- checkpoint: S-RPT T3 completed: dispatch write-path now appends SprintOutcome receipt contract so Atlas/Forge/Pixel runtimes emit structured sprintOutcome while keeping human narrative in resultSummary. Validation: vitest tests pass
 - blocker: -
-- updated: 2026-04-22T17:55:20.878Z
+- updated: 2026-04-22T19:20:06.063Z
 <!-- mc:auto-working-context:end -->

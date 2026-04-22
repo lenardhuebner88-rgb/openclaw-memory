@@ -1,7 +1,7 @@
 # OpenClaw x OpenAI OAuth Optimierungsplan
 
 Datum: 2026-04-22
-Status: Planungsstand auf Basis verifizierter lokaler Ist-Lage + aktueller OpenAI/OpenClaw-Dokumentation
+Status: Plan + Live-Rollout auf Basis verifizierter lokaler Ist-Lage + aktueller OpenAI/OpenClaw-Dokumentation
 Scope: Maximaler Nutzen aus dem bestehenden OpenAI Pro OAuth Setup, saubere Modernisierung des OpenClaw-Stacks, stabile Rollout-Reihenfolge
 
 ## 1. Executive Summary
@@ -21,6 +21,25 @@ Der größte konkrete Hebel ist nicht "noch ein Update", sondern die Betriebsarc
 - Long-context und schwere Research-Arbeit auf eigene Agent-/Policy-Lane legen
 - Bild-/Medien-Funktionen bewusst modernisieren, statt im Codex-Pfad implizit darauf zu hoffen
 - Gateway-/Health-/Session-Lage operational sauber ziehen
+
+## 1.1 Live-Umsetzungsstand
+
+Stand nach Live-Rollout am 2026-04-22 um ca. 20:59 CEST:
+
+- `~/.openclaw/openclaw.json` ist auf `meta.lastTouchedVersion = "2026.4.21"` aktualisiert.
+- `Atlas`, `Pixel`, `Forge` und `Spark` nutzen jetzt `openai-codex/gpt-5.4-mini` als ersten echten Fallback.
+- `Forge` bleibt bewusst auf `openai-codex/gpt-5.3-codex` als Primary.
+- Für `Atlas`, `Pixel`, `Forge` und `Spark` sind jetzt explizit gesetzt:
+  - `thinkingDefault = "low"`
+  - `reasoningDefault = "off"`
+  - `fastModeDefault = true`
+- Die Image-Lane ist auf `openai/gpt-image-2` mit OpenRouter-Fallback modernisiert.
+- `openclaw config validate` ist erfolgreich.
+- `openclaw-gateway.service` wurde neu gestartet und ist `active`.
+
+Wichtig:
+
+- Wenn einzelne ältere Planungspunkte weiter unten diesem Live-Stand widersprechen, gilt dieser Live-Umsetzungsstand als maßgeblich.
 
 ## 2. Verifizierte Ist-Analyse
 
@@ -295,9 +314,11 @@ Schritte:
    - `openrouter/auto`
 2. `Pixel` identisch umstellen
 3. `Forge` modernisieren:
-   - bevorzugt `gpt-5.4-mini` statt `gpt-5.3-codex`
+   - Primary bewusst auf `gpt-5.3-codex` belassen
+   - Fallback 1 auf `gpt-5.4-mini` ziehen
 4. `Spark` evaluieren:
-   - behalten oder durch `gpt-5.4-mini` ersetzen
+   - Primary vorerst behalten
+   - Fallback 1 auf `gpt-5.4-mini` ziehen
 
 Gate:
 
@@ -311,8 +332,9 @@ Ziel:
 
 Empfohlene Zielwerte:
 
-- `thinkingDefault: "low"` für Atlas/Pixel
-- `reasoningDefault: "off"` global
+- `thinkingDefault: "low"` für Atlas/Pixel/Forge/Spark
+- `reasoningDefault: "off"` pro aktivem Codex-Agent
+- `fastModeDefault: true` pro aktivem Codex-Agent
 - optional für Heavy-Research-Agent:
   - `thinkingDefault: "medium"`
 
@@ -595,23 +617,26 @@ Aktueller Zustand:
 
 Ziel:
 
-- als effizienter SRE-/Ops-Agent modernisiert auf die 5.4-Linie
+- als effizienter SRE-/Ops-Agent stabil auf der 5.3-Codex-Lane belassen, aber modernisiert im Fallback- und Policy-Verhalten
 
-Empfohlene Änderung:
+Finale Rollout-Entscheidung:
 
 - `agents.list[sre-expert].model.primary`
-  - von `openai-codex/gpt-5.3-codex`
-  - auf `openai-codex/gpt-5.4-mini`
+  - bleibt `openai-codex/gpt-5.3-codex`
 - `agents.list[sre-expert].model.fallbacks`
   - neu:
-    - `openai-codex/gpt-5.4`
+    - `openai-codex/gpt-5.4-mini`
     - `minimax/MiniMax-M2.7-highspeed`
     - `openrouter/auto`
+- zusätzlich:
+  - `thinkingDefault = "low"`
+  - `reasoningDefault = "off"`
+  - `fastModeDefault = true`
 
 Warum:
 
-- `Forge` ist ein guter Kandidat für die schnellere, günstigere Lane.
-- Bei schwereren Fällen kann sauber auf `gpt-5.4` hochgefallen werden.
+- `Forge` bleibt damit bewusst auf der gewählten Codex-Speziallane.
+- Gleichzeitig wird der produktive Rückfallpfad modernisiert und deutlich näher an OpenAI gehalten.
 
 ### E. Spark-Config
 
@@ -651,10 +676,13 @@ Ziel:
 
 Konkrete Änderung:
 
-- global:
-  - `agents.defaults.thinkingDefault = "low"`
-- optional zusätzlich pro Heavy-Agent:
-  - `agents.list[<heavy-agent>].thinkingDefault = "medium"`
+- pro aktivem Codex-Agent:
+  - `Atlas = "low"`
+  - `Pixel = "low"`
+  - `Forge = "low"`
+  - `Spark = "low"`
+- optional zusätzlich später:
+  - Heavy-Research-Agent separat auf `medium`
 
 Warum:
 
@@ -673,8 +701,11 @@ Ziel:
 
 Konkrete Änderung:
 
-- global:
-  - `agents.defaults.reasoningDefault = "off"`
+- pro aktivem Codex-Agent:
+  - `Atlas = "off"`
+  - `Pixel = "off"`
+  - `Forge = "off"`
+  - `Spark = "off"`
 
 Warum:
 
@@ -695,30 +726,27 @@ Warum:
 
 - Das ist bereits modern und gewünscht.
 
-### I. Modell-Params für GPT-5.4
+### I. Fast-Mode-Policy
 
 Aktueller Zustand:
 
-- keine expliziten `params` für `openai-codex/gpt-5.4`
+- Fast Mode war nicht explizit auf den relevanten Agenten festgelegt.
 
 Ziel:
 
-- kritische Dinge, die wir wirklich steuern wollen, explizit machen
+- `/fast on` bewusst und reproduzierbar für die aktiven Codex-Lanes setzen
 
-Empfohlene Zielkonfiguration:
+Finale Rollout-Konfiguration:
 
-- `agents.defaults.models["openai-codex/gpt-5.4"].params.transport = "auto"`
-- `agents.defaults.models["openai-codex/gpt-5.4"].params.fastMode = false`
-
-Optional später:
-
-- `agents.defaults.models["openai-codex/gpt-5.4"].params.serviceTier = "priority"`
-  - nur wenn bewusst gewünscht
+- `agents.list[main].fastModeDefault = true`
+- `agents.list[sre-expert].fastModeDefault = true`
+- `agents.list[frontend-guru].fastModeDefault = true`
+- `agents.list[spark].fastModeDefault = true`
 
 Warum:
 
-- `transport: "auto"` entspricht der aktuellen empfohlenen OpenClaw-Strategie
-- `fastMode` soll bewusst als Session- oder gezielte Default-Entscheidung genutzt werden, nicht versehentlich
+- Das entspricht genau dem freigegebenen Ziel "`/fast on`".
+- Die Einstellung ist schema-konform und über `openclaw config set` sauber persistiert.
 
 ### J. Context-Strategie
 
@@ -785,20 +813,21 @@ Die Config wird nicht "in einem Wurf" modernisiert, sondern in dieser Reihenfolg
 1. Backup der bestehenden `openclaw.json`
 2. `Atlas`-Fallbacks
 3. `Pixel`-Fallbacks
-4. `thinkingDefault`
-5. `reasoningDefault`
-6. `Forge`-Modernisierung
-7. erst danach optionale Themen:
+4. `Forge`-Fallbacks bei unverändertem Primary
+5. `thinkingDefault`
+6. `reasoningDefault`
+7. `fastModeDefault`
+8. Image-Lane
+9. Gateway-Neustart + Validierung
+10. erst danach optionale Themen:
    - `Spark`
    - `contextTokens`
-   - Image-Lane
    - API-Hybridlane
 
 ## 6.3 Was im ersten Config-Sprint explizit nicht geändert wird
 
 - kein produktiver Wechsel auf `openai-codex/gpt-5.4-pro`
 - kein global aggressives `contextTokens`-Raise
-- keine sofortige Umstellung der Image-Lane
 - keine gleichzeitige Einführung aller `openai/*` API-Modelle
 
 Warum:
@@ -813,12 +842,13 @@ Warum:
 - Gateway-/Health-Lage reparieren
 - Agent-Fallbacks auf `gpt-5.4-mini` modernisieren
 - Thinking/Reasoning explizit setzen
+- `/fast on` für aktive Codex-Agenten sauber setzen
 
 ### P1
 
 - Long-context-Heavy-Agent
 - Session-/Maintenance-Bereinigung
-- Bild-Lane auf `gpt-image-2`
+- weitere Kosten-/Latenzfeinsteuerung
 
 ### P2
 
