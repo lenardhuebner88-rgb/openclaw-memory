@@ -1,11 +1,11 @@
 ---
 title: "KB Index"
-last_compiled: 2026-04-21T15:30:02.669832+00:00
+last_compiled: 2026-04-22T00:30:02.470661+00:00
 ---
 
 # Knowledge-Base Index
 
-Auto-compiled from 287 facts + 54 rules.
+Auto-compiled from 287 facts + 55 rules.
 
 ## Articles
 
