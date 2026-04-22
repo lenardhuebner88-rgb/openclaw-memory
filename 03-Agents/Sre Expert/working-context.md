@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2169c005-5c1c-4a25-ac07-d4dc6a72ce35 S-RELIAB-P0 T1: F1 Run-Placeholder/Pickup-Claim semantisch trennen
+- task: d4cdf8a5-f4d5-4528-8e11-2255d779ca69 S-RELIAB-P0 T3: F9 attemptId workflow-ID Integration
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-22T11:43:57.459Z
+- updated: 2026-04-22T12:15:39.121Z
 <!-- mc:auto-working-context:end -->
