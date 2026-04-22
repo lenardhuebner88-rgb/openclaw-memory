@@ -64,12 +64,12 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 01a11942-ddf8-4b8c-8ab7-c34d20658034 Forge analyse: direct-nudge timeout path + smallest robust fix
+- task: 50156c51-24eb-41f1-a246-5db8b891d24b S-FND T3 Execute: config-integrity-gate safe apply path
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: DONE
 
-RESULT_SUMMARY: Direct-nudge timeout path ist reproduzierbar und kein Forge-Ausführungsfehler. Board-basierte Dispatches funktionieren stabil, während `sessions_send` auf `agent:sre-expert:main` b
+RESULT_SUMMARY: S-FND T3 umgesetzt. Es existiert ein minimaler Safe-Apply-Pfad für kritische Config-Dateien mit Validate -> Snapshot -> Apply -> Probe(30s timeout) -> Revert-on-fail. V1-Schemas fü
 - blocker: -
-- updated: 2026-04-22T06:40:04.168Z
+- updated: 2026-04-22T09:12:25.753Z
 <!-- mc:auto-working-context:end -->

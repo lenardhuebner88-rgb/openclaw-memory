@@ -2336,3 +2336,32 @@ FIX_APPLIED: no (bewusst kein Broad Messaging-/Session-Refactor; Empfehlung ist 
 VERIFICATION: (1) Minimalrepro: `sessions_send(sessionKey=agent:sre-expert:main, timeoutSeconds=3)` => `status=timeout`. (2) Parallelbeobachtung: dieselbe Session zeigte `status=running` in sessions_list. (3) Board-Pfad in derselben Zeit gesund: Task 01a11942 wurde erfolgreich dispatcht und auf accepted/progress verarbeitet.
 
 RESIDUAL_RISK: Bei Verbleib auf Direct-Nudge-Pfad bleiben Timeouts normal, sobald Zielsession busy ist. Das ist semantisch erwartbar und nicht stabilisierbar ohne größeren Contract-/Tool-Refactor.
+- 2026-04-22T09:05:56.436Z | START | 50156c51-24eb-41f1-a246-5db8b891d24b | S-FND T3 Execute: config-integrity-gate safe apply path | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T09:10:40.409Z | CHECKPOINT | 50156c51-24eb-41f1-a246-5db8b891d24b | S-FND T3 Execute: config-integrity-gate safe apply path | worker=sre-expert | progress=80% | summary=- | note=Implemented /home/piet/.openclaw/scripts/config-apply-safe.sh and v1 schemas under /home/piet/.openclaw/schemas for openclaw.json, crontab, registry.jsonl, agents.json, systemd-unit-drop-ins. Added fault-test harness /home/piet/.openclaw/scripts/tests/config-apply-safe.test.sh; current run passes (invalid=>2, probe-fail=>3 with revert+snapshot, success=>0).
+- 2026-04-22T09:11:26.725Z | CHECKPOINT | 50156c51-24eb-41f1-a246-5db8b891d24b | S-FND T3 Execute: config-integrity-gate safe apply path | worker=sre-expert | progress=95% | summary=- | note=Finalizing T3 result receipt after verification artifacts generation.
+- 2026-04-22T09:12:25.750Z | DONE | 50156c51-24eb-41f1-a246-5db8b891d24b | S-FND T3 Execute: config-integrity-gate safe apply path | worker=sre-expert | progress=95% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: S-FND T3 umgesetzt. Es existiert ein minimaler Safe-Apply-Pfad für kritische Config-Dateien mit Validate -> Snapshot -> Apply -> Probe(30s timeout) -> Revert-on-fail. V1-Schemas für alle geforderten Dateitypen wurden angelegt, inkl. Fault-Test-Nachweis für invalid/probe-fail/success.
+
+IMPLEMENTATION:
+- /home/piet/.openclaw/scripts/config-apply-safe.sh
+- /home/piet/.openclaw/schemas/openclaw.json.schema.json
+- /home/piet/.openclaw/schemas/crontab.schema.json
+- /home/piet/.openclaw/schemas/registry.jsonl.schema.json
+- /home/piet/.openclaw/schemas/agents.json.schema.json
+- /home/piet/.openclaw/schemas/systemd-unit-drop-ins.schema.json
+- /home/piet/.openclaw/scripts/tests/config-apply-safe.test.sh
+
+FAULT_TESTS:
+- schema-invalid: PASS (exit 2)
+- probe-fail: PASS (exit 3, auto-revert, snapshot bleibt erhalten)
+- success: PASS (exit 0)
+
+VERIFICATION:
+- test command: /home/piet/.openclaw/scripts/tests/config-apply-safe.test.sh
+- observed output: "config-apply-safe tests: PASS"
+- script supports explicit per-target probe override via <target>.healthcheck.
+
+RESIDUAL_RISK:
+- Built-in probe ist v1 bewusst konservativ (openclaw.json -> openclaw doctor, sonst schema re-validate); tiefere dienstspezifische runtime probes sollten pro Dateityp über <target>.healthcheck erweitert werden.
+- Schemas sind v1 bewusst minimal, um false positives zu vermeiden; schärfere Feld-Constraints können in Folgesprint ergänzt werden.
