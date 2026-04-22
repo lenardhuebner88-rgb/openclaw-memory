@@ -2423,3 +2423,39 @@ LAYER_STATUS:
   - required tags present: cron_name, schedule, exit_code, duration_ms
 
 SPRINT_CLOSED: JA
+- 2026-04-22T10:38:00.176Z | START | 606bebaa-5504-4475-b4dc-2de0bb66e6a8 | S-UX T1: Phase 0 stateTransitions[] ROOT-CAUSE-FIX | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T10:42:14.799Z | CHECKPOINT | 606bebaa-5504-4475-b4dc-2de0bb66e6a8 | S-UX T1: Phase 0 stateTransitions[] ROOT-CAUSE-FIX | worker=sre-expert | progress=90% | summary=- | note=Implemented STATE_TRANSITIONS_V1 root-cause fix: added Task.stateTransitions typing + feature flag config; writer appends transitions on status changes in moveTask/updateTask; createTask initializes transitions under flag. Reader dual-read added in pipeline-data so failed window reference uses latest failed state transition when STATE_TRANSITIONS_V1=1, fallback to failedAt when off. Added tests: tests/state-transitions-v1.test.ts (10 synthetic transitions) and extended tests/pipeline-tab-phase1-truth.test.ts (dual-read on/off). All targeted tests pass.
+- 2026-04-22T10:43:07.942Z | DONE | 606bebaa-5504-4475-b4dc-2de0bb66e6a8 | S-UX T1: Phase 0 stateTransitions[] ROOT-CAUSE-FIX | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: S-UX T1 Root-Cause-Fix umgesetzt. Backend unterstützt jetzt stateTransitions[] mit dual-read hinter Feature-Flag STATE_TRANSITIONS_V1. Failed-window-Reader nutzt deterministisch failed-state-Transition (statt Timestamp-Semantik-Vermengung), Fallback bleibt erhalten wenn Flag aus ist.
+
+IMPLEMENTATION:
+- stateTransitions Typen ergänzt:
+  - src/lib/taskboard-types.ts
+  - Task.stateTransitions: Array<{state, at, attemptId?}>
+- Feature-Flag eingeführt:
+  - src/lib/state-transitions-config.ts
+  - STATE_TRANSITIONS_V1=0|1
+- Writer (append on state changes) implementiert:
+  - src/lib/taskboard-store.ts
+  - createTask: initial transitions unter Flag
+  - moveTask/updateTask: appendStateTransitionIfNeeded() bei state-change
+- Reader dual-read implementiert:
+  - src/lib/pipeline-data.ts
+  - getPipelineWindowReference(status=failed):
+    - Flag ON -> latest failed from stateTransitions, fallback failedAt
+    - Flag OFF -> failedAt
+
+VERIFICATION:
+- Testlauf grün:
+  - npx vitest run tests/pipeline-tab-phase1-truth.test.ts tests/state-transitions-v1.test.ts
+  - 2 files passed, 6 tests passed
+- 10 synthetische Transitions:
+  - tests/state-transitions-v1.test.ts bestätigt 10 Updates korrekt appended (11 inkl. initial created)
+- Reader-Test "failed since X" deterministisch:
+  - tests/pipeline-tab-phase1-truth.test.ts prüft dual-read ON/OFF Verhalten
+- Commit:
+  - be53033 fix(s-ux-t1): add stateTransitions dual-read and failed-since truth
+
+FEATURE_FLAG:
+- STATE_TRANSITIONS_V1 implementiert und in Verifikation explizit mit STATE_TRANSITIONS_V1=1 geprüft.

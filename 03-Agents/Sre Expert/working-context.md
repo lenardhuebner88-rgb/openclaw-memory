@@ -64,12 +64,12 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 539a0800-0c7e-4e0c-8693-1b4ffda61f13 S-FND E2E: Smoke-Test — alle 4 Layer grün
+- task: 606bebaa-5504-4475-b4dc-2de0bb66e6a8 S-UX T1: Phase 0 stateTransitions[] ROOT-CAUSE-FIX
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: DONE
 
-RESULT_SUMMARY: S-FND E2E-Smoke erfolgreich durchgeführt. Alle 4 Layer sind grün (Outcome-Schema validiert, attemptId synthetisch erzeugt und gegen Board-Event gematcht, config-write guarded mit F
+RESULT_SUMMARY: S-UX T1 Root-Cause-Fix umgesetzt. Backend unterstützt jetzt stateTransitions[] mit dual-read hinter Feature-Flag STATE_TRANSITIONS_V1. Failed-window-Reader nutzt deterministisch fa
 - blocker: -
-- updated: 2026-04-22T09:54:47.107Z
+- updated: 2026-04-22T10:43:07.945Z
 <!-- mc:auto-working-context:end -->
