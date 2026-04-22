@@ -1,0 +1,86 @@
+# ============================================================================
+# OpenClaw / Mission Control — User Crontab
+# Restored: 2026-04-20 (after sed incident)
+# ============================================================================
+
+# ENVIRONMENT VARIABLES
+AUTO_PICKUP_ENABLED=1
+AUTO_PICKUP_ALERT_CH=1491148986109661334
+AUTO_PICKUP_WEBHOOK_URL=https://discord.com/api/webhooks/1494679463663898715/dGWTXb2b-kQAeNQrPR-Expfd-7vmX6S5MJg8mqQaylVzQXpG3-e5LXZHJkWeyPAqaLBw
+MCP_REAP_CAP=3
+
+# Heartbeat (realtime)
+# M7 systemd-migrated: * * * * * flock -n /tmp/mc-auto-pickup.lock /home/piet/.openclaw/scripts/auto-pickup.py >> /home/piet/.openclaw/workspace/logs/auto-pickup-cron.log 2>&1
+* * * * * /usr/bin/flock -n /tmp/mc-heartbeat-main.lock /usr/bin/curl -fsS -X POST -H 'x-actor-kind: system' -H 'x-request-class: system' http://127.0.0.1:3000/api/heartbeat/main >/dev/null 2>&1
+* * * * * flock -n /tmp/openclaw-config-guard.lock /home/piet/.openclaw/scripts/openclaw-config-guard.sh >> /tmp/config-guard.log 2>&1
+# M7 systemd-migrated: */2 * * * * flock -n /tmp/mc-watchdog.lock /home/piet/.openclaw/scripts/mc-watchdog.sh
+*/2 * * * * flock -n /tmp/mc-cost-alert-dispatcher.lock /home/piet/.openclaw/scripts/cost-alert-dispatcher.py >> /home/piet/.openclaw/workspace/logs/cost-alert-dispatcher.log 2>&1
+*/2 * * * * flock -n /tmp/mc-critical-alert.lock /home/piet/.openclaw/scripts/mc-critical-alert.py >> /home/piet/.openclaw/workspace/logs/mc-critical-alert.cron.log 2>&1
+
+# Stall + Lock Detection (5-10 min tier)
+# M7 systemd-migrated: */5 * * * * flock -n /tmp/worker-monitor.lock python3 /home/piet/.openclaw/workspace/scripts/worker-monitor.py >> /home/piet/.openclaw/workspace/scripts/worker-monitor.log 2>&1
+# M7 systemd-migrated: */5 * * * * /home/piet/.openclaw/scripts/session-freeze-watcher.sh >> /tmp/session-freeze-watcher.log 2>&1
+# M7 systemd-migrated: */5 * * * * /home/piet/.openclaw/scripts/stale-lock-cleaner.sh >> /tmp/stale-lock-cleaner.log 2>&1
+*/5 * * * * /home/piet/.openclaw/scripts/memory-budget-meter.sh >> /tmp/memory-budget.log 2>&1
+*/5 * * * * /home/piet/.openclaw/scripts/sprint-debrief-watch.sh >> /tmp/sprint-debrief-watch.log 2>&1
+*/10 * * * * flock -n /tmp/atlas-orphan-detect.lock /home/piet/.openclaw/scripts/atlas-orphan-detect.sh >> /home/piet/.openclaw/workspace/logs/atlas-orphan-detect.log 2>&1
+*/10 * * * * flock -n /tmp/session-health-monitor.lock /home/piet/.openclaw/scripts/session-health-monitor.py >> /home/piet/.openclaw/workspace/memory/session-health.log 2>&1
+
+# Governance Validators (15 min — hourly tier)
+*/15 * * * * flock -n /tmp/mcp-reaper.lock /home/piet/.openclaw/scripts/mcp-taskboard-reaper.sh
+*/15 * * * * flock -n /tmp/self-optimizer.lock /usr/bin/env SELF_OPT_ENABLED=1 SELF_OPT_DRY_RUN=1 python3 /home/piet/.openclaw/scripts/self-optimizer.py >> /home/piet/.openclaw/workspace/logs/self-optimizer.log 2>&1
+*/15 * * * * /home/piet/.openclaw/scripts/r49-claim-validator.py >> /tmp/r49-validator.log 2>&1
+0 */1 * * * /home/piet/.openclaw/scripts/r48-board-hygiene-cron.sh >> /tmp/r48-hygiene.log 2>&1
+
+# Memory CRONS — L1-L6 compilation + feedback loops
+30 * * * * /usr/bin/flock -n /tmp/memory-orchestrator-hourly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py hourly >> /home/piet/.openclaw/workspace/logs/memory-orchestrator-hourly.log 2>&1
+45 2 * * * /usr/bin/flock -n /tmp/memory-orchestrator-nightly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py nightly >> /home/piet/.openclaw/workspace/logs/memory-orchestrator-nightly.log 2>&1
+0 5 * * 0 /usr/bin/flock -n /tmp/memory-orchestrator-weekly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py weekly >> /home/piet/.openclaw/workspace/logs/memory-orchestrator-weekly.log 2>&1
+0 4 1 */3 * /usr/bin/flock -n /tmp/memory-orchestrator-quarterly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py quarterly >> /home/piet/.openclaw/workspace/logs/memory-orchestrator-quarterly.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 0 4 * * * /home/piet/.openclaw/workspace/scripts/kb-compiler.py >> /tmp/kb-compiler.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 15 4 * * * /home/piet/.openclaw/workspace/scripts/graph-edge-builder.py >> /tmp/graph-edge-builder.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 30 4 * * * /home/piet/.openclaw/workspace/scripts/kb-compiler-llm-synth.py >> /tmp/kb-synth.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 30 */1 * * * /home/piet/.openclaw/workspace/scripts/retrieval-feedback-loop.py >> /tmp/retrieval-feedback.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 0 5 * * 0 /home/piet/.openclaw/workspace/scripts/importance-recalc.py >> /tmp/importance-recalc.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 30 4 * * * /home/piet/.openclaw/workspace/scripts/memory-dashboard-generator.py >> /tmp/memory-dashboard.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 50 23 * * * /home/piet/.openclaw/workspace/scripts/daily-reflection-cron.py >> /tmp/daily-reflection.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 15 2 * * * /usr/bin/flock -n /tmp/memory-layer-sweep.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-layer-sweep.py >> /home/piet/.openclaw/workspace/logs/memory-layer-sweep.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 0 4 1 */3 * /usr/bin/flock -n /tmp/memory-layer-quarterly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-layer-sweep.py --quarterly >> /home/piet/.openclaw/workspace/logs/memory-layer-quarterly.log 2>&1
+# [Sprint-M M6b] superseded by memory-orchestrator 17 3 * * 0 /home/piet/.openclaw/scripts/sqlite-memory-maintenance.sh
+# [Sprint-M M6b] superseded by memory-orchestrator 30 3 * * 0 /home/piet/.openclaw/workspace/scripts/maintenance/memory-sqlite-vacuum.sh
+
+# MC Health + Ops
+0 * * * * /home/piet/.openclaw/workspace/scripts/mc-ops-monitor.sh >> /home/piet/.openclaw/workspace/logs/mc-ops-monitor.log 2>&1
+7 */6 * * * flock -n /tmp/mc-memory-guard.lock /home/piet/.openclaw/scripts/memory-size-guard.sh
+23,53 * * * * flock -n /tmp/mc-session-size.lock /home/piet/.openclaw/scripts/session-size-alert.sh
+
+# Integrity + Security (6h tier)
+0 */6 * * * flock -n /tmp/script-integrity-check.lock /home/piet/.openclaw/scripts/script-integrity-check.sh >> /home/piet/.openclaw/workspace/logs/script-integrity.log 2>&1
+0 */6 * * * /home/piet/.openclaw/bin/openclaw sessions cleanup --all-agents --enforce --fix-missing >> /home/piet/.openclaw/workspace/logs/sessions-cleanup-cron.log 2>&1
+
+# Rules + QMD + PR Watchers
+0 * * * * flock -n /tmp/rules-render.lock /home/piet/.openclaw/scripts/rules-render.sh >> /home/piet/.openclaw/workspace/logs/rules-render.log 2>&1
+*/30 * * * * flock -n /tmp/qmd-update.lock /home/piet/.local/lib/node_modules/@tobilu/qmd/qmd update >> /home/piet/.openclaw/workspace/logs/qmd-update-cron.log 2>&1
+5 * * * * flock -n /tmp/qmd-pending-monitor.lock /home/piet/.openclaw/scripts/qmd-pending-monitor.sh >> /home/piet/.openclaw/workspace/logs/qmd-pending-monitor.log 2>&1
+*/30 * * * * flock -n /tmp/pr68846-patch.lock /home/piet/.openclaw/scripts/pr68846-patch-check.sh
+23 * * * * flock -n /tmp/minions-pr-watch.lock /home/piet/.openclaw/scripts/minions-pr-watch.sh
+
+# Cleanup + Snapshot (daily/weekly maintenance)
+0 3 * * * /home/piet/.openclaw/scripts/cleanup.sh
+0 3 * * * flock -n /tmp/config-snapshot-to-vault.lock /home/piet/.openclaw/scripts/config-snapshot-to-vault.sh >> /tmp/config-snapshot.log 2>&1
+0 3 * * 0 flock -n /tmp/build-artifact-cleanup.lock /home/piet/.openclaw/scripts/build-artifact-cleanup.sh >> /home/piet/.openclaw/workspace/logs/build-artifact-cleanup.cron.log 2>&1
+
+# Meta / Audit (weekly)
+*/30 * * * * /home/piet/.openclaw/scripts/cron-health-audit.sh >> /tmp/cron-health-audit.log 2>&1
+
+0 */6 * * * flock -n /tmp/canary-alert.lock /home/piet/.openclaw/scripts/alert-dispatcher.sh canary info "canary-ok"
+# Session + CPU defense
+*/30 * * * * flock -n /tmp/session-janitor.lock python3 /home/piet/.openclaw/scripts/session-janitor.py >> /tmp/session-janitor.log 2>&1
+*/5 * * * * flock -n /tmp/cpu-runaway-guard.lock /home/piet/.openclaw/scripts/cpu-runaway-guard.sh >> /tmp/cpu-runaway-guard.log 2>&1
+0 6 * * * /home/piet/.openclaw/workspace/scripts/agents-md-size-check.sh >> /tmp/agents-md-size-check.log 2>&1
+*/5 * * * * flock -n /tmp/session-size-guard.lock python3 /home/piet/.openclaw/scripts/session-size-guard.py >> /home/piet/.openclaw/workspace/logs/session-size-guard.log 2>&1
+* * * * * flock -n /tmp/session-size-guard-immediate.lock python3 /home/piet/.openclaw/scripts/session-size-guard.py --log-only >> /home/piet/.openclaw/workspace/logs/session-size-guard.log 2>&1
+15,45 * * * * /home/piet/.openclaw/scripts/qmd-native-embed-cron.sh
+*/5 * * * * flock -n /tmp/mcp-qmd-reaper.lock /home/piet/.openclaw/scripts/mcp-qmd-reaper.sh
+
+0 8 * * * /home/piet/.openclaw/scripts/vault-search-daily-checkpoint.sh >/home/piet/.openclaw/workspace/logs/vault-search-daily-checkpoint.log 2>&1

@@ -1,0 +1,22 @@
+snapshot_utc=2026-04-22T01:00:02Z
+host=huebners
+files=
+  - crontab.txt
+  - openclaw.json
+  - scripts/cost-alert-dispatcher.py
+  - scripts/auto-pickup.py
+  - scripts/session-health-monitor.py
+  - scripts/rules-jsonl-to-md.py
+  - scripts/qmd-openrouter-embed.py
+  - scripts/claude-design-pack-builder.py
+  - scripts/session-size-guard.py
+  - scripts/openclaw-discord-bot.py
+  - scripts/r49-claim-validator.py
+  - scripts/self-optimizer.py
+  - scripts/claude-telegram-bridge.py
+  - scripts/google-calendar.py
+  - scripts/rules-md-to-jsonl.py
+  - scripts/mc-critical-alert.py
+  - scripts/session-janitor.py
+  - scripts/workspace-backup.py
+  - manifest.txt
