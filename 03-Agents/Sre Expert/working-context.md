@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f0af5cff-7d41-49c0-b459-240c8ed3558c Sprint N Observation Followup: Retry-Cap Post-Window
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: FAIL | RESULT_SUMMARY: Observation-Followup (2h Window nach Sprint-N Execute-Retry 4fec080d: 2026-04-21T19:57:08Z bis 21:57:08Z) ist nicht vollständig bestanden. Kriterium A (Budget-Stagnation) FAIL: /a
+- task: 6e1b3455-18a4-4bc9-ab29-330c327c0554 [Nightly] Flag stale draft tasks in board consistency
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-21T22:13:14.963Z
+- updated: 2026-04-22T02:10:22.663Z
 <!-- mc:auto-working-context:end -->
