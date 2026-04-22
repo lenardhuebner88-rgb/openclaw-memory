@@ -1,0 +1,15 @@
+{
+  "editor:toggle-source": [{ "modifiers": ["Mod"], "key": "E" }],
+  "workspace:toggle-pin": [{ "modifiers": ["Mod", "Shift"], "key": "P" }],
+  "app:toggle-left-sidebar": [{ "modifiers": ["Mod"], "key": "\\" }],
+  "app:toggle-right-sidebar": [{ "modifiers": ["Mod", "Shift"], "key": "\\" }],
+  "command-palette:open": [{ "modifiers": ["Mod"], "key": "P" }],
+  "switcher:open": [{ "modifiers": ["Mod"], "key": "O" }],
+  "global-search:open": [{ "modifiers": ["Mod", "Shift"], "key": "F" }],
+  "graph:open": [{ "modifiers": ["Mod"], "key": "G" }],
+  "daily-notes": [{ "modifiers": ["Mod", "Shift"], "key": "D" }],
+  "file-explorer:reveal-active-file": [{ "modifiers": ["Mod", "Shift"], "key": "R" }],
+  "editor:open-link-in-new-leaf": [{ "modifiers": ["Mod"], "key": "Click" }],
+  "note-composer:merge-file": [{ "modifiers": ["Mod", "Alt"], "key": "M" }],
+  "obsidian-linter:lint-file": [{ "modifiers": ["Mod", "Alt"], "key": "L" }]
+}

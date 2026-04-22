@@ -1,23 +1,30 @@
-# YYYY-MM-DD
+---
+title: {{date:YYYY-MM-DD}}
+type: daily
+date: {{date:YYYY-MM-DD}}
+tags: [type/daily]
+---
 
-> Regeln:
-> - nur wichtige Einträge
-> - kurz, konkret, wiederverwendbar
-> - offene operative Arbeit ins Task Board, nicht als lose Sammelliste hier
-> - was dauerhaft wichtig ist, später nach Shared / Projects / OpenClaw hochziehen
+# {{date:YYYY-MM-DD}}
+
+> Regeln: kurz, konkret, wiederverwendbar. Operatives ins Task-Board — nicht hier sammeln. Dauerhaftes hochziehen nach `_shared/`, `03-Projects/` oder `10-KB/`.
 
 ## Today
-- Fokus:
-- Wichtigste Änderung:
-- Offene Entscheidung:
+
+- **Fokus:**
+- **Wichtigste Änderung:**
+- **Offene Entscheidung:**
 
 ## Entries
 
-### HH:MM | type:decision|status|checkpoint
-- Summary:
-- Impact:
-- Link / Bezug:
+### HH:MM | decision | checkpoint | event
 
-## End of day
-- Was bleibt relevant?
-- Was kann archiviert oder ignoriert werden?
+- **Summary:**
+- **Impact:**
+- **Bezug:**
+
+## End of Day
+
+- **Was bleibt relevant?**
+- **Was archivieren?**
+- **Morgen-Agenda:**
