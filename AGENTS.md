@@ -21,7 +21,7 @@ All three are **live-synced via Syncthing v2** (LAN, port 22000). Changes you ma
 
 - **Desktop filesystem** (`C:\Users\Lenar\Obsidian\openclaw-memory\`) and **server filesystem** (`/home/piet/vault/`) are **live mirrors**. Pick ONE and stay there for the session.
   - Prefer the **desktop** for anything under `03-Projects/`, `03-Agents/codex/`, `05-Research/`.
-  - Prefer the **server** (via `ssh homeserver`) for any change touching `.openclaw/`, `03-Agents/OpenClaw/`, `03-Agents/kb/`, or crontab.
+  - Prefer the **server** (via `ssh homeserver`) for any change touching `.openclaw/`, `03-Agents/OpenClaw/`, `10-KB/`, or crontab.
 - Do **not** operate on a third checkout — there is no third checkout. If you create one, you have just invented a parallel universe.
 
 ## 3. Announce your presence — every session
@@ -72,7 +72,7 @@ This is cheaper than any lock file and survives crashes (stale claims just get c
 | Path | Who owns it | Rule for you |
 |---|---|---|
 | `03-Agents/OpenClaw/`, `03-Agents/Atlas/`, `03-Agents/Forge/`, … agent name dirs | openclaw runtime (server-side) | **Read-only** from any coding agent. Those dirs are live state of openclaw workers; overwriting them breaks the system. |
-| `03-Agents/kb/` | KB-Compiler cron (server, `0 4 * * *`) | **Read-only.** Regenerated nightly. |
+| `10-KB/` | KB-Compiler cron (server, `0 4 * * *`) | **Read-only.** Regenerated nightly. |
 | `03-Agents/codex/` | Codex | **Your home.** Put session notes, scratch, spikes here. |
 | `03-Agents/claude-code/` | Claude Code | Claude's home. Don't write here. |
 | `03-Agents/_coordination/` | All agents | Shared session-board (see §3). |

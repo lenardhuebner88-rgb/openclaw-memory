@@ -53,7 +53,7 @@ All four touch the same filesystem. You are not alone. Act like it.
 | Path | Owner | Rule |
 |---|---|---|
 | `03-Agents/OpenClaw/`, `Atlas/`, `Forge/`, `Pixel/`, `Lens/`, `James/`, `Main/`, `Spark/`, `Sre Expert/`, … | openclaw runtime | **Read-only.** Agents hold open file handles; you will corrupt live state. |
-| `03-Agents/kb/` | KB-Compiler cron `0 4 * * *` | **Read-only.** Regenerated nightly from facts. |
+| `10-KB/` | KB-Compiler cron `0 4 * * *` | **Read-only.** Regenerated nightly from facts. |
 | `03-Agents/memory-dashboard.md` | Memory orchestrator | **Read-only.** Auto-regen at `30 4 * * *`. |
 | `.openclaw/` | openclaw runtime | **Never touch** unless operator asked. 14 defense crons live here. |
 | `.git/` | Each device-local repo | Per-device; excluded from Syncthing via `.stignore`. |

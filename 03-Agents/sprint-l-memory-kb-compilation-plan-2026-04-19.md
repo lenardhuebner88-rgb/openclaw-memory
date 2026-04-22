@@ -33,7 +33,7 @@ prerequisites: Sprint-K done (Infra-Hardening stable), Phase-1+2 Memory-Evolutio
 **Agent:** James-Research 30min → Forge-Implementation 3.5h  
 **Scope:**
 - **James:** Claude-memory-compiler (github.com/coleam00/claude-memory-compiler) Deep-Review + Karpathy LLM Knowledge Base article methodology. Output: `vault/03-Agents/james-kb-compilation-research-2026-04-19.md`
-- **Forge:** `workspace/scripts/kb-compiler.py` — reads last 7 days of facts.jsonl + session-logs, clusters by topic-keywords (e.g., "Sprint-Dispatching", "Agent-Context-Management", "Board-Lifecycle", "R45-Receipt-Drift"), produces one cross-referenced markdown-article per topic in `vault/03-Agents/kb/<topic>.md`
+- **Forge:** `workspace/scripts/kb-compiler.py` — reads last 7 days of facts.jsonl + session-logs, clusters by topic-keywords (e.g., "Sprint-Dispatching", "Agent-Context-Management", "Board-Lifecycle", "R45-Receipt-Drift"), produces one cross-referenced markdown-article per topic in `vault/10-KB/<topic>.md`
 - Each article: Overview + Key-Rules (cross-ref rules.jsonl) + Key-Cases (cross-ref facts.jsonl) + Related-Articles (cross-ref each other) + Versioning (timestamp, schema_version)
 - Cron: `0 4 * * *` (after Dreaming at 03:00)
 
@@ -102,7 +102,7 @@ prerequisites: Sprint-K done (Infra-Hardening stable), Phase-1+2 Memory-Evolutio
 - Tabs:
   - **Rules** (46, filterable by category)
   - **Facts Today** (live-counter + memory-type-breakdown)
-  - **KB Articles** (list from `vault/03-Agents/kb/*.md` with last-updated + cross-ref-count)
+  - **KB Articles** (list from `vault/10-KB/*.md` with last-updated + cross-ref-count)
   - **Graph** (Mermaid-render of recent edges)
   - **Retrieval-Feedback** (top-10 most-accessed, decay-curves)
 
@@ -167,7 +167,7 @@ Return format:
 - RESULT_SUMMARY:
   - 6 Board-Task-IDs + Final-Status (R49 compliant)
   - Report-Paths (James-Research + jeder Sub) ls-verified
-  - ≥8 KB-Articles live in vault/03-Agents/kb/
+  - ≥8 KB-Articles live in vault/10-KB/
   - ≥100 Graph-Edges inferred + query-testable
   - /memory Route mobile-live
   - Git-Commits-Liste

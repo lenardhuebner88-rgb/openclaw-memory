@@ -36,7 +36,7 @@ WORKSPACE = pathlib.Path(os.environ.get(
 FACTS_DIR = WORKSPACE / "memory" / "facts"
 RULES_FILE = WORKSPACE / "memory" / "rules.jsonl"
 GRAPH_FILE = WORKSPACE / "memory" / "graph.jsonl"
-KB_DIR = pathlib.Path("/home/piet/vault/03-Agents/kb")
+KB_DIR = pathlib.Path("/home/piet/vault/10-KB")
 MC_TASKS = WORKSPACE / "mission-control" / "data" / "tasks.json"
 
 
