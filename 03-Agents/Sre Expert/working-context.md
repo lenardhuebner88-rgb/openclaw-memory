@@ -65,9 +65,9 @@ Headers: x-actor-kind: automation
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 6e1b3455-18a4-4bc9-ab29-330c327c0554 [Nightly] Flag stale draft tasks in board consistency
-- stage: START
-- next: continue current task
-- checkpoint: -
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS: DONE | RESULT_SUMMARY: Stale-draft detection >72h in board consistency umgesetzt. Geändert in 2 Dateien (unter 3-File-Limit): src/lib/board-consistency.ts erweitert um Issue-Typ stale-draft-task + Alter
 - blocker: -
-- updated: 2026-04-22T02:10:22.663Z
+- updated: 2026-04-22T02:12:13.183Z
 <!-- mc:auto-working-context:end -->
