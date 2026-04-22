@@ -15,7 +15,7 @@ Ensures zero-surprise execution: alles verifiziert, Conflict-Risk gemanaged.
 
 ## 1. Handoff-Bundle Audit (complete)
 
-**Location:** `/home/piet/vault/03-Agents/claude-design-handoffs/2026-04-20-taskboard/`
+**Location:** `/home/piet/vault/07-Research/design-handoffs/2026-04-20-taskboard/`
 **Status:** VERIFIED — 10 files / 212 KB
 
 ### File-Inventory
@@ -92,7 +92,7 @@ Plus 2 new dialog components (can live in `src/components/ui/` or `src/component
 
 ## 3. Token-Merge Analysis (mc-tokens.css vs globals.css)
 
-**Source:** `/home/piet/vault/03-Agents/claude-design-handoffs/2026-04-20-taskboard/mc-tokens.css` (18 KB)
+**Source:** `/home/piet/vault/07-Research/design-handoffs/2026-04-20-taskboard/mc-tokens.css` (18 KB)
 **Target:** `/home/piet/.openclaw/workspace/mission-control/src/app/globals.css`
 
 **Strategy:** Merge additive — keine Überschreibungen existing violet brand tokens. Pixel soll:
