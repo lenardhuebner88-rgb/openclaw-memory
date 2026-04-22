@@ -50,7 +50,7 @@ ssh homeserver "curl -fsS http://127.0.0.1:3000/api/health | jq .status"
 Forge — Execute S-FND T1 Pydantic SprintOutcome Schema Deploy.
 
 READ-FIRST:
-- /home/piet/vault/03-Agents/sprints/s-fnd-2026-04-22.md (T1 section)
+- /home/piet/vault/04-Sprints/s-fnd-2026-04-22.md (T1 section)
 - /home/piet/vault/03-Agents/schemas/sprint_outcome.py (Template, Pydantic v2)
 - /home/piet/vault/03-Agents/schemas/fixtures_valid.json (10 cases)
 - /home/piet/vault/03-Agents/schemas/fixtures_invalid.json (10 cases)
@@ -158,6 +158,6 @@ ssh homeserver "systemctl --user restart mission-control"
 ## Source-References
 
 - Template: `/home/piet/vault/03-Agents/schemas/sprint_outcome.py` (Claude Code Prototype 2026-04-22)
-- Plan: `/home/piet/vault/03-Agents/sprints/s-fnd-2026-04-22.md`
+- Plan: `/home/piet/vault/04-Sprints/s-fnd-2026-04-22.md`
 - Protocol: `/home/piet/vault/03-Agents/codex-future-plan-protocol.md`
 - End-of-Day-Context: `/home/piet/vault/03-Agents/end-of-day-2026-04-21.md`

@@ -157,4 +157,4 @@ systemctl --user restart mission-control.service
 Atlas — Sprint S-HEALTH Board-Cleanup starten.
 ```
 
-Atlas liest dann `/home/piet/vault/03-Agents/sprints/s-health-board-cleanup-2026-04-22.md` und dispatched gemäß Team-Split-Tabelle.
+Atlas liest dann `/home/piet/vault/04-Sprints/s-health-board-cleanup-2026-04-22.md` und dispatched gemäß Team-Split-Tabelle.

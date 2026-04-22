@@ -188,7 +188,7 @@ def render_index(scan: dict) -> str:
     lines.append("title: Mission Control Vault — Master Index (AUTO-GENERATED)")
     lines.append(f"date: {datetime.now(timezone.utc).strftime('%Y-%m-%d')}")
     lines.append("generator: vault-index-generator.py (S-GOV T9 prototype)")
-    lines.append("source: /home/piet/vault/03-Agents/sprints/*.md frontmatter")
+    lines.append("source: /home/piet/vault/04-Sprints/*.md frontmatter")
     lines.append("---")
     lines.append("")
     lines.append("# Vault Master Index — 03-Agents/ (Auto-Generated)")

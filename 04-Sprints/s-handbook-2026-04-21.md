@@ -433,7 +433,7 @@ Atlas should execute **one sprint at a time**, commit intentionally, and avoid b
 Use this prompt to start Atlas on **SH1 only**:
 
 ```text
-Setze Sprint SH1 aus `vault/03-Agents/sprints/system-handbook-agent-acceleration-plan-2026-04-21.md` um.
+Setze Sprint SH1 aus `vault/04-Sprints/system-handbook-agent-acceleration-plan-2026-04-21.md` um.
 
 Arbeite nur an SH1, nicht an SH2+.
 
