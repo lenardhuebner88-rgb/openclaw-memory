@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1cabca33-5d18-477a-8225-791c7c847025 [Forge] Analyse: Gateway OOM-Erkennung und Recovery-Verhalten
+- task: 1e34edc6-4977-44f5-bb3c-89903a64068e S-RELIAB-P0 T7: MCP Streamable-HTTP Migration-Spike
 - stage: DONE
 - next: await next assignment
-- checkpoint: Gateway-OOM-Recovery funktioniert korrekt. Restart=always + OOMPolicy=stop + RestartSec=30 sind aktiv und haben in den letzten 24h 4× sauber restartet (journalctl 08:59:20/09:00:22/14:41:17/14:42:43 UTC). T8-Test hat fäl
+- checkpoint: T7 (MCP Streamable-HTTP Spike): HTTP-Variante Port 7710 deployt+aktiv. 24h-Soak laeuft autonom. Short-Run-Spike complete. Option C applied.
 - blocker: -
-- updated: 2026-04-22T14:07:30.902Z
+- updated: 2026-04-22T15:17:51.092Z
 <!-- mc:auto-working-context:end -->
