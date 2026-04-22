@@ -2365,3 +2365,30 @@ VERIFICATION:
 RESIDUAL_RISK:
 - Built-in probe ist v1 bewusst konservativ (openclaw.json -> openclaw doctor, sonst schema re-validate); tiefere dienstspezifische runtime probes sollten pro Dateityp über <target>.healthcheck erweitert werden.
 - Schemas sind v1 bewusst minimal, um false positives zu vermeiden; schärfere Feld-Constraints können in Folgesprint ergänzt werden.
+- 2026-04-22T09:36:34.295Z | START | a192ed90-6863-46fd-bddd-6b909d17c9c3 | S-FND T4 Execute: OpenTelemetry-Spine für Defense-Crons (MVP) | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T09:40:51.125Z | CHECKPOINT | a192ed90-6863-46fd-bddd-6b909d17c9c3 | S-FND T4 Execute: OpenTelemetry-Spine für Defense-Crons (MVP) | worker=sre-expert | progress=85% | summary=- | note=Implemented OTEL stack and wrappers: /home/piet/.openclaw/observability/docker-compose.yml + otel-collector-config.yaml; helper /home/piet/.openclaw/scripts/otel-cron-wrap.sh; wrapped worker-monitor-runner.sh, mc-watchdog.sh, auto-pickup-runner.sh via self-wrap. Stack started with docker compose up -d. Jaeger service openclaw-cron visible and traces include cron.worker-monitor, cron.mc-watchdog, cron.auto-pickup with tags cron_name,schedule,exit_code,duration_ms.
+- 2026-04-22T09:42:06.740Z | DONE | a192ed90-6863-46fd-bddd-6b909d17c9c3 | S-FND T4 Execute: OpenTelemetry-Spine für Defense-Crons (MVP) | worker=sre-expert | progress=85% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: S-FND T4 MVP umgesetzt. OTEL spine steht: Jaeger + OTEL Collector laufen, helper wrappt Cron-Jobs und erzeugt Spans mit cron_name/schedule/exit_code/duration_ms. Drei Ziel-Crons sind gewrappt und in Jaeger als Spans sichtbar.
+
+IMPLEMENTATION:
+- /home/piet/.openclaw/observability/docker-compose.yml
+- /home/piet/.openclaw/observability/otel-collector-config.yaml
+- /home/piet/.openclaw/scripts/otel-cron-wrap.sh
+- Wrapped scripts:
+  - /home/piet/.openclaw/scripts/worker-monitor-runner.sh
+  - /home/piet/.openclaw/scripts/mc-watchdog.sh
+  - /home/piet/.openclaw/scripts/auto-pickup-runner.sh
+
+VERIFICATION:
+- Jaeger UI erreichbar: http://127.0.0.1:16686 (HTTP 200)
+- Jaeger service present: openclaw-cron
+- Spans nachweisbar (lookback 1h): cron.worker-monitor, cron.mc-watchdog, cron.auto-pickup
+- Span-Attribute nachweisbar: cron_name, schedule, exit_code, duration_ms
+- Container running/restarts:
+  - openclaw-otel-collector restartCount=0
+  - openclaw-jaeger restartCount=0
+
+RESIDUAL_RISK:
+- 24h-Soak-Fenster ist gestartet, aber zum Abschlusszeitpunkt noch nicht voll abgelaufen; bisher 0 crashes seit Start.
+- Für harten 24h-Nachweis ist ein Follow-up-Check nach Ablauf des Fensters erforderlich.

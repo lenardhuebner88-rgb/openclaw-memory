@@ -64,12 +64,12 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 50156c51-24eb-41f1-a246-5db8b891d24b S-FND T3 Execute: config-integrity-gate safe apply path
+- task: a192ed90-6863-46fd-bddd-6b909d17c9c3 S-FND T4 Execute: OpenTelemetry-Spine für Defense-Crons (MVP)
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: DONE
 
-RESULT_SUMMARY: S-FND T3 umgesetzt. Es existiert ein minimaler Safe-Apply-Pfad für kritische Config-Dateien mit Validate -> Snapshot -> Apply -> Probe(30s timeout) -> Revert-on-fail. V1-Schemas fü
+RESULT_SUMMARY: S-FND T4 MVP umgesetzt. OTEL spine steht: Jaeger + OTEL Collector laufen, helper wrappt Cron-Jobs und erzeugt Spans mit cron_name/schedule/exit_code/duration_ms. Drei Ziel-Crons si
 - blocker: -
-- updated: 2026-04-22T09:12:25.753Z
+- updated: 2026-04-22T09:42:06.743Z
 <!-- mc:auto-working-context:end -->
