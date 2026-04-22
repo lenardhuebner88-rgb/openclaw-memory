@@ -2494,3 +2494,133 @@ COMMIT:
 RESULT_SUMMARY: T4 in aktuellem HEAD verifiziert; 6 Live-Agents decken fresh/cached/stale ab: Atlas fresh, Forge/Pixel cached, Lens/Spark/James stale.
 - 2026-04-22T11:11:24.881Z | START | 3b6cdd38-5165-48be-b9b4-bc8206271740 | [Forge] Root-Cause: Pixel Worker Pickup-Failure bei T4 | worker=sre-expert | progress=- | summary=-
 - 2026-04-22T11:14:47.715Z | START | 98fc2d28-0a1f-4a1f-a3a5-7ac68dcb578c | S-UX T5: Data-Confidence-Meter (3-stufig) | worker=frontend-guru | progress=- | summary=-
+- 2026-04-22T11:16:39.378Z | CHECKPOINT | 98fc2d28-0a1f-4a1f-a3a5-7ac68dcb578c | S-UX T5: Data-Confidence-Meter (3-stufig) | worker=frontend-guru | progress=70% | summary=- | note=progress | data-confidence border now derives from fleetHealth.truth currentTask/currentTool/heartbeat; fixed pre-existing taskWindow/dateFilter TS error before validation
+- 2026-04-22T11:17:13.035Z | DONE | 98fc2d28-0a1f-4a1f-a3a5-7ac68dcb578c | S-UX T5: Data-Confidence-Meter (3-stufig) | worker=frontend-guru | progress=70% | summary=EXECUTION_STATUS: DONE
+RESULT_SUMMARY: Data-confidence border auf truth-basierte 3 Stufen umgestellt; live API zeigt jetzt 5 fallback, 1 cached, 0 live.
+- 2026-04-22T11:18:29.379Z | CHECKPOINT | 3b6cdd38-5165-48be-b9b4-bc8206271740 | [Forge] Root-Cause: Pixel Worker Pickup-Failure bei T4 | worker=sre-expert | progress=90% | summary=- | note=Root-cause evidence collected. T4 (9f466f96) was auto-picked up successfully by frontend-guru at 10:49:03Z trigger time; accepted arrived at 10:49:47Z. Placeholder workerSessionId gateway:9f466f96... is expected dispatch/run-binding behavior, not a failed Pixel pickup. The logical gateway id is created at dispatch and persisted unless workers overwrite with a different workerSessionId. Real worker execution is proven by auto-pickup run log 9f466f96__frontend-guru__1776854935.log with sessionKey agent:frontend-guru:main and provider sessionId f80f18bf-...
+- 2026-04-22T11:18:49.996Z | DONE | 3b6cdd38-5165-48be-b9b4-bc8206271740 | [Forge] Root-Cause: Pixel Worker Pickup-Failure bei T4 | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: Kein echter Pixel-Pickup-Fehler. Das beobachtete `workerSessionId=gateway:...` bei T4 ist ein erwarteter Placeholder aus dem Dispatch/Run-Binding-Design. Der Task wurde regulär von `frontend-guru` auto-gepickt, danach accepted/progress/result geliefert.
+
+FINDINGS:
+1) Trigger hat stattgefunden (kein Dispatch-Ausfall)
+- auto-pickup.log zeigt:
+  - 2026-04-22T10:49:03Z `TRIGGER task=9f466f96 agent=frontend-guru age=87s pid=385456`
+- Davor war Task nur "young" (AUTO_PICKUP_MIN_AGE=60), also normal verzögert, nicht hängen geblieben.
+
+2) Pickup/Receipts kamen regulär rein
+- board-events.jsonl für T4:
+  - dispatched: 10:47:19Z
+  - accepted: 10:49:47Z (actor frontend-guru)
+  - progress: 10:51:47Z
+  - result: 11:06:32Z -> done
+- Damit ist der Lifecycle korrekt durchlaufen.
+
+3) Placeholder-Session ist systembedingt, nicht Pixel-spezifisch
+- `src/lib/task-dispatch.ts` erzeugt beim Dispatch bewusst `workerSessionId` im Format `gateway:<taskId>` (bzw `:rN` bei Retry) via `createWorkerRun()`.
+- Diese ID ist eine logische Run-Bindung, nicht zwingend die interne Agent-Session-ID.
+
+4) "Echte" Worker-Session existierte
+- auto-pickup-run artifact:
+  - `logs/auto-pickup-runs/9f466f96-...__frontend-guru__1776854935.log`
+  - `systemPromptReport.sessionKey = agent:frontend-guru:main`
+  - `agentMeta.sessionId = f80f18bf-3638-4120-bd5f-a7ab9a3e2e9e`
+- Das beweist echten frontend-guru Prozesslauf; keine "placeholder-only" Ausführung.
+
+5) Warum `workerSessionId` im Task weiter `gateway:...` blieb
+- Receipt-Payloads trugen ebenfalls `workerSessionId=gateway:...`.
+- `receipt`-Route übernimmt diesen Wert und rebindet nur, wenn eine andere Session-ID geliefert wird.
+- Ergebnis: sichtbare Task-ID bleibt logisch `gateway:...`, obwohl echter Worker lief.
+
+SYSTEM- VS PIXEL-BEZUG:
+- Befund ist **systemisch/Design-semantisch** (Session-ID-Bedeutung), nicht Pixel-spezifisch.
+- Gleiches Muster gilt grundsätzlich für andere non-main Agent-Dispatches.
+
+RESIDUAL_RISK:
+- Operative Verwechslungsgefahr bleibt: Observability kann `gateway:*` fälschlich als "kein echter Worker" interpretieren, obwohl Run korrekt läuft.
+- 2026-04-22T11:20:12.284Z | START | 21105f7c-3bbe-4e04-8d99-da538622281f | S-UX T3: Pixel Badge SSoT | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T11:22:14.995Z | CHECKPOINT | 21105f7c-3bbe-4e04-8d99-da538622281f | S-UX T3: Pixel Badge SSoT | worker=sre-expert | progress=90% | summary=- | note=Implemented Badge SSoT for pipeline agent cards: new typed module src/lib/pipeline-agent-attention.ts centralizes attention condition and headline/badge mapping. PipelineClient now renders badge label from this SSoT (NEEDS ATTENTION vs ALL CLEAR) and uses the same source for content headline in desktop+mobile cards, preventing divergence. Added regression test with 5 synthetic Pixel states plus contradiction detector snapshot in tests/pipeline-agent-attention-ssot.test.ts. Verified via vitest: 3 files, 8 tests passed.
+- 2026-04-22T11:22:38.247Z | DONE | 21105f7c-3bbe-4e04-8d99-da538622281f | S-UX T3: Pixel Badge SSoT | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: S-UX T3 umgesetzt. Badge-Logik und Content-Condition sind jetzt aus einer gemeinsamen, getypten Single-Source-of-Truth abgeleitet. Der Zustand "NEEDS ATTENTION" + "No task needs attention right now" kann im regulären Rendering nicht mehr entstehen.
+
+FINDINGS:
+- Neues SSoT-Modul: `src/lib/pipeline-agent-attention.ts`
+  - `buildAgentAttentionViewModel()` liefert getyptes ViewModel (`needs-attention` | `clear`)
+  - Badge-Literals: `NEEDS ATTENTION` bzw. `ALL CLEAR`
+  - Clear-Headline ist als String-Literal fixiert: `No task needs attention right now`
+  - `detectContradictoryNeedsAttention()` als Regression-Guard
+- Integration in UI: `src/app/kanban/PipelineClient.tsx`
+  - Desktop + Mobile Agent-Cards nutzen dieselbe SSoT für Badge + Headline
+  - Badge rendert bei Attention exakt `NEEDS ATTENTION`
+  - `data-contradictory-needs-attention` wird gesetzt (soll immer `false` sein)
+- Regression-Test: `tests/pipeline-agent-attention-ssot.test.ts`
+  - 5 synthetische Pixel-States per Snapshot verifiziert
+  - zusätzlicher Test erkennt Legacy-Widerspruch (`NEEDS ATTENTION` + `No task needs attention right now`)
+
+VERIFICATION:
+- `npx vitest run tests/pipeline-agent-attention-ssot.test.ts tests/pipeline-tab-phase1-truth.test.ts tests/state-transitions-v1.test.ts`
+- Ergebnis: 3 files passed, 8 tests passed
+
+COMMIT:
+- `6cb7737` feat(s-ux-t3): enforce badge/headline SSoT for pipeline attention
+- 2026-04-22T11:27:06.312Z | START | 264c0960-dae6-4b20-bca4-cc2c63810a68 | S-UX T6: Phase 3 SSE statt Polling | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T11:30:21.744Z | CHECKPOINT | 264c0960-dae6-4b20-bca4-cc2c63810a68 | S-UX T6: Phase 3 SSE statt Polling | worker=sre-expert | progress=90% | summary=- | note=Implemented SSE endpoint /api/pipeline/events (Node runtime, event-stream headers, ready+pipeline-update events, keepalive, abort cleanup). PipelineClient now opens EventSource and mutates /api/agents/live, /api/pipeline and task window payload on push events. SWR polling auto-stops while SSE is connected and falls back to 30s polling on disconnect/no EventSource support. Added SSE route and load/reconnect tests.
+- 2026-04-22T11:31:11.237Z | DONE | 264c0960-dae6-4b20-bca4-cc2c63810a68 | S-UX T6: Phase 3 SSE statt Polling | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: S-UX T6 umgesetzt. Pipeline-Tab nutzt jetzt SSE Push über `/api/pipeline/events`; bei aktiver SSE-Verbindung stoppt Polling, bei Disconnect/fehlendem EventSource fällt der Client auf 30s Polling zurück.
+
+IMPLEMENTATION:
+- `src/app/api/pipeline/events/route.ts`
+  - neuer SSE Endpoint (runtime=nodejs, force-dynamic)
+  - sendet `ready` + initial `pipeline-update` sofort
+  - periodische `pipeline-update` events (10s)
+  - keepalive comments (15s)
+  - sauberes cleanup bei abort/cancel
+- `src/app/kanban/PipelineClient.tsx`
+  - EventSource-Subscription auf `/api/pipeline/events`
+  - bei `pipeline-update`: mutate für `/api/agents/live`, `/api/pipeline`, `/api/pipeline/tasks?window=...`
+  - SSE connected => SWR refreshInterval = 0
+  - Fallback: 30s polling wenn SSE disconnected oder nicht unterstützt
+
+VERIFICATION:
+- `npx vitest run tests/pipeline-events-sse-route.test.ts tests/pipeline-events-sse-load.test.ts tests/pipeline-agent-attention-ssot.test.ts tests/pipeline-tab-phase1-truth.test.ts tests/state-transitions-v1.test.ts`
+- Ergebnis: 5 files passed, 11 tests passed
+- Enthaltene T6-Nachweise:
+  - SSE Route Test: stream/headers + bootstrap events
+  - Reconnect/Soak-Probe: 100 reconnect attempts, success-rate >= 95% (test)
+  - Load-Probe: 20 concurrent SSE clients ohne crash (test)
+
+COMMIT:
+- `8f5d729` feat(s-ux-t6): add SSE pipeline events with polling fallback
+- 2026-04-22T11:31:47.733Z | START | 414b3fbb-19a5-4c90-ad32-84ac36c41f39 | S-UX T7: ETag-Algorithm härten | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T11:33:04.147Z | CHECKPOINT | 414b3fbb-19a5-4c90-ad32-84ac36c41f39 | S-UX T7: ETag-Algorithm härten | worker=sre-expert | progress=90% | summary=- | note=Implemented hardened ETag: sha1(sorted(id|updatedAt)) plus schema suffix (pipeline-v2) in new pipeline-etag helper, wired into /api/pipeline/tasks with If-None-Match revalidation and 304 support. Added collision guard tests (update+remove), order-invariance test, and route-level ETag/304 test. Full regression suite passed (7 files, 14 tests).
+- 2026-04-22T11:33:34.675Z | DONE | 414b3fbb-19a5-4c90-ad32-84ac36c41f39 | S-UX T7: ETag-Algorithm härten | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: S-UX T7 umgesetzt. ETag-Algorithmus für Pipeline wurde auf gehärteten Fingerprint umgestellt: `sha1(sorted((id, updatedAt))) + schema-version suffix`.
+
+IMPLEMENTATION:
+- Neu: `src/lib/pipeline-etag.ts`
+  - `buildPipelineEtag(cards)`
+  - Fingerprint: sortierte `id|updatedAt`-Zeilen
+  - Hash: SHA-1
+  - Suffix: `pipeline-v2`
+- Update: `src/app/api/pipeline/tasks/route.ts`
+  - setzt `ETag` Header aus gehärtetem Fingerprint
+  - unterstützt `If-None-Match` → `304 Not Modified`
+  - Cache-Header auf Revalidation (`private, max-age=0, must-revalidate`)
+
+VERIFICATION:
+- `tests/pipeline-etag.test.ts`
+  - Order-Invariance für identisches Task-Set
+  - Collision-Guard für gleichzeitiges Update+Remove
+- `tests/pipeline-tasks-route-etag.test.ts`
+  - Route liefert ETag
+  - gleicher ETag via If-None-Match führt zu 304
+- Voller relevanter Lauf:
+  - `npx vitest run tests/pipeline-etag.test.ts tests/pipeline-tasks-route-etag.test.ts tests/pipeline-events-sse-route.test.ts tests/pipeline-events-sse-load.test.ts tests/pipeline-agent-attention-ssot.test.ts tests/pipeline-tab-phase1-truth.test.ts tests/state-transitions-v1.test.ts`
+  - Ergebnis: 7 files passed, 14 tests passed
+
+COMMIT:
+- `34e8737` feat(s-ux-t7): harden pipeline ETag with sha1 fingerprint schema suffix
+- 2026-04-22T11:43:57.456Z | START | 2169c005-5c1c-4a25-ac07-d4dc6a72ce35 | S-RELIAB-P0 T1: F1 Run-Placeholder/Pickup-Claim semantisch trennen | worker=sre-expert | progress=- | summary=-

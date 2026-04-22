@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3b6cdd38-5165-48be-b9b4-bc8206271740 [Forge] Root-Cause: Pixel Worker Pickup-Failure bei T4
+- task: 2169c005-5c1c-4a25-ac07-d4dc6a72ce35 S-RELIAB-P0 T1: F1 Run-Placeholder/Pickup-Claim semantisch trennen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-22T11:11:24.883Z
+- updated: 2026-04-22T11:43:57.459Z
 <!-- mc:auto-working-context:end -->
