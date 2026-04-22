@@ -1,1 +1,24 @@
-{}
+{
+  "useMarkdownLinks": false,
+  "newLinkFormat": "relative",
+  "attachmentFolderPath": "00-Inbox/_attachments",
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00-Inbox",
+  "defaultViewMode": "source",
+  "livePreview": true,
+  "showLineNumber": true,
+  "readableLineLength": true,
+  "spellcheck": true,
+  "spellcheckLanguages": ["de", "en-US"],
+  "foldHeading": true,
+  "foldIndent": true,
+  "tabSize": 2,
+  "useTab": false,
+  "propertiesInDocument": "visible",
+  "pdfExportSettings": {
+    "pageSize": "A4",
+    "landscape": false
+  }
+}

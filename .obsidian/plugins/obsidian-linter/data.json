@@ -1,0 +1,58 @@
+{
+  "ruleConfigs": {
+    "trailing-spaces": {
+      "enabled": true,
+      "two-space-line-break": false
+    },
+    "heading-blank-lines": {
+      "enabled": true,
+      "empty-line-after-yaml": true,
+      "bottom": true
+    },
+    "consecutive-blank-lines": {
+      "enabled": true
+    },
+    "convert-bullet-list-markers": {
+      "enabled": true
+    },
+    "yaml-title": {
+      "enabled": false
+    },
+    "yaml-timestamp": {
+      "enabled": false
+    },
+    "remove-multiple-spaces": {
+      "enabled": true
+    },
+    "empty-line-around-tables": {
+      "enabled": true
+    },
+    "empty-line-around-code-fences": {
+      "enabled": true
+    },
+    "no-bare-urls": {
+      "enabled": false
+    },
+    "capitalize-headings": {
+      "enabled": false
+    },
+    "remove-trailing-punctuation-in-heading": {
+      "enabled": false
+    }
+  },
+  "lintOnSave": false,
+  "displayChanged": true,
+  "foldersToIgnore": [
+    "08-Backups",
+    "09-Archive",
+    "_agents/_handoffs",
+    ".obsidian"
+  ],
+  "filesToIgnore": [
+    ".*\.base",
+    "MEMORY\.md",
+    "Home\.md"
+  ],
+  "linterLocale": "system-default",
+  "logLevel": "ERROR"
+}
