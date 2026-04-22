@@ -64,11 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1b51d3d1-ab07-4bf0-a5a4-f3ea67e82455 S-RELIAB-P0 T6: P1.3 Session-Fingerprint mit Gateway-Boot-PID
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: DONE
-RESULT_SUMMARY: Session-Fingerprint mit Gateway-Boot-PID in aktiver OpenClaw pi-bundle MCP-Runtime implementiert und Chaos-Restart validiert (kill -9 + Auto-Reinit ohne /new).
-- blocker: -
-- updated: 2026-04-22T12:45:01.138Z
+- task: 1e34edc6-4977-44f5-bb3c-89903a64068e S-RELIAB-P0 T7: MCP Streamable-HTTP Migration-Spike
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: 24h soak requirement at 100 calls/min is time-bound and not complete in this run window; short-run spike and report are complete.
+- blocker: 24h soak requirement at 100 calls/min is time-bound and not complete in this run window; short-run spike and report are complete.
+- updated: 2026-04-22T13:00:03.916Z
 <!-- mc:auto-working-context:end -->

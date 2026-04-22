@@ -1,6 +1,7 @@
 # Decisions Log
 
 ## Active decisions
+- 2026-04-22: S-RELIAB-P0 T8: Chaos-Test als Dispatch-Gate blocked: No approved maintenance window is documented for a gateway OOM/kill test. The task and sprint both forbid disruptive intervention without that approval. <!-- mc:auto-decision:865cd1a5-68bb-41a5-b74e-01223135ed62|blocked|s-reliab-p0-t8-chaos-test-als-dispatch-gate-blocked-no-approved-maintenance-wind -->
 - 2026-04-15: Receipt blocked task blocked: Needs human decision <!-- mc:auto-decision:receipt-blocked-task|blocked|receipt-blocked-task-blocked-needs-human-decision -->
 - 2026-04-12: Discord-Reporting aktiv — worker-monitor postet Task-Completions automatisch in #execution-reports (Channel 1488976473942392932) + Completion-Ping an Atlas. Discord-Bot-Token in `.env.local` auf Homeserver hinterlegt. Kein manuelles Monitoring nötig.
 - 2026-04-10: Layer-3 canonicalized to `/home/piet/vault` root structure; no `OpenClaw-Memory/*` dependency.
@@ -13,6 +14,7 @@
 - 2026-04-08: Opus stays constrained to high-value cases (root-cause, architecture, severe bugs).
 
 ## Historical decisions
+- 2026-04-22: [Lens] Analyse: Patch-Persistenz nach openclaw-Update (S-RELIAB-P0 T6 Follow-up): Lens Analyse: Patch-Persistenz CRIT-HOCH. Update auf 2026.4.21 verfuegbar - aktuelle Version 2026.4.15 = 6 Tage alt. Backup-Script zwingend. EXECUTION_STATUS: DONE RESULT_SUMMARY:  <!-- mc:auto-decision:0bef4ef7-67b0-4d9d-9cdd-03cebb61e6e1|result|lens-analyse-patch-persistenz-nach-openclaw-update-s-reliab-p0-t6-follow-up-lens -->
 - 2026-04-22: S-FND T3 Execute: config-integrity-gate safe apply path: EXECUTION_STATUS: DONE RESULT_SUMMARY: S-FND T3 umgesetzt. Es existiert ein minimaler Safe-Apply-Pfad für kritische Config-Dateien mit Validate -> Snapshot -> Apply -> Probe(30s ti <!-- mc:auto-decision:50156c51-24eb-41f1-a246-5db8b891d24b|result|s-fnd-t3-execute-config-integrity-gate-safe-apply-path-execution-status-done-res -->
 - 2026-04-21: [Sprint-M v1.2.1 M6b] Memory-Orchestrator Crontab-Mutation: EXECUTION_STATUS DONE RESULT_SUMMARY Sprint-M Wave 4 (M6b) vollständig umgesetzt: Crontab-Backup erstellt, 11 Legacy-Memory-Crons mit Prefix '# [Sprint-M M6b] superseded by memory- <!-- mc:auto-decision:b43472d9-d939-46d8-9981-d8fde9bb60af|result|sprint-m-v1-2-1-m6b-memory-orchestrator-crontab-mutation-execution-status-done-r -->
 - 2026-04-20: Forge: Session-Guard v4 — Runtime-Rotation Integrationstest: RESULT_STATUS: done RESULT_SUMMARY: Runtime-Rotation-Integrationstest ohne dry_run ist jetzt reproduzierbar abgesichert. Der Self-Test führt echte rotate_session_file(..., dry_run= <!-- mc:auto-decision:e3807886-d65f-4fd4-a419-4fe0cd73a4bc|result|forge-session-guard-v4-runtime-rotation-integrationstest-result-status-done-resu -->
