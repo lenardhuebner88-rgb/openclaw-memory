@@ -13,7 +13,7 @@
 - [[../Shared/decisions-log]]
 - [[../Shared/checkpoints]]
 - [[../Shared/task-lifecycle-canon]]
-- [[../../02-Projects/Memory-System]]
+- [[../../03-Projects/Memory-System]]
 
 ## Aktuelle Regeln
 - lieber wenige stabile Dateien als viele verstreute

@@ -55,7 +55,7 @@
 - **MC-Rebuild** — `/api/agents/concurrency` und alle Fixes in Production gebaut
 - **5 Tasks canceled** — 3 von uns erledigt, 2 Security-Tasks bewusst zurückgestellt
 - **Vault-Dokumente** erstellt:
-  - `02-Projects/next-gen-mc-worker-system.md` — IST/SOLL-Roadmap NextGen
+  - `03-Projects/next-gen-mc-worker-system.md` — IST/SOLL-Roadmap NextGen
   - `04-Operations/decisions/api-key-rotation-deferred.md` — Security-Entscheidung
 
 ### 5. System stabilisiert & gestartet
@@ -88,7 +88,7 @@
 Wenn das System stabil läuft (72h ohne manuelle Eingriffe):
 > **"Los starten Next Generation MC / Worker System"**
 
-→ Atlas kennt die 8 NextGen-Tasks aus `02-Projects/next-gen-mc-worker-system.md`
+→ Atlas kennt die 8 NextGen-Tasks aus `03-Projects/next-gen-mc-worker-system.md`
 
 ---
 

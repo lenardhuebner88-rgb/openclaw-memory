@@ -6,9 +6,9 @@
 - [[04-Operations/Validations]]
 
 ## Projekt
-- [[02-Projects/Mission-Control]]
-- [[02-Projects/Memory-System]]
-- [[02-Projects/Model-Setup]]
+- [[03-Projects/Mission-Control]]
+- [[03-Projects/Memory-System]]
+- [[03-Projects/Model-Setup]]
 
 ## Agenten
 - [[03-Agents/Atlas]]
@@ -29,7 +29,7 @@
 ## Arbeitsfluss
 1. Neue / unklare Dinge zuerst nach [[00-Inbox]].
 2. Tagesnotizen und Debriefs unter [[01-Daily]].
-3. Projektarbeit unter [[02-Projects]].
+3. Projektarbeit unter [[03-Projects]].
 4. Agent-Kontext unter [[03-Agents]].
 5. Setup, Audits und Nachweise unter [[04-Operations]].
 

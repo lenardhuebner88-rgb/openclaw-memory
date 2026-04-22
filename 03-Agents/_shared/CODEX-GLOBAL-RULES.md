@@ -34,7 +34,7 @@ All four touch the same filesystem. You are not alone. Act like it.
    task: "One-line goal"
    touching:
      - 03-Agents/codex/scratch/
-     - 02-Projects/foo/bar.ts
+     - 03-Projects/foo/bar.ts
    operator: lenard
    ---
    ## Plan

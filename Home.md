@@ -22,8 +22,8 @@
 - [[03-Agents/OpenClaw/OBSIDIAN-OPERATING-RULES]]
 
 ## Projekte
-- [[02-Projects/Mission-Control]]
-- [[02-Projects/Memory-System]]
+- [[03-Projects/Mission-Control]]
+- [[03-Projects/Memory-System]]
 
 ## Aktive Agenten
 | Agent | ID | Modell | Status |
