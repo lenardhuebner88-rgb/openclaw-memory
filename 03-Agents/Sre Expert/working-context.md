@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 36e7a8fc-682c-4a3b-abe2-26ed4d6494bb S-RPT T4: P0.2c Backfill Legacy-Tasks zu SprintOutcome
+- task: 6447c99a-8cbd-4375-9b24-a1b7324dc5c5 S-GOV T9: Vault-Index-Generator (Frontmatter-driven)
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: DONE. backfill-outcomes.py implemented and executed. Dry-run selected=149 schema_errors=0. Execute updated=149/149, schema_errors=0, remaining_legacy=193 (exact residual outside requested T4 batch). Bac
+- checkpoint: EXECUTION_STATUS: DONE. Implemented frontmatter-driven vault index generator and generated _VAULT-INDEX.md. Validation passed with 3x consecutive idempotence (no drift).
 - blocker: -
-- updated: 2026-04-22T19:35:52.802Z
+- updated: 2026-04-22T20:04:43.024Z
 <!-- mc:auto-working-context:end -->
