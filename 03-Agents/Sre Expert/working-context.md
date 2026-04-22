@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: aa6b3d4b-b7ad-43f3-99e7-3fb2dc30fe1a S-RPT T3: P0.2b Write-Path-Migration (Worker-Side)
+- task: 36e7a8fc-682c-4a3b-abe2-26ed4d6494bb S-RPT T4: P0.2c Backfill Legacy-Tasks zu SprintOutcome
 - stage: DONE
 - next: await next assignment
-- checkpoint: S-RPT T3 completed: dispatch write-path now appends SprintOutcome receipt contract so Atlas/Forge/Pixel runtimes emit structured sprintOutcome while keeping human narrative in resultSummary. Validation: vitest tests pass
+- checkpoint: EXECUTION_STATUS: DONE. backfill-outcomes.py implemented and executed. Dry-run selected=149 schema_errors=0. Execute updated=149/149, schema_errors=0, remaining_legacy=193 (exact residual outside requested T4 batch). Bac
 - blocker: -
-- updated: 2026-04-22T19:20:06.063Z
+- updated: 2026-04-22T19:35:52.802Z
 <!-- mc:auto-working-context:end -->

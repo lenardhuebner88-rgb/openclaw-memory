@@ -32,7 +32,7 @@ Trigger-Phrases: *"Lade `sprints/s-<id>-2026-04-22.md` und starte Sprint S-\<ID\
 | **S-FND** | `sprints/s-fnd-2026-04-22.md` | P0-blocker | Forge + Operator | — | all others | **DONE** (2026-04-22) — T1-T4 + E2E abgeschlossen |
 | **S-RELIAB-P0** | `sprints/s-reliab-p0-2026-04-22.md` | P0 | Forge | S-FND T2+T3 | S-RELIAB-P1, S-INFRA | **DONE** (2026-04-22) — T1-T6 done, T7 blocked as follow-up, T8 vom Operator als bestanden bestätigt; Sprint sauber abgeschlossen |
 | **S-CTX-P0** | `sprints/s-ctx-p0-2026-04-22.md` | P0 | Atlas + Forge | — | S-CTX-P1 | PLANNED |
-| **S-RPT** | `sprints/s-rpt-2026-04-22.md` | P1 | Codex + Forge | S-FND T1 | S-GOV, S-RELIAB-P1 Receipt-Chain | **RUNNING** — T1 Reader-Hygiene done; T2-T4 offen |
+| **S-RPT** | `sprints/s-rpt-2026-04-22.md` | P1 | Codex + Forge | S-FND T1 | S-GOV, S-RELIAB-P1 Receipt-Chain | **DONE** (2026-04-22) — T1-T5 abgeschlossen; 149 Legacy-Tasks backfilled; sprint-spec-lint Hook live |
 | **S-GOV** | `sprints/s-gov-2026-04-22.md` | P1 | Lens → Atlas → Forge | — | S-RELIAB-P1, S-INTEG-W1 | **RUNNING** — Sprint-M-Closeout abgeschlossen; Restscope T7-T10/Vault-Index follow-up offen |
 | **S-UX** | `sprints/s-ux-2026-04-22.md` | P2 | Forge + Pixel | S-FND T2 | — | **DONE** (2026-04-22) — T1-T7 abgeschlossen |
 | **S-INFRA** | `sprints/s-infra-2026-04-22.md` | P1 | Forge + Operator + Atlas | S-RELIAB-P0 T2 | — | PLANNED |
@@ -45,13 +45,13 @@ Trigger-Phrases: *"Lade `sprints/s-<id>-2026-04-22.md` und starte Sprint S-\<ID\
 ### ✅ Done
 - **S-FND** (Forge/Operator, 2026-04-22) — Foundation-Bausteine live
 - **S-RELIAB-P0** (Forge/Operator/Atlas, 2026-04-22) — T1-T6 done, T8 operator-confirmed pass, Sprint sauber abgeschlossen
+- **S-RPT** (Codex/Forge/Atlas/Spark, 2026-04-22) — T1-T5 abgeschlossen, 149 Legacy-Tasks backfilled, Hook live
 - **S-UX** (Forge/Pixel, 2026-04-22) — Pipeline Quickwins abgeschlossen
 - **S-HANDBOOK** (Codex, 2026-04-21 23:33) — Handbook-Schicht + Finder live
 - **S-GOV Mini-Dispatch / Sprint-M-Closeout** (Atlas/Operator, 2026-04-22) — Gap-Closure + Lens-Approve abgeschlossen
 - **S-HEALTH** (Atlas/Spark/Forge, 2026-04-22 19:33) — Original-Scope bereinigt
 
 ### ⏳ Running
-- **S-RPT** — T1 done, T2-T4 noch nicht dispatched
 - **S-GOV** — Restscope T7-T10 und Vault-Index-/OTEL-Follow-ups offen
 
 ### 🔜 Next Gates

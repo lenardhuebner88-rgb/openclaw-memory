@@ -358,6 +358,12 @@ crontab /home/piet/.openclaw/cron/crontab.bak-m6b-<ts>
 - 48h: Registry-Drift-Check — `cron-reconciler.py --dry-run` mit exit=0.
 - 72h: Audit-Run-Qualität — `cron-health-audit.sh` konsistent 0 false-positives.
 
+**Numerische Abort-Kriterien (kanonisch, S-GOV T10):**
+- Abort bei **>2 systemd-unit-failures** im Soak-Fenster
+- Abort bei **>5 missed-cron-runs** im Soak-Fenster
+- Abort wenn **M8 drift-check red** ist (`cron-reconciler --dry-run != 0` oder `registry-validate.py != 0`)
+- Referenz-Checkscript: `/home/piet/.openclaw/scripts/soak-monitor.sh`
+
 **Sprint-M-Close-Trigger:** Nach 72h erfolgreichem Soak → Sprint-M formal closed, Sprint-N (M5b apply-capability) dispatchable.
 
 **Soak-Failure-Mitigation:** Rollback-Script aus M7 nutzen; Sprint-M-Status auf REGRESSION; post-mortem vor Retry.
