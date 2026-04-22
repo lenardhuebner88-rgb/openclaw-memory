@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-04-22T00:30:02.744584+00:00
+last_generated: 2026-04-22T00:45:02.530775+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-04-22 00:30 UTC  
+**Last Generated:** 2026-04-22 00:45 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -21,7 +21,7 @@ auto_refresh: daily 04:30 UTC (cron)
 | **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 764 files indexed |
 | **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 55 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 3 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-22T00:30:01Z] WARN session=ca6b2cae-509 size=490476 tokens_est=122619 pct=81% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-22T00:45:01Z] OK session=8ee19fd9-ae7 size=5024 tokens_est=1256 pct=0% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -192,9 +192,6 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-04-21T23:45:01Z] OK session=5e3b7059-70e size=5397 tokens_est=1349 pct=0%
-[2026-04-21T23:50:01Z] WARN session=ca6b2cae-509 size=464540 tokens_est=116135 pct=77%
-[2026-04-21T23:55:01Z] WARN session=ca6b2cae-509 size=464540 tokens_est=116135 pct=77%
 [2026-04-22T00:00:01Z] WARN session=ca6b2cae-509 size=464540 tokens_est=116135 pct=77%
 [2026-04-22T00:05:01Z] OK session=b534364b-102 size=5105 tokens_est=1276 pct=0%
 [2026-04-22T00:10:01Z] OK session=b534364b-102 size=5105 tokens_est=1276 pct=0%
@@ -202,6 +199,9 @@ auto_refresh: daily 04:30 UTC (cron)
 [2026-04-22T00:20:02Z] WARN session=ca6b2cae-509 size=490476 tokens_est=122619 pct=81%
 [2026-04-22T00:25:01Z] WARN session=ca6b2cae-509 size=490476 tokens_est=122619 pct=81%
 [2026-04-22T00:30:01Z] WARN session=ca6b2cae-509 size=490476 tokens_est=122619 pct=81%
+[2026-04-22T00:35:01Z] OK session=8ee19fd9-ae7 size=5024 tokens_est=1256 pct=0%
+[2026-04-22T00:40:01Z] OK session=8ee19fd9-ae7 size=5024 tokens_est=1256 pct=0%
+[2026-04-22T00:45:01Z] OK session=8ee19fd9-ae7 size=5024 tokens_est=1256 pct=0%
 ```
 
 ## 9. Active Crons (summary)
