@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6e1b3455-18a4-4bc9-ab29-330c327c0554 [Nightly] Flag stale draft tasks in board consistency
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: DONE | RESULT_SUMMARY: Stale-draft detection >72h in board consistency umgesetzt. Geändert in 2 Dateien (unter 3-File-Limit): src/lib/board-consistency.ts erweitert um Issue-Typ stale-draft-task + Alter
+- task: f27e47ac-9507-4eb2-bca9-5980ddf49ec5 S-FND T2 Execute: attemptId durable workflow-ID + T1 deployed confirmation
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: T1 mini-check done with live evidence: /api/health status=ok, commit 067562d present in mission-control git log, and all 3 T1 schema files exist under src/schemas with expected timestamps/sizes. Proceeding with T2-only i
 - blocker: -
-- updated: 2026-04-22T02:12:13.183Z
+- updated: 2026-04-22T05:40:33.030Z
 <!-- mc:auto-working-context:end -->
