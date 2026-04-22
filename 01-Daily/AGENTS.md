@@ -6,7 +6,7 @@
 
 ## Rules
 - Files are `YYYY-MM-DD.md`, append-only.
-- Agents NEVER inject here. Agent daily logs belong under `03-Agents/<agent>/daily/` or `03-Agents/OpenClaw/daily/`.
+- Agents NEVER inject here. Agent daily logs belong under `_agents/<agent>/daily/` or `_agents/OpenClaw/daily/`.
 - If you want agent-assisted daily summaries, enable the Option B summary-cron (see root AGENTS.md).
 
 ## Never touch

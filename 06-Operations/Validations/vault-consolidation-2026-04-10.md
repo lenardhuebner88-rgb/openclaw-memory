@@ -5,20 +5,20 @@ Pragmatic consolidation slice after Obsidian restructuring with focus on retriev
 
 ## What was consolidated
 - Canonical retrieval entrypoints fixed to a compact set under:
-  - `03-Agents/Shared/`
-  - `03-Agents/OpenClaw/operational-state.md`
+  - `_agents/Shared/`
+  - `_agents/OpenClaw/operational-state.md`
   - `01-Daily/`
 - Home index updated to point to active paths only.
 - Shared state and decision files updated with latest operational facts.
 
 ## What was deactivated/archived
-- `03-Agents/Hermes/` moved to:
+- `_agents/Hermes/` moved to:
   - `06-Archive/2026-04/decommissioned/Hermes`
 - Nested placeholder vault `Openclaw peter/` moved to:
   - `06-Archive/2026-04/decommissioned/Openclaw-peter-nested-vault`
 
 ## New stable operational artifact
-- Added `03-Agents/OpenClaw/operational-state.md` as compact operational source for path truth and current constraints.
+- Added `_agents/OpenClaw/operational-state.md` as compact operational source for path truth and current constraints.
 
 ## Retrieval impact
 - Fewer competing paths for layer-3 context.

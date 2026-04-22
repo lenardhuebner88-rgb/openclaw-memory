@@ -64,10 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4334b29e-7625-46ef-9437-727174fb290d S-GOV T7: M9 Prefect 3.x Evaluation-Spike
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: DONE. Prefect 3.x evaluation spike delivered for worker-monitor, mc-watchdog, auto-pickup with benchmark + report + clear NO-GO recommendation for immediate migration.
+- task: f006a6d3-73eb-461c-aa00-42d919cd044d S-GOV T8: M10 OTEL für 3 Defense-Crons (Proof)
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Progress: Jaeger verification complete for all 3 cron operations and required span tags; collector/jaeger restart_count=0 evidence captured in OTEL proof JSON.
 - blocker: -
-- updated: 2026-04-22T20:43:53.856Z
+- updated: 2026-04-22T21:04:20.641Z
 <!-- mc:auto-working-context:end -->

@@ -3,7 +3,7 @@
 **Audience:** Any AI coding agent (OpenAI Codex, Claude Code, Cursor, Aider, etc.) operating in this repository.
 **Purpose:** Prevent parallel-universe drift when multiple agents touch the same vault.
 
-> **For Codex CLI users on the homeserver:** global rules are also symlinked at `~/.codex/AGENTS.md` and auto-loaded each session. Shared master lives at `03-Agents/_shared/CODEX-GLOBAL-RULES.md`. If that global load fails (e.g., Codex issue #8759 regression), this file is the fallback.
+> **For Codex CLI users on the homeserver:** global rules are also symlinked at `~/.codex/AGENTS.md` and auto-loaded each session. Shared master lives at `_agents/_shared/CODEX-GLOBAL-RULES.md`. If that global load fails (e.g., Codex issue #8759 regression), this file is the fallback.
 
 ---
 
@@ -20,8 +20,8 @@ All three are **live-synced via Syncthing v2** (LAN, port 22000). Changes you ma
 ## 2. Where to work — single source of truth
 
 - **Desktop filesystem** (`C:\Users\Lenar\Obsidian\openclaw-memory\`) and **server filesystem** (`/home/piet/vault/`) are **live mirrors**. Pick ONE and stay there for the session.
-  - Prefer the **desktop** for anything under `03-Projects/`, `03-Agents/codex/`, `07-Research/`.
-  - Prefer the **server** (via `ssh homeserver`) for any change touching `.openclaw/`, `03-Agents/OpenClaw/`, `10-KB/`, or crontab.
+  - Prefer the **desktop** for anything under `03-Projects/`, `_agents/codex/`, `07-Research/`.
+  - Prefer the **server** (via `ssh homeserver`) for any change touching `.openclaw/`, `_agents/OpenClaw/`, `10-KB/`, or crontab.
 - Do **not** operate on a third checkout — there is no third checkout. If you create one, you have just invented a parallel universe.
 
 ## 3. Announce your presence — every session
@@ -29,7 +29,7 @@ All three are **live-synced via Syncthing v2** (LAN, port 22000). Changes you ma
 Before your first write, create a session file in the shared coordination board:
 
 ```
-03-Agents/_coordination/YYYY-MM-DD_HHMM_<agent>_<task-slug>.md
+_agents/_coordination/YYYY-MM-DD_HHMM_<agent>_<task-slug>.md
 ```
 
 Template:
@@ -42,7 +42,7 @@ ended:   null             # fill in when done
 task: "Short one-line goal"
 touching:
   - 03-Projects/foo/
-  - 03-Agents/codex/notes/
+  - _agents/codex/notes/
 operator: lenard
 ---
 
@@ -61,7 +61,7 @@ operator: lenard
 
 Atomically, before you write a file:
 
-1. `grep -rl "ended: null" 03-Agents/_coordination/` — list live sessions.
+1. `grep -rl "ended: null" _agents/_coordination/` — list live sessions.
 2. If another live session's `touching:` list overlaps with your file → abort that write, tell the operator, and wait.
 3. If no overlap → proceed.
 
@@ -71,11 +71,11 @@ This is cheaper than any lock file and survives crashes (stale claims just get c
 
 | Path | Who owns it | Rule for you |
 |---|---|---|
-| `03-Agents/OpenClaw/`, `03-Agents/Atlas/`, `03-Agents/Forge/`, … agent name dirs | openclaw runtime (server-side) | **Read-only** from any coding agent. Those dirs are live state of openclaw workers; overwriting them breaks the system. |
+| `_agents/OpenClaw/`, `_agents/Atlas/`, `_agents/Forge/`, … agent name dirs | openclaw runtime (server-side) | **Read-only** from any coding agent. Those dirs are live state of openclaw workers; overwriting them breaks the system. |
 | `10-KB/` | KB-Compiler cron (server, `0 4 * * *`) | **Read-only.** Regenerated nightly. |
-| `03-Agents/codex/` | Codex | **Your home.** Put session notes, scratch, spikes here. |
-| `03-Agents/claude-code/` | Claude Code | Claude's home. Don't write here. |
-| `03-Agents/_coordination/` | All agents | Shared session-board (see §3). |
+| `_agents/codex/` | Codex | **Your home.** Put session notes, scratch, spikes here. |
+| `_agents/claude-code/` | Claude Code | Claude's home. Don't write here. |
+| `_agents/_coordination/` | All agents | Shared session-board (see §3). |
 | `01-Daily/`, `00-Inbox/` | Human (lenard) | Treat as user space. Append only; never rewrite existing days. |
 | `.openclaw/` (server only) | openclaw runtime | **Never touch** unless operator explicitly asked. This is the heartbeat of 14 defense crons. |
 | `.git/`, `.obsidian/` | Per-device | Excluded from Syncthing via `.stignore`. Keep device-local. |
@@ -99,13 +99,13 @@ Prefixes in active use:
 ## 7. Memory system — read, don't overwrite
 
 - The operator keeps memory at `C:\Users\Lenar\.claude\projects\C--Users-Lenar-Neuer-Ordner\memory\MEMORY.md` (desktop) — that is **Claude's** memory. You can read it for context but **do not write** there.
-- Authoritative plan/status index: `/home/piet/vault/03-Agents/_VAULT-INDEX.md` on the server.
-- System rules: `03-Agents/feedback_system_rules.md` (R1–R50). Honor them; if one trips you, stop and tell the operator.
+- Authoritative plan/status index: `/home/piet/vault/_agents/_VAULT-INDEX.md` on the server.
+- System rules: `_agents/feedback_system_rules.md` (R1–R50). Honor them; if one trips you, stop and tell the operator.
 - The memory-orchestrator cron writes to `.openclaw/workspace/memory/` on the server — do not touch.
 
 ## 8. Things that will break the vault (avoid)
 
-- Renaming or deleting anything under `03-Agents/OpenClaw/*` while openclaw agents are running — they hold file descriptors.
+- Renaming or deleting anything under `_agents/OpenClaw/*` while openclaw agents are running — they hold file descriptors.
 - Creating two directories that differ only in case (e.g., `Atlas/` and `atlas/`) — the Linux server allows it, Windows does not. Canonical form is **Title Case** (`Atlas`, `Forge`, `Pixel`).
 - Committing `.obsidian/workspace.json`, `.obsidian/community-plugins.json`, or `.obsidian/plugins/*/data.json` — these are per-device and are already excluded by `.stignore` + `.gitignore`.
 - `git push --force` against `origin/master` on either desktop or server without operator approval — there is a 30-min commit cadence and a mobile device in the sync ring.
@@ -115,7 +115,7 @@ Prefixes in active use:
 
 1. `ended:` timestamp filled in your `_coordination/` session file.
 2. Final log entries appended.
-3. A one-line summary in `03-Agents/codex/daily/YYYY-MM-DD.md` so the operator and the nightly KB-Compiler can pick it up.
+3. A one-line summary in `_agents/codex/daily/YYYY-MM-DD.md` so the operator and the nightly KB-Compiler can pick it up.
 4. If you changed config that affects the server, mention it explicitly so the operator can verify the next memory-orchestrator run.
 5. Don't commit on the user's behalf unless they asked — the server's auto-sync will capture your changes in the next 30-min window.
 
