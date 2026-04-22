@@ -2308,3 +2308,31 @@ FIX: (1) src/lib/task-reports.ts: terminal dedupe auf stage-spezifische Prüfung
 VERIFICATION: Live-Drift-Fall bestätigt auf f27e47ac (done/result aber lastReportedStatus=failed vor Fix). Neue Regressionstests grün: tests/task-reports-terminal-audit.test.ts und tests/board-consistency-regression.test.ts via vitest. Result summary/details bleiben in Testfall unverändert erhalten.
 
 RESIDUAL_RISK: Alt-Tasks mit historisch inkonsistenten Marker-Feldern werden nicht rückwirkend automatisch migriert; sie werden aber künftig durch Board-Consistency sichtbar und neue Result-Pfade laufen konsistent.
+- 2026-04-22T06:17:36.934Z | START | 25589615-0c54-4a64-ad50-495eb0846037 | Forge cleanup: backfill stale failed markers on completed T2 task | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T06:19:44.102Z | CHECKPOINT | 25589615-0c54-4a64-ad50-495eb0846037 | Forge cleanup: backfill stale failed markers on completed T2 task | worker=sre-expert | progress=85% | summary=- | note=Live-read verified reference f27e47ac still had stale failed markers. Applied narrow one-task backfill repair (no migration tool): set report terminal markers to result path and cleared stale fail-only markers while preserving resultSummary/resultDetails. Post-repair live GET confirms terminal done/result consistency.
+- 2026-04-22T06:20:05.315Z | DONE | 25589615-0c54-4a64-ad50-495eb0846037 | Forge cleanup: backfill stale failed markers on completed T2 task | worker=sre-expert | progress=85% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: Referenzfall f27e47ac-9507-4eb2-bca9-5980ddf49ec5 wurde gezielt backfilled und auf terminalen Done/Result-Zustand normalisiert. resultSummary/resultDetails blieben vollständig erhalten.
+
+CLEANUP_TARGETS: ["f27e47ac-9507-4eb2-bca9-5980ddf49ec5"]
+
+REPAIR_PATH: Live-Read des Referenzfalls -> gezielter Single-Task-Backfill im Board-Store (kein Migration-Tool) -> report/result Marker auf Result-Pfad gesetzt (, , ) -> stale fail-only Marker bereinigt (, , ) ->  bestätigt; bestehende / unverändert belassen.
+
+VERIFICATION: Live-GET nach Write auf Referenzfall zeigt: status=done, dispatchState=completed, executionState=done, receiptStage=result, lastReportedStatus=result, lastFailureReason=null, lastFailureAt=null, resultSummary_present=true, resultDetails_present=true.
+
+RESIDUAL_RISK: Dieser Cleanup war absichtlich nur auf den Referenzfall begrenzt. Weitere historische Fälle mit identischem Drift-Muster werden nicht automatisch repariert.
+- 2026-04-22T06:38:57.043Z | START | 01a11942-ddf8-4b8c-8ab7-c34d20658034 | Forge analyse: direct-nudge timeout path + smallest robust fix | worker=sre-expert | progress=- | summary=-
+- 2026-04-22T06:39:46.640Z | CHECKPOINT | 01a11942-ddf8-4b8c-8ab7-c34d20658034 | Forge analyse: direct-nudge timeout path + smallest robust fix | worker=sre-expert | progress=80% | summary=- | note=Minimal repro confirmed: sessions_send to agent:sre-expert:main with timeoutSeconds=3 returned status=timeout while target session itself was status=running. Board flow in parallel remained healthy (dispatch/accepted/progress). Root cause is contract mismatch: sessions_send is synchronous wait-for-reply, but direct nudge use-case is asynchronous fire-and-forget to a busy worker session.
+- 2026-04-22T06:40:04.165Z | DONE | 01a11942-ddf8-4b8c-8ab7-c34d20658034 | Forge analyse: direct-nudge timeout path + smallest robust fix | worker=sre-expert | progress=80% | summary=EXECUTION_STATUS: DONE
+
+RESULT_SUMMARY: Direct-nudge timeout path ist reproduzierbar und kein Forge-Ausführungsfehler. Board-basierte Dispatches funktionieren stabil, während `sessions_send` auf `agent:sre-expert:main` bei laufender Ziel-Session erwartbar in Timeout läuft.
+
+ROOT_CAUSE: Contract-Mismatch. `sessions_send` ist ein synchrones wait-for-reply Tool (wartet auf aktualisierte Assistant-Antwort der Ziel-Session). Der Direct-Nudge-Use-Case wurde aber asynchron verwendet (fire-and-forget, während Zielsession aktiv an Board-Task arbeitet). Solange `agent:sre-expert:main` bereits `status=running` ist, kommt innerhalb kurzer timeoutSeconds oft keine neue finale Antwort, daher `status=timeout`.
+
+RECOMMENDED_PATH: board-only policy für Forge-Arbeit beibehalten. Für zuverlässige Steuerung nur Board-Dispatch/Receipt nutzen; `sessions_send` nicht als Nudge-Mechanismus gegen die laufende Forge-Hauptsession verwenden.
+
+FIX_APPLIED: no (bewusst kein Broad Messaging-/Session-Refactor; Empfehlung ist Policy-Shift auf Board-only).
+
+VERIFICATION: (1) Minimalrepro: `sessions_send(sessionKey=agent:sre-expert:main, timeoutSeconds=3)` => `status=timeout`. (2) Parallelbeobachtung: dieselbe Session zeigte `status=running` in sessions_list. (3) Board-Pfad in derselben Zeit gesund: Task 01a11942 wurde erfolgreich dispatcht und auf accepted/progress verarbeitet.
+
+RESIDUAL_RISK: Bei Verbleib auf Direct-Nudge-Pfad bleiben Timeouts normal, sobald Zielsession busy ist. Das ist semantisch erwartbar und nicht stabilisierbar ohne größeren Contract-/Tool-Refactor.

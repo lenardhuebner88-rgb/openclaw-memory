@@ -64,12 +64,12 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3805a56f-04f0-4e21-8466-6433770751e1 Forge mini-fix: failed→done report drift + board consistency for final summaries
+- task: 01a11942-ddf8-4b8c-8ab7-c34d20658034 Forge analyse: direct-nudge timeout path + smallest robust fix
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: DONE
 
-RESULT_SUMMARY: Mini-fix umgesetzt. Der Drift aus f27e47ac-9507-4eb2-bca9-5980ddf49ec5 (done + stale failed-report markers) wird jetzt im finalen Result-Pfad konsistent überschrieben, ohne resultS
+RESULT_SUMMARY: Direct-nudge timeout path ist reproduzierbar und kein Forge-Ausführungsfehler. Board-basierte Dispatches funktionieren stabil, während `sessions_send` auf `agent:sre-expert:main` b
 - blocker: -
-- updated: 2026-04-22T06:06:24.589Z
+- updated: 2026-04-22T06:40:04.168Z
 <!-- mc:auto-working-context:end -->
