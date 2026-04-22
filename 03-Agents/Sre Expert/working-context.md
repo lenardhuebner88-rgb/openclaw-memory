@@ -64,13 +64,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 21a76cbf-3e85-43d8-81d5-ed9f8edeb583 S-RELIAB-P0 T8: Chaos-Test Dispatch-Gate (Retry)
-- stage: FAILED
+- task: 1cabca33-5d18-477a-8225-791c7c847025 [Forge] Analyse: Gateway OOM-Erkennung und Recovery-Verhalten
+- stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: FAILED
-RESULT_SUMMARY: chaos-gateway-oom-test retry executed, but dispatch-gate DoD failed due to missing effective OOM trigger and failed post-checks.
-EVIDENCE:
-- Script executed: bash /home/piet/.open
-- blocker: Chaos script did not satisfy DoD: no gateway crash/restart observed (same PID), stress-ng unavailable in environment, zombie count non-zero, and synthetic task remained draft.
-- updated: 2026-04-22T13:33:51.560Z
+- checkpoint: Gateway-OOM-Recovery funktioniert korrekt. Restart=always + OOMPolicy=stop + RestartSec=30 sind aktiv und haben in den letzten 24h 4× sauber restartet (journalctl 08:59:20/09:00:22/14:41:17/14:42:43 UTC). T8-Test hat fäl
+- blocker: -
+- updated: 2026-04-22T14:07:30.902Z
 <!-- mc:auto-working-context:end -->
