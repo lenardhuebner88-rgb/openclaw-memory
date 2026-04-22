@@ -17,6 +17,7 @@ codex-workspace-vault: /home/piet/.openclaw/workspace/vault/  (mirror only for w
 - **REFERENCE** = Source-Plan für konsolidierten Sprint (historical record)
 - **TBD** = Operator-Review nötig (ist das noch relevant?)
 - **ARCHIVED** = superseded oder obsolet, in `archive/2026-04/`
+- **Frontmatter-Kanon** = `planned | running | done | superseded`
 
 Trigger-Phrases: *"Lade `sprints/s-<id>-2026-04-22.md` und starte Sprint S-\<ID\>"*
 
@@ -28,39 +29,42 @@ Trigger-Phrases: *"Lade `sprints/s-<id>-2026-04-22.md` und starte Sprint S-\<ID\
 
 | Sprint-ID | Plan-Doc | Priority | Owner (primary) | Depends-on | Enables | Status |
 |---|---|---|---|---|---|---|
-| **S-FND** | `sprints/s-fnd-2026-04-22.md` | P0-blocker | Forge + Operator | — | all others | PLANNED |
-| **S-RELIAB-P0** | `sprints/s-reliab-p0-2026-04-22.md` | P0 | Forge | S-FND T2+T3 | S-RELIAB-P1, S-INFRA | PLANNED |
+| **S-FND** | `sprints/s-fnd-2026-04-22.md` | P0-blocker | Forge + Operator | — | all others | **DONE** (2026-04-22) — T1-T4 + E2E abgeschlossen |
+| **S-RELIAB-P0** | `sprints/s-reliab-p0-2026-04-22.md` | P0 | Forge | S-FND T2+T3 | S-RELIAB-P1, S-INFRA | **RUNNING** — T1-T7 done; T8/T8a als Test-Design-Follow-up noch offen |
 | **S-CTX-P0** | `sprints/s-ctx-p0-2026-04-22.md` | P0 | Atlas + Forge | — | S-CTX-P1 | PLANNED |
-| **S-RPT** | `sprints/s-rpt-2026-04-22.md` | P1 | Codex + Forge | S-FND T1 | S-GOV, S-RELIAB-P1 Receipt-Chain | PLANNED |
-| **S-GOV** | `sprints/s-gov-2026-04-22.md` | P1 | Lens → Atlas → Forge | (Lens T0 DECLINE 2026-04-21 behoben durch Mini-Dispatch) | S-RELIAB-P1, S-INTEG-W1 | **T2.1/T2.2/T4/T5 done** (2026-04-21 23:33/23:50) — reconciler=0, validate=0. Offen: T4 3h-Observation + T0 re-review bei Lens. Nicht in Mini-Scope: T0/T1/T3/T6-T10 |
-| **S-UX** | `sprints/s-ux-2026-04-22.md` | P2 | Forge + Pixel | S-FND T2 | — | PLANNED |
+| **S-RPT** | `sprints/s-rpt-2026-04-22.md` | P1 | Codex + Forge | S-FND T1 | S-GOV, S-RELIAB-P1 Receipt-Chain | **RUNNING** — T1 Reader-Hygiene done; T2-T4 offen |
+| **S-GOV** | `sprints/s-gov-2026-04-22.md` | P1 | Lens → Atlas → Forge | — | S-RELIAB-P1, S-INTEG-W1 | **RUNNING** — Sprint-M-Closeout abgeschlossen; Restscope T7-T10/Vault-Index follow-up offen |
+| **S-UX** | `sprints/s-ux-2026-04-22.md` | P2 | Forge + Pixel | S-FND T2 | — | **DONE** (2026-04-22) — T1-T7 abgeschlossen |
 | **S-INFRA** | `sprints/s-infra-2026-04-22.md` | P1 | Forge + Operator + Atlas | S-RELIAB-P0 T2 | — | PLANNED |
 | **S-INTEG-W1** | `sprints/s-integ-w1-2026-04-22.md` | P1-strategic | Operator + Forge | S-FND T3 + 7d Pre-Flight | S-INTEG W2-W4 | PLANNED |
 | **S-HANDBOOK** | `sprints/s-handbook-2026-04-21.md` | P1 | Codex (Execution) | — | Agent-Orientation speed-up | **DONE** (2026-04-21 23:33) — SH1-SH6 + Finder-Schicht live, 0/0 gaps, MkDocs-Site builds |
+| **S-HEALTH** | `sprints/s-health-board-cleanup-2026-04-22.md` | P1 | Atlas + Spark + Forge | — | S-RPT P0.2 (Root-Cause), S-HEALTH-2 | **DONE** (2026-04-22 19:33) — 130/130 A1-C resolved, board.issueCount 145→15 (89.7%). 15 residual → S-HEALTH-2 Board-Task. Close-Doc: `s-health-final-close-2026-04-22.md` |
 
 ## 🚀 Dispatch-Reihenfolge (Stand 2026-04-22 abends)
 
 ### ✅ Done
+- **S-FND** (Forge/Operator, 2026-04-22) — Foundation-Bausteine live
+- **S-UX** (Forge/Pixel, 2026-04-22) — Pipeline Quickwins abgeschlossen
 - **S-HANDBOOK** (Codex, 2026-04-21 23:33) — Handbook-Schicht + Finder live
-- **S-GOV Mini-Dispatch** (Atlas, 2026-04-21 23:50) — T2.1/T2.2/T4/T5 green
+- **S-GOV Mini-Dispatch / Sprint-M-Closeout** (Atlas/Operator, 2026-04-22) — Gap-Closure + Lens-Approve abgeschlossen
+- **S-HEALTH** (Atlas/Spark/Forge, 2026-04-22 19:33) — Original-Scope bereinigt
 
-### ⏳ In Beobachtung
-- S-GOV T4 3h-Observation (memory-orchestrator qmd-update rc=0 validation)
+### ⏳ Running
+- **S-RELIAB-P0** — nur Chaos-Test-Follow-up T8/T8a noch offen; RCA liegt vor
+- **S-RPT** — T1 done, T2-T4 noch nicht dispatched
+- **S-GOV** — Restscope T7-T10 und Vault-Index-/OTEL-Follow-ups offen
 
 ### 🔜 Next Gates
-- S-GOV T0 Lens Re-Review anfordern (alle Gaps geschlossen → APPROVE expected)
-- Nach APPROVE: voller 48h-Plan / S-FND Dispatch frei
+- `[S-HEALTH-2]` dispatchen: 15 Residual-Issues sauber untersuchen, keine Blind-Mutation
+- S-RELIAB-P0 T8/T8a als Test-Design-Fix neu zuschneiden statt blind retryen
+- S-RPT T2-T4 auf Basis von S-FND + S-HEALTH Root-Cause weiterziehen
 
-### 📅 Queued nach T0 approve
-1. **S-FND** Foundation-Bausteine (parallel-startbar, keine Blocker)
-2. **S-UX** (lowest risk, parallel zu S-FND)
-3. **S-RPT**
-4. **S-RELIAB-P0**
-5. **S-INFRA** (nach S-RELIAB T2 merged)
-6. **S-CTX-P0**
-7. **S-INTEG-W1** (nach Windows-SSHFS 7d Pre-Flight)
+### 📅 Queued danach
+1. **S-CTX-P0**
+2. **S-INFRA** (nach S-RELIAB-P0 Abschluss)
+3. **S-INTEG-W1** (nach Windows-SSHFS 7d Pre-Flight)
 
-Parallelisierbar: S-GOV M9/M10 Spikes (T7/T8) während der Queued-Sprints.
+Parallelisierbar: S-GOV T7-T10 Spikes, sobald S-RPT/S-RELIAB nicht blockiert werden.
 
 ---
 
@@ -221,7 +225,7 @@ Directory: `C:\Users\Lenar\.claude\projects\C--Users-Lenar-Neuer-Ordner\memory\`
 
 ## 🕒 Changelog
 
-- **2026-04-22 (Evening):** S-HANDBOOK → DONE (Codex 23:33 Completion-Report, Finder-Schicht + MkDocs live). S-GOV Mini-Dispatch T2.1/T2.2/T4 done, T5 in-flight. Archive +2: `cron-catalog` + `heartbeat-analysis` superseded by S-HANDBOOK outputs. Parallel Pre-Work: `scripts/vault-index-generator.py` (S-GOV T9 Prototype), `s-ux-phase0-writer-inventory-2026-04-22.md` (S-UX Phase 0 Pre-Flight), `context-baseline-2026-04-22.md` (CE1), `task-governance-signals-consumers-2026-04-22.md` (S-RPT T1 Pre-Flight), `memory-orchestrator-qmd-update-rca-2026-04-22.md` (S-GOV T4 RCA), `schemas/sprint_outcome.py` (S-FND T1 Template).
+- **2026-04-22 (Evening):** S-HEALTH → CLOSED (Atlas, 19:33) — 130/130 Original-Scope (A1-C) resolved. board.issueCount 145→15 (89.7%). 15 residual → Follow-up Board-Task `[S-HEALTH-2]`. Root-Cause-Findings documented for S-RPT P0.2. S-HANDBOOK → DONE (Codex 23:33 Completion-Report, Finder-Schicht + MkDocs live). S-GOV Mini-Dispatch T2.1/T2.2/T4/T5 done. Archive +2: `cron-catalog` + `heartbeat-analysis` superseded by S-HANDBOOK outputs. Parallel Pre-Work: `scripts/vault-index-generator.py` (S-GOV T9 Prototype), `s-ux-phase0-writer-inventory-2026-04-22.md` (S-UX Phase 0 Pre-Flight), `context-baseline-2026-04-22.md` (CE1), `task-governance-signals-consumers-2026-04-22.md` (S-RPT T1 Pre-Flight), `memory-orchestrator-qmd-update-rca-2026-04-22.md` (S-GOV T4 RCA), `schemas/sprint_outcome.py` (S-FND T1 Template).
 - **2026-04-22 (Update):** S-HANDBOOK (Codex System-Handbook Sprint) als RUNNING eingefügt. Cross-Synergien + Overlap-Matrix erweitert. `codex-future-plan-protocol.md` als verbindliches Dokument verlinkt. Vault-Kanon `/home/piet/vault/` explizit gesetzt.
 - **2026-04-22:** Initial re-write. 13 superseded Docs archiviert, 8 dedizierte Sprints in `sprints/`, Owner-Matrix + Overlap-Matrix + Cross-Synergies eingefügt.
 - **2026-04-21**: (siehe `_VAULT-INDEX.md.pre-2026-04-22.bak`)

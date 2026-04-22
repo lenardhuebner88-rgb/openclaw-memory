@@ -2,7 +2,7 @@
 sprint-id: S-HEALTH
 title: Board-Health Cleanup — Legacy-Data-Hygiene (145 consistency-issues)
 created: 2026-04-22
-status: planned
+status: done
 priority: P1
 owner: { orchestration: Atlas, inventory: Codex, pattern-analysis: Forge, bulk-close: Forge, manual-review: Operator }
 depends-on: []
