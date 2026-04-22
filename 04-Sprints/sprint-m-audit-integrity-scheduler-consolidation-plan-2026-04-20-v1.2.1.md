@@ -5,6 +5,7 @@ version: 1.2.1 (post-Codex-v1.2-re-review, patches only — no architectural cha
 sprint-scope: Phase 0 + Phase 1 aus openclaw-cron-heartbeat-analysis-2026-04-20.md (v2)
 author: Claude (Opus 4.7, 1M context)
 date: 2026-04-20
+created: 2026-04-20
 status: DRAFT v1.2.1 — Atlas = APPROVE. Codex v1.0 + v1.1 + v1.2-reviews = alle Findings resolved. Lens (M0.B) pending — v1.2-Task `90063dca` kann weiterlaufen oder gegen v1.2.1 re-scoped werden.
 operatorLock: true
 scope-lock: Plan-Doc-Frontmatter (R47)
@@ -33,9 +34,35 @@ related:
   - codex-review-sprint-m-2026-04-20-2256.md (external Codex-Review)
   - sprint-k-infra-hardening-plan-2026-04-19.md (H10 L1 verbleibt dort; L2-L5 superseded hier)
   - workspace/HEARTBEAT.md §1.4 (Cron-Inventory — Re-Baseline in M0.D)
+priority: P1
+owner:
+  atlas: Atlas
+depends-on: []
+anti-goals:
+  - Keine Architekturänderung
+  - Keine neuen Features außerhalb der Findings
+pre-flight-gates:
+  - M0 Review-Gate approved
+  - T1 Addendum committed
+  - Registry/Reconciler live grün
+post-plan-findings:
+  - auto-pickup+board hardening (6 files changed)
+  - openclaw routing hotfix (dist/register.agent-COPfBHma.js)
+  - systemd unit KillMode=process on active production path
+  - auto-fail alert path fix
 ---
 
 # Sprint-M — Audit-Integrity + Scheduler-Consolidation (v1.2.1)
+
+## Addendum — Post-Plan Findings 2026-04-21
+
+Diese Findings wurden nach dem Plan-Stand v1.2.1 live umgesetzt bzw. verifiziert und sind kanonisch Teil des Sprint-M-Closeouts.
+Referenz-Artefakt: `/home/piet/vault/04-Sprints/sprint-m-session-closeout-and-forge-verification-2026-04-21.md`
+
+- **Auto-pickup + board hardening (6 files changed):** stale redispatch behavior reduziert, session-lock handling gegen realen Session-Store gehärtet, `pending-pickup` kann terminalisiert werden, Watchdog konservativer auf Lane-Jams.
+- **OpenClaw routing hotfix:** `dist/register.agent-COPfBHma.js` patched, damit `sessionKey` auf dem Gateway-CLI-Pfad korrekt weitergereicht wird; Retry-Sessions werden dadurch wirklich isoliert statt wieder in den Main-Bucket zu laufen.
+- **systemd unit hardening:** auf dem aktiven Produktionspfad wurde `KillMode=process` gesetzt und live verifiziert, damit Oneshot-Service-Ende den gespawnten Worker nicht sofort wieder mit abräumt.
+- **Auto-fail alert path fix:** Header-/Payload-Pfad zwischen `auto-pickup.py` und `/api/discord/send` korrigiert; Live-Probe nach Restart erfolgreich.
 
 ## 📋 Changelog v1.2 → v1.2.1 (aktuell — Codex v1.2-re-review findings)
 
