@@ -7,11 +7,13 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 53737803-14f2-41a9-a491-80cd2889f6f4 [P5 Canary] sre-expert
+- task: d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9 [P0][Forge] Auto-Pickup systemd-Service-Mode als Regression-Suite absichern
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: canary-ok
+RESULT_SUMMARY:
+- Auto-Pickup Service-Mode Regression-Suite implementiert und ausführbar gemacht.
+- Double-start Regression im Claim-Handoff aktiv gehärtet (Ownership-Conflict Guard in claim route)
 - blocker: -
-- updated: 2026-04-24T18:45:02.824Z
+- updated: 2026-04-24T19:41:54.904Z
 <!-- mc:auto-working-context:end -->

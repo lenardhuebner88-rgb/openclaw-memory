@@ -401,3 +401,41 @@ canary-ok
 - 2026-04-24T18:46:51.038Z | DONE | 39b6036d-97f8-40fe-a480-e97a0270a67a | [P5 Canary] spark | worker=spark | progress=100% | summary=canary-ok
 - 2026-04-24T18:47:41.876Z | START | cc00085c-4e12-4582-91ed-381dc295f998 | [P5 Canary] james | worker=james | progress=- | summary=-
 - 2026-04-24T18:47:48.087Z | DONE | cc00085c-4e12-4582-91ed-381dc295f998 | [P5 Canary] james | worker=james | progress=- | summary=Task accepted and completed.
+- 2026-04-24T19:37:56.187Z | START | d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9 | [P0][Forge] Auto-Pickup systemd-Service-Mode als Regression-Suite absichern | worker=task-d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9-sre-expert | progress=- | summary=-
+- 2026-04-24T19:38:15.782Z | START | 58931f70-0e8b-43fc-ad91-53debc54a004 | [P1][Spark] Introspection-/Session-History-Ausgaben am Ursprung hart cappen | worker=spark | progress=- | summary=-
+- 2026-04-24T19:38:22.798Z | CHECKPOINT | 58931f70-0e8b-43fc-ad91-53debc54a004 | [P1][Spark] Introspection-/Session-History-Ausgaben am Ursprung hart cappen | worker=spark | progress=50% | summary=- | note=Drafting hard-cap guardrail options and summary-first output path; preparing final recommendation set.
+- 2026-04-24T19:38:28.414Z | DONE | 58931f70-0e8b-43fc-ad91-53debc54a004 | [P1][Spark] Introspection-/Session-History-Ausgaben am Ursprung hart cappen | worker=spark | progress=50% | summary=done: defined origin-side caps + summary-first path for introspection/session history outputs; included fallback escape-hatch pattern.
+- 2026-04-24T19:41:08.893Z | CHECKPOINT | d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9 | [P0][Forge] Auto-Pickup systemd-Service-Mode als Regression-Suite absichern | worker=task-d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9-sre-expert | progress=75% | summary=- | note=Regression-Suite aufgebaut: double-start ownership-guard in claim-route ergänzt, neue Matrix-Suite script erstellt, Testpaket grün (23 passed), Canary-Evidence via task 53737803 validiert und Ergebnis in qa/results exportiert.
+- 2026-04-24T19:41:30.704Z | CHECKPOINT | d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9 | [P0][Forge] Auto-Pickup systemd-Service-Mode als Regression-Suite absichern | worker=task-d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9-sre-expert | progress=90% | summary=- | note=Änderungen committed (c30bed4): claim-route double-start guard + Regression-Suite Script + Tests.
+- 2026-04-24T19:41:54.902Z | DONE | d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9 | [P0][Forge] Auto-Pickup systemd-Service-Mode als Regression-Suite absichern | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY:
+- Auto-Pickup Service-Mode Regression-Suite implementiert und ausführbar gemacht.
+- Double-start Regression im Claim-Handoff aktiv gehärtet (Ownership-Conflict Guard in claim route).
+- Testmatrix + Pass/Fail Kriterien als ausführbares Suite-Script bereitgestellt.
+- Commit: c30bed4
+TEST_MATRIX:
+- normal-start:
+  - tests/pickup-claim-route.test.ts :: claim route creates pickup_claimed transition and keeps attemptId
+- missing-claim:
+  - tests/pickup-proof.test.ts :: pickup proof proposes cancel for an unclaimed canary claim-timeout
+- double-start:
+  - tests/pickup-claim-route.test.ts :: claim route rejects double-start claim from a different workerSessionId
+- hanging-worker:
+  - tests/worker-run-reconciler.test.ts :: stale-open-run / no-process-evidence coverage
+- clean-end:
+  - tests/pickup-proof.test.ts :: historical claim-timeout rollover + canary done/result check
+PASS_FAIL_CRITERIA:
+- tests-pass: npx vitest run tests/pickup-claim-route.test.ts tests/pickup-proof.test.ts tests/worker-run-reconciler.test.ts -> alle grün
+- pickup-proof-clean: claimTimeouts=0 und criticalFindings=0
+- worker-proof-critical-clear: criticalIssues=0
+- canary-green: referenzierter Canary-Task ist done/result/done und enthält canary-ok
+CANARY_EVIDENCE:
+- Suite-Run: node scripts/auto-pickup-service-regression-suite.mjs --base-url http://127.0.0.1:3000 --canary-task-id 53737803-14f2-41a9-a491-80cd2889f6f4 --output qa/results/auto-pickup-service-regression-suite.latest.json
+- Canary-Task 53737803-14f2-41a9-a491-80cd2889f6f4: status=done, receiptStage=result, executionState=done, resultSummary enthält canary-ok
+OPEN_RISKS:
+- pickup-proof kann weiterhin degraded sein, wenn aktive Session-Locks/Pending-Pickup vorliegen (ohne critical findings).
+- Canary-Evidence hängt aktuell an einem bekannten Canary-Task; für kontinuierliche Abdeckung sollte ein periodischer Canary-Lauf geplant werden.
+NEXT_GAPS:
+- Optional: dedizierten CI-Job für scripts/auto-pickup-service-regression-suite.mjs hinzufügen.
+- Optional: zusätzliche Assertion für systemd-spezifische lock age/cleanup policy in separatem Testfall.
+- 2026-04-24T19:42:50.448Z | START | 7994f125-fe13-4ad7-a28b-819a24ba3367 | [P1][Forge] James-Completion/Receipt-Pfad fixen, damit Analysen sauber ankommen | worker=task-7994f125-fe13-4ad7-a28b-819a24ba3367-sre-expert | progress=- | summary=-
