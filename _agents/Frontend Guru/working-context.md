@@ -65,14 +65,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: babbddda-0cee-4622-8a24-0947b17f7490 [P3][Pixel] Archive-Noise von Live-View sauber trennen
+- task: 4821564c-b767-41e7-8dc6-5d2aa0611f88 [P3][Pixel] Warning-only-Degraded verständlich im UI darstellen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 Done
 
 RESULT_SUMMARY
-Implemented a small taskboard IA pass that separates archive/history from the live operator scan. The live header now says `History` instead of `Archive`, desktop and mobile summary 
+Implemented the smallest stable UI cut for warning-only degraded states in overview and analytics. Warning-only now reads as a calm monitoring warning instead of feeling like a criti
 - blocker: -
-- updated: 2026-04-24T20:31:57.911Z
+- updated: 2026-04-24T21:01:20.893Z
 <!-- mc:auto-working-context:end -->

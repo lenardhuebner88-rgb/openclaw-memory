@@ -1,5 +1,5 @@
 ---
-status: active
+status: monitoring
 owner: codex
 created: 2026-04-24T20:25:52Z
 scope:
@@ -9,6 +9,8 @@ scope:
   - risk-gates
   - a2-readonly-execution
   - learning-ledger
+  - eval-suite
+  - a3-small-fix-lane
 sources:
   - https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/
   - https://openai.github.io/openai-agents-python/guardrails/
@@ -30,6 +32,8 @@ In diesem Lauf wird kein unbegrenztes Autonomie-System freigeschaltet. Ziel ist 
 4. Dry-run zeigt, was Atlas tun wuerde, ohne zu mutieren.
 5. Genau ein A2 read-only Autonomie-Test wird lokal ausgefuehrt.
 6. Ein Learning-Ledger schreibt Vorher/Nachher/Verdict.
+7. Eine Eval-/Regression-Suite prueft die wichtigsten Autonomie-Guardrails.
+8. Eine eng begrenzte A3-Small-Fix-Lane wird an einem konkreten Tokenplan-Statusfix validiert.
 
 ## Quellenprinzipien
 
@@ -123,8 +127,111 @@ Gate:
 - `npm run typecheck`.
 - Live Dry-run.
 - Genau ein A2 Execute.
+- Eval-Suite 100%.
+- A3 Small-Fix fuer MiniMax Tokenplan-Status: `tone=warn` statt hard critical.
 - `/api/health`, Pickup, Worker-Proof danach gruen.
 - Discord-Abschlussbericht.
+
+## Gate Log
+
+### Gate 1 - Plan + Live-Preflight
+
+Discord: `1497333299566346300`.
+
+Result:
+- `/api/health`: ok.
+- Pickup critical 0.
+- Worker critical 0.
+- Plan angelegt.
+
+### Gate 2 - AUT-1 Finding-Schema + Registry
+
+Discord: `1497333832834220225`.
+
+Result:
+- `src/lib/autonomy-self-healing.ts`.
+- `/api/ops/autonomy-self-healing`.
+- `tests/autonomy-self-healing.test.ts`: 5/5 gruen.
+- `npm run typecheck`: gruen.
+
+### Gate 3 - AUT-2 Task-Kandidaten-Dry-run
+
+Discord: `1497334119518966002`.
+
+Result:
+- Findings erzeugen Task-Kandidaten mit DoD, Anti-Scope, Verify-Steps, Dedupe-Key.
+- Keine Taskboard-Mutation.
+
+### Gate 4 - AUT-3 Risk Tiers A0-A5
+
+Discord: `1497334121674838249`.
+
+Result:
+- A2 ist read-only executable.
+- A3 bleibt small-fix eligible mit Test/Rollback-Pflicht.
+- A4/A5 bleiben proposal-only/blocked.
+
+### Gate 5 - AUT-4 Live Dry-run
+
+Discord: `1497336116016320553`.
+
+Result:
+- Live Endpoint deployed.
+- Dry-run: 5 Findings, 5 Candidates, 2 A2 executable, 1 A4 proposal-only.
+- Keine Mutation.
+
+### Gate 6 - AUT-5/AUT-6 A2 Execute + Learning-Ledger
+
+Discord: `1497336478714298388`.
+
+Result:
+- A2 read-only local execute fuer `cost:openai-codex:flatrate-billing-artifact:cost_in_flatrate_mode`.
+- Ledger: `data/autonomy-learning-ledger.jsonl`.
+- Verdict nach korrigierter read-only Probe: `stable`.
+
+### Gate 7 - AUT-7 Eval Suite
+
+Result:
+- `scripts/autonomy-eval-suite.mjs`.
+- Live Eval: 10/10, Score 100%.
+
+### Gate 8 - AUT-8 A3 Small-Fix Lane
+
+Discord: `1497338181677220072`.
+
+Result:
+- Konkreter A3 Small-Fix: MiniMax `TOKEN_PLAN` wird im Budgetstatus als `mode=token-plan`, `metric=token_plan_usage_tokens`, `tone=warn` dargestellt.
+- Kein Provider-/Routing-/Runtime-Change.
+- Targeted tests: 12/12 gruen.
+- Typecheck gruen.
+- Build + Restart gruen.
+
+### Eingeschobener Sprint - MC Board/Pipeline UI Live Test
+
+Discord: `1497342027195748352`.
+
+Result:
+- Pipeline-API liest pro Agent nur noch einen begrenzten Session-Tail statt ganze JSONL-Dateien.
+- Pipeline-Tab zeigt Summary-Layer: Pipeline-Signal, aktive Tools, Read-Budget.
+- Taskboard-Header nutzt neuesten Task-Update-Timestamp statt unsortiertem `tasks[0]`.
+- Targeted Vitest: 12/12 gruen.
+- Typecheck gruen.
+- Build + Restart gruen.
+- Live-Probes: `/api/health` ok, `/api/pipeline` summary ok, `/kanban` 200, Board-Snapshot 1023 bytes.
+- Real browser smoke: `/taskboard` Detail-Button oeffnet Modal ohne client-side exception; `/kanban` zeigt Summary-Layer.
+
+## Monitoring
+
+Started: 2026-04-24T20:48Z.
+
+Artifact:
+- `/tmp/autonomy-monitor-2026-04-24.jsonl`
+
+Plan:
+- 13 Samples alle 10 Minuten.
+- Jede Probe: health, pickup, worker, runtime, autonomy, eval.
+- A2-Ledger-Checks bei Sample 1, 7 und 13.
+- Discord status after approximately 1h and final after 2h.
 
 ## Nicht-Ziele
 

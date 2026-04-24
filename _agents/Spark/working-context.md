@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 58931f70-0e8b-43fc-ad91-53debc54a004 [P1][Spark] Introspection-/Session-History-Ausgaben am Ursprung hart cappen
+- task: dbf327d2-64f1-4008-a0b9-2a258f3b681b [P3][Spark] Soak-Report um Warning-only-Degraded-Zähler erweitern
 - stage: DONE
 - next: await next assignment
-- checkpoint: done: defined origin-side caps + summary-first path for introspection/session history outputs; included fallback escape-hatch pattern.
+- checkpoint: defined a warning-only degraded counter with ok/warning/critical split and no automatic actions on warning events
 - blocker: -
-- updated: 2026-04-24T19:38:28.415Z
+- updated: 2026-04-24T20:56:29.940Z
 <!-- mc:auto-working-context:end -->
