@@ -233,3 +233,4 @@ FINAL_STATE:
 - Aktueller Blocker ist fachlich korrekt (`hardBlockLocks=sre-expert`, lockOwnerType=worker), nicht mehr generisch/irreführend.
 OPEN_RISKS:
 - Für künftige P4/P4.x Live-Abnahmen sollte ein kurzer "build+safe-restart+endpoint-verify" Abschluss-Runbook-Schritt standardisiert werden, um Artefakt-Drift sofort zu vermeiden.
+- 2026-04-24T17:13:57.349Z | START | 75585071-ad21-4065-90c5-dee96cd8118d | [P0][Forge] Auto-Pickup Claim-Handoff härten und E2E absichern | worker=task-75585071-ad21-4065-90c5-dee96cd8118d-sre-expert | progress=- | summary=-
