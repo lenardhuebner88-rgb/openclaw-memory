@@ -6,6 +6,10 @@ task: "3h active Mission Control stabilization and controlled live testing"
 touching:
   - /home/piet/.openclaw/workspace/mission-control/src/lib/context-budget-proof.ts
   - /home/piet/.openclaw/workspace/mission-control/tests/context-budget-proof.test.ts
+  - /home/piet/.openclaw/workspace/mission-control/src/lib/runtime-soak-proof.ts
+  - /home/piet/.openclaw/workspace/mission-control/tests/runtime-soak-proof.test.ts
+  - /home/piet/.openclaw/workspace/mission-control/scripts/runtime-soak-canary.mjs
+  - /home/piet/.openclaw/workspace/mission-control/tests/runtime-soak-canary-script.test.ts
   - /home/piet/vault/_agents/codex/plans/2026-04-24_openclaw-3h-active-stability-and-ui-details-fix.md
   - /home/piet/vault/_agents/codex/daily/2026-04-24.md
 operator: lenard
@@ -28,3 +32,6 @@ operator: lenard
 - 2026-04-24T10:53:01Z Stale-no-process-Reconcile in Code + Script + Tests nachgezogen; Production Build nach kontrolliertem Mission-Control Stop/Start erfolgreich. Live-Probes: health ok, worker proof ok, pickup proof ok. Runtime-Soak noch blockiert durch alte Context-Peaks und Main-Discord-Lock.
 - 2026-04-24T10:57:28Z Targeted Canary-Gate gehaertet; Forge-Canary `a23c8622-ce7e-46a9-8433-f095923c4edc` erfolgreich done, openRuns=0, output cap in Session-JSONL bestaetigt.
 - 2026-04-24T11:04:39Z Main-Canary `7ff01ecd-25e9-44e0-a3c7-5d75489e60eb` zeigte Claim-Timeout/Main-Lock-Risiko; gezielt via pickup-reconcile canceled und Placeholder-Run geschlossen. Health/Worker/Pickup/Context wieder ok; keine weiteren Canaries starten.
+- 2026-04-24T11:18:39Z Rootcause nachgezogen: claim-timeout cleanup stoppte Task/Run, aber nicht sicher eine bereits gateway-owned Main-Session; diese erzeugte einen unbeabsichtigten Child-Canary. Child `4e2d6ccb-e509-4b70-b924-0ae3546049f2` admin-canceled. Fix deployed: Runtime-Soak setzt Main-Cooldown 10m, Worker-Cooldown 2m, Proof liefert `canaryCooldownMs`; Canary-Description verbietet Replacement-/Child-Canaries nach Cancel/Timeout/Claim-Failure. Tests 13/13, typecheck, Production Build passed. Live: health/worker/pickup ok, Main `canaryEligible=false`, Forge dry-run `selectedAgentCanExecute=true`.
+- 2026-04-24T11:24:06Z Zusaetzliche Main-Sicherung deployed: `runtime-soak-canary.mjs` erfordert fuer `--agent main` jetzt explizit `--allow-main`; ohne Override bleibt Main auch bei sauberem Proof gesperrt. Tests 15/15, typecheck, Production Build passed. Live-Dry-run: main false, main+allow-main aktuell wegen Cooldown false, Forge true. Worker/Pickup/Health ok; Context activeCritical 0, nur zwei aktive Warnings.
+- 2026-04-24T11:25:03Z Operator verlangt weitere echte Tests, bis Worker und Main gruen sind. Codex fuehrt ab jetzt sequenziell Worker-Canaries aus, je ein Agent, danach Gates; Main/Atlas zuletzt nur mit `--allow-main`.
