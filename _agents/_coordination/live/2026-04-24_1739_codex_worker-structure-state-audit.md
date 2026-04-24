@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-04-24T17:39:04Z
-ended: null
+ended: 2026-04-24T18:16:04Z
 task: "Live task-state audit and worker-structure hardening"
 touching:
   - /home/piet/.openclaw/workspace/mission-control/
@@ -20,3 +20,4 @@ operator: lenard
 
 ## Log
 - 2026-04-24T17:39:04Z Session gestartet; keine offene Coordination mit ueberschneidendem Frontmatter-`ended: null` gefunden.
+- 2026-04-24T18:16:04Z Worker-Struktur-Hardening abgeschlossen: Claim/Receipt/Heartbeat-Run-Binding gehaertet, stale/lost Runs bereinigt, 5 Gate-Outputs terminal gruen durchgebracht, Build/Restart/Live-Proofs validiert. Bericht: `03-Projects/reports/audits/2026-04-24_worker-structure-hardening-gate.md`.
