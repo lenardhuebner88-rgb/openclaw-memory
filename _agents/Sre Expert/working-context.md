@@ -7,14 +7,13 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1357a4de-2b58-45fb-8a61-ae68bfadee64 [P1][Forge] P4.3 live verifizieren und runtime-soak self-lock Semantik finalisieren
+- task: 75585071-ad21-4065-90c5-dee96cd8118d [P0][Forge] Auto-Pickup Claim-Handoff härten und E2E absichern
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
 RESULT_SUMMARY:
-- Diskrepanz final geklärt und live auf :3000 behoben/verifiziert.
-- Ursache war kein neuer Codefehler, sondern veraltetes produktives `.next`-Artefakt im laufenden next-server.
-- N
+- Auto-Pickup Claim-Handoff im Spawn→Claim-Fenster gehärtet, inklusive Race-Fix für „worker exits before claim check“.
+- Process-Cleanup robust gemacht, damit auch bei bereits beend
 - blocker: -
-- updated: 2026-04-24T15:03:33.475Z
+- updated: 2026-04-24T17:19:38.256Z
 <!-- mc:auto-working-context:end -->

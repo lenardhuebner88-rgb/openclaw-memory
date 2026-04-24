@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 703a7a7f-81e3-4efb-8fde-d7534e82eaba [Spark][Idea] MC Metrics-Endpoint später nötig? Optionen vorschlagen
+- task: 5e5316a2-b8d4-4037-b76c-9153ee8ee676 [P2][Spark] Read-only Watcher vs Repair-Actions sauber schneiden
 - stage: DONE
 - next: await next assignment
-- checkpoint: canary idea-only complete: no immediate endpoint build, propose periodic eval checkpoints instead.
+- checkpoint: done: proposed read-only watcher vs repair guardrails with clear Quick-Wins and deferred items; no core dispatch changes required now.
 - blocker: -
-- updated: 2026-04-24T14:28:00.959Z
+- updated: 2026-04-24T17:22:26.757Z
 <!-- mc:auto-working-context:end -->
