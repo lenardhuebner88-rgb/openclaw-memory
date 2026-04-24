@@ -91,3 +91,17 @@ canary-ok
 - 2026-04-24T11:55:44.312Z | DONE | cbac3d21-d7cc-4643-b941-224be5081ed7 | [P5 Canary] spark | worker=spark | progress=100% | summary=canary-ok
 - 2026-04-24T12:00:25.981Z | START | 2ad438ee-645c-45c1-8a6a-bb490efcc335 | [P5 Canary] james | worker=james | progress=- | summary=-
 - 2026-04-24T12:00:32.317Z | DONE | 2ad438ee-645c-45c1-8a6a-bb490efcc335 | [P5 Canary] james | worker=james | progress=- | summary=Task accepted and completed.
+- 2026-04-24T12:20:22.608Z | START | e6b99519-0837-46fb-906c-284e1b532c05 | [P5 Canary] main | worker=task-e6b99519-0837-46fb-906c-284e1b532c05-main | progress=- | summary=-
+- 2026-04-24T12:20:23.173Z | CHECKPOINT | e6b99519-0837-46fb-906c-284e1b532c05 | [P5 Canary] main | worker=task-e6b99519-0837-46fb-906c-284e1b532c05-main | progress=90% | summary=- | note=Canary still in bounded no-op execution; terminal proof follows.
+- 2026-04-24T12:20:23.443Z | DONE | e6b99519-0837-46fb-906c-284e1b532c05 | [P5 Canary] main | worker=main | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: canary-ok
+- 2026-04-24T12:26:41.770Z | START | b6316d51-310d-40d4-850b-66470abcd7ec | [P5 Canary] frontend-guru | worker=frontend-guru | progress=- | summary=-
+- 2026-04-24T12:26:58.355Z | DONE | b6316d51-310d-40d4-850b-66470abcd7ec | [P5 Canary] frontend-guru | worker=frontend-guru | progress=- | summary=EXECUTION_STATUS
+Done
+
+RESULT_SUMMARY
+canary-ok
+- 2026-04-24T12:41:54.811Z | START | 0feb3749-1a05-4f56-aa11-52f182654853 | [P5 Canary] main | worker=task-0feb3749-1a05-4f56-aa11-52f182654853-main | progress=- | summary=-
+- 2026-04-24T12:41:55.756Z | CHECKPOINT | 0feb3749-1a05-4f56-aa11-52f182654853 | [P5 Canary] main | worker=task-0feb3749-1a05-4f56-aa11-52f182654853-main | progress=90% | summary=- | note=Canary still in bounded no-op execution; terminal proof follows.
+- 2026-04-24T12:41:56.215Z | DONE | 0feb3749-1a05-4f56-aa11-52f182654853 | [P5 Canary] main | worker=main | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: canary-ok
