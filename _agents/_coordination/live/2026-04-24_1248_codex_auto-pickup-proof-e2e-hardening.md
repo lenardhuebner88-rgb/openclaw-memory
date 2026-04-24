@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-04-24T12:48:02Z
-ended: null
+ended: 2026-04-24T13:22:10Z
 task: "Auto-pickup/proof E2E hardening"
 touching:
   - /home/piet/.openclaw/scripts/auto-pickup.py
@@ -27,3 +27,4 @@ operator: lenard
 - 2026-04-24T12:49:06Z P1 abgeschlossen: orphan-lock Regressionstest fuer `cleanup_unclaimed_spawn_locks`; Python compile + Auto-Pickup Tests 14/14 passed; live oneshot success.
 - 2026-04-24T12:50:10Z P2 lokal abgeschlossen: Pickup-Proof unterscheidet aktive/historische/total Claim-Timeouts; Vitest pickup-proof 5/5 und typecheck passed.
 - 2026-04-24T12:52:03Z P3 lokal abgeschlossen: `runtime-soak-e2e-audit.mjs` + Script-Tests; targeted Vitest 17/17 passed. Dry-run plant Pixel ja, Main noch Cooldown.
+- 2026-04-24T13:22:10Z Final: Build deployed; E2E Audit settled gruen (`5539b621` Pixel, `ddfb3c95` Main, 6/6 Gates). Atlas Audit Gate Task `30c36874-bac1-48f4-b424-61a47b151047` created/dispatched/accepted; health/pickup ok, services active. Worker proof warning ist der laufende Atlas-Audit-Run, critical=0.
