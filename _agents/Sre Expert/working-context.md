@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f4f0f120-384e-4e57-9f78-449f29eab1c1 S-GOV T4: memory-orchestrator qmd-update step fixen
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-22T21:23:41.103Z
+- task: f6128939-8f27-4272-b17d-8da2ffe342f2 [P0][Forge] MC 8/10 Dispatch-/Claim-Flow härten
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Worker session lost after gateway restart; no fresh process evidence and run stale during Codex stability takeover.
+- blocker: Worker session lost after gateway restart; no fresh process evidence and run stale during Codex stability takeover.
+- updated: 2026-04-24T10:39:52.464Z
 <!-- mc:auto-working-context:end -->

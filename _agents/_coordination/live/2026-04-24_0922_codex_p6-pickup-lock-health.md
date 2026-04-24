@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-04-24T09:22:56Z
-ended: null
+ended: 2026-04-24T10:11:44Z
 task: "P6 Pickup/Lock/Health hardening"
 touching:
   - /home/piet/.openclaw/workspace/mission-control/src/lib/pickup-proof.ts
@@ -23,3 +23,4 @@ operator: lenard
 
 ## Log
 - 2026-04-24T09:22:56Z Session gestartet; vorhandene P6-Artefakte im Vault fehlten und werden neu angelegt.
+- 2026-04-24T10:11:44Z Codex-eigene alte Live-Session geschlossen, damit die neue 3h-Steuerung eindeutig im live-Handschlag sichtbar ist.

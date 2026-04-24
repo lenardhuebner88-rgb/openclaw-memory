@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-04-24T10:09:08Z
-ended: null
+ended: 2026-04-24T10:11:44Z
 task: "3h active Mission Control stabilization and controlled live testing"
 touching:
   - /home/piet/.openclaw/workspace/mission-control/src/lib/context-budget-proof.ts
@@ -19,3 +19,4 @@ operator: lenard
 
 ## Log
 - 2026-04-24T10:09:08Z Session gestartet. Baseline: health/pickup/worker ok, Runtime-Soak blockiert durch James active context criticals.
+- 2026-04-24T10:11:44Z Nach neuem Atlas/Codex-Handshake in `_agents/_coordination/live/` gespiegelt; diese Root-Datei geschlossen, damit Retrieval zuerst Live nutzt.

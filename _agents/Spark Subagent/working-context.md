@@ -1,4 +1,4 @@
-# Efficiency Auditor Working Context
+# Spark Subagent Working Context
 
 ## Lies zuerst
 - [[../Shared/project-state]]
@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e4d7e20e-afbd-4130-bef0-93d691bb893a [P1][Lens] MC 8/10 Audit: Bugs, Kostenhebel und Priorisierung
+- task: d861181c-abf9-47ca-b826-4ed59976f1bc [P1][Spark] MC 8/10 Quick-Bug-Sweep und Repro-Matrix
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-24T10:24:43.423Z
+- updated: 2026-04-24T10:25:10.388Z
 <!-- mc:auto-working-context:end -->
