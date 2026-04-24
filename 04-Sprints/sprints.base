@@ -1,31 +1,56 @@
 filters:
   and:
-    - file.folder == "04-Sprints"
+    - file.path.startsWith("04-Sprints/")
     - file.ext == "md"
     - file.name != "AGENTS"
     - file.name != "04-Sprints"
+    - file.name != "sprints"
 views:
   - type: table
-    name: Alle Sprints
-    order:
-      - file.name
-      - status
-      - priority
-      - owner
-      - created
+    name: Active
+    filters:
+      - file.folder == "04-Sprints/active"
+    order: [file.name, status, priority, owner, created]
     sort:
       - property: created
         direction: DESC
   - type: table
-    name: Aktive Sprints
+    name: Planned
     filters:
-      and:
-        - status == "in-progress"
-        - status == "active"
-        - status == "planning"
-      or: true
-    order:
-      - file.name
-      - status
-      - priority
-      - owner
+      - file.folder == "04-Sprints/planned"
+    order: [file.name, status, priority, owner, created]
+    sort:
+      - property: created
+        direction: DESC
+  - type: table
+    name: Closed
+    filters:
+      - file.folder == "04-Sprints/closed"
+    order: [file.name, status, priority, owner, created]
+    sort:
+      - property: created
+        direction: DESC
+  - type: table
+    name: Superseded
+    filters:
+      - file.folder == "04-Sprints/superseded"
+    order: [file.name, status, priority, owner, created]
+    sort:
+      - property: created
+        direction: DESC
+  - type: table
+    name: Reports
+    filters:
+      - file.folder == "04-Sprints/reports"
+    order: [file.name, status, priority, owner, created]
+    sort:
+      - property: created
+        direction: DESC
+  - type: table
+    name: Alles
+    order: [file.folder, file.name, status, priority, owner, created]
+    sort:
+      - property: file.folder
+        direction: ASC
+      - property: created
+        direction: DESC
