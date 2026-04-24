@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cc00085c-4e12-4582-91ed-381dc295f998 [P5 Canary] james
+- task: b1ff2a1b-171a-4875-8b2d-72498c97afce [P2][James] Externe Gegenprüfung von Kosten- und Routing-Annahmen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Task accepted and completed.
+- checkpoint: Externe Kosten-Gegenprüfung: 5 Vergleichspunkte (MiniMax bestätigt, GPT-5.4-mini besser als erwartet, Gemini-2.5-flash für RAG, Codex-mini günstiger, o4-mini sweet-spot statt o3).
 - blocker: -
-- updated: 2026-04-24T18:47:48.087Z
+- updated: 2026-04-24T20:04:24.177Z
 <!-- mc:auto-working-context:end -->

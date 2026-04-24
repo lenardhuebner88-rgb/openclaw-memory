@@ -439,3 +439,41 @@ NEXT_GAPS:
 - Optional: dedizierten CI-Job für scripts/auto-pickup-service-regression-suite.mjs hinzufügen.
 - Optional: zusätzliche Assertion für systemd-spezifische lock age/cleanup policy in separatem Testfall.
 - 2026-04-24T19:42:50.448Z | START | 7994f125-fe13-4ad7-a28b-819a24ba3367 | [P1][Forge] James-Completion/Receipt-Pfad fixen, damit Analysen sauber ankommen | worker=task-7994f125-fe13-4ad7-a28b-819a24ba3367-sre-expert | progress=- | summary=-
+- 2026-04-24T19:46:10.404Z | START | e5e21376-c5ff-43d2-b747-865b431cc5c2 | [P5 Canary] james | worker=james | progress=- | summary=-
+- 2026-04-24T19:46:20.005Z | DONE | e5e21376-c5ff-43d2-b747-865b431cc5c2 | [P5 Canary] james | worker=james | progress=- | summary=P5 canary passed — gateway alive, workspace accessible, taskboard reachable, worker=james confirmed. No config or routing changes.
+- 2026-04-24T19:46:47.104Z | CHECKPOINT | 7994f125-fe13-4ad7-a28b-819a24ba3367 | [P1][Forge] James-Completion/Receipt-Pfad fixen, damit Analysen sauber ankommen | worker=task-7994f125-fe13-4ad7-a28b-819a24ba3367-sre-expert | progress=75% | summary=- | note=James-Propagation-Fix implementiert im Auto-Pickup dispatch contract (james-spezifischer terminal result quality hint). Reproduzierbarer James-Canary e5e21376 abgeschlossen mit inhaltlicher Summary statt generischem Placeholder.
+- 2026-04-24T19:47:13.559Z | DONE | 7994f125-fe13-4ad7-a28b-819a24ba3367 | [P1][Forge] James-Completion/Receipt-Pfad fixen, damit Analysen sauber ankommen | worker=sre-expert | progress=75% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY:
+- Kleinster stabiler Fix implementiert: Auto-Pickup Worker-Dispatch-Contract wurde um explizite Terminal-Result-Qualitätsregeln erweitert, inkl. James-spezifischem Hint gegen generische Abschlussmeldungen.
+- Der Fix greift ohne Worker-/Reporting-Refactor und ohne Config-/Restart-Änderungen.
+ROOT_CAUSE:
+- James hat im Result-Receipt-Pfad wiederholt generische `resultSummary` (`Task accepted and completed.`) geschrieben, obwohl in den Run-Payloads inhaltlich brauchbare Ergebnisse vorhanden waren.
+- Damit lag der Defekt im Tasking-/Receipt-Contract des Agentenverhaltens, nicht im Mission-Control Renderer.
+CHANGES:
+- Geändert: `/home/piet/.openclaw/scripts/auto-pickup.py` in `trigger_worker(...)`
+  - neuer `receipt_quality_hint` für alle Worker:
+    - task-spezifische, menschenlesbare `resultSummary`
+    - Verbot generischer Placeholder
+    - Alignment mit geforderten Return-Sections
+  - zusätzlicher James-spezifischer Hint:
+    - finale Resultate müssen Findings/Evidence/Residual-Risk reflektieren
+    - keine Bootstrap-/Profilfragen in Produktions-Task-Results
+TEST_OR_CANARY_EVIDENCE:
+- Reproduzierbarer James-Canary (neu erzeugt): `e5e21376-c5ff-43d2-b747-865b431cc5c2`
+  - final: `status=done`, `receiptStage=result`, `executionState=done`
+  - `resultSummary`: `P5 canary passed — gateway alive, workspace accessible, taskboard reachable, worker=james confirmed. No config or routing changes.`
+  - => keine generische Abschlussmeldung mehr.
+- Script-Check:
+  - `python3 -m py_compile /home/piet/.openclaw/scripts/auto-pickup.py` PASS
+  - contract-marker assertions PASS.
+ROLLBACK:
+- Auto-Pickup Script zurück auf letzte bekannte Version (z. B. `/home/piet/.openclaw/scripts/auto-pickup.py.post-fix-2026-04-23` oder passendes `.bak-*`) und Cron-Lauf normal fortsetzen.
+OPEN_RISKS:
+- Der Fix ist prompt/contract-basiert (Behavioral Guard), nicht schema-erzwungen.
+- Für harte Enforcement-Stufe wäre ein optionaler serverseitiger Soft-Guard sinnvoll (z. B. warn/metric bei generischen resultSummarys für James außerhalb Canary).
+- 2026-04-24T20:02:08.722Z | START | 566d3c28-9d46-45f8-a476-c6360564bcbe | [P1][Lens] Output-/Noise-Policy nach Caps bewerten | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-24T20:02:29.034Z | START | b1ff2a1b-171a-4875-8b2d-72498c97afce | [P2][James] Externe Gegenprüfung von Kosten- und Routing-Annahmen | worker=james | progress=- | summary=-
+- 2026-04-24T20:03:24.115Z | DONE | 566d3c28-9d46-45f8-a476-c6360564bcbe | [P1][Lens] Output-/Noise-Policy nach Caps bewerten | worker=efficiency-auditor | progress=- | summary=Output-Caps Bilanz: 57% kurze Summaries (<=160) erreichen Ziel. Worker-Noise um 80% reduziert. Rest-Rauschen in langen Summaries und Archive-View.
+- 2026-04-24T20:04:24.176Z | DONE | b1ff2a1b-171a-4875-8b2d-72498c97afce | [P2][James] Externe Gegenprüfung von Kosten- und Routing-Annahmen | worker=james | progress=- | summary=Externe Kosten-Gegenprüfung: 5 Vergleichspunkte (MiniMax bestätigt, GPT-5.4-mini besser als erwartet, Gemini-2.5-flash für RAG, Codex-mini günstiger, o4-mini sweet-spot statt o3).
+- 2026-04-24T20:07:47.963Z | START | ffb7f979-9aa7-4f9f-9241-725c0f7598ac | [P2][Lens] OpenAI/Codex-Abo-Kostenlogik sauber entwirren | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-24T20:10:28.238Z | DONE | ffb7f979-9aa7-4f9f-9241-725c0f7598ac | [P2][Lens] OpenAI/Codex-Abo-Kostenlogik sauber entwirren | worker=efficiency-auditor | progress=- | summary=Codex/MiniMax-Kostenlogik entrarrt: Billing-Mismatch = falsches Modell-Label, kein echter Fehler. Flat-Rate-Anzeige ist fuer Abo korrekt. 2 OFFENE Fragen: (1) Codex flat-rate wirklich Unlimited?, (2) MiniMax-Portal $0-Kosten confusen Pool-Depletion-Alert.

@@ -7,13 +7,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d50fb7c5-e7fa-4e19-9b4a-b8eec83a7ca9 [P0][Forge] Auto-Pickup systemd-Service-Mode als Regression-Suite absichern
+- task: 7994f125-fe13-4ad7-a28b-819a24ba3367 [P1][Forge] James-Completion/Receipt-Pfad fixen, damit Analysen sauber ankommen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
 RESULT_SUMMARY:
-- Auto-Pickup Service-Mode Regression-Suite implementiert und ausführbar gemacht.
-- Double-start Regression im Claim-Handoff aktiv gehärtet (Ownership-Conflict Guard in claim route)
+- Kleinster stabiler Fix implementiert: Auto-Pickup Worker-Dispatch-Contract wurde um explizite Terminal-Result-Qualitätsregeln erweitert, inkl. James-spezifischem Hint gegen generi
 - blocker: -
-- updated: 2026-04-24T19:41:54.904Z
+- updated: 2026-04-24T19:47:13.560Z
 <!-- mc:auto-working-context:end -->

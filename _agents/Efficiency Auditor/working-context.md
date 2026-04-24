@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5272e0cf-55d3-4ba5-9ae6-13b76dd5c893 [P5 Canary] efficiency-auditor
+- task: ffb7f979-9aa7-4f9f-9241-725c0f7598ac [P2][Lens] OpenAI/Codex-Abo-Kostenlogik sauber entwirren
 - stage: DONE
 - next: await next assignment
-- checkpoint: P5 Canary PASSED. MC health=ok. Read-only verification completed.
+- checkpoint: Codex/MiniMax-Kostenlogik entrarrt: Billing-Mismatch = falsches Modell-Label, kein echter Fehler. Flat-Rate-Anzeige ist fuer Abo korrekt. 2 OFFENE Fragen: (1) Codex flat-rate wirklich Unlimited?, (2) MiniMax-Portal $0-Ko
 - blocker: -
-- updated: 2026-04-24T18:46:47.360Z
+- updated: 2026-04-24T20:10:28.239Z
 <!-- mc:auto-working-context:end -->
