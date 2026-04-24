@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-04-24T10:09:08Z
-ended: null
+ended: 2026-04-24T12:43:50Z
 task: "3h active Mission Control stabilization and controlled live testing"
 touching:
   - /home/piet/.openclaw/workspace/mission-control/src/lib/context-budget-proof.ts
@@ -37,3 +37,4 @@ operator: lenard
 - 2026-04-24T11:25:03Z Operator verlangt weitere echte Tests, bis Worker und Main gruen sind. Codex fuehrt ab jetzt sequenziell Worker-Canaries aus, je ein Agent, danach Gates; Main/Atlas zuletzt nur mit `--allow-main`.
 - 2026-04-24T11:52:45Z Rootcause Lens-Canary gefixt: non-terminale Pending-Pickup-Receipts brauchen `dispatchToken` plus gueltige `workerSessionId`; Canary-Beschreibung enthaelt jetzt expliziten Claim-Receipt-Contract (`agent:<agent-id>`). Tests 22/22, typecheck, Production Build passed. Live Lens-Re-Test `3bc580cc-a936-4776-8d5f-f3fdc45f2ba6` accepted mit `agent:efficiency-auditor` und endete `done/result`; Health/Worker/Pickup ok.
 - 2026-04-24T12:33:03Z Main-/Heartbeat-Rootcause gefixt: systemd Auto-Pickup-Timeout war live noch 20s, jetzt Base 45s + Main 90s; `runtime-soak-proof` nutzt fuer terminale Main-Sessions `endedAt` statt refreshtem `updatedAt`. Python 13/13, Vitest 19/19, typecheck, Production Build passed. Pixel-Real-Test `b6316d51-310d-40d4-850b-66470abcd7ec` sauber done; Main wartet nur noch auf 10m-Cooldown fuer genau einen Re-Test mit `--allow-main`.
+- 2026-04-24T12:43:50Z Main-Re-Test `0feb3749-1a05-4f56-aa11-52f182654853` nach Cooldown sauber done/result/canary-ok. Auto-pickup log: `CLAIM_CONFIRMED` + `TRIGGER`, kein Claim-Timeout fuer diesen Task. Final-Gates health/pickup/worker/runtime ok; Services active.
