@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-04-24T18:20:16Z
-ended: null
+ended: 2026-04-24T19:02:00Z
 task: "Worker hardening points 1-5 plus Minimax status reporting fix"
 touching:
   - /home/piet/.openclaw/workspace/mission-control/
@@ -20,3 +20,4 @@ operator: lenard
 
 ## Log
 - 2026-04-24T18:20:16Z Session gestartet; Coordination Frontmatter zeigt keine offene ueberschneidende Live-Session.
+- 2026-04-24T19:02:00Z Worker-Hardening 1-5 abgeschlossen: Tests/Typecheck/Build/Restart, 5-Agent-Soak und 10-Minuten-Stabilitaetstest gruen; Report unter `_agents/codex/plans/2026-04-24_worker-hardening-points-1-5-green-gate.md`; Discord final `1497311642516717720`.

@@ -65,14 +65,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 54316ed6-7037-4878-8a7e-bfeb2b178669 [GATE][Pixel] Task-Detail Buttons und Client-Exception Smoke
+- task: 842886a7-7a5c-4842-9eac-11442079b324 [P5 Canary] frontend-guru
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 Done
 
 RESULT_SUMMARY
-No task-detail client exception reproduced in the current smoke. The useful path from the prior failed task is now green: taskboard opened, first task detail opened, modal rendered, 
+canary-ok
 - blocker: -
-- updated: 2026-04-24T17:56:23.476Z
+- updated: 2026-04-24T18:45:35.702Z
 <!-- mc:auto-working-context:end -->
