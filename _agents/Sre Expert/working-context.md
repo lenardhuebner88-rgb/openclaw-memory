@@ -7,14 +7,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ebb3782d-39c2-46eb-9b14-b82eef722457 [P5 Canary] sre-expert
+- task: 23365e61-b0c8-458d-8fd9-00c58648d3be [P4.2][Forge] MC Worker-proof Noise für legitime Atlas/Main-Runs reduzieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS
-DONE
-
-RESULT_SUMMARY
-canary-ok
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY:
+- Worker-Reconciler-Semantik geschärft: aktive gateway-owned Runs (z. B. legitime Atlas/Main-Audit-Runs) erzeugen keine irreführenden Missing-Heartbeat/Process-Evidence-Warnings meh
 - blocker: -
-- updated: 2026-04-24T11:28:54.290Z
+- updated: 2026-04-24T14:12:06.490Z
 <!-- mc:auto-working-context:end -->

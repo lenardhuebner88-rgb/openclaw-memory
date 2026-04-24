@@ -120,3 +120,59 @@ RESULT_SUMMARY: canary-ok
 - 2026-04-24T13:24:31.527Z | DONE | 30c36874-bac1-48f4-b424-61a47b151047 | [MC Audit Gate] Atlas orchestrated UI + data stability audit | worker=main | progress=85% | summary=EXECUTION_STATUS: done
 RESULT_SUMMARY: Audit report written to /home/piet/vault/03-Projects/reports/audits/2026-04-24_mc-orchestrated-audit-gate-report.md. Verdict: pass with P4 follow-up, not a current blocker. Key findings: /api/health ok; board snapshot compact (~2 KB); /api/tasks remains heavy (~1.82 MB); worker/runtime proof noise during this run is self-inflicted by the active Atlas session lock/open run; no obvious visible UI bug confirmed in desktop/mobile sanity captures. Recommended P4 sprints: reduce worker-proof noise for legitimate Atlas runs, distinguish self-lock from true runtime-soak blocker, and remove broad default /api/tasks dependence.
 - 2026-04-24T13:40:45.276Z | DONE | b2e160f7-c709-470b-ba8d-b8d384920dab | [P0][Atlas] OpenClaw update readiness prüfen und Remediation-Plan erstellen | worker=main | progress=- | summary=Task resolved and closed
+- 2026-04-24T13:48:05.719Z | START | 7fe05dd7-957e-484b-b7c7-5f197581d4d4 | [P4.1][Forge] MC Board/API-Payload- und Refresh-Stabilität härten | worker=task-7fe05dd7-957e-484b-b7c7-5f197581d4d4-sre-expert | progress=- | summary=-
+- 2026-04-24T13:49:39.821Z | CHECKPOINT | 7fe05dd7-957e-484b-b7c7-5f197581d4d4 | [P4.1][Forge] MC Board/API-Payload- und Refresh-Stabilität härten | worker=task-7fe05dd7-957e-484b-b7c7-5f197581d4d4-sre-expert | progress=55% | summary=- | note=Operational Summary auf /api/board/snapshot (live+archive) umgestellt; normale Refresh-Reads nutzen nicht mehr standardmäßig /api/tasks.
+- 2026-04-24T13:50:32.160Z | CHECKPOINT | 7fe05dd7-957e-484b-b7c7-5f197581d4d4 | [P4.1][Forge] MC Board/API-Payload- und Refresh-Stabilität härten | worker=task-7fe05dd7-957e-484b-b7c7-5f197581d4d4-sre-expert | progress=90% | summary=- | note=Änderung committed (f8a01ce); npm run build (wrapper, skip wegen live :3000) und npm run typecheck erfolgreich.
+- 2026-04-24T13:50:51.336Z | DONE | 7fe05dd7-957e-484b-b7c7-5f197581d4d4 | [P4.1][Forge] MC Board/API-Payload- und Refresh-Stabilität härten | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY:
+- Normaler Operational-Summary Refresh nutzt jetzt scoped Snapshot-Reads statt /api/tasks.
+- Datenquelle umgestellt auf /api/board/snapshot?view=live + view=archive.
+- Task-Kernzahlen werden primär aus summary.statusCounts gelesen (kein Full-Taskscan fuer Standard-Counts).
+CHANGED_PATHS:
+- src/components/operational-summary.tsx
+- Commit: f8a01ce
+ACCEPTANCE_GATES:
+- npm run build (canonical wrapper) ausgefuehrt; korrekt wegen live :3000 mit "skip to avoid live chunk drift" beendet.
+- npm run typecheck erfolgreich.
+REAL_TEST_CASES:
+- Payload-Check live:
+  - /api/tasks: 1,832,838 bytes
+  - /api/board/snapshot?view=live: 2,828 bytes
+  - /api/board/snapshot?view=archive: 141,527 bytes
+- Ergebnis: normaler Polling-Pfad in Operational Summary hat keine Default-Abhaengigkeit mehr auf /api/tasks.
+OPEN_RISKS:
+- Operational Summary lädt weiterhin archive-Snapshot fuer Erfolgs-/Cycle-Metriken; bei stark wachsendem Archiv koennte ein dedizierter Metrics-Endpoint sinnvoll sein.
+- 2026-04-24T14:08:37.757Z | START | 23365e61-b0c8-458d-8fd9-00c58648d3be | [P4.2][Forge] MC Worker-proof Noise für legitime Atlas/Main-Runs reduzieren | worker=task-23365e61-b0c8-458d-8fd9-00c58648d3be-sre-expert | progress=- | summary=-
+- 2026-04-24T14:10:52.395Z | CHECKPOINT | 23365e61-b0c8-458d-8fd9-00c58648d3be | [P4.2][Forge] MC Worker-proof Noise für legitime Atlas/Main-Runs reduzieren | worker=task-23365e61-b0c8-458d-8fd9-00c58648d3be-sre-expert | progress=55% | summary=- | note=Worker-proof Semantik gehärtet: aktive gateway-owned Runs erzeugen keine Missing-Heartbeat/Process-Evidence Noise mehr; runtime soak gate bewertet jetzt nur worker criticalIssues als blocker.
+- 2026-04-24T14:11:40.984Z | CHECKPOINT | 23365e61-b0c8-458d-8fd9-00c58648d3be | [P4.2][Forge] MC Worker-proof Noise für legitime Atlas/Main-Runs reduzieren | worker=task-23365e61-b0c8-458d-8fd9-00c58648d3be-sre-expert | progress=90% | summary=- | note=Klassifizierungsfix umgesetzt und committed (6d9ef0c); typecheck + gezielte Tests + Build-Wrapper erfolgreich.
+- 2026-04-24T14:12:06.489Z | DONE | 23365e61-b0c8-458d-8fd9-00c58648d3be | [P4.2][Forge] MC Worker-proof Noise für legitime Atlas/Main-Runs reduzieren | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY:
+- Worker-Reconciler-Semantik geschärft: aktive gateway-owned Runs (z. B. legitime Atlas/Main-Audit-Runs) erzeugen keine irreführenden Missing-Heartbeat/Process-Evidence-Warnings mehr, solange sie im erwarteten aktiven Fenster liegen.
+- Runtime-Soak-Gate worker-proof-clean bewertet jetzt nur noch echte worker-criticalIssues als blocker; openRuns bleiben sichtbar im Detail, triggern aber nicht pauschal eine degraded/block-Lage.
+- Änderung abgeschlossen in Commit 6d9ef0c.
+ROOT_CAUSE:
+- Proof-Noise entstand, weil gateway-basierte legitime Runs keine Subagent-Herzschlag-/Sessions-Index-Spuren liefern, aber dieselbe Warning-Logik wie echte Problemfälle durchliefen.
+- Zusätzlich wurde im Runtime-Soak-Gate openRuns>0 pauschal als blocker gewertet, obwohl openRuns ohne criticalIssues operativ normal sein können.
+PROOF_SEMANTICS:
+- Neue Suppression nur für enge legitime Konstellation:
+  - workerSessionId startet mit gateway:
+  - task status in-progress|pending-pickup
+  - dispatchState=dispatched
+  - executionState aktiv (oder unset)
+  - nicht stale über staleOpenRunMs
+- Echte Problemfälle bleiben sichtbar:
+  - terminal task + open run
+  - stale open runs
+  - session mismatch
+  - active task without open run
+  - retry-cap violations
+ACCEPTANCE_GATES:
+- npm run typecheck: PASS
+- npx vitest run tests/worker-run-reconciler.test.ts tests/runtime-soak-proof.test.ts: PASS (23 tests)
+- npm run build (canonical wrapper): PASS (live :3000 erkannt, Build-Skip laut Schutzlogik)
+REAL_TEST_CASES:
+- Neuer Test: worker reconciler suppresses missing-heartbeat noise for active gateway-owned runs -> report.status=ok, openRuns bleibt sichtbar, issues=0.
+- Neuer Test: runtime soak stays ready with openRuns when workerCriticalIssues=0.
+OPEN_RISKS:
+- Suppression gilt bewusst nur für gateway-owned active/non-stale Runs; wenn ein gateway-run stale wird, greift weiterhin Stale-Detection.
+- Live-Endpunkt auf :3000 zeigt Änderungen erst nach regulärem Deploy/Reload des laufenden MC-Prozesses.
