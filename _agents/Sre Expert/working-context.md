@@ -7,13 +7,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 01e5b7c6-e592-4d83-bd65-596e3683c987 [P2][Forge] Flat-Rate Billing-Mismatch für abonnementbasierte Provider sauber entwarnen
+- task: 646c087e-bdbe-453f-a833-aeefa4990154 [P4.x][Forge] Optionaler Metrics-Endpoint für Archive-/Success-/Cycle-Metriken prüfen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
 RESULT_SUMMARY:
-- Flat-Rate Billing-Mismatch für openai-codex ist jetzt sauber entwarnt: statt irreführendem `billing-mismatch/high` wird live `flatrate-billing-artifact/low` gemeldet.
-- Variable K
+Optionales Follow-up wurde als kleiner stabiler Scope umgesetzt: neuer dedizierter `/api/board/metrics` Endpoint liefert Success-/Cycle-Metriken ohne schweren Archive-Snapshot-Read.
 - blocker: -
-- updated: 2026-04-24T20:33:56.012Z
+- updated: 2026-04-24T21:18:28.925Z
 <!-- mc:auto-working-context:end -->
