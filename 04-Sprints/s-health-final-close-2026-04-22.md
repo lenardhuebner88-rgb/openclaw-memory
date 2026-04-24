@@ -1,7 +1,7 @@
 ---
 title: S-HEALTH Final Close
 date: 2026-04-22
-status: CLOSED
+status: closed
 closed-by: Operator
 reviewer: Atlas
 scope: Board-Consistency Cleanup (Original A1-C Categories)

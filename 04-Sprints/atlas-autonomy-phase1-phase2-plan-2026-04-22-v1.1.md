@@ -1,7 +1,7 @@
 ---
 title: Atlas Autonomy Plan — Phase 1 + Phase 2 (v1.1 — Revision)
 version: 1.1
-status: ready-for-review
+status: superseded
 supersedes: atlas-autonomy-phase1-phase2-plan-2026-04-22.md (v1.0)
 revised_by: Claude Opus 4.7 (1M context) + 3 verification agents
 revised_on: 2026-04-22

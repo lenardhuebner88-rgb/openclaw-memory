@@ -1,3 +1,8 @@
+---
+title: Sprint-M Session Closeout + Forge Verification (2026-04-21)
+status: report
+---
+
 # Sprint-M Session Closeout + Forge Verification (2026-04-21)
 
 ## Scope

@@ -1,3 +1,8 @@
+---
+title: S-HEALTH Inventory — 2026-04-22
+status: report
+---
+
 # S-HEALTH Inventory — 2026-04-22
 
 > **Status:** T1 (Inventory) ✅ done | T2 (Root-Cause) ✅ done

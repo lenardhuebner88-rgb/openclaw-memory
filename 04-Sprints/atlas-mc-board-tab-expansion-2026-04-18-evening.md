@@ -1,7 +1,7 @@
 ---
 title: MC-Board Tab-Expansion — Memory + Files + Automations (neu) + Cross-Tab-Integration
 version: 1.0
-status: in-execution
+status: superseded
 created: 2026-04-18 evening
 owner: Operator + Atlas
 sprints: 4 parallel + sequential

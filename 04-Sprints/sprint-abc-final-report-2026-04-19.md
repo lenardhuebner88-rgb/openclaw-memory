@@ -1,3 +1,8 @@
+---
+title: Sprint-ABC Final Report (Deploy-verified)
+status: report
+---
+
 # Sprint-ABC Final Report (Deploy-verified)
 
 **Typ:** E2E/Orchestrator — Sprint-C Deploy-Recovery  

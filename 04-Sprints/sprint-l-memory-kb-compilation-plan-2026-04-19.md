@@ -1,7 +1,7 @@
 ---
 title: Sprint-L Memory Level-3 — Knowledge-Base Compilation + Graph-Edges + Retrieval-Feedback
 date: 2026-04-19 20:35 UTC
-status: draft (ready-to-dispatch after Sprint-K done)
+status: planned
 type: sprint-plan
 trigger_suggestion: "Atlas Sprint-L Memory-KB starten"
 estimated_effort: 10-14h orchestriert

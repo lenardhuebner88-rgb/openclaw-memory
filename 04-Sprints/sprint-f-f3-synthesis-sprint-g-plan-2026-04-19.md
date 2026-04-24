@@ -1,3 +1,8 @@
+---
+title: Sprint-F F3: Synthesis + Sprint-G Plan
+status: report
+---
+
 # Sprint-F F3: Synthesis + Sprint-G Plan
 **Datum:** 2026-04-19 19:57 UTC+2
 **Author:** Atlas

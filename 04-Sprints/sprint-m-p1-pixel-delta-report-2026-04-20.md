@@ -1,3 +1,8 @@
+---
+title: Sprint-M P1 Pixel Delta Report — 2026-04-20
+status: report
+---
+
 # Sprint-M P1 Pixel Delta Report — 2026-04-20
 
 ## Scope

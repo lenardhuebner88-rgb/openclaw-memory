@@ -1,3 +1,8 @@
+---
+title: Sprint-I — Comprehensive Mobile-Audit Report
+status: report
+---
+
 # Sprint-I — Comprehensive Mobile-Audit Report
 **Date:** 2026-04-19
 **Status:** COMPLETE ✅

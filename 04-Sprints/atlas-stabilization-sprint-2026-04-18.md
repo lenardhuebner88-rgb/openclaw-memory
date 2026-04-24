@@ -1,7 +1,7 @@
 ---
 title: Stabilization Sprint 2026-04-18 — System-Gaps nach 1-Tag-Autonomie
 version: 1.0
-status: in-execution
+status: superseded
 owner: Operator + Atlas
 created: 2026-04-18
 ---

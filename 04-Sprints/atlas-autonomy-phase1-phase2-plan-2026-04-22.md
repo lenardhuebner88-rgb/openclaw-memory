@@ -1,7 +1,7 @@
 ---
 title: Atlas Autonomy Plan — Phase 1 + Phase 2
 version: 1.0
-status: ready-for-implementation
+status: superseded
 owner: Codex
 created: 2026-04-22
 depends_on: atlas-continuation-orchestrator.md, atlas-session-memory-operating-model.md, r47-scope-lock-design-2026-04-19.md

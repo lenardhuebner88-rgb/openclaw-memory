@@ -1,7 +1,7 @@
 ---
 title: Sprint-M v1.2.1 Final Close
 date: 2026-04-22
-status: CLOSED
+status: closed
 reviewer: Lens (APPROVE via Atlas-Verdict nach Gap-Closure Evidence)
 closed-by: Operator (pieter_pan)
 ---

@@ -1,3 +1,8 @@
+---
+title: Sprint-N + Sprint-O Closure Report
+status: report
+---
+
 # Sprint-N + Sprint-O Closure Report
 **Datum:** 2026-04-20
 **Sprint-N:** Lifecycle Stability & Audit Closure

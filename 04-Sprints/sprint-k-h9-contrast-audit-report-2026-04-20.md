@@ -1,3 +1,8 @@
+---
+title: Sprint-K H9 Contrast Audit Report (2026-04-20)
+status: report
+---
+
 # Sprint-K H9 Contrast Audit Report (2026-04-20)
 
 ## Scope

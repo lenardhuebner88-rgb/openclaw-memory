@@ -1,7 +1,7 @@
 ---
 title: Verify-Consolidation-Sprint 2026-04-18 Nacht
 version: 1.0
-status: ready-for-execution
+status: superseded
 created: 2026-04-18 abends (nach Tab-Expansion-Welle)
 owner: Atlas (Orchestrator)
 duration_budget: 30–45 Minuten

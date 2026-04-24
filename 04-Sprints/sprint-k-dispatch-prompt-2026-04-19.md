@@ -1,7 +1,7 @@
 ---
 title: Sprint-K Infra-Hardening Atlas-Dispatch-Prompt
 date: 2026-04-19 20:30 UTC
-status: ready-to-fire (after Sprint-I done)
+status: superseded
 trigger_suggestion: "Atlas Sprint-K Infra-Hardening starten"
 estimated_effort: 14-18h orchestriert (8 subs, H1 bereits done)
 prerequisites: Sprint-I Mobile-Polish done, R47-R49 deployed (done ✅)

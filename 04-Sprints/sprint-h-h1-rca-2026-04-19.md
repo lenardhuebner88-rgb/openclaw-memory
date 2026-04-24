@@ -2,7 +2,7 @@
 title: Sprint-H H1 False-Failure RCA
 date: 2026-04-19
 author: sre-expert (Forge)
-status: final
+status: report
 type: rca
 scope: Sprint-J J1
 related_task_ref: e4269df1

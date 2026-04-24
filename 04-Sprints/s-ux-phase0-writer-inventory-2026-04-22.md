@@ -4,6 +4,7 @@ created: 2026-04-22
 purpose: S-UX Phase 0 Pre-Flight — identifiziert welche Sites heute `updatedAt` / `lastActivityAt` schreiben, damit Phase 0 Backend-Fix (stateTransitions[]) klaren Refactor-Scope hat
 scope: MC backend code, read-only grep
 measurement-date: 2026-04-22 ~23:30 CEST
+status: report
 ---
 
 # S-UX Phase 0 stateTransitions Writer-Inventar

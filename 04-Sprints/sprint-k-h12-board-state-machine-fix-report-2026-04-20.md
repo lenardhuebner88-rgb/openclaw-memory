@@ -1,3 +1,8 @@
+---
+title: Sprint-K H12 — Board State Machine Fix Report (2026-04-20)
+status: report
+---
+
 # Sprint-K H12 — Board State Machine Fix Report (2026-04-20)
 
 ## Scope

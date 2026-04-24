@@ -3,7 +3,7 @@ title: Sprint-H Board Analytics + Alerting Plan
 date: 2026-04-19 21:00 UTC
 author: Atlas
 scope: Board-KPI-API formalisieren + Alerting-Engine + Frontend-Tableau
-status: ready-to-dispatch
+status: planned
 type: sprint-plan
 trigger_phrase: "Sprint-H dispatch"
 prerequisites: Sprint-G G3 (Ops-API) done

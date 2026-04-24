@@ -1,3 +1,8 @@
+---
+title: Sprint O — QMD Minimization (2026-04-22)
+status: report
+---
+
 # Sprint O — QMD Minimization (2026-04-22)
 
 Status: PLAN ONLY

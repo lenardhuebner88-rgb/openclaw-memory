@@ -2,7 +2,7 @@
 title: Sprint-J Autonomous-Cascade Post-Mortem + Governance Hardening
 date: 2026-04-19
 author: Operator (pieter_pan) + Assistant (Claude) Live-Observation 17:30-19:18 UTC
-status: ready-to-dispatch
+status: planned
 type: sprint-plan
 trigger_context: Atlas Autonomous-Cascade Sprint-F→G→H 2026-04-19 17:31-19:16 UTC
 prerequisites: Atlas Sprint-H Board-Analytics done (H2 + H3 in-progress at plan-write time)

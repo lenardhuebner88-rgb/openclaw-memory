@@ -1,3 +1,8 @@
+---
+title: Sprint-K H13 Defense Layers Report (2026-04-20)
+status: report
+---
+
 # Sprint-K H13 Defense Layers Report (2026-04-20)
 
 ## Scope

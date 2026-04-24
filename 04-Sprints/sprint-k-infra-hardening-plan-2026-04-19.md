@@ -1,7 +1,7 @@
 ---
 name: Sprint-K Infra-Hardening Plan
 description: Sustainable fixes aus Sprint-A/B/C/D/E Incident-Cluster. RENAMED from Sprint-H to Sprint-K 2026-04-19 20:05 UTC — Atlas claimed "Sprint-H" autonomously für Board-Analytics.
-status: draft
+status: planned
 since: 2026-04-19
 renamed_at: 2026-04-19 20:05 UTC
 renamed_from: Sprint-H (Infra-Hardening)

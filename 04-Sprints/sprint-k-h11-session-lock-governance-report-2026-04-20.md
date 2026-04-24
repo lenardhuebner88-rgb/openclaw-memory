@@ -1,3 +1,8 @@
+---
+title: Sprint-K H11 Report — Session-Lock-Governance (2026-04-20)
+status: report
+---
+
 # Sprint-K H11 Report — Session-Lock-Governance (2026-04-20)
 
 ## Kontext

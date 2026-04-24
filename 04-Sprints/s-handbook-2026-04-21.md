@@ -3,7 +3,7 @@ sprint-id: S-HANDBOOK
 priority: P1
 name: System Handbook + Agent Acceleration Plan
 description: Incremental rollout plan for a living system handbook generated from live registries, scripts, git history, and runtime health so agents stop re-scanning the whole workspace.
-status: done
+status: report
 since: 2026-04-21
 owner: Operator (piet)
 author: Codex

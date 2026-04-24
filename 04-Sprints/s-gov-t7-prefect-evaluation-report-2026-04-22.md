@@ -3,7 +3,7 @@ sprint-id: S-GOV
 task-id: S-GOV-T7-PREFECT-EVALUATION-SPIKE
 date: 2026-04-22
 owner: Forge
-status: done
+status: report
 decision: NO-GO (immediate migration)
 ---
 

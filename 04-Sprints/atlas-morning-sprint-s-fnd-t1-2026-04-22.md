@@ -4,6 +4,7 @@ created: 2026-04-21 (für 2026-04-22 morning execution)
 trigger-phrase: "Atlas — Morning-Sprint: S-FND T1 Pydantic SprintOutcome Schema Deploy."
 scope: S-FND T1 ONLY (Single-Task Sprint)
 owner: Atlas (orchestration) → Forge (execution)
+status: report
 depends-on: [Lens T0 APPROVE, S-GOV T4 3h-Observation green, /api/health ok]
 estimated-duration: ~2h autonomous (Forge)
 operator-presence-required: nein (nach GO-Signal)

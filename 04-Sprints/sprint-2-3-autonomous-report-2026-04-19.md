@@ -1,3 +1,8 @@
+---
+title: Sprint-2/3 Autonomous Report — 2026-04-19
+status: report
+---
+
 # Sprint-2/3 Autonomous Report — 2026-04-19
 
 **Author:** Atlas (autonomer Run nach OOM-Recovery)  

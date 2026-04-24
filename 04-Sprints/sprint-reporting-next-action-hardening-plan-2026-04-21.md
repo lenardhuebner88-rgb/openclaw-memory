@@ -3,7 +3,7 @@ title: Sprint Reporting / Next-Action Hardening Plan 2026-04-21
 date: 2026-04-21 20:40 CEST
 author: Codex im Operator-Modus (Lenard-Rolle)
 scope: Execution-report posting bleibt Human-Output; Folgeaktionen werden auf strukturierte Felder umgestellt
-status: Ready for Atlas Sprint Dispatch
+status: planned
 ---
 
 # Sprint Reporting / Next-Action Hardening Plan

@@ -1,3 +1,8 @@
+---
+title: Sprint-G/H Consolidation Report (2026-04-19)
+status: report
+---
+
 # Sprint-G/H Consolidation Report (2026-04-19)
 
 ## Timeline
