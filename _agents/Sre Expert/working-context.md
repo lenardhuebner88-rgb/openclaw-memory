@@ -7,13 +7,14 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 75585071-ad21-4065-90c5-dee96cd8118d [P0][Forge] Auto-Pickup Claim-Handoff härten und E2E absichern
+- task: d02cb065-0201-4c69-8889-9809c475160d [GATE-RETRY][Forge] James Result Propagation Minimal Readiness
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
 RESULT_SUMMARY:
-- Auto-Pickup Claim-Handoff im Spawn→Claim-Fenster gehärtet, inklusive Race-Fix für „worker exits before claim check“.
-- Process-Cleanup robust gemacht, damit auch bei bereits beend
+- Readiness check completed with concrete root-cause evidence.
+- James result propagation defect is reproducible and localized; smallest safe fix path is clear.
+ROOT_CAUSE_OR_BLOCKE
 - blocker: -
-- updated: 2026-04-24T17:19:38.256Z
+- updated: 2026-04-24T18:09:03.774Z
 <!-- mc:auto-working-context:end -->

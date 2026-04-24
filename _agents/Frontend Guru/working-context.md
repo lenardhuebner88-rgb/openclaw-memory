@@ -65,10 +65,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 53bce56b-e2aa-43fa-a354-1606922f553a [P2][Pixel] UI Button Client Exception im Task-Detail prüfen
-- stage: START
-- next: continue current task
-- checkpoint: -
+- task: 54316ed6-7037-4878-8a7e-bfeb2b178669 [GATE][Pixel] Task-Detail Buttons und Client-Exception Smoke
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS
+Done
+
+RESULT_SUMMARY
+No task-detail client exception reproduced in the current smoke. The useful path from the prior failed task is now green: taskboard opened, first task detail opened, modal rendered, 
 - blocker: -
-- updated: 2026-04-24T17:21:17.674Z
+- updated: 2026-04-24T17:56:23.476Z
 <!-- mc:auto-working-context:end -->

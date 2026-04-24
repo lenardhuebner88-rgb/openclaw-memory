@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5e5316a2-b8d4-4037-b76c-9153ee8ee676 [P2][Spark] Read-only Watcher vs Repair-Actions sauber schneiden
+- task: 546a107a-6c45-4c7f-b0ee-54b210923330 [GATE][Spark] Worker-Claim/Heartbeat Hardening Independent Audit
 - stage: DONE
 - next: await next assignment
-- checkpoint: done: proposed read-only watcher vs repair guardrails with clear Quick-Wins and deferred items; no core dispatch changes required now.
+- checkpoint: Independent audit complete: worker claim/receipt run-binding and heartbeat alignment validated.
 - blocker: -
-- updated: 2026-04-24T17:22:26.757Z
+- updated: 2026-04-24T17:58:36.351Z
 <!-- mc:auto-working-context:end -->

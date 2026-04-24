@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d861181c-abf9-47ca-b826-4ed59976f1bc [P1][Spark] MC 8/10 Quick-Bug-Sweep und Repro-Matrix
-- stage: START
+- task: 546a107a-6c45-4c7f-b0ee-54b210923330 [GATE][Spark] Worker-Claim/Heartbeat Hardening Independent Audit
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Audit in progress: claim and heartbeat alignment checks running
 - blocker: -
-- updated: 2026-04-24T10:25:10.388Z
+- updated: 2026-04-24T17:57:08.253Z
 <!-- mc:auto-working-context:end -->
