@@ -1,24 +1,31 @@
 # Agent Coordination Board
 
-Every AI coding agent that starts work on this vault creates one file here for the duration of its session. See `/AGENTS.md` §3 at the repo root for the schema.
+Kleine Struktur für agentische Koordination:
+
+- `live/` — aktuell laufende oder gerade relevante Koordinations-Sessions
+- `archive/` — ältere, abgeschlossene oder historisch nur noch referenzierte Session-Notizen
+
+## Retrieval-Reihenfolge
+1. `live/`
+2. `archive/` nur bei Verlauf, RCA oder Handoff-Historie
 
 ## Live sessions
 
 ```dataview
 TABLE started, ended, task, file.link AS session
-FROM "03-Agents/_coordination"
-WHERE agent AND ended = null
+FROM "_agents/_coordination/live"
+WHERE agent
 SORT started DESC
 ```
 
-## Last 20 completed sessions
+## Archive
 
 ```dataview
-TABLE started, ended, agent, task
-FROM "03-Agents/_coordination"
-WHERE agent AND ended != null
-SORT ended DESC
-LIMIT 20
+TABLE started, ended, agent, task, file.link AS session
+FROM "_agents/_coordination/archive"
+WHERE agent
+SORT started DESC
+LIMIT 30
 ```
 
-Dataview required. Without Dataview, just `ls 03-Agents/_coordination/ | grep -E '^2026-.*\.md$'` and grep for `ended: null`.
+Ohne Dataview: zuerst `ls _agents/_coordination/live/`, nur bei Bedarf danach `archive/` prüfen.
