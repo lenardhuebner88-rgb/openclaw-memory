@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ffb7f979-9aa7-4f9f-9241-725c0f7598ac [P2][Lens] OpenAI/Codex-Abo-Kostenlogik sauber entwirren
+- task: 8dd23836-d9c5-45ab-a2a2-ed827f8baea1 [P2][Lens] MiniMax korrekt als Token-/Pool-Modell klassifizieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Codex/MiniMax-Kostenlogik entrarrt: Billing-Mismatch = falsches Modell-Label, kein echter Fehler. Flat-Rate-Anzeige ist fuer Abo korrekt. 2 OFFENE Fragen: (1) Codex flat-rate wirklich Unlimited?, (2) MiniMax-Portal $0-Ko
+- checkpoint: MiniMax TOKEN_PLAN wird als flatrate gemappt — falsch. Root-Cause: modeFromRaw() in budget-engine.ts line 49. Forge-Fix: TOKEN_PLAN -> prepaid statt flatrate.
 - blocker: -
-- updated: 2026-04-24T20:10:28.239Z
+- updated: 2026-04-24T20:21:05.736Z
 <!-- mc:auto-working-context:end -->

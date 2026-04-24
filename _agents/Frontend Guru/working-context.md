@@ -65,14 +65,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 842886a7-7a5c-4842-9eac-11442079b324 [P5 Canary] frontend-guru
+- task: babbddda-0cee-4622-8a24-0947b17f7490 [P3][Pixel] Archive-Noise von Live-View sauber trennen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 Done
 
 RESULT_SUMMARY
-canary-ok
+Implemented a small taskboard IA pass that separates archive/history from the live operator scan. The live header now says `History` instead of `Archive`, desktop and mobile summary 
 - blocker: -
-- updated: 2026-04-24T18:45:35.702Z
+- updated: 2026-04-24T20:31:57.911Z
 <!-- mc:auto-working-context:end -->
