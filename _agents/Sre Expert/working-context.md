@@ -7,11 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f5fe029e-c157-4acc-aff1-f2f5e99139ce [P1][Forge] Minimal-Observability für stille Lifecycle-/Health-Brüche ergänzen
+- task: ee7940f4-9a48-41bf-8f94-b27c773f3ecb [P1][Forge] Root-Cause + Langfrist-Härtung: stale/stalled-warning trotz inhaltlich fertigem Worker-Task
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: P1-Minimal-Observability ist umgesetzt: die drei stillen Lifecycle-Bruchklassen werden jetzt als dedizierte Semantic-Signale in `api-metrics` erfasst. Damit sind `assigned_read_degr
+- checkpoint: RCA für Lens-Fall 67848b12 abgeschlossen: der Task hing auf stalled-warning, weil nach accepted kein terminal receipt geschrieben wurde; der Abschluss erfolgte erst per admin-close. Führende Root Cause + Hardening-Reihen
 - blocker: -
-- updated: 2026-04-25T12:43:17.620Z
+- updated: 2026-04-25T12:58:22.023Z
 <!-- mc:auto-working-context:end -->
