@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9f9e5a1c-8899-4764-ba5e-fe9d606f5151 [P1][Phase 1][Atlas] Phase-1 Findings synthetisieren und Umsetzungs-Sprint schneiden
-- stage: FAILED
+- task: 4ab7480a-c06b-4b11-a9c6-3616bdc3d765 [P1][Atlas+Lens] Policy-Matrix festziehen: warn vs hard-fail für Signal-/Receipt-Pfade
+- stage: DONE
 - next: await next assignment
-- checkpoint: Task exceeded runTimeoutSeconds=900s (runtime=968s). Auto-failed by worker-monitor timeout guard.
-- blocker: Task exceeded runTimeoutSeconds=900s (runtime=968s). Auto-failed by worker-monitor timeout guard.
-- updated: 2026-04-25T13:17:08.043Z
+- checkpoint: x
+- blocker: -
+- updated: 2026-04-25T13:35:03.690Z
 <!-- mc:auto-working-context:end -->

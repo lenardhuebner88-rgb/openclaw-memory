@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ee7940f4-9a48-41bf-8f94-b27c773f3ecb [P1][Forge] Root-Cause + Langfrist-Härtung: stale/stalled-warning trotz inhaltlich fertigem Worker-Task
-- stage: DONE
-- next: await next assignment
-- checkpoint: RCA für Lens-Fall 67848b12 abgeschlossen: der Task hing auf stalled-warning, weil nach accepted kein terminal receipt geschrieben wurde; der Abschluss erfolgte erst per admin-close. Führende Root Cause + Hardening-Reihen
+- task: 041e91e4-2f70-4975-8444-ad48536c7d89 [P1][Forge] Plan-Runner Version-Gate auf Live-Version abgleichen oder bewusst dry-run schalten
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Version-Gate-Konsistenz ist hergestellt: plan-runner.env-Allowlist enthält jetzt die Live-Version 2026.4.22 (00bd2cf), und aktuelle runner-start Events gehen nicht mehr in version-gated über, sondern in plan-skip/runner-
 - blocker: -
-- updated: 2026-04-25T12:58:22.023Z
+- updated: 2026-04-25T13:54:04.703Z
 <!-- mc:auto-working-context:end -->
