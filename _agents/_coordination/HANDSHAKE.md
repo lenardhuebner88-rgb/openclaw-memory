@@ -49,6 +49,20 @@ Claude Main ist interaktive Operator-Voice und Trigger-Layer. Claude Bot ist die
 
 Lens kann im Debate als dritte MiniMax-Observer-Stimme eingebunden werden. Rolle: Kosten-/Tokenplan-/Long-Context-/Reality-Check mit kurzer, evidenzbasierter Notiz. Lens ist kein dritter Hauptdebattant und kein Ersatz fuer Claude-vs-Codex.
 
+### Bounded Two-Loop Discussion
+Debates duerfen als echte Diskussion in Discord laufen, aber nur mit Turn-Lock und maximal zwei Iterationsrunden. Alle Kernrollen muessen vorherige Beitraege lesen und darauf reagieren:
+
+1. `claude-bot`
+2. `codex`
+3. `lens`
+4. `atlas`
+5. `claude-bot`
+6. `codex`
+7. `lens`
+8. `atlas`
+
+`/meeting-turn-next <meeting-id>` startet genau einen Turn. Der naechste Turn ist blockiert, solange `turn-lock != none` ist oder noch ein offener Meeting-Task existiert. Das ist bewusst kein Cron, kein Loop und kein freier Chat.
+
 ### Signatur-Konvention
 Jeder Meeting-Post bekommt eine Signaturzeile mit UTC-Minute:
 

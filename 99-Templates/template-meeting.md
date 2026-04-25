@@ -8,6 +8,12 @@ tracked-tokens: 0
 status: queued
 chairman: atlas
 trigger: chat
+outcome-channel-id:
+discussion-rounds: 2
+turn-policy: bounded-two-loop
+turn-index: 0
+turn-order: []
+turn-lock: none
 ---
 
 # Meeting: <Topic>
@@ -33,6 +39,18 @@ trigger: chat
 
 ### Rebuttal 1
 [agent YYYY-MM-DDThh:mmZ]
+
+## Bounded Discussion Turns
+| Turn | Agent | Must read before replying | Status |
+|---:|---|---|---|
+| 1 | claude-bot | Scope + ground truth | queued |
+| 2 | codex | Claude turn | queued |
+| 3 | lens | Claude + Codex turns | queued |
+| 4 | atlas | Claude + Codex + Lens turns | queued |
+| 5 | claude-bot | Atlas synthesis + Codex/Lens objections | queued |
+| 6 | codex | Claude second turn + Atlas synthesis | queued |
+| 7 | lens | All prior turns | queued |
+| 8 | atlas | All prior turns | queued |
 
 ## Synthese
 [chairman YYYY-MM-DDThh:mmZ]

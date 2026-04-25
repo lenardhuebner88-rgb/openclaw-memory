@@ -25,6 +25,28 @@ Erlaubte Agent-Signaturen: `[claude-bot]`, `[claude-main]`, `[atlas]`, `[codex]`
 ## Debate + MiniMax Observer
 Debate bleibt inhaltlich Claude-Seite vs. Codex. Lens kann als dritte MiniMax-Observer-Stimme dazukommen, wenn `participants` `lens` enthaelt. Lens soll kurz Kosten-, Tokenplan-, Long-Context- und operative Risikoaspekte pruefen und nicht die Hauptdebatte duplizieren.
 
+## Bounded Two-Loop Discussion
+Live-Diskussion in Discord ist als abgesteckter Turn-Prozess erlaubt, nicht als freier Bot-Chat.
+
+Default fuer `debate`:
+
+1. `claude-bot` liest Scope/Ground Truth und schreibt die Claude-Seite.
+2. `codex` liest Claude und schreibt die Gegenposition.
+3. `lens` liest Claude + Codex und schreibt Reality-/Kosten-/Long-Context-Review.
+4. `atlas` liest alle bisherigen Beitraege und moderiert/synthetisiert Runde 1.
+5. `claude-bot` reagiert auf Codex/Lens/Atlas.
+6. `codex` reagiert auf Claude/Lens/Atlas.
+7. `lens` prueft die zweite Runde.
+8. `atlas` schreibt Abschluss-Synthese oder blockiert mit klarer Begruendung.
+
+Guardrails:
+
+- Pro `/meeting-turn-next` wird genau ein Turn gestartet.
+- `turn-lock` muss `none` sein; offene Meeting-Tasks blockieren den naechsten Turn.
+- Alle Kernrollen lesen vorherige Beitraege und reagieren darauf.
+- Follow-ups bleiben Preview/Draft; kein Auto-Fanout.
+- Finalize bleibt explizites Gate.
+
 ## Guardrails
 - R49: Jeder konkrete File-/SHA-/Session-ID-Claim gehoert ins CoVe-Verify-Log.
 - R50: Keine aktive Session per Meeting umgehen. Claude Bot wird ueber Taskboard-Task statt Session-Resume eingebunden.
