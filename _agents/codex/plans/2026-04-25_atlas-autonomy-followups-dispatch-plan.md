@@ -75,3 +75,50 @@ Gate:
 - Stabilisierung abgeschlossen.
 - `followup-dispatch-guard.mjs` vorhanden und erfolgreich gegen zwei unclaimed SRE-Follow-ups genutzt.
 - Naechster Integrationsschritt: 3 `atlas-autonomy` Drafts anlegen, Sprint A approve/dispatch, dann monitoren.
+
+## Umsetzung 2026-04-25T19:15Z
+- Sprint A `e08e844f-b2f4-4b22-a9b4-155dfeefc98d`: `done/result`.
+  - Ergebnis: Atlas Guardrail-Policy erstellt.
+  - Befund: `sprintOutcome v1.1` vorhanden, aber Materializer wurde zuerst durch `session-unhealthy: anomalyCount=61 threshold=50` geblockt.
+- Minimal-Fix R50:
+  - Datei: `/home/piet/.openclaw/workspace/mission-control/src/lib/r50-gate.ts`
+  - Semantik: Wenn `session-health.log` im Summary `newCount` liefert, blockiert R50 auf neuen Anomalien; alte Logformate fallen weiter auf `anomalyCount` zurueck.
+  - Live-Grund: Latest Summary hatte `anomalyCount=61`, aber `newCount=0`.
+  - Tests: `tests/r50-gate.test.ts`, `tests/autonomy-approve-dispatch-regression.test.ts`, `tests/receipt-materializer-flag-off.test.ts`.
+- Sprint B `93f3adc8-a40c-4cec-b047-222deb1f9b7a`: `done/result`.
+  - Ergebnis: exakt 2 valide `sprintOutcome v1.1 next_actions`.
+  - Materializer: `materializer-ok`; erzeugte Child-Tasks:
+    - `cd1dd84c-a2f2-438f-81bf-8bd9fe7b9b3f`
+    - `1dc27f1f-bb75-4659-91c0-87648ee55799`
+- Kontrollierter Dispatch:
+  - Neuer Helper: `/home/piet/.openclaw/workspace/mission-control/scripts/autonomy-followup-dispatcher.mjs`
+  - Default `--dry-run`; Execute nur mit `--execute --task-id=<id>`.
+  - Gate vor Execute: Worker-Proof ok, Pickup-Proof ok, `openRuns=0`, `pendingPickup=0`, keine aktiven Session-Locks.
+  - Beide Child-Follow-ups wurden nacheinander gestartet und terminal `done/result`.
+- Atlas-Follow-up-Haertung:
+  - Der erste Child-Follow-up hat den Materializer-Preview-Vertrag gehaertet: kuenftige materialisierte Follow-ups sollen als `operatorLock=true` Draft-Previews entstehen statt als direkt `assigned/queued`.
+  - Dieser Stand wurde gebaut und deployed.
+
+## Finale Gates 2026-04-25T19:15Z
+- `mission-control.service`: active
+- `/api/health`: `ok`
+- `/api/ops/worker-reconciler-proof?limit=20`: `ok`, `openRuns=0`, `issues=0`, `criticalIssues=0`
+- `/api/ops/pickup-proof?limit=20`: `ok`, `pendingPickup=0`, `activeSessionLocks=0`, `findings=0`
+- Tests:
+  - `npx vitest run tests/r50-gate.test.ts tests/autonomy-approve-dispatch-regression.test.ts`
+  - `npx vitest run tests/r50-gate.test.ts tests/autonomy-approve-dispatch-regression.test.ts tests/receipt-materializer-flag-off.test.ts`
+  - `npm run typecheck`
+  - `npm run build`
+
+## Ergebnis
+Atlas hat einen grossen Autonomie-Sprint plus Folge-Sprint durchgesteuert:
+1. Sprint A: Guardrails.
+2. Sprint B: maschinenlesbare Follow-up-Erzeugung.
+3. Zwei materialisierte Follow-up-Tasks: nacheinander dispatcht und terminal abgeschlossen.
+
+Damit ist die Kette `Atlas Sprint -> sprintOutcome -> Materializer -> Follow-up Tasks -> kontrollierter Dispatch -> terminale Results` live bewiesen.
+
+## Offene Punkte / naechster Schritt
+- Sprint C `9d056416-60a0-4c6c-b312-92e29753bd08` bleibt absichtlich als `atlas-autonomy` Draft mit Operator-Lock stehen.
+- Naechstes sinnvolles Gate: Sprint C erst starten, wenn explizit gewuenscht, und dann pruefen, ob neue Materializer-Children direkt im neuen `operator-locked Draft Preview`-Zustand entstehen.
+- Follow-up: Prioritaetsmapping im `sprintOutcome` strenger machen. Atlas verwendete einmal `priority: "high"` statt `P1`; das wurde live zu `low` gemappt. Besser: invalid priority nicht still downgraden, sondern als Quality-Gate-Fehler melden.

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e08e844f-b2f4-4b22-a9b4-155dfeefc98d [AUTO-SPRINT-A][Atlas] Follow-up Guardrails und Terminal-Gates finalisieren
+- task: 1dc27f1f-bb75-4659-91c0-87648ee55799 Dispatch-Gate fuer materialisierte Preview-Follow-ups verifizieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Guardrail-Policy fuer Atlas Follow-ups finalisiert: Preview-first, standardmäßig genau ein Kandidat pro Meeting, max. 3 als harte Obergrenze, Deduping, Proof-Gates und Stop-Regeln sind jetzt als Report und sprintOutcome 
+- checkpoint: Dispatch-Gate verifiziert: Im beobachteten Sprint-B-Follow-up-Lauf war nie mehr als ein Main-Child gleichzeitig aktiv; der erste Child-Task war terminal abgeschlossen, bevor der zweite dispatcht/startete, und die Proof-G
 - blocker: -
-- updated: 2026-04-25T18:43:26.588Z
+- updated: 2026-04-25T19:09:38.601Z
 <!-- mc:auto-working-context:end -->
