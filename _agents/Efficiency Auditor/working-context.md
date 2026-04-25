@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4c117590-79c8-4d6e-9e93-cde3b92aa907 [Meeting][Lens MiniMax Observer] 2026-04-25_0438_debate_was-w-re-der-n-chste-gr-te-hebel-zur-umsetzung
+- task: 6ff0abcd-2c5f-4abe-a6ea-78d17d6dc00a [Meeting][Lens MiniMax Observer] 2026-04-25_0449_debate_meeting-debate-token-accounting
 - stage: DONE
 - next: await next assignment
-- checkpoint: Lens/MiniMax Observer Note appended: größter Hebel = MiniMax Billing-Mode Klassifikationsfehler beheben (TOKEN_PLAN→PREPAID). 1-2 Zeilen Fix löst 4 falsche Kostenalarme auf.
+- checkpoint: Lens/MiniMax Observer Note appended: Token-Accounting nach dem Meeting aggregieren (Methode B), nicht pro Beitrag. Done-Gate muss quality-basiert sein, nicht token-basiert. tracked-tokens=0 ist der größere Fehler.
 - blocker: -
-- updated: 2026-04-25T04:44:36.004Z
+- updated: 2026-04-25T04:59:50.727Z
 <!-- mc:auto-working-context:end -->

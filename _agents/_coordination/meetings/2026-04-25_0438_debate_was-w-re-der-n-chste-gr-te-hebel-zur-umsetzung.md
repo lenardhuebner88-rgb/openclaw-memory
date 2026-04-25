@@ -4,8 +4,8 @@ mode: debate
 date: 2026-04-25T04:38:04.897796+00:00
 participants: [claude-bot, codex, lens]
 token-budget: 30000
-tracked-tokens: 0
-status: running
+tracked-tokens: 3900
+status: done
 chairman: atlas
 trigger: discord
 ---
@@ -47,29 +47,53 @@ Damit wird aus einer plausiblen Beobachtung ein umsetzbarer Hebel mit klarer Rei
 ## Rebuttals
 
 ### Rebuttal 1
-[agent YYYY-MM-DDThh:mmZ]
+[codex 2026-04-25T04:51Z]
+
+Ich stimme der Richtung zu, aber mit einem wichtigen Gate: Der naechste groesste Hebel ist nicht direkt "Fix shippen", sondern **Kostenwahrheit als kleines, reversibles Gate herstellen**.
+
+Lens hat den richtigen Hebel benannt: Wenn MiniMax als Token-/Pool-Modell falsch klassifiziert wird, sind Statusmeldungen, Budgetalarme und Routing-Entscheidungen nicht vertrauenswuerdig. Claude hat korrekt nachgezogen: Erst CoVe-Nachweis, dann kleiner Fix. Meine Codex-Ergaenzung ist die Reihenfolge fuer Umsetzung:
+
+1. Live-Balance/Provider-Signal pruefen, damit ein echter Pool-Alarm nicht aus Versehen weggedaempft wird.
+2. `TOKEN_PLAN` nicht als Flat-Rate behandeln, sondern als Pool-/Prepaid-Semantik mit Warnung statt harter Fehldeutung.
+3. Danach `/api/costs/budget-status`, `/api/costs/anomalies` und `/api/health` gegeneinander pruefen.
+4. Erst wenn diese Wahrheit stimmt, Modellrouting- oder weitere Autonomie-Entscheidungen ableiten.
+
+Votum: **Billing-/Tokenplan-Wahrheit ist der naechste Hebel**, aber nur als enges Gate mit Live-Proof und Rollback, nicht als breite Kostenengine-Aenderung.
 
 ## Synthese
-[chairman YYYY-MM-DDThh:mmZ]
+[codex-interim 2026-04-25T04:51Z]
+
+Interim-Synthese: Alle drei Stimmen konvergieren. Lens bringt die MiniMax-/Kostenrealitaet ein, Claude fordert CoVe vor Fix, Codex begrenzt den Scope auf ein reversibles Wahrheit-Gate. Der naechste groesste Hebel zur Umsetzung ist daher:
+
+**MiniMax Tokenplan/Billing-Klassifikation live verifizieren und gezielt korrigieren, bevor weitere Routing- oder Autonomie-Entscheidungen getroffen werden.**
+
+Dieses Ergebnis ist auch ein guter Proof fuer das neue Debate-Format: Claude + Codex liefern die Hauptdebatte, Lens/MiniMax verhindert, dass Kosten-/Betriebsrealitaet uebersehen wird.
 
 ## Action-Items
-- [ ] 
+- [x] Lens/MiniMax Observer eingebunden
+- [x] Claude-Bot Beitrag eingebunden
+- [x] Codex-Rebuttal und Interim-Synthese ergaenzt
+- [ ] MiniMax Pool-/Tokenplan-Live-Proof als separates kleines Gate planen
+- [ ] Danach kleinen Klassifikationsfix nur mit Rollback und Health-/Cost-Proof umsetzen
 
 ## CoVe-Verify-Log
 | Claim | Verification command/source | Result | Verified by |
 |---|---|---|---|
 | Lens hat im Meeting den Billing-Mode-Klassifikationsfehler als größten Hebel benannt. | Diese Meeting-Datei, Abschnitt `Opinion 1` von `[lens 2026-04-25T04:42Z]` | Im Artefakt vorhanden | claude-bot |
 | Der CoVe-Verify-Log war vor diesem Eintrag noch leer. | Diese Meeting-Datei, ursprünglicher Tabellenzustand vor Append | Bestätigt beim Read vor Edit | claude-bot |
+| Lens/MiniMax Task wurde erfolgreich abgeschlossen. | `GET /api/tasks/4c117590-79c8-4d6e-9e93-cde3b92aa907` | `status=done`, `receiptStage=result` | codex |
+| Claude-Bot Task wurde erfolgreich abgeschlossen. | `GET /api/tasks/77ee2581-b64d-4edd-8b04-a96241e4537b` | `status=done`, `receiptStage=result` | codex |
 
 ## Token-Log
 | At | Agent | Estimated tokens | Cumulative tracked | Note |
 |---|---:|---:|---:|---|
 | 2026-04-25T04:47Z | claude-bot | 1200 | 1200 | Claude-side contribution appended after Spark-assisted draft consolidation |
+| 2026-04-25T04:51Z | codex | 2700 | 3900 | Codex rebuttal, interim synthesis, final status |
 
 ## Final Status
-- Verdict:
-- Open blockers:
-- Follow-up:
+- Verdict: done. Naechster groesster Hebel ist MiniMax Tokenplan-/Billing-Wahrheit als kleines, reversibles Gate.
+- Open blockers: Live-Pool-Balance und aktuelle Cost-API-Semantik muessen vor Fix erneut belegt werden.
+- Follow-up: separaten MiniMax-Billing-Proof/Fix-Sprint planen, nicht in Meeting-Runner mischen.
 
 ## Runner Note
 [runner 2026-04-25T04:38Z]
