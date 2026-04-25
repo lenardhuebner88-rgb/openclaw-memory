@@ -104,6 +104,28 @@ Nach zwei Stunden liegt ein klarer Prozess vor:
   - `openRuns=0`
   - `issues=0`
 
+## Erweiterung: Atlas-orchestrierte 5er-Haertung
+Operator-Update: Weitere 5 Debatten/Meetings sollen laufen, aber Codex steuert sie nicht selbst. Codex gibt Atlas nur den Orchestrierungsauftrag und ueberwacht.
+
+Themen mit groesstem Hebel:
+1. Worker Pickup/Heartbeat Truth:
+   - Ziel: klaeren, wann `degraded` nur frische Pickup-Latenz ist und wann ein echter Claim-/Heartbeat-Fehler vorliegt.
+2. Phase C Codex Execute Governance:
+   - Ziel: entscheiden, ob Phase C Helper weiter manuell bleibt oder als Discord-Command mit harten Gates vorbereitet wird.
+3. `/meeting-review` Production Gates:
+   - Ziel: Target/Author-Kontext, Codex-Signatur, Synthese, CoVe, Token-/Cycle-Budget als Pflicht-Gates schaerfen.
+4. `/meeting-council` Safe Mode:
+   - Ziel: No-Fanout-Guard, Participant-Cap, staged-only, explizites Operator-Go und Rollback festzurren.
+5. Discord-only Operator UX:
+   - Ziel: `/meeting-run-once`, `/meeting-status`, Outcome-Reports, Webhook-Fallback und Handy-only Bedienprozess haerten.
+
+Atlas-Regeln:
+- Genau ein Meeting zur Zeit.
+- Vor jedem Start: `meeting-runner.sh --dry-run` und Worker-Proof `criticalIssues=0`.
+- Nach jedem Meeting: Statusbericht in Discord, dann erst naechstes Meeting.
+- Codex beobachtet nur und postet 15-Minuten-Berichte.
+- Kein Cron, kein Loop, kein 5-7-Agenten-Fanout ohne neues Operator-Go.
+
 ## Beobachtung
 - Kurzzeitiges `degraded` direkt nach Dispatch ist normal, solange im naechsten Pickup-Zyklus `CLAIM_CONFIRMED` und Heartbeat folgen.
 - Vorherige Spark-Folgeaufgabe hatte Claim-Timeouts; das war getrennt vom Meeting-Pfad. Waehrend der kontrollierten Meeting-Laeufe wurden Main und Lens jeweils sauber claimed.
