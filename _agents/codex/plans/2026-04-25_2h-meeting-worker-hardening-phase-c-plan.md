@@ -126,6 +126,29 @@ Atlas-Regeln:
 - Codex beobachtet nur und postet 15-Minuten-Berichte.
 - Kein Cron, kein Loop, kein 5-7-Agenten-Fanout ohne neues Operator-Go.
 
+Live-Stand 2026-04-25T07:28Z:
+- Atlas-Orchestrierungsauftrag: `bdb6246d-9c6b-4389-95fd-ffd6a51f1f46`.
+- Task ist `in-progress/progress`, letzter Heartbeat `2026-04-25T07:26:38Z`.
+- Worker-Proof: `status=ok`, `criticalIssues=0`, `openRuns=1`.
+- Meeting 1/5 angelegt: `2026-04-25_0727_debate_worker-pickup-heartbeat-truth`.
+- Meeting 1/5 enthaelt bereits Claude-Bot-Beitrag plus CoVe, steht aber noch auf `status: queued`.
+- Gate: Codex startet die 5 Meetings nicht selbst. Codex beobachtet, ob Atlas den queued Zustand autonom sauber in running/done ueberfuehrt oder daraus einen Blocker meldet.
+
+Live-Stand 2026-04-25T07:34Z:
+- Meeting 1/5 enthaelt jetzt Claude-Bot, Lens und Codex/Codex-Interim.
+- `meeting-status-post.sh` meldete faelschlich `next-action: none`, obwohl alle Stimmen vorhanden waren und `status: queued` blieb.
+- Small-Fix angewandt: Statusposter leitet jetzt `reason=needs-chairman-finalize` ab, wenn alle Teilnehmer-Signaturen vorhanden sind, das Meeting aber noch nicht `done` ist.
+- Verify: `bash -n /home/piet/.openclaw/scripts/meeting-status-post.sh` erfolgreich; Statusausgabe nennt `needs-chairman-finalize`.
+- Kein Runner-/Cron-/Atlas-Override ausgefuehrt.
+
+Live-Stand 2026-04-25T07:46Z:
+- Atlas-Orchestrierungsauftrag ist `in-progress/progress`, aber `executionState=stalled-warning`.
+- Letzter Heartbeat: `2026-04-25T07:29:50.889Z`.
+- Worker-Proof: `status=degraded`, `criticalIssues=0`, `openRuns=1`, `issues=4`.
+- Issues: `open-run-without-heartbeat`, `open-run-without-process-evidence`, `receipt-progress-without-start`, `stale-open-run`.
+- Proposed Action im Proof: `fail-stale-open-run-without-process-evidence` fuer Run `4bf20a7a-0a58-458b-b466-7b873ca1a4d7`.
+- Gate-Entscheidung: Keine weiteren Meetings dispatchen, solange dieser offene Run nicht terminal geklaert ist. Codex fuehrt den Proposed Action nicht eigenmaechtig aus, da das eine task-/run-mutierende Recovery-Aktion ist.
+
 ## Beobachtung
 - Kurzzeitiges `degraded` direkt nach Dispatch ist normal, solange im naechsten Pickup-Zyklus `CLAIM_CONFIRMED` und Heartbeat folgen.
 - Vorherige Spark-Folgeaufgabe hatte Claim-Timeouts; das war getrennt vom Meeting-Pfad. Waehrend der kontrollierten Meeting-Laeufe wurden Main und Lens jeweils sauber claimed.
