@@ -65,14 +65,14 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c210bdbf-f9e5-4c4d-ae50-cbee13048b5a [P2][Pixel] Meeting-Status schärfen: next-action glasklar für Codex vs Finalize
+- task: 0b5fed2d-d478-452d-956c-c0822e9f18d4 [P2][Pixel] Actionable Blocker UI: contract-gap, token-mismatch, degraded-state sichtbar machen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 Done
 
 RESULT_SUMMARY
-Sharpened the meeting status output so the operator sees one explicit NEXT STEP before the technical `next-action` line. The path now makes it immediately clear whether the operator 
+Implemented a small actionable-blocker UI pass in two operator flows so silent operational breaks no longer read like generic noise. The overview now surfaces system-level blocker si
 - blocker: -
-- updated: 2026-04-25T10:32:42.539Z
+- updated: 2026-04-25T14:14:05.649Z
 <!-- mc:auto-working-context:end -->
