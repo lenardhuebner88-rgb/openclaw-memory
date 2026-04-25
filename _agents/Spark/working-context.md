@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3422b50d-24cf-41b6-8a6f-18d2b890c293 [P1][Spark] /meeting-run-once <meeting-id> als kontrollierten Start ohne Cron bauen
+- task: 4388b041-9259-44bc-87b0-41f2993b02d2 [P1][Spark] Priority-Schema auf strikt P0/P1/P2/P3 härten
 - stage: DONE
 - next: await next assignment
-- checkpoint: Implemented a controlled `/meeting-run-once <meeting-id>` flow: the Discord command now supports explicit meeting targeting, and runner execution stays one-shot with explicit running-queue guards.
+- checkpoint: Implemented strict P0/P1/P2/P3 priority handling in the autonomy receipt materializer: invalid priority values now fail quality-gate instead of being silently remapped to a lower Task priority.
 - blocker: -
-- updated: 2026-04-25T18:35:42.265Z
+- updated: 2026-04-25T19:51:43.603Z
 <!-- mc:auto-working-context:end -->

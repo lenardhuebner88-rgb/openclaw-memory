@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1dc27f1f-bb75-4659-91c0-87648ee55799 Dispatch-Gate fuer materialisierte Preview-Follow-ups verifizieren
+- task: 9d056416-60a0-4c6c-b312-92e29753bd08 [AUTO-SPRINT-C][Atlas] Kontrollierter Auto-Dispatch mit 3 Follow-ups
 - stage: DONE
 - next: await next assignment
-- checkpoint: Dispatch-Gate verifiziert: Im beobachteten Sprint-B-Follow-up-Lauf war nie mehr als ein Main-Child gleichzeitig aktiv; der erste Child-Task war terminal abgeschlossen, bevor der zweite dispatcht/startete, und die Proof-G
+- checkpoint: Sprint C sauber als Stop-Bericht abgeschlossen: zwei kontrollierte Follow-up-Dispatches sind live und sequenziell bewiesen, die Gates blieben grün, aber ein dritter zulässiger materialisierter Kandidat liegt aktuell nich
 - blocker: -
-- updated: 2026-04-25T19:09:38.601Z
+- updated: 2026-04-25T19:48:21.995Z
 <!-- mc:auto-working-context:end -->
