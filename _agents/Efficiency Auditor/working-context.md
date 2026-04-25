@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 075fbf86-02bb-4f0b-b3c5-20f57edc0ddc [P1][Lens] Operator-Runbook und Start-/Abort-Kriterien fuer ersten Live-Autopilot-Lauf schaerfen
+- task: d23353c7-759c-4cdf-8dfb-8e410917dcb6 [Meeting][Lens MiniMax Observer] 2026-04-25_1658_debate_phase-d-next-single-run-candidate
 - stage: DONE
 - next: await next assignment
-- checkpoint: Operator Runbook erstellt: /Lenard/operator-runbook-live-autopilot.md — 3 Startkriterien, 5min-Beobachtungs-Checks, 6 Abbruchkriterien, Ergebnisbericht-Vorlage.
+- checkpoint: Lens/MiniMax Observer Note appended: Prüfkriterien für jeden Phase-D-Kandidaten — Token-Budget (max 5000), Auto-Stop (30min), keine Subagenten, Cost-Tracking. No-Go wenn Budget/Auto-Stop fehlt.
 - blocker: -
-- updated: 2026-04-25T16:25:22.041Z
+- updated: 2026-04-25T17:15:50.099Z
 <!-- mc:auto-working-context:end -->
