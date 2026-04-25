@@ -7,11 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 65150d0f-b616-4c73-bdc0-8cbb00a0e79c [P1][Phase 1][Forge] Intake-, Dispatch- und Receipt-Pfade auf stumme Abbrüche prüfen
+- task: f5fe029e-c157-4acc-aff1-f2f5e99139ce [P1][Forge] Minimal-Observability für stille Lifecycle-/Health-Brüche ergänzen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: Phase-1-Audit zeigt keinen einzelnen Datenverlust-Bug, sondern mehrere Guard-/Fallback-Pfade, die operativ wie „offene Arbeit verschwindet“ wirken können: (a) `GET /api/tasks?status
+RESULT_SUMMARY: P1-Minimal-Observability ist umgesetzt: die drei stillen Lifecycle-Bruchklassen werden jetzt als dedizierte Semantic-Signale in `api-metrics` erfasst. Damit sind `assigned_read_degr
 - blocker: -
-- updated: 2026-04-25T12:11:54.632Z
+- updated: 2026-04-25T12:43:17.620Z
 <!-- mc:auto-working-context:end -->

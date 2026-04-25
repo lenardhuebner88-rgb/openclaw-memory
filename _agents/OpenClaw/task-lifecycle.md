@@ -849,3 +849,57 @@ RECOMMENDED_NEXT_ACTIONS:
 - 2026-04-25T12:12:04.571Z | CHECKPOINT | d53764fb-c3c3-4ff0-aea7-b4da543ca039 | [P1][Phase 1][Atlas] Open-Work Baseline und Leerlauf-Symptom sauber vermessen | worker=task-d53764fb-c3c3-4ff0-aea7-b4da543ca039-main | progress=35% | summary=- | note=Live-Snapshot von /api/health und /api/tasks gezogen. Ich gleiche jetzt Health, KPI- und Board-Zahlen gegeneinander ab und hole mir parallel einen Lens-Gegencheck fuer die priorisierten Hypothesen.
 - 2026-04-25T12:13:04.846Z | DONE | d53764fb-c3c3-4ff0-aea7-b4da543ca039 | [P1][Phase 1][Atlas] Open-Work Baseline und Leerlauf-Symptom sauber vermessen | worker=main | progress=35% | summary=System wirkt gesund (status=ok, 2 open tasks), verdeckt aber 30 fehlgeschlagene retry_ready-Tasks und leeren Nachschub. Hoher Durchsatz (93 closed/24h) war reiner Backlog-Burn. 4 Hypothesen priorisiert.
 - 2026-04-25T12:19:42.960Z | START | 4816b050-372e-4dc1-abdf-6566746ca5ac | [P1][Phase 1][Atlas] Entscheidungsmodell definieren: Wann muss ein Signal offene Arbeit erzeugen? | worker=main | progress=- | summary=-
+- 2026-04-25T12:25:55.743Z | START | d93c704c-dfff-48fe-8aae-60940aa8e146 | [P1][Forge] operational-health truth korrigieren: costs actionUrl + boardIntelligence criticalAnomalies | worker=sre-expert | progress=- | summary=-
+- 2026-04-25T12:33:35.294Z | CHECKPOINT | d93c704c-dfff-48fe-8aae-60940aa8e146 | [P1][Forge] operational-health truth korrigieren: costs actionUrl + boardIntelligence criticalAnomalies | worker=sre-expert | progress=90% | summary=- | note=Fix umgesetzt: operational-health priorisiert cost-anomalies actionUrl jetzt vor blocked/stalled-Pfaden; board-next-action gibt bei critical cost anomalies immer einen cost-focused Next-Action zurück (statt potenziell All-clear). Zusätzlich zwei Regressionstests ergänzt (operational-health + board-next-action). Verifikation: vitest 22/22 grün, typecheck grün.
+- 2026-04-25T12:34:09.173Z | DONE | d93c704c-dfff-48fe-8aae-60940aa8e146 | [P1][Forge] operational-health truth korrigieren: costs actionUrl + boardIntelligence criticalAnomalies | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Der P1-Fix ist umgesetzt: cost-kritische Signale werden jetzt in der operational-health Signal→Action-Übersetzung priorisiert, sodass actionUrl nicht mehr auf stalled/blocked-exposure fehlroutet, sobald `criticalAnomalies > 0`. Zusätzlich liefert die Board-Next-Action bei vorhandenen kritischen Kostenanomalien konsistent eine cost-focused Aktion statt in Randfällen auf All-clear zu fallen.
+CHANGED_PATHS:
+- src/lib/operational-health.ts
+- src/lib/board-next-action.ts
+- tests/operational-health.test.ts
+- tests/board-next-action.test.ts
+- Commit: ba9e85e
+VERIFICATION:
+- `npx vitest run tests/operational-health.test.ts tests/board-next-action.test.ts` → 22/22 Tests grün.
+- `npm run typecheck` → erfolgreich (tsc --noEmit).
+- Neue Regressionstests:
+  - operational-health: `critical cost anomalies keep health actionUrl on cost-anomalies even with execution recovery load`
+  - board-next-action: `returns cost-focused action when critical cost anomalies exist even if execution is degraded but non-incident`
+OPEN_RISKS:
+- Priorisierung der Cost-Aktion überdeckt bewusst andere nicht-incident Next-Actions; falls künftig eine feinere Prioritätsmatrix gewünscht ist (z. B. Kosten nur bei severity=critical), sollte das als separater Policy-Task modelliert werden.
+- 2026-04-25T12:35:10.488Z | START | 561fffc1-58e4-448c-8b95-b212a007d32a | [P1][Forge] Lifecycle-Semantik härten: degraded != leer, no-op != Erfolg, ignored != ok | worker=sre-expert | progress=- | summary=-
+- 2026-04-25T12:38:47.882Z | CHECKPOINT | 561fffc1-58e4-448c-8b95-b212a007d32a | [P1][Forge] Lifecycle-Semantik härten: degraded != leer, no-op != Erfolg, ignored != ok | worker=sre-expert | progress=90% | summary=- | note=Lifecycle-Semantik-Härtung implementiert und committed (44c8b9c): assigned-read degraded liefert nun reasonCode/noDataReason/warningDetail, already-dispatched Dispatch liefert explizit noOp+reason+warning, terminal ignored receipts liefern warnende Maschinen-Semantik. Regressionstests ergänzt und grün.
+- 2026-04-25T12:39:11.837Z | DONE | 561fffc1-58e4-448c-8b95-b212a007d32a | [P1][Forge] Lifecycle-Semantik härten: degraded != leer, no-op != Erfolg, ignored != ok | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Die Lifecycle-Semantik ist jetzt operativ klarer und maschinenlesbar: (1) assigned-read Fail-Soft wird nicht mehr nur als leere Liste signalisiert, sondern als degradierter Read mit eindeutigen Codes/Detailfeldern; (2) idempotenter Redispatch liefert explizit `noOp` + `reason=already-dispatched` + Warning-Code statt implizitem Erfolg; (3) ignored Receipts auf terminalen Tasks liefern nun eine warnende Response-Semantik statt nur `ok+ignored` ohne Severity-Kontext.
+CHANGED_PATHS:
+- src/app/api/tasks/route.ts
+- src/lib/task-dispatch.ts
+- src/app/api/tasks/[id]/receipt/route.ts
+- tests/dispatch-gate.test.ts
+- tests/receipt-invalid-no-mutation.test.ts
+- tests/tasks-route-assigned-degraded-semantics.test.ts
+- Commit: 44c8b9c
+SEMANTIC_CHANGES:
+- Assigned-Read degraded: Response enthält jetzt zusätzlich `reasonCode=assigned-read-degraded`, `noDataReason=degraded-read-task-store-unavailable` und `warningDetail{severity,code,queueState,retryable}`.
+- Dispatch idempotent no-op: `dispatchTask()` liefert bei bereits dispatchtem Task jetzt `noOp:true`, `reason:'already-dispatched'`, `warning.code:'dispatch-noop-already-dispatched'`.
+- Receipt ignored on terminal: duplicate/non-terminal-on-terminal ignored Antworten enthalten jetzt `warning{severity:'warning', code, message, actionable}`.
+VERIFICATION:
+- `npx vitest run tests/tasks-route-assigned-degraded-semantics.test.ts tests/dispatch-gate.test.ts tests/receipt-invalid-no-mutation.test.ts` → 14/14 Tests grün.
+- `npm run typecheck` → erfolgreich (`tsc --noEmit`).
+- 2026-04-25T12:39:59.364Z | START | f5fe029e-c157-4acc-aff1-f2f5e99139ce | [P1][Forge] Minimal-Observability für stille Lifecycle-/Health-Brüche ergänzen | worker=sre-expert | progress=- | summary=-
+- 2026-04-25T12:42:46.513Z | CHECKPOINT | f5fe029e-c157-4acc-aff1-f2f5e99139ce | [P1][Forge] Minimal-Observability für stille Lifecycle-/Health-Brüche ergänzen | worker=sre-expert | progress=90% | summary=- | note=Minimal-Observability erweitert: neue semantic signal counter in api-metrics (assigned_read_degraded, dispatch_noop_already_dispatched, receipt_ignored_terminal_conflict) plus Hookups in tasks/dispatch/receipt-Pfaden. Tests ergänzt und grün (api-metrics + lifecycle regression suite).
+- 2026-04-25T12:43:17.618Z | DONE | f5fe029e-c157-4acc-aff1-f2f5e99139ce | [P1][Forge] Minimal-Observability für stille Lifecycle-/Health-Brüche ergänzen | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: P1-Minimal-Observability ist umgesetzt: die drei stillen Lifecycle-Bruchklassen werden jetzt als dedizierte Semantic-Signale in `api-metrics` erfasst. Damit sind `assigned_read_degraded`, `dispatch_noop_already_dispatched` und `receipt_ignored_terminal_conflict` zentral zählbar und mit last-seen Kontext auswertbar, statt nur indirekt über einzelne Response-Felder.
+SIGNALS_ADDED:
+- `assigned_read_degraded` (Hook: `src/app/api/tasks/route.ts` im assigned fail-soft catch)
+- `dispatch_noop_already_dispatched` (Hook: `src/lib/task-dispatch.ts` bei idempotentem already-dispatched no-op)
+- `receipt_ignored_terminal_conflict` (Hook: `src/app/api/tasks/[id]/receipt/route.ts` bei duplicate-terminal + non-terminal-on-terminal ignore)
+- Storage/Surface: `src/lib/api-metrics.ts` (`semanticSignals` im Snapshot, inkl. count + lastSeenAt + lastRoute + lastDetail)
+VERIFICATION:
+- `npx vitest run tests/api-metrics.test.ts tests/tasks-route-assigned-degraded-semantics.test.ts tests/dispatch-gate.test.ts tests/receipt-invalid-no-mutation.test.ts` → 17/17 Tests grün.
+- `npm run typecheck` → erfolgreich (`tsc --noEmit`).
+- Ops/Output Proof: `getApiMetricsSnapshot()` enthält nun `semanticSignals`-Block; Regression-Test `records semantic lifecycle signals in metrics snapshot` validiert die drei neuen Signalzähler.
+OPEN_RISKS:
+- Live-`/api/metrics` zeigt die neuen Signalwerte erst nach realen Laufzeitereignissen auf der aktiven Runtime; in ruhigen Phasen bleiben Counts erwartbar bei 0.
+- `assigned_read_degraded` tritt nur bei tatsächlichem Store-Read-Fail-Soft auf, daher im Tagesbetrieb selten (gewollt, low-noise).
+- 2026-04-25T12:44:04.972Z | DONE | 67848b12-1cac-48d8-8015-1d563be940b3 | [P1][Phase 1][Lens] Signal-zu-Task Kette auditieren und Bruchstellen priorisieren | worker=efficiency-auditor | progress=- | summary=Signal→Task Audit abgeschlossen. Zwei führende Fehlerbilder sind priorisiert: falsche Action-Routing-Wahrheit bei Health/Cost-Degradation und missverständliche Signal-Semantik im Board-Next-Action-Pfad. Die Folgearbeit ist bereits als Forge-P1 geschnitten.
