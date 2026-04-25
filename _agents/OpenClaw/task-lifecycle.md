@@ -773,3 +773,45 @@ OPEN_RISKS: Niedriges Restrisiko für weitere bislang unbekannte historical-fail
 - 2026-04-25T10:09:31.160Z | DONE | 1c09c34b-39fc-4893-9d44-861be0f005ae | [Meeting][Lens MiniMax Observer] 2026-04-25_0958_debate_was-w-re-der-n-chste-konkrete-fix-um-unser-system-stabil | worker=efficiency-auditor | progress=- | summary=Lens/MiniMax Observer Note appended: Konkretester Fix = MiniMax TOKEN_PLAN → PREPAID (1-2 Zeilen, sofort verifizierbar, kein Risiko). 6 bekannte konkrete Fixes aus 5x Soak Debates zusammengefasst.
 - 2026-04-25T10:10:31.261Z | CHECKPOINT | f3faec1e-bb09-4bbb-b2d1-bd767a1ccb2e | [Meeting][Claude Bot] 2026-04-25_0958_debate_was-w-re-der-n-chste-konkrete-fix-um-unser-system-stabil | worker=task-f3faec1e-bb09-4bbb-b2d1-bd767a1ccb2e-main | progress=70% | summary=- | note=Lens-Observer-Notiz ist eingetroffen. Ich konsolidiere jetzt den Claude-Bot-Standpunkt und schreibe den signierten Beitrag samt CoVe-Verify-Log in die Meeting-Datei.
 - 2026-04-25T10:11:07.357Z | DONE | f3faec1e-bb09-4bbb-b2d1-bd767a1ccb2e | [Meeting][Claude Bot] 2026-04-25_0958_debate_was-w-re-der-n-chste-konkrete-fix-um-unser-system-stabil | worker=main | progress=70% | summary=Claude-Bot-Beitrag in die Meeting-Datei eingetragen: Votum fuer einen harten Meeting-Preflight vor Synthese/Fanout, solange Ground-Truth-Files fehlen oder Opinion/Rebuttal nur Platzhalter sind; 3 CoVe-Verify-Log-Eintraege und Token-Log-Zeile ergänzt, Lens-Observer-Notiz berücksichtigt.
+- 2026-04-25T10:28:25.742Z | START | a95d8f7d-678a-4414-ac30-6adcfa79941d | [P1][Forge] Meeting-Preflight: no-synthesis/no-fanout Guard für unvollständige Meetings einbauen | worker=sre-expert | progress=- | summary=-
+- 2026-04-25T10:28:57.115Z | START | c210bdbf-f9e5-4c4d-ae50-cbee13048b5a | [P2][Pixel] Meeting-Status schärfen: next-action glasklar für Codex vs Finalize | worker=frontend-guru | progress=- | summary=-
+- 2026-04-25T10:31:56.673Z | CHECKPOINT | c210bdbf-f9e5-4c4d-ae50-cbee13048b5a | [P2][Pixel] Meeting-Status schärfen: next-action glasklar für Codex vs Finalize | worker=frontend-guru | progress=70% | summary=- | note=The meeting status path now prints one explicit operator-facing NEXT STEP above the machine next-action line. Verified on both a done meeting (`nothing open`) and a codex-missing running meeting (`get Codex now`).
+- 2026-04-25T10:32:21.458Z | CHECKPOINT | a95d8f7d-678a-4414-ac30-6adcfa79941d | [P1][Forge] Meeting-Preflight: no-synthesis/no-fanout Guard für unvollständige Meetings einbauen | worker=sre-expert | progress=75% | summary=- | note=Hard preflight guard ist implementiert in meeting-runner + meeting-finalize: neue Checks blocken bei unvollständigem Scope/Ground-Truth, Template-only Required-Beiträgen und fehlender CoVe-Verifikation bei Live/Kosten-Claims. Der Runner setzt in --once den Meeting-Status explizit auf blocked inkl. klarer missing-Reasons (no synthesis/fanout), Finalize dry-run blockt mit denselben Reasons. Syntax + Dry-runs sind verifiziert.
+- 2026-04-25T10:32:42.538Z | DONE | c210bdbf-f9e5-4c4d-ae50-cbee13048b5a | [P2][Pixel] Meeting-Status schärfen: next-action glasklar für Codex vs Finalize | worker=frontend-guru | progress=70% | summary=EXECUTION_STATUS
+Done
+
+RESULT_SUMMARY
+Sharpened the meeting status output so the operator sees one explicit NEXT STEP before the technical `next-action` line. The path now makes it immediately clear whether the operator should get Codex now, wait for missing input, run finalize dry-run, or do nothing because the meeting is already complete.
+
+CHANGES
+- Updated `/home/piet/.openclaw/scripts/meeting-status-post.sh` to print a human-facing `NEXT STEP:` line above the existing machine-readable `next-action:` output.
+- Mapped the relevant states to clear operator language:
+  - `append-codex-rebuttal` → `Jetzt Codex-Beitrag holen (Phase C / manueller Codex-Rebuttal).`
+  - `needs-chairman-synthesis` / synthesis write path → `Jetzt Synthese schreiben ...`
+  - `ready-to-finalize` → `Jetzt Finalize dry-run fahren. Wenn grün: danach Finalize execute freigeben.`
+  - `next-action: none` → `Nichts offen. Finalize/Follow-up ist aktuell nicht nötig.`
+- Kept the machine-readable `next-action:` line intact underneath, so no workflow/parser contract was broken.
+
+VERIFICATION
+- Syntax check: `bash -n /home/piet/.openclaw/scripts/meeting-status-post.sh` passed.
+- Live check on done meeting `2026-04-25_0727_debate_worker-pickup-heartbeat-truth` now shows:
+  - `NEXT STEP: Nichts offen. Finalize/Follow-up ist aktuell nicht nötig.`
+  - `next-action: none`
+- Simulated codex-missing running meeting via temporary copy now shows:
+  - `NEXT STEP: Jetzt Codex-Beitrag holen (Phase C / manueller Codex-Rebuttal).`
+  - `next-action: ... action=append-codex-rebuttal`
+- This directly covers the user-confusing split between `append-codex-rebuttal`, running meeting state, and actual finalize readiness.
+
+OPEN_RISKS
+- The improvement is in the status-post script path; if another Discord/status poster bypasses this script, it will need the same wording pass separately.
+- No workflow logic changed here; this is a messaging/prioritization clarity cut only.
+- The script path is outside a Git repo on this host, so there is no commit artifact for this change.
+- 2026-04-25T10:32:53.357Z | DONE | a95d8f7d-678a-4414-ac30-6adcfa79941d | [P1][Forge] Meeting-Preflight: no-synthesis/no-fanout Guard für unvollständige Meetings einbauen | worker=sre-expert | progress=75% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Hard Meeting-Preflight ist jetzt aktiv und stoppt unvollständige Meetings vor Synthese/Fanout mit klaren Blocker-Reasons. Der Runner blockt in `--once` jetzt explizit mit `status=blocked` + Runner Note, Finalize blockt mit denselben missing-Reason-Codes statt still zu finalisieren.
+ROOT_CAUSE: Bisher prüften Runner/Finalize primär Signaturen/Synthese, aber nicht inhaltliche Mindestqualität. Dadurch konnten Meetings mit leerem Scope/Ground-Truth und Template-Slots (z. B. `[agent YYYY-MM-DDThh:mmZ]`) weiterlaufen bzw. finalisiert werden.
+CHANGES: In `/home/piet/.openclaw/scripts/meeting-runner.sh` und `/home/piet/.openclaw/scripts/meeting-finalize.sh` wurden neue Preflight-Checks ergänzt: (1) `scope-ground-truth-incomplete` (Objective/In scope/Out of scope/Ground truth files müssen befüllt sein), (2) `required-contributions-template-only` (Template-Slots im Diskussionsteil blocken), (3) `missing-cove-verification` (bei Live/Kosten-Claims in Diskussion muss mindestens eine echte CoVe-Verify-Zeile vorhanden sein). Zusätzlich im Runner: klare Next-Actions für die neuen Findings und harter Block in `--once` inkl. `status=blocked` + Runner-Note „No synthesis/fanout until fixed.“.
+VERIFICATION: (a) Syntax-Check grün: `bash -n` für beide Skripte. (b) Negativbeleg: synthetisches unvollständiges Meeting wird im Runner mit `missing=scope-ground-truth-incomplete,required-contributions-template-only` geblockt und auf `status: blocked` gesetzt; Finalize dry-run blockt ebenfalls mit denselben inhaltlichen Missing-Reasons. (c) Positivbeleg: synthetisches vollständiges Meeting läuft im Runner weiter und Finalize dry-run ist `ok`.
+OPEN_RISKS: Der CoVe-Claim-Trigger ist keyword-basiert (live/cost/api/billing/EUR/USD) und bewusst konservativ; bei exotischen Claim-Formulierungen kann ein zusätzlicher Matcher nötig werden. Kein Cron/Loop/Fanout-Ausbau vorgenommen (Anti-Scope eingehalten).
+- 2026-04-25T10:34:25.975Z | START | c5d04b9c-287e-433e-9450-08ca3373a236 | [Meeting][Claude Bot] complete | worker=task-c5d04b9c-287e-433e-9450-08ca3373a236-main | progress=- | summary=-
+- 2026-04-25T10:34:43.987Z | CHECKPOINT | c5d04b9c-287e-433e-9450-08ca3373a236 | [Meeting][Claude Bot] complete | worker=task-c5d04b9c-287e-433e-9450-08ca3373a236-main | progress=25% | summary=- | note=Handshake und Meeting-Datei gelesen. Ich ziehe einen kurzen Worker-Gegencheck zur Evidenzlage hinzu und schreibe dann den Claude-Bot-Beitrag mit verifizierten Claims.
+- 2026-04-25T10:35:00.674Z | CHECKPOINT | c5d04b9c-287e-433e-9450-08ca3373a236 | [Meeting][Claude Bot] complete | worker=task-c5d04b9c-287e-433e-9450-08ca3373a236-main | progress=55% | summary=- | note=Meeting-Datei ist gelesen; der referenzierte Ground-Truth-Pfad /tmp/source.md existiert aktuell nicht. Ich lasse einen kurzen Lens-Gegencheck auf Basis des vorhandenen Artefakts laufen und konsolidiere dann den Claude-Bot-Beitrag.
