@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 352bf745-d66e-4608-9b3e-8b1ae602fbd4 [P1][Forge] Gate D: Discord Unknown Interaction 10062 in meeting-* root-causen und beheben
+- task: d7599b6f-857f-407c-a907-0b22306095e6 [P2][Forge] Gate D: Alert-Routing No webhook configured + Suppressed bereinigen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Discord-10062 im meeting-Pfad ist als defer-Race root-caused und im Live-Code abgesichert: alle meeting-* Commands gehen über safe_defer, und im aktuellen Logstand gibt es nach der gefixten Phase keine neueren command-er
+- checkpoint: Alert-Routing-Semantik ist bereinigt: ohne konfigurierten Webhook wird jetzt bewusst als dry-run/drop behandelt und pro Cooldownfenster genau einmal gewarnt, statt im selben Zustand zusätzlich als SUPPRESSED zu erscheine
 - blocker: -
-- updated: 2026-04-25T15:11:43.936Z
+- updated: 2026-04-25T15:34:16.598Z
 <!-- mc:auto-working-context:end -->
