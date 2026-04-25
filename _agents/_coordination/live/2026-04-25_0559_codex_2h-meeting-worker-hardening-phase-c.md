@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-04-25T05:59:49Z
-ended: null
+ended: 2026-04-25T07:53:54Z
 task: "2h active monitoring, meeting hardening, Phase C foundation"
 touching:
   - /home/piet/vault/03-Agents/_coordination/live/2026-04-25_0559_codex_2h-meeting-worker-hardening-phase-c.md
@@ -35,3 +35,8 @@ operator: lenard
 - 2026-04-25T07:00Z Operator requested extension: 5 more debates/meetings, but Codex only steers Atlas and monitors. Baseline before dispatch: no active tasks, no running/queued meetings, worker proof ok criticalIssues=0 openRuns=0.
 - 2026-04-25T07:02Z Created and dispatched Atlas task `bdb6246d-9c6b-4389-95fd-ffd6a51f1f46` for 5 additional one-at-a-time meeting/debate/review hardening runs. Codex remains monitor only.
 - 2026-04-25T07:16Z Atlas task claimed after normal pickup delay; status in-progress accepted, heartbeat present, worker proof ok, no running/queued meetings yet.
+- 2026-04-25T07:28Z Atlas created Meeting 1/5 `2026-04-25_0727_debate_worker-pickup-heartbeat-truth`; Claude-Bot contribution present, worker proof ok.
+- 2026-04-25T07:34Z Meeting 1/5 had Claude-Bot, Lens, Codex and Codex-Interim; applied small statusposter fix so complete signatures plus non-done status show `needs-chairman-finalize` instead of `next-action: none`.
+- 2026-04-25T07:46Z Atlas task entered `stalled-warning`; worker proof degraded but criticalIssues=0, openRuns=1.
+- 2026-04-25T07:53Z `worker-reconciler.mjs --dry-run` confirmed proposed action `fail-stale-open-run-without-process-evidence` for Run `4bf20a7a-0a58-458b-b466-7b873ca1a4d7`; not executed because it is a mutating recovery action.
+- 2026-04-25T07:55Z Final gate: services active; `/api/health` degraded due the stale Atlas run; meeting-runner has no running meetings and one queued Atlas meeting awaiting chairman finalize. Meeting 2-5 were intentionally not started under the one-at-a-time guard.

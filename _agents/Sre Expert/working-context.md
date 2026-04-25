@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b5a404e8-01eb-4456-920c-446814eb7c62 [P1][Forge] Backfill für die 42 historischen failed+completed Fälle sauber und verifizierbar schneiden
+- task: 3b356588-b8d6-4819-bc7d-ed4f919fcdef [P1][RCA+Fix][Forge] Meeting-/Debate-Finalizer-Bruch blockiert Atlas nach Beiträgen vor terminalem Abschluss
 - stage: DONE
 - next: await next assignment
-- checkpoint: Vorher/Nachher belegt: historische Zielmenge genau 42 Fälle (status=failed, dispatchState=completed, executionState=failed, createdAt<2026-04-25). Initial fehlten bei 24 Fällen Failure-Report-Proofs (finalReportSentAt un
+- checkpoint: Root-Cause: Der Bruch lag im Fallback von meeting-status-post.sh: sobald keine Teilnehmer-Signatur fehlte, wurde pauschal `needs-chairman-finalize` gesetzt, ohne den Synthese-Zustand zu prüfen. Dadurch wurden bereits fac
 - blocker: -
-- updated: 2026-04-25T06:57:06.124Z
+- updated: 2026-04-25T08:07:31.065Z
 <!-- mc:auto-working-context:end -->
