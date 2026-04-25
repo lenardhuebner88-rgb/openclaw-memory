@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ec3f6d2d-b94c-4b01-b57a-cfa6c5490b01 [P1][Forge] Failed-Terminal Write-/Normalize-Pfad auf Soll-Semantik ziehen
+- task: d09c6b95-f8c2-4b9e-943f-9a735fe51016 [P1][Forge] Terminal-State Guardrail-/Repro-Paket nach Spark-Ausfall minimal liefern
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root-Cause: Zwei failed-Terminal-Branches in POST /api/tasks/[id]/receipt bauten taskPatch mit geerbtem/non-terminal dispatchState auf; Konsistenz entstand erst implizit über nachgelagerte Normalisierung. Fixschnitt: Bei
+- checkpoint: Repro-Matrix geliefert: docs/qa/terminal-state-repro-guardrail-matrix-2026-04-25.md dokumentiert die drei Terminalfälle success/failed/canceled jeweils mit Trigger, Soll-Zustand und Guardrail-Checks. Minimale Guardrail-A
 - blocker: -
-- updated: 2026-04-25T05:43:00.942Z
+- updated: 2026-04-25T06:47:05.812Z
 <!-- mc:auto-working-context:end -->

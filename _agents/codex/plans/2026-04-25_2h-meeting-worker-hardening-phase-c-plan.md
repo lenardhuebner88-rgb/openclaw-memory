@@ -87,3 +87,24 @@ Nach zwei Stunden liegt ein klarer Prozess vor:
 4. Phase C Helper erzeugt oder spaeter ausfuehrt den Codex-Beitrag.
 5. `meeting-finalize.sh --dry-run` prueft Abschluss.
 6. Finalize `--execute` nur nach bestandenen Gates.
+
+## Umsetzung 2026-04-25
+- Phase C Helper gebaut: `/home/piet/.openclaw/scripts/spawn-codex-meeting.sh`.
+- Statusposter nennt Phase-C Helper bei fehlendem Codex-Beitrag.
+- Runner-Spawn-Plan nennt Phase-C statt nur manuell/plugin-driven.
+- Real-Test 1:
+  - `2026-04-25_0451_debate_meeting-council-safe-mode`
+  - Claude Bot done, Lens done, Phase C Codex execute rc=0, Finalize done.
+- Real-Test 2:
+  - `2026-04-25_0452_debate_phase4-readiness-gates`
+  - Claude Bot done, Lens done, Phase C Codex execute rc=0, Finalize done.
+- Worker-Proof nach beiden Laeufen:
+  - `status=ok`
+  - `criticalIssues=0`
+  - `openRuns=0`
+  - `issues=0`
+
+## Beobachtung
+- Kurzzeitiges `degraded` direkt nach Dispatch ist normal, solange im naechsten Pickup-Zyklus `CLAIM_CONFIRMED` und Heartbeat folgen.
+- Vorherige Spark-Folgeaufgabe hatte Claim-Timeouts; das war getrennt vom Meeting-Pfad. Waehrend der kontrollierten Meeting-Laeufe wurden Main und Lens jeweils sauber claimed.
+- Phase C verursacht keine Worker-Runs, sondern laeuft als separater `codex exec` unter explizitem Enable-Flag.
