@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 155f874e-59db-4a67-bc21-5b55447e9405 [P2][Spark] Knappen Runbook-Entwurf aus Evidenz formen
+- task: 3422b50d-24cf-41b6-8a6f-18d2b890c293 [P1][Spark] /meeting-run-once <meeting-id> als kontrollierten Start ohne Cron bauen
 - stage: DONE
 - next: await next assignment
-- checkpoint: prepared a compact recovery/finalize/execute runbook draft with explicit Go/No-Go and verify slots for the parent task context
+- checkpoint: Implemented a controlled `/meeting-run-once <meeting-id>` flow: the Discord command now supports explicit meeting targeting, and runner execution stays one-shot with explicit running-queue guards.
 - blocker: -
-- updated: 2026-04-25T08:49:49.751Z
+- updated: 2026-04-25T18:35:42.265Z
 <!-- mc:auto-working-context:end -->
