@@ -1,7 +1,7 @@
 ---
 title: Agent-Team-Meetings & Cross-Provider-Kollaboration
 type: project
-status: planning
+status: superseded-by-handshake
 started: 2026-04-24
 owner: lenard
 stakeholders: [Atlas, Main/Claude, Codex, James, Lens, Pixel, Forge]
@@ -16,9 +16,11 @@ tags: [type/project, status/planning, topic/meta-orchestration, topic/multi-agen
 
 # Agent-Team-Meetings — Operativer Plan
 
+> **SUPERSEDED 2026-04-25:** Live-Truth ist [`_coordination/HANDSHAKE.md`](_coordination/HANDSHAKE.md) Section 6 + [`_coordination/meetings/README.md`](_coordination/meetings/README.md). Dieses Dokument ist das ursprüngliche Pre-Implementation-Designdokument. Im Live-Setup wurden Token-Budgets, Trigger-Phrasen und Teilnehmer-Listen feiner ausdifferenziert: Lens als MiniMax-Observer (3-Modell-Heterogenität), Budgets 30k/80k/20k pro Modus statt 50k flat, Discord-Trigger `/meeting-debate <topic>` etc. Bei Konflikt zwischen diesem Doc und HANDSHAKE: HANDSHAKE gilt.
+
 ## Kernbefund der Recherche
 
-**Cross-Provider-Debate (Claude vs Codex) ist einer der wenigen Multi-Agent-Debate-Fälle, in denen das Pattern empirisch Single-Agent mit Self-Consistency schlägt** (ICLR 2025 MAD-Eval). Homogene Debates (z.B. Claude vs Claude) verlieren dagegen meist gegen einen gut-prompteten Single-Agent mit langem CoT.
+**Heterogene Modelle (Cross-Provider, z.B. Claude vs Codex) sind in der [ICLR-2025 MAD-Eval](https://d2jud02ci9yv69.cloudfront.net/2025-04-28-mad-159/blog/mad/) die _Bedingung_, unter der MAD-Patterns überhaupt eine Chance haben, Single-Agent mit Self-Consistency zu schlagen.** Die Eval (ICLR-Blogpost, nicht peer-reviewed Paper) zeigt aber: MAD-Frameworks "fail to consistently outperform simple single-agent test-time computation strategies", und Heterogenität "does not always have positive influence". Implikation: Heterogenität ist **notwendig, nicht hinreichend** — und der Live-Setup mit 3-Modell-Heterogenität (Claude + Codex + Lens/MiniMax, vgl. HANDSHAKE) ist deshalb die robustere Konfiguration als 2-Modell-Debate.
 
 **Implikation:** Der Operator-Instinkt, Codex dazu zu holen, ist datengestützt richtig — nicht aus Gefühl, sondern aus Benchmarks. Der Meeting-Nutzen skaliert mit Model-Heterogenität, nicht mit Agent-Count.
 
@@ -83,7 +85,7 @@ Harte Limits, die Cost-Explosion und Cascading-Hallucinations verhindern:
 5. Atlas synthetisiert Konsens/Dissens-Punkte + Action-Items.
 6. **CoVe-Nachbrenner:** Alle Claims werden gegen Ground-Truth verifiziert (git log / file-ls / grep).
 
-**Empirie:** +23% GPQA-Accuracy via CoVe; MAD schlägt Self-Consistency bei heterogenen Modellen.
+**Empirie:** [CoVe (arxiv 2309.11495, ACL Findings 2024)](https://arxiv.org/abs/2309.11495) reduziert Halluzinationen auf Wikidata-list-questions, MultiSpanQA und longform. Die ursprünglich hier genannte `+23% GPQA / CorrectBench 2025`-Zahl ist nicht durch das CoVe-Paper belegt und wurde entfernt — konkrete Reduktions-Magnituden bitte direkt aus Tab. 3-5 des Original-Papers nehmen. MAD-Heterogenitäts-Aussage: siehe Kernbefund oben (nicht hinreichend).
 **Output:** `_coordination/meetings/YYYY-MM-DD_HHMM_debate_<topic>.md` + Action-Items als Board-Tasks.
 
 ### Mode 2: Council — für Feature-Brainstorming
@@ -156,7 +158,7 @@ Harte Limits, die Cost-Explosion und Cascading-Hallucinations verhindern:
 | 3 | Deckt beide Operator-Ziele ab (Schwächen + Features) | Mode 1 + Mode 2 direkt mappable |
 | 4 | Verhindert Sycophancy-Bias in Self-Review | Codex als externe Stimme bricht Echo-Chamber |
 | 5 | CoVe reduziert Halluzinationen nachweislich | +23% GPQA (CorrectBench 2025) |
-| 6 | Token-Attribution pro Meeting isoliert Cost-Overruns | DoorDash/Lanham 2025 |
+| 6 | Token-Attribution pro Meeting isoliert Cost-Overruns | [DoorDash "budgeting the loop"-Pattern](https://careersatdoordash.com/blog/doordash-kdd-llm-assisted-personalization-framework/) (offizielle Engineering-Posts). _"Lanham 2025"-Co-Quelle aus Plan-Entwurf konnte 2026-04-25 nicht verifiziert werden._ |
 | 7 | Nutzt offizielles OpenAI-Plugin — keine Eigenbau-Bridge | codex-plugin-cc hat OpenAI-Maintenance |
 | 8 | Council-Anonymisierung mildert Brand-Favoritism | Karpathy-llm-council-Pattern |
 | 9 | Append-only Markdown = Git-versionierbar | Review-trail out-of-the-box |
@@ -212,8 +214,8 @@ Harte Limits, die Cost-Explosion und Cascading-Hallucinations verhindern:
 **Empirie:**
 
 - ICLR 2025 MAD-Eval — Multi-Agent Debate robust nur bei heterogenen Modellen
-- CorrectBench 2025 — CoVe +23% GPQA-Accuracy
-- arxiv 2503.13657 — Why Do Multi-Agent LLM Systems Fail? (MAST-Taxonomie, 5 Failure-Kategorien)
+- [Chain-of-Verification (arxiv 2309.11495)](https://arxiv.org/abs/2309.11495) — reduziert Halluzinationen auf Wikidata/MultiSpanQA/longform; die im Plan-Entwurf zitierte +23%-GPQA-Zahl konnte 2026-04-25 nicht in einer Quelle bestätigt werden
+- [arxiv 2503.13657](https://arxiv.org/abs/2503.13657) — Why Do Multi-Agent LLM Systems Fail? (MAST-Taxonomie: **14 Sub-Modes in 3 Kategorien** — System Design, Inter-Agent Misalignment, Task Verification; basierend auf 150 expert-annotierten Traces, κ=0.88. Plan-Entwurf nannte 5 Kategorien — falsch.)
 - karpathy/llm-council — 3-Stage-Pattern mit Anonymisierung
 - OWASP ASI08 2026 — Cascading Failures in Agentic AI
 

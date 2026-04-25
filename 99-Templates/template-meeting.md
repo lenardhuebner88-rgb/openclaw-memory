@@ -33,12 +33,12 @@ turn-lock: none
 ## Opinions
 
 ### Opinion 1
-[agent YYYY-MM-DDThh:mmZ]
+<!-- Agent contributions are appended as signed turns. -->
 
 ## Rebuttals
 
 ### Rebuttal 1
-[agent YYYY-MM-DDThh:mmZ]
+<!-- Rebuttals are appended as signed turns. -->
 
 ## Bounded Discussion Turns
 | Turn | Agent | Must read before replying | Status |
@@ -53,7 +53,7 @@ turn-lock: none
 | 8 | atlas | All prior turns | queued |
 
 ## Synthese
-[chairman YYYY-MM-DDThh:mmZ]
+<!-- Chairman synthesis is appended after required turns. -->
 
 ## Action-Items
 - [ ] 
