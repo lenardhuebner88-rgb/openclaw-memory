@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6ff0abcd-2c5f-4abe-a6ea-78d17d6dc00a [Meeting][Lens MiniMax Observer] 2026-04-25_0449_debate_meeting-debate-token-accounting
+- task: 3da67794-fc37-407d-906c-9f87977c8968 [Meeting][Lens MiniMax Observer] 2026-04-25_0450_debate_meeting-review-minimal-features
 - stage: DONE
 - next: await next assignment
-- checkpoint: Lens/MiniMax Observer Note appended: Token-Accounting nach dem Meeting aggregieren (Methode B), nicht pro Beitrag. Done-Gate muss quality-basiert sein, nicht token-basiert. tracked-tokens=0 ist der größere Fehler.
+- checkpoint: Lens/MiniMax Observer Note appended: /meeting-review braucht 3 Cost-Risk-Gates (Token-Limit, Cycle-Count, Evidence-Log) bevor es als minimal-feature-complete gilt.
 - blocker: -
-- updated: 2026-04-25T04:59:50.727Z
+- updated: 2026-04-25T05:31:34.237Z
 <!-- mc:auto-working-context:end -->

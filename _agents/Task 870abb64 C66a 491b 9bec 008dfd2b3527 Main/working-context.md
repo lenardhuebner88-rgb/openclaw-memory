@@ -1,4 +1,4 @@
-# Main Working Context
+# Task 870abb64 C66a 491b 9bec 008dfd2b3527 Main Working Context
 
 ## Lies zuerst
 - [[../Shared/project-state]]
@@ -8,10 +8,9 @@
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 870abb64-c66a-491b-9bec-008dfd2b3527 [P1][Atlas] Terminal-State-Semantik für failed/completed verbindlich festziehen
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: Verbindliches Soll-Modell festgezogen: `dispatchState=completed` darf nur noch "Lifecycle sauber abgeschlossen" bedeuten, nicht "irgendein Terminalzustand". Daraus folgt: `done -> d
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Progress: HEARTBEAT rules, raw consistency checks, and live failed/completed board examples reviewed; now locking the target terminal-state model and concrete follow-up actions.
 - blocker: -
-- updated: 2026-04-25T05:42:32.994Z
+- updated: 2026-04-25T05:42:05.566Z
 <!-- mc:auto-working-context:end -->

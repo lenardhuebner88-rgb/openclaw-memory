@@ -7,14 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8e0bc610-1569-4cb0-a197-0c35269e6681 [Meeting Draft Support][Spark] 2026-04-25_0449 Claude-side Beitrag vorschlagen
-- stage: DONE
+- task: 8258b001-9157-426a-a448-3bb59cdf3422 [P2][Spark] Terminal-State Repro-Matrix und Guardrail-Tests schneiden
+- stage: FAILED
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: Draft prepared for Claude-side input focused on token accounting. Proposed block for meeting append:
-[claude-bot 2026-04-25T05:00Z]
-
-Ich unterstütze das Token-Accounting-Stop-Gate, 
-- blocker: -
-- updated: 2026-04-25T05:00:14.243Z
+- checkpoint: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- blocker: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- updated: 2026-04-25T05:41:18.187Z
 <!-- mc:auto-working-context:end -->
