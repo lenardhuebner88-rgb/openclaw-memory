@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3da67794-fc37-407d-906c-9f87977c8968 [Meeting][Lens MiniMax Observer] 2026-04-25_0450_debate_meeting-review-minimal-features
+- task: 734585fc-99b3-45cb-9483-cb752d4c4c1e [Meeting][Lens MiniMax Observer] 2026-04-25_0452_debate_phase4-readiness-gates
 - stage: DONE
 - next: await next assignment
-- checkpoint: Lens/MiniMax Observer Note appended: /meeting-review braucht 3 Cost-Risk-Gates (Token-Limit, Cycle-Count, Evidence-Log) bevor es als minimal-feature-complete gilt.
+- checkpoint: Lens/MiniMax Observer Note appended: Phase-4 Cron-Readiness = 6 Gates (3/5 Soak, Worker-stable, Token-Accounting, No-Drift, Rollback-Schalter, dry-run=no-op). Ruhezustands-Kosten max $0.10/Monat.
 - blocker: -
-- updated: 2026-04-25T05:31:34.237Z
+- updated: 2026-04-25T06:14:37.816Z
 <!-- mc:auto-working-context:end -->
