@@ -11,7 +11,10 @@
   "showLineNumber": true,
   "readableLineLength": true,
   "spellcheck": true,
-  "spellcheckLanguages": ["de", "en-US"],
+  "spellcheckLanguages": [
+    "de",
+    "en-US"
+  ],
   "foldHeading": true,
   "foldIndent": true,
   "tabSize": 2,
