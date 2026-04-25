@@ -7,10 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 06f38358-66cf-4978-86a3-4ac96fae6196 [P2][Forge] Kleiner Soak-Proof fuer Meeting-Finalizer nach Recovery fahren
+- task: 873e6af4-b3a4-4e7a-a278-541a39b7b171 [P1][Forge] MC execution-health truth gap bereinigen (recoveryLoad/attentionCount ohne Live-Work)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Soak-Ergebnis: Der verlangte kleine Stabilitätsnachweis wurde mit 3 kontrollierten Läufen auf demselben Finalizer-Pfad durchgeführt. In jedem Lauf wurden `meeting-finalize.sh --dry-run` und direkt danach `--execute` ausg
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY: Der Execution-Health-Truth-Gap ist behoben. Vorher zeigte /api/health trotz ruhigem Board `execution.status=degraded` mit `recoveryLoad=1`/`attentionCount=1`; nach Fix + Live-Restar
 - blocker: -
-- updated: 2026-04-25T08:43:33.252Z
+- updated: 2026-04-25T09:35:00.432Z
 <!-- mc:auto-working-context:end -->
