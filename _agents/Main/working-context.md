@@ -7,11 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d8d77413-6d20-4b49-89f1-44bfdf15736c [P1][Atlas] Kleinen Hygiene-/Truth-Check abschließen und Archiv-Drift fixen
+- task: 5c09bae1-6613-45c7-8329-165eb53697bf [P2][Atlas] Kurzes Runbook fuer Recovery, Finalize und Proof nachziehen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: Hygiene-/Truth-Check sauber abgeschlossen. Live-Board-Befund nach der Stabilisierung: `assigned=0`, `pending-pickup=0`, kein widersprüchlicher `status=failed + dispatchState=dispatc
+RESULT_SUMMARY: Kurzes Runbook unter docs/operations/meeting-recovery-finalize-proof-runbook.md erstellt. Reihenfolge jetzt klar: (1) Reconciler dry-run/gezieltes execute nur fuer stale Altfall, (2
 - blocker: -
-- updated: 2026-04-25T07:08:29.133Z
+- updated: 2026-04-25T08:51:19.586Z
 <!-- mc:auto-working-context:end -->

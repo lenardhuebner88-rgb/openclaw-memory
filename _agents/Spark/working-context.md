@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 729e9e33-4dcd-4c40-956a-7677d2c3114a [Meeting Draft Support][Spark] 2026-04-25_0452 Claude-side Beitrag vorschlagen
+- task: 155f874e-59db-4a67-bc21-5b55447e9405 [P2][Spark] Knappen Runbook-Entwurf aus Evidenz formen
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done RESULT_SUMMARY: Draft-Claude Beitrag für Phase-4-Readiness-Gates: Bitte in der Abstimmungsdatei ergänzen: `Phase-4 sollte erst mit nachweislich erfüllten Gates freigeschaltet werden (3/5-Soak abges
+- checkpoint: prepared a compact recovery/finalize/execute runbook draft with explicit Go/No-Go and verify slots for the parent task context
 - blocker: -
-- updated: 2026-04-25T06:15:27.684Z
+- updated: 2026-04-25T08:49:49.751Z
 <!-- mc:auto-working-context:end -->

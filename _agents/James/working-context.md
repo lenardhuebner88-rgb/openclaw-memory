@@ -62,10 +62,10 @@ Headers: x-actor-kind: automation
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b1ff2a1b-171a-4875-8b2d-72498c97afce [P2][James] Externe Gegenprüfung von Kosten- und Routing-Annahmen
+- task: 2a5ccced-e1fe-4d0b-85d8-f6fdd89d5012 [P2][James] Recovery-Belegpfad fuer Runbook zusammenziehen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Externe Kosten-Gegenprüfung: 5 Vergleichspunkte (MiniMax bestätigt, GPT-5.4-mini besser als erwartet, Gemini-2.5-flash für RAG, Codex-mini günstiger, o4-mini sweet-spot statt o3).
+- checkpoint: Recovery-Runbook-Belege: 5 Ablauftypen dokumentiert (Finalize, Orphaned-Auto-Fail, R48-Board-Hygiene, Meeting-Finalize, Health/Degraded). 3 Referenz-Task-IDs nicht mehr auffindbar. Recovery-Ledger-Events als substitute. 
 - blocker: -
-- updated: 2026-04-24T20:04:24.177Z
+- updated: 2026-04-25T08:48:44.225Z
 <!-- mc:auto-working-context:end -->
