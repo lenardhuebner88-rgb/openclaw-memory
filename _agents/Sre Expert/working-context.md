@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2513ffab-26dc-4e03-9d13-98179187b098 [P1][Forge] Live-Evidence fuer Phase-D Controlled-Autopilot Gates
+- task: 352bf745-d66e-4608-9b3e-8b1ae602fbd4 [P1][Forge] Gate D: Discord Unknown Interaction 10062 in meeting-* root-causen und beheben
 - stage: DONE
 - next: await next assignment
-- checkpoint: Analyse-only abgeschlossen. Direkte Live-Evidence belegt: (1) Unknown interaction/10062 in meeting-* Commands, (2) plan-runner wiederholt version-gated auf OpenClaw 2026.4.22 vs Allowlist 2026.4.21, (3) alert-dispatcher 
+- checkpoint: Discord-10062 im meeting-Pfad ist als defer-Race root-caused und im Live-Code abgesichert: alle meeting-* Commands gehen über safe_defer, und im aktuellen Logstand gibt es nach der gefixten Phase keine neueren command-er
 - blocker: -
-- updated: 2026-04-25T14:41:24.314Z
+- updated: 2026-04-25T15:11:43.936Z
 <!-- mc:auto-working-context:end -->
