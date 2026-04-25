@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4b810b3b-17a3-4af3-bb53-5666ee9e631c [P1][Forge] Terminal-Receipt-Lücke nach Gate 1 im Meeting-Flow absichern
-- stage: DONE
-- next: await next assignment
-- checkpoint: Die Gate-1-Terminal-Receipt-Lücke ist im Meeting-Flow abgesichert: Claude-Meeting-Tasks tragen jetzt einen harten Terminal-Receipt-Vertrag (inkl. NO_REPLY-Guard), und der Runner erkennt fehlende terminale Claude-Receipts
+- task: 844c7720-9fad-4c06-b761-08913dd32c45 [P1][Forge] Finalize als explizites Gate hart beibehalten statt Cron-Automatik
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-25T18:46:39.491Z
+- updated: 2026-04-25T20:57:36.546Z
 <!-- mc:auto-working-context:end -->
