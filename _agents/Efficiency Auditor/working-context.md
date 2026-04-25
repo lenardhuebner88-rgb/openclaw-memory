@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9b04afda-6373-4331-b3ca-6f6a754b26a9 [P1][Lens] Gate-Review fuer Phase-D Controlled-Autopilot
+- task: 075fbf86-02bb-4f0b-b3c5-20f57edc0ddc [P1][Lens] Operator-Runbook und Start-/Abort-Kriterien fuer ersten Live-Autopilot-Lauf schaerfen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Gate-Review Phase-D Controlled-Autopilot abgeschlossen. Genau 2 Gates sind erforcerforderlich: G1 meeting-finalize.sh --dry-run muss GRÜN auf Phase-C Meeting-Artefakt ec87e987; G2 meeting-finalize.sh --execute muss saube
+- checkpoint: Operator Runbook erstellt: /Lenard/operator-runbook-live-autopilot.md — 3 Startkriterien, 5min-Beobachtungs-Checks, 6 Abbruchkriterien, Ergebnisbericht-Vorlage.
 - blocker: -
-- updated: 2026-04-25T14:41:10.215Z
+- updated: 2026-04-25T16:25:22.041Z
 <!-- mc:auto-working-context:end -->
