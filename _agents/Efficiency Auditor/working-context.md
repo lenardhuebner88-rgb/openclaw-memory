@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8c428e0a-c64c-41c6-96bc-a336aa7befa3 [P1][Lens] Historische Atlas-Terminals ohne sprintOutcome read-only inventarisieren und klassifizieren
+- task: 39d793e8-86f5-415b-85cc-61bd70ee5d2e [Subtask][Lens] Cron/Timer Zielbild-Abgleich und Entscheidungsformat
 - stage: DONE
 - next: await next assignment
-- checkpoint: Read-only Inventur: 537/540 Atlas done Tasks ohne sprintOutcome. AUTO-SPRINT=4, Nightly=7, Meeting-Claude=23, Meeting-Atlas=1, P1/P2/P3=142, Review/Audit=67, Sonstige=293. Backfill-Empfehlung: AUTO-SPRINT zuerst.
+- checkpoint: Cron/Timer Zielbild-Abgleich abgeschlossen: M7-Kern notwendig, Legacy-/Guard-Crons vorerst parallel behalten; erst nach 7d sauberem m7-Proof konsolidieren. Operator muss entscheiden, welche Legacy-Heartbeat/Guard-Pfade r
 - blocker: -
-- updated: 2026-04-26T08:12:28.145Z
+- updated: 2026-04-26T19:07:10.929Z
 <!-- mc:auto-working-context:end -->
