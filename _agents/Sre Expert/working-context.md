@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3db85d86-b5a2-4cb7-b2cc-187b22acbab3 [P1][Forge] approval_class + approvalMode fuer Follow-up-Drafts hart erzwingen
-- stage: FAILED
+- task: 3dff5953-d046-445b-9044-d5be18f43948 [P1][MC] Pending-pickup wird nicht automatisch geclaimt — Root-Cause analysieren und nachhaltig fixen
+- stage: DONE
 - next: await next assignment
-- checkpoint: Orphaned gateway placeholder: no real subagent/session, stale heartbeat since 2026-04-26T09:44:58.859Z, duplicate stall path stabilized and task terminalized for consistency.
-- blocker: Orphaned gateway placeholder: no real subagent/session, stale heartbeat since 2026-04-26T09:44:58.859Z, duplicate stall path stabilized and task terminalized for consistency.
-- updated: 2026-04-26T11:44:41.253Z
+- checkpoint: Root Cause behoben: Worker-Attach im pending-pickup-Pfad materialisiert jetzt direkt den Claim in Richtung in-progress/active; Verifikation zeigt den Attach-Pfad schreibt acceptedAt/startedAt stabil.
+- blocker: -
+- updated: 2026-04-26T15:27:35.735Z
 <!-- mc:auto-working-context:end -->

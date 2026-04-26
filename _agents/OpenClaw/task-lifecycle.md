@@ -1184,3 +1184,14 @@ BLOCKERS_OR_NONE
 
 NEXT_SINGLE_AUTONOMY_SPRINT
 - Create exactly one operator-gated follow-up draft from the next approved Atlas finding, verify approvalMode/operatorLock/lockReason end-to-end, then stop.
+- 2026-04-26T15:09:34.577Z | START | 307ad76c-47f8-4089-a967-295d661b6457 | [P1][Atlas] Gate 3 follow-up: approval metadata end-to-end verification | worker=main | progress=- | summary=-
+- 2026-04-26T15:10:09.420Z | CHECKPOINT | 307ad76c-47f8-4089-a967-295d661b6457 | [P1][Atlas] Gate 3 follow-up: approval metadata end-to-end verification | worker=main | progress=- | summary=- | note=Verifying related atlas-autonomy draft metadata and repairing readback drift if needed.
+- 2026-04-26T15:10:35.479Z | DONE | 307ad76c-47f8-4089-a967-295d661b6457 | [P1][Atlas] Gate 3 follow-up: approval metadata end-to-end verification | worker=main | progress=- | summary=EXECUTION_STATUS
+BLOCKED
+
+RESULT_SUMMARY
+Exactly one atlas-autonomy follow-up draft exists, but the live readback does not preserve the required operator lock metadata: approvalMode=operator and approvalClass=safe-read-only are present, yet operatorLock is still false and lockReason is null. No second follow-up draft was created. The verification is therefore blocked until the operator-gated lock fields survive creation/readback end-to-end.
+- 2026-04-26T15:21:07.854Z | START | d0007dc7-414e-448e-89b6-2ee6ff6638a4 | [P1][Atlas] Wiederholte stalled Alerts fuer denselben Task deduplizieren und orphaned Gateway-Placeholder sauber terminieren | worker=main | progress=- | summary=-
+- 2026-04-26T15:22:28.934Z | START | 3dff5953-d046-445b-9044-d5be18f43948 | [P1][MC] Pending-pickup wird nicht automatisch geclaimt — Root-Cause analysieren und nachhaltig fixen | worker=sre-expert | progress=- | summary=-
+- 2026-04-26T15:25:15.955Z | CHECKPOINT | 3dff5953-d046-445b-9044-d5be18f43948 | [P1][MC] Pending-pickup wird nicht automatisch geclaimt — Root-Cause analysieren und nachhaltig fixen | worker=sre-expert | progress=- | summary=- | note=Root Cause bestätigt: pending-pickup konnte in Flows mit reinem Worker-Attach auf pending stehen bleiben, weil /api/worker-runner nur band, aber keinen Claim materialisierte. Minimal-Fix in Arbeit: auto-claim beim Attach für pending-pickup.
+- 2026-04-26T15:27:35.733Z | DONE | 3dff5953-d046-445b-9044-d5be18f43948 | [P1][MC] Pending-pickup wird nicht automatisch geclaimt — Root-Cause analysieren und nachhaltig fixen | worker=sre-expert | progress=- | summary=Root Cause behoben: Worker-Attach im pending-pickup-Pfad materialisiert jetzt direkt den Claim in Richtung in-progress/active; Verifikation zeigt den Attach-Pfad schreibt acceptedAt/startedAt stabil.
