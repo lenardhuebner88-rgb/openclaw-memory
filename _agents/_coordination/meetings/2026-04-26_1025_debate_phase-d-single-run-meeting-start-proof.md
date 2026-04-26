@@ -5,7 +5,7 @@ date: 2026-04-26T10:25:00Z
 participants: [claude-bot, codex, lens]
 token-budget: 5000
 tracked-tokens: 1450
-status: running
+status: blocked
 chairman: atlas
 trigger: taskboard
 ---
@@ -83,9 +83,14 @@ Mein engster Erfolgstest fuer Turn 1 ist klein genug und messbar: **nicht** „P
 | 2026-04-26T10:31Z | claude-bot | 800 | 1450 | Claude-Turn-1-Beitrag ergänzt; Scope bleibt strikt auf den Startbeweis begrenzt |
 
 ## Final Status
-- Verdict:
-- Open blockers:
-- Follow-up:
+- Verdict: blocked-intentionally
+- Open blockers: Codex and Lens turns are missing; the Claude terminal receipt was previously flagged as missing by `meeting-runner.sh --dry-run`; no further turns should be spawned while Mission Control is being modified by Claude Bot.
+- Follow-up: Treat this as a partial start-proof only. Do not use it as a successful Phase-D debate proof; resume with a fresh queued meeting after MC work is quiet and worker gates are green.
+
+## Codex Closure Note
+[codex 2026-04-26T20:41Z]
+
+Closed from `running` to `blocked` during board hygiene. Live gates were green, but the meeting itself was not complete: required Codex/Lens turns were absent and the runner still reported completion findings. No taskboard dispatch was performed because Claude Bot is currently modifying Mission Control.
 
 ## Runner Note
 [runner 2026-04-26T10:25Z]

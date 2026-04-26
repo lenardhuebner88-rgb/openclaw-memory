@@ -1,0 +1,969 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-04-26T20:39:39.604086+00:00",
+  "system": {
+    "openclaw_root": "/home/piet/.openclaw",
+    "vault_root": "/home/piet/vault",
+    "health": "ok"
+  },
+  "summary": {
+    "agents_total": 10,
+    "agents_active": 1,
+    "crons_total": 43,
+    "crons_by_tier": {
+      "T1-realtime": 4,
+      "T2-2min": 3,
+      "T3-5min": 7,
+      "T4-10min": 2,
+      "T5-15min": 2,
+      "T7-hourly": 6,
+      "T8-daily-or-weekly": 12,
+      "T6-30min": 7
+    },
+    "rules_total": 55,
+    "rules_by_status": {
+      "active": 40,
+      "resolved": 10,
+      "pending": 4,
+      "kandidiert": 1
+    },
+    "graph_edges": 1279,
+    "facts_total": 287,
+    "scripts_active": 153,
+    "atlas_last_critical_pct": null,
+    "atlas_current_pct": 0
+  },
+  "agents": [
+    {
+      "id": "codex",
+      "path": "/home/piet/.openclaw/agents/codex",
+      "status": "idle",
+      "last_session_iso": null,
+      "latest_session_size_bytes": null,
+      "session_count": 0
+    },
+    {
+      "id": "default",
+      "path": "/home/piet/.openclaw/agents/default",
+      "status": "idle",
+      "last_session_iso": null,
+      "latest_session_size_bytes": null,
+      "session_count": 0
+    },
+    {
+      "id": "efficiency-auditor",
+      "path": "/home/piet/.openclaw/agents/efficiency-auditor",
+      "status": "ready",
+      "last_session_iso": "2026-04-26T19:09:02.198603+00:00",
+      "latest_session_size_bytes": 3243270,
+      "session_count": 56
+    },
+    {
+      "id": "frontend-guru",
+      "path": "/home/piet/.openclaw/agents/frontend-guru",
+      "status": "idle",
+      "last_session_iso": "2026-04-25T14:14:41.651863+00:00",
+      "latest_session_size_bytes": 16434961,
+      "session_count": 31
+    },
+    {
+      "id": "james",
+      "path": "/home/piet/.openclaw/agents/james",
+      "status": "idle",
+      "last_session_iso": "2026-04-25T16:24:19.568112+00:00",
+      "latest_session_size_bytes": 1577493,
+      "session_count": 10
+    },
+    {
+      "id": "main",
+      "path": "/home/piet/.openclaw/agents/main",
+      "status": "active",
+      "last_session_iso": "2026-04-26T20:39:04.105662+00:00",
+      "latest_session_size_bytes": 1330907,
+      "session_count": 340
+    },
+    {
+      "id": "spark",
+      "path": "/home/piet/.openclaw/agents/spark",
+      "status": "ready",
+      "last_session_iso": "2026-04-26T15:34:27.095135+00:00",
+      "latest_session_size_bytes": 956767,
+      "session_count": 34
+    },
+    {
+      "id": "sre-expert",
+      "path": "/home/piet/.openclaw/agents/sre-expert",
+      "status": "monitoring",
+      "last_session_iso": "2026-04-26T20:31:02.815699+00:00",
+      "latest_session_size_bytes": 23971,
+      "session_count": 1672
+    },
+    {
+      "id": "test-lock",
+      "path": "/home/piet/.openclaw/agents/test-lock",
+      "status": "idle",
+      "last_session_iso": null,
+      "latest_session_size_bytes": null,
+      "session_count": 0
+    },
+    {
+      "id": "worker",
+      "path": "/home/piet/.openclaw/agents/worker",
+      "status": "idle",
+      "last_session_iso": "2026-04-16T22:44:11.876230+00:00",
+      "latest_session_size_bytes": 10707863,
+      "session_count": 65
+    }
+  ],
+  "memory": {
+    "graph_edges": 1279,
+    "rules_count": 55,
+    "facts_total": 287,
+    "facts_files": 1,
+    "budget_tail": [
+      {
+        "ts": "2026-04-21T01:05:01Z",
+        "level": "OK",
+        "session": "7781cffc-7b4",
+        "pct": 1
+      },
+      {
+        "ts": "2026-04-21T01:10:01Z",
+        "level": "OK",
+        "session": "7781cffc-7b4",
+        "pct": 1
+      },
+      {
+        "ts": "2026-04-21T01:15:01Z",
+        "level": "OK",
+        "session": "7781cffc-7b4",
+        "pct": 1
+      },
+      {
+        "ts": "2026-04-21T01:20:01Z",
+        "level": "WARN",
+        "session": "ae86077d-b11",
+        "pct": 89
+      },
+      {
+        "ts": "2026-04-21T01:25:01Z",
+        "level": "WARN",
+        "session": "ae86077d-b11",
+        "pct": 89
+      },
+      {
+        "ts": "2026-04-21T01:30:01Z",
+        "level": "WARN",
+        "session": "ae86077d-b11",
+        "pct": 89
+      },
+      {
+        "ts": "2026-04-21T01:35:01Z",
+        "level": "OK",
+        "session": "fb23b226-54c",
+        "pct": 0
+      },
+      {
+        "ts": "2026-04-21T01:40:01Z",
+        "level": "OK",
+        "session": "fb23b226-54c",
+        "pct": 0
+      },
+      {
+        "ts": "2026-04-21T01:45:01Z",
+        "level": "OK",
+        "session": "fb23b226-54c",
+        "pct": 0
+      },
+      {
+        "raw": "[2026-04-21T01:50:01Z] CRITICAL session=ae86077d-b",
+        "unparsed": true
+      }
+    ],
+    "last_critical_pct": null,
+    "latest_tick_pct": 0,
+    "latest_tick_level": "OK",
+    "health": "ok"
+  },
+  "crons": [
+    {
+      "schedule": "* * * * *",
+      "command": "/usr/bin/flock -n /tmp/mc-heartbeat-main.lock /usr/bin/curl -fsS --max-time 5 -X POST -H 'x-actor-kind: system' -H 'x-request-class: system' http://127.0.0.1:3000/api/heartbeat/main >/dev/null 2>&1",
+      "script": "/usr/bin/flock",
+      "tier": "T1-realtime"
+    },
+    {
+      "schedule": "* * * * *",
+      "command": "flock -n /tmp/openclaw-config-guard.lock /home/piet/.openclaw/scripts/openclaw-config-guard.sh >> /tmp/config-guard.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/openclaw-config-guard.sh",
+      "tier": "T1-realtime"
+    },
+    {
+      "schedule": "*/2 * * * *",
+      "command": "flock -n /tmp/mc-cost-alert-dispatcher.lock /home/piet/.openclaw/scripts/cost-alert-dispatcher.py >> /home/piet/.openclaw/workspace/logs/cost-alert-dispatcher.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/cost-alert-dispatcher.py",
+      "tier": "T2-2min"
+    },
+    {
+      "schedule": "*/2 * * * *",
+      "command": "flock -n /tmp/mc-critical-alert.lock /home/piet/.openclaw/scripts/mc-critical-alert.py >> /home/piet/.openclaw/workspace/logs/mc-critical-alert.cron.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/mc-critical-alert.py",
+      "tier": "T2-2min"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "/home/piet/.openclaw/scripts/memory-budget-meter.sh >> /tmp/memory-budget.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/memory-budget-meter.sh",
+      "tier": "T3-5min"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "/home/piet/.openclaw/scripts/sprint-debrief-watch.sh >> /tmp/sprint-debrief-watch.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/sprint-debrief-watch.sh",
+      "tier": "T3-5min"
+    },
+    {
+      "schedule": "*/10 * * * *",
+      "command": "flock -n /tmp/atlas-orphan-detect.lock /home/piet/.openclaw/scripts/atlas-orphan-detect.sh >> /home/piet/.openclaw/workspace/logs/atlas-orphan-detect.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/atlas-orphan-detect.sh",
+      "tier": "T4-10min"
+    },
+    {
+      "schedule": "*/10 * * * *",
+      "command": "flock -n /tmp/session-health-monitor.lock /home/piet/.openclaw/scripts/session-health-monitor.py >> /home/piet/.openclaw/workspace/memory/session-health.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/session-health-monitor.py",
+      "tier": "T4-10min"
+    },
+    {
+      "schedule": "*/15 * * * *",
+      "command": "flock -n /tmp/self-optimizer.lock /usr/bin/env SELF_OPT_ENABLED=1 SELF_OPT_DRY_RUN=1 python3 /home/piet/.openclaw/scripts/self-optimizer.py >> /home/piet/.openclaw/workspace/logs/self-optimizer.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/self-optimizer.py",
+      "tier": "T5-15min"
+    },
+    {
+      "schedule": "*/15 * * * *",
+      "command": "/home/piet/.openclaw/scripts/r49-claim-validator.py >> /tmp/r49-validator.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/r49-claim-validator.py",
+      "tier": "T5-15min"
+    },
+    {
+      "schedule": "0 */1 * * *",
+      "command": "/home/piet/.openclaw/scripts/r48-board-hygiene-cron.sh >> /tmp/r48-hygiene.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/r48-board-hygiene-cron.sh",
+      "tier": "T7-hourly"
+    },
+    {
+      "schedule": "30 * * * *",
+      "command": "/usr/bin/flock -n /tmp/memory-orchestrator-hourly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py hourly >> /home/piet/.openclaw/workspace/logs/memory-orchestrator-hourly.log 2>&1",
+      "script": "/home/piet/.openclaw/workspace/scripts/memory-orchestrator.py",
+      "tier": "T7-hourly"
+    },
+    {
+      "schedule": "45 2 * * *",
+      "command": "/usr/bin/flock -n /tmp/memory-orchestrator-nightly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py nightly >> /home/piet/.openclaw/workspace/logs/memory-orchestrator-nightly.log 2>&1",
+      "script": "/home/piet/.openclaw/workspace/scripts/memory-orchestrator.py",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "0 5 * * 0",
+      "command": "/usr/bin/flock -n /tmp/memory-orchestrator-weekly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py weekly >> /home/piet/.openclaw/workspace/logs/memory-orchestrator-weekly.log 2>&1",
+      "script": "/home/piet/.openclaw/workspace/scripts/memory-orchestrator.py",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "0 4 1 */3 *",
+      "command": "/usr/bin/flock -n /tmp/memory-orchestrator-quarterly.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/memory-orchestrator.py quarterly >> /home/piet/.openclaw/workspace/logs/memory-orchestrator-quarterly.log 2>&1",
+      "script": "/home/piet/.openclaw/workspace/scripts/memory-orchestrator.py",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "0 * * * *",
+      "command": "/home/piet/.openclaw/workspace/scripts/mc-ops-monitor.sh >> /home/piet/.openclaw/workspace/logs/mc-ops-monitor.log 2>&1",
+      "script": "/home/piet/.openclaw/workspace/scripts/mc-ops-monitor.sh",
+      "tier": "T7-hourly"
+    },
+    {
+      "schedule": "7 */6 * * *",
+      "command": "flock -n /tmp/mc-memory-guard.lock /home/piet/.openclaw/scripts/memory-size-guard.sh",
+      "script": "/home/piet/.openclaw/scripts/memory-size-guard.sh",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "23,53 * * * *",
+      "command": "flock -n /tmp/mc-session-size.lock /home/piet/.openclaw/scripts/session-size-alert.sh",
+      "script": "/home/piet/.openclaw/scripts/session-size-alert.sh",
+      "tier": "T6-30min"
+    },
+    {
+      "schedule": "0 */6 * * *",
+      "command": "flock -n /tmp/script-integrity-check.lock /home/piet/.openclaw/scripts/script-integrity-check.sh >> /home/piet/.openclaw/workspace/logs/script-integrity.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/script-integrity-check.sh",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "0 */6 * * *",
+      "command": "/home/piet/.openclaw/bin/openclaw sessions cleanup --all-agents --enforce --fix-missing >> /home/piet/.openclaw/workspace/logs/sessions-cleanup-cron.log 2>&1",
+      "script": "/home/piet/.openclaw/bin/openclaw",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "0 * * * *",
+      "command": "flock -n /tmp/rules-render.lock /home/piet/.openclaw/scripts/rules-render.sh >> /home/piet/.openclaw/workspace/logs/rules-render.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/rules-render.sh",
+      "tier": "T7-hourly"
+    },
+    {
+      "schedule": "*/30 * * * *",
+      "command": "flock -n /tmp/qmd-update.lock /home/piet/.local/lib/node_modules/@tobilu/qmd/qmd update >> /home/piet/.openclaw/workspace/logs/qmd-update-cron.log 2>&1",
+      "script": "flock",
+      "tier": "T6-30min"
+    },
+    {
+      "schedule": "5 * * * *",
+      "command": "flock -n /tmp/qmd-pending-monitor.lock /home/piet/.openclaw/scripts/qmd-pending-monitor.sh >> /home/piet/.openclaw/workspace/logs/qmd-pending-monitor.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/qmd-pending-monitor.sh",
+      "tier": "T7-hourly"
+    },
+    {
+      "schedule": "*/30 * * * *",
+      "command": "flock -n /tmp/pr68846-patch.lock /home/piet/.openclaw/scripts/pr68846-patch-check.sh",
+      "script": "/home/piet/.openclaw/scripts/pr68846-patch-check.sh",
+      "tier": "T6-30min"
+    },
+    {
+      "schedule": "23 * * * *",
+      "command": "flock -n /tmp/minions-pr-watch.lock /home/piet/.openclaw/scripts/minions-pr-watch.sh",
+      "script": "/home/piet/.openclaw/scripts/minions-pr-watch.sh",
+      "tier": "T7-hourly"
+    },
+    {
+      "schedule": "0 3 * * *",
+      "command": "/home/piet/.openclaw/scripts/cleanup.sh",
+      "script": "/home/piet/.openclaw/scripts/cleanup.sh",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "0 3 * * *",
+      "command": "flock -n /tmp/config-snapshot-to-vault.lock /home/piet/.openclaw/scripts/config-snapshot-to-vault.sh >> /tmp/config-snapshot.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/config-snapshot-to-vault.sh",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "0 3 * * 0",
+      "command": "flock -n /tmp/build-artifact-cleanup.lock /home/piet/.openclaw/scripts/build-artifact-cleanup.sh >> /home/piet/.openclaw/workspace/logs/build-artifact-cleanup.cron.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/build-artifact-cleanup.sh",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "*/30 * * * *",
+      "command": "/home/piet/.openclaw/scripts/cron-health-audit.sh >> /tmp/cron-health-audit.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/cron-health-audit.sh",
+      "tier": "T6-30min"
+    },
+    {
+      "schedule": "0 */6 * * *",
+      "command": "flock -n /tmp/canary-alert.lock /home/piet/.openclaw/scripts/alert-dispatcher.sh canary info \"canary-ok\"",
+      "script": "/home/piet/.openclaw/scripts/alert-dispatcher.sh",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "*/30 * * * *",
+      "command": "flock -n /tmp/session-janitor.lock python3 /home/piet/.openclaw/scripts/session-janitor.py >> /tmp/session-janitor.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/session-janitor.py",
+      "tier": "T6-30min"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "flock -n /tmp/cpu-runaway-guard.lock /home/piet/.openclaw/scripts/cpu-runaway-guard.sh >> /tmp/cpu-runaway-guard.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/cpu-runaway-guard.sh",
+      "tier": "T3-5min"
+    },
+    {
+      "schedule": "0 6 * * *",
+      "command": "/home/piet/.openclaw/workspace/scripts/agents-md-size-check.sh >> /tmp/agents-md-size-check.log 2>&1",
+      "script": "/home/piet/.openclaw/workspace/scripts/agents-md-size-check.sh",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "flock -n /tmp/session-size-guard.lock python3 /home/piet/.openclaw/scripts/session-size-guard.py >> /home/piet/.openclaw/workspace/logs/session-size-guard.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/session-size-guard.py",
+      "tier": "T3-5min"
+    },
+    {
+      "schedule": "* * * * *",
+      "command": "flock -n /tmp/session-size-guard-immediate.lock python3 /home/piet/.openclaw/scripts/session-size-guard.py --log-only >> /home/piet/.openclaw/workspace/logs/session-size-guard.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/session-size-guard.py",
+      "tier": "T1-realtime"
+    },
+    {
+      "schedule": "15,45 * * * *",
+      "command": "/home/piet/.openclaw/scripts/qmd-native-embed-cron.sh",
+      "script": "/home/piet/.openclaw/scripts/qmd-native-embed-cron.sh",
+      "tier": "T6-30min"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "flock -n /tmp/mcp-qmd-reaper.lock /home/piet/.openclaw/scripts/mcp-qmd-reaper.sh",
+      "script": "/home/piet/.openclaw/scripts/mcp-qmd-reaper.sh",
+      "tier": "T3-5min"
+    },
+    {
+      "schedule": "0 8 * * *",
+      "command": "/home/piet/.openclaw/scripts/vault-search-daily-checkpoint.sh >/home/piet/.openclaw/workspace/logs/vault-search-daily-checkpoint.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/vault-search-daily-checkpoint.sh",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "flock -n /tmp/mcp-reaper.lock /home/piet/.openclaw/scripts/mcp-taskboard-reaper.sh",
+      "script": "/home/piet/.openclaw/scripts/mcp-taskboard-reaper.sh",
+      "tier": "T3-5min"
+    },
+    {
+      "schedule": "*/2 * * * *",
+      "command": "flock -n /tmp/session-rotation-watchdog.lock /home/piet/.openclaw/scripts/session-rotation-watchdog.py --live >> /tmp/session-rotation-watchdog.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/session-rotation-watchdog.py",
+      "tier": "T2-2min"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "flock -n /tmp/per-tool-byte-meter.lock /home/piet/.openclaw/scripts/per-tool-byte-meter.py >> /tmp/per-tool-byte-meter.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/per-tool-byte-meter.py",
+      "tier": "T3-5min"
+    },
+    {
+      "schedule": "*/30 * * * *",
+      "command": "flock -n /tmp/architecture-snapshot.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/architecture-snapshot-generator.py >> /home/piet/.openclaw/workspace/logs/architecture-snapshot.log 2>&1",
+      "script": "/home/piet/.openclaw/workspace/scripts/architecture-snapshot-generator.py",
+      "tier": "T6-30min"
+    },
+    {
+      "schedule": "* * * * *",
+      "command": "flock -n /tmp/state-collector.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/state-collector.py >> /home/piet/.openclaw/workspace/logs/state-collector.log 2>&1",
+      "script": "/home/piet/.openclaw/workspace/scripts/state-collector.py",
+      "tier": "T1-realtime"
+    }
+  ],
+  "rules": [
+    {
+      "id": "R1",
+      "title": "Verify-After-Write ist Pflicht",
+      "category": "API-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R2",
+      "title": "Kein unreplaced `{placeholder}` in Task-Description",
+      "category": "API-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R3",
+      "title": "Atlas meldet keinen Erfolg ohne GET-Verify",
+      "category": "API-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R4",
+      "title": "openclaw.json NIE direkt editieren",
+      "category": "Config-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R5",
+      "title": "Kanonischer MC-Service ist User-Level, Port 3000",
+      "category": "Config-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R6",
+      "title": "`worker-pickup-loop.py` bleibt tot",
+      "category": "Config-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R7",
+      "title": "Kanonische Build-Sequenz (nicht `deploy.sh`)",
+      "category": "Build / Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R8",
+      "title": "Jeder Edit bekommt `.bak-<scope>-<datum>`",
+      "category": "Build / Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R9",
+      "title": "Discord-Webhook-Calls brauchen User-Agent",
+      "category": "Integrations-Regeln",
+      "status": "resolved"
+    },
+    {
+      "id": "R10",
+      "title": "Alerts laufen NICHT über MC-API",
+      "category": "Integrations-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R11",
+      "title": "Runtime-ID vs Alias nicht verwechseln",
+      "category": "Agent-Targeting-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R12",
+      "title": "Worker-Agents dürfen kein LTM schreiben",
+      "category": "Agent-Targeting-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R13",
+      "title": "Operator greift bei Instabilität ein, nicht bei langsamkeit",
+      "category": "Operator-Eingriff-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R14",
+      "title": "Tangenten → `spawn_task`, nie mitnehmen",
+      "category": "Operator-Eingriff-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R15",
+      "title": "Deploy-Sequenz ist atomar im Agent-Turn",
+      "category": "Operator-Eingriff-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R16",
+      "title": "V8-Heap-Limit muss explizit sein",
+      "category": "Operator-Eingriff-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R17",
+      "title": "systemd MemoryMax > V8 Heap-Limit",
+      "category": "Operator-Eingriff-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R18",
+      "title": "mc-ops-monitor ist read-only-alerting",
+      "category": "Multi-Agent-Koordinations-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R19",
+      "title": "heartbeat darf keinen Subagent spawnen für terminale Tasks",
+      "category": "Multi-Agent-Koordinations-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R20",
+      "title": "worker-monitor ist run-lifecycle-only",
+      "category": "Multi-Agent-Koordinations-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R21",
+      "title": "Layer-Cleanup-Tasks brauchen Script-Referenz-Check",
+      "category": "Multi-Agent-Koordinations-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R22",
+      "title": "Task ohne Result-Receipt ≠ erfolgsfrei",
+      "category": "Multi-Agent-Koordinations-Regeln",
+      "status": "resolved"
+    },
+    {
+      "id": "R23",
+      "title": "Retry-Task nur bei Parent in failed/error-State",
+      "category": "Multi-Agent-Koordinations-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R24",
+      "title": "Runtime-ID vs Display-Alias Disziplin (verschärft)",
+      "category": "Naming & Runtime-Regeln",
+      "status": "resolved"
+    },
+    {
+      "id": "R25",
+      "title": "workerLabel muss beim Dispatch gesetzt werden",
+      "category": "Naming & Runtime-Regeln",
+      "status": "resolved"
+    },
+    {
+      "id": "R26",
+      "title": "Server-Only Import-Disziplin",
+      "category": "Build & Code-Safety",
+      "status": "resolved"
+    },
+    {
+      "id": "R27",
+      "title": "Legacy-Task nach Root-Cause-Fix",
+      "category": "Build & Code-Safety",
+      "status": "resolved"
+    },
+    {
+      "id": "R28",
+      "title": "Operator-Lock-Respekt (geplant, Phase 2 Stabilization-Plan)",
+      "category": "Build & Code-Safety",
+      "status": "active"
+    },
+    {
+      "id": "R29",
+      "title": "Build-Storm-Debounce",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R30",
+      "title": "MCP-Taskboard-Server-Zombies",
+      "category": "Build-Deploy-Regeln",
+      "status": "pending"
+    },
+    {
+      "id": "R31",
+      "title": "API-Ghost-State (List vs Get divergiert)",
+      "category": "Build-Deploy-Regeln",
+      "status": "pending"
+    },
+    {
+      "id": "R32",
+      "title": "Dispatch-Gate Atlas-Sonderfall",
+      "category": "Build-Deploy-Regeln",
+      "status": "pending"
+    },
+    {
+      "id": "R33",
+      "title": "Cron-Script-Pfad-Integrität",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R34",
+      "title": "Bootstrap-Limit für MEMORY.md (Agent-Bootstrap-Truncation)",
+      "category": "Build-Deploy-Regeln",
+      "status": "resolved"
+    },
+    {
+      "id": "R35",
+      "title": "Atlas-Self-Report ≠ Board-Truth",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R36",
+      "title": "Agent-Session-File-Size-Creep",
+      "category": "Build-Deploy-Regeln",
+      "status": "pending"
+    },
+    {
+      "id": "R37",
+      "title": "Atlas-Orchestrator-Tasks nicht via Auto-Pickup",
+      "category": "Build-Deploy-Regeln",
+      "status": "resolved"
+    },
+    {
+      "id": "R38",
+      "title": "MCP-Zombie-Defense-in-depth (existierender Reaper + Alert)",
+      "category": "Build-Deploy-Regeln",
+      "status": "resolved"
+    },
+    {
+      "id": "R39",
+      "title": "Atlas-main braucht Session-Resume-Pattern",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R40",
+      "title": "Stall-Detection-Thresholds sind Kern-Infra",
+      "category": "Build-Deploy-Regeln",
+      "status": "resolved"
+    },
+    {
+      "id": "R41",
+      "title": "Memory-Retrieval: QMD vor File-Read",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R45",
+      "title": "Sub-Agent-Receipt-Discipline",
+      "category": "Multi-Agent-Orchestration",
+      "status": "active"
+    },
+    {
+      "id": "R46",
+      "title": "Parallel-Deploy-Serialization",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R47",
+      "title": "Scope-Lock-auf-Plan-Doc nicht Task-ID",
+      "category": "Governance",
+      "status": "active"
+    },
+    {
+      "id": "R48",
+      "title": "Board-Hygiene-Cron auto-cancel stale drafts",
+      "category": "Board-Hygiene",
+      "status": "kandidiert"
+    },
+    {
+      "id": "R49",
+      "title": "Atlas Anti-Hallucination Claim-Verify-Before-Report",
+      "category": "Atlas-Governance",
+      "status": "active"
+    },
+    {
+      "id": "R50",
+      "title": "Session-Lock-Governance fuer Auto-Pickup",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R42",
+      "title": "Deploy-Restart-Discipline via mc-restart-safe",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R44",
+      "title": "Board-Discipline: Board-Task required before sessions_spawn",
+      "category": "Multi-Agent-Orchestration",
+      "status": "active"
+    },
+    {
+      "id": "R51",
+      "title": "Schema-Validation-Gate fuer openclaw.json",
+      "category": "Config-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R52",
+      "title": "Auto-Pickup Silent-Fail-Detection",
+      "category": "Build-Deploy-Regeln",
+      "status": "active"
+    },
+    {
+      "id": "R53",
+      "title": "Config/Scripts Daily Snapshot in Vault",
+      "category": "Hygiene",
+      "status": "active"
+    },
+    {
+      "id": "R54",
+      "title": "MCP-Not-Connected erst als Session-/Gateway-Korrelation triagieren",
+      "category": "Atlas-Governance",
+      "status": "active"
+    },
+    {
+      "id": "R55",
+      "title": "Gateway-Restart heilt keine stale MCP-Session-Runtimes",
+      "category": "Atlas-Governance",
+      "status": "active"
+    },
+    {
+      "id": "R56",
+      "title": "Vault-SSOT und Sprint-Read-Order respektieren",
+      "category": "Codex-Governance",
+      "status": "active"
+    }
+  ],
+  "connections": [
+    {
+      "from": "vault",
+      "to": "L1",
+      "type": "indexing",
+      "schedule": "*/30"
+    },
+    {
+      "from": "vault.10-KB",
+      "to": "L1.5",
+      "type": "compilation",
+      "schedule": "nightly"
+    },
+    {
+      "from": "facts",
+      "to": "L2.5",
+      "type": "edge-inference",
+      "schedule": "hourly"
+    },
+    {
+      "from": "rules",
+      "to": "L2.5",
+      "type": "edge-inference",
+      "schedule": "hourly"
+    },
+    {
+      "from": "L2.5",
+      "to": "L3",
+      "type": "feedback",
+      "schedule": "hourly"
+    },
+    {
+      "from": "agent.main",
+      "to": "L5",
+      "type": "size-monitor",
+      "schedule": "*/5"
+    },
+    {
+      "from": "L5",
+      "to": "preflight.gate1",
+      "type": "gate",
+      "blocking": true
+    },
+    {
+      "from": "agent.main",
+      "to": "vault",
+      "type": "writes",
+      "frequency": "ad-hoc"
+    },
+    {
+      "from": "L1",
+      "to": "L6",
+      "type": "aggregation",
+      "schedule": "nightly"
+    },
+    {
+      "from": "L2",
+      "to": "L6",
+      "type": "aggregation",
+      "schedule": "nightly"
+    },
+    {
+      "from": "L2.5",
+      "to": "L6",
+      "type": "aggregation",
+      "schedule": "nightly"
+    },
+    {
+      "from": "L3",
+      "to": "L6",
+      "type": "aggregation",
+      "schedule": "nightly"
+    },
+    {
+      "from": "L5",
+      "to": "L6",
+      "type": "aggregation",
+      "schedule": "nightly"
+    }
+  ],
+  "vault_commits": [
+    {
+      "hash": "1022298",
+      "date": "2026-04-26T22:10:07+02:00",
+      "subject": "auto-sync: 2026-04-26 22:10"
+    },
+    {
+      "hash": "9cee1e1",
+      "date": "2026-04-26T21:43:19+02:00",
+      "subject": "meeting-debate-bewertung: plan-doc superseded-by-handshake + adversarial-review briefing"
+    },
+    {
+      "hash": "1ae9c69",
+      "date": "2026-04-26T21:40:04+02:00",
+      "subject": "auto-sync: 2026-04-26 21:40"
+    },
+    {
+      "hash": "9393e94",
+      "date": "2026-04-26T21:09:41+02:00",
+      "subject": "auto-sync: 2026-04-26 21:09"
+    },
+    {
+      "hash": "d743c16",
+      "date": "2026-04-26T20:39:27+02:00",
+      "subject": "auto-sync: 2026-04-26 20:39"
+    },
+    {
+      "hash": "c6e950f",
+      "date": "2026-04-26T20:09:17+02:00",
+      "subject": "auto-sync: 2026-04-26 20:09"
+    },
+    {
+      "hash": "c29c45d",
+      "date": "2026-04-26T19:39:17+02:00",
+      "subject": "auto-sync: 2026-04-26 19:39"
+    },
+    {
+      "hash": "809e659",
+      "date": "2026-04-26T19:09:07+02:00",
+      "subject": "auto-sync: 2026-04-26 19:09"
+    },
+    {
+      "hash": "6cbbd16",
+      "date": "2026-04-26T18:38:57+02:00",
+      "subject": "auto-sync: 2026-04-26 18:38"
+    },
+    {
+      "hash": "f43c979",
+      "date": "2026-04-26T18:08:17+02:00",
+      "subject": "auto-sync: 2026-04-26 18:08"
+    }
+  ],
+  "scripts": {
+    "scripts_root": 94,
+    "workspace_scripts": 59
+  },
+  "mcp_servers": [
+    {
+      "name": "vault-memory-mcp",
+      "status": "running",
+      "pids": [
+        1626212,
+        2958465,
+        3008670,
+        3008754
+      ]
+    },
+    {
+      "name": "qmd",
+      "status": "running",
+      "pids": [
+        2986557
+      ]
+    },
+    {
+      "name": "taskboard-mcp",
+      "status": "running",
+      "pids": [
+        3046988,
+        3046994
+      ]
+    }
+  ],
+  "active_sprint": {
+    "agent": "codex",
+    "started": "2026-04-26T20:14Z",
+    "ended": "null",
+    "task": "Autonomie Punkte 2-5 sequenziell umsetzen",
+    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-04-26_2014_codex_autonomy-points-2-5.md"
+  },
+  "cron_health": {
+    "total_monitored": 33,
+    "missing_logs": [
+      "crontab:build-artifact-cleanup:0 3 * * 0 -> /home/piet/.openclaw/workspace/logs/build-artifact-cleanup.cron.log",
+      "crontab:importance-recalc:0 5 * * 0 -> /tmp/importance-recalc.log",
+      "crontab:memory-layer-sweep:0 4 1 */3 * -> /home/piet/.openclaw/workspace/logs/memory-layer-quarterly.log",
+      "crontab:atlas-orphan-detect:*/10 * * * * (age 2590m > expected 20m, cadence 10m) -> /home/piet/.openclaw/workspace/logs/atlas-orphan-detect-cron.log",
+      "crontab:cost-alert-dispatcher:*/2 * * * * (age 2056m > expected 4m, cadence 2m) -> /home/piet/.openclaw/workspace/logs/cost-alert-dispatcher.cron.log",
+      "crontab:cpu-runaway-guard:*/5 * * * * (age 929m > expected 10m, cadence 5m) -> /tmp/cpu-runaway-guard.log",
+      "crontab:mc-critical-alert:*/2 * * * * (age 2611m > expected 4m, cadence 2m) -> /home/piet/.openclaw/workspace/logs/mc-critical-alert.cron.log",
+      "crontab:mc-ops-monitor:0 * * * * (age 3510m > expected 120m, cadence 60m) -> /home/piet/.openclaw/workspace/logs/mc-ops-monitor.cron.log",
+      "crontab:openclaw-config-guard:* * * * * (age 55m > expected 2m, cadence 1m) -> /tmp/config-guard.log",
+      "crontab:session-health-monitor:*/10 * * * * (age 1490m > expected 20m, cadence 1"
+    ],
+    "first_fire_pending": [],
+    "stale": [],
+    "errors": [],
+    "audit_timestamp": "2026-04-21T07:30:01Z"
+  }
+}

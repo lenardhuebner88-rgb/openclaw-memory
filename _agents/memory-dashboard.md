@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-04-26T19:30:02.376304+00:00
+last_generated: 2026-04-26T20:30:02.680423+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-04-26 19:30 UTC  
+**Last Generated:** 2026-04-26 20:30 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -18,10 +18,10 @@ auto_refresh: daily 04:30 UTC (cron)
 
 | Level | Component | Status | Notes |
 |---|---|---|---|
-| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 1122 files indexed |
+| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 1133 files indexed |
 | **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 55 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 8 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-26T19:30:01Z] CRITICAL session=4e53e5e0-d00 size=2674742 tokens_est=668685 pct=445% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-26T20:30:01Z] CRITICAL session=4e53e5e0-d00 size=2783846 tokens_est=695961 pct=463% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -194,24 +194,24 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-04-26T18:45:01Z] CRITICAL session=a9f07c18-15f size=2683396 tokens_est=670849 pct=447%
-[2026-04-26T18:50:01Z] OK session=1b744d8a-6f8 size=41487 tokens_est=10371 pct=6%
-[2026-04-26T18:55:02Z] CRITICAL session=4e53e5e0-d00 size=2643329 tokens_est=660832 pct=440%
-[2026-04-26T19:00:01Z] OK session=1b744d8a-6f8 size=97963 tokens_est=24490 pct=16%
-[2026-04-26T19:05:01Z] OK session=1b744d8a-6f8 size=273393 tokens_est=68348 pct=45%
-[2026-04-26T19:10:01Z] OK session=1b744d8a-6f8 size=352510 tokens_est=88127 pct=58%
-[2026-04-26T19:15:01Z] CRITICAL session=4e53e5e0-d00 size=2664271 tokens_est=666067 pct=444%
-[2026-04-26T19:20:01Z] OK session=1b744d8a-6f8 size=101113 tokens_est=25278 pct=16%
-[2026-04-26T19:25:01Z] CRITICAL session=4e53e5e0-d00 size=2674742 tokens_est=668685 pct=445%
-[2026-04-26T19:30:01Z] CRITICAL session=4e53e5e0-d00 size=2674742 tokens_est=668685 pct=445%
+[2026-04-26T19:45:01Z] CRITICAL session=4e53e5e0-d00 size=2695680 tokens_est=673920 pct=449%
+[2026-04-26T19:50:01Z] OK session=1b744d8a-6f8 size=110823 tokens_est=27705 pct=18%
+[2026-04-26T19:55:01Z] OK session=c580be3d-a0f size=29624 tokens_est=7406 pct=4%
+[2026-04-26T20:00:01Z] OK session=c580be3d-a0f size=29624 tokens_est=7406 pct=4%
+[2026-04-26T20:05:01Z] CRITICAL session=4e53e5e0-d00 size=2731267 tokens_est=682816 pct=455%
+[2026-04-26T20:10:01Z] CRITICAL session=4e53e5e0-d00 size=2731267 tokens_est=682816 pct=455%
+[2026-04-26T20:15:01Z] CRITICAL session=4e53e5e0-d00 size=2762303 tokens_est=690575 pct=460%
+[2026-04-26T20:20:01Z] OK session=1b744d8a-6f8 size=384263 tokens_est=96065 pct=64%
+[2026-04-26T20:25:01Z] WARN session=1b744d8a-6f8 size=513065 tokens_est=128266 pct=85%
+[2026-04-26T20:30:01Z] CRITICAL session=4e53e5e0-d00 size=2783846 tokens_est=695961 pct=463%
 ```
 
 ## 9. Active Crons (summary)
 
-- User-crontab: 45 active
+- User-crontab: 46 active
 - Systemd user-timers: 
 - OpenClaw-Cron-Plugin (enabled): 16
-- **Total: ~61 schedules**
+- **Total: ~62 schedules**
 
 Full inventory: [cron-audit-2026-04-19.md](cron-audit-2026-04-19.md)
 
