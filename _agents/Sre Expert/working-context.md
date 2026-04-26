@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ae8474f4-e379-4b70-a6e9-606b6bc1ffe7 [Nightly] Make sqlite memory maintenance skip cleanly when sqlite3 is unavailable
-- stage: DONE
-- next: await next assignment
-- checkpoint: sqlite-memory-maintenance missing-sqlite3 path now alerts, logs SKIP, and exits 0; direct smoke check passed (RC=0) and mission-control build command completed successfully.
+- task: 3db85d86-b5a2-4cb7-b2cc-187b22acbab3 [P1][Forge] approval_class + approvalMode fuer Follow-up-Drafts hart erzwingen
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-26T06:37:51.476Z
+- updated: 2026-04-26T08:11:58.935Z
 <!-- mc:auto-working-context:end -->
