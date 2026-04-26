@@ -7,14 +7,18 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 83ca49f1-bd50-4635-bd92-391c323d7010 [LARGE-GATE][Atlas] Normal-Mode Autonomie Cron Heartbeat Modelle Meeting QMD Abschlussgate
+- task: 77653831-3002-4522-994f-57945ccd90e0 [Gate 3][Atlas] Recheck autonomy after Codex fixes
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
-BLOCKED
+PASS-WITH-FOLLOW-UP
 
-RESULT_SUMMARY
-The large normal-mode gate is only partially green. Core runtime health is stable (health OK, worker/pickup proofs clean, auto-pickup cycling normally), but the overall gate remai
+GATE_VERDICT
+PASS-WITH-FOLLOW-UP — Gate 3 is green enough for one controlled Atlas autonomy sprint, but not for broad auto-dispatch.
+
+LIVE_PROOFS
+- /api/health: ok
+- worker proof: cr
 - blocker: -
-- updated: 2026-04-26T14:24:39.325Z
+- updated: 2026-04-26T14:56:09.275Z
 <!-- mc:auto-working-context:end -->

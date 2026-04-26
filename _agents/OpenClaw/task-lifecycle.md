@@ -1162,3 +1162,25 @@ OPERATOR_DECISIONS_REQUIRED
 - Approve any restart/service-level investigation needed to restore QMD on 8181.
 - Keep automatic follow-up-drafts DISABLED for now; only enable later if operator wants preview/operator-lock flow promoted after draft hygiene cleanup.
 - Decide whether the three meeting/debate E2E runs should be launched as a follow-up sprint once Phase B and Phase E blockers are cleared.
+- 2026-04-26T14:53:50.015Z | START | 77653831-3002-4522-994f-57945ccd90e0 | [Gate 3][Atlas] Recheck autonomy after Codex fixes | worker=main:77653831-3002-4522-994f-57945ccd90e0 | progress=- | summary=-
+- 2026-04-26T14:56:09.273Z | DONE | 77653831-3002-4522-994f-57945ccd90e0 | [Gate 3][Atlas] Recheck autonomy after Codex fixes | worker=main | progress=- | summary=EXECUTION_STATUS
+PASS-WITH-FOLLOW-UP
+
+GATE_VERDICT
+PASS-WITH-FOLLOW-UP — Gate 3 is green enough for one controlled Atlas autonomy sprint, but not for broad auto-dispatch.
+
+LIVE_PROOFS
+- /api/health: ok
+- worker proof: criticalIssues=0, openRuns=0
+- pickup proof: criticalFindings=0, pendingPickup=0, activeLocks=0
+- atlas-autonomy drafts: 2 present, both operator-gated with approvalMode=operator, approvalClass=safe-read-only, riskLevel=low, operatorLock=true, lockReason=atlas-autonomy-awaiting-approval
+- QMD CLI: healthy
+- QMD 8181 /health: ok
+- model routing: Atlas gpt-5.5, Forge gpt-5.3-codex, Lens gpt-5.5, Pixel gpt-5.5
+
+BLOCKERS_OR_NONE
+- No hard blockers remain for Gate 3.
+- Keep auto-dispatch closed and avoid fanout; follow-up drafts stay operator-gated.
+
+NEXT_SINGLE_AUTONOMY_SPRINT
+- Create exactly one operator-gated follow-up draft from the next approved Atlas finding, verify approvalMode/operatorLock/lockReason end-to-end, then stop.
