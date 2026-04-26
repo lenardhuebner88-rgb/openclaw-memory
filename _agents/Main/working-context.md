@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e46b58a1-b6a5-42cf-80f0-c88c43120be2 [Atlas][Draft] Cron/Timer Zielbild rationalisieren
-- stage: DONE
+- task: 0d6737ec-2cda-4e9c-996d-fe9495222c0d [P1][Atlas] Heartbeat-Timeline: Worker-Liveness + Coverage Matrix
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Cron/Timer-Rationalisierung read-only abgeschlossen: M7-Kerntimer und Safety-/Hygiene-Crons bleiben notwendig; redundante Kandidaten sind vor allem doppelte session-size/session-cleanup/monitoring-Pfade und kommentierte 
-- blocker: -
-- updated: 2026-04-26T19:07:53.412Z
+- checkpoint: Read-only Heartbeat-/Coverage-Matrix wurde geliefert; keine Mutation nötig. Ergebnis ist in Operator-Decision-Draft 5c649b87 zusammengeführt.
+- blocker: Read-only Heartbeat-/Coverage-Matrix wurde geliefert; keine Mutation nötig. Ergebnis ist in Operator-Decision-Draft 5c649b87 zusammengeführt.
+- updated: 2026-04-26T19:55:02.538Z
 <!-- mc:auto-working-context:end -->

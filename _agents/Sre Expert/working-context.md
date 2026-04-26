@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b1562086-8198-461c-9f5d-d1feb6eed867 [P2][Forge] research-queue-add.py idempotent Topic Seeder
-- stage: DONE
+- task: dd9843f2-2511-4b4a-8207-3ef75d751919 Follow-up 1
+- stage: FAILED
 - next: await next assignment
-- checkpoint: research-queue Seeder ist live: Script + Topics-Datei wurden erstellt, Seed-Lauf erzeugt 3 neue open Queue-Items, zweiter Lauf bleibt idempotent ohne Duplikate, und der nächste zu verarbeitende Open-Topic ist nachweisbar
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-26T19:38:00.484Z
+- updated: 2026-04-26T19:53:45.361Z
 <!-- mc:auto-working-context:end -->
