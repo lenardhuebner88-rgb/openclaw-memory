@@ -1207,3 +1207,10 @@ Created exactly one operator-gated follow-up draft from the approved Gate 3 find
 - 2026-04-26T16:17:01.116Z | START | f05dbb39-f6f6-42ca-b18e-de4267f2e994 | [Atlas Autonomy][Preview] Gate 3 operator-gated follow-up draft from approval metadata finding | worker=main | progress=- | summary=-
 - 2026-04-26T16:23:07.887Z | DONE | 5135ac37-6263-44fb-ab38-fd3ce3b5390f | Invalid Autonomy Draft Test | worker=main | progress=- | summary=Task resolved and closed
 - 2026-04-26T16:23:23.030Z | DONE | e1f90377-85f5-4471-9192-ea72cae31e83 | Valid Autonomy Draft Test | worker=main | progress=- | summary=Task resolved and closed
+- 2026-04-26T16:38:57.960Z | FAILED | f05dbb39-f6f6-42ca-b18e-de4267f2e994 | [Atlas Autonomy][Preview] Gate 3 operator-gated follow-up draft from approval metadata finding | worker=main | progress=- | summary=- | note=Task exceeded runTimeoutSeconds=900s (runtime=1316s). Auto-failed by worker-monitor timeout guard.
+- 2026-04-26T16:40:07.104Z | DONE | d0007dc7-414e-448e-89b6-2ee6ff6638a4 | [P1][Atlas] Wiederholte stalled Alerts fuer denselben Task deduplizieren und orphaned Gateway-Placeholder sauber terminieren | worker=main | progress=- | summary=Failed: Worker runner exited or stopped without terminal receipt: no fresh heartbeat.
+- 2026-04-26T16:44:14.680Z | START | 61f24505-9c80-4a94-97d2-101bc2bca154 | [Atlas Autonomy][Smoke] Worker/Pickup/Health proof readout after lock hardening | worker=main | progress=- | summary=-
+- 2026-04-26T16:44:29.226Z | CHECKPOINT | 61f24505-9c80-4a94-97d2-101bc2bca154 | [Atlas Autonomy][Smoke] Worker/Pickup/Health proof readout after lock hardening | worker=main | progress=- | summary=- | note=Read-only gates are green: health=ok, worker=ok, pickup=ok.
+- 2026-04-26T16:44:45.432Z | DONE | 61f24505-9c80-4a94-97d2-101bc2bca154 | [Atlas Autonomy][Smoke] Worker/Pickup/Health proof readout after lock hardening | worker=main | progress=- | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Safe-read-only smoke completed successfully; health, worker proof, and pickup proof were all green.
+GATES: health=ok; worker=ok; pickup=ok

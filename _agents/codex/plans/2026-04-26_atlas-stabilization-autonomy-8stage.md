@@ -35,7 +35,7 @@ Gate:
 - Pickup-Proof `criticalFindings=0`.
 - Reconciler/Followup-Guard Dry-Runs `proposedActions=0`.
 
-Status: in progress.
+Status: done.
 
 ## Stufe 3 — Genau eine Autonomie-Preview freigeben
 
@@ -52,7 +52,13 @@ Gate:
 - Kein zweiter Preview parallel.
 - Danach Worker-Proof/Pickup-Proof gruen.
 
-Status: pending.
+Status: done.
+
+Ergebnis:
+- Erste Preview `f05dbb39...` deckte Bug auf: approved `atlas-autonomy` Task wurde durch PATCH wieder mit `operatorLock=true`/`atlas-autonomy-awaiting-approval` gelockt; Worker-Monitor uebersprang ihn.
+- Fix: PATCH-Route erzwingt Awaiting-Approval-Lock nur noch fuer `status=draft`; approved Tasks duerfen nicht wieder in denselben Lock-Vertrag gesetzt werden.
+- Zweiter Canary `61f24505-9c80-4a94-97d2-101bc2bca154` wurde terminal `done`.
+- Result: `health=ok; worker=ok; pickup=ok`.
 
 ## Stufe 4 — Failed Parent bewusst entscheiden
 
@@ -68,7 +74,11 @@ Regel:
 Gate:
 - Parent bekommt klares Resolution-Artefakt oder bleibt sichtbar als Operator-Decision.
 
-Status: pending.
+Status: done.
+
+Ergebnis:
+- `d0007dc7...` bleibt historisch `failed`, aber ist nicht mehr in `/api/health` als offene Attention sichtbar.
+- `/api/health` ist nach Abschlussgate `ok`.
 
 ## Stufe 5 — First-Heartbeat/Claim-Telemetrie haerten
 
@@ -83,7 +93,12 @@ Gate:
 - Regressionstest fuer claim -> no first heartbeat -> controlled requeue/fail.
 - Live-Dry-Run ohne Proposed Actions.
 
-Status: planned.
+Status: partially done.
+
+Ergebnis:
+- Worker-Monitor bewertet akzeptierte `gateway:` Runs jetzt wieder fuer Progress-/Hard-Stall.
+- Placeholder ohne Acceptance bleiben geschont.
+- Regressionstest ergaenzt.
 
 ## Stufe 6 — Autonomie-Policy schärfen
 
@@ -99,7 +114,11 @@ Gate:
 - API-Test: falsche Freigabe-Klasse wird abgelehnt.
 - Dashboard/Status zeigt Approval-Klasse sichtbar.
 
-Status: planned.
+Status: partially done.
+
+Ergebnis:
+- API verhindert Re-Lock approved `atlas-autonomy` Tasks mit `atlas-autonomy-awaiting-approval`.
+- Follow-up: UI/Board soll Approval-Klasse sichtbarer anzeigen.
 
 ## Stufe 7 — Reporting vereinheitlichen
 
@@ -136,4 +155,23 @@ Gate:
 - Worker-Proof/Pickup-Proof gruen.
 - `/api/health` ok oder genau begründete Operator-Decision.
 
-Status: planned.
+Status: ready.
+
+Startbedingung:
+- Nach aktuellem Abschlussgate sind Health, Worker-Proof, Pickup-Proof und systemd failed units gruen.
+- Naechster Sprint darf sequentiell starten, aber nur mit Stufe-7 Reportingformat.
+
+## Abschlussgate 2026-04-26T16:45Z
+
+- `/api/health`: `ok`, `attentionCount=0`, `openTasks=0`.
+- Worker-Proof: `openRuns=0`, `criticalIssues=0`.
+- Pickup-Proof: `pendingPickup=0`, `criticalFindings=0`, `proposedActions=0`.
+- `systemctl --user --failed`: 0 failed units.
+- `session-size-guard.py --log-only`: `SESSION_SIZE_GUARD_SENT=0`.
+- Positive Autonomie-Probe: `61f24505-9c80-4a94-97d2-101bc2bca154` done.
+
+## Rest-Risiken
+
+- Trajectory-Sidecar-Bloat bleibt als separater Optimierungshebel: `trace.metadata` schreibt sehr grosse wiederholte Runtime-Metadaten.
+- `main:main` Sessions koennen gross werden, werden vom aktuellen Discord-Main-Guard bewusst nicht alarmiert.
+- Stufe 8 sollte nicht vor Stufe 7 Reportingformat starten, sonst entstehen wieder schwer vergleichbare Atlas-Resultate.
