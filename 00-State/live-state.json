@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-26T20:39:39.604086+00:00",
+  "generated_at": "2026-04-26T21:01:53.179588+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,12 +8,12 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 1,
-    "crons_total": 43,
+    "agents_active": 2,
+    "crons_total": 44,
     "crons_by_tier": {
       "T1-realtime": 4,
       "T2-2min": 3,
-      "T3-5min": 7,
+      "T3-5min": 8,
       "T4-10min": 2,
       "T5-15min": 2,
       "T7-hourly": 6,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 153,
+    "scripts_active": 154,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-26T20:39:04.105662+00:00",
-      "latest_session_size_bytes": 1330907,
+      "last_session_iso": "2026-04-26T21:01:39.927673+00:00",
+      "latest_session_size_bytes": 1338967,
       "session_count": 340
     },
     {
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-26T20:31:02.815699+00:00",
-      "latest_session_size_bytes": 23971,
-      "session_count": 1672
+      "status": "active",
+      "last_session_iso": "2026-04-26T21:01:04.517464+00:00",
+      "latest_session_size_bytes": 9230,
+      "session_count": 1675
     },
     {
       "id": "test-lock",
@@ -443,6 +443,12 @@
       "command": "flock -n /tmp/state-collector.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/state-collector.py >> /home/piet/.openclaw/workspace/logs/state-collector.log 2>&1",
       "script": "/home/piet/.openclaw/workspace/scripts/state-collector.py",
       "tier": "T1-realtime"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "flock -n /tmp/arch-readiness.lock /home/piet/.openclaw/scripts/arch-deploy-readiness-check.sh >/dev/null 2>&1",
+      "script": "/home/piet/.openclaw/scripts/arch-deploy-readiness-check.sh",
+      "tier": "T3-5min"
     }
   ],
   "rules": [
@@ -859,6 +865,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "9761183",
+      "date": "2026-04-26T22:40:07+02:00",
+      "subject": "auto-sync: 2026-04-26 22:40"
+    },
+    {
       "hash": "1022298",
       "date": "2026-04-26T22:10:07+02:00",
       "subject": "auto-sync: 2026-04-26 22:10"
@@ -902,15 +913,10 @@
       "hash": "6cbbd16",
       "date": "2026-04-26T18:38:57+02:00",
       "subject": "auto-sync: 2026-04-26 18:38"
-    },
-    {
-      "hash": "f43c979",
-      "date": "2026-04-26T18:08:17+02:00",
-      "subject": "auto-sync: 2026-04-26 18:08"
     }
   ],
   "scripts": {
-    "scripts_root": 94,
+    "scripts_root": 95,
     "workspace_scripts": 59
   },
   "mcp_servers": [
@@ -921,7 +927,8 @@
         1626212,
         2958465,
         3008670,
-        3008754
+        3008754,
+        3126991
       ]
     },
     {
@@ -942,10 +949,10 @@
   ],
   "active_sprint": {
     "agent": "codex",
-    "started": "2026-04-26T20:14Z",
+    "started": "2026-04-26T21:00:08Z",
     "ended": "null",
-    "task": "Autonomie Punkte 2-5 sequenziell umsetzen",
-    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-04-26_2014_codex_autonomy-points-2-5.md"
+    "task": "Atlas Session Budget als Hard-Gate entfernen",
+    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-04-26_2100_codex_remove-atlas-budget-gate.md"
   },
   "cron_health": {
     "total_monitored": 33,

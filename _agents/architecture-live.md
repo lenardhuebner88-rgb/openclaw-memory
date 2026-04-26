@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-04-26T20:32:51.739882+00:00
+last_generated: 2026-04-26T21:01:53.174161+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-04-26 20:32 UTC  
+**Generated:** 2026-04-26 21:01 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -24,9 +24,9 @@ flowchart TB
         agent_efficiency_auditor["efficiency-auditor<br/>1h ago<br/>4226 KB"]
         agent_frontend_guru["frontend-guru<br/>1d ago<br/>1320 KB"]
         agent_james["james<br/>6h ago<br/>157 KB"]
-        agent_main["main<br/>16s ago<br/>2739 KB"]
+        agent_main["main<br/>13s ago<br/>2858 KB"]
         agent_spark["spark<br/>2h ago<br/>17 KB"]
-        agent_sre_expert["sre-expert<br/>1m ago<br/>31 KB"]
+        agent_sre_expert["sre-expert<br/>48s ago<br/>18 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>9d ago<br/>10456 KB"]
     end
@@ -41,9 +41,9 @@ flowchart TB
         ORCH["memory-orchestrator.py<br/>DAG"]
     end
     subgraph CRN["🛡️ Defense-Crons"]
-        tier_T1_realtime["T1-realtime<br/>3 jobs"]
+        tier_T1_realtime["T1-realtime<br/>4 jobs"]
         tier_T2_2min["T2-2min<br/>3 jobs"]
-        tier_T3_5min["T3-5min<br/>7 jobs"]
+        tier_T3_5min["T3-5min<br/>8 jobs"]
         tier_T4_10min["T4-10min<br/>2 jobs"]
         tier_T5_15min["T5-15min<br/>2 jobs"]
         tier_T6_30min["T6-30min<br/>7 jobs"]
@@ -71,13 +71,13 @@ flowchart TB
 
 ## ⚡ Health Summary
 
-- **Atlas memory-budget:** ⚠️ CRITICAL (last 3/5 ticks)
+- **Atlas session-size telemetry:** info only — `[2026-04-26T21:00:01Z] OK session=1b744d8a-6f8 pct=25%`
 - **Graph edges:** 1279
 - **Rules active:** 55
 - **Facts (all-time):** 287 across 1 daily files
 - **Facts today:** None
-- **Scripts (active, no .bak):** 94 root + 58 workspace = 152
-- **Cron entries (live):** 42
+- **Scripts (active, no .bak):** 95 root + 59 workspace = 154
+- **Cron entries (live):** 44
 
 ## 🤖 Agents (10)
 
@@ -88,21 +88,22 @@ flowchart TB
 | `efficiency-auditor` | 1h ago | 4226 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 1d ago | 1320 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 6h ago | 157 | `/home/piet/.openclaw/agents/james` |
-| `main` | 16s ago | 2739 | `/home/piet/.openclaw/agents/main` |
+| `main` | 13s ago | 2858 | `/home/piet/.openclaw/agents/main` |
 | `spark` | 2h ago | 17 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 1m ago | 31 | `/home/piet/.openclaw/agents/sre-expert` |
+| `sre-expert` | 48s ago | 18 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | 9d ago | 10456 | `/home/piet/.openclaw/agents/worker` |
 
-## 🛡️ Defense-Crons (42 active, by tier)
+## 🛡️ Defense-Crons (44 active, by tier)
 
-### T1-realtime (3 jobs)
+### T1-realtime (4 jobs)
 
 | Schedule | Script |
 |---|---|
 | `* * * * *` | `/usr/bin/flock` |
 | `* * * * *` | `$OPENCLAW/scripts/openclaw-config-guard.sh` |
 | `* * * * *` | `$OPENCLAW/scripts/session-size-guard.py` |
+| `* * * * *` | `$OPENCLAW/workspace/scripts/state-collector.py` |
 
 ### T2-2min (3 jobs)
 
@@ -112,7 +113,7 @@ flowchart TB
 | `*/2 * * * *` | `$OPENCLAW/scripts/mc-critical-alert.py` |
 | `*/2 * * * *` | `$OPENCLAW/scripts/session-rotation-watchdog.py` |
 
-### T3-5min (7 jobs)
+### T3-5min (8 jobs)
 
 | Schedule | Script |
 |---|---|
@@ -123,6 +124,7 @@ flowchart TB
 | `*/5 * * * *` | `$OPENCLAW/scripts/mcp-qmd-reaper.sh` |
 | `*/5 * * * *` | `$OPENCLAW/scripts/mcp-taskboard-reaper.sh` |
 | `*/5 * * * *` | `$OPENCLAW/scripts/per-tool-byte-meter.py` |
+| `*/5 * * * *` | `$OPENCLAW/scripts/arch-deploy-readiness-check.sh` |
 
 ### T4-10min (2 jobs)
 
@@ -192,11 +194,11 @@ flowchart TB
 
 **Last 5 budget-meter ticks:**
 ```
-[2026-04-26T20:10:01Z] CRITICAL session=4e53e5e0-d00 pct=455%
-[2026-04-26T20:15:01Z] CRITICAL session=4e53e5e0-d00 pct=460%
-[2026-04-26T20:20:01Z] OK session=1b744d8a-6f8 pct=64%
-[2026-04-26T20:25:01Z] WARN session=1b744d8a-6f8 pct=85%
-[2026-04-26T20:30:01Z] CRITICAL session=4e53e5e0-d00 pct=463%
+[2026-04-26T20:40:01Z] CRITICAL session=4e53e5e0-d00 pct=482%
+[2026-04-26T20:45:01Z] CRITICAL session=4e53e5e0-d00 pct=484%
+[2026-04-26T20:50:02Z] CRITICAL session=4e53e5e0-d00 pct=484%
+[2026-04-26T20:55:01Z] CRITICAL session=4e53e5e0-d00 pct=485%
+[2026-04-26T21:00:01Z] OK session=1b744d8a-6f8 pct=25%
 ```
 
 ## 📜 Rules R1-R56 (55 total, by category)
@@ -291,11 +293,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+9761183 2026-04-26 auto-sync: 2026-04-26 22:40
 1022298 2026-04-26 auto-sync: 2026-04-26 22:10
 9cee1e1 2026-04-26 meeting-debate-bewertung: plan-doc superseded-by-handshake + adversarial-review briefing
 1ae9c69 2026-04-26 auto-sync: 2026-04-26 21:40
 9393e94 2026-04-26 auto-sync: 2026-04-26 21:09
-d743c16 2026-04-26 auto-sync: 2026-04-26 20:39
 ```
 
 ---
