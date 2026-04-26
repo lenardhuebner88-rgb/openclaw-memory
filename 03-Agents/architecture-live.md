@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-04-26T22:00:01.237365+00:00
+last_generated: 2026-04-26T22:30:01.364634+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-04-26 22:00 UTC  
+**Generated:** 2026-04-26 22:30 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -21,12 +21,12 @@ flowchart TB
     subgraph AGT["🤖 Agents"]
         agent_codex["codex<br/>n/a<br/>0 KB"]
         agent_default["default<br/>n/a<br/>0 KB"]
-        agent_efficiency_auditor["efficiency-auditor<br/>2h ago<br/>4226 KB"]
+        agent_efficiency_auditor["efficiency-auditor<br/>4m ago<br/>4238 KB"]
         agent_frontend_guru["frontend-guru<br/>1d ago<br/>1320 KB"]
-        agent_james["james<br/>7h ago<br/>157 KB"]
-        agent_main["main<br/>5m ago<br/>922 KB"]
-        agent_spark["spark<br/>3h ago<br/>17 KB"]
-        agent_sre_expert["sre-expert<br/>8m ago<br/>16 KB"]
+        agent_james["james<br/>8h ago<br/>157 KB"]
+        agent_main["main<br/>5s ago<br/>982 KB"]
+        agent_spark["spark<br/>4h ago<br/>17 KB"]
+        agent_sre_expert["sre-expert<br/>2m ago<br/>940 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>9d ago<br/>10456 KB"]
     end
@@ -66,12 +66,12 @@ flowchart TB
     ORCH --> L6
     CRN -->|orchestrates| MEM
     class L5 critical
-    class agent_main critical
+    class agent_efficiency_auditor critical
 ```
 
 ## ⚡ Health Summary
 
-- **Atlas session-size telemetry:** info only — `[2026-04-26T22:00:01Z] CRITICAL session=82a3d5a7-e4f pct=157%`
+- **Atlas session-size telemetry:** info only — `[2026-04-26T22:25:01Z] OK session=05f4fe65-526 pct=29%`
 - **Graph edges:** 1279
 - **Rules active:** 55
 - **Facts (all-time):** 287 across 1 daily files
@@ -85,12 +85,12 @@ flowchart TB
 |----|--------------|------------------|------|
 | `codex` | n/a | 0 | `/home/piet/.openclaw/agents/codex` |
 | `default` | n/a | 0 | `/home/piet/.openclaw/agents/default` |
-| `efficiency-auditor` | 2h ago | 4226 | `/home/piet/.openclaw/agents/efficiency-auditor` |
+| `efficiency-auditor` | 4m ago | 4238 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 1d ago | 1320 | `/home/piet/.openclaw/agents/frontend-guru` |
-| `james` | 7h ago | 157 | `/home/piet/.openclaw/agents/james` |
-| `main` | 5m ago | 922 | `/home/piet/.openclaw/agents/main` |
-| `spark` | 3h ago | 17 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 8m ago | 16 | `/home/piet/.openclaw/agents/sre-expert` |
+| `james` | 8h ago | 157 | `/home/piet/.openclaw/agents/james` |
+| `main` | 5s ago | 982 | `/home/piet/.openclaw/agents/main` |
+| `spark` | 4h ago | 17 | `/home/piet/.openclaw/agents/spark` |
+| `sre-expert` | 2m ago | 940 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | 9d ago | 10456 | `/home/piet/.openclaw/agents/worker` |
 
@@ -194,11 +194,11 @@ flowchart TB
 
 **Last 5 budget-meter ticks:**
 ```
-[2026-04-26T21:40:01Z] OK session=1b744d8a-6f8 pct=38%
-[2026-04-26T21:45:01Z] CRITICAL session=82a3d5a7-e4f pct=148%
-[2026-04-26T21:50:01Z] CRITICAL session=1b744d8a-6f8 pct=98%
-[2026-04-26T21:55:01Z] CRITICAL session=82a3d5a7-e4f pct=157%
-[2026-04-26T22:00:01Z] CRITICAL session=82a3d5a7-e4f pct=157%
+[2026-04-26T22:05:01Z] CRITICAL session=82a3d5a7-e4f pct=164%
+[2026-04-26T22:10:01Z] OK session=84769af9-910 pct=2%
+[2026-04-26T22:15:01Z] OK session=2641152c-153 pct=13%
+[2026-04-26T22:20:01Z] OK session=1b744d8a-6f8 pct=47%
+[2026-04-26T22:25:01Z] OK session=05f4fe65-526 pct=29%
 ```
 
 ## 📜 Rules R1-R56 (55 total, by category)
@@ -293,11 +293,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+d4924ca 2026-04-27 auto-sync: 2026-04-27 00:10
 fc6c398 2026-04-26 auto-sync: 2026-04-26 23:40
 1700ffa 2026-04-26 auto-sync: 2026-04-26 23:10
 9761183 2026-04-26 auto-sync: 2026-04-26 22:40
 1022298 2026-04-26 auto-sync: 2026-04-26 22:10
-9cee1e1 2026-04-26 meeting-debate-bewertung: plan-doc superseded-by-handshake + adversarial-review briefing
 ```
 
 ---

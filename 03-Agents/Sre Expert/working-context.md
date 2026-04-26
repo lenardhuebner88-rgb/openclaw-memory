@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2fe45813-247e-4a5d-87e3-d5e80d81506c [Forge][Finalize] Verify Atlas image tool exposure
-- stage: DONE
-- next: await next assignment
-- checkpoint: Atlas-Image-Tool-Finalisierung ist verifiziert: die korrigierte `image`-Freigabe ist in der Config vorhanden, Hot-Reload wurde protokolliert, und ein frischer Atlas-Tool-Surface-Check bestätigt `image` sichtbar.
+- task: 7c2d2397-79d1-49cf-ad9d-e9dbd4a95659 [Forge] Atlas Discord Tool Surface Baseline: dispatch + image
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-26T22:09:28.654Z
+- updated: 2026-04-26T22:31:24.638Z
 <!-- mc:auto-working-context:end -->
