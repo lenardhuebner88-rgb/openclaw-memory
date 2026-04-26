@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4043425a-4c7d-4561-8d91-7b9638d00450 [P1][Forge] stalled-warning erzeugt illegale in-progress State-Kombination root-causen und fixen
-- stage: DONE
+- task: 3db85d86-b5a2-4cb7-b2cc-187b22acbab3 [P1][Forge] approval_class + approvalMode fuer Follow-up-Drafts hart erzwingen
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Root cause behoben: worker-monitor schrieb im Soft-Stall-Warnpfad status=in-progress + executionState=stalled-warning via PATCH. Fix: Soft-Warnung bleibt sichtbar über stalledAt/stalledReason, executionState wird auf act
-- blocker: -
-- updated: 2026-04-26T10:08:14.299Z
+- checkpoint: Orphaned gateway placeholder: no real subagent/session, stale heartbeat since 2026-04-26T09:44:58.859Z, duplicate stall path stabilized and task terminalized for consistency.
+- blocker: Orphaned gateway placeholder: no real subagent/session, stale heartbeat since 2026-04-26T09:44:58.859Z, duplicate stall path stabilized and task terminalized for consistency.
+- updated: 2026-04-26T11:44:41.253Z
 <!-- mc:auto-working-context:end -->
