@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1dc70834-956f-41ca-859e-fadf34547cfa [Atlas][Autonomy Proof] Cron/Heartbeat/Reporting Zielbild + kontrollierte Follow-ups
+- task: b503d87a-1987-43c0-8c5a-5e27cc9d1e40 [Atlas][Image Generation] gpt-image-2 Integration Check
 - stage: DONE
 - next: await next assignment
-- checkpoint: Autonomy proof sprint completed read-only: live gates were checked before/after, exactly two follow-up drafts were created, exactly one safe-read-only Forge follow-up was dispatched and completed, and no cron/model/syste
+- checkpoint: Image-generation capability check completed: current Atlas tool surface does not expose image_generate/gpt-image-2, so no image generation was attempted. Forge follow-up adfc0596-096a-4e0b-905d-ad232f79524b remains for e
 - blocker: -
-- updated: 2026-04-26T20:27:12.736Z
+- updated: 2026-04-26T21:24:22.089Z
 <!-- mc:auto-working-context:end -->

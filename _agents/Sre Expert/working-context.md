@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d90fab45-7572-4e40-bb1a-b66f71750b6d [Follow-up][Forge] First-heartbeat semantic proof spec
-- stage: DONE
-- next: await next assignment
-- checkpoint: Read-only First-Heartbeat-Spezifikation abgeschlossen: Semantik-Lücke ist belegt (auto-pickup bewertet accepted+frischen Heartbeat bereits als ok, pickup-proof modelliert diesen Zustand nicht explizit), und ein kleiner o
+- task: adfc0596-096a-4e0b-905d-ad232f79524b [Forge][Image Generation] Expose/verify image_generate via Codex OAuth
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Config-Minimaländerung ist geschrieben und lokal schema-valid; live Atlas-Surface bleibt unverändert, daher ist ein Gateway-Restart zur Aktivierung der neuen Tool-Policy notwendig und wird jetzt durchgeführt.
 - blocker: -
-- updated: 2026-04-26T20:26:38.707Z
+- updated: 2026-04-26T21:37:17.791Z
 <!-- mc:auto-working-context:end -->

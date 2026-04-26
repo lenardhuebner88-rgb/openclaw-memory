@@ -2,7 +2,7 @@
 title: Autonomy next steps execution report
 date: 2026-04-26T20:40Z
 agent: codex
-status: partial-blocked
+status: completed-with-follow-up
 ---
 
 # Autonomy Next Steps Execution Report
@@ -51,28 +51,47 @@ Gate:
 ## Held Back
 
 ### 3. First-Heartbeat Proof Fix
-Not implemented in this pass because the operator reported that Claude Bot is currently implementing in Mission Control.
+Originally held because the operator reported that Claude Bot was implementing in Mission Control.
 
-Safe next patch scope when MC is quiet:
-- update `src/lib/pickup-proof.ts` so `acceptedAt + fresh lastHeartbeatAt` is represented explicitly as an OK proof state,
-- add regression coverage for accepted/fresh heartbeat,
-- run targeted pickup-proof tests.
+Current status 2026-04-26T21:13Z:
+- First-heartbeat semantics are covered in the live auto-pickup path.
+- Targeted tests passed:
+  - `tests/auto-pickup-claimed-no-heartbeat-regression.test.ts`
+  - `tests/worker-monitor-pending-pings-regression.test.ts`
+- Live pickup-proof is `ok`, `criticalFindings=0`.
 
 ### 4. New Atlas Autonomy Sprint
-Not started because it would create new Mission-Control taskboard activity while Claude Bot is actively editing/implementing in MC.
+Originally held because it would create new Mission-Control taskboard activity while Claude Bot was actively editing/implementing in MC.
 
-Safe next dispatch after MC is quiet:
-- one Atlas parent sprint,
-- max two follow-up drafts,
-- max one safe-read-only dispatch,
-- no sudo/model/cron/systemctl mutation,
-- gates before and after: `/api/health`, pickup-proof, worker-reconciler-proof, Discord report delivered.
+Current status 2026-04-26T21:13Z:
+- MC is online.
+- Architecture Phase 3 is deployed.
+- Atlas session budget is no longer a hard gate for this OAuth/Pro setup.
+- Correction 2026-04-26T21:20Z: do not re-dispatch `0d6737ec-2cda-4e9c-996d-fe9495222c0d`.
+- Live persisted state shows it is terminal/canceled as Board-Hygiene noise.
+- Its read-only result was already merged into Operator-Decision-Draft `5c649b87-cc2e-45fe-a2e4-e5577c5be72a`.
+- Next autonomy step is therefore the decision path for non-main heartbeat coverage, not a re-open of `0d6737`.
 
 ## Current Gates
-- `/api/health`: ok before meeting cleanup.
-- Worker/pickup gates before cleanup: ok, no open runs, no pending pickup.
+- `/api/health`: ok.
+- pickup-proof: ok, `pendingPickup=0`, `criticalFindings=0`.
+- worker-reconciler-proof: ok, `openRuns=0`, `criticalIssues=0`.
 - Meeting runner after cleanup: no queued/running meetings.
 - Discord status post after cleanup: message `1498061236015726743`.
+
+## Next Execution Step
+
+Continue from the active Operator-Decision-Draft:
+
+- Task: `5c649b87-cc2e-45fe-a2e4-e5577c5be72a`
+- Scope: decide non-main heartbeat coverage policy.
+- Current recommendation in the draft: Option B, dedicated heartbeats for Spark and Pixel only.
+- Guardrails:
+  - no new parallel autonomy chain,
+  - no model/sudo/systemctl mutation,
+  - no cron activation until the concrete heartbeat implementation is prepared and gated,
+  - terminal receipt required,
+  - post-gates must be green before any next follow-up.
 
 ## Residual Risk
 Historical `dispatchNotificationError: 401 Unauthorized` remains on some completed task records. It is historical metadata, not a live gate failure. Clearing it directly would require a data mutation in Mission Control; defer until Claude Bot's MC work is complete.
