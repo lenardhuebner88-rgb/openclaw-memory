@@ -54,6 +54,13 @@ Board-Mutationen:
   - `riskLevel=medium`
   - `operatorLock=true`
   - `lockReason=operator-approval-required`
+- `b1562086-8198-461c-9f5d-d1feb6eed867`
+  - offener `assigned` P2-Script-Fix in `.openclaw`
+  - `approvalClass=gated-mutation`
+  - `riskLevel=medium`
+  - `operatorLock=true`
+  - `lockReason=operator-approval-required`
+  - nicht gestartet; bleibt Operator-gated.
 
 ## Laufender Autonomie-Schritt
 
@@ -124,7 +131,7 @@ Aktueller Gate-Stand 2026-04-26T19:08Z:
 Board-Hygiene ist gruen:
 
 - Waiting-Drafts reduziert: 8 -> 7.
-- Mutations-Drafts sind gelockt.
+- Mutations-Drafts und der offene assigned Script-Fix sind gelockt.
 - Der gestartete Atlas-Sprint ist terminal `done`.
 - Forge- und Lens-Subtasks sind terminal `done`.
 - Pickup-/Worker-Proofs sind wieder gruen.

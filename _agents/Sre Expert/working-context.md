@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4a5ff7a3-ce50-4478-8af3-2577b6858bdb [Subtask][Forge] Cron/Timer Ist-Lage und technische Redundanzen prüfen
+- task: b1562086-8198-461c-9f5d-d1feb6eed867 [P2][Forge] research-queue-add.py idempotent Topic Seeder
 - stage: DONE
 - next: await next assignment
-- checkpoint: Read-only Ist-Lage abgeschlossen: aktive Cron-/Timer-Landschaft ist technisch klassifiziert; Kernpfade sind notwendig, Doppelspur liegt primär in parallelen Cron+systemd-Guard-Schichten und kommentierten Legacy-Blocks, e
+- checkpoint: research-queue Seeder ist live: Script + Topics-Datei wurden erstellt, Seed-Lauf erzeugt 3 neue open Queue-Items, zweiter Lauf bleibt idempotent ohne Duplikate, und der nächste zu verarbeitende Open-Topic ist nachweisbar
 - blocker: -
-- updated: 2026-04-26T19:04:46.491Z
+- updated: 2026-04-26T19:38:00.484Z
 <!-- mc:auto-working-context:end -->
