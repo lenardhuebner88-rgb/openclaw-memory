@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3dff5953-d046-445b-9044-d5be18f43948 [P1][MC] Pending-pickup wird nicht automatisch geclaimt — Root-Cause analysieren und nachhaltig fixen
+- task: 7c995854-8c81-47de-947e-a570ceefd212 [Atlas][Draft] Worker/Heartbeat Gates hardenen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root Cause behoben: Worker-Attach im pending-pickup-Pfad materialisiert jetzt direkt den Claim in Richtung in-progress/active; Verifikation zeigt den Attach-Pfad schreibt acceptedAt/startedAt stabil.
+- checkpoint: Gate-Audit abgeschlossen: pending-pickup ist aktuell stabil (proof/status ok), aber first-heartbeat als explizites Gate und eine belastbare proof-green-Definition über Lock-/Timeout-Trends fehlen noch und wurden priorisi
 - blocker: -
-- updated: 2026-04-26T15:27:35.735Z
+- updated: 2026-04-26T17:30:13.709Z
 <!-- mc:auto-working-context:end -->
