@@ -1130,3 +1130,35 @@ PASS
 
 RESULT_SUMMARY
 Reporting gate passed: since deploy there are no new 'Bad control character in string literal in JSON' journal hits, no new legacy budget-alert spam burst, and the Discord send path is live with a fresh successful status post. The only cost-related signal in the checked window was a single isolated flatrate-rate-spike anomaly event, not a repeating noise series.
+- 2026-04-26T14:09:46.093Z | START | 15515400-5fd4-4da6-a469-7dd050f6a6c6 | [AUDIT-S3][Atlas] Autonomie Draft Follow-up und Failed-Task Hygiene Gate | worker=main:15515400-5fd4-4da6-a469-7dd050f6a6c6 | progress=- | summary=-
+- 2026-04-26T14:09:57.329Z | CHECKPOINT | 15515400-5fd4-4da6-a469-7dd050f6a6c6 | [AUDIT-S3][Atlas] Autonomie Draft Follow-up und Failed-Task Hygiene Gate | worker=main:15515400-5fd4-4da6-a469-7dd050f6a6c6 | progress=- | summary=- | note=Evaluating current draft and failed tasks, plus follow-up draft safety gate.
+- 2026-04-26T14:11:30.934Z | DONE | 15515400-5fd4-4da6-a469-7dd050f6a6c6 | [AUDIT-S3][Atlas] Autonomie Draft Follow-up und Failed-Task Hygiene Gate | worker=main | progress=- | summary=EXECUTION_STATUS
+BLOCKED
+
+RESULT_SUMMARY
+Autonomy hygiene gate is currently BLOCKED for automatic follow-up-drafts. Live read-only checks show draft hygiene is mixed (5 drafts total; 3 missing approvalMode and operatorLock, including active Atlas/Forge follow-up work items, while 2 remaining drafts are explicit test artifacts), and failed-task hygiene is still incomplete (47 failed tasks, all 47 without sprintOutcome; 3 without a concrete failureReason, including Forge orphan task 3db85d86-b5a2-4cb7-b2cc-187b22acbab3). Top-3 follow-up recommendations: (1) hard-enforce approvalMode=operator plus operatorLock/lockReason on every auto-created follow-up draft before persistence, (2) filter or clean autonomy draft test artifacts like e1f90377 and 5135ac37 so they cannot be mistaken for production follow-ups, and (3) backfill or enforce terminal failure metadata minimally for new failed tasks first, especially sprintOutcome and concrete failureReason, before widening automation. Go/No-Go: NO-GO for automatic follow-up-drafts today; only a preview/operator-lock flow looks safe.
+- 2026-04-26T14:20:09.456Z | START | 83ca49f1-bd50-4635-bd92-391c323d7010 | [LARGE-GATE][Atlas] Normal-Mode Autonomie Cron Heartbeat Modelle Meeting QMD Abschlussgate | worker=main:83ca49f1-bd50-4635-bd92-391c323d7010 | progress=- | summary=-
+- 2026-04-26T14:20:19.847Z | CHECKPOINT | 83ca49f1-bd50-4635-bd92-391c323d7010 | [LARGE-GATE][Atlas] Normal-Mode Autonomie Cron Heartbeat Modelle Meeting QMD Abschlussgate | worker=main:83ca49f1-bd50-4635-bd92-391c323d7010 | progress=- | summary=- | note=Phase baseline running: plans, live proofs, cron inventory, model state, QMD status, and meeting/debate evidence.
+- 2026-04-26T14:24:39.323Z | DONE | 83ca49f1-bd50-4635-bd92-391c323d7010 | [LARGE-GATE][Atlas] Normal-Mode Autonomie Cron Heartbeat Modelle Meeting QMD Abschlussgate | worker=main | progress=- | summary=EXECUTION_STATUS
+BLOCKED
+
+RESULT_SUMMARY
+The large normal-mode gate is only partially green. Core runtime health is stable (health OK, worker/pickup proofs clean, auto-pickup cycling normally), but the overall gate remains BLOCKED because the requested three meeting/debate E2E runs do not yet exist for today, follow-up autonomy is still only safe in preview/operator-lock mode, and QMD HTTP/MCP on port 8181 remains down even though QMD CLI/search is healthy.
+
+PHASE_RESULTS
+- Phase A — Cron/Heartbeat: PASS with cleanup debt. Keep: m7-auto-pickup.timer, mc-task-parity-check, pending-pickup smoke, validate-models. Superseded: old memory crons and obsolete lens-cost-check.timer. Dead: disabled openclaw-cron jobs like analytics-alert-watch / streamable-http-soak-24h. Optimize: overlapping session-size guards and commented systemd-migration stubs.
+- Phase B — Follow-up autonomy: BLOCKED for automatic follow-up-drafts. Current board still has 5 drafts, with 3 missing approvalMode/operatorLock, plus 2 explicit autonomy draft test artifacts. Safe mode remains preview + operator lock only.
+- Phase C — Models: PARTIAL. Live/config evidence now shows Atlas on gpt-5.4, Forge on gpt-5.3-codex, Lens on gpt-5.5, Pixel on gpt-5.5. Highest-value governance action is documenting and approving intended model policy before any change; no live switch was executed.
+- Phase D — Meeting/Debate E2E: BLOCKED. For today's three requested themes, 0/3 dedicated E2E runs exist. Root cause is sequencing: this gate is still in baseline/audit mode, and two themes already carry blockers (dirty draft hygiene; QMD 8181 down/operator-gated fix).
+- Phase E — QMD/Memory: PARTIAL. QMD CLI is healthy and indexed, but HTTP/MCP on 8181 is unreachable. Safest next fix is a targeted operator-approved investigation of the 8181 exposure path, not a broad QMD rewrite.
+
+FOLLOW_UP_PREVIEWS
+- Preview 1: [P1][Atlas] Auto-follow-up draft creation harden — enforce approvalMode=operator, operatorLock=true, lockReason, approvalClass, riskLevel before any draft persists.
+- Preview 2: [P1][Forge] QMD 8181 exposure path diagnose — explain why CLI is healthy while HTTP/MCP is down; propose smallest no-restart or restart-gated fix.
+- Preview 3: [P2][Atlas] Cron layer cleanup pass — retire obsolete lens-cost-check.timer and document Keep/Superseded/Dead/Optimize policy in one canonical ops note.
+
+OPERATOR_DECISIONS_REQUIRED
+- Approve or reject any live model changes for Atlas/Forge/Lens/Pixel after policy review.
+- Approve any restart/service-level investigation needed to restore QMD on 8181.
+- Keep automatic follow-up-drafts DISABLED for now; only enable later if operator wants preview/operator-lock flow promoted after draft hygiene cleanup.
+- Decide whether the three meeting/debate E2E runs should be launched as a follow-up sprint once Phase B and Phase E blockers are cleared.
