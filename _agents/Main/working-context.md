@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: nightly-ts-gate-task [Nightly] Guard TypeScript gate
-- stage: FAILED
+- task: 2e90a060-7a1a-4411-aa7e-2c834f00a99e [AUTO-NORMAL-S2][Atlas] Controlled Follow-up Chain + One Big Board Sprint
+- stage: DONE
 - next: await next assignment
-- checkpoint: Global TypeScript gate failed (npx tsc --noEmit, exit 2).
-- blocker: Global TypeScript gate failed (npx tsc --noEmit, exit 2).
-- updated: 2026-04-26T07:00:44.060Z
+- checkpoint: Ran one bounded Atlas sprint with green preflight/final gates, produced exactly 3 follow-up previews, and dispatched only one safe read-only child task. That child completed successfully but found a broader sprintOutcome
+- blocker: -
+- updated: 2026-04-26T07:20:07.846Z
 <!-- mc:auto-working-context:end -->

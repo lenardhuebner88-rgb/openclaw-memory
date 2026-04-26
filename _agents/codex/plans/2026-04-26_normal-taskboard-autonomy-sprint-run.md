@@ -68,3 +68,5 @@ DoD:
 
 - 2026-04-26T06:39Z Run gestartet; Gate 0 gruen, aber Main/Atlas bereits aktiv. Sprint 1 wartet auf terminal/idle.
 - 2026-04-26T06:44Z Main/Atlas Nightly ist terminal `done/result`, aber ohne `sprintOutcome`; das wird als Live-Gap in Sprint 1 aufgenommen. Sprint 1 wurde als Task `9ca9a7ca-9174-470b-92f1-92f1c5baf1b3` an Main/Atlas dispatched.
+- 2026-04-26T07:10Z Sprint 1 terminal `done/result`. Gate war zuerst rot, weil `sprintOutcome` nicht persistiert wurde. Root Cause: Receipt-Route reichte `sprintOutcome` nur an Reporting weiter, aber nicht in terminale Task-Patches; Taskboard-Store/Type/PATCH kannten das Feld nicht. Minimal-Fix deployed, Regressionstest + Typecheck + Production Build passed, Service active, Sprint-1-Task backfilled mit `sprintOutcome`, Health/Worker/Pickup gruen.
+- 2026-04-26T07:12Z Sprint 2 als Task `2e90a060-7a1a-4411-aa7e-2c834f00a99e` dispatched: Controlled Follow-up Chain + One Big Board Sprint.
