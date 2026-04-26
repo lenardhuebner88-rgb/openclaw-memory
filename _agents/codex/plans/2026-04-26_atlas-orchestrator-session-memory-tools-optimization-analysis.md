@@ -1,5 +1,5 @@
 ---
-status: draft
+status: implemented
 created: 2026-04-26T17:35:48Z
 agent: codex
 scope: atlas-orchestrator-optimization
@@ -284,3 +284,15 @@ Output:
 
 Meine Empfehlung: alle drei ja, aber in genau dieser Reihenfolge: Kernel/Tool-Modi, dann Metadata-Compaction, dann Autonomy-Contract.
 
+## Implementation Follow-Up
+
+Umsetzung abgeschlossen in:
+
+- `_agents/codex/plans/2026-04-26_atlas-orchestrator-optimization-implementation-report.md`
+
+Live-Ergebnis:
+
+- Bootstrap-Limits aktiv: `bootstrapMaxChars=16000`, `bootstrapTotalMaxChars=42000`
+- Atlas Discord Default Tools reduziert: 37 -> 21
+- Neue Trajectory-Compaction aktiv: `trace.metadata` ca. 104 KB -> 3.3 KB, `context.compiled` ca. 245 KB -> 1.5 KB
+- Budget-Proof: `/home/piet/.openclaw/scripts/atlas-orchestrator-budget-proof.mjs`, letzter Status `ok`
