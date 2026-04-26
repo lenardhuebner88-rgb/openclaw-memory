@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-04-26T22:01:32Z
-ended: null
+ended: 2026-04-26T22:51:05Z
 task: "Autonomie-Setup live pruefen, Forge adfc0596 minimal fixen, Atlas-Sprint begleiten"
 touching:
   - /home/piet/.openclaw/openclaw.json
@@ -36,3 +36,6 @@ operator: lenard
 - 2026-04-26T22:27Z Beide Follow-ups terminal `done`/`succeeded`. Lens: 9.5 mit Scope-Based Waiver moeglich; Forge: A4 ist historische Discord-401/Legacy-canceled-Metadatenfrage, kein aktueller Transportausfall.
 - 2026-04-26T22:29Z Neuer Hygiene-Fund: Task `1bacf4bb-5269-41b8-9774-67d7392bbd8e` war `assigned` ohne `dispatchTarget`; minimal auf `dispatchTarget=sre-expert` normalisiert.
 - 2026-04-26T22:31Z Task `1bacf4bb-5269-41b8-9774-67d7392bbd8e` gemaess Operator-Governance (keine Freigabe ausser Sudo/Modell) auf `pending-pickup`/`dispatched` gesetzt.
+- 2026-04-26T22:47Z `1bacf4bb-5269-41b8-9774-67d7392bbd8e` nach einmaligem Claim-Timeout erneut claimed: `CLAIM_CONFIRMED ... first_heartbeat_gate=ok`.
+- 2026-04-26T22:50Z `1bacf4bb-5269-41b8-9774-67d7392bbd8e` terminal `done`; Ergebnis: Atlas nutzt fuer lokale Proofs read-only `exec+curl`, weil `web_fetch` private/localhost URLs blockiert.
+- 2026-04-26T22:51Z Schlussgates: worker-reconciler dry-run `proposedActions=0`; keine aktiven pending/in-progress/assigned Tasks; mc-watchdog bis 22:49Z `OK healthy`; Gateway nach Restart `ready` mit `openai-codex/gpt-5.5`.
