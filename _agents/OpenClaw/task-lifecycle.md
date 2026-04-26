@@ -1204,3 +1204,6 @@ DONE
 
 RESULT_SUMMARY
 Created exactly one operator-gated follow-up draft from the approved Gate 3 finding and verified live readback: approvalMode=operator, approvalClass=safe-read-only, riskLevel=low, operatorLock=true, lockReason=atlas-autonomy-awaiting-approval.
+- 2026-04-26T16:17:01.116Z | START | f05dbb39-f6f6-42ca-b18e-de4267f2e994 | [Atlas Autonomy][Preview] Gate 3 operator-gated follow-up draft from approval metadata finding | worker=main | progress=- | summary=-
+- 2026-04-26T16:23:07.887Z | DONE | 5135ac37-6263-44fb-ab38-fd3ce3b5390f | Invalid Autonomy Draft Test | worker=main | progress=- | summary=Task resolved and closed
+- 2026-04-26T16:23:23.030Z | DONE | e1f90377-85f5-4471-9192-ea72cae31e83 | Valid Autonomy Draft Test | worker=main | progress=- | summary=Task resolved and closed
