@@ -7,10 +7,15 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 49d5842c-771a-4cf5-91a8-bb4bcdf796dd [P3][Forge] Daily Ops-Digest 21:05 CEST: Session-Sizes + MCP-Server-Health
+- task: d3b05a1b-65c6-47ad-8052-611be0cd3101 [P2][Forge] Dauerhafte Session-Retention: Quarantäne/Kompression für alte Artefakte automatisieren
 - stage: DONE
 - next: await next assignment
-- checkpoint: Done: daily ops digest script implemented and dry-run verified
+- checkpoint: EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+Implemented a durable session-artifact retention workflow script at `scripts/session-retention-quarantine.py`.
+- Safe classes covered: `sessions-json-temp-backup`, `jsonl-reset-snaps
 - blocker: -
-- updated: 2026-04-27T14:17:56.234Z
+- updated: 2026-04-27T15:36:04.985Z
 <!-- mc:auto-working-context:end -->

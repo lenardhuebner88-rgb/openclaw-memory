@@ -661,3 +661,75 @@ NEXT_RECOMMENDATION
 - 2026-04-27T15:06:45.409Z | START | 439a3538-b477-4323-b334-07d8eaf6778b | [P1][Spark] session-size-guard.py Worker-Coverage alert-only | worker=spark | progress=5% | summary=-
 - 2026-04-27T15:12:05.120Z | CHECKPOINT | 439a3538-b477-4323-b334-07d8eaf6778b | [P1][Spark] session-size-guard.py Worker-Coverage alert-only | worker=spark | progress=68% | summary=- | note=Implemented worker-agent session scanning in alert-only mode and verified it with a smoke test that prints agent=<worker> for all five worker lanes.
 - 2026-04-27T15:12:20.876Z | DONE | 439a3538-b477-4323-b334-07d8eaf6778b | [P1][Spark] session-size-guard.py Worker-Coverage alert-only | worker=spark | progress=68% | summary=Worker-agent coverage is now active in alert-only mode: the guard scans frontend-guru, sre-expert, efficiency-auditor, spark, and james session directories, skips checkpoint/trajectory artifacts, and logs agent=<worker> during smoke verification.
+- 2026-04-27T15:26:42.426Z | START | d226c892-9810-41dc-9e99-1edcfa54c1c8 | [P2][Forge] Atlas Context-Budget-Degradation: Bootstrap/Tool-Schema-Bloat reduzieren + Alerts-Report | worker=atlas | progress=- | summary=-
+- 2026-04-27T15:28:11.117Z | CHECKPOINT | d226c892-9810-41dc-9e99-1edcfa54c1c8 | [P2][Forge] Atlas Context-Budget-Degradation: Bootstrap/Tool-Schema-Bloat reduzieren + Alerts-Report | worker=atlas | progress=45% | summary=- | note=Baseline proof captured: degraded due trace.metadata (~107KB), context.compiled (~249KB), and tools schema (~46KB). I located active runtime path /home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js and identified raw payload writes in buildTrajectoryRunMetadata + context.compiled + prompt.submitted + toTrajectoryToolDefinitions; applying bounded summarization patch now.
+- 2026-04-27T15:30:28.769Z | CHECKPOINT | d226c892-9810-41dc-9e99-1edcfa54c1c8 | [P2][Forge] Atlas Context-Budget-Degradation: Bootstrap/Tool-Schema-Bloat reduzieren + Alerts-Report | worker=atlas | progress=82% | summary=- | note=Safe patch landed at active runtime bundle /home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js: trace metadata, context.compiled, prompt.submitted, and tool-schema logging are now bounded summaries/truncations. Syntax check passes. Post-proof remains degraded because proof reads latest pre-patch trajectories and anti-scope forbids restart/new activation in this task; final report will include exact activation blocker and alerts-ready summary.
+- 2026-04-27T15:31:11.530Z | DONE | d226c892-9810-41dc-9e99-1edcfa54c1c8 | [P2][Forge] Atlas Context-Budget-Degradation: Bootstrap/Tool-Schema-Bloat reduzieren + Alerts-Report | worker=sre-expert | progress=82% | summary=EXECUTION_STATUS
+partial
+
+RESULT_SUMMARY
+- Duplicate/active-task check was already clean in task handoff context; no conflicting active task for this exact workstream.
+- Root cause (file/path evidence): active runtime bundle `/home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js` logged oversized trajectory payloads from:
+  - `buildTrajectoryRunMetadata(...)` (`trace.metadata`) with large config/prompt structures.
+  - `trajectoryRecorder.recordEvent("context.compiled", ...)` with full messages + full tool schemas.
+  - `trajectoryRecorder.recordEvent("prompt.submitted", ...)` with full prompt/systemPrompt/messages.
+  - `toTrajectoryToolDefinitions(...)` storing full sanitized tool parameter schemas.
+- Small safe patch path was implemented in-place at the same bundle file (bounded summaries/truncation).
+
+FILES_CHANGED
+- `/home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js`
+- Backup created: `/home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js.bak-20260427152938`
+
+VERIFY
+- Baseline proof (before):
+  - `node /home/piet/.openclaw/scripts/atlas-orchestrator-budget-proof.mjs`
+  - status `degraded`, latest maxima: `trace.metadata=107219`, `context.compiled=248795`, `prompt.submitted=202764`, `tools=45939` bytes.
+- Patch integrity:
+  - `node --check /home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js` passed.
+  - New bounded code markers verified (e.g. `truncateTrajectoryText`, `summarizeTrajectoryMessages`, compact tool schema output).
+- Post-proof currently still reports degraded because latest trajectory files were generated before this in-memory runtime activation point; this task scope explicitly excluded restart/destructive ops.
+
+ALERTS_REPORT
+Posted to Discord alerts channel `<#1491148986109661334>`:
+- messageId: `1498345690558894211`
+- Content: root cause, applied bounded patch, syntax/pass evidence, and activation follow-up requirement.
+
+RESIDUAL_RISK
+- Runtime activation risk remains until one fresh Atlas/main run is executed under the patched runtime instance (or approved service reload) and proof is re-run for empirical before/after delta confirmation.
+- No restart was performed in this task per anti-scope constraints.
+- 2026-04-27T15:32:31.979Z | START | d3b05a1b-65c6-47ad-8052-611be0cd3101 | [P2][Forge] Dauerhafte Session-Retention: Quarantäne/Kompression für alte Artefakte automatisieren | worker=sre-expert | progress=- | summary=-
+- 2026-04-27T15:33:34.464Z | CHECKPOINT | d3b05a1b-65c6-47ad-8052-611be0cd3101 | [P2][Forge] Dauerhafte Session-Retention: Quarantäne/Kompression für alte Artefakte automatisieren | worker=sre-expert | progress=35% | summary=- | note=Inspected session-size-guard.py, session-janitor.py, cleanup logs, and the existing quarantine manifest. Next: implement a durable quarantine workflow script with dry-run/apply, class policy, manifest+restore artifacts, optional trajectory handling, and retention purge controls.
+- 2026-04-27T15:35:28.962Z | CHECKPOINT | d3b05a1b-65c6-47ad-8052-611be0cd3101 | [P2][Forge] Dauerhafte Session-Retention: Quarantäne/Kompression für alte Artefakte automatisieren | worker=sre-expert | progress=35% | summary=- | note=Progress: inspected existing cleanup artifacts and validated session-retention-quarantine workflow implementation. Next: run dry-run and idempotency verification, then produce structured report.
+- 2026-04-27T15:35:29.556Z | CHECKPOINT | d3b05a1b-65c6-47ad-8052-611be0cd3101 | [P2][Forge] Dauerhafte Session-Retention: Quarantäne/Kompression für alte Artefakte automatisieren | worker=sre-expert | progress=85% | summary=- | note=Implemented scripts/session-retention-quarantine.py (commit 81af95cd): safe classing, dry-run/apply, gzip quarantine, manifest+restore output, trajectory sidecar opt-in, and retention purge controls. Verified with py_compile plus apply/idempotency tests on temporary fixture trees and a live dry-run no-op scan.
+- 2026-04-27T15:36:04.984Z | DONE | d3b05a1b-65c6-47ad-8052-611be0cd3101 | [P2][Forge] Dauerhafte Session-Retention: Quarantäne/Kompression für alte Artefakte automatisieren | worker=sre-expert | progress=85% | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+Implemented a durable session-artifact retention workflow script at `scripts/session-retention-quarantine.py`.
+- Safe classes covered: `sessions-json-temp-backup`, `jsonl-reset-snapshot`, `checkpoint-older-24h`, `bak-pre-task-artifact`.
+- `trajectory-sidecar` is evaluated separately and excluded by default; opt-in via `--include-trajectory`.
+- Workflow supports `--mode dry-run|apply`, gzip quarantine, manifest generation, restore script generation, and optional retention purge (`--purge-expired --retention-days N`).
+- Quarantine output includes machine-readable `MANIFEST.json` + executable `RESTORE.sh` instructions.
+
+FILES_CHANGED
+- `scripts/session-retention-quarantine.py` (new)
+- Commit: `81af95cd`
+
+VERIFY
+- `python3 -m py_compile scripts/session-retention-quarantine.py` ✅
+- Fixture dry-run/apply/idempotency test ✅
+  - apply1: matched=3, skipped=1
+  - apply2: matched=0, skipped=1 (idempotent no-op for already-quarantined classes)
+- Live dry-run safety check ✅
+  - command: `python3 scripts/session-retention-quarantine.py --mode dry-run --manifest-out /tmp/session-retention-dryrun-manifest.json`
+  - summary: matched=0, skipped=741, purged_runs=0
+  - skipped_by_class: trajectory-sidecar=735, checkpoint-older-24h=6
+
+ALERTS_REPORT
+Ready-to-send summary for `<#1491148986109661334>`:
+"Session retention quarantine workflow is now implemented (dry-run first, apply optional). It safely targets temp/backup sessions.json artifacts, reset snapshots, old checkpoints, and pre-task bak files; trajectory sidecars stay excluded by default unless explicitly enabled. Every run emits MANIFEST.json + RESTORE.sh for reversible recovery, and optional retention purge is available via --purge-expired. Validation passed (py_compile + fixture idempotency + live dry-run no-op check)."
+
+RESIDUAL_RISK
+- No cron schedule was changed; periodic execution still needs explicit operator approval.
+- Trajectory sidecars remain excluded by default; enabling them requires deliberate opt-in and policy confirmation.
+- `--purge-expired` is destructive for old quarantine run directories and should remain operator-controlled.

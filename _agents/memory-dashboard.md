@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-04-27T14:30:18.072083+00:00
+last_generated: 2026-04-27T15:30:18.414205+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-04-27 14:30 UTC  
+**Last Generated:** 2026-04-27 15:30 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -18,10 +18,10 @@ auto_refresh: daily 04:30 UTC (cron)
 
 | Level | Component | Status | Notes |
 |---|---|---|---|
-| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 1561 files indexed |
+| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 1564 files indexed |
 | **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 56 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 8 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-27T14:30:01Z] CRITICAL session=c2971fea-9a6 size=4754224 tokens_est=1188556 pct=792% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-04-27T15:30:01Z] CRITICAL session=a7751039-cb5 size=1672874 tokens_est=418218 pct=278% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -195,16 +195,16 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-04-27T13:45:01Z] CRITICAL session=871a2caa-44f size=1582462 tokens_est=395615 pct=263%
-[2026-04-27T13:50:01Z] CRITICAL session=871a2caa-44f size=7482895 tokens_est=1870723 pct=1247%
-[2026-04-27T13:55:01Z] CRITICAL session=871a2caa-44f size=1698427 tokens_est=424606 pct=283%
-[2026-04-27T14:00:01Z] CRITICAL session=871a2caa-44f size=1759467 tokens_est=439866 pct=293%
-[2026-04-27T14:05:01Z] CRITICAL session=871a2caa-44f size=8160837 tokens_est=2040209 pct=1360%
-[2026-04-27T14:10:01Z] OK session=c2971fea-9a6 size=283244 tokens_est=70811 pct=47%
-[2026-04-27T14:15:01Z] OK session=c2971fea-9a6 size=256393 tokens_est=64098 pct=42%
-[2026-04-27T14:20:01Z] CRITICAL session=c2971fea-9a6 size=3472125 tokens_est=868031 pct=578%
-[2026-04-27T14:25:02Z] WARN session=c2971fea-9a6 size=507132 tokens_est=126783 pct=84%
-[2026-04-27T14:30:01Z] CRITICAL session=c2971fea-9a6 size=4754224 tokens_est=1188556 pct=792%
+[2026-04-27T14:45:01Z] CRITICAL session=55c052bc-844 size=1885830 tokens_est=471457 pct=314%
+[2026-04-27T14:50:01Z] CRITICAL session=55c052bc-844 size=2229738 tokens_est=557434 pct=371%
+[2026-04-27T14:55:01Z] CRITICAL session=55c052bc-844 size=828154 tokens_est=207038 pct=138%
+[2026-04-27T15:00:01Z] CRITICAL session=55c052bc-844 size=3026415 tokens_est=756603 pct=504%
+[2026-04-27T15:05:01Z] CRITICAL session=55c052bc-844 size=1067248 tokens_est=266812 pct=177%
+[2026-04-27T15:10:01Z] CRITICAL session=55c052bc-844 size=3370681 tokens_est=842670 pct=561%
+[2026-04-27T15:15:01Z] CRITICAL session=55c052bc-844 size=3483609 tokens_est=870902 pct=580%
+[2026-04-27T15:20:01Z] CRITICAL session=55c052bc-844 size=1450014 tokens_est=362503 pct=241%
+[2026-04-27T15:25:02Z] CRITICAL session=a7751039-cb5 size=868623 tokens_est=217155 pct=144%
+[2026-04-27T15:30:01Z] CRITICAL session=a7751039-cb5 size=1672874 tokens_est=418218 pct=278%
 ```
 
 ## 9. Active Crons (summary)
