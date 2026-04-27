@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-27T23:26:01.830283+00:00",
+  "generated_at": "2026-04-27T23:57:01.413178+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 2,
+    "agents_active": 0,
     "crons_total": 46,
     "crons_by_tier": {
       "T1-realtime": 4,
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-04-27T23:21:24.646937+00:00",
-      "latest_session_size_bytes": 129005,
+      "status": "monitoring",
+      "last_session_iso": "2026-04-27T23:51:45.747344+00:00",
+      "latest_session_size_bytes": 147644,
       "session_count": 137
     },
     {
@@ -93,9 +93,9 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "active",
-      "last_session_iso": "2026-04-27T23:21:10.938872+00:00",
-      "latest_session_size_bytes": 11851,
+      "status": "monitoring",
+      "last_session_iso": "2026-04-27T23:51:31.632270+00:00",
+      "latest_session_size_bytes": 27970,
       "session_count": 1635
     },
     {
@@ -883,6 +883,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "2cf5b2a",
+      "date": "2026-04-28T01:26:17+02:00",
+      "subject": "auto-sync: 2026-04-28 01:26"
+    },
+    {
       "hash": "cd7e58d",
       "date": "2026-04-28T00:56:10+02:00",
       "subject": "auto-sync: 2026-04-28 00:56"
@@ -926,11 +931,6 @@
       "hash": "7c0f9ae",
       "date": "2026-04-27T20:53:01+02:00",
       "subject": "auto-sync: 2026-04-27 20:53"
-    },
-    {
-      "hash": "d90153e",
-      "date": "2026-04-27T20:22:46+02:00",
-      "subject": "auto-sync: 2026-04-27 20:22"
     }
   ],
   "scripts": {
@@ -949,8 +949,8 @@
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        706075,
-        721105
+        748239,
+        750427
       ]
     }
   ],
