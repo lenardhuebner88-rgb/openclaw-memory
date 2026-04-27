@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-04-27T17:30:01.606284+00:00
+last_generated: 2026-04-27T18:00:02.176864+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-04-27 17:30 UTC  
+**Generated:** 2026-04-27 18:00 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -21,12 +21,12 @@ flowchart TB
     subgraph AGT["🤖 Agents"]
         agent_codex["codex<br/>n/a<br/>0 KB"]
         agent_default["default<br/>n/a<br/>0 KB"]
-        agent_efficiency_auditor["efficiency-auditor<br/>4h ago<br/>337 KB"]
-        agent_frontend_guru["frontend-guru<br/>4h ago<br/>2385 KB"]
-        agent_james["james<br/>34m ago<br/>995 KB"]
-        agent_main["main<br/>28s ago<br/>739 KB"]
-        agent_spark["spark<br/>23m ago<br/>5852 KB"]
-        agent_sre_expert["sre-expert<br/>2m ago<br/>2470 KB"]
+        agent_efficiency_auditor["efficiency-auditor<br/>5h ago<br/>337 KB"]
+        agent_frontend_guru["frontend-guru<br/>5h ago<br/>2385 KB"]
+        agent_james["james<br/>1h ago<br/>995 KB"]
+        agent_main["main<br/>6m ago<br/>2656 KB"]
+        agent_spark["spark<br/>53m ago<br/>5852 KB"]
+        agent_sre_expert["sre-expert<br/>0s ago<br/>216 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -71,7 +71,7 @@ flowchart TB
 
 ## ⚡ Health Summary
 
-- **Atlas session-size telemetry:** info only — `[2026-04-27T17:30:01Z] CRITICAL session=ed6e95bd-96f pct=126%`
+- **Atlas session-size telemetry:** info only — `[2026-04-27T18:00:02Z] CRITICAL session=ed6e95bd-96f pct=453%`
 - **Graph edges:** 1279
 - **Rules active:** 57
 - **Facts (all-time):** 287 across 1 daily files
@@ -85,12 +85,12 @@ flowchart TB
 |----|--------------|------------------|------|
 | `codex` | n/a | 0 | `/home/piet/.openclaw/agents/codex` |
 | `default` | n/a | 0 | `/home/piet/.openclaw/agents/default` |
-| `efficiency-auditor` | 4h ago | 337 | `/home/piet/.openclaw/agents/efficiency-auditor` |
-| `frontend-guru` | 4h ago | 2385 | `/home/piet/.openclaw/agents/frontend-guru` |
-| `james` | 34m ago | 995 | `/home/piet/.openclaw/agents/james` |
-| `main` | 28s ago | 739 | `/home/piet/.openclaw/agents/main` |
-| `spark` | 23m ago | 5852 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 2m ago | 2470 | `/home/piet/.openclaw/agents/sre-expert` |
+| `efficiency-auditor` | 5h ago | 337 | `/home/piet/.openclaw/agents/efficiency-auditor` |
+| `frontend-guru` | 5h ago | 2385 | `/home/piet/.openclaw/agents/frontend-guru` |
+| `james` | 1h ago | 995 | `/home/piet/.openclaw/agents/james` |
+| `main` | 6m ago | 2656 | `/home/piet/.openclaw/agents/main` |
+| `spark` | 53m ago | 5852 | `/home/piet/.openclaw/agents/spark` |
+| `sre-expert` | 0s ago | 216 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
@@ -194,11 +194,11 @@ flowchart TB
 
 **Last 5 budget-meter ticks:**
 ```
-[2026-04-27T17:10:01Z] OK session=5fc4c568-ad7 pct=1%
-[2026-04-27T17:15:01Z] OK session=db928813-764 pct=62%
-[2026-04-27T17:20:01Z] CRITICAL session=ed6e95bd-96f pct=165%
-[2026-04-27T17:25:01Z] WARN session=db928813-764 pct=76%
-[2026-04-27T17:30:01Z] CRITICAL session=ed6e95bd-96f pct=126%
+[2026-04-27T17:40:01Z] CRITICAL session=ed6e95bd-96f pct=129%
+[2026-04-27T17:45:01Z] CRITICAL session=ed6e95bd-96f pct=228%
+[2026-04-27T17:50:01Z] CRITICAL session=ed6e95bd-96f pct=313%
+[2026-04-27T17:55:01Z] CRITICAL session=ed6e95bd-96f pct=453%
+[2026-04-27T18:00:02Z] CRITICAL session=ed6e95bd-96f pct=453%
 ```
 
 ## 📜 Rules R1-R57 (56 total, by category)
@@ -294,11 +294,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+15f2846 2026-04-27 auto-sync: 2026-04-27 19:52
 75031db 2026-04-27 auto-sync: 2026-04-27 19:22
 3c0bf48 2026-04-27 auto-sync: 2026-04-27 18:51
 156413a 2026-04-27 auto-sync: 2026-04-27 18:21
 8b97160 2026-04-27 auto-sync: 2026-04-27 17:51
-a8b94f8 2026-04-27 auto-sync: 2026-04-27 17:21
 ```
 
 ---

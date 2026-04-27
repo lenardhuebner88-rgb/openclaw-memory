@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d92c5f3a-a83f-44fe-a0be-2e5341fc9cab [P1][Forge] Approval Gate: Activate + E2E Verify Context Runtime Patches
+- task: 2836c5a3-9363-471e-883f-85b528cfe6de [P1][Forge] Fix worker-memory-adapter LOAD_FAIL and R52 Detection
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Progress: pre-activation checks are complete. Current latest Atlas trajectory still emits schemaVersion=1/traceSchema=openclaw-trajectory, so runtime activation is still required. Approval request prepared: restart gatew
+- checkpoint: Progress: reproduced importlib load failure path, fixed adapter export/import robustness (plain class init + exported worker_memory_handoff), added R52 repeated WORKER_MEMORY_ADAPTER_LOAD_FAIL detector in session-size-gu
 - blocker: -
-- updated: 2026-04-27T17:32:37.304Z
+- updated: 2026-04-27T18:22:10.729Z
 <!-- mc:auto-working-context:end -->
