@@ -1340,3 +1340,25 @@ VERIFY
 - Build success (after MC stop + rebuild)
 - Anti-Scope preserved: keine neue Feature-Implementierung, nur Link-Fix ✅
 - 2026-04-27T21:20:06.753Z | START | a0b7b0f1-656f-412d-a282-6b02eddea163 | [P1][Forge] T2: Mermaid-Render in /ops fixen | worker=atlas | progress=- | summary=-
+- 2026-04-27T21:30:33.619Z | DONE | a0b7b0f1-656f-412d-a282-6b02eddea163 | [P1][Forge] T2: Mermaid-Render in /ops fixen | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+Mermaid rendering in /ops fixed:
+- Converted `dependency-graph.tsx` to "use client" component
+- Integrated mermaid via CDN script injection (not npm — avoids OOM during build)
+- Mermaid renders client-side as SVG; initial HTML no longer contains raw "graph TD" text
+- Fallback: if mermaid CDN fails, falls back to showing raw diagram text
+- `curl /ops` initial HTML: no `<pre>graph TD` block ✅ (was 2 occurrences before fix)
+
+Approach: CDN-loaded mermaid@11 (https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js) loaded dynamically on client, renders via `mermaid.render()` into the container div.
+
+FILES_CHANGED
+- `src/components/ops/dependency-graph.tsx`
+- Commit: `679ade5` (mission-control)
+
+VERIFY
+- `curl /ops | grep "graph TD"` → 0 matches (no raw mermaid in HTML) ✅
+- MC health: ok ✅
+- Build success ✅
+- 2026-04-27T21:33:49.537Z | START | 073182d7-5659-4da4-bbb9-5f7895d93913 | [P1][Forge] T3: DATA: FALLBACK Root-Cause + Fix | worker=atlas | progress=- | summary=-

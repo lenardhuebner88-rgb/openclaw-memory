@@ -7,15 +7,17 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f7ed95fc-791a-4951-9343-5550477b39d9 [P1][Forge] T1: /automate Dead-Link Resolution
+- task: a0b7b0f1-656f-412d-a282-6b02eddea163 [P1][Forge] T2: Mermaid-Render in /ops fixen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 done
 
 RESULT_SUMMARY
-Top-Nav "Automate" dead-link fixed by adding `/automate` as an alias route for `/automations`:
-- Created `/src/app/automate/page.tsx` that renders the same AutomationsClient componen
+Mermaid rendering in /ops fixed:
+- Converted `dependency-graph.tsx` to "use client" component
+- Integrated mermaid via CDN script injection (not npm — avoids OOM during build)
+- Merm
 - blocker: -
-- updated: 2026-04-27T21:18:38.805Z
+- updated: 2026-04-27T21:30:33.620Z
 <!-- mc:auto-working-context:end -->

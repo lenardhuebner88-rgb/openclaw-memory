@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a0b7b0f1-656f-412d-a282-6b02eddea163 [P1][Forge] T2: Mermaid-Render in /ops fixen
+- task: 073182d7-5659-4da4-bbb9-5f7895d93913 [P1][Forge] T3: DATA: FALLBACK Root-Cause + Fix
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-27T21:20:06.755Z
+- updated: 2026-04-27T21:33:49.538Z
 <!-- mc:auto-working-context:end -->

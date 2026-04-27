@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-27T21:24:01.102346+00:00",
+  "generated_at": "2026-04-27T21:54:02.022099+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 3,
+    "agents_active": 1,
     "crons_total": 46,
     "crons_by_tier": {
       "T1-realtime": 4,
@@ -61,7 +61,7 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "active",
+      "status": "monitoring",
       "last_session_iso": "2026-04-27T21:19:44.594906+00:00",
       "latest_session_size_bytes": 165460,
       "session_count": 26
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-04-27T21:20:54.150324+00:00",
-      "latest_session_size_bytes": 118758,
+      "status": "monitoring",
+      "last_session_iso": "2026-04-27T21:32:13.346501+00:00",
+      "latest_session_size_bytes": 39422,
       "session_count": 138
     },
     {
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-27T21:23:51.279400+00:00",
-      "latest_session_size_bytes": 4991745,
-      "session_count": 1635
+      "last_session_iso": "2026-04-27T21:52:05.506999+00:00",
+      "latest_session_size_bytes": 5374229,
+      "session_count": 1636
     },
     {
       "id": "test-lock",
@@ -883,6 +883,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "259bda6",
+      "date": "2026-04-27T23:24:23+02:00",
+      "subject": "auto-sync: 2026-04-27 23:24"
+    },
+    {
       "hash": "23c85ce",
       "date": "2026-04-27T22:54:23+02:00",
       "subject": "auto-sync: 2026-04-27 22:54"
@@ -926,11 +931,6 @@
       "hash": "3c0bf48",
       "date": "2026-04-27T18:51:18+02:00",
       "subject": "auto-sync: 2026-04-27 18:51"
-    },
-    {
-      "hash": "156413a",
-      "date": "2026-04-27T18:21:18+02:00",
-      "subject": "auto-sync: 2026-04-27 18:21"
     }
   ],
   "scripts": {
@@ -950,9 +950,7 @@
       "status": "running",
       "pids": [
         563736,
-        568602,
-        575356,
-        599594
+        568602
       ]
     }
   ],
