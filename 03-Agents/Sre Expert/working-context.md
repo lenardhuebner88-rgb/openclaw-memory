@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1bacf4bb-5269-41b8-9774-67d7392bbd8e [Forge] Fix localhost proof access for Atlas heartbeat control checks
-- stage: DONE
+- task: 4e0618d2-f453-4fa0-b483-8c57afc6a7c7 [Nightly] Harden alerts API route with fail-soft error handling
+- stage: FAILED
 - next: await next assignment
-- checkpoint: HEARTBEAT-Proof-Zugriff ist jetzt deterministisch dokumentiert: statt blockiertem web_fetch auf 127.0.0.1 nutzt Atlas read-only exec+curl für die drei Mission-Control Truth-Order-Endpunkte, ohne neue Broad-Tool-Freigaben
-- blocker: -
-- updated: 2026-04-26T22:50:41.717Z
+- checkpoint: Global TypeScript gate failed (npx tsc --noEmit, exit 1).
+- blocker: Global TypeScript gate failed (npx tsc --noEmit, exit 1).
+- updated: 2026-04-27T02:08:18.596Z
 <!-- mc:auto-working-context:end -->
