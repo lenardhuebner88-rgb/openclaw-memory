@@ -242,3 +242,81 @@ PID 3797817 → 3820069. Marker present nach restart, MC 200, QMD 406, 0 MCP err
 4. **openclaw-healthcheck.service** — Doctor sagt duplicate gateway-like detected. Operator entscheidet ob disable.
 5. **686 archivierte .deleted.<ts> transcripts in main/sessions** — operator kann final delete via find -name *.deleted.* -delete (~360M).
 6. **Spark + Worker tar.gz archives** — operator kann nach 30 Tagen delete (rotation).
+
+
+---
+
+## Round 4 — QMD Audit + Optimization (10:30 UTC)
+
+Atlas + Forge meldeten Inkonsistenzen. Eigenes Live-Audit + Forge-Verifikation + Web-Recherche + 4 Quick-Wins deployed.
+
+### Phase 1: Live-Diagnose (Forge-Findings verifiziert + ergänzt)
+
+**Forge richtig:**
+- qmd__status flapping reproduziert: 42 fail-events in 24h, alle bei MCP-Bridge (NICHT direct-CLI). Pattern: P0.2 1x-fail-then-recover bei NEUER session-binding nach Gateway-restart (5 Restarts heute).
+- vault-read.py legacy: fehlt in /home/piet/.openclaw/scripts/. 2 stale Refs in vault-doku (task-lifecycle.md, daily/2026-04-27.md).
+- MC pending-pickup 4e0618d2: 212s Lag = normal, NICHT critical (Phase 6 MC-Worker-Engpass aus Plan gestrichen).
+
+**Forge teilweise korrekt — wahre Root-Cause anders:**
+- qmd__get path-resolver-bug: NICHT Document not found, sondern qmd-resolver matcht FUZZY. 03-Agents/Shared/project-state.md returnt WORKSPACE/memory/archive/project-state.md (alter Stand 2026-04-11), NICHT canonical vault-version. Vier project-state.md duplicates im System.
+- qmd__multi_get glob: KOMPLETT broken fuer alle path-formats (relative, qmd://vault/, qmd://workspace/). Comma-separated 'a.md,b.md' funktioniert.
+- qmd__get Platzhalter '(see attached image)': nicht reproduziert, transient.
+
+### Phase 2: Web-Recherche
+
+- HyDE: kein --no-hyde Flag. Bypass via 'qmd search' (BM25-only) oder 'qmd vsearch' (vector-only). 'qmd query' hat HyDE hardwired.
+- node-llama-cpp Vulkan: Issue #554 bekannt. CPU-source-build via 'npx --no node-llama-cpp source download'. CUDA-build mit NODE_LLAMA_CPP_CMAKE_OPTION_GGML_CUDA=ON (braucht NVIDIA-toolchain).
+- qmd multi-get glob: matchFilesByGlob() in src/qmd.ts. Bug-confirmed, kein open-issue gefunden. Workaround: comma-separated.
+
+### Phase 3: MCP-Anbindungs-Issue Root-Cause
+
+42 qmd-fail-events in 24h korrelieren mit 5 Gateway-Restarts (09:27, 09:28, 09:47, 09:48, 10:13). Pattern: jede neue session-binding nach Restart hat 1-3 fails wegen catalog-init. P0.2 fixt second-call. Akzeptabel — fundamentaler bug ist openclaw-core (lazy-init der MCP-bindings beim session-spawn).
+
+### Phase 4: Quick-Wins DEPLOYED
+
+| Sub | Was | Result |
+|---|---|---|
+| 4.1 | qmd embed (5 pending) | 44 chunks/80.3 KB embedded in 34s. Vectors 54124 -> 54168. |
+| 4.2 | qmd cleanup | **49431 orphaned embedding chunks removed**, 267 inactive doc-records, DB vacuumed |
+| 4.3 | mc-src Pattern erweitert auf src/**/*.{ts,tsx,md} | Files **9 -> 368** (40-fach!). Background-Embed laufend (368 chunks, ~12 min) |
+| 4.4 | workspace/memory/archive (75 files) | **NICHT angefasst** — Operator-Decision: archive subdir aus indexed-path bewegen oder lassen. |
+| 4.5 | vault-read.py refs in 2 docs | **NICHT angefasst** — Daily-Doc ist agent-managed, task-lifecycle.md ist user-curated. Operator-Action. |
+
+### Phase 5: HyDE-Tuning -> R-Regel-Kandidat R51
+
+**Befund:** 'qmd query' (HyDE) interpretiert P0.2 als OBD-II Auto-Code -> Vec-queries: vehicles, car diagnostics. Kontaminiert Top-Results.
+
+**R51 (proposed):** Agents nutzen primary 'qmd_search' (BM25, schnell, exakt, kein HyDE). Fallback 'qmd_vsearch' fuer pure semantic. 'qmd_query' nur fuer cross-domain narrative-research wo HyDE-Erweiterung gewuenscht.
+
+### Phase 6 NEU: Vault-Duplikate (Operator-Doku, kein direct-action)
+
+**Top-Duplikate:**
+- 100x working-context.md: 4 active (per-Agent in 03-Agents/), **96 in 09-Archive/03-Agents-legacy-2026-04-22/** (legacy)
+- 21x AGENTS.md: 14 in vault top-level (intentional pro section), 7 in workspace inkl. **2 in node_modules** (recharts, lancedb = noise)
+- 14x 2026-04-XX.md: vermutlich pro-agent-daily-files (acceptable)
+- 4x checkpoints.md, decisions-log.md, project-state.md, user-profile.md: vault  duplicates 
+
+**workspace/memory/archive: 75 alte md-files** (Q1 + early Q2 sessions, MEMORY-backups, GOVERNANCE etc.) -> Index-Noise
+
+**R52 (proposed):** Agents MUESSEN explizite collection-prefix nutzen ('qmd://vault/...' oder 'qmd://workspace/...') fuer 'qmd_get' und 'qmd_multi_get'. Bare path 'X/Y/file.md' triggert qmd's fuzzy-resolver -> wrong-file-risk.
+
+**Operator-Empfehlungen:**
+1. workspace/memory/archive aus indexed-path entfernen (Move zu /home/piet/.openclaw/archive-storage/)
+2. Vault 09-Archive aus index ausschliessen (Vault-Reorg-Decision)
+3. node_modules-AGENTS.md im workspace ueber narrow path-mask exkludieren
+
+### Phase 9 (this section) + Memory-Update mit R51, R52 candidates
+
+**Verifikations-Snapshot 10:30 UTC:**
+- Index: 199 MB -> 202 MB (post-cleanup, +mc-src-embeddings)
+- Documents: 1176 -> 1177 indexed
+- Vectors: 53988 -> 54168 (+44 from embed run)
+- mc-src files: 9 -> 368 (post-rebuild)
+- 49431 orphan chunks gone
+
+### Sub-Befunde fuer Folge
+
+1. qmd-multi-get-glob-bug -> upstream issue at github.com/tobi/qmd
+2. node-llama-cpp Vulkan -> CPU-source-build fuer 7x speed (35s -> ~5s hybrid query)
+3. workspace/memory/archive cleanup -> ~75 files index-noise
+4. 09-Archive vault cleanup (96 working-context.md) -> Operator
