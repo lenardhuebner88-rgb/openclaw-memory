@@ -772,3 +772,177 @@ ACTIVATION_NEEDED
 RESIDUAL_RISK
 - Until activation occurs, empirical delta for new writer metadata summarization cannot be proven from newly emitted trajectory lines.
 - No restart was performed in this task per anti-scope constraints.
+- 2026-04-27T16:51:52.276Z | START | 6132f9ad-7f82-409b-8d5a-e1274fccf4fd | [P1][Forge] Context-Budget Activation + Tool-Search Deferral Gate | worker=atlas | progress=- | summary=-
+- 2026-04-27T16:53:03.926Z | START | 5b41d689-79e9-4597-ac61-e22c602f3f9a | [P1][James] Worker Memory Tool MVP + Safe Filesystem Contract | worker=james | progress=- | summary=-
+- 2026-04-27T16:54:33.064Z | DONE | 5b41d689-79e9-4597-ac61-e22c602f3f9a | [P1][James] Worker Memory Tool MVP + Safe Filesystem Contract | worker=james | progress=- | summary=Worker Memory Tool MVP Spec: 3-file schema (progress.md/open-tasks.jsonl/architecture.md), safe path contract (pathlib.resolve().relative_to(), FILENAME_PATTERN regex), size caps (8K/32K/16K), TTL cleanup (48h/72h/168h), read/write/resume flow, Forge integration points defined. Artifact: james-worker-memory-tool-mvp-2026-04-27.md.
+- 2026-04-27T16:56:54.903Z | START | 12363df1-6584-4540-9685-9636132aff9e | [P2][Spark] Session Vitals Collector + Leading-Indicator Dashboard Spec | worker=spark | progress=5% | summary=-
+- 2026-04-27T16:57:44.969Z | CHECKPOINT | 12363df1-6584-4540-9685-9636132aff9e | [P2][Spark] Session Vitals Collector + Leading-Indicator Dashboard Spec | worker=spark | progress=62% | summary=- | note=Collected live source candidates from trends, model-health, daily-ops digest, and session-size guard; drafting the machine-readable collector/spec with approval-gated schedule.
+- 2026-04-27T16:58:09.846Z | DONE | 12363df1-6584-4540-9685-9636132aff9e | [P2][Spark] Session Vitals Collector + Leading-Indicator Dashboard Spec | worker=spark | progress=62% | summary=Drafted a dry-run session-vitals collector spec with live sources and thresholds, keeping cron/dashboard activation approval-gated. The proposal can be emitted to local JSON/Markdown first; schedule activation remains APPROVAL_NEEDED.
+- 2026-04-27T16:58:19.765Z | CHECKPOINT | 6132f9ad-7f82-409b-8d5a-e1274fccf4fd | [P1][Forge] Context-Budget Activation + Tool-Search Deferral Gate | worker=atlas | progress=- | summary=- | note=Progress: latest-run budget proof is now green (status=ok, gateSource=latest.latestRun). I confirmed tool-search deferral is currently not configured and identified the exact gateway env injection point (systemd drop-in / gateway.systemd.env) plus approval-gated activation steps.
+- 2026-04-27T16:59:05.258Z | DONE | 6132f9ad-7f82-409b-8d5a-e1274fccf4fd | [P1][Forge] Context-Budget Activation + Tool-Search Deferral Gate | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+- Ziel erreicht: Context-budget proof ist im aussagekräftigen Run-Window jetzt grün (`status=ok`, `gateSource=latest.latestRun`).
+- Vorher/nachher latest-run Vergleich wurde mit verifizierbaren Task-/Proof-Daten erstellt.
+- Tool-search deferral ist aktuell **nicht** gesetzt; exakter Aktivierungspfad wurde identifiziert (Gateway systemd env/drop-in) und als approval-gated Change beschrieben.
+
+METRICS_BEFORE_AFTER
+- BEFORE (latest-run, aus Task `551c8d74-1f11-4ff1-af38-10bf2f081bde` resultSummary):
+  - trace.metadata=76657 B
+  - context.compiled=11141 B
+  - tools=9797 B
+  - prompt.submitted=1300 B
+- AFTER (latest-run, aktueller proof):
+  - trace.metadata=3550 B
+  - context.compiled=11139 B
+  - tools=9797 B
+  - prompt.submitted=1298 B
+- Delta:
+  - trace.metadata: -73107 B (~95.4% kleiner)
+  - context.compiled/tools/prompt: stabil im grünen Bereich
+
+APPROVAL_NEEDED
+- Für das erreichte Green **nicht erforderlich**.
+- Optionaler W1-Deferral-Schritt (nur mit Operator-Freigabe, da config+restart):
+  1) Datei anlegen: `~/.config/systemd/user/openclaw-gateway.service.d/tool-search-deferral.conf`
+     mit Inhalt:
+     `[Service]`
+     `Environment=ENABLE_TOOL_SEARCH=auto:5`
+  2) `systemctl --user daemon-reload`
+  3) `openclaw gateway restart`
+- Erwarteter Effekt: weitere Reduktion/Deferral von Tool-Schema-Last nur falls Runtime/Providerpfad dieses Env auswertet.
+
+VERIFY
+- `node /home/piet/.openclaw/scripts/atlas-orchestrator-budget-proof.mjs` → `status=ok`, `gateSource=latest.latestRun`, latest file `ed6e95bd-96f8-4883-b5de-fd99367c7250.trajectory.jsonl`.
+- `curl /api/tasks/551c8d74-...` Parsing → vorherige latest-run Referenzwerte `trace.metadata=76657`, `context.compiled=11141`, `tools=9797`, `prompt.submitted=1300` bestätigt.
+- `systemctl --user cat openclaw-gateway.service` + grep auf gateway env/drop-ins: `ENABLE_TOOL_SEARCH` derzeit nicht gesetzt.
+
+RESIDUAL_RISK
+- `ENABLE_TOOL_SEARCH=auto:5` ist als proposal dokumentiert; die tatsächliche Wirkung ist runtime-/providerpfadabhängig und muss nach Freigabe per erneutem budget-proof verifiziert werden.
+- Historische alte Trajectory-Maxima bleiben in alten Dateien sichtbar, beeinflussen aber den neuen latest-run Gate nicht.
+- 2026-04-27T17:01:04.530Z | START | 1f11f27b-b8f9-4576-be09-1e9f1c6b5612 | [P1][Forge] Worker Hard-Cap Rotation + Per-Agent Budgets Design/Prototype | worker=atlas | progress=- | summary=-
+- 2026-04-27T17:02:49.143Z | CHECKPOINT | 1f11f27b-b8f9-4576-be09-1e9f1c6b5612 | [P1][Forge] Worker Hard-Cap Rotation + Per-Agent Budgets Design/Prototype | worker=atlas | progress=- | summary=- | note=Progress: lifecycle/lock insertion points were mapped (auto-pickup claim/lock flow, tasks/[id] ownership guards, session-size-guard rotation path), live worker-size evidence was collected, and a guarded prototype spec was written at docs/operations/worker-hard-cap-rotation-prototype-spec-2026-04-27.md including feature flags, per-agent budgets, handoff artifact schema, verify plan, and rollback path.
+- 2026-04-27T17:03:30.762Z | DONE | 1f11f27b-b8f9-4576-be09-1e9f1c6b5612 | [P1][Forge] Worker Hard-Cap Rotation + Per-Agent Budgets Design/Prototype | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+- Current worker lifecycle and lock/claim safety points were mapped from live code paths.
+- Per-agent budget baseline was validated against live session-size patterns (including active and historical outliers).
+- Delivered a guarded implementation spec/prototype plan (feature-flagged, default OFF) with exact insertion points, handoff artifact format (`compact_summary` + `open_tasks.jsonl`), verification plan, and rollback path.
+
+CURRENT_LIFECYCLE_MAP
+- Pickup + claim + lock flow: `/home/piet/.openclaw/scripts/auto-pickup.py`
+  - `main()` pending-pickup loop, lock cleanup, retry/requeue gates.
+  - `trigger_worker(...)` + spawn-lock write (`/tmp/mc-auto-pickup-locks/*.lock`).
+  - `wait_for_claim_binding(...)` claim handshake enforcement.
+  - `evaluate_session_strategy(...)` lock-aware decision (`skip-alive-lock` / `spawn-new-for-orphan`).
+- Task ownership/state guards: `mission-control/src/app/api/tasks/[id]/route.ts`
+  - terminal ownership conflict guard + transition legality checks.
+- Existing rotation primitive and current worker behavior: `/home/piet/.openclaw/scripts/session-size-guard.py`
+  - `rotate_session_file(...)` exists.
+  - Worker scan currently alert-only (`allow_rotation=False` for workers).
+
+PROPOSED_PATCH_OR_SPEC
+- Spec file: `docs/operations/worker-hard-cap-rotation-prototype-spec-2026-04-27.md`
+- Commit: `683ff270`
+- Proposal highlights:
+  - Add feature flags (`SESSION_SIZE_GUARD_ENABLE_WORKER_ROTATION=0` default, allowlist, per-agent budget JSON override).
+  - Add per-agent classifier and guarded worker-rotation helper reusing existing takeover verification.
+  - Hard safety gate: never rotate while live/fresh `*.jsonl.lock` exists.
+  - Rotation bootstrap payload includes compact handoff + `open_tasks.jsonl` pointer.
+  - Explicit dry-run/self-test + rollback steps.
+
+VERIFY
+- Live evidence collected from worker session trees and session stores:
+  - `sre-expert` historical max 15,016,688 B; active main session ~3,245,214 B.
+  - `james` historical max 1,634,193 B.
+  - `spark` historical max 14,775,696 B.
+  - `efficiency-auditor` historical max 3,445,883 B.
+- Spec artifact exists and is committed:
+  - `SPEC_OK`, `SPEC_LINES=113`, HEAD `683ff270`.
+
+RISKS_AND_GATES
+- Risk: dual-owner ambiguity if rotating with live lock.
+  - Gate: block rotation on alive/fresh lock.
+- Risk: bootstrap message can reintroduce context bloat.
+  - Gate: strict compact-summary char cap.
+- Risk: session store/runtime binding drift.
+  - Gate: keep mandatory takeover verification before success.
+- Anti-scope respected: no direct restart, no lock override, no cron/config/model mutation, no destructive cleanup performed.
+- 2026-04-27T17:04:34.932Z | START | 05721984-c028-4e5c-8115-d851cbe3be15 | [P2][Forge] Trajectory Writer Refactor: OTEL + ObservationMasking | worker=sre-expert | progress=- | summary=-
+- 2026-04-27T17:05:39.368Z | CHECKPOINT | 05721984-c028-4e5c-8115-d851cbe3be15 | [P2][Forge] Trajectory Writer Refactor: OTEL + ObservationMasking | worker=sre-expert | progress=20% | summary=- | note=Progress: aktive Writer-Pfade und Vorarbeiten aus Tasks d226c892/551c8d74 validiert; starte zielgerichtete OTEL/ObservationMasking-Refactor-Implementierung.
+- 2026-04-27T17:06:13.220Z | CHECKPOINT | 246b3af0-ba78-4a13-8041-c75870f36c4e | [P2][Spark] Implement Session Vitals Collector Dry-Run Output | worker=spark | progress=70% | summary=- | note=Implemented the dry-run session-vitals collector script and generated local JSON/Markdown artifacts from live trends, model-health, daily-ops, and session-size data.
+- 2026-04-27T17:06:25.875Z | DONE | 246b3af0-ba78-4a13-8041-c75870f36c4e | [P2][Spark] Implement Session Vitals Collector Dry-Run Output | worker=spark | progress=70% | summary=Built the dry-run session-vitals collector and wrote local JSON/Markdown artifacts. The collector uses live trends, model-health, daily-ops, and session-size sources, marks missing metrics as proxy/unavailable, and keeps cron/export activation approval-gated.
+- 2026-04-27T17:09:11.659Z | CHECKPOINT | 05721984-c028-4e5c-8115-d851cbe3be15 | [P2][Forge] Trajectory Writer Refactor: OTEL + ObservationMasking | worker=sre-expert | progress=85% | summary=- | note=Progress: OTEL-Envelope + ObservationMasking + Hot-Tier-Budget im aktiven Runtime-Bundle prototypisch umgesetzt, Syntax/Proof verifiziert, Ergebnisbericht geschrieben und committed (43fdc9da).
+- 2026-04-27T17:09:43.098Z | DONE | 05721984-c028-4e5c-8115-d851cbe3be15 | [P2][Forge] Trajectory Writer Refactor: OTEL + ObservationMasking | worker=sre-expert | progress=85% | summary=EXECUTION_STATUS
+partial
+
+RESULT_SUMMARY
+- Writer/Proof-Pfade sind gemappt und auf aktive Runtime bezogen.
+- OTEL-ähnliches Trajectory-Prototyping im aktiven Bundle implementiert: neues Envelope-Schema (`openclaw-trajectory-otel`, `schemaVersion=2`) inkl. span/importance/storage Feldern.
+- ObservationMasking ist implementiert: Prompt/SystemPrompt werden gekürzt, Messages werden nur noch als Summary persistiert, Tool-Listen werden ab Attention-Window maskiert.
+- Hot-Tier Budgeting ist implementiert: High-Volume Events werden oberhalb 10KB auf kompaktes Summary reduziert.
+- Ergebnisdokumentation erstellt und in Workspace committed (`43fdc9da`).
+
+SCHEMA_OR_PATCH
+- Runtime-Bundle Patch: `/home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js`
+  - Added constants: `TRAJECTORY_HOT_EVENT_TARGET_MAX_BYTES=10240`, `TRAJECTORY_ATTENTION_WINDOW=100`
+  - Added helpers: `getTrajectoryImportanceScore`, `maskTrajectoryObservation`, `applyTrajectoryHotBudget`
+  - Recorder envelope upgraded to OTEL-ish fields under `otel.*`
+  - High-volume event types (`trace.metadata`, `context.compiled`, `prompt.submitted`, `prompt.skipped`, `trace.artifacts`) compacted when over hot budget
+- Spec/Report: `reports/trajectory-writer-otel-observationmasking-2026-04-27.md`
+
+FILES_CHANGED
+- `/home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js`
+- `/home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js.bak-202604271906-otelmask`
+- `/home/piet/.openclaw/workspace/reports/trajectory-writer-otel-observationmasking-2026-04-27.md`
+
+VERIFY
+- `node --check /home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js` ✅
+- `grep` marker check for OTEL/masking/hot-budget symbols in patched bundle ✅
+- `node /home/piet/.openclaw/scripts/atlas-orchestrator-budget-proof.mjs` => `status=ok`, `gateSource=latest.latestRun` ✅
+
+ROLLOUT_RISK
+- Kein Restart durchgeführt (Anti-Scope eingehalten). Dadurch kann der laufende Gateway-Prozess noch vor dem Patch geladene In-Memory-Module nutzen.
+- Für harte End-to-End-Bestätigung der neu emittierten `schemaVersion=2` Events ist ein frisches Runtime-Aktivierungsfenster nötig (approved reload/restart + erneuter Proof-Run).
+- 2026-04-27T17:14:51.631Z | START | 61ddee72-bf30-41db-8bb9-d4d1fddc83a3 | [P1][Forge] Implement Worker Memory Adapter from James MVP Contract | worker=atlas | progress=- | summary=-
+- 2026-04-27T17:17:29.951Z | CHECKPOINT | 61ddee72-bf30-41db-8bb9-d4d1fddc83a3 | [P1][Forge] Implement Worker Memory Adapter from James MVP Contract | worker=atlas | progress=- | summary=- | note=Progress: implemented a guarded worker-memory adapter prototype (`workspace/scripts/worker-memory-adapter.py`) with strict worker/filename validation, path traversal protection, caps for progress/open-tasks/architecture files, TTL cleanup, JSONL schema validation, and resume-bundle read output. Syntax check and self-test pass.
+- 2026-04-27T17:18:05.937Z | DONE | 61ddee72-bf30-41db-8bb9-d4d1fddc83a3 | [P1][Forge] Implement Worker Memory Adapter from James MVP Contract | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+- Implemented a safe, bounded worker-memory adapter prototype from the James MVP contract.
+- Adapter enforces worker-local filesystem boundaries, strict filename allowlist, size caps, TTL cleanup, and resume-bundle read output.
+- No forced rotation activation or live-destructive worker-state mutation was performed.
+
+FILES_CHANGED
+- `/home/piet/.openclaw/workspace/scripts/worker-memory-adapter.py` (new)
+- Git commit: `02595e6c` (`feat(worker-memory): add guarded filesystem adapter prototype`)
+
+TESTS_OR_FIXTURES
+- `python3 -m py_compile /home/piet/.openclaw/workspace/scripts/worker-memory-adapter.py` ✅
+- `python3 /home/piet/.openclaw/workspace/scripts/worker-memory-adapter.py --self-test` ✅
+  - verifies invalid filename/path rejection
+  - verifies progress size-cap truncation behavior
+  - verifies JSONL queue read/write validation
+  - verifies resume-bundle shape
+  - verifies TTL cleanup path on aged fixture file
+
+INTEGRATION_POINTS
+- Exposed in adapter:
+  - `write_progress(worker, content)` / `read_progress(worker)`
+  - `write_task_queue(worker, tasks)` / `read_task_queue(worker)`
+  - `write_architecture(worker, content)` / `read_architecture(worker)`
+  - `read_resume_bundle(worker)`
+  - `cleanup(worker=None)`
+- Memory paths are fixed to `/home/piet/.openclaw/agents/<worker>/memory/{progress.md,open-tasks.jsonl,architecture.md}` via safe resolution and allowlist.
+- Intended hook for rotation prototype (`1f11f27b`): call `read_resume_bundle(worker)` to bootstrap a fresh worker session with compact context + queue.
+
+APPROVAL_NEEDED
+- Not needed for this prototype delivery.
+- Future approval needed only when wiring adapter into live rotation execution paths and enabling automatic invocation in production runs.
+
+RESIDUAL_RISK
+- Current delivery is adapter-level only (not yet wired into rotation runtime), so continuity benefit is not automatic until integration is enabled.
+- Queue cap trimming under extreme load may drop oldest pending entries if still above cap after done-task pruning; this is bounded but should be monitored when integrated.

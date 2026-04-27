@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 551c8d74-1f11-4ff1-af38-10bf2f081bde [P2][Forge] Context-Budget Fix-Follow-up: aktiven Trajectory-Writer und Proof-Fenster korrigieren
+- task: 61ddee72-bf30-41db-8bb9-d4d1fddc83a3 [P1][Forge] Implement Worker Memory Adapter from James MVP Contract
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Validated proof and latest trajectory internals: max-over-file masks newer small context/prompt events, but trace.metadata in latest runs is still large (~76KB) driven primarily by plugins (~58KB) and skills (~15KB) payl
+- checkpoint: Progress: implemented a guarded worker-memory adapter prototype (`workspace/scripts/worker-memory-adapter.py`) with strict worker/filename validation, path traversal protection, caps for progress/open-tasks/architecture 
 - blocker: -
-- updated: 2026-04-27T15:56:58.418Z
+- updated: 2026-04-27T17:17:29.953Z
 <!-- mc:auto-working-context:end -->

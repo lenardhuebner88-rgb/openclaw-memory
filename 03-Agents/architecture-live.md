@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-04-27T16:30:01.665174+00:00
+last_generated: 2026-04-27T17:00:01.853907+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-04-27 16:30 UTC  
+**Generated:** 2026-04-27 17:00 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -21,12 +21,12 @@ flowchart TB
     subgraph AGT["🤖 Agents"]
         agent_codex["codex<br/>n/a<br/>0 KB"]
         agent_default["default<br/>n/a<br/>0 KB"]
-        agent_efficiency_auditor["efficiency-auditor<br/>3h ago<br/>337 KB"]
-        agent_frontend_guru["frontend-guru<br/>3h ago<br/>2385 KB"]
-        agent_james["james<br/>1d ago<br/>157 KB"]
-        agent_main["main<br/>5m ago<br/>2956 KB"]
-        agent_spark["spark<br/>1h ago<br/>5804 KB"]
-        agent_sre_expert["sre-expert<br/>8m ago<br/>26 KB"]
+        agent_efficiency_auditor["efficiency-auditor<br/>4h ago<br/>337 KB"]
+        agent_frontend_guru["frontend-guru<br/>4h ago<br/>2385 KB"]
+        agent_james["james<br/>4m ago<br/>995 KB"]
+        agent_main["main<br/>28s ago<br/>30 KB"]
+        agent_spark["spark<br/>38s ago<br/>59 KB"]
+        agent_sre_expert["sre-expert<br/>8s ago<br/>2393 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -66,12 +66,12 @@ flowchart TB
     ORCH --> L6
     CRN -->|orchestrates| MEM
     class L5 critical
-    class agent_main critical
+    class agent_sre_expert critical
 ```
 
 ## ⚡ Health Summary
 
-- **Atlas session-size telemetry:** info only — `[2026-04-27T16:30:01Z] CRITICAL session=a7751039-cb5 pct=504%`
+- **Atlas session-size telemetry:** info only — `[2026-04-27T17:00:01Z] OK session=100b52e2-a18 pct=5%`
 - **Graph edges:** 1279
 - **Rules active:** 57
 - **Facts (all-time):** 287 across 1 daily files
@@ -85,12 +85,12 @@ flowchart TB
 |----|--------------|------------------|------|
 | `codex` | n/a | 0 | `/home/piet/.openclaw/agents/codex` |
 | `default` | n/a | 0 | `/home/piet/.openclaw/agents/default` |
-| `efficiency-auditor` | 3h ago | 337 | `/home/piet/.openclaw/agents/efficiency-auditor` |
-| `frontend-guru` | 3h ago | 2385 | `/home/piet/.openclaw/agents/frontend-guru` |
-| `james` | 1d ago | 157 | `/home/piet/.openclaw/agents/james` |
-| `main` | 5m ago | 2956 | `/home/piet/.openclaw/agents/main` |
-| `spark` | 1h ago | 5804 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 8m ago | 26 | `/home/piet/.openclaw/agents/sre-expert` |
+| `efficiency-auditor` | 4h ago | 337 | `/home/piet/.openclaw/agents/efficiency-auditor` |
+| `frontend-guru` | 4h ago | 2385 | `/home/piet/.openclaw/agents/frontend-guru` |
+| `james` | 4m ago | 995 | `/home/piet/.openclaw/agents/james` |
+| `main` | 28s ago | 30 | `/home/piet/.openclaw/agents/main` |
+| `spark` | 38s ago | 59 | `/home/piet/.openclaw/agents/spark` |
+| `sre-expert` | 8s ago | 2393 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
@@ -194,11 +194,11 @@ flowchart TB
 
 **Last 5 budget-meter ticks:**
 ```
-[2026-04-27T16:10:01Z] CRITICAL session=a7751039-cb5 pct=487%
-[2026-04-27T16:15:01Z] CRITICAL session=a7751039-cb5 pct=497%
-[2026-04-27T16:20:01Z] CRITICAL session=a7751039-cb5 pct=497%
-[2026-04-27T16:25:01Z] CRITICAL session=a7751039-cb5 pct=504%
-[2026-04-27T16:30:01Z] CRITICAL session=a7751039-cb5 pct=504%
+[2026-04-27T16:40:01Z] CRITICAL session=a7751039-cb5 pct=275%
+[2026-04-27T16:45:01Z] CRITICAL session=a7751039-cb5 pct=564%
+[2026-04-27T16:50:01Z] WARN session=ed6e95bd-96f pct=81%
+[2026-04-27T16:55:01Z] CRITICAL session=ed6e95bd-96f pct=104%
+[2026-04-27T17:00:01Z] OK session=100b52e2-a18 pct=5%
 ```
 
 ## 📜 Rules R1-R57 (56 total, by category)
@@ -294,11 +294,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+3c0bf48 2026-04-27 auto-sync: 2026-04-27 18:51
 156413a 2026-04-27 auto-sync: 2026-04-27 18:21
 8b97160 2026-04-27 auto-sync: 2026-04-27 17:51
 a8b94f8 2026-04-27 auto-sync: 2026-04-27 17:21
 f744fa7 2026-04-27 auto-sync: 2026-04-27 16:51
-4c2ea98 2026-04-27 auto-sync: 2026-04-27 16:21
 ```
 
 ---
