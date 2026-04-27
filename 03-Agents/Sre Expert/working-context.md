@@ -7,10 +7,15 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 902c5d4d-d893-458e-bc13-56e292b010b7 [P1][Forge] Session-health size-exploded root cause + fix
+- task: 5f65a4e0-9990-4034-8477-cb241d837367 [P1][Forge] Trajectory-Recorder Payload-Slimming für Atlas Sessions
 - stage: DONE
 - next: await next assignment
-- checkpoint: Resolved the false size-exploded anomaly for Atlas trajectory session 7f3a15c4-d479-472e-beba-e026c4877f29 by patching session-health-monitor to ignore sidecar artifacts (.trajectory/.checkpoint/.archived/.deleted/.reset
+- checkpoint: EXECUTION_STATUS
+done
+
+ROOT_CAUSE
+- Growth path confirmed in OpenClaw runtime file `/home/piet/.npm-global/lib/node_modules/openclaw/dist/extensions/codex/run-attempt-DHkL03VS.js`.
+- Function `recordCodexTrajectoryContex
 - blocker: -
-- updated: 2026-04-27T11:24:52.267Z
+- updated: 2026-04-27T11:55:11.941Z
 <!-- mc:auto-working-context:end -->
