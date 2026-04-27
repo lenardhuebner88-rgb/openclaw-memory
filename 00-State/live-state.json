@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-27T18:53:01.660926+00:00",
+  "generated_at": "2026-04-27T19:23:01.827363+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-27T18:52:44.699543+00:00",
-      "latest_session_size_bytes": 110957,
-      "session_count": 138
+      "last_session_iso": "2026-04-27T19:23:00.573422+00:00",
+      "latest_session_size_bytes": 359577,
+      "session_count": 141
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-27T18:51:51.319141+00:00",
-      "latest_session_size_bytes": 27253,
-      "session_count": 1637
+      "last_session_iso": "2026-04-27T19:22:52.063362+00:00",
+      "latest_session_size_bytes": 36821,
+      "session_count": 1638
     },
     {
       "id": "test-lock",
@@ -871,6 +871,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "7c0f9ae",
+      "date": "2026-04-27T20:53:01+02:00",
+      "subject": "auto-sync: 2026-04-27 20:53"
+    },
+    {
       "hash": "d90153e",
       "date": "2026-04-27T20:22:46+02:00",
       "subject": "auto-sync: 2026-04-27 20:22"
@@ -914,11 +919,6 @@
       "hash": "4c2ea98",
       "date": "2026-04-27T16:21:17+02:00",
       "subject": "auto-sync: 2026-04-27 16:21"
-    },
-    {
-      "hash": "bf86ea2",
-      "date": "2026-04-27T15:50:24+02:00",
-      "subject": "auto-sync: 2026-04-27 15:50"
     }
   ],
   "scripts": {
@@ -948,19 +948,16 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        425152,
-        428740,
-        430208,
-        430681
+        456469,
+        469220
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        428482,
-        430201,
-        430674
+        463865,
+        469213
       ]
     }
   ],

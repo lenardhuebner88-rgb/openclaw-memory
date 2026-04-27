@@ -1120,3 +1120,44 @@ RESIDUAL_RISK
 - Invariant now hardened in canonical normalization + route guards, but external out-of-band writers bypassing MC APIs could still inject malformed raw JSON until normalized by store reads/writes.
 - 2026-04-27T18:32:58.224Z | CHECKPOINT | 461c0020-43a9-4140-9544-adf2fc9aafd4 | [P3][Forge] AUTONOMY_PAUSED Killswitch-File existence-only | worker=spark | progress=72% | summary=- | note=Implemented the AUTONOMY_PAUSED file-existence contract, added pause/resume handling, and proved it with a targeted vitest check.
 - 2026-04-27T18:33:18.549Z | DONE | 461c0020-43a9-4140-9544-adf2fc9aafd4 | [P3][Forge] AUTONOMY_PAUSED Killswitch-File existence-only | worker=spark | progress=72% | summary=AUTONOMY_PAUSED now has a file-existence-only contract in the automation layer: the file lives at /home/piet/.openclaw/workspace/AUTONOMY_PAUSED, pause() creates it, resume() removes it, and the row is surfaced as a file-exists kill switch.
+- 2026-04-27T19:02:45.383Z | START | cbbd71ea-0c17-45f1-8684-f563e977508f | [P1][Forge] Worker-Rotation Prototype Deploy Behind Hard Cap Flag | worker=atlas | progress=- | summary=-
+- 2026-04-27T19:05:24.992Z | CHECKPOINT | cbbd71ea-0c17-45f1-8684-f563e977508f | [P1][Forge] Worker-Rotation Prototype Deploy Behind Hard Cap Flag | worker=atlas | progress=- | summary=- | note=Progress: implemented WORKER_ROTATION_HARD_CAP default-OFF path and Spark-only canary dry-run in session-size-guard.py; confirmed canary allowlist rejects non-Spark agents and hard-cap gate blocks when unset; bootstrap handoff artifact generated in dry-run.
+- 2026-04-27T19:05:50.964Z | DONE | cbbd71ea-0c17-45f1-8684-f563e977508f | [P1][Forge] Worker-Rotation Prototype Deploy Behind Hard Cap Flag | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+- Implemented `WORKER_ROTATION_HARD_CAP` default-OFF flag and Spark-only canary allowlist in `session-size-guard.py`.
+- Canary gate: only agents in `WORKER_ROTATION_AGENTS` (default: `spark`) are eligible; all others are hard-blocked even if hard-cap flag is set.
+- Bootstrap handoff artifact generated via `rotate_worker_session_file` using worker-memory adapter for compact resume bundle.
+- No live rotation occurs; all operations are dry-run or guarded by explicit flag.
+
+FILES_CHANGED
+- `/home/piet/.openclaw/workspace/scripts/session-size-guard.py`
+  - Added `WORKER_ROTATION_HARD_CAP` (env: `WORKER_ROTATION_HARD_CAP`, default OFF)
+  - Added `WORKER_ROTATION_AGENTS` (env: `WORKER_ROTATION_AGENTS`, default `spark`)
+  - Added `rotate_worker_session_file(agent, session_file, dry_run)` using memory adapter for resume bootstrap
+  - Added `--self-test-worker-rotation` CLI with agent allowlist gate + hard-cap gate
+- `/home/piet/.openclaw/scripts/session-size-guard.py` (runtime sync)
+- Commit: `d8213c22` (`feat(worker-rotation): add WORKER_ROTATION_HARD_CAP flag + Spark-only canary dry-run path`)
+
+STAGING_VERIFY
+- Default flag OFF: `WORKER_ROTATION_HARD_CAP` unset => `hard_cap=False` => dry-run skips ✅
+- Allowlist gate: `spark` in allowlist ✅; `sre-expert` rejected with `not_in_allowlist` ✅
+- Hard-cap gate: unset => skip ✅; set to 1 => dry-run proceeds ✅
+- Bootstrap artifact contains: `agent`, `compact_summary`, `open_task_ids`, `dry_run=True`, `rotated_at` ✅
+
+CANARY_VERIFY
+- `WORKER_ROTATION_HARD_CAP=1 python3 ... --self-test-worker-rotation --agent spark` => `SELF_TEST_WORKER_ROTATION=ok agent=spark` ✅
+- Artifact at: `WORKER_MEMORY_HOFF_ARTIFACT_PATH` contains valid bootstrap payload with `compact_summary` and `open_task_ids=[]` ✅
+
+LIVE_APPROVAL_NEEDED
+- NOT granted in this task. Required for broad live enablement.
+- Required steps for sre-expert + james after 24h Spark canary soak:
+  1) Set `WORKER_ROTATION_HARD_CAP=1` in environment (approved operator decision).
+  2) Change `WORKER_ROTATION_AGENTS` from `spark` to `sre-expert,james,spark` (separate operator approval after soak).
+  3) Optional: `mc-restart-safe 120 "cbbd71ea-canary-enablement"` for MC reload (only if approved).
+- Rollback at any time: set `WORKER_ROTATION_HARD_CAP=0` or remove from environment.
+
+RESIDUAL_RISK
+- Canary is Spark-only with hard-cap OFF by default; no live rotation possible without explicit operator flag.
+- Resume bundle compaction quality (compact_summary, open_task_ids) depends on adapter returning non-empty progress/tasks; no data loss verified only for adapter self-test path, not full live session handoff yet.

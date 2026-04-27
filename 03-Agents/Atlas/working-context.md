@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9002f023-d52f-4725-9847-5a921d4a1836 [P1][Forge] State-machine Bug: blocked ohne blockedReason/blockedDetail
+- task: cbbd71ea-0c17-45f1-8684-f563e977508f [P1][Forge] Worker-Rotation Prototype Deploy Behind Hard Cap Flag
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Progress: identified blocked write paths (PATCH route, receipt route, store normalization), implemented blocked metadata invariant hardening in taskboard-store (canonical blockedReason alias + blocked detail auto-normali
+- checkpoint: Progress: implemented WORKER_ROTATION_HARD_CAP default-OFF path and Spark-only canary dry-run in session-size-guard.py; confirmed canary allowlist rejects non-Spark agents and hard-cap gate blocks when unset; bootstrap h
 - blocker: -
-- updated: 2026-04-27T18:31:41.229Z
+- updated: 2026-04-27T19:05:24.994Z
 <!-- mc:auto-working-context:end -->

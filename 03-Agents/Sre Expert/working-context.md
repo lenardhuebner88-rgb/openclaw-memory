@@ -7,15 +7,15 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9002f023-d52f-4725-9847-5a921d4a1836 [P1][Forge] State-machine Bug: blocked ohne blockedReason/blockedDetail
+- task: cbbd71ea-0c17-45f1-8684-f563e977508f [P1][Forge] Worker-Rotation Prototype Deploy Behind Hard Cap Flag
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 done
 
 RESULT_SUMMARY
-- Current state verified as prevention task (not active incident): `blocked_count=0`, no live blocked task missing metadata.
-- Identified blocked write paths: `PATCH /api/tasks/[id]`
+- Implemented `WORKER_ROTATION_HARD_CAP` default-OFF flag and Spark-only canary allowlist in `session-size-guard.py`.
+- Canary gate: only agents in `WORKER_ROTATION_AGENTS` (default:
 - blocker: -
-- updated: 2026-04-27T18:32:31.726Z
+- updated: 2026-04-27T19:05:50.965Z
 <!-- mc:auto-working-context:end -->
