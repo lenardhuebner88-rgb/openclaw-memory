@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 55d86fb8-bff3-4cbe-8929-a72a9de6c512 [P1][Forge] Provider-Resilience / Circuit-Breaker Spezifikation
+- task: b7ccc519-99c3-4825-96cc-ee372945c807 [P2][Forge] Gateway Heap / OOM pre-warning
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Progress: enumerated 5 provider failure modes (429, prepaid-depleted, model-deny, connection-reset, timeout), defined per-provider light/hard breaker gates with rolling 5-min windows, recovery probe logic, live next acti
+- checkpoint: Progress: identified /proc/<pid>/status VmRSS as telemetry source, established live baseline (gateway RSS ~1.5GB, HWM ~1.8GB), defined warning/critical thresholds, delivered gateway-memory-monitor.py script and spec docu
 - blocker: -
-- updated: 2026-04-27T19:46:26.807Z
+- updated: 2026-04-27T20:22:47.071Z
 <!-- mc:auto-working-context:end -->
