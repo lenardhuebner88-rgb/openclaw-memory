@@ -1,10 +1,10 @@
 ---
 title: "Receipt Discipline"
 slug: receipt-discipline
-last_compiled: 2026-04-27T05:30:18.154942Z
+last_compiled: 2026-04-27T06:30:02.730433Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 40
-rule_count: 5
+rule_count: 6
 memory_level: 3
 ---
 
@@ -12,8 +12,8 @@ memory_level: 3
 
 **Description:** Sub-Agent Receipt-Lifecycle — accepted/progress/result pattern, stall-detection, R45 enforcement.
 
-**Compiled:** 2026-04-27T05:30:18.154942Z  
-**Source:** 40 facts from workspace/memory/facts/*.jsonl, 5 rules from workspace/memory/rules.jsonl
+**Compiled:** 2026-04-27T06:30:02.730433Z  
+**Source:** 40 facts from workspace/memory/facts/*.jsonl, 6 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
 
@@ -41,6 +41,11 @@ Sub-Agent MUSS innerhalb 60s nach Task-Pickup taskboard_post_receipt mit receipt
 *Status: active | Since: 2026-04-19*
 
 Wenn mehrere Sub-Agents parallel laufen UND jeder einen systemctl --user restart mission-control + curl verify Contract im Prompt hat → Deploy-Race-Condition. Fix: sequenzieller Sprint-Flow ODER Deploy-Queue-Lock (nur ein MC-Restart gleichzeitig, Age...
+
+### R57 — Atlas terminal results use canonical Stage-7 format
+*Status: active | Since: 2026-04-27*
+
+Atlas autonomous sprint/task terminal outputs MUST include the five canonical Stage-7 sections in order: EXECUTION_STATUS, RESULT_SUMMARY, GATES, FOLLOW_UPS, OPERATOR_DECISIONS. Result summaries must be task-specific and human-meaningful; generic pla...
 
 ## Key Facts (Top-20 by Importance)
 
@@ -83,4 +88,4 @@ Wenn mehrere Sub-Agents parallel laufen UND jeder einen systemctl --user restart
 
 ---
 
-*Auto-compiled from 40 facts + 5 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*
+*Auto-compiled from 40 facts + 6 rules by `kb-compiler.py@v1-mvp`. Manual edits will be preserved where possible but may be overwritten on next compile — use `<!-- manual: start --> ... <!-- manual: end -->` to mark preserved sections (future feature).*

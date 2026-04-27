@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 29307251-d2bc-4b1b-ac78-f046b8442329 [P1][Forge] Migration-Beschluss: m7-Kernel-Timer vs Legacy-Crons
+- task: b53ac84b-9c62-4577-83e8-29a5c234f8ea [P0][Forge] OpenClaw 2026.4.25 Update Readiness + Dry-run + Go/No-Go
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Live-Inventar erhoben: aktive m7-Timer/Services und aktueller Crontab verglichen; ich formuliere jetzt Overlap-Cluster, Optionen/Risiken und die empfohlene Migrationsreihenfolge.
+- checkpoint: Update-Status, Dry-Run und Doctor wurden ausgeführt; ich ermittle jetzt Board-Quiet-Status, Backup-Nachweise und formuliere Go/No-Go mit Runbook/Rollback.
 - blocker: -
-- updated: 2026-04-27T06:12:16.801Z
+- updated: 2026-04-27T06:34:23.954Z
 <!-- mc:auto-working-context:end -->
