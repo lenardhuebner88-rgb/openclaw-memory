@@ -7,14 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 38bdd898-9c88-4fda-bd3c-cf003f918f8c [P2][Pixel] RSC/navigation abort noise triage from Playwright audit
+- task: 2123040b-b7a0-4802-8647-542ba8b1ae81 [P1][Pixel] T5: ErrorBoundary global einziehen
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS
-Done — targeted Playwright triage completed for `/taskboard`, `/monitoring`, and `/ops`.
-
-ROOT_CAUSE
-The `net::ERR_ABORTED ...?_rsc=...` findings are benign Next.js RSC/navigation prefetch cancellations,
+- checkpoint: Globaler ErrorBoundary eingezogen: src/app/error.tsx mit Card-UI, Fehlerdetails, Try-again-/Home-Buttons angelegt. Build erfolgreich (NEXT_DIST_DIR=.next-verify). Screenshot verifiziert Darstellung.
 - blocker: -
-- updated: 2026-04-27T12:45:37.765Z
+- updated: 2026-04-27T21:18:20.344Z
 <!-- mc:auto-working-context:end -->
