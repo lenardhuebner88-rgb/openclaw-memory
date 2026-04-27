@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: dca22d29-da47-43a2-9ab0-f51f3c496c9a [P1][Forge] Fix canary-session-rotation-watchdog (--live + flat detection)
+- task: 902c5d4d-d893-458e-bc13-56e292b010b7 [P1][Forge] Session-health size-exploded root cause + fix
 - stage: DONE
 - next: await next assignment
-- checkpoint: Implemented and verified canary-session-rotation-watchdog live+flat detection: unit now runs --live, script now signals for all pct>=70 with graceful/emergency action mapping, idempotent same-level skip + graceful->emerg
+- checkpoint: Resolved the false size-exploded anomaly for Atlas trajectory session 7f3a15c4-d479-472e-beba-e026c4877f29 by patching session-health-monitor to ignore sidecar artifacts (.trajectory/.checkpoint/.archived/.deleted/.reset
 - blocker: -
-- updated: 2026-04-27T10:06:36.439Z
+- updated: 2026-04-27T11:24:52.267Z
 <!-- mc:auto-working-context:end -->
