@@ -7,15 +7,15 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5f65a4e0-9990-4034-8477-cb241d837367 [P1][Forge] Trajectory-Recorder Payload-Slimming für Atlas Sessions
+- task: 661f6869-2445-466f-bba9-41a51ced176a [P1][Forge] Mission Control /alerts Runtime-Fehler + Script-404 root-causen und fixen
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 done
 
 ROOT_CAUSE
-- Growth path confirmed in OpenClaw runtime file `/home/piet/.npm-global/lib/node_modules/openclaw/dist/extensions/codex/run-attempt-DHkL03VS.js`.
-- Function `recordCodexTrajectoryContex
+- React #418 class on `/alerts` was caused by hydration-unstable text in `src/components/alerts/alerts-client.tsx`:
+  - relative timestamps (`formatDistanceToNow`) were rendered during f
 - blocker: -
-- updated: 2026-04-27T11:55:11.941Z
+- updated: 2026-04-27T12:38:50.483Z
 <!-- mc:auto-working-context:end -->

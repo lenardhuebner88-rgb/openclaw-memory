@@ -7,14 +7,14 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 033c9366-4958-4a9a-af3e-1abf791cae4d [P1][Pixel] Playwright UI-Audit Mission Control + Follow-up-Kandidaten
+- task: 38bdd898-9c88-4fda-bd3c-cf003f918f8c [P2][Pixel] RSC/navigation abort noise triage from Playwright audit
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
-Done — Playwright-backed Mission Control UI audit completed against live `http://127.0.0.1:3000`.
+Done — targeted Playwright triage completed for `/taskboard`, `/monitoring`, and `/ops`.
 
-AUDITED_ROUTES
-Desktop 1440x1000 and mobile 390x844 coverage for `/overview`, `/taskboard`, `/analytics`
+ROOT_CAUSE
+The `net::ERR_ABORTED ...?_rsc=...` findings are benign Next.js RSC/navigation prefetch cancellations,
 - blocker: -
-- updated: 2026-04-27T12:06:49.424Z
+- updated: 2026-04-27T12:45:37.765Z
 <!-- mc:auto-working-context:end -->
