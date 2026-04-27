@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 461c0020-43a9-4140-9544-adf2fc9aafd4 [P3][Forge] AUTONOMY_PAUSED Killswitch-File existence-only
-- stage: DONE
-- next: await next assignment
-- checkpoint: AUTONOMY_PAUSED now has a file-existence-only contract in the automation layer: the file lives at /home/piet/.openclaw/workspace/AUTONOMY_PAUSED, pause() creates it, resume() removes it, and the row is surfaced as a file
+- task: 6987e3de-79ee-44d2-9422-9f668a650bd5 [P2][Forge] Autonomy-Lane Keyword-Filter im Task-POST-Handler
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-27T18:33:18.550Z
+- updated: 2026-04-27T19:47:03.132Z
 <!-- mc:auto-working-context:end -->

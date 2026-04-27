@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-27T19:23:01.827363+00:00",
+  "generated_at": "2026-04-27T19:54:01.935107+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,8 +8,8 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 2,
-    "crons_total": 44,
+    "agents_active": 1,
+    "crons_total": 45,
     "crons_by_tier": {
       "T1-realtime": 4,
       "T2-2min": 3,
@@ -17,7 +17,7 @@
       "T4-10min": 2,
       "T5-15min": 2,
       "T7-hourly": 6,
-      "T8-daily-or-weekly": 12,
+      "T8-daily-or-weekly": 13,
       "T6-30min": 7
     },
     "rules_total": 56,
@@ -77,26 +77,26 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-04-27T19:23:00.573422+00:00",
-      "latest_session_size_bytes": 359577,
-      "session_count": 141
+      "status": "monitoring",
+      "last_session_iso": "2026-04-27T19:45:22.883899+00:00",
+      "latest_session_size_bytes": 589688,
+      "session_count": 140
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
       "status": "monitoring",
-      "last_session_iso": "2026-04-27T18:34:43.111632+00:00",
-      "latest_session_size_bytes": 49234,
-      "session_count": 17
+      "last_session_iso": "2026-04-27T19:47:21.234734+00:00",
+      "latest_session_size_bytes": 15218629,
+      "session_count": 18
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-27T19:22:52.063362+00:00",
-      "latest_session_size_bytes": 36821,
-      "session_count": 1638
+      "last_session_iso": "2026-04-27T19:53:44.475448+00:00",
+      "latest_session_size_bytes": 159581,
+      "session_count": 1637
     },
     {
       "id": "test-lock",
@@ -449,6 +449,12 @@
       "command": "flock -n /tmp/arch-readiness.lock /home/piet/.openclaw/scripts/arch-deploy-readiness-check.sh >/dev/null 2>&1",
       "script": "/home/piet/.openclaw/scripts/arch-deploy-readiness-check.sh",
       "tier": "T3-5min"
+    },
+    {
+      "schedule": "05 21 * * *",
+      "command": "TZ=Europe/Berlin /usr/bin/python3 /home/piet/.openclaw/scripts/daily-ops-digest.py --post",
+      "script": "/home/piet/.openclaw/scripts/daily-ops-digest.py",
+      "tier": "T8-daily-or-weekly"
     }
   ],
   "rules": [
@@ -871,6 +877,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "dd91234",
+      "date": "2026-04-27T21:23:17+02:00",
+      "subject": "auto-sync: 2026-04-27 21:23"
+    },
+    {
       "hash": "7c0f9ae",
       "date": "2026-04-27T20:53:01+02:00",
       "subject": "auto-sync: 2026-04-27 20:53"
@@ -914,11 +925,6 @@
       "hash": "f744fa7",
       "date": "2026-04-27T16:51:17+02:00",
       "subject": "auto-sync: 2026-04-27 16:51"
-    },
-    {
-      "hash": "4c2ea98",
-      "date": "2026-04-27T16:21:17+02:00",
-      "subject": "auto-sync: 2026-04-27 16:21"
     }
   ],
   "scripts": {
@@ -949,7 +955,7 @@
       "status": "running",
       "pids": [
         456469,
-        469220
+        501734
       ]
     },
     {
@@ -957,7 +963,12 @@
       "status": "running",
       "pids": [
         463865,
-        469213
+        486636,
+        492077,
+        496407,
+        497467,
+        499350,
+        501727
       ]
     }
   ],

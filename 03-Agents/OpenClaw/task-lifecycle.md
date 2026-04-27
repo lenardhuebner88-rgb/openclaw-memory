@@ -1161,3 +1161,30 @@ LIVE_APPROVAL_NEEDED
 RESIDUAL_RISK
 - Canary is Spark-only with hard-cap OFF by default; no live rotation possible without explicit operator flag.
 - Resume bundle compaction quality (compact_summary, open_task_ids) depends on adapter returning non-empty progress/tasks; no data loss verified only for adapter self-test path, not full live session handoff yet.
+- 2026-04-27T19:44:28.767Z | START | 55d86fb8-bff3-4cbe-8929-a72a9de6c512 | [P1][Forge] Provider-Resilience / Circuit-Breaker Spezifikation | worker=atlas | progress=- | summary=-
+- 2026-04-27T19:46:26.805Z | CHECKPOINT | 55d86fb8-bff3-4cbe-8929-a72a9de6c512 | [P1][Forge] Provider-Resilience / Circuit-Breaker Spezifikation | worker=atlas | progress=- | summary=- | note=Progress: enumerated 5 provider failure modes (429, prepaid-depleted, model-deny, connection-reset, timeout), defined per-provider light/hard breaker gates with rolling 5-min windows, recovery probe logic, live next actions, and anti-scope boundaries. Spec written to file.
+- 2026-04-27T19:46:56.082Z | DONE | 55d86fb8-bff3-4cbe-8929-a72a9de6c512 | [P1][Forge] Provider-Resilience / Circuit-Breaker Spezifikation | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+- Enumerated 5 provider failure modes from live logs and codebase: 429 rate-limit, prepaid-depleted, model-deny, connection-reset, provider timeout.
+- Defined per-provider circuit-breaker with light gate (3 x 429 in 5 min -> 60 sec pause) and hard gate (10 x 429 or prepaid-depleted -> 10 min block + propagate blocker to pending tasks).
+- Recovery probe specified: health ping every 60 sec, 3 successful dispatches -> closed.
+- Live next actions set: guard.py light counter, anomaly-detector hard counter, task-dispatch skip-open, probe CLI, 24h soak evaluation.
+- Anti-scope preserved: no model-routing change, no config edits, no restart for light gate.
+
+FILES_CHANGED
+- `/home/piet/.openclaw/workspace/reports/provider-resilience-circuit-breaker-spec-2026-04-27.md` (new)
+- Commit: `938f9dc3` (`docs(circuit-breaker): add provider-resilience spec with failure modes and gates`)
+
+VERIFY
+- Spec file created and committed.
+- Failure modes sourced from live gateway logs (429 errors) and existing code (`cost-anomaly-detector.ts`, `task-dispatch.ts`, `budget-engine.ts`).
+- No code changes executed (draft-only task per scope).
+
+RESIDUAL_RISK
+- Spec is draft; live threshold tuning (3/10 in 5 min) is unproven against production traffic.
+- Implementation depends on follow-up tasks not yet created.
+- 2026-04-27T19:47:03.131Z | START | 6987e3de-79ee-44d2-9422-9f668a650bd5 | [P2][Forge] Autonomy-Lane Keyword-Filter im Task-POST-Handler | worker=spark | progress=5% | summary=-
+- 2026-04-27T19:50:32.079Z | START | 0af47219-f0ac-416d-8d29-325f008860f7 | [P1][Forge] Dispatch-Contract Mismatch / Lifecycle-State-Diagram | worker=sre-expert | progress=- | summary=-
+- 2026-04-27T19:52:45.387Z | CHECKPOINT | 0af47219-f0ac-416d-8d29-325f008860f7 | [P1][Forge] Dispatch-Contract Mismatch / Lifecycle-State-Diagram | worker=sre-expert | progress=50% | summary=- | note=Forge: Code review in progress. Completed: read task-dispatch.ts, claim route, receipt route, complete/fail/finalize routes, taskboard-store.ts, board-transition.ts, worker-terminal-callback.ts. Identifying contract mismatches now.

@@ -7,15 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cbbd71ea-0c17-45f1-8684-f563e977508f [P1][Forge] Worker-Rotation Prototype Deploy Behind Hard Cap Flag
-- stage: DONE
-- next: await next assignment
-- checkpoint: EXECUTION_STATUS
-done
-
-RESULT_SUMMARY
-- Implemented `WORKER_ROTATION_HARD_CAP` default-OFF flag and Spark-only canary allowlist in `session-size-guard.py`.
-- Canary gate: only agents in `WORKER_ROTATION_AGENTS` (default:
+- task: 0af47219-f0ac-416d-8d29-325f008860f7 [P1][Forge] Dispatch-Contract Mismatch / Lifecycle-State-Diagram
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Forge: Code review in progress. Completed: read task-dispatch.ts, claim route, receipt route, complete/fail/finalize routes, taskboard-store.ts, board-transition.ts, worker-terminal-callback.ts. Identifying contract mism
 - blocker: -
-- updated: 2026-04-27T19:05:50.965Z
+- updated: 2026-04-27T19:52:45.388Z
 <!-- mc:auto-working-context:end -->

@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-04-27T19:00:01.950628+00:00
+last_generated: 2026-04-27T19:30:01.865320+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-04-27 19:00 UTC  
+**Generated:** 2026-04-27 19:30 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -24,9 +24,9 @@ flowchart TB
         agent_efficiency_auditor["efficiency-auditor<br/>6h ago<br/>337 KB"]
         agent_frontend_guru["frontend-guru<br/>6h ago<br/>2385 KB"]
         agent_james["james<br/>2h ago<br/>995 KB"]
-        agent_main["main<br/>3s ago<br/>184 KB"]
-        agent_spark["spark<br/>25m ago<br/>60 KB"]
-        agent_sre_expert["sre-expert<br/>8m ago<br/>36 KB"]
+        agent_main["main<br/>2m ago<br/>915 KB"]
+        agent_spark["spark<br/>55m ago<br/>60 KB"]
+        agent_sre_expert["sre-expert<br/>7m ago<br/>46 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -48,7 +48,7 @@ flowchart TB
         tier_T5_15min["T5-15min<br/>2 jobs"]
         tier_T6_30min["T6-30min<br/>7 jobs"]
         tier_T7_hourly["T7-hourly<br/>6 jobs"]
-        tier_T8_daily_or_weekly["T8-daily-or-weekly<br/>12 jobs"]
+        tier_T8_daily_or_weekly["T8-daily-or-weekly<br/>13 jobs"]
     end
     VAULT[("📚 Vault SSoT")]
     OP([👤 Operator])
@@ -71,13 +71,13 @@ flowchart TB
 
 ## ⚡ Health Summary
 
-- **Atlas session-size telemetry:** info only — `[2026-04-27T19:00:01Z] OK session=06fd3f33-6f3 pct=31%`
+- **Atlas session-size telemetry:** info only — `[2026-04-27T19:25:01Z] WARN session=1af8a2e7-ade pct=80%`
 - **Graph edges:** 1279
 - **Rules active:** 57
 - **Facts (all-time):** 287 across 1 daily files
 - **Facts today:** None
 - **Scripts (active, no .bak):** 99 root + 64 workspace = 163
-- **Cron entries (live):** 44
+- **Cron entries (live):** 45
 
 ## 🤖 Agents (10)
 
@@ -88,13 +88,13 @@ flowchart TB
 | `efficiency-auditor` | 6h ago | 337 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 6h ago | 2385 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 2h ago | 995 | `/home/piet/.openclaw/agents/james` |
-| `main` | 3s ago | 184 | `/home/piet/.openclaw/agents/main` |
-| `spark` | 25m ago | 60 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 8m ago | 36 | `/home/piet/.openclaw/agents/sre-expert` |
+| `main` | 2m ago | 915 | `/home/piet/.openclaw/agents/main` |
+| `spark` | 55m ago | 60 | `/home/piet/.openclaw/agents/spark` |
+| `sre-expert` | 7m ago | 46 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
-## 🛡️ Defense-Crons (44 active, by tier)
+## 🛡️ Defense-Crons (45 active, by tier)
 
 ### T1-realtime (4 jobs)
 
@@ -163,7 +163,7 @@ flowchart TB
 | `5 * * * *` | `$OPENCLAW/scripts/qmd-pending-monitor.sh` |
 | `23 * * * *` | `$OPENCLAW/scripts/minions-pr-watch.sh` |
 
-### T8-daily-or-weekly (12 jobs)
+### T8-daily-or-weekly (13 jobs)
 
 | Schedule | Script |
 |---|---|
@@ -179,6 +179,7 @@ flowchart TB
 | `0 */6 * * *` | `$OPENCLAW/scripts/alert-dispatcher.sh` |
 | `0 6 * * *` | `$OPENCLAW/workspace/scripts/agents-md-size-check.sh` |
 | `0 8 * * *` | `$OPENCLAW/scripts/vault-search-daily-checkpoint.sh` |
+| `05 21 * * *` | `$OPENCLAW/scripts/daily-ops-digest.py` |
 
 ## 🧠 Memory Layers (L1-L6)
 
@@ -194,11 +195,11 @@ flowchart TB
 
 **Last 5 budget-meter ticks:**
 ```
-[2026-04-27T18:40:01Z] CRITICAL session=ed6e95bd-96f pct=270%
-[2026-04-27T18:45:01Z] OK session=06fd3f33-6f3 pct=9%
-[2026-04-27T18:50:01Z] OK session=06fd3f33-6f3 pct=14%
-[2026-04-27T18:55:01Z] OK session=1af8a2e7-ade pct=34%
-[2026-04-27T19:00:01Z] OK session=06fd3f33-6f3 pct=31%
+[2026-04-27T19:05:01Z] OK session=c2119362-cad pct=15%
+[2026-04-27T19:10:01Z] CRITICAL session=1af8a2e7-ade pct=143%
+[2026-04-27T19:15:01Z] OK session=06fd3f33-6f3 pct=40%
+[2026-04-27T19:20:01Z] CRITICAL session=1af8a2e7-ade pct=233%
+[2026-04-27T19:25:01Z] WARN session=1af8a2e7-ade pct=80%
 ```
 
 ## 📜 Rules R1-R57 (56 total, by category)
@@ -294,11 +295,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+dd91234 2026-04-27 auto-sync: 2026-04-27 21:23
 7c0f9ae 2026-04-27 auto-sync: 2026-04-27 20:53
 d90153e 2026-04-27 auto-sync: 2026-04-27 20:22
 15f2846 2026-04-27 auto-sync: 2026-04-27 19:52
 75031db 2026-04-27 auto-sync: 2026-04-27 19:22
-3c0bf48 2026-04-27 auto-sync: 2026-04-27 18:51
 ```
 
 ---
