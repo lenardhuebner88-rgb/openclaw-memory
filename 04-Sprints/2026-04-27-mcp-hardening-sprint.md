@@ -454,3 +454,38 @@ Effekt: BM25 + vector ranking nutzen contexts als boost-signal -> bessere Top-Re
 1. **Atlas TOOLS.md update mit R52-Korrektur + R54/R55/R56** (Atlas selbst commit)
 2. **qmd embed run** fuer 26 pending vectors (background, ~2 min)
 3. **Optional:** workspace/memory/archive aus indexed-path moven (-44 noise files)
+
+---
+
+## Follow-Up Task Added 11:48 UTC — canary-session-rotation-watchdog live + flat detection
+
+**Task:** Fix canary-session-rotation-watchdog (`--live` + Detection-Logik flach)  
+**Priority:** P1 — Anti-Halluzinations-Layer scharfstellen, kein laufender Outage  
+**Owner:** Forge (`sre-expert`)  
+**Estimate:** ~30 min Code + 15 min Verify  
+**Board Task:** `dca22d29-da47-43a2-9ab0-f51f3c496c9a` (`[P1][Forge] Fix canary-session-rotation-watchdog (--live + flat detection)`)
+
+### Files in Scope
+- `/home/piet/.config/systemd/user/canary-session-rotation-watchdog.service`
+- `/home/piet/.openclaw/scripts/session-rotation-watchdog.py`
+
+### Live-Befund / Evidence
+- `/tmp/atlas-rotation-signal.json` existiert aktuell nicht.
+- Unit ist noch Dry-Run: `Description=Canary session-rotation-watchdog (dry-run)` und `ExecStart=... session-rotation-watchdog.py --verbose` ohne `--live`.
+- Budget-Log zeigt starke Sprünge: `49% -> 109/184/472/573/630/.../908%` und später bis `1363%`; WARN-Band wird häufig übersprungen.
+- Script-Logik signalisiert nur bei `WARN_THRESHOLD <= pct < UPPER_LIMIT`; `pct >= UPPER_LIMIT` liegt unter `elif existing`, dadurch kann ein kalter Sprung von `<70%` direkt auf `>=95%` ohne Signal bleiben.
+
+### Required Fix
+1. Service-Unit `ExecStart`: `--live` ergänzen; Description von dry-run auf live/enforcement anpassen.
+2. Script-Logik flach machen: jede Session mit `pct >= WARN_THRESHOLD` erzeugt bzw. hält ein Signal.
+3. `recommended_action` je Schwere:
+   - `70% <= pct < 95%` → `graceful-rotate-with-summary`
+   - `pct >= 95%` → `emergency-rotate-too-late`
+4. Cleanup-Branch unverändert lassen: `session-id-changed`, `pct < DROP_THRESHOLD`.
+5. Idempotenz: skip bei gleicher `session_id` + gleichem action-Level; Upgrade nur `graceful` → `emergency`; kein Re-Write bei gleichem Level.
+6. Verify: dry-run/unit proof, optional safe one-shot live proof mit temp/real signal gemäß DoD; kein Gateway/OpenClaw Restart.
+
+### Anti-Scope
+- Kein reiner Threshold-Bump.
+- Keine Timer-Änderung außer Unit `ExecStart`/Description.
+- Keine unrelated Session-/Budget-Refactors.

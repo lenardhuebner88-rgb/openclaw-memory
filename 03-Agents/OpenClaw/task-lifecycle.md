@@ -296,3 +296,87 @@ FOLLOW_UP_TASKS_PROPOSED:
    DoD: md/txt Rückgaben sind deterministisch textuell, kein "(see attached image)" Placeholder.
 4) [P2][Lens/Forge] Pickup-Lag Signal Tuning
    DoD: Alert-Regel trennt transienten Lag von echten stuck-pending Fällen, mit dokumentiertem Threshold-Set.
+- 2026-04-27T09:25:08.855Z | START | a0562b21-4dcf-4f45-bedc-3ca8ca4432a5 | [P1][Forge] Fix vault-sync systemd GIT_SSH_COMMAND quoting | worker=atlas | progress=- | summary=-
+- 2026-04-27T09:25:58.697Z | CHECKPOINT | a0562b21-4dcf-4f45-bedc-3ca8ca4432a5 | [P1][Forge] Fix vault-sync systemd GIT_SSH_COMMAND quoting | worker=atlas | progress=70% | summary=- | note=Minimal-Diff angewendet: Backup erstellt, nur die Environment-Zeile wie vorgegeben geändert und daemon-reload ausgeführt. Jetzt folgen Show-/Journal-Verifikation und Abschlussbericht.
+- 2026-04-27T09:27:14.608Z | DONE | a0562b21-4dcf-4f45-bedc-3ca8ca4432a5 | [P1][Forge] Fix vault-sync systemd GIT_SSH_COMMAND quoting | worker=sre-expert | progress=70% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Der geforderte Strict-Minimal-Diff wurde exakt umgesetzt: Backup erstellt, nur die eine Environment-Zeile in vault-sync.service auf die vorgegebene quoted Form geändert und daemon-reload ausgeführt. Die geladene Unit-Environment zeigt jetzt den vollständigen GIT_SSH_COMMAND-Wert korrekt; der frühere Invalid-environment-Fehler tritt in Verify/Journallookup nach Reload nicht mehr auf. Die separate ExecStart-Escape-Warnung besteht weiterhin und ist als Follow-up markiert (laut Addendum nicht im Scope zu ändern).
+CHANGED_FILES:
+- /home/piet/.config/systemd/user/vault-sync.service.bak-20260427 (neu, Backup)
+- /home/piet/.config/systemd/user/vault-sync.service (1 Zeile geändert)
+
+VERIFY_COMMANDS:
+1) Backup erstellt:
+   cp /home/piet/.config/systemd/user/vault-sync.service /home/piet/.config/systemd/user/vault-sync.service.bak-$(date +%Y%m%d)
+2) Minimal-Diff Nachweis:
+   diff -u /home/piet/.config/systemd/user/vault-sync.service.bak-$(date +%Y%m%d) /home/piet/.config/systemd/user/vault-sync.service
+   -> einzig geändert: Environment="GIT_SSH_COMMAND=ssh -i /home/piet/.ssh/id_github -o StrictHostKeyChecking=accept-new"
+3) Reload:
+   systemctl --user daemon-reload
+4) Environment geladen:
+   systemctl --user show vault-sync.service -p Environment | grep GIT_SSH
+   -> Environment=HOME=/home/piet "GIT_SSH_COMMAND=ssh -i /home/piet/.ssh/id_github -o StrictHostKeyChecking=accept-new"
+5) Parser-/Journal-Check nach Reload:
+   systemd-analyze --user verify /home/piet/.config/systemd/user/vault-sync.service
+   -> keine Invalid environment assignment Meldung mehr; nur bestehende ExecStart escape warning
+   journalctl --user --since '10 minutes ago' --no-pager | grep -F 'Invalid environment assignment' | grep -F 'vault-sync.service'
+   -> kein Treffer
+
+RISKS_OR_FOLLOWUPS:
+- Bestehende, nicht-scope-konforme Warnung bleibt: "Ignoring unknown escape sequences" in ExecStart (safe als separater Follow-up Task).
+- Nächster vault-sync.timer Lauf laut systemctl status war zum Bearbeitungszeitpunkt in ~20min geplant; ein zusätzlicher post-fire Journal-Spotcheck ist als Follow-up sinnvoll, ohne Timer/ExecStart jetzt zu ändern.
+- 2026-04-27T09:29:48.606Z | START | aed9a716-ca42-4815-846d-8c40663e3486 | [P1][Forge] Promote canary-session-size-guard from log-only to enforcement | worker=atlas | progress=- | summary=-
+- 2026-04-27T09:30:38.875Z | CHECKPOINT | aed9a716-ca42-4815-846d-8c40663e3486 | [P1][Forge] Promote canary-session-size-guard from log-only to enforcement | worker=atlas | progress=75% | summary=- | note=Minimal-Diff umgesetzt: Backup erstellt, Description/ExecStart angepasst, daemon-reload durchgeführt und Unit ohne --log-only verifiziert. Als Nächstes folgt Nachweis mode=full per safe service run + Logcheck.
+- 2026-04-27T09:32:13.062Z | DONE | aed9a716-ca42-4815-846d-8c40663e3486 | [P1][Forge] Promote canary-session-size-guard from log-only to enforcement | worker=sre-expert | progress=75% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: canary-session-size-guard wurde per Minimal-Diff von passivem log-only auf Enforcement promoviert: Backup erstellt, nur Description/ExecStart angepasst, daemon-reload ausgeführt. Die Unit läuft jetzt ohne --log-only und ein sicherer manueller Service-Run war erfolgreich (exit 0). Timer blieb unverändert.
+CHANGED_FILES:
+- /home/piet/.config/systemd/user/canary-session-size-guard.service.bak-20260427 (neu)
+- /home/piet/.config/systemd/user/canary-session-size-guard.service (nur Description + ExecStart angepasst)
+
+VERIFY_COMMANDS:
+1) Backup:
+   cp /home/piet/.config/systemd/user/canary-session-size-guard.service /home/piet/.config/systemd/user/canary-session-size-guard.service.bak-$(date +%Y%m%d)
+2) Unit-Änderung:
+   systemctl --user cat canary-session-size-guard.service
+   -> Description=Canary session-size-guard
+   -> ExecStart=.../session-size-guard.py  (ohne --log-only)
+3) Reload:
+   systemctl --user daemon-reload
+4) Safe Manual Run + Erfolg:
+   systemctl --user start canary-session-size-guard.service
+   systemctl --user status canary-session-size-guard.service --no-pager
+   -> status=0/SUCCESS
+5) Journal-/Mode-Nachweis:
+   journalctl --user -u canary-session-size-guard.service --since '15 minutes ago' --no-pager
+   -> neuer Run zeigt 'Canary session-size-guard' (ohne '(--log-only)') und ExecStart ohne --log-only
+
+RISKS_OR_FOLLOWUPS:
+- Logdatei enthält aktuell keine explizite mode=full String-Ausgabe; der Enforcement-Nachweis erfolgt über geladenen ExecStart ohne --log-only und erfolgreichen Service-Run.
+- Optionaler Follow-up: session-size-guard.py kann um expliziten mode=full/mode=log-only Banner ergänzt werden, um künftige Audits eindeutiger zu machen.
+- 2026-04-27T09:38:46.265Z | START | d0c6d87e-4460-4b03-930f-8b3dd1785407 | [P1][Forge] Add heartbeat-staleness guard to dispatch/pickup routing | worker=atlas | progress=- | summary=-
+- 2026-04-27T09:43:09.392Z | DONE | d0c6d87e-4460-4b03-930f-8b3dd1785407 | [P1][Forge] Add heartbeat-staleness guard to dispatch/pickup routing | worker=sre-expert | progress=- | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Deterministischer Heartbeat-Staleness-Guard wurde für Dispatch- und Pickup-Routing implementiert. Stale non-main Targets werden jetzt vor Pending-Pickup blockiert (statt still in unclaimed Loops zu laufen); main/fresh Pfade bleiben intakt. Guard ist in dispatchTask, worker-pickups readiness und worker-runner claim integriert, mit semantischen Signals + blocker reason.
+FILES_CHANGED:
+- src/lib/agent-availability.ts (neu; reusable availability helper mit alias-resolution + stale/down Ableitung aus lastSeen)
+- src/lib/task-dispatch.ts (stale-target dispatch block vor queued/pending-pickup)
+- src/app/api/worker-pickups/route.ts (stale-target => ready=false + blocker)
+- src/app/api/worker-runner/route.ts (pending-pickup claim reject/block bei stale target)
+- tests/agent-availability.test.ts (missing heartbeat record + main bypass)
+- tests/task-dispatch-heartbeat-staleness-guard.test.ts (stale target blocked, fresh target dispatches, main bypass)
+
+TESTS_AND_BUILD:
+- npx vitest run tests/agent-availability.test.ts tests/task-dispatch-heartbeat-staleness-guard.test.ts
+  -> 2 test files, 5 tests passed
+- npm run build
+  -> build wrapper executed; stability preflight OK; live-guard intentionally skipped artifact rebuild to avoid chunk drift (expected in running :3000 instance)
+
+LIVE_PROOF:
+- Kein Live-Restart erforderlich für diesen Code-Task; daher mc-restart-safe nicht nötig.
+- Verhalten ist über Unit/Integration-Tests nachgewiesen:
+  - stale non-main dispatch => blocked (kein silent pending-pickup)
+  - fresh non-main => pending-pickup path erhalten
+  - main => bypass remains functional
+- Commit erstellt: d95d42a
+
+RESIDUAL_RISK:
+- Heartbeat-record auto-healing in bestehendem store-reader kann "missing" in real runtime schnell zu "fresh" normalisieren; Guard deckt aber stale/down robust über age/isDown ab und verhindert chronische pending-pickup Loops für klar stale targets.
+- Nicht-scope Änderungen in working tree (data/*.json, src/types/architecture.ts) wurden bewusst nicht Teil dieses Commits.
