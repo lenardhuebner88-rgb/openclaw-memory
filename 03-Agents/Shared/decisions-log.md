@@ -1,6 +1,7 @@
 # Decisions Log
 
 ## Active decisions
+- 2026-04-27: [P1][Forge] Approval Gate: Activate + E2E Verify Context Runtime Patches blocked: Operator approval required for gateway restart/activation window before live E2E runtime verification. <!-- mc:auto-decision:d92c5f3a-a83f-44fe-a0be-2e5341fc9cab|blocked|p1-forge-approval-gate-activate-e2e-verify-context-runtime-patches-blocked-opera -->
 
 ## Historical decisions
 - 2026-04-27: [P1][Forge] Implement Worker Memory Adapter from James MVP Contract: EXECUTION_STATUS done RESULT_SUMMARY - Implemented a safe, bounded worker-memory adapter prototype from the James MVP contract. - Adapter enforces worker-local filesystem boundarie <!-- mc:auto-decision:61ddee72-bf30-41db-8bb9-d4d1fddc83a3|result|p1-forge-implement-worker-memory-adapter-from-james-mvp-contract-execution-statu -->

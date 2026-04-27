@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 61ddee72-bf30-41db-8bb9-d4d1fddc83a3 [P1][Forge] Implement Worker Memory Adapter from James MVP Contract
+- task: d92c5f3a-a83f-44fe-a0be-2e5341fc9cab [P1][Forge] Approval Gate: Activate + E2E Verify Context Runtime Patches
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Progress: implemented a guarded worker-memory adapter prototype (`workspace/scripts/worker-memory-adapter.py`) with strict worker/filename validation, path traversal protection, caps for progress/open-tasks/architecture 
+- checkpoint: Progress: pre-activation checks are complete. Current latest Atlas trajectory still emits schemaVersion=1/traceSchema=openclaw-trajectory, so runtime activation is still required. Approval request prepared: restart gatew
 - blocker: -
-- updated: 2026-04-27T17:17:29.953Z
+- updated: 2026-04-27T17:32:37.304Z
 <!-- mc:auto-working-context:end -->
