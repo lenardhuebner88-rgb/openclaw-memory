@@ -7,15 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 661f6869-2445-466f-bba9-41a51ced176a [P1][Forge] Mission Control /alerts Runtime-Fehler + Script-404 root-causen und fixen
-- stage: DONE
+- task: 93a2001a-41d2-46e7-89c2-7a4a13f7fbf7 [P2][Forge] session-size-guard.py auf Worker-Agents ausweiten (Alert-only)
+- stage: FAILED
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS
-done
-
-ROOT_CAUSE
-- React #418 class on `/alerts` was caused by hydration-unstable text in `src/components/alerts/alerts-client.tsx`:
-  - relative timestamps (`formatDistanceToNow`) were rendered during f
-- blocker: -
-- updated: 2026-04-27T12:38:50.483Z
+- checkpoint: Cancelled by operator: state-machine deadlock during Atlas autonomy-create-dispatch flow 2026-04-27 14:59-15:04 (sre-expert session zombie blocked dispatch, status flipped to blocked without reason, no legal blocked->dra
+- blocker: Cancelled by operator: state-machine deadlock during Atlas autonomy-create-dispatch flow 2026-04-27 14:59-15:04 (sre-expert session zombie blocked dispatch, status flipped to blocked without reason, no legal blocked->dra
+- updated: 2026-04-27T13:07:02.668Z
 <!-- mc:auto-working-context:end -->
