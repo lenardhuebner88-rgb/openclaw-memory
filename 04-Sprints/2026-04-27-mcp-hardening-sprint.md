@@ -320,3 +320,137 @@ Atlas + Forge meldeten Inkonsistenzen. Eigenes Live-Audit + Forge-Verifikation +
 2. node-llama-cpp Vulkan -> CPU-source-build fuer 7x speed (35s -> ~5s hybrid query)
 3. workspace/memory/archive cleanup -> ~75 files index-noise
 4. 09-Archive vault cleanup (96 working-context.md) -> Operator
+
+
+---
+
+## Round 5 — openclaw-healthcheck-watchdog Restart-Loop Incident (10:40-10:46 UTC)
+
+**Symptom:** User-Bericht "Atlas nicht erreichbar gateway down?". Live-Check: Gateway active, ABER 4x SIGKILL in 4 min (10:40:09, 10:41:10, 10:42:10, 10:43:11).
+
+**Root Cause:** /home/piet/.openclaw/scripts/healthcheck-watchdog.sh (gesteuert via openclaw-healthcheck.timer alle 60s) killt Gateway-PID via kill -9 wenn /health endpoint innerhalb 5s nicht antwortet. Race-Condition: 
+- Gateway startup hat 2 Phasen — "ready" nach 6.2s (HTTP-Server up auf Port 18789), aber Plugin-Init braucht weitere ~50s (Discord, Telegram retries inkl. "deleteWebhook failed: Network request failed; retrying")
+- Zwischen Phase 1 und 2 kann /health slow/non-responsive sein
+- Watchdog kommt mit kurzem 5s-Timeout dazwischen, killt aktiv-startenden Gateway
+- Webhook-URL ist Placeholder (https://discord.com/api/webhooks/...) -> Operator hoert nichts
+
+Self-broken Pattern: 10:43:12 Gateway endlich ready bevor naechster Healthcheck-Tick -> Cycle stoppt.
+
+**Aktion (Schritt 1, 10:48 UTC):**
+- systemctl --user disable --now openclaw-healthcheck.timer
+- Begruendung: openclaw-doctor v2026.4.24 sagt explizit "Cleanup hints: systemctl --user disable --now openclaw-healthcheck"
+- v2026.4.24 hat internen [health-monitor] (interval 300s, startup-grace 60s, channel-connect-grace 120s) - externer Watchdog ist redundant + buggy
+
+**Verify:**
+- Timer: enabled -> disabled, active -> inactive
+- Letzter healthcheck-run: 10:52:17 (in-flight buffer), keine neuen Runs danach
+- Gateway PID 3900609 stabil seit 10:46:28 (>8 min, kein neuer Kill)
+- Internal health-monitor laeuft normal in jedem post-restart-Gateway
+
+**Bun-Segfault (mc-src background-embed):**
+- Background embed (PID 3871760) fuer 1116 chunks ist gecrasht: panic Segmentation fault at address 0x73C0B2C3A3E0, Bun 1.3.11
+- Aber: forced retry zeigt "All content hashes already have embeddings" - main thread hat completed before crashed worker-threads, alle 1116 chunks embedded
+- mc-src ist nun voll vector-searchable (368 files, 5864+ vectors)
+- Bun-Issue notiert in tools-tracking aber low-impact
+
+**R53 (proposed):** Externe Watchdogs muessen 90s+ startup-grace nach Gateway-Restart respektieren. Das interne [health-monitor] in openclaw nutzt 60s startup-grace + 120s channel-connect-grace -> dieser Wert sollte fuer alle externen Watchdog auf gleiches System uebernommen werden.
+
+**Status-Snapshot 10:54 UTC:**
+- Gateway: active, PID 3900609, 8+ min stable, MemoryMax=6G
+- MC HTTP 200, QMD HTTP 200
+- openclaw-healthcheck.timer: DISABLED
+- Internal health-monitor: active mit 300s interval
+- Atlas main session 5ccfc1b3: alive (mtime <5min)
+- mc-src QMD vectors: complete (1116 chunks)
+
+**Next Operator-Decisions (unchanged):**
+- Atlas reachability via Discord-Ping (Schritt 2)
+- GPT-Image-2 OAuth-Pfad (A1/A2/A3)
+- MemoryMax 6G->4G nach 24h Soak (jetzt P0.2 + healthcheck-disable bedeutet Restarts sind harmlos)
+- workspace/memory/archive cleanup (75 noise-files)
+- node-llama-cpp CPU-source-build (35s -> 5s hybrid query)
+
+
+---
+
+## Round 6 — QMD-Atlas-Effektivitaet Audit (10:55-11:15 UTC)
+
+Ziel: Atlas's QMD-Workflow optimieren. 4 Phasen durchgezogen, klare Diagnose + Empfehlungen.
+
+### Phase 1 — qmd_get/multi_get Bug-Diagnose
+
+**ROOT-CAUSE qmd_get "Attachment/Platzhalter":**
+- mcp.ts:404-421: qmd_get returnt MCP-content-type **"resource"** mit mimeType "text/markdown"
+- Manche MCP-Clients (vermutlich openclaw bridge) rendern resource-type als Anhang/Link statt inline-text
+- WORKAROUND: Atlas's bridge muss  field extracten — wenn nicht, ist es bridge-bug
+
+**ROOT-CAUSE multi_get "SKIPPED":**
+- mcp.ts:431: maxBytes default = **10240 (10 KB!)**
+- store.ts:2616: "File too large (XKB > 10KB). Use qmd_get with file=..."
+- Vault sprint-docs sind 20-30 KB → ALWAYS skipped mit default!
+
+**ROOT-CAUSE multi_get "No files matched pattern":**
+- multi_get's pattern-matcher unterstuetzt NUR comma-separated relative paths
+- "03-Agents/Shared/a.md,03-Agents/Shared/b.md" -> WORKS
+- qmd://vault/... oder absolute paths oder glob -> ALL FAIL
+- Atlas's TOOLS.md hat vorher empfohlen  -> das ist FALSCH
+
+### Phase 2 — Index-Quality (workspace narrow-mask attempt)
+
+**Versucht:** workspace mit narrow mask  -> 0 files matched (bun's mask-syntax inkompatibel)
+**Rollback:** workspace zurueck auf . 482 files indexed (incl. node_modules + memory/archive noise)
+**Verbleibend:** Operator-Decision: rename/move /home/piet/.openclaw/workspace/memory/archive raus aus indexed-path, ODER vault 09-Archive cleanup
+
+### Phase 3 — Atlas's QMD-Usage-Analyse (24h)
+
+| Tool | Total | Fails | Pattern |
+|---|---|---|---|
+| qmd__search | 31 | 28 | Batch-fails (3 parallel calls bei post-restart binding-init) |
+| qmd__status | 19 | 16 | P0.2-recovery-pattern (1st-fail nach Gateway-restart) |
+| qmd__get | 4 | 1 | meist erfolgreich |
+| qmd__multi_get | 2 | 1 | Atlas hat absoluten path + glob versucht (beide broken) |
+| qmd__vector_search | 1 | 1 | |
+| qmd__deep_search | 1 | 1 | |
+
+**Atlas's Batch-Pattern:** sendet oft 3 parallel qmd__search-calls (vault + workspace + variant-queries). Bei stale binding -> ALLE in batch fail. P0.2 recovery wirkt nur bei sequential calls.
+
+**Top Atlas-queries:** sprint-docs, image_generate forge tasks, openclaw update, P0.2 recovery, atlas-result-format. Alle relevante work-queries.
+
+### Phase 4 — Context-Tags Verbesserung (DEPLOYED)
+
+7 neue context-tags fuer semantic-disambiguation:
+- vault/03-Agents (agent state, daily logs)
+- vault/04-Sprints (hardening sprints)
+- vault/05-Incidents (RCAs, post-mortems)
+- vault/03-Projects/plans (strategic plans)
+- workspace/memory (live agent memory)
+- mc-src/src/app/api (MC API routes)
+- mc-src/src/lib (MC core libraries)
+
+Effekt: BM25 + vector ranking nutzen contexts als boost-signal -> bessere Top-Results bei specific-domain queries.
+
+### R-Regel-Updates fuer Atlas TOOLS.md
+
+**R52 KORREKTUR (URGENT):** Atlas's TOOLS.md hat falschen Beispiel-Pattern fuer multi_get!
+- ALT (falsch):  
+- NEU (korrekt):  (RELATIVE paths!)
+- multi_get unterstuetzt NICHT qmd:// URLs, absolute paths, glob - NUR comma-separated relative
+
+**R54 (proposed):** qmd_multi_get default maxBytes ist 10KB (zu klein). Atlas MUESS bei vault-files explizit setzen:  (100KB). Sonst werden Sprint-Docs etc. immer SKIPPED.
+
+**R55 (proposed):** Bei batch-parallel qmd_*-calls nach Gateway-Restart: ZUERST 1 single status-call, dann erst batch (P0.2-binding-warmup). Verhindert batch-failure-storm.
+
+**R56 (proposed):** qmd_get returnt . Wenn openclaw-MCP-bridge das als Attachment rendert: openclaw-side bridge-bug, separate ticket. Bis Fix: direct vault-read fallback fuer kritische Reads.
+
+### Status-Snapshot 11:15 UTC
+
+- Index: vault 688, workspace 482 (post-rebuild), mc-src 368 = 1538 total
+- 7 context-tags aktiv (semantic boost)
+- 26 docs need re-embedding (workspace post-rebuild) - background trigger noetig
+- Atlas QMD-tool-success-rate ohne unsere fixes: ~10-50% (depending on tool)
+
+### Operator-Aktion empfohlen
+
+1. **Atlas TOOLS.md update mit R52-Korrektur + R54/R55/R56** (Atlas selbst commit)
+2. **qmd embed run** fuer 26 pending vectors (background, ~2 min)
+3. **Optional:** workspace/memory/archive aus indexed-path moven (-44 noise files)
