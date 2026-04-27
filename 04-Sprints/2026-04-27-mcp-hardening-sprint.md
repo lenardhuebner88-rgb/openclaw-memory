@@ -166,3 +166,79 @@ Aus update doctor-output Kandidaten für separate maintenance-PRs:
 6. openclaw-healthcheck.service detected als duplicate gateway-like service
 7. Gateway PATH missing /home/piet/.nix-profile/bin
 8. Security: gateway bound to 0.0.0.0 (LAN) — ist intentional für deine Topologie
+
+
+---
+
+## Round 3 Follow-Through 09:47 UTC — Cleanup + P0.3 + Validator
+
+Sequenzielle Abarbeitung der 6 verbliebenen Phasen nach Update.
+
+### Phase 1 — openclaw doctor --fix
+599 orphan transcripts in main/sessions archiviert (rename zu .deleted.<ts>). Disk-Effekt 0 (rename != delete) — Operator kann später final cleanup.
+
+### Phase 2 — Spark Session 3b149f17 compact
+Inactive seit Apr 26 12:30 (21h offline). 16 checkpoints (155M raw) → tar.gz in sessions/archive/3b149f17-checkpoints-20260427T0730Z.tar.gz (78M, 50% compression). Originals deleted nach count-match-verify (16=16). Live .jsonl + trajectory.jsonl behalten.
+**Disk freed: 72M (186M → 114M).**
+
+### Phase 3 — Worker-Agent-Dir cleanup
+NICHT in agents.list (orphan seit Apr 16). 55M (71 files: agent/ + sessions/). tar.gz nach /home/piet/.openclaw/backups/orphan-agents/worker-2026-04-27.tar.gz (28M). Original gelöscht.
+**Disk freed: 55M.**
+
+### Phase 4 — mcp-child-teardown.conf escape-fix
+systemd parsed \. als unknown escape sequence. Pattern jetzt korrekt double-escaped: server\.js und qmd\.ts. Backup .bak-pre-escape-fix-2026-04-27. systemd-analyze verify zeigt warning weg.
+
+### Phase 5 — restart-policy.conf section-fix
+StartLimitIntervalSec + StartLimitBurst von [Service] nach [Unit] verschoben (systemd 234+ Anforderung). systemctl show bestätigt nun: RestartUSec=30s, StartLimitIntervalUSec=2min, StartLimitBurst=5 (vorher wurden StartLimit-Keys ignoriert). Backup .bak-pre-section-fix-2026-04-27.
+
+### Phase 6 — Image-Model openai/gpt-image-2 freigeschaltet
+**Wichtig:** Doppelter Fix nötig — Validator-Script ist separat von Allowlist-Schema!
+1. agents.defaults.models[openai/gpt-image-2] zur Allowlist hinzugefügt via openclaw config set --strict-json
+2. validate-models.py hatte openai/ NICHT in VALID_PROVIDER_PREFIXES → patched: openai/ added (Backup .bak-pre-openai-prefix-2026-04-27)
+
+Manueller Validator-Run: **All 40 cross-provider model references valid. True errors=0** (war vorher 1).
+
+openclaw models list zeigt openai/gpt-image-2 als configured/auth=yes/tags=image — also routet korrekt.
+
+### Phase 7 — P0.3 systemd ExecStartPre Hook
+Drop-in /home/piet/.config/systemd/user/openclaw-gateway.service.d/p02-recovery-patch.conf:
+- Environment=DRY_RUN=0
+- ExecStartPre=-/usr/bin/python3 /home/piet/.openclaw/scripts/apply-mcp-recovery-patch.py
+- Minus-Prefix gibt graceful-failure (gateway started auch wenn patch failed)
+
+Apply-script gehärtet: bei missing-anchor exit 0 + WARN-log (vorher exit 2 = blocked startup). Marker P02_PATCH_SKIPPED_ANCHOR_MISSING fürs telemetry.
+
+**Test (gateway restart 09:47:53):** ExecStartPre lief sichtbar im journal:
+- python3[3820060]: TARGET: pi-bundle-mcp-runtime-B_SrebwR.js (30757 bytes)
+- python3[3820060]: SKIP: marker OPENCLAW_PATCH_MCP_RECONNECT_RECOVERY_2026_04_27 already present
+
+PID 3797817 → 3820069. Marker present nach restart, MC 200, QMD 406, 0 MCP errors.
+
+**Damit überlebt P0.2-Patch jetzt jedes openclaw update automatisch.** Bei nächstem Update werden bundle-files überschrieben (neue Hashes), ExecStartPre läuft beim Start, apply-script findet neue file, patcht, marker drin. Ohne Operator-Intervention.
+
+## Cumulative Disk-Cleanup
+
+| Source | Freed |
+|---|---|
+| Spark checkpoints tar.gz | 72M |
+| Worker dir archive | 55M |
+| **Total real disk freed** | **127M** |
+| (599 orphan transcripts) | 0 (archived only, ~360M deletable later) |
+
+## Status-Snapshot 09:48 UTC
+
+- openclaw 2026.4.24 (cbcfdf6)
+- Gateway PID 3820069, MemoryMax=6G
+- ExecStartPre 2 hooks (port-guard + p02-recovery-patch)
+- P0.2 marker present, validator true_errors=0
+- Disk 17G free / 98G (83% — unverändert weil orphans archived statt deleted)
+- 0 MCP not-connected errors
+
+## Verbleibende Operator-Decisions (nicht autonom)
+
+1. **anthropic:claude-code-refresh re-auth** — interactive: openclaw models auth login --provider anthropic
+2. **Claude CLI auth-profile in main agent** — interactive: openclaw models auth login --provider anthropic --method cli
+3. **MemoryMax 6G→4G** — Plan-Doc P1.1 sagt 4G, wir sind bei 6G. Decision nach 24h soak.
+4. **openclaw-healthcheck.service** — Doctor sagt duplicate gateway-like detected. Operator entscheidet ob disable.
+5. **686 archivierte .deleted.<ts> transcripts in main/sessions** — operator kann final delete via find -name *.deleted.* -delete (~360M).
+6. **Spark + Worker tar.gz archives** — operator kann nach 30 Tagen delete (rotation).

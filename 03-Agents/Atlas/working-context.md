@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7f12c6d8-1103-4c5a-b96a-82363d3e0af0 [P0][Forge] OpenClaw Stable 2026.4.24 Pre-Go vorbereiten
+- task: e6453567-d940-4819-8d72-c014a4d0a674 [P1][Forge][Analyse] Root-Cause: QMD/MC/Tool-Surface + Vault-Zugriff Smoke-Check Findings
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Pre-Go Checks laufen: Version/Update-Dry-Run/Doctor sind bestätigt, Board-Quiet und Baseline-Health wurden erhoben. Ich erstelle jetzt den finalen Stable-Execution-Prompt inklusive Snapshot- und Rollback-Gates.
+- checkpoint: Evidence capture abgeschlossen: QMD-Connectivity-Flapping, qmd__get/qmd__multi_get Verhalten, Vault-Pfad-Drift und Pickup-Timing für Task 4e0618d2 sind analysiert. Ich formuliere jetzt die Root-Cause-Hypothesen und prior
 - blocker: -
-- updated: 2026-04-27T06:55:16.946Z
+- updated: 2026-04-27T08:14:33.815Z
 <!-- mc:auto-working-context:end -->
