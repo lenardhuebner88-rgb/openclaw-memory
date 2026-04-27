@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 361355af-bd7b-4db2-a81b-c2665c6e444d [Preview][Lens] Autonomy 9.5 Heartbeat Coverage policy follow-up
+- task: 1db3aa49-3e30-4db4-a086-06a747259b4a [Follow-up][Lens] Materializer sequential dispatch policy review
 - stage: DONE
 - next: await next assignment
-- checkpoint: Heartbeat-Coverage Policy: non-main Heartbeats dürfen 9.5/10 nicht hart blockieren, solange worker/pickup/health grün sind; sie bleiben aber gelber Residual-Risk. Empfehlung: 9.5 erlaubt mit dokumentiertem Waiver, 10/10 
+- checkpoint: Materializer-Policy Review: direkte Dispatch-Automation nur sequentiell, max 1 aktiver Child-Dispatch und max 2 offene materialisierte Children; bei health!=ok oder worker/pickup Findings nur Preview/Assigned, kein Auto-
 - blocker: -
-- updated: 2026-04-26T22:24:49.226Z
+- updated: 2026-04-27T06:11:07.222Z
 <!-- mc:auto-working-context:end -->

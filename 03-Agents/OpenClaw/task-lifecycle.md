@@ -21,3 +21,48 @@
 - 2026-04-27T02:05:30.397Z | START | 4e0618d2-f453-4fa0-b483-8c57afc6a7c7 | [Nightly] Harden alerts API route with fail-soft error handling | worker=sre-expert | progress=- | summary=-
 - 2026-04-27T02:06:34.090Z | CHECKPOINT | 4e0618d2-f453-4fa0-b483-8c57afc6a7c7 | [Nightly] Harden alerts API route with fail-soft error handling | worker=sre-expert | progress=- | summary=- | note=Implementierung steht: /api/alerts hat jetzt einen top-level fail-soft try/catch mit strukturiertem 500-JSON + no-store; Regressionstest für Unexpected-Failure und Ingress-Preserve ist hinzugefügt. Als Nächstes laufen tsc, Test, Build und Live-Verifikation.
 - 2026-04-27T02:08:18.595Z | FAILED | 4e0618d2-f453-4fa0-b483-8c57afc6a7c7 | [Nightly] Harden alerts API route with fail-soft error handling | worker=sre-expert | progress=- | summary=- | note=Global TypeScript gate failed (npx tsc --noEmit, exit 1).
+- 2026-04-27T06:06:30.214Z | START | 5455079a-cca8-4afa-baa8-d5f96e3f3fa1 | [Atlas][Stufe7] Reportingformat vereinheitlichen + Sprint-8 Prompt vorbereiten | worker=Atlas | progress=- | summary=-
+- 2026-04-27T06:07:08.208Z | CHECKPOINT | 5455079a-cca8-4afa-baa8-d5f96e3f3fa1 | [Atlas][Stufe7] Reportingformat vereinheitlichen + Sprint-8 Prompt vorbereiten | worker=Atlas | progress=20% | summary=- | note=Task body read. Plan/doc/rules sources located; missing workspace scripts/rules-render.sh noted and will be handled by wrapper to canonical /home/piet/.openclaw/scripts/rules-render.sh.
+- 2026-04-27T06:08:19.783Z | CHECKPOINT | 5455079a-cca8-4afa-baa8-d5f96e3f3fa1 | [Atlas][Stufe7] Reportingformat vereinheitlichen + Sprint-8 Prompt vorbereiten | worker=Atlas | progress=70% | summary=- | note=Stage-7 result-format KB and Sprint-7+8 prompt written to vault; R57 appended to memory/rules.jsonl; feedback_system_rules.md regenerated via workspace scripts/rules-render.sh wrapper.
+- 2026-04-27T06:09:11.058Z | DONE | 5455079a-cca8-4afa-baa8-d5f96e3f3fa1 | [Atlas][Stufe7] Reportingformat vereinheitlichen + Sprint-8 Prompt vorbereiten | worker=main | progress=70% | summary=EXECUTION_STATUS
+done — Task 5455079a-cca8-4afa-baa8-d5f96e3f3fa1 completed; terminal result receipt written with sprintOutcome and verified by GET.
+
+RESULT_SUMMARY
+Created the canonical Stage-7 Atlas reporting format and the official Sprint-7+8 prompt. Added R57 to memory/rules.jsonl, regenerated feedback_system_rules.md through scripts/rules-render.sh, and added a workspace wrapper for the renderer path referenced by the task. No worker fanout was dispatched because the task anti-scope forbids Sprint-8 fanout; this was a bounded Atlas-owned documentation/rules mutation.
+
+FILES_CHANGED
+- /home/piet/vault/03-Agents/kb/atlas-result-format.md
+- /home/piet/vault/03-Agents/kb/atlas-sprint-7-8-prompt.md
+- /home/piet/.openclaw/workspace/memory/rules.jsonl
+- /home/piet/.openclaw/workspace/feedback_system_rules.md
+- /home/piet/.openclaw/workspace/scripts/rules-render.sh
+
+VALIDATION
+- JSONL parsed successfully; last rule is R57.
+- atlas-result-format.md contains all five canonical fields: EXECUTION_STATUS, RESULT_SUMMARY, GATES, FOLLOW_UPS, OPERATOR_DECISIONS.
+- feedback_system_rules.md contains rendered R57 and reports 56 rules.
+- /home/piet/.openclaw/workspace/scripts/rules-render.sh executed successfully.
+- Workspace commit: d77013ba. Vault commit: 93cfcc1.
+
+NEXT_STEP
+Use /home/piet/vault/03-Agents/kb/atlas-sprint-7-8-prompt.md as the gated prompt for Stage 8 after operator approval.
+- 2026-04-27T06:09:55.292Z | START | 1db3aa49-3e30-4db4-a086-06a747259b4a | [Follow-up][Lens] Materializer sequential dispatch policy review | worker=efficiency-auditor | progress=- | summary=-
+- 2026-04-27T06:11:07.221Z | DONE | 1db3aa49-3e30-4db4-a086-06a747259b4a | [Follow-up][Lens] Materializer sequential dispatch policy review | worker=efficiency-auditor | progress=- | summary=Materializer-Policy Review: direkte Dispatch-Automation nur sequentiell, max 1 aktiver Child-Dispatch und max 2 offene materialisierte Children; bei health!=ok oder worker/pickup Findings nur Preview/Assigned, kein Auto-Dispatch. Operator-Go fuer direct dispatch bleibt offen.
+- 2026-04-27T06:11:20.633Z | START | 29307251-d2bc-4b1b-ac78-f046b8442329 | [P1][Forge] Migration-Beschluss: m7-Kernel-Timer vs Legacy-Crons | worker=atlas | progress=- | summary=-
+- 2026-04-27T06:12:16.800Z | CHECKPOINT | 29307251-d2bc-4b1b-ac78-f046b8442329 | [P1][Forge] Migration-Beschluss: m7-Kernel-Timer vs Legacy-Crons | worker=atlas | progress=65% | summary=- | note=Live-Inventar erhoben: aktive m7-Timer/Services und aktueller Crontab verglichen; ich formuliere jetzt Overlap-Cluster, Optionen/Risiken und die empfohlene Migrationsreihenfolge.
+- 2026-04-27T06:13:12.587Z | DONE | 29307251-d2bc-4b1b-ac78-f046b8442329 | [P1][Forge] Migration-Beschluss: m7-Kernel-Timer vs Legacy-Crons | worker=sre-expert | progress=65% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Read-only decision brief erstellt. Live-Inventar zeigt: m7-Kernjobs laufen bereits als systemd-Timer (1m/2m/5m); entsprechende Legacy-Cron-Einträge für diese Kernjobs sind nicht mehr in crontab aktiv. Verbleibende Cron-Jobs bilden separate Guard-/Maintenance-Schicht mit partieller Funktionsnähe (v. a. Session- und Monitoring-Bereich).
+OVERLAP_CLUSTERS:
+1) CORE-M7-MIGRATED: auto-pickup, plan-runner, mc-watchdog, worker-monitor, stale-lock-cleaner, session-freeze-watcher -> aktiv als m7-*.timer/service; kein identischer aktiver Crontab-Duplikatlauf sichtbar.
+2) SESSION-GUARD-ADJACENT: m7-session-freeze-watcher (Task/Session-Stall-Erkennung) vs Cron-Guards session-rotation-watchdog (*/2), session-size-guard (* und */5), session-janitor (*/30) -> ähnliche Risikodomäne (Session-Gesundheit), aber unterschiedliche Trigger/KPIs.
+3) PLATFORM-MONITORING-ADJACENT: m7-mc-watchdog (2m Service-Liveness-Heal) vs Cron mc-ops-monitor (stündlich Health/Ops-Checks) -> kein 1:1-Duplikat, aber teilweise überlappende Beobachtungsziele.
+OPTIONS_AND_RISKS:
+A) Hybrid stabil lassen (m7-Kern via Timer, übrige Guards weiter Cron): geringstes Sofortrisiko, aber höhere Betriebs-Komplexität (2 Scheduler-Welten).
+B) Domänenweise Konsolidierung in systemd (zuerst Session-Guards, dann Monitoring): mittleres Risiko, reduziert Drift/Debug-Aufwand; benötigt klare Unit-Hardening/Alert-Routing-Validierung.
+C) Big-bang Vollmigration aller Cron-Guards: höchstes Risiko (Blind Spots/Timing-Regressionen), nicht empfohlen.
+RECOMMENDED_ORDER:
+1. Keine Änderung an CORE-M7-MIGRATED (bereits sauber timer-basiert).
+2. Session-Guard-Cluster zuerst konsolidieren (rotation/size/janitor/freeze) mit Canary-Phase und Dual-Run-Fenster.
+3. Danach Monitoring-Cluster (mc-ops-monitor + verwandte Checks) in Timer überführen, erst dann Legacy-Crons abbauen.
+4. Pro Cluster: vor Abschaltung eines Cron-Jobs immer 7 Tage Nachweis (keine verschlechterten Health-/Pickup-Proofs).
+OPERATOR_DECISION_REQUEST: Bitte Option B freigeben (domänenweise Migration mit Canary + Nachweisfenster) oder explizit Hybrid-Dauerbetrieb bestätigen. Es wurden keine Runtime-Änderungen durchgeführt.

@@ -7,10 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4e0618d2-f453-4fa0-b483-8c57afc6a7c7 [Nightly] Harden alerts API route with fail-soft error handling
-- stage: FAILED
+- task: 29307251-d2bc-4b1b-ac78-f046b8442329 [P1][Forge] Migration-Beschluss: m7-Kernel-Timer vs Legacy-Crons
+- stage: DONE
 - next: await next assignment
-- checkpoint: Global TypeScript gate failed (npx tsc --noEmit, exit 1).
-- blocker: Global TypeScript gate failed (npx tsc --noEmit, exit 1).
-- updated: 2026-04-27T02:08:18.596Z
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY: Read-only decision brief erstellt. Live-Inventar zeigt: m7-Kernjobs laufen bereits als systemd-Timer (1m/2m/5m); entsprechende Legacy-Cron-Einträge für diese Kernjobs sind nicht meh
+- blocker: -
+- updated: 2026-04-27T06:13:12.588Z
 <!-- mc:auto-working-context:end -->
