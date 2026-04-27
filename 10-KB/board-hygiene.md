@@ -1,7 +1,7 @@
 ---
 title: "Board Hygiene & Lifecycle"
 slug: board-hygiene
-last_compiled: 2026-04-27T19:30:18.138740Z
+last_compiled: 2026-04-27T20:30:02.429352Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 38
 rule_count: 2
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Auto-cleanup of stale drafts, board state management, admin-close API patterns.
 
-**Compiled:** 2026-04-27T19:30:18.138740Z  
+**Compiled:** 2026-04-27T20:30:02.429352Z  
 **Source:** 38 facts from workspace/memory/facts/*.jsonl, 2 rules from workspace/memory/rules.jsonl
 
 ## Key Rules

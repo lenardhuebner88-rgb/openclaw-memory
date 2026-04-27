@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 676b5c07-3d3c-4984-8b43-050ad0ddb025 [P1][Atlas] Worker-Pickup Route-Cross-Analyse und Dispatch-Stale-Fix
+- task: a0a59b11-7b89-4b5c-9753-0382e6983b5c [P3][Atlas] HEARTBEAT.md Production-Script-Path Convention-Note
 - stage: DONE
 - next: await next assignment
-- checkpoint: Root cause: dispatch/pickup eligibility was gating on stale heartbeat state, while proof/runner state showed the board task itself was the only live incident. Fix: cross-checked worker sessions and removed stale-heartbea
+- checkpoint: HEARTBEAT.md erweitert: 2511 Bytes (Limit 3.5 KB). Path-Convention-Note eingefuegt unter ## Path Conventions. Production-Scripts in /home/piet/.openclaw/scripts/, workspace/scripts/ ist git-tracked Source ohne Cron-Cover
 - blocker: -
-- updated: 2026-04-27T15:03:55.415Z
+- updated: 2026-04-27T20:54:17.486Z
 <!-- mc:auto-working-context:end -->

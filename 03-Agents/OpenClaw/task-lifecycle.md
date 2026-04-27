@@ -1253,3 +1253,66 @@ VERIFY
 RESIDUAL_RISK
 - Single snapshot; thresholds may need tuning after 24-48h observation.
 - Script does not yet send Discord alerts (cron + Atlas alert wiring is a follow-up step).
+- 2026-04-27T20:24:29.127Z | START | 5fd6a593-0b19-4ed5-b807-fb0d8f82e2fb | [P2][Forge] Session-Level Stuck-Recovery vor MC-Restart-Eskalation | worker=atlas | progress=- | summary=-
+- 2026-04-27T20:28:49.271Z | DONE | 5fd6a593-0b19-4ed5-b807-fb0d8f82e2fb | [P2][Forge] Session-Level Stuck-Recovery vor MC-Restart-Eskalation | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+Existing recovery ladder documented (6 rungs verified live):
+1. stale-lock-cleaner.sh (cron */5): Orphaned .jsonl.lock removal (PID dead)
+2. auto-pickup LOCK_REAP: Task run log gone + lock exists → remove lock + terminalize
+3. auto-pickup stale pending-claim cleanup: No heartbeat, age>15min → close + requeue
+4. auto-pickup claim timeout trend: ≥5 timeouts/10min → alert
+5. atlas-orphan-detect.sh (cron */10): Atlas idle >10min + open tasks → alert
+6. mc-restart-safe: Operator-gated restart (verified non-bypassable)
+
+Missing rung identified: Rung 3.5 — Session-level timeout recovery.
+- Trigger: session .jsonl.lock alive (PID), but no heartbeat and session file not growing for >30min
+- Current gap: invisible to lock cleaner (PID alive), invisible to orphan detect (not Atlas-main)
+- Proposed fix: session-size-guard.py --stuck-session flag (SIGTERM → SIGKILL → lock removal → session archive)
+
+Live proof: 0 active worker runs; no stuck sessions detected; restart escalation remains guarded.
+
+FILES_CHANGED
+- `/home/piet/.openclaw/workspace/reports/session-stuck-recovery-ladder-2026-04-27.md` (new)
+- Commit: `1e38546e`
+
+VERIFY
+- All 6 recovery rungs verified against live code/config
+- Active worker runs: 0 (no stuck sessions)
+- mc-restart-safe: verified non-bypassable (LOCK file + curl health check)
+
+RESIDUAL_RISK
+- Rung 3.5 needs --stuck-session implementation + operator approval before enabling for non-Spark agents
+- 2026-04-27T20:51:44.665Z | START | 1d69e0c5-1b38-4bdc-ac6d-0b4865e7115b | [P3][Forge] Gateway-Monitor Discord-Critical-Alert | worker=atlas | progress=- | summary=-
+- 2026-04-27T20:53:34.050Z | DONE | 1d69e0c5-1b38-4bdc-ac6d-0b4865e7115b | [P3][Forge] Gateway-Monitor Discord-Critical-Alert | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+Discord-Critical-Alert-Wiring für gateway-memory-monitor.py implementiert:
+- User-Agent: "mc-gateway-monitor/1.0 (+openclaw; python-urllib)" ✅
+- Webhook: AUTO_PICKUP_WEBHOOK_URL env (kein Hardcode) ✅
+- Cooldown: /tmp/gateway-memory-alert.cooldown mtime-Check, 30min ✅
+- MOCK_RSS_KB env-Override für Tests ✅
+- Alert NUR bei level=critical (warning/ok: kein Alert) ✅
+- Backup: gateway-memory-monitor.py.bak-pre-discord-alert-2026-04-27 ✅
+
+Test-Results:
+- MOCK_RSS_KB=1750000 → gateway_memory=critical, discord_alert=error (fake webhook, erwartet)
+- MOCK_RSS_KB=1000000 → gateway_memory=ok, kein Discord-Call ✅
+- Cooldown: is_cooldown_active() = True für junge Datei, False für alte ✅
+
+Anti-Scope eingehalten: kein sudo, kein Modellwechsel, kein Service-Restart, keine Threshold-Änderung, keine Cron-Änderung.
+
+FILES_CHANGED
+- /home/piet/.openclaw/scripts/gateway-memory-monitor.py (live)
+- /home/piet/.openclaw/workspace/scripts/gateway-memory-monitor.py (workspace copy)
+- /home/piet/.openclaw/workspace/scripts/gateway-memory-monitor.py.bak-pre-discord-alert-2026-04-27
+- Commit: f672a917
+
+VERIFY
+- Alert-Pfad: gateway_memory=critical → send_discord_alert() aufgerufen ✅
+- Cooldown-Pfad: cooldown file jung → discord_alert=skip ✅
+- OK-Pfad: kein Discord-Call ✅
+- Anti-Scope: keine Änderung an Thresholds, Cron, Service, Model, Sudo ✅
+- 2026-04-27T20:54:17.485Z | DONE | a0a59b11-7b89-4b5c-9753-0382e6983b5c | [P3][Atlas] HEARTBEAT.md Production-Script-Path Convention-Note | worker=main | progress=- | summary=HEARTBEAT.md erweitert: 2511 Bytes (Limit 3.5 KB). Path-Convention-Note eingefuegt unter ## Path Conventions. Production-Scripts in /home/piet/.openclaw/scripts/, workspace/scripts/ ist git-tracked Source ohne Cron-Coverage. DoD erfuellt.

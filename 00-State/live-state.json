@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-27T20:24:01.853018+00:00",
+  "generated_at": "2026-04-27T20:54:01.288750+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -9,11 +9,11 @@
   "summary": {
     "agents_total": 10,
     "agents_active": 2,
-    "crons_total": 45,
+    "crons_total": 46,
     "crons_by_tier": {
       "T1-realtime": 4,
       "T2-2min": 3,
-      "T3-5min": 8,
+      "T3-5min": 9,
       "T4-10min": 2,
       "T5-15min": 2,
       "T7-hourly": 6,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 164,
+    "scripts_active": 165,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-27T20:23:56.989344+00:00",
-      "latest_session_size_bytes": 429539,
-      "session_count": 138
+      "last_session_iso": "2026-04-27T20:53:54.656819+00:00",
+      "latest_session_size_bytes": 266938,
+      "session_count": 137
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-27T20:23:40.423226+00:00",
-      "latest_session_size_bytes": 4504358,
-      "session_count": 1633
+      "last_session_iso": "2026-04-27T20:53:46.639780+00:00",
+      "latest_session_size_bytes": 4695807,
+      "session_count": 1635
     },
     {
       "id": "test-lock",
@@ -455,6 +455,12 @@
       "command": "TZ=Europe/Berlin /usr/bin/python3 /home/piet/.openclaw/scripts/daily-ops-digest.py --post",
       "script": "/home/piet/.openclaw/scripts/daily-ops-digest.py",
       "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "/usr/bin/flock -n /tmp/gateway-memory-monitor.lock /usr/bin/python3 /home/piet/.openclaw/scripts/gateway-memory-monitor.py >> /home/piet/.openclaw/workspace/logs/gateway-memory-monitor.cron.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/gateway-memory-monitor.py",
+      "tier": "T3-5min"
     }
   ],
   "rules": [
@@ -877,6 +883,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "5bb0435",
+      "date": "2026-04-27T22:24:17+02:00",
+      "subject": "auto-sync: 2026-04-27 22:24"
+    },
+    {
       "hash": "6489deb",
       "date": "2026-04-27T21:54:17+02:00",
       "subject": "auto-sync: 2026-04-27 21:54"
@@ -920,44 +931,20 @@
       "hash": "8b97160",
       "date": "2026-04-27T17:51:17+02:00",
       "subject": "auto-sync: 2026-04-27 17:51"
-    },
-    {
-      "hash": "a8b94f8",
-      "date": "2026-04-27T17:21:17+02:00",
-      "subject": "auto-sync: 2026-04-27 17:21"
     }
   ],
   "scripts": {
-    "scripts_root": 99,
+    "scripts_root": 100,
     "workspace_scripts": 65
   },
   "mcp_servers": [
-    {
-      "name": "vault-memory-mcp",
-      "status": "running",
-      "pids": [
-        223244,
-        355716,
-        1626212,
-        2958465,
-        3008670,
-        3008754,
-        3126991,
-        3133515,
-        3686000,
-        3960890,
-        4119576,
-        4174721
-      ]
-    },
     {
       "name": "qmd",
       "status": "running",
       "pids": [
         456469,
-        536036,
-        538087,
-        538597
+        567681,
+        568628
       ]
     },
     {
@@ -965,11 +952,10 @@
       "status": "running",
       "pids": [
         499350,
-        518550,
-        528897,
-        536029,
-        538080,
-        538590
+        559793,
+        563736,
+        567674,
+        568602
       ]
     }
   ],
