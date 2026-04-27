@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 51f83b0b-5575-46ca-aab7-6c51e7054ecd [P3][Spark] Fallback: Daily Ops-Digest Script Dry-run bauen
+- task: 439a3538-b477-4323-b334-07d8eaf6778b [P1][Spark] session-size-guard.py Worker-Coverage alert-only
 - stage: DONE
 - next: await next assignment
-- checkpoint: Implemented daily ops digest dry-run fallback. Script exists, is executable, dry-run verified against live data, trend state persisted. Approval still needed for schedule activation.
+- checkpoint: Worker-agent coverage is now active in alert-only mode: the guard scans frontend-guru, sre-expert, efficiency-auditor, spark, and james session directories, skips checkpoint/trajectory artifacts, and logs agent=<worker> 
 - blocker: -
-- updated: 2026-04-27T14:15:34.181Z
+- updated: 2026-04-27T15:12:20.878Z
 <!-- mc:auto-working-context:end -->
