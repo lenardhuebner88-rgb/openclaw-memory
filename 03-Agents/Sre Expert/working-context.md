@@ -7,11 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d0c6d87e-4460-4b03-930f-8b3dd1785407 [P1][Forge] Add heartbeat-staleness guard to dispatch/pickup routing
+- task: dca22d29-da47-43a2-9ab0-f51f3c496c9a [P1][Forge] Fix canary-session-rotation-watchdog (--live + flat detection)
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: Deterministischer Heartbeat-Staleness-Guard wurde für Dispatch- und Pickup-Routing implementiert. Stale non-main Targets werden jetzt vor Pending-Pickup blockiert (statt still in un
+- checkpoint: Implemented and verified canary-session-rotation-watchdog live+flat detection: unit now runs --live, script now signals for all pct>=70 with graceful/emergency action mapping, idempotent same-level skip + graceful->emerg
 - blocker: -
-- updated: 2026-04-27T09:43:09.393Z
+- updated: 2026-04-27T10:06:36.439Z
 <!-- mc:auto-working-context:end -->

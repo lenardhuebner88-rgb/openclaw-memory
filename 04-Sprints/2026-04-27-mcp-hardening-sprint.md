@@ -489,3 +489,25 @@ Effekt: BM25 + vector ranking nutzen contexts als boost-signal -> bessere Top-Re
 - Kein reiner Threshold-Bump.
 - Keine Timer-Änderung außer Unit `ExecStart`/Description.
 - Keine unrelated Session-/Budget-Refactors.
+
+### Addendum 11:48 UTC — Operator Clarification + Pre-Flight Result
+- Clarification: `m7-auto-pickup` does **not** consume `/tmp/atlas-rotation-signal.json` today. This task only sharpens detection/signal writing; consumer hook is a follow-up sprint.
+- Required rollback backups before patch: `.bak-2026-04-27` for both service unit and script.
+- Required verify after patch: `systemctl --user daemon-reload && systemctl --user restart canary-session-rotation-watchdog`; `journalctl --user -u canary-session-rotation-watchdog -n 10` contains no `DRY-RUN`; signal file exists at `/tmp/atlas-rotation-signal.json` if current pct >= 70; `recommended_action` matches pct level.
+- Pre-flight was run after initial dispatch because the instruction arrived post-dispatch: `/home/piet/.openclaw/scripts/pre-flight-sprint-dispatch.sh /home/piet/vault/04-Sprints/2026-04-27-mcp-hardening-sprint.md --verbose` returned **RED** due Atlas-session-size critical (`434% of budget`). Board task `dca22d29-da47-43a2-9ab0-f51f3c496c9a` was updated with this addendum and `operatorLock=true` to prevent unsafe execution until rotation/override.
+
+
+### Closure Update 12:05 CEST — DONE (dca22d29-da47-43a2-9ab0-f51f3c496c9a)
+- Pre-flight gate rerun is **GREEN** (7/7 passed): Atlas session size now 60% budget.
+- Backups created:
+  - `/home/piet/.config/systemd/user/canary-session-rotation-watchdog.service.bak-2026-04-27`
+  - `/home/piet/.openclaw/scripts/session-rotation-watchdog.py.bak-2026-04-27`
+- Service unit patched: Description switched to live, ExecStart now includes `--live --verbose`.
+- Script patched for flat detection: `pct >= 70` always signals; action mapping now `70-94 => graceful-rotate-with-summary`, `>=95 => emergency-rotate-too-late`; idempotence keeps same-level skip and only allows graceful->emergency upgrade; cleanup branches for `session-id-changed` and `pct < 60` remain intact.
+- Verify output:
+  - `systemctl --user daemon-reload && systemctl --user restart canary-session-rotation-watchdog` OK (oneshot success).
+  - `systemctl --user status ...` shows `Canary session-rotation-watchdog (live)` and ExecStart with `--live --verbose`.
+  - `journalctl --user -u canary-session-rotation-watchdog -n 10` includes latest `(... live)` run and no `DRY-RUN` marker.
+  - Live signal proof (forced >=95 via temp budget input): `/tmp/atlas-rotation-signal.json` created with `recommended_action=emergency-rotate-too-late`; file then removed to avoid stale fake signal.
+- Scenario verification matrix passed: direct >=95 jump, graceful band, same-level idempotence, graceful->emergency upgrade, cleanup on session-id-changed, cleanup on pct-drop.
+- Re-verify 12:06 CEST: `/tmp/atlas-rotation-signal.json` recreated with pct=80 test input and `recommended_action=graceful-rotate-with-summary` (ls+cat proof captured).
