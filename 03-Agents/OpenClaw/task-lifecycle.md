@@ -1085,3 +1085,38 @@ R52_CANDIDATE
 RESIDUAL_RISK
 - Candidate is threshold-based; very bursty transient errors could still alert once per cooldown window.
 - Full production behavior depends on regular execution of `session-size-guard.py` cadence (already existing operational path).
+- 2026-04-27T18:28:40.996Z | START | 9002f023-d52f-4725-9847-5a921d4a1836 | [P1][Forge] State-machine Bug: blocked ohne blockedReason/blockedDetail | worker=atlas | progress=- | summary=-
+- 2026-04-27T18:30:56.838Z | START | 461c0020-43a9-4140-9544-adf2fc9aafd4 | [P3][Forge] AUTONOMY_PAUSED Killswitch-File existence-only | worker=spark | progress=5% | summary=-
+- 2026-04-27T18:31:41.228Z | CHECKPOINT | 9002f023-d52f-4725-9847-5a921d4a1836 | [P1][Forge] State-machine Bug: blocked ohne blockedReason/blockedDetail | worker=atlas | progress=- | summary=- | note=Progress: identified blocked write paths (PATCH route, receipt route, store normalization), implemented blocked metadata invariant hardening in taskboard-store (canonical blockedReason alias + blocked detail auto-normalization), and validated regression guard by proving blocked transition without blockerReason is rejected while task state remains unchanged.
+- 2026-04-27T18:32:31.724Z | DONE | 9002f023-d52f-4725-9847-5a921d4a1836 | [P1][Forge] State-machine Bug: blocked ohne blockedReason/blockedDetail | worker=sre-expert | progress=- | summary=EXECUTION_STATUS
+done
+
+RESULT_SUMMARY
+- Current state verified as prevention task (not active incident): `blocked_count=0`, no live blocked task missing metadata.
+- Identified blocked write paths: `PATCH /api/tasks/[id]`, `POST /api/tasks/[id]/receipt` (stage=blocked), and store normalization in `taskboard-store.ts`.
+- Implemented invariant hardening in store normalization:
+  - canonical `blockedReason` alias is now always populated for `status=blocked` (fallback auto-normalized reason),
+  - canonical blocked detail is guaranteed via `failureDetails` fallback (`failureDetails || resultDetails || auto-normalized detail`),
+  - `blockedAt` is now materialized for blocked tasks.
+- Kept scope narrow: no lifecycle redesign, no dispatch rewrite, no restart.
+
+FILES_CHANGED
+- `/home/piet/.openclaw/workspace/mission-control/src/lib/taskboard-store.ts`
+- Commit: `81528a4` (`fix(task-state): enforce blocked metadata invariant aliases`)
+
+VERIFY
+- Type gate:
+  - `npm --prefix /home/piet/.openclaw/workspace/mission-control run typecheck` ✅
+- Regression proof (route-level, no mutation):
+  - `PATCH /api/tasks/9002f023-d52f-4725-9847-5a921d4a1836` with `{status:"blocked",workerSessionId:"agent:atlas-..."}` and **without** `blockerReason` returns:
+    - HTTP `400`
+    - body: `{"error":"blocked transition requires a non-empty blockerReason"}`
+  - subsequent GET confirmed task unchanged (`status=in-progress`, `executionState=active`, `receiptStage=accepted`).
+- Data scan proof:
+  - `mission-control/data/tasks.json` scan => `blocked_count=0`, `missing_reason_count=0`, `missing_detail_count=0`.
+
+RESIDUAL_RISK
+- Legacy code that reads only `blockedDetail` (if expected as a dedicated field) still relies on equivalent detail via `failureDetails/resultDetails`; no new dedicated `blockedDetail` property was introduced.
+- Invariant now hardened in canonical normalization + route guards, but external out-of-band writers bypassing MC APIs could still inject malformed raw JSON until normalized by store reads/writes.
+- 2026-04-27T18:32:58.224Z | CHECKPOINT | 461c0020-43a9-4140-9544-adf2fc9aafd4 | [P3][Forge] AUTONOMY_PAUSED Killswitch-File existence-only | worker=spark | progress=72% | summary=- | note=Implemented the AUTONOMY_PAUSED file-existence contract, added pause/resume handling, and proved it with a targeted vitest check.
+- 2026-04-27T18:33:18.549Z | DONE | 461c0020-43a9-4140-9544-adf2fc9aafd4 | [P3][Forge] AUTONOMY_PAUSED Killswitch-File existence-only | worker=spark | progress=72% | summary=AUTONOMY_PAUSED now has a file-existence-only contract in the automation layer: the file lives at /home/piet/.openclaw/workspace/AUTONOMY_PAUSED, pause() creates it, resume() removes it, and the row is surfaced as a file-exists kill switch.

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-26T21:01:53.179588+00:00",
+  "generated_at": "2026-04-27T18:53:01.660926+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -20,16 +20,16 @@
       "T8-daily-or-weekly": 12,
       "T6-30min": 7
     },
-    "rules_total": 55,
+    "rules_total": 56,
     "rules_by_status": {
-      "active": 40,
+      "active": 41,
       "resolved": 10,
       "pending": 4,
       "kandidiert": 1
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 154,
+    "scripts_active": 163,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -54,49 +54,49 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "ready",
-      "last_session_iso": "2026-04-26T19:09:02.198603+00:00",
-      "latest_session_size_bytes": 3243270,
-      "session_count": 56
+      "last_session_iso": "2026-04-27T12:47:10.883364+00:00",
+      "latest_session_size_bytes": 57500,
+      "session_count": 55
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "idle",
-      "last_session_iso": "2026-04-25T14:14:41.651863+00:00",
-      "latest_session_size_bytes": 16434961,
-      "session_count": 31
+      "status": "ready",
+      "last_session_iso": "2026-04-27T12:42:13.825284+00:00",
+      "latest_session_size_bytes": 16775555,
+      "session_count": 25
     },
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "idle",
-      "last_session_iso": "2026-04-25T16:24:19.568112+00:00",
-      "latest_session_size_bytes": 1577493,
-      "session_count": 10
+      "status": "ready",
+      "last_session_iso": "2026-04-27T16:55:15.468310+00:00",
+      "latest_session_size_bytes": 1634193,
+      "session_count": 9
     },
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-26T21:01:39.927673+00:00",
-      "latest_session_size_bytes": 1338967,
-      "session_count": 340
+      "last_session_iso": "2026-04-27T18:52:44.699543+00:00",
+      "latest_session_size_bytes": 110957,
+      "session_count": 138
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
-      "status": "ready",
-      "last_session_iso": "2026-04-26T15:34:27.095135+00:00",
-      "latest_session_size_bytes": 956767,
-      "session_count": 34
+      "status": "monitoring",
+      "last_session_iso": "2026-04-27T18:34:43.111632+00:00",
+      "latest_session_size_bytes": 49234,
+      "session_count": 17
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-26T21:01:04.517464+00:00",
-      "latest_session_size_bytes": 9230,
-      "session_count": 1675
+      "last_session_iso": "2026-04-27T18:51:51.319141+00:00",
+      "latest_session_size_bytes": 27253,
+      "session_count": 1637
     },
     {
       "id": "test-lock",
@@ -110,14 +110,14 @@
       "id": "worker",
       "path": "/home/piet/.openclaw/agents/worker",
       "status": "idle",
-      "last_session_iso": "2026-04-16T22:44:11.876230+00:00",
-      "latest_session_size_bytes": 10707863,
-      "session_count": 65
+      "last_session_iso": null,
+      "latest_session_size_bytes": null,
+      "session_count": 0
     }
   ],
   "memory": {
     "graph_edges": 1279,
-    "rules_count": 55,
+    "rules_count": 57,
     "facts_total": 287,
     "facts_files": 1,
     "budget_tail": [
@@ -781,6 +781,12 @@
       "title": "Vault-SSOT und Sprint-Read-Order respektieren",
       "category": "Codex-Governance",
       "status": "active"
+    },
+    {
+      "id": "R57",
+      "title": "Atlas terminal results use canonical Stage-7 format",
+      "category": "Atlas-Governance",
+      "status": "active"
     }
   ],
   "connections": [
@@ -865,94 +871,105 @@
   ],
   "vault_commits": [
     {
-      "hash": "9761183",
-      "date": "2026-04-26T22:40:07+02:00",
-      "subject": "auto-sync: 2026-04-26 22:40"
+      "hash": "d90153e",
+      "date": "2026-04-27T20:22:46+02:00",
+      "subject": "auto-sync: 2026-04-27 20:22"
     },
     {
-      "hash": "1022298",
-      "date": "2026-04-26T22:10:07+02:00",
-      "subject": "auto-sync: 2026-04-26 22:10"
+      "hash": "15f2846",
+      "date": "2026-04-27T19:52:17+02:00",
+      "subject": "auto-sync: 2026-04-27 19:52"
     },
     {
-      "hash": "9cee1e1",
-      "date": "2026-04-26T21:43:19+02:00",
-      "subject": "meeting-debate-bewertung: plan-doc superseded-by-handshake + adversarial-review briefing"
+      "hash": "75031db",
+      "date": "2026-04-27T19:22:17+02:00",
+      "subject": "auto-sync: 2026-04-27 19:22"
     },
     {
-      "hash": "1ae9c69",
-      "date": "2026-04-26T21:40:04+02:00",
-      "subject": "auto-sync: 2026-04-26 21:40"
+      "hash": "3c0bf48",
+      "date": "2026-04-27T18:51:18+02:00",
+      "subject": "auto-sync: 2026-04-27 18:51"
     },
     {
-      "hash": "9393e94",
-      "date": "2026-04-26T21:09:41+02:00",
-      "subject": "auto-sync: 2026-04-26 21:09"
+      "hash": "156413a",
+      "date": "2026-04-27T18:21:18+02:00",
+      "subject": "auto-sync: 2026-04-27 18:21"
     },
     {
-      "hash": "d743c16",
-      "date": "2026-04-26T20:39:27+02:00",
-      "subject": "auto-sync: 2026-04-26 20:39"
+      "hash": "8b97160",
+      "date": "2026-04-27T17:51:17+02:00",
+      "subject": "auto-sync: 2026-04-27 17:51"
     },
     {
-      "hash": "c6e950f",
-      "date": "2026-04-26T20:09:17+02:00",
-      "subject": "auto-sync: 2026-04-26 20:09"
+      "hash": "a8b94f8",
+      "date": "2026-04-27T17:21:17+02:00",
+      "subject": "auto-sync: 2026-04-27 17:21"
     },
     {
-      "hash": "c29c45d",
-      "date": "2026-04-26T19:39:17+02:00",
-      "subject": "auto-sync: 2026-04-26 19:39"
+      "hash": "f744fa7",
+      "date": "2026-04-27T16:51:17+02:00",
+      "subject": "auto-sync: 2026-04-27 16:51"
     },
     {
-      "hash": "809e659",
-      "date": "2026-04-26T19:09:07+02:00",
-      "subject": "auto-sync: 2026-04-26 19:09"
+      "hash": "4c2ea98",
+      "date": "2026-04-27T16:21:17+02:00",
+      "subject": "auto-sync: 2026-04-27 16:21"
     },
     {
-      "hash": "6cbbd16",
-      "date": "2026-04-26T18:38:57+02:00",
-      "subject": "auto-sync: 2026-04-26 18:38"
+      "hash": "bf86ea2",
+      "date": "2026-04-27T15:50:24+02:00",
+      "subject": "auto-sync: 2026-04-27 15:50"
     }
   ],
   "scripts": {
-    "scripts_root": 95,
-    "workspace_scripts": 59
+    "scripts_root": 99,
+    "workspace_scripts": 64
   },
   "mcp_servers": [
     {
       "name": "vault-memory-mcp",
       "status": "running",
       "pids": [
+        223244,
+        355716,
         1626212,
         2958465,
         3008670,
         3008754,
-        3126991
+        3126991,
+        3133515,
+        3686000,
+        3960890,
+        4119576,
+        4174721
       ]
     },
     {
       "name": "qmd",
       "status": "running",
       "pids": [
-        2986557
+        425152,
+        428740,
+        430208,
+        430681
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3046988,
-        3046994
+        428482,
+        430201,
+        430674
       ]
     }
   ],
   "active_sprint": {
     "agent": "codex",
-    "started": "2026-04-26T21:00:08Z",
-    "ended": "null",
-    "task": "Atlas Session Budget als Hard-Gate entfernen",
-    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-04-26_2100_codex_remove-atlas-budget-gate.md"
+    "started": "2026-04-27T05:20:11Z",
+    "ended": "2026-04-27T05:28:59Z",
+    "task": "MCP/Toolbridge RCA und nachhaltiger Minimalfix",
+    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-04-27_0520_codex_mcp-toolbridge-rca-fix.md"
   },
   "cron_health": {
     "total_monitored": 33,

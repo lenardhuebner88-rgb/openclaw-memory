@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2836c5a3-9363-471e-883f-85b528cfe6de [P1][Forge] Fix worker-memory-adapter LOAD_FAIL and R52 Detection
+- task: 9002f023-d52f-4725-9847-5a921d4a1836 [P1][Forge] State-machine Bug: blocked ohne blockedReason/blockedDetail
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Progress: reproduced importlib load failure path, fixed adapter export/import robustness (plain class init + exported worker_memory_handoff), added R52 repeated WORKER_MEMORY_ADAPTER_LOAD_FAIL detector in session-size-gu
+- checkpoint: Progress: identified blocked write paths (PATCH route, receipt route, store normalization), implemented blocked metadata invariant hardening in taskboard-store (canonical blockedReason alias + blocked detail auto-normali
 - blocker: -
-- updated: 2026-04-27T18:22:10.729Z
+- updated: 2026-04-27T18:31:41.229Z
 <!-- mc:auto-working-context:end -->

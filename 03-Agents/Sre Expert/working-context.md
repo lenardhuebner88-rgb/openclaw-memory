@@ -7,14 +7,15 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2836c5a3-9363-471e-883f-85b528cfe6de [P1][Forge] Fix worker-memory-adapter LOAD_FAIL and R52 Detection
+- task: 9002f023-d52f-4725-9847-5a921d4a1836 [P1][Forge] State-machine Bug: blocked ohne blockedReason/blockedDetail
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
 done
 
 RESULT_SUMMARY
-- Root cause reproduced and fixed: direct `importlib.util.module_from_spec(...); spec.loader.exec_module(...)` against `worker-memory-adapter.py` previously raised `AttributeError: '
+- Current state verified as prevention task (not active incident): `blocked_count=0`, no live blocked task missing metadata.
+- Identified blocked write paths: `PATCH /api/tasks/[id]`
 - blocker: -
-- updated: 2026-04-27T18:22:40.151Z
+- updated: 2026-04-27T18:32:31.726Z
 <!-- mc:auto-working-context:end -->
