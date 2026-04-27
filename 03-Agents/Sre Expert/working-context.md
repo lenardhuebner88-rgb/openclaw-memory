@@ -7,15 +7,15 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d3b05a1b-65c6-47ad-8052-611be0cd3101 [P2][Forge] Dauerhafte Session-Retention: Quarantäne/Kompression für alte Artefakte automatisieren
+- task: 551c8d74-1f11-4ff1-af38-10bf2f081bde [P2][Forge] Context-Budget Fix-Follow-up: aktiven Trajectory-Writer und Proof-Fenster korrigieren
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS
-done
+partial
 
 RESULT_SUMMARY
-Implemented a durable session-artifact retention workflow script at `scripts/session-retention-quarantine.py`.
-- Safe classes covered: `sessions-json-temp-backup`, `jsonl-reset-snaps
+- Proof semantics were corrected to stop relying only on historical max-over-file and to gate on the latest run window (`latest.latestRun`).
+- Active writer root-cause focus was v
 - blocker: -
-- updated: 2026-04-27T15:36:04.985Z
+- updated: 2026-04-27T15:59:26.621Z
 <!-- mc:auto-working-context:end -->

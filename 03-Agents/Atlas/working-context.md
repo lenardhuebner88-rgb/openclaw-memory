@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d226c892-9810-41dc-9e99-1edcfa54c1c8 [P2][Forge] Atlas Context-Budget-Degradation: Bootstrap/Tool-Schema-Bloat reduzieren + Alerts-Report
+- task: 551c8d74-1f11-4ff1-af38-10bf2f081bde [P2][Forge] Context-Budget Fix-Follow-up: aktiven Trajectory-Writer und Proof-Fenster korrigieren
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Safe patch landed at active runtime bundle /home/piet/.npm-global/lib/node_modules/openclaw/dist/selection-C3otDzGD.js: trace metadata, context.compiled, prompt.submitted, and tool-schema logging are now bounded summarie
+- checkpoint: Validated proof and latest trajectory internals: max-over-file masks newer small context/prompt events, but trace.metadata in latest runs is still large (~76KB) driven primarily by plugins (~58KB) and skills (~15KB) payl
 - blocker: -
-- updated: 2026-04-27T15:30:28.770Z
+- updated: 2026-04-27T15:56:58.418Z
 <!-- mc:auto-working-context:end -->
