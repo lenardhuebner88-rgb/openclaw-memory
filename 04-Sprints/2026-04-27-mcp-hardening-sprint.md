@@ -105,3 +105,64 @@ Forge Pre-Go Task 7f12c6d8 ist EXECUTION_STATUS done mit conditional Go. QMD-Blo
 - Reaper alt-Backup: mcp-taskboard-reaper.sh.bak-B-orphan-port-2026-04-27
 - Bundle-Backup: pi-bundle-mcp-runtime-CuLwVkrV.js.bak-pre-mcp-recovery-20260427T070343Z
 - alert-dispatcher Backup: cost-alert-dispatcher.py.bak-A-informational-2026-04-27
+
+
+---
+
+## UPDATE 09:25 UTC — openclaw 2026.4.22 → 2026.4.24 deployed
+
+**Plan ausgeführt:** Phase 1 (health audit) → Phase 2 (snapshot) → Phase 3 (dry-run) → Phase 5 (update) → Phase 6 (verify) → Phase 7 (P0.2 re-apply).
+
+### Snapshot
+
+Path: /home/piet/.openclaw/backups/pre-update-2026.4.24/20260427T071839Z (339M, 2471 files in MANIFEST).
+Enthält: openclaw.json, agents/<id>/agent + sessions.json, runs.sqlite*, tasks.json, cron-registry, systemd-dropins, openclaw-dist.tar.gz (276M für rollback), apply-mcp-recovery-patch.py, mcp-taskboard-reaper.sh, mcp-qmd-reaper.sh, cost-alert-dispatcher.py.
+
+### Update-Execution
+
+**openclaw update --yes --json** (66s gesamt):
+- Step 1: npm i -g openclaw@latest (15s) — added 25, removed 307, changed 406 packages
+- Step 2: openclaw doctor --non-interactive (51s) — exit 0, known warnings (auth-refresh, agent-list-drift, 599 orphan transcripts, legacy cron storage, security)
+- postUpdate.plugins: changed=false (kein plugin-sync nötig)
+- Mode: npm (pnpm-lockfile fehlte → fallback)
+
+### Bundle-File-Diff
+
+Alle 3 pi-bundle-mcp Files haben neue Hashes:
+- pi-bundle-mcp-runtime-CuLwVkrV.js (26517 bytes) → pi-bundle-mcp-runtime-B_SrebwR.js (30328 bytes, +14% Code)
+- pi-bundle-mcp-runtime-wdPhNMoF.js (120 bytes stub) → pi-bundle-mcp-runtime-DhFyH7mH.js
+- pi-bundle-mcp-tools-BL2tJQA-.js → pi-bundle-mcp-tools-D-15SltU.js
+
+Mein P0.2-Marker + Backup-File von 09:03 wurden beim npm install gelöscht. callTool-Pattern in 2026.4.24 ist **identisch zur 2026.4.22** — kein built-in reconnect-fix. P0.2-Patch deshalb **re-applied via apply-mcp-recovery-patch.py** auf B_SrebwR.js (30328 → 30757 bytes, marker present).
+
+### Post-Update-Snapshot 09:26 UTC
+
+| Component | Status |
+|---|---|
+| openclaw version | 2026.4.24 (cbcfdf6) |
+| Gateway | active, PID 3794226, MemoryMax=6G, MemoryCurrent 676M |
+| MC HTTP /api/health | 200 |
+| QMD HTTP :8181/mcp | 406 (handshake-required) |
+| MCP children post-restart | 0 taskboard (lazy-spawn), 1 qmd |
+| MCP Not connected errors | 0 (90s window) |
+| P0.2 marker in B_SrebwR.js | 1 (re-applied) |
+| Backup of B_SrebwR.js | ...bak-pre-mcp-recovery-20260427T072424Z |
+
+### Conclusions
+
+- Update auf 2026.4.24 ist vollständig und stabil.
+- P0.3 (systemd ExecStartPre auto-re-apply) ist **weiterhin nicht deployed** — ohne diesen Hook muss bei jedem zukünftigen openclaw update der apply-script manuell re-run werden.
+- 2026.4.24 hat den MCP-Stdio-Reconnect-Bug **NICHT gefixt** — P0.2-Patch bleibt nötig in unbestimmter Zeit.
+- Forge Pre-Go conditional Go nun erfüllt: QMD grün, Update done.
+
+### Doctor-Warnings (für Folge-Tasks priorisiert)
+
+Aus update doctor-output Kandidaten für separate maintenance-PRs:
+1. anthropic:claude-code-refresh expired — re-auth via openclaw models auth login
+2. Claude CLI auth profile missing in main agent's auth-profiles.json
+3. 1 agent dir without agents.list entry: worker
+4. 599 orphan transcript files in main/sessions — doctor --fix kann archivieren
+5. Legacy cron storage cron/jobs.json (1 dreaming job) — doctor --fix normalize
+6. openclaw-healthcheck.service detected als duplicate gateway-like service
+7. Gateway PATH missing /home/piet/.nix-profile/bin
+8. Security: gateway bound to 0.0.0.0 (LAN) — ist intentional für deine Topologie
