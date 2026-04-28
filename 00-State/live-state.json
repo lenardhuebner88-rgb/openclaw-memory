@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-28T05:30:01.580711+00:00",
+  "generated_at": "2026-04-28T06:00:01.421300+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 0,
+    "agents_active": 1,
     "crons_total": 46,
     "crons_by_tier": {
       "T1-realtime": 4,
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-28T05:23:38.214012+00:00",
-      "latest_session_size_bytes": 173524,
-      "session_count": 144
+      "status": "active",
+      "last_session_iso": "2026-04-28T06:00:00.428786+00:00",
+      "latest_session_size_bytes": 363617,
+      "session_count": 143
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-04-28T05:23:10.064869+00:00",
-      "latest_session_size_bytes": 6017025,
+      "last_session_iso": "2026-04-28T05:51:23.183122+00:00",
+      "latest_session_size_bytes": 8294,
       "session_count": 1637
     },
     {
@@ -883,6 +883,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "ba1b4da",
+      "date": "2026-04-28T07:30:17+02:00",
+      "subject": "auto-sync: 2026-04-28 07:30"
+    },
+    {
       "hash": "65fb279",
       "date": "2026-04-28T07:00:05+02:00",
       "subject": "auto-sync: 2026-04-28 07:00"
@@ -926,11 +931,6 @@
       "hash": "03f03d7",
       "date": "2026-04-28T03:00:02+02:00",
       "subject": "chore(config-backup): snapshot 2026-04-28"
-    },
-    {
-      "hash": "891e8c9",
-      "date": "2026-04-28T02:57:17+02:00",
-      "subject": "auto-sync: 2026-04-28 02:57"
     }
   ],
   "scripts": {
@@ -943,11 +943,9 @@
       "status": "running",
       "pids": [
         893102,
-        1078289,
-        1078311,
-        1078329,
-        1078470,
-        1078472
+        1107832,
+        1107874,
+        1107889
       ]
     },
     {
@@ -955,9 +953,14 @@
       "status": "running",
       "pids": [
         1055996,
-        1062917,
-        1070826,
-        1072498
+        1093648,
+        1099371,
+        1100124,
+        1101712,
+        1107826,
+        1107854,
+        1107866,
+        1108082
       ]
     }
   ],

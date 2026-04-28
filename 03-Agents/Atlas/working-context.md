@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 073182d7-5659-4da4-bbb9-5f7895d93913 [P1][Forge] T3: DATA: FALLBACK Root-Cause + Fix
+- task: 299639e5-11bb-4ff8-b95c-b81616ab56b5 [P1][Atlas] Auto-follow-up draft creation harden — approvalMode/operatorLock/approvalClass erzwingen
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-04-27T21:33:49.538Z
+- updated: 2026-04-28T05:53:31.284Z
 <!-- mc:auto-working-context:end -->
