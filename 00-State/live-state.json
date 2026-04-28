@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-28T00:57:01.579525+00:00",
+  "generated_at": "2026-04-28T01:27:01.215961+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-04-28T00:51:22.470073+00:00",
-      "latest_session_size_bytes": 184728,
-      "session_count": 137
+      "last_session_iso": "2026-04-28T01:21:39.658278+00:00",
+      "latest_session_size_bytes": 203433,
+      "session_count": 143
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-04-28T00:51:08.551012+00:00",
-      "latest_session_size_bytes": 33705,
+      "last_session_iso": "2026-04-28T01:21:12.132153+00:00",
+      "latest_session_size_bytes": 7262,
       "session_count": 1635
     },
     {
@@ -883,6 +883,16 @@
   ],
   "vault_commits": [
     {
+      "hash": "03f03d7",
+      "date": "2026-04-28T03:00:02+02:00",
+      "subject": "chore(config-backup): snapshot 2026-04-28"
+    },
+    {
+      "hash": "891e8c9",
+      "date": "2026-04-28T02:57:17+02:00",
+      "subject": "auto-sync: 2026-04-28 02:57"
+    },
+    {
       "hash": "6b7101f",
       "date": "2026-04-28T02:27:17+02:00",
       "subject": "auto-sync: 2026-04-28 02:27"
@@ -921,16 +931,6 @@
       "hash": "23c85ce",
       "date": "2026-04-27T22:54:23+02:00",
       "subject": "auto-sync: 2026-04-27 22:54"
-    },
-    {
-      "hash": "5bb0435",
-      "date": "2026-04-27T22:24:17+02:00",
-      "subject": "auto-sync: 2026-04-27 22:24"
-    },
-    {
-      "hash": "6489deb",
-      "date": "2026-04-27T21:54:17+02:00",
-      "subject": "auto-sync: 2026-04-27 21:54"
     }
   ],
   "scripts": {
@@ -949,8 +949,8 @@
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        769499,
-        804592
+        833769,
+        835726
       ]
     }
   ],
