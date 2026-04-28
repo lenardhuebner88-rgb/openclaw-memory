@@ -1413,3 +1413,4 @@ Two-layer enforcement added:
 
 **Open (offen-entschieden):**
 - Whether auto-follow-up drafts can be fully activated post-fix remains a separate operator decision
+- 2026-04-28T06:43:19.885Z | FAILED | 8e72ec16-80c7-429b-842f-3d337dc8caa2 | [P1][Atlas] Meeting/Debate E2E Runs — 3 angeforderte Themes (Context-Management + Approval-Gates) | worker=main | progress=- | summary=-
