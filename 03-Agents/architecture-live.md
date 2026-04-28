@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-04-28T08:30:01.751448+00:00
+last_generated: 2026-04-28T09:00:02.091129+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-04-28 08:30 UTC  
+**Generated:** 2026-04-28 09:00 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -23,10 +23,10 @@ flowchart TB
         agent_default["default<br/>n/a<br/>0 KB"]
         agent_efficiency_auditor["efficiency-auditor<br/>1h ago<br/>61 KB"]
         agent_frontend_guru["frontend-guru<br/>11h ago<br/>201 KB"]
-        agent_james["james<br/>15h ago<br/>995 KB"]
-        agent_main["main<br/>8m ago<br/>2547 KB"]
+        agent_james["james<br/>16h ago<br/>995 KB"]
+        agent_main["main<br/>8m ago<br/>3240 KB"]
         agent_spark["spark<br/>12h ago<br/>5891 KB"]
-        agent_sre_expert["sre-expert<br/>8m ago<br/>18 KB"]
+        agent_sre_expert["sre-expert<br/>8m ago<br/>27 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -71,7 +71,7 @@ flowchart TB
 
 ## ⚡ Health Summary
 
-- **Atlas session-size telemetry:** info only — `[2026-04-28T08:30:01Z] CRITICAL session=f39519ae-b66 pct=434%`
+- **Atlas session-size telemetry:** info only — `[2026-04-28T09:00:02Z] CRITICAL session=f39519ae-b66 pct=553%`
 - **Graph edges:** 1279
 - **Rules active:** 57
 - **Facts (all-time):** 287 across 1 daily files
@@ -87,10 +87,10 @@ flowchart TB
 | `default` | n/a | 0 | `/home/piet/.openclaw/agents/default` |
 | `efficiency-auditor` | 1h ago | 61 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 11h ago | 201 | `/home/piet/.openclaw/agents/frontend-guru` |
-| `james` | 15h ago | 995 | `/home/piet/.openclaw/agents/james` |
-| `main` | 8m ago | 2547 | `/home/piet/.openclaw/agents/main` |
+| `james` | 16h ago | 995 | `/home/piet/.openclaw/agents/james` |
+| `main` | 8m ago | 3240 | `/home/piet/.openclaw/agents/main` |
 | `spark` | 12h ago | 5891 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 8m ago | 18 | `/home/piet/.openclaw/agents/sre-expert` |
+| `sre-expert` | 8m ago | 27 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
@@ -196,11 +196,11 @@ flowchart TB
 
 **Last 5 budget-meter ticks:**
 ```
-[2026-04-28T08:10:01Z] CRITICAL session=f39519ae-b66 pct=363%
-[2026-04-28T08:15:01Z] OK session=1726e732-57d pct=29%
-[2026-04-28T08:20:01Z] OK session=1726e732-57d pct=34%
-[2026-04-28T08:25:01Z] CRITICAL session=f39519ae-b66 pct=434%
-[2026-04-28T08:30:01Z] CRITICAL session=f39519ae-b66 pct=434%
+[2026-04-28T08:40:01Z] CRITICAL session=f39519ae-b66 pct=472%
+[2026-04-28T08:45:01Z] CRITICAL session=f39519ae-b66 pct=512%
+[2026-04-28T08:50:01Z] OK session=1726e732-57d pct=39%
+[2026-04-28T08:55:01Z] CRITICAL session=f39519ae-b66 pct=553%
+[2026-04-28T09:00:02Z] CRITICAL session=f39519ae-b66 pct=553%
 ```
 
 ## 📜 Rules R1-R57 (56 total, by category)
@@ -296,11 +296,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+18c04cb 2026-04-28 auto-sync: 2026-04-28 10:31
 3ec120e 2026-04-28 auto-sync: 2026-04-28 10:01
 82c996e 2026-04-28 auto-sync: 2026-04-28 09:31
 b5ff440 2026-04-28 auto-sync: 2026-04-28 09:01
 8f6afa0 2026-04-28 auto-sync: 2026-04-28 08:31
-104a2bd 2026-04-28 auto-sync: 2026-04-28 08:00
 ```
 
 ---
