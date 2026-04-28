@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-28T08:01:01.218641+00:00",
+  "generated_at": "2026-04-28T08:31:01.189649+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -53,7 +53,7 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-04-28T07:03:00.516984+00:00",
       "latest_session_size_bytes": 22566,
       "session_count": 53
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-04-28T08:00:55.977895+00:00",
-      "latest_session_size_bytes": 554556,
+      "status": "monitoring",
+      "last_session_iso": "2026-04-28T08:21:45.138675+00:00",
+      "latest_session_size_bytes": 717989,
       "session_count": 143
     },
     {
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-28T07:51:30.922824+00:00",
-      "latest_session_size_bytes": 39000,
-      "session_count": 1636
+      "status": "active",
+      "last_session_iso": "2026-04-28T08:31:01.176222+00:00",
+      "latest_session_size_bytes": 14304,
+      "session_count": 1637
     },
     {
       "id": "test-lock",
@@ -883,6 +883,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "3ec120e",
+      "date": "2026-04-28T10:01:17+02:00",
+      "subject": "auto-sync: 2026-04-28 10:01"
+    },
+    {
       "hash": "82c996e",
       "date": "2026-04-28T09:31:17+02:00",
       "subject": "auto-sync: 2026-04-28 09:31"
@@ -926,11 +931,6 @@
       "hash": "eacebe3",
       "date": "2026-04-28T05:29:17+02:00",
       "subject": "auto-sync: 2026-04-28 05:29"
-    },
-    {
-      "hash": "50ee44e",
-      "date": "2026-04-28T04:59:17+02:00",
-      "subject": "auto-sync: 2026-04-28 04:59"
     }
   ],
   "scripts": {
@@ -943,18 +943,16 @@
       "status": "running",
       "pids": [
         1132438,
-        1233570
+        1262551
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1148188,
         1211824,
-        1217124,
-        1230149,
-        1233563
+        1237980,
+        1262544
       ]
     }
   ],
