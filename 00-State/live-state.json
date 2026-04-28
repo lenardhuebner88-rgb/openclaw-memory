@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-28T07:31:01.140379+00:00",
+  "generated_at": "2026-04-28T08:01:01.218641+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-28T07:23:19.693631+00:00",
-      "latest_session_size_bytes": 501781,
-      "session_count": 141
+      "status": "active",
+      "last_session_iso": "2026-04-28T08:00:55.977895+00:00",
+      "latest_session_size_bytes": 554556,
+      "session_count": 143
     },
     {
       "id": "spark",
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "active",
-      "last_session_iso": "2026-04-28T07:30:27.128955+00:00",
-      "latest_session_size_bytes": 6756,
-      "session_count": 1637
+      "status": "monitoring",
+      "last_session_iso": "2026-04-28T07:51:30.922824+00:00",
+      "latest_session_size_bytes": 39000,
+      "session_count": 1636
     },
     {
       "id": "test-lock",
@@ -883,6 +883,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "82c996e",
+      "date": "2026-04-28T09:31:17+02:00",
+      "subject": "auto-sync: 2026-04-28 09:31"
+    },
+    {
       "hash": "b5ff440",
       "date": "2026-04-28T09:01:17+02:00",
       "subject": "auto-sync: 2026-04-28 09:01"
@@ -926,11 +931,6 @@
       "hash": "50ee44e",
       "date": "2026-04-28T04:59:17+02:00",
       "subject": "auto-sync: 2026-04-28 04:59"
-    },
-    {
-      "hash": "d2d930d",
-      "date": "2026-04-28T04:28:17+02:00",
-      "subject": "auto-sync: 2026-04-28 04:28"
     }
   ],
   "scripts": {
@@ -943,7 +943,7 @@
       "status": "running",
       "pids": [
         1132438,
-        1205793
+        1233570
       ]
     },
     {
@@ -951,8 +951,10 @@
       "status": "running",
       "pids": [
         1148188,
-        1197966,
-        1205786
+        1211824,
+        1217124,
+        1230149,
+        1233563
       ]
     }
   ],
