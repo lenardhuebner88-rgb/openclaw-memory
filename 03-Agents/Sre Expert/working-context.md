@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: acfa26f6-1410-4eb8-b99d-de4d23c1eeee [Cleanup] Stale worker-run a02aa944 auf canceled task 8e72ec16 schließen
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-28T15:04:00.501Z
+- task: 359ed4a1-a7a5-436e-b9d3-b46967956054 [MC-T01] T3 Retry: DATA FALLBACK Root-Cause + Fix
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- blocker: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- updated: 2026-04-28T15:24:17.883Z
 <!-- mc:auto-working-context:end -->
