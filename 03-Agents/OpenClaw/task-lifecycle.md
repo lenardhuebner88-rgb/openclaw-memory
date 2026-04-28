@@ -1367,3 +1367,49 @@ VERIFY
 - 2026-04-28T05:20:48.051Z | START | c19267c0-396c-48e1-aeda-638e56f1c400 | [P1][Forge] 24h-Soak-Verifikation: S-RELIAB-P0 T2 Single-Owner Pending-Pickup | worker=sre-expert | progress=- | summary=-
 - 2026-04-28T05:22:46.413Z | DONE | c19267c0-396c-48e1-aeda-638e56f1c400 | [P1][Forge] 24h-Soak-Verifikation: S-RELIAB-P0 T2 Single-Owner Pending-Pickup | worker=sre-expert | progress=- | summary=24h-Soak-Verifikation PASS. S-RELIAB-P0 T2 F2 Single-Owner Mechanismus funktioniert: worker-monitor.py log (49k Zeilen, 24h+): 0x "spawning..." fuer pending-pickup. worker-reconciler-proof: 0 double-owner events, 0 critical issues. Auto-pickup logs (past 24h): spawn_new=0. F2-AttemptId Claim-Schutz bestaetigt.
 - 2026-04-28T05:53:31.283Z | START | 299639e5-11bb-4ff8-b95c-b81616ab56b5 | [P1][Atlas] Auto-follow-up draft creation harden — approvalMode/operatorLock/approvalClass erzwingen | worker=Atlas | progress=- | summary=-
+- 2026-04-28T06:08:48.378Z | DONE | 299639e5-11bb-4ff8-b95c-b81616ab56b5 | [P1][Atlas] Auto-follow-up draft creation harden — approvalMode/operatorLock/approvalClass erzwingen | worker=main | progress=- | summary=## EXECUTION_STATUS
+
+**Phase 1 — Analysis**
+- Task received via pending-pickup dispatch (token: ecf9fde0...)
+- Board audit: 0 active drafts, 1 pending-pickup task (8e72ec16) without approval metadata → backfilled
+
+**Phase 2 — Code Change (src/app/api/tasks/route.ts)**
+Two-layer enforcement added:
+
+1. **LARGE-GATE FOLLOW-UP (2026-04-28, already present)**
+   - Lines 591–639: `if (normalizedStatus === 'draft' && !isAutonomyDraft)`
+   - Enforces: operatorLock=true, approvalMode=operator, non-empty lockReason, approvalClass, riskLevel
+   - Includes consistency check: operatorLock=true only valid for sudo-required/model-switch-required
+   - Covers: non-autonomy drafts via POST /api/tasks
+
+2. **DRAFT-HARDENING (2026-04-28, added by this task)**
+   - Lines 641–658: `if (normalizedStatus === 'draft')` (general catch-all)
+   - Checks all 5 required fields with aggregated missing-field report
+   - Covers: any remaining draft creation paths (belt-and-suspenders over LARGE-GATE)
+
+**Phase 3 — Verification**
+- TypeScript: clean (only pre-existing mermaid type warnings)
+- Live endpoint tests (curl):
+  - Missing operatorLock → 400 "All drafts must be operator-locked"
+  - Missing approvalMode → 400 "All drafts must set approvalMode=operator"
+  - Missing approvalClass → 400 "All drafts must declare approvalClass"
+  - Missing riskLevel → 400 "All drafts must declare riskLevel"
+  - Valid combo (sudo-required + operator + lockReason) → 201 created ✅
+- Board: 0 open issues, board.issueCount=0
+- Pre-existing task 8e72ec16 backfilled with full metadata
+
+## RESULT_SUMMARY
+
+**Done:**
+- Draft creation hardened at POST /api/tasks level (tasks/route.ts)
+- LARGE-GATE block already present; DRAFT-HARDENING belt-and-suspenders added
+- All existing tasks verified; pre-existing gap (8e72ec16) backfilled
+- Build deployed, MC restarted and healthy (status=ok)
+- Board clean: 0 draft hygiene issues
+
+**Residual:**
+- Test draft c92fb95f created during verification (valid metadata, sudo-required, operator-gated) — can be canceled manually if needed
+- Anti-scope respected: no cron/service/model changes made
+
+**Open (offen-entschieden):**
+- Whether auto-follow-up drafts can be fully activated post-fix remains a separate operator decision

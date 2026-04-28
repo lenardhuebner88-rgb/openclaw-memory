@@ -7,10 +7,16 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a0a59b11-7b89-4b5c-9753-0382e6983b5c [P3][Atlas] HEARTBEAT.md Production-Script-Path Convention-Note
+- task: 299639e5-11bb-4ff8-b95c-b81616ab56b5 [P1][Atlas] Auto-follow-up draft creation harden — approvalMode/operatorLock/approvalClass erzwingen
 - stage: DONE
 - next: await next assignment
-- checkpoint: HEARTBEAT.md erweitert: 2511 Bytes (Limit 3.5 KB). Path-Convention-Note eingefuegt unter ## Path Conventions. Production-Scripts in /home/piet/.openclaw/scripts/, workspace/scripts/ ist git-tracked Source ohne Cron-Cover
+- checkpoint: ## EXECUTION_STATUS
+
+**Phase 1 — Analysis**
+- Task received via pending-pickup dispatch (token: ecf9fde0...)
+- Board audit: 0 active drafts, 1 pending-pickup task (8e72ec16) without approval metadata → backfilled
+
+**Phas
 - blocker: -
-- updated: 2026-04-27T20:54:17.486Z
+- updated: 2026-04-28T06:08:48.380Z
 <!-- mc:auto-working-context:end -->
