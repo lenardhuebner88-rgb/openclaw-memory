@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 359ed4a1-a7a5-436e-b9d3-b46967956054 [MC-T01] T3 Retry: DATA FALLBACK Root-Cause + Fix
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Auto-pickup unclaimed after 5 attempts: unclaimed-retry-limit-before-trigger
-- blocker: Auto-pickup unclaimed after 5 attempts: unclaimed-retry-limit-before-trigger
-- updated: 2026-04-28T15:56:43.839Z
+- task: 7f4cdd21-74e3-4b55-a3c0-172b9a4f265f [P1][Forge] 403er Auto-Pickup Bug — Ingress/Receipt Validierung
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-28T16:19:28.999Z
 <!-- mc:auto-working-context:end -->
