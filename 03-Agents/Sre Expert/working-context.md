@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5ef016fc-c984-4d94-9ed2-b1d93bf256e5 Archiviere rotierte sre-expert Sessions + Janitor-Scope auf Worker-Dirs erweitern
-- stage: DONE
+- task: 727224cd-1a2c-45d6-942c-df0dfe58b677 [MC-T01][Forge] T4: Cost Source-of-Truth Konsolidierung
+- stage: FAILED
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done\n\nRESULT_SUMMARY:\n- Moved 8 rotated session files (~31 MB) from agents/sre-expert/sessions/ to agents/sre-expert/sessions/archive/\n- Extended session-janitor.py to cover all worker agent session
-- blocker: -
-- updated: 2026-04-28T13:51:08.657Z
+- checkpoint: Auto-pickup unclaimed after 4 attempts: unclaimed-retry-limit-before-trigger
+- blocker: Auto-pickup unclaimed after 4 attempts: unclaimed-retry-limit-before-trigger
+- updated: 2026-04-28T14:17:19.523Z
 <!-- mc:auto-working-context:end -->
