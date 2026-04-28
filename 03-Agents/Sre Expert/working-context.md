@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7f4cdd21-74e3-4b55-a3c0-172b9a4f265f [P1][Forge] 403er Auto-Pickup Bug — Ingress/Receipt Validierung
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-04-28T16:19:28.999Z
+- task: 42df1ec1-648a-456c-a242-563c04c4b29e [P2][Forge] mc-pending-pickup-smoke.sh — operatorLock fehlt im Payload
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- blocker: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- updated: 2026-04-28T16:43:45.609Z
 <!-- mc:auto-working-context:end -->
