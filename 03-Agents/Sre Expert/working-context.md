@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 727224cd-1a2c-45d6-942c-df0dfe58b677 [MC-T01][Forge] T4: Cost Source-of-Truth Konsolidierung
-- stage: FAILED
-- next: await next assignment
-- checkpoint: Auto-pickup unclaimed after 4 attempts: unclaimed-retry-limit-before-trigger
-- blocker: Auto-pickup unclaimed after 4 attempts: unclaimed-retry-limit-before-trigger
-- updated: 2026-04-28T14:17:19.523Z
+- task: acfa26f6-1410-4eb8-b99d-de4d23c1eeee [Cleanup] Stale worker-run a02aa944 auf canceled task 8e72ec16 schließen
+- stage: START
+- next: continue current task
+- checkpoint: -
+- blocker: -
+- updated: 2026-04-28T15:04:00.501Z
 <!-- mc:auto-working-context:end -->
