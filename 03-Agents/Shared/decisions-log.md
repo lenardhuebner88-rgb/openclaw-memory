@@ -1,6 +1,7 @@
 # Decisions Log
 
 ## Active decisions
+- 2026-04-28: Receipt blocked task blocked: Needs human decision <!-- mc:auto-decision:receipt-blocked-task|blocked|receipt-blocked-task-blocked-needs-human-decision -->
 - 2026-04-27: [P1][Forge] Approval Gate: Activate + E2E Verify Context Runtime Patches blocked: Operator approval required for gateway restart/activation window before live E2E runtime verification. <!-- mc:auto-decision:d92c5f3a-a83f-44fe-a0be-2e5341fc9cab|blocked|p1-forge-approval-gate-activate-e2e-verify-context-runtime-patches-blocked-opera -->
 
 ## Historical decisions
