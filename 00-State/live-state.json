@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-28T09:01:01.356666+00:00",
+  "generated_at": "2026-04-28T09:31:01.537404+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-04-28T08:51:34.566305+00:00",
-      "latest_session_size_bytes": 823404,
-      "session_count": 142
+      "last_session_iso": "2026-04-28T09:24:13.549495+00:00",
+      "latest_session_size_bytes": 180780,
+      "session_count": 143
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-28T09:00:28.084955+00:00",
-      "latest_session_size_bytes": 2675,
+      "last_session_iso": "2026-04-28T09:31:01.522345+00:00",
+      "latest_session_size_bytes": 16580,
       "session_count": 1637
     },
     {
@@ -883,6 +883,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "ebe8a85",
+      "date": "2026-04-28T11:01:17+02:00",
+      "subject": "auto-sync: 2026-04-28 11:01"
+    },
+    {
       "hash": "18c04cb",
       "date": "2026-04-28T10:31:17+02:00",
       "subject": "auto-sync: 2026-04-28 10:31"
@@ -926,11 +931,6 @@
       "hash": "d3b0c3a",
       "date": "2026-04-28T06:30:03+02:00",
       "subject": "auto-sync: 2026-04-28 06:30"
-    },
-    {
-      "hash": "650e470",
-      "date": "2026-04-28T05:59:17+02:00",
-      "subject": "auto-sync: 2026-04-28 05:59"
     }
   ],
   "scripts": {
@@ -942,17 +942,17 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        1132438,
-        1289607
+        1298921,
+        1319555
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1211824,
-        1237980,
-        1289600
+        1304457,
+        1306393,
+        1319548
       ]
     }
   ],
