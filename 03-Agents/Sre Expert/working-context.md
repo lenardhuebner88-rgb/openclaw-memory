@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 434ce2a6-56bf-4061-87fb-e7a846b68229 [MC-T01][Forge] T1: /automate Dead-Link Resolution
-- stage: FAILED
+- task: 5ef016fc-c984-4d94-9ed2-b1d93bf256e5 Archiviere rotierte sre-expert Sessions + Janitor-Scope auf Worker-Dirs erweitern
+- stage: DONE
 - next: await next assignment
-- checkpoint: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
-- blocker: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
-- updated: 2026-04-28T12:58:18.227Z
+- checkpoint: EXECUTION_STATUS: done\n\nRESULT_SUMMARY:\n- Moved 8 rotated session files (~31 MB) from agents/sre-expert/sessions/ to agents/sre-expert/sessions/archive/\n- Extended session-janitor.py to cover all worker agent session
+- blocker: -
+- updated: 2026-04-28T13:51:08.657Z
 <!-- mc:auto-working-context:end -->
