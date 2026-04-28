@@ -1,0 +1,7 @@
+# Memory hardening after Gateway-OOM incident 2026-04-17 16:11 UTC.
+# Root cause: V8 default heap limit was hit before systemd-level MemoryMax, causing
+# hard V8 OOM crash (status=6/ABRT, core-dump) while MemoryMax=2560M had headroom.
+# Fix: raise V8 heap limit to 4 GB, raise systemd cap accordingly.
+[Service]
+Environment=NODE_OPTIONS=--max-old-space-size=4096
+MemoryMax=4500M

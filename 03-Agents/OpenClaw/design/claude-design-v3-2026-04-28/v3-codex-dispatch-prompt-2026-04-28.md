@@ -13,6 +13,8 @@ related:
 
 > ## ⚡ UPDATED AFTER CODEX LIVE CHECK — 2026-04-28T22:35Z
 > ## ⚡ UPDATED FOR AUTONOMOUS-NIGHT-RUN — 2026-04-28T23:15Z
+> ## ⚡ UPDATED FOR FULL-ATLAS-AUTONOMY — 2026-04-28T23:45Z (Codex removed entirely; Atlas bootstraps via single morning POST)
+> ## ⚡ Operator trigger now lives in `v3-morning-trigger.md` + `v3-atlas-bootstrap-task.json`. Atlas mission in `v3-atlas-mission.md`. This file remains as REFERENCE for slice details (Phase 1 description copy-source).
 >
 > - **verifiedAt:** 2026-04-28T22:35Z (live-check by Codex App)
 > - **/api/health:** ok (status=ok, severity=ok, board.openCount=0, inProgress=0, review=0, blocked=0, failed=0, staleOpenTasks=0)

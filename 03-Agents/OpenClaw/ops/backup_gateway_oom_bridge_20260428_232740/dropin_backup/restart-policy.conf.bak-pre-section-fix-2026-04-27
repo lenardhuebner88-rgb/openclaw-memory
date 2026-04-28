@@ -1,0 +1,7 @@
+[Service]
+# Prevent rapid crash-loops: wait 30s between restarts (was 15s)
+# Gives the old gateway time to release port + resources
+RestartSec=30
+# Burst limit: max 5 restarts in 120s, then stop trying
+StartLimitIntervalSec=120
+StartLimitBurst=5

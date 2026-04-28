@@ -1,0 +1,13 @@
+{
+  "title": "[V3 Sprint] Atlas Master — V3 Taskboard Implementation Sprint",
+  "description": "Mission: V3 Taskboard Implementation Sprint with full Atlas autonomy. NO Codex involvement. Atlas handles Phases 0-4 end-to-end.\n\n=== REQUIRED READING (Cycle 1) ===\n\n1. /home/piet/vault/03-Agents/OpenClaw/design/claude-design-v3-2026-04-28/v3-atlas-mission.md\n   → Your full mission, state-detection logic, per-phase steps, Discord report format\n\n2. /home/piet/vault/03-Agents/OpenClaw/design/claude-design-v3-2026-04-28/v3-status-derivation-spec.md\n   → V3 architecture, 12 canonical statuses, 7 lanes, mapping table, edge cases\n\n3. /home/piet/vault/03-Agents/OpenClaw/design/claude-design-v3-2026-04-28/v3-codex-dispatch-prompt-2026-04-28.md\n   → SPRINT-MATRIX (17 slices), SLICE DETAILS (per-slice prompt blocks for Phase 1 task creation), Hard Rules\n\n=== EXECUTION ===\n\nFollow the state-detection logic in v3-atlas-mission.md. One decision per cycle. Each cycle: read your master state + board snapshot, decide phase action, execute, exit cycle.\n\nPhases:\n- Phase 0 (1 cycle): live-baseline + handover-skeleton\n- Phase 1 (17 cycles, 1 task per cycle): create slice tasks per SPRINT-MATRIX\n- Phase 2/3 (continuous): dispatch + monitor + receipts\n- Phase 4 (1 cycle): aggregate + final verdict\n\nDiscord channel: 1495737862522405088 (plain text, no embeds). Reports: 1 per phase + 1 per slice transition. No hourly heartbeats.\n\nHARD: WIP=2 global, 1 per agent. No touch /kanban /taskboard /dashboard. Slice G mock-only during autonomous run. Kill-switch ~/.openclaw/HALT.\n\nBegin with Phase 0 (read 3 files above, baseline check, write handover-skeleton).",
+  "assignee": "main",
+  "priority": "high",
+  "approvalClass": "safe-read-only",
+  "riskLevel": "medium",
+  "decisionKey": "v3-master-2026-04-29",
+  "labels": ["v3-sprint", "atlas-master", "autonomy-test"],
+  "status": "assigned",
+  "project": "v3-taskboard",
+  "autoSource": "manual"
+}
