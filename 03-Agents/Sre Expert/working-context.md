@@ -8,9 +8,9 @@
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 5a42a3fa-302b-4cd0-9d75-e8842cb2e8c7 [P1][Forge] Redesign alerts counts from raw log lines to deduped operational incidents
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Validierung gestartet: typecheck läuft global rot wegen bestehender mermaid-Importfehler in src/components/ops/dependency-graph.tsx (nicht Teil dieses Tasks). Nächster Schritt: live endpoint via safe restart verifizieren
+- stage: DONE
+- next: await next assignment
+- checkpoint: Backend-Redesign für /api/alerts abgeschlossen: neue Raw-vs-Incident-Metriken mit Dedupe-Gruppierung live verifiziert, ohne Ack/Mute-Regression und ohne UI-Änderungen.
 - blocker: -
-- updated: 2026-04-28T22:08:45.324Z
+- updated: 2026-04-28T22:19:05.817Z
 <!-- mc:auto-working-context:end -->
