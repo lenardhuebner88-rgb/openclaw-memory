@@ -1363,3 +1363,4 @@ VERIFY
 - Build success ✅
 - 2026-04-27T21:33:49.537Z | START | 073182d7-5659-4da4-bbb9-5f7895d93913 | [P1][Forge] T3: DATA: FALLBACK Root-Cause + Fix | worker=atlas | progress=- | summary=-
 - 2026-04-28T04:22:31.791Z | START | 9f087c6c-de9f-495d-bae9-609275b9b72d | Fix Session-Size-Gate-Mechanismus in auto-pickup.py | worker=sre-expert | progress=- | summary=-
+- 2026-04-28T04:35:38.027Z | DONE | 9f087c6c-de9f-495d-bae9-609275b9b72d | Fix Session-Size-Gate-Mechanismus in auto-pickup.py | worker=sre-expert | progress=- | summary=Session-Size-Gate behoben: _rotate_session() + _do_session_rotation() implementiert. Kritische 3.7MB Session (db928813-764) erfolgreich archiviert, fresh Bootstrap (230B) erstellt, sessions.json aktualisiert. Health stabil.
