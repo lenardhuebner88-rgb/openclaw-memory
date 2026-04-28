@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e31ff00a-cccb-43e5-abdb-7787ffbfd64a [P2][Forge] mc-pending-pickup-smoke.sh — operatorLock fehlt im Payload
+- task: 5c7dfc59-d62b-4c38-b365-31f585686a16 [P1][Forge] MC-T03 Alerts Backend Slice 1 - Ack/Mute + Severity + Suppression Guard
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Added approvalMode=operator to smoke task create payload; API now satisfies current draft-validation requirements along with operatorLock/lockReason.
+- checkpoint: Implemented backend slice: /api/alerts now supports POST ack/mute/unack/unmute metadata persistence, GET supports includeSuppressed, and alert snapshot now normalizes severity hierarchy and applies bounded mute suppressi
 - blocker: -
-- updated: 2026-04-28T19:39:20.557Z
+- updated: 2026-04-28T20:08:40.829Z
 <!-- mc:auto-working-context:end -->

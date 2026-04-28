@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <title>Taskboard v2 — Mobile Redesign</title>
+  <link rel="stylesheet" href="mc-tokens.css"/>
+  <style>
+    html, body { margin: 0; background: #f0eee9; overscroll-behavior: none; }
+    body { font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
+
+    /* toolbar — sits above the canvas */
+    .dc-toolbar {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      z-index: 100;
+      display: inline-flex; gap: 2px; padding: 4px;
+      background: white; border-radius: 999px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      font-family: -apple-system, system-ui, sans-serif;
+    }
+    .dc-toolbar button {
+      all: unset; cursor: pointer; padding: 7px 14px;
+      border-radius: 999px; font-size: 12px; font-weight: 500;
+      color: #5a4a2a; letter-spacing: .02em;
+    }
+    .dc-toolbar button.on {
+      background: #7c3aed; color: white;
+      box-shadow: 0 0 12px rgba(124,58,237,.25);
+    }
+
+    /* Tweaks panel */
+    .tweaks {
+      position: fixed; right: 16px; bottom: 16px; z-index: 100;
+      width: 280px; background: #111; color: #f0f0f0;
+      border: 1px solid #2a2a2a; border-radius: 14px;
+      font-family: var(--font-sans);
+      box-shadow: 0 10px 40px rgba(0,0,0,.3);
+      display: none;
+    }
+    .tweaks.open { display: block; }
+    .tweaks-header {
+      padding: 10px 14px; border-bottom: 1px solid #1e1e1e;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 10px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600;
+      color: #c4b5fd;
+    }
+    .tweaks-row { padding: 10px 14px; border-bottom: 1px solid #1e1e1e; }
+    .tweaks-row:last-child { border-bottom: none; }
+    .tweaks-label { font-size: 11px; color: #9ca3af; margin-bottom: 6px; letter-spacing: .06em; text-transform: uppercase; }
+    .tweaks-opts { display: flex; gap: 4px; flex-wrap: wrap; }
+    .tweaks-opts button {
+      all: unset; cursor: pointer; padding: 6px 10px;
+      border-radius: 8px; font-size: 11px;
+      border: 1px solid #2a2a2a; background: #1a1a1a; color: #d4d4d8;
+    }
+    .tweaks-opts button.on {
+      border-color: rgba(124,58,237,.3); background: rgba(124,58,237,.15); color: #c4b5fd;
+    }
+  </style>
+</head>
+<body>
+
+<div class="dc-toolbar">
+  <button class="on" data-view="canvas">Canvas · All views</button>
+  <button data-view="v1">V1 Mobile</button>
+  <button data-view="v2">V2 Mobile</button>
+  <button data-view="v2tablet">V2 Tablet</button>
+  <button data-view="v2desktop">V2 Desktop</button>
+  <button data-view="states">Interaction states</button>
+  <button data-view="tweaks">Tweaks</button>
+</div>
+
+<div id="root"></div>
+
+<div class="tweaks" id="tweaks">
+  <div class="tweaks-header">Tweaks <span id="tweaks-close" style="cursor:pointer;color:#9ca3af">✕</span></div>
+  <div class="tweaks-row">
+    <div class="tweaks-label">V2 — starting lane</div>
+    <div class="tweaks-opts" data-tweak="lane">
+      <button data-v="needs" class="on">Needs</button>
+      <button data-v="active">Active</button>
+      <button data-v="ready">Ready</button>
+      <button data-v="waiting">Waiting</button>
+      <button data-v="done">Done</button>
+    </div>
+  </div>
+  <div class="tweaks-row">
+    <div class="tweaks-label">V2 — Morning status mood</div>
+    <div class="tweaks-opts" data-tweak="stalled">
+      <button data-v="0">All clear</button>
+      <button data-v="1">1 stalled</button>
+      <button data-v="3" class="on">3 stalled</button>
+    </div>
+  </div>
+  <div class="tweaks-row">
+    <div class="tweaks-label">Show annotations</div>
+    <div class="tweaks-opts" data-tweak="annotations">
+      <button data-v="on" class="on">On</button>
+      <button data-v="off">Off</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="tokens.js"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="mc-mobile-shared.jsx"></script>
+<script type="text/babel" src="mc-v1.jsx"></script>
+<script type="text/babel" src="mc-v2.jsx"></script>
+<script type="text/babel" src="mc-v2-responsive.jsx"></script>
+<script type="text/babel" src="mc-v2-states.jsx"></script>
+<script type="text/babel" src="mc-v2-states-canvas.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+/* ──────────────────────────────────────────────────────────────
+   Tweak defaults (persisted via __edit_mode_set_keys)
+   ────────────────────────────────────────────────────────────── */
+const TWEAKS = /*EDITMODE-BEGIN*/{
+  "v2_stalled": 1,
+  "v2_lane": "waiting",
+  "show_annotations": true
+}/*EDITMODE-END*/;
+
+/* ──────────────────────────────────────────────────────────────
+   Canvas — all variants side-by-side with annotations
+   ────────────────────────────────────────────────────────────── */
+function CanvasView({ showAnnotations, statesOnly = false }) {
+  if (statesOnly) {
+    return (
+      <DesignCanvas>
+        <StatesSection showAnnotations={showAnnotations}/>
+      </DesignCanvas>
+    );
+  }
+  return (
+    <DesignCanvas>
+      {/* intro */}
+      <div style={{ padding: "0 60px 32px", maxWidth: 880 }}>
+        <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#7c3aed", marginBottom: 8 }}>
+          TASKBOARD V2 · RESPONSIVE HANDOFF
+        </div>
+        <h1 style={{ margin: 0, fontSize: 38, fontWeight: 600, color: "#2a1f14", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+          Glance in 3 seconds. Act in 30.
+        </h1>
+        <p style={{ fontSize: 15, color: "#5a4a2a", lineHeight: 1.5, marginTop: 12, maxWidth: 720 }}>
+          Same concept, three viewports. Mobile leads — morning-status hero + swipe chips + swipe-to-action.
+          ≥768px: chip-swap disappears, lanes collapse into a 2-col grid. ≥1024px: 5-lane grid returns,
+          hero compresses to a horizontal strip, right rail reveals (Agent load · Activity · Quick actions),
+          and hover/keyboard replace swipe. Same tokens, same AgentBadge, same type scale across all three.
+        </p>
+      </div>
+
+      {/* V1 section */}
+      <DCSection
+        title="V1 — Evolutionary refinement"
+        subtitle="Same mental model. Tighter density, better hierarchy, lanes compressed to a horizontal chip rail. iPhone 14 · 390×844."
+        gap={340}
+      >
+        <div style={{ position: "relative", paddingRight: 260 }}>
+          <PhoneFrame label="V1 · Needs attention lane" width={390} height={844}>
+            <V1Screen/>
+          </PhoneFrame>
+
+          {showAnnotations && (
+            <>
+              {/* pins aligned to areas on the phone (frame has 8px padding) */}
+              <Pin n={1} x={20 + 200} y={20 + 180}/>
+              <Pin n={2} x={20 + 200} y={20 + 280}/>
+              <Pin n={3} x={20 + 200} y={20 + 468}/>
+
+              <Callout n={1} x={420} y={120}
+                title="Hero glance-state, above the fold"
+                body="Sticky rose-tinted strip answers 'is anything stuck?' before you scroll. 3 / stalled · 117 dispatched · confidence 0% — one number, one verb."
+              />
+              <Callout n={2} x={420} y={240}
+                title="Lane chip rail, not 2-col cramp"
+                body="Horizontal snap rail replaces side-by-side lanes. One lane at full width below. Chip shows count; active chip is violet-washed."
+              />
+              <Callout n={3} x={420} y={420}
+                title="Tone-washed action row"
+                body="Details + ◆ Retry/Dispatch sit on every card at 44px min. Outline-pill style, violet wash for primary — matches desktop vocabulary exactly."
+              />
+              <DCPostIt top={700} left={330} rotate={-3} width={210}>
+                V1 preserves desktop mental model — safe migration. Ships fastest.
+              </DCPostIt>
+            </>
+          )}
+        </div>
+
+        {/* second V1 state — empty */}
+        <PhoneFrame label="V1 · Done lane (empty-lane treatment)" width={390} height={844}>
+          <V1ScreenOn lane="done"/>
+        </PhoneFrame>
+      </DCSection>
+
+      {/* V2 section */}
+      <DCSection
+        title="V2 — Radical mobile-only"
+        subtitle="Operator morning-status hero. Swipe-to-action cards (right=Dispatch, left=Admin cleanup, long-press=menu). 3 pills max per card."
+        gap={340}
+      >
+        <div style={{ position: "relative", paddingRight: 260 }}>
+          <PhoneFrame label="V2 · Morning status + Needs lane" width={390} height={844}>
+            <V2Screen/>
+          </PhoneFrame>
+
+          {showAnnotations && (
+            <>
+              <Pin n={1} x={20 + 200} y={20 + 210}/>
+              <Pin n={2} x={20 + 200} y={20 + 470}/>
+              <Pin n={3} x={20 + 200} y={20 + 620}/>
+
+              <Callout n={1} x={420} y={130}
+                title="Operator Morning Status card"
+                body="First viewport = the answer. Big 3, tone-colored. Sparkline-bar pulse. Single 'most urgent' CTA. Mirrors how you'd read a watch on the couch."
+              />
+              <Callout n={2} x={420} y={330}
+                title="Swipe chips, not lanes"
+                body="52px tap-height chips with count on bottom, tone-tinted border when active. Matches lane color vocabulary — rose for Needs, cyan Active, emerald Done."
+              />
+              <Callout n={3} x={420} y={510}
+                title="Swipe-to-action cards"
+                body="Right → violet Dispatch/Retry. Left → amber Admin cleanup. Hold → Details / Retry / Cancel sheet. Cards trimmed to 3 pills: state · priority · age."
+              />
+              <DCPostIt top={720} left={330} rotate={2} width={210}>
+                V2 assumes commute use. Every action lives on one thumb.
+              </DCPostIt>
+            </>
+          )}
+        </div>
+
+        <PhoneFrame label="V2 · Active lane focused" width={390} height={844}>
+          <V2ScreenOn lane="active" stalled={3}/>
+        </PhoneFrame>
+
+        <PhoneFrame label="V2 · Long-press quick-actions" width={390} height={844}>
+          <V2ScreenOn lane="needs" stalled={3} withSheet/>
+        </PhoneFrame>
+      </DCSection>
+
+      {/* Tablet section */}
+      <DCSection
+        title="V2 — Tablet breakpoint · 768×1024"
+        subtitle="Above md: lane-chip-swap disappears. Hero stays full-width at top. Lanes collapse into a 2-column grid of lane columns. Swipe actions still primary; bottom tab bar stays."
+        gap={340}
+      >
+        <div style={{ position: "relative", paddingRight: 280 }}>
+          <TabletBezel label="iPad · 768×1024 · portrait" width={768} height={1024}>
+            <V2TabletScreen stalled={3}/>
+          </TabletBezel>
+
+          {showAnnotations && (
+            <>
+              <Pin n={1} x={12 + 380} y={12 + 180}/>
+              <Pin n={2} x={12 + 380} y={12 + 420}/>
+              <Pin n={3} x={12 + 380} y={12 + 900}/>
+
+              <Callout n={1} x={800} y={140} width={240}
+                title="Hero stretches full-width"
+                body="Same morning-status card. Clamp-based type scales the '3' to match the wider viewport; most-urgent stays bottom-stacked."
+              />
+              <Callout n={2} x={800} y={380} width={240}
+                title="Lanes, not chips"
+                body="≥768px the chip-swap disappears entirely. Lanes collapse into 2 columns of full lane columns — all 5 visible above the fold."
+              />
+              <Callout n={3} x={800} y={860} width={240}
+                title="Bottom tab bar stays"
+                body="Still primarily touch. Tab bar preserved. Swipe-cards become tap-to-reveal actions — same affordances, not yet hover-gated."
+              />
+            </>
+          )}
+        </div>
+      </DCSection>
+
+      {/* Desktop section */}
+      <DCSection
+        title="V2 — Desktop breakpoint · 1440×900"
+        subtitle="≥1024px reveals the right rail (Agent load · Activity · Quick actions). Morning-status compresses to a horizontal dashboard strip. 5 lanes side-by-side restore information density. Hover reveals actions; j/k navigate, x dispatch, d admin cleanup."
+        gap={48}
+      >
+        <div style={{ position: "relative", paddingRight: 320 }}>
+          <DesktopBezel label="Desktop · 1440×900" width={1440} height={900}>
+            <V2DesktopScreen stalled={3}/>
+          </DesktopBezel>
+
+          {showAnnotations && (
+            <>
+              <Pin n={1} x={10 + 600} y={38 + 110}/>
+              <Pin n={2} x={10 + 260} y={38 + 300}/>
+              <Pin n={3} x={10 + 1280} y={38 + 200}/>
+              <Pin n={4} x={10 + 600} y={38 + 440}/>
+
+              <Callout n={1} x={1480} y={80} width={260}
+                title="Hero → horizontal dashboard strip"
+                body="Number + sparkline + most-urgent compressed into a single 80px strip. Still the first thing you see. Number drops to 48px; violet glow preserved."
+              />
+              <Callout n={2} x={1480} y={260} width={260}
+                title="5-lane grid restored"
+                body="≥1024px: no chips, no focus-mode. All five lanes side-by-side. Each is a dedicated column with tone-dot header + count, same vocabulary as mobile."
+              />
+              <Callout n={3} x={1480} y={440} width={260}
+                title="Right rail reveals"
+                body="Agent load (with progress bars + violet fill for busy), Activity feed, Quick actions with keyboard cheatsheet. Mirrors existing desktop rail."
+              />
+              <Callout n={4} x={1480} y={620} width={260}
+                title="Hover actions + kbd nav"
+                body="Swipe → hover-reveal action row (Details · Admin · Dispatch). j/k step through selection; x dispatches, d admin-cleanups. Toast confirms. Kbd hints float on selected."
+              />
+            </>
+          )}
+        </div>
+      </DCSection>
+
+      {/* Responsive decision log */}
+      <DCSection title="Responsive decisions" subtitle="How one concept maps across three viewports." gap={32}>
+        <div style={{
+          width: 1100, padding: 28, background: "#fff", borderRadius: 6,
+          boxShadow: "0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06)",
+          fontSize: 13, lineHeight: 1.6, color: "#2a1f14",
+        }}>
+          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 1fr 1fr", gap: 20, alignItems: "start" }}>
+            <div></div>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".18em", textTransform: "uppercase", color: "#7c3aed" }}>Mobile · 390</div>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".18em", textTransform: "uppercase", color: "#7c3aed" }}>Tablet · 768</div>
+            <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".18em", textTransform: "uppercase", color: "#7c3aed" }}>Desktop · 1440</div>
+
+            {[
+              ["Morning status", "Hero card, stacked", "Hero card, full-width", "Horizontal strip, compressed"],
+              ["Lane selector", "Swipe chips (one lane visible)", "None — 2-col lane grid", "None — 5-lane grid"],
+              ["Task actions", "Swipe L/R + long-press", "Tap to reveal", "Hover-reveal + keyboard (j/k/x/d)"],
+              ["Navigation", "Bottom tab bar (60px)", "Bottom tab bar (60px)", "Top nav + ⌘K search"],
+              ["Right rail", "—", "—", "Agent load · Activity · Quick actions"],
+              ["Agent badges", "Identical — tone-washed 0.20 bg", "Identical", "Identical"],
+              ["Type scale", "clamp floor", "clamp mid", "clamp ceiling"],
+            ].map((row, i) => (
+              <React.Fragment key={i}>
+                <div style={{ fontWeight: 600, color: "#2a1f14", borderTop: "1px solid #eadfce", paddingTop: 12 }}>{row[0]}</div>
+                <div style={{ color: "#5a4a2a", borderTop: "1px solid #eadfce", paddingTop: 12 }}>{row[1]}</div>
+                <div style={{ color: "#5a4a2a", borderTop: "1px solid #eadfce", paddingTop: 12 }}>{row[2]}</div>
+                <div style={{ color: "#5a4a2a", borderTop: "1px solid #eadfce", paddingTop: 12 }}>{row[3]}</div>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </DCSection>
+
+      {/* handoff strip */}
+      <DCSection title="Handoff notes" subtitle="For Pixel to implement in Next.js." gap={32}>
+        <div style={{
+          width: 820, padding: 28, background: "#fff", borderRadius: 6,
+          boxShadow: "0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06)",
+          fontSize: 14, lineHeight: 1.65, color: "#2a1f14",
+        }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+            <div>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".18em", textTransform: "uppercase", color: "#7c3aed", marginBottom: 8 }}>PRESERVED</div>
+              <ul style={{ margin: 0, paddingLeft: 18, color: "#5a4a2a" }}>
+                <li>Violet <code>#7c3aed</code> accent, zinc surfaces, dark-only</li>
+                <li>Amber <strong>only</strong> on stalled/warning — not brand</li>
+                <li>Real copy: "Nothing urgent is stuck right now…", "Retry ready", "2/3 retries used…"</li>
+                <li>Agent badges AT FO JM LN PX SP with exact palette</li>
+                <li>⏱4m stopwatch glyph, middot meta rows, tabular-nums</li>
+                <li>shadcn/ui vocabulary only</li>
+              </ul>
+            </div>
+            <div>
+              <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: ".18em", textTransform: "uppercase", color: "#7c3aed", marginBottom: 8 }}>NEW MOBILE PRIMITIVES</div>
+              <ul style={{ margin: 0, paddingLeft: 18, color: "#5a4a2a" }}>
+                <li><code>MorningStatusCard</code> — hero confidence + pulse + most-urgent CTA</li>
+                <li><code>LaneChipRail</code> — horizontal snap selector, 52px tap (V2) / 36px (V1)</li>
+                <li><code>SwipeTaskCard</code> — right=Dispatch/Retry, left=Admin, hold=sheet</li>
+                <li><code>QuickActionsSheet</code> — Details / Retry / Cancel, 48px rows</li>
+                <li><code>BottomTabBar</code> — 5 slots, 60px cells, FAB offset-aware for bulk mode</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </DCSection>
+
+      <StatesSection showAnnotations={showAnnotations}/>
+    </DesignCanvas>
+  );
+}
+
+/* Wrappers that let us point V1/V2 at a specific lane for extra mockups */
+function V1ScreenOn({ lane }) {
+  // tiny shim: render V1Screen but pre-set its active lane via a provided override
+  // easiest path: monkeypatch MOBILE_LANES not needed — re-implement tiny variant:
+  return <V1ScreenLaneLocked lane={lane}/>;
+}
+function V2ScreenOn({ lane, stalled = 3, withSheet = false }) {
+  return <V2ScreenLaneLocked lane={lane} stalled={stalled} withSheet={withSheet}/>;
+}
+
+function FocusView({ which, tweaks }) {
+  const bezelMap = {
+    v1: { label: "V1 · Mobile · 390×844", body: <PhoneFrame width={390} height={844}><V1Screen/></PhoneFrame> },
+    v2: { label: "V2 · Mobile · 390×844", body: <PhoneFrame width={390} height={844}><V2ScreenLaneLocked lane={tweaks.v2_lane} stalled={tweaks.v2_stalled}/></PhoneFrame> },
+    v2tablet: { label: "V2 · Tablet · 768×1024", body: <TabletBezel width={768} height={1024}><V2TabletScreen stalled={tweaks.v2_stalled}/></TabletBezel> },
+    v2desktop: { label: "V2 · Desktop · 1440×900", body: <DesktopBezel width={1440} height={900}><V2DesktopScreen stalled={tweaks.v2_stalled}/></DesktopBezel> },
+  };
+  const entry = bezelMap[which];
+  return (
+    <div style={{
+      position: "absolute", inset: 0, display: "flex",
+      alignItems: "center", justifyContent: "center", padding: 40,
+      overflow: "auto",
+    }}>
+      <div style={{ position: "relative" }}>
+        <div style={{
+          position: "absolute", bottom: "100%", left: 0, paddingBottom: 10,
+          fontSize: 12, fontWeight: 500, color: "rgba(60,50,40,.7)", whiteSpace: "nowrap",
+        }}>{entry.label}</div>
+        {entry.body}
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [view, setView] = useState("canvas");
+  const [tweaks, setTweaks] = useState(TWEAKS);
+  const [tweaksOpen, setTweaksOpen] = useState(false);
+
+  // persist tweaks via host (if available)
+  const updateTweak = (key, value) => {
+    setTweaks(t => {
+      const next = { ...t, [key]: value };
+      try {
+        window.parent.postMessage({ type: "__edit_mode_set_keys", edits: next }, "*");
+      } catch {}
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    // edit-mode protocol
+    const onMsg = (e) => {
+      if (e.data?.type === "__activate_edit_mode") setTweaksOpen(true);
+      if (e.data?.type === "__deactivate_edit_mode") setTweaksOpen(false);
+    };
+    window.addEventListener("message", onMsg);
+    try { window.parent.postMessage({ type: "__edit_mode_available" }, "*"); } catch {}
+
+    // wire toolbar + tweaks panel
+    document.querySelectorAll(".dc-toolbar button").forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll(".dc-toolbar button").forEach(b => b.classList.remove("on"));
+        btn.classList.add("on");
+        const v = btn.dataset.view;
+        if (v === "tweaks") setTweaksOpen(x => !x);
+        else { setView(v); }
+      };
+    });
+    document.getElementById("tweaks-close").onclick = () => setTweaksOpen(false);
+    document.querySelectorAll(".tweaks-opts").forEach(grp => {
+      grp.querySelectorAll("button").forEach(b => {
+        b.onclick = () => {
+          grp.querySelectorAll("button").forEach(bb => bb.classList.remove("on"));
+          b.classList.add("on");
+          const k = grp.dataset.tweak;
+          const v = b.dataset.v;
+          if (k === "lane") updateTweak("v2_lane", v);
+          if (k === "stalled") updateTweak("v2_stalled", parseInt(v));
+          if (k === "annotations") updateTweak("show_annotations", v === "on");
+        };
+      });
+    });
+
+    return () => window.removeEventListener("message", onMsg);
+  }, []);
+
+  useEffect(() => {
+    document.getElementById("tweaks").classList.toggle("open", tweaksOpen);
+  }, [tweaksOpen]);
+
+  if (view === "states") return <CanvasView showAnnotations={tweaks.show_annotations} statesOnly/>;
+  if (view !== "canvas") return <FocusView which={view} tweaks={tweaks}/>;
+  return <CanvasView showAnnotations={tweaks.show_annotations}/>;
+}
+
+/* Variant wrappers with lane + sheet overrides ──────────────── */
+function V1ScreenLaneLocked({ lane = "needs" }) {
+  const [active, setActive] = useState(lane);
+  const [nav] = useState("tasks");
+  const tasks = MOBILE_TASKS.filter(t => t.lane === active);
+
+  // Inline duplicate of V1Screen body with lane locked initially
+  return (
+    <div style={{ position: "absolute", inset: 0, paddingTop: 47, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+      <div style={{ padding: "10px 16px 0", background: "rgba(15,15,15,.95)", backdropFilter: "blur(6px)", borderBottom: "1px solid var(--border)", flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ width: 30, height: 30, borderRadius: 8, border: "1px solid var(--accent-border)", background: "var(--accent-wash)", color: "#c4b5fd", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>⚙</div>
+            <div style={{ lineHeight: 1.05 }}>
+              <div style={{ fontSize: 9.5, letterSpacing: ".26em", color: "var(--text)", fontWeight: 500 }}>MISSION<br/>CONTROL</div>
+            </div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "3px 8px", borderRadius: 999, border: "1px solid rgba(34,197,94,.20)", background: "rgba(34,197,94,.10)", color: "#bbf7d0", fontSize: 9, letterSpacing: ".14em", fontWeight: 700, textTransform: "uppercase" }}>
+              <span style={{ width: 6, height: 6, borderRadius: 999, background: "#22c55e", boxShadow: "0 0 6px #22c55e" }}/>LIVE
+            </div>
+            <AgentBadge name="pieter_pan" size="sm"/>
+          </div>
+        </div>
+        <div style={{ marginTop: 12 }}>
+          <Eyebrow style={{ marginBottom: 4 }}>TASK OPERATIONS</Eyebrow>
+          <h1 style={{ margin: 0, fontSize: 22, fontWeight: 600, color: "white", letterSpacing: "-0.02em", lineHeight: 1.15 }}>Taskboard</h1>
+        </div>
+        <div style={{
+          marginTop: 10, marginBottom: 10,
+          border: active === "done" ? "1px solid rgba(34,197,94,.25)" : "1px solid rgba(244,63,94,.25)",
+          background: active === "done"
+            ? "linear-gradient(180deg, rgba(34,197,94,.06), rgba(34,197,94,.02))"
+            : "linear-gradient(180deg, rgba(244,63,94,.06), rgba(244,63,94,.02))",
+          borderRadius: 12, padding: "10px 12px",
+          display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 10, alignItems: "center",
+        }}>
+          <div style={{ width: 38, height: 38, borderRadius: 10,
+            border: active === "done" ? "1px solid rgba(34,197,94,.3)" : "1px solid rgba(244,63,94,.3)",
+            background: active === "done" ? "rgba(34,197,94,.1)" : "rgba(244,63,94,.1)",
+            color: active === "done" ? "#bbf7d0" : "#fecdd3", display: "inline-flex", alignItems: "center", justifyContent: "center",
+            fontSize: 18, fontWeight: 700, fontFamily: "var(--font-mono)" }}>{active === "done" ? "✓" : 3}</div>
+          <div style={{ minWidth: 0 }}>
+            <div style={{ fontSize: 13, color: "white", fontWeight: 600, lineHeight: 1.25 }}>
+              {active === "done" ? "All clear today" : "3 stalled · 1 retry ready"}
+            </div>
+            <MicroMeta style={{ fontSize: 10.5, marginTop: 1 }}>19 active · 117 dispatched · confidence 0%</MicroMeta>
+          </div>
+          <button style={{ all: "unset", cursor: "pointer", minHeight: 32, padding: "0 10px", borderRadius: 999, fontSize: 11, fontWeight: 600, border: "1px solid var(--accent-border)", background: "var(--accent-wash)", color: "var(--accent-text)", letterSpacing: ".04em" }}>Open →</button>
+        </div>
+        <div style={{ display: "flex", gap: 6, overflowX: "auto", margin: "0 -16px", padding: "0 16px 12px", scrollbarWidth: "none" }}>
+          {MOBILE_LANES.map(l => (
+            <V1LaneChip key={l.id} lane={l} active={active === l.id} onClick={() => setActive(l.id)}/>
+          ))}
+        </div>
+      </div>
+      <div style={{ flex: 1, overflowY: "auto", padding: "12px 12px 120px", display: "flex", flexDirection: "column", gap: 10 }} className="mc-stagger">
+        {tasks.map(t => <V1TaskCard key={t.id} task={t}/>)}
+        {tasks.length === 0 && (
+          <div style={{ border: "1px dashed rgba(255,255,255,.10)", borderRadius: 14, padding: "28px 16px", textAlign: "center", marginTop: 24 }}>
+            <div style={{ width: 32, height: 32, borderRadius: 10, margin: "0 auto 8px", border: "1px solid var(--accent-border)", background: "var(--accent-wash)", color: "#c4b5fd", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>✓</div>
+            <div style={{ fontSize: 13, color: "white", marginBottom: 4 }}>Nothing urgent is stuck right now.</div>
+            <MicroMeta>Pull the next ready task or create a new one.</MicroMeta>
+          </div>
+        )}
+      </div>
+      <BottomTabBar active={nav}/>
+    </div>
+  );
+}
+
+function V2ScreenLaneLocked({ lane = "needs", stalled = 3, withSheet = false }) {
+  const [active, setActive] = useState(lane);
+  const [nav] = useState("tasks");
+  const tasks = MOBILE_TASKS.filter(t => t.lane === active);
+  const sheetTask = withSheet ? tasks[0] : null;
+
+  return (
+    <div style={{ position: "absolute", inset: 0, paddingTop: 47, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+      <div style={{ padding: "8px 16px 6px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(15,15,15,.95)", backdropFilter: "blur(6px)", flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ width: 24, height: 24, borderRadius: 6, border: "1px solid var(--accent-border)", background: "var(--accent-wash)", color: "#c4b5fd", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 13 }}>⚙</div>
+          <span style={{ fontSize: 9.5, letterSpacing: ".22em", color: "var(--text)", fontWeight: 600 }}>TASKBOARD</span>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "2px 7px", borderRadius: 999, border: "1px solid rgba(34,197,94,.20)", background: "rgba(34,197,94,.10)", color: "#bbf7d0", fontSize: 9, letterSpacing: ".14em", fontWeight: 700, textTransform: "uppercase" }}>
+            <span style={{ width: 5, height: 5, borderRadius: 999, background: "#22c55e", boxShadow: "0 0 6px #22c55e" }}/>LIVE
+          </div>
+          <AgentBadge name="pieter_pan" size="sm"/>
+        </div>
+      </div>
+      <div style={{ flex: 1, overflowY: "auto", padding: "12px 12px 120px" }}>
+        <V2HeroMorning stalled={stalled}/>
+        <div style={{ marginTop: 16, marginBottom: 12 }}>
+          <Eyebrow style={{ padding: "0 4px", marginBottom: 8 }}>LANES</Eyebrow>
+          <div style={{ display: "flex", gap: 6, overflowX: "auto", margin: "0 -12px", padding: "0 12px 4px", scrollbarWidth: "none" }}>
+            {MOBILE_LANES.map(l => (
+              <V2SwipeChip key={l.id} lane={l} active={active === l.id} onClick={() => setActive(l.id)}/>
+            ))}
+          </div>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 2px", marginBottom: 8 }}>
+          <div style={{ fontSize: 11, letterSpacing: ".22em", textTransform: "uppercase", fontWeight: 600, color: "var(--text)" }}>
+            {MOBILE_LANES.find(l => l.id === active)?.name}
+            <span className="mc-num" style={{ marginLeft: 8, fontFamily: "var(--font-mono)", color: "var(--text-soft)", fontWeight: 500, letterSpacing: 0 }}>
+              {String(tasks.length).padStart(2, "0")}
+            </span>
+          </div>
+          <button style={{ all: "unset", cursor: "pointer", fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", fontWeight: 600, color: "var(--text-soft)", padding: "4px 8px" }}>Sort ↓</button>
+        </div>
+        <div className="mc-stagger" style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {tasks.map(t => <V2SwipeCard key={t.id} task={t}/>)}
+          {tasks.length === 0 && (
+            <div style={{ border: "1px dashed rgba(255,255,255,.10)", borderRadius: 14, padding: "28px 16px", textAlign: "center" }}>
+              <div style={{ width: 32, height: 32, borderRadius: 10, margin: "0 auto 8px", border: "1px solid var(--accent-border)", background: "var(--accent-wash)", color: "#c4b5fd", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>✓</div>
+              <div style={{ fontSize: 13, color: "white", marginBottom: 4 }}>Nothing urgent is stuck right now.</div>
+              <MicroMeta>Pull the next ready task or create a new one.</MicroMeta>
+            </div>
+          )}
+        </div>
+      </div>
+      <button style={{ all: "unset", cursor: "pointer", position: "absolute", right: 16, bottom: 96, width: 52, height: 52, borderRadius: 18, border: "1px solid var(--accent-border)", background: "linear-gradient(180deg, rgba(124,58,237,.35), rgba(124,58,237,.15))", color: "white", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 22, boxShadow: "0 0 20px rgba(124,58,237,.45), 0 8px 24px rgba(0,0,0,.4)", zIndex: 25 }}>⌘</button>
+      <BottomTabBar active={nav}/>
+      {withSheet && <V2LongPressSheet task={sheetTask} onClose={() => {}}/>}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+
+</body>
+</html>
