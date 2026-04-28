@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2123040b-b7a0-4802-8647-542ba8b1ae81 [P1][Pixel] T5: ErrorBoundary global einziehen
+- task: 2e57dde2-4f60-4ba4-9699-3b9812923d67 [MC-T01][Pixel] T5: ErrorBoundary global einziehen
 - stage: DONE
 - next: await next assignment
-- checkpoint: Globaler ErrorBoundary eingezogen: src/app/error.tsx mit Card-UI, Fehlerdetails, Try-again-/Home-Buttons angelegt. Build erfolgreich (NEXT_DIST_DIR=.next-verify). Screenshot verifiziert Darstellung.
+- checkpoint: Globaler ErrorBoundary eingezogen: React Class-Component GlobalErrorBoundary erstellt (src/components/global-error-boundary.tsx) und in layout.tsx als Wrapper um {children} integriert. Zeigt Card-UI mit Fehlermeldung, Tr
 - blocker: -
-- updated: 2026-04-27T21:18:20.344Z
+- updated: 2026-04-28T12:40:00.913Z
 <!-- mc:auto-working-context:end -->
