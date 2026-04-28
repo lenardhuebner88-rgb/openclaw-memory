@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ba1f739f-1be8-48be-b535-82c99f5de5a2 [P2][Forge] QMD Background Embed — 26 Pending Vectors flushen
-- stage: DONE
-- next: await next assignment
-- checkpoint: QMD Vector Flush PASS. Root cause: Bun v1.3.11 crashed (segfaults, 3 events) am 2026-04-22 — Background-Embed ging kaputt aber das Main-Thread-System meldete OK. Backlog akkumulierte auf 25-33 wartende Dokumente. P0.2 Se
+- task: f8690cef-73f7-450e-8f80-88a013a5571e [MC-T01][Forge] T2: Mermaid-Render in /ops fixen
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-28T07:42:44.236Z
+- updated: 2026-04-28T12:32:56.862Z
 <!-- mc:auto-working-context:end -->
