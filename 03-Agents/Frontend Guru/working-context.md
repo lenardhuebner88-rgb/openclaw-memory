@@ -7,11 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f74d8f04-faa4-426b-baf5-82b2d081f608 [S-FOLLOWUP-1][S2.2][Pixel] Owner inference 2-stage mapping
+- task: f65ee4ef-22a6-442e-959e-59515094c0f2 [S-FOLLOWUP-1][S4.1][Pixel] Follow-up stats API endpoint
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT
-Implemented 2-stage owner inference for receipt follow-up materialization. The materializer now checks explicit owner mentions first, then task-class/keyword mapping, then legacy fallback regexes, preserving prior
+Implemented the read-only Mission Control follow-up observability endpoint GET /api/followup-stats. The endpoint reads tasks via taskboard-store, filters follow-up tasks created in the last 24h by default, and ret
 - blocker: -
-- updated: 2026-04-29T17:19:41.853Z
+- updated: 2026-04-29T17:35:38.674Z
 <!-- mc:auto-working-context:end -->

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T17:20:01.853971+00:00",
+  "generated_at": "2026-04-29T17:50:01.719347+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 3,
+    "agents_active": 2,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 174,
+    "scripts_active": 175,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -61,9 +61,9 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "active",
-      "last_session_iso": "2026-04-29T17:19:41.646916+00:00",
-      "latest_session_size_bytes": 435001,
+      "status": "monitoring",
+      "last_session_iso": "2026-04-29T17:36:48.377789+00:00",
+      "latest_session_size_bytes": 697730,
       "session_count": 19
     },
     {
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T17:15:26.700209+00:00",
-      "latest_session_size_bytes": 3821831,
-      "session_count": 133
+      "last_session_iso": "2026-04-29T17:49:59.493316+00:00",
+      "latest_session_size_bytes": 7825036,
+      "session_count": 137
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T17:19:47.162953+00:00",
-      "latest_session_size_bytes": 809236,
+      "last_session_iso": "2026-04-29T17:49:50.977248+00:00",
+      "latest_session_size_bytes": 5407,
       "session_count": 1619
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "9395894",
+      "date": "2026-04-29T19:21:01+02:00",
+      "subject": "auto-sync: 2026-04-29 19:21"
+    },
+    {
       "hash": "a88c3f8",
       "date": "2026-04-29T18:50:58+02:00",
       "subject": "auto-sync: 2026-04-29 18:50"
@@ -950,16 +955,11 @@
       "hash": "de6cfb6",
       "date": "2026-04-29T14:48:17+02:00",
       "subject": "auto-sync: 2026-04-29 14:48"
-    },
-    {
-      "hash": "05a36e1",
-      "date": "2026-04-29T14:22:01+02:00",
-      "subject": "docs: add v3 gate 1 evidence pack"
     }
   ],
   "scripts": {
     "scripts_root": 108,
-    "workspace_scripts": 66
+    "workspace_scripts": 67
   },
   "mcp_servers": [
     {
@@ -967,7 +967,9 @@
       "status": "running",
       "pids": [
         1862656,
-        2789266
+        2789266,
+        3475400,
+        3487282
       ]
     },
     {
@@ -975,8 +977,8 @@
       "status": "running",
       "pids": [
         3411810,
-        3452343,
-        3452344
+        3507940,
+        3509768
       ]
     },
     {
@@ -984,9 +986,13 @@
       "status": "running",
       "pids": [
         3420848,
-        3438070,
         3454921,
-        3456165
+        3490176,
+        3507928,
+        3509761,
+        3509836,
+        3509850,
+        3509856
       ]
     }
   ],

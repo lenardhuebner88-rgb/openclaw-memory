@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9ef046d7-663c-4f49-91ea-8b468129afa5 [S-FOLLOWUP-1][S2.1][Forge] autonomy-self-healing A0/A1 enforce mode
+- task: c89cd0a0-26b2-40c1-9b27-cce868f7bcf0 [S-FOLLOWUP-1][S3.2][Forge] Route-level fixtures for UC3/UC4
 - stage: DONE
 - next: await next assignment
-- checkpoint: S2.1 umgesetzt: autonomy-self-healing unterstützt jetzt einen reversiblen `enforce`-Modus, der ausschließlich A0/A1 als safe draft/proposal-ausführbar markiert; Default bleibt `dry-run`, A2+ Verhalten bleibt unverändert.
+- checkpoint: S3.2 abgeschlossen: UC3/UC4 sind jetzt als Route-/Fixture-Tests abgedeckt. UC3 validiert A1 self-healing Draft-Policy (draft-only) inkl. Owner-Mapping auf efficiency-auditor; UC4 validiert autonomy-approve Route-Transiti
 - blocker: -
-- updated: 2026-04-29T17:20:05.859Z
+- updated: 2026-04-29T17:41:08.284Z
 <!-- mc:auto-working-context:end -->
