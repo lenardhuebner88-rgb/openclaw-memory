@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-04-29T10:50:02.101419+00:00
+last_generated: 2026-04-29T11:20:01.484012+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-04-29 10:50 UTC  
+**Generated:** 2026-04-29 11:20 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -23,9 +23,9 @@ flowchart TB
         agent_default["default<br/>n/a<br/>0 KB"]
         agent_efficiency_auditor["efficiency-auditor<br/>3h ago<br/>17 KB"]
         agent_frontend_guru["frontend-guru<br/>4d ago<br/>180 KB"]
-        agent_james["james<br/>4h ago<br/>243 KB"]
-        agent_main["main<br/>3s ago<br/>1118 KB"]
-        agent_spark["spark<br/>3h ago<br/>29 KB"]
+        agent_james["james<br/>5h ago<br/>243 KB"]
+        agent_main["main<br/>13s ago<br/>753 KB"]
+        agent_spark["spark<br/>4h ago<br/>29 KB"]
         agent_sre_expert["sre-expert<br/>1m ago<br/>23 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
@@ -71,7 +71,7 @@ flowchart TB
 
 ## ⚡ Health Summary
 
-- **Atlas session-size telemetry:** info only — `[2026-04-29T10:50:02Z] CRITICAL session=60585399-c57 pct=190%`
+- **Atlas session-size telemetry:** info only — `[2026-04-29T11:15:01Z] CRITICAL session=60585399-c57 pct=208%`
 - **Graph edges:** 1279
 - **Rules active:** 57
 - **Facts (all-time):** 287 across 1 daily files
@@ -87,9 +87,9 @@ flowchart TB
 | `default` | n/a | 0 | `/home/piet/.openclaw/agents/default` |
 | `efficiency-auditor` | 3h ago | 17 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 4d ago | 180 | `/home/piet/.openclaw/agents/frontend-guru` |
-| `james` | 4h ago | 243 | `/home/piet/.openclaw/agents/james` |
-| `main` | 3s ago | 1118 | `/home/piet/.openclaw/agents/main` |
-| `spark` | 3h ago | 29 | `/home/piet/.openclaw/agents/spark` |
+| `james` | 5h ago | 243 | `/home/piet/.openclaw/agents/james` |
+| `main` | 13s ago | 753 | `/home/piet/.openclaw/agents/main` |
+| `spark` | 4h ago | 29 | `/home/piet/.openclaw/agents/spark` |
 | `sre-expert` | 1m ago | 23 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
@@ -163,7 +163,7 @@ flowchart TB
 | `0 4 1 */3 *` | `$OPENCLAW/workspace/scripts/memory-orchestrator.py` |
 | `7 */6 * * *` | `$OPENCLAW/scripts/memory-size-guard.sh` |
 | `0 */6 * * *` | `$OPENCLAW/scripts/script-integrity-check.sh` |
-| `0 */6 * * *` | `$OPENCLAW/bin/openclaw` |
+| `0 */6 * * *` | `flock` |
 | `5-59/30 * * * *` | `$OPENCLAW/scripts/pr68846-patch-check.sh` |
 | `0 3 * * *` | `$OPENCLAW/scripts/cleanup.sh` |
 | `0 3 * * *` | `$OPENCLAW/scripts/config-snapshot-to-vault.sh` |
@@ -197,11 +197,11 @@ flowchart TB
 
 **Last 5 budget-meter ticks:**
 ```
-[2026-04-29T10:30:01Z] OK session=019dd861-314 pct=3%
-[2026-04-29T10:35:01Z] OK session=60585399-c57 pct=19%
-[2026-04-29T10:40:01Z] OK session=60585399-c57 pct=39%
-[2026-04-29T10:45:01Z] CRITICAL session=60585399-c57 pct=137%
-[2026-04-29T10:50:02Z] CRITICAL session=60585399-c57 pct=190%
+[2026-04-29T10:55:01Z] OK session=019dd260-df1 pct=6%
+[2026-04-29T11:00:01Z] CRITICAL session=60585399-c57 pct=193%
+[2026-04-29T11:05:01Z] OK session=019dd260-df1 pct=29%
+[2026-04-29T11:10:01Z] CRITICAL session=60585399-c57 pct=197%
+[2026-04-29T11:15:01Z] CRITICAL session=60585399-c57 pct=208%
 ```
 
 ## 📜 Rules R1-R57 (56 total, by category)
@@ -297,11 +297,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+c9d2a9d 2026-04-29 auto-sync: 2026-04-29 13:17
 7affdae 2026-04-29 auto-sync: 2026-04-29 12:47
 4cdafad 2026-04-29 auto-sync: 2026-04-29 12:17
 5a71215 2026-04-29 auto-sync: 2026-04-29 11:46
 dd2116c 2026-04-29 auto-sync: 2026-04-29 11:16
-98cbb6e 2026-04-29 auto-sync: 2026-04-29 10:45
 ```
 
 ---
