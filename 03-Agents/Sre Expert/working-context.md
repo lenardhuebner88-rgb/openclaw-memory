@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c441ccbc-67ef-4e42-8148-1173f2a86ad2 [V3 Sprint] Slice F2 — health-aggregation API
+- task: 4ae24392-9932-4d73-9b72-3822844b5e19 [V3 Sprint] Slice F3 — atlas-suggest derive
 - stage: DONE
 - next: await next assignment
-- checkpoint: F2 completed: delivered additive /api/board/v3-health with V3 health aggregation + incident parity output, added useV3Health hook, added route parity tests, and committed as 8082297.
+- checkpoint: F3 completed: /api/board/next-action now returns derived suggestion text plus presentation metadata, taskboard banner uses that derived presentation (no local hardcoded mapping), task detail drawer renders live suggestio
 - blocker: -
-- updated: 2026-04-29T05:33:49.257Z
+- updated: 2026-04-29T05:47:35.098Z
 <!-- mc:auto-working-context:end -->

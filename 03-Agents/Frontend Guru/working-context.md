@@ -7,12 +7,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3d4aa2a5-87d3-4eb9-b616-97ca4a0208d9 [V3 Sprint] Slice B — TaskCard
+- task: fd937f25-c479-4501-bcef-493619531900 [V3 Sprint] Slice D — TaskboardShell
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: DONE
-SLICE_ID: V3-SPRINT-SLICE-B-2026-04-29
-RESULT_SUMMARY: Implemented new V3 TaskCard component in src/components/v3/V3Card.tsx, including a 6-item sample renderer and click callback wiring (onOpen(ta
+SLICE_ID: V3-SPRINT-SLICE-D-2026-04-29
+RESULT_SUMMARY: Implemented additive /kanban-v3-preview shell with required structure: top chrome + sub-bar + sidebar + 5-lane grid + closed footer, using new
 - blocker: -
-- updated: 2026-04-29T05:33:29.403Z
+- updated: 2026-04-29T06:02:06.858Z
 <!-- mc:auto-working-context:end -->
