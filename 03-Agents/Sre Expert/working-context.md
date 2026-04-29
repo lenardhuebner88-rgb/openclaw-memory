@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e220a8bc-8aff-4891-a967-8cdec97cf86a [Follow-up] [P0][S-FOLLOWUP-1][Forge] Deploy followup-stats endpoint to production
-- stage: FAILED
+- task: 15b9b521-dbca-4c4c-a1bf-093f52dab5c0 [P1][Forge] Fix operator-authorized task cancel path + duplicate follow-up prevention
+- stage: DONE
 - next: await next assignment
-- checkpoint: -
+- checkpoint: Operator-authorized Cancel-Pfad sauber fixiert: neuer `taskboard_hygiene_cancel` Wrapper erzwingt Dry-Run + explizite Task-IDs + Audit-Reason, nutzt ausschließlich admin-close/autonomy-reject (kein Dispatch/kein move-rev
 - blocker: -
-- updated: 2026-04-29T19:19:40.438Z
+- updated: 2026-04-29T19:31:59.043Z
 <!-- mc:auto-working-context:end -->

@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4b6c17b1-477e-44f4-af41-dc9255c3176e [Backlog][S-FOLLOWUP-1][Forge] Seal receipt-materializer test fixture leakage
+- task: 15b9b521-dbca-4c4c-a1bf-093f52dab5c0 [P1][Forge] Fix operator-authorized task cancel path + duplicate follow-up prevention
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Root cause isoliert und Fix implementiert: receipt-materializer verhindert jetzt Mutationen im Test-Mode ohne gesetztes MISSION_CONTROL_DATA_DIR; Regressionstest hinzugefügt, Target-Tests und Typecheck sind grün.
+- checkpoint: Implementierung abgeschlossen: taskboard_hygiene_cancel Wrapper (Dry-Run/Execute, kein Dispatch, admin-close/autonomy-reject only) in taskboard MCP ergänzt; Regressionstests für ambiguous target refusal + no-dispatch gua
 - blocker: -
-- updated: 2026-04-29T19:05:04.749Z
+- updated: 2026-04-29T19:31:25.979Z
 <!-- mc:auto-working-context:end -->

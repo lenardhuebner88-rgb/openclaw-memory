@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T19:21:01.794131+00:00",
+  "generated_at": "2026-04-29T19:51:01.174338+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 3,
+    "agents_active": 1,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -54,16 +54,16 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-04-29T18:52:18.273814+00:00",
-      "latest_session_size_bytes": 437277,
+      "last_session_iso": "2026-04-29T19:24:39.663321+00:00",
+      "latest_session_size_bytes": 464316,
       "session_count": 53
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "active",
-      "last_session_iso": "2026-04-29T19:20:52.296673+00:00",
-      "latest_session_size_bytes": 1125595,
+      "status": "monitoring",
+      "last_session_iso": "2026-04-29T19:22:33.960441+00:00",
+      "latest_session_size_bytes": 1156814,
       "session_count": 19
     },
     {
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-04-29T19:20:59.784730+00:00",
-      "latest_session_size_bytes": 15701,
-      "session_count": 126
+      "status": "monitoring",
+      "last_session_iso": "2026-04-29T19:42:07.898989+00:00",
+      "latest_session_size_bytes": 116837,
+      "session_count": 125
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T19:21:01.344742+00:00",
-      "latest_session_size_bytes": 233070,
+      "last_session_iso": "2026-04-29T19:50:43.167840+00:00",
+      "latest_session_size_bytes": 6836,
       "session_count": 1619
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "b3dc5a3",
+      "date": "2026-04-29T21:21:17+02:00",
+      "subject": "auto-sync: 2026-04-29 21:21"
+    },
+    {
       "hash": "76c9de0",
       "date": "2026-04-29T20:51:17+02:00",
       "subject": "auto-sync: 2026-04-29 20:51"
@@ -950,11 +955,6 @@
       "hash": "974047b",
       "date": "2026-04-29T16:49:01+02:00",
       "subject": "auto-sync: 2026-04-29 16:49"
-    },
-    {
-      "hash": "4fce1ad",
-      "date": "2026-04-29T16:18:53+02:00",
-      "subject": "auto-sync: 2026-04-29 16:18"
     }
   ],
   "scripts": {
@@ -980,40 +980,17 @@
       "status": "running",
       "pids": [
         3559542,
-        3646316,
-        3646317,
-        3654551,
-        3654752,
-        3656119,
-        3656530,
-        3657741,
-        3657874,
-        3658263
+        3688691,
+        3688692,
+        3696959
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3565971,
-        3632938,
-        3635023,
-        3637467,
-        3643912,
-        3645021,
-        3645778,
-        3647586,
-        3649903,
-        3652111,
-        3652695,
-        3652999,
-        3654544,
-        3654740,
-        3656106,
-        3656374,
-        3657721,
-        3657857,
-        3658256
+        3677764,
+        3696947
       ]
     }
   ],
