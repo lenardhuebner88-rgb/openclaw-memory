@@ -41,7 +41,7 @@ Dieses Dokument ist generated aus YAML-Frontmatter (`sprint-id`, `status`, `owne
 | - | 2026-04-26_first-heartbeat-gate-hardening | codex | - | `codex/plans/2026-04-26_first-heartbeat-gate-hardening.md` |
 | - | 2026-04-26_worker-system-large-final-gate-report | codex | - | `codex/plans/2026-04-26_worker-system-large-final-gate-report.md` |
 
-## UNKNOWN (242)
+## UNKNOWN (243)
 
 | Sprint-ID | Title | Owner | Supersedes | Path |
 |---|---|---|---|---|
@@ -279,6 +279,7 @@ Dieses Dokument ist generated aus YAML-Frontmatter (`sprint-id`, `status`, `owne
 | - | phase2-discord-runner-option-a-plan | codex | - | `codex/plans/phase2-discord-runner-option-a-plan.md` |
 | - | phase2-install-anleitung | codex | - | `codex/plans/phase2-install-anleitung.md` |
 | - | review-agent-team-meetings-2026-04-24 | codex | - | `codex/plans/review-agent-team-meetings-2026-04-24.md` |
+| - | cron-scripts-audit-2026-04-29 | - | - | `cron-scripts-audit-2026-04-29.md` |
 | - | james-cost-routing-extern-2026-04-24 | - | - | `james-cost-routing-extern-2026-04-24.md` |
 | - | james-recovery-runbook-refs-2026-04-25 | - | - | `james-recovery-runbook-refs-2026-04-25.md` |
 | - | atlas-result-format | - | - | `kb/atlas-result-format.md` |

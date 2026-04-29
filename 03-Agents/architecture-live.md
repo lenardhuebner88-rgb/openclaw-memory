@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-04-29T10:30:02.154991+00:00
+last_generated: 2026-04-29T10:50:02.101419+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-04-29 10:30 UTC  
+**Generated:** 2026-04-29 10:50 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -21,12 +21,12 @@ flowchart TB
     subgraph AGT["🤖 Agents"]
         agent_codex["codex<br/>n/a<br/>0 KB"]
         agent_default["default<br/>n/a<br/>0 KB"]
-        agent_efficiency_auditor["efficiency-auditor<br/>2h ago<br/>17 KB"]
+        agent_efficiency_auditor["efficiency-auditor<br/>3h ago<br/>17 KB"]
         agent_frontend_guru["frontend-guru<br/>4d ago<br/>180 KB"]
         agent_james["james<br/>4h ago<br/>243 KB"]
-        agent_main["main<br/>2s ago<br/>22 KB"]
+        agent_main["main<br/>3s ago<br/>1118 KB"]
         agent_spark["spark<br/>3h ago<br/>29 KB"]
-        agent_sre_expert["sre-expert<br/>33s ago<br/>21 KB"]
+        agent_sre_expert["sre-expert<br/>1m ago<br/>23 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -42,13 +42,13 @@ flowchart TB
     end
     subgraph CRN["🛡️ Defense-Crons"]
         tier_T1_realtime["T1-realtime<br/>4 jobs"]
-        tier_T2_2min["T2-2min<br/>3 jobs"]
-        tier_T3_5min["T3-5min<br/>9 jobs"]
+        tier_T2_2min["T2-2min<br/>2 jobs"]
+        tier_T3_5min["T3-5min<br/>2 jobs"]
         tier_T4_10min["T4-10min<br/>2 jobs"]
-        tier_T5_15min["T5-15min<br/>3 jobs"]
-        tier_T6_30min["T6-30min<br/>7 jobs"]
+        tier_T5_15min["T5-15min<br/>1 jobs"]
+        tier_T6_30min["T6-30min<br/>3 jobs"]
         tier_T7_hourly["T7-hourly<br/>6 jobs"]
-        tier_T8_daily_or_weekly["T8-daily-or-weekly<br/>13 jobs"]
+        tier_T8_daily_or_weekly["T8-daily-or-weekly<br/>27 jobs"]
     end
     VAULT[("📚 Vault SSoT")]
     OP([👤 Operator])
@@ -71,12 +71,12 @@ flowchart TB
 
 ## ⚡ Health Summary
 
-- **Atlas session-size telemetry:** info only — `[2026-04-29T10:30:01Z] OK session=019dd861-314 pct=3%`
+- **Atlas session-size telemetry:** info only — `[2026-04-29T10:50:02Z] CRITICAL session=60585399-c57 pct=190%`
 - **Graph edges:** 1279
 - **Rules active:** 57
 - **Facts (all-time):** 287 across 1 daily files
 - **Facts today:** None
-- **Scripts (active, no .bak):** 104 root + 67 workspace = 171
+- **Scripts (active, no .bak):** 105 root + 67 workspace = 172
 - **Cron entries (live):** 47
 
 ## 🤖 Agents (10)
@@ -85,12 +85,12 @@ flowchart TB
 |----|--------------|------------------|------|
 | `codex` | n/a | 0 | `/home/piet/.openclaw/agents/codex` |
 | `default` | n/a | 0 | `/home/piet/.openclaw/agents/default` |
-| `efficiency-auditor` | 2h ago | 17 | `/home/piet/.openclaw/agents/efficiency-auditor` |
+| `efficiency-auditor` | 3h ago | 17 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 4d ago | 180 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 4h ago | 243 | `/home/piet/.openclaw/agents/james` |
-| `main` | 2s ago | 22 | `/home/piet/.openclaw/agents/main` |
+| `main` | 3s ago | 1118 | `/home/piet/.openclaw/agents/main` |
 | `spark` | 3h ago | 29 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 33s ago | 21 | `/home/piet/.openclaw/agents/sre-expert` |
+| `sre-expert` | 1m ago | 23 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
@@ -105,27 +105,19 @@ flowchart TB
 | `* * * * *` | `$OPENCLAW/scripts/session-size-guard.py` |
 | `* * * * *` | `$OPENCLAW/workspace/scripts/state-collector.py` |
 
-### T2-2min (3 jobs)
+### T2-2min (2 jobs)
 
 | Schedule | Script |
 |---|---|
 | `*/2 * * * *` | `$OPENCLAW/scripts/cost-alert-dispatcher.py` |
-| `*/2 * * * *` | `$OPENCLAW/scripts/mc-critical-alert.py` |
 | `*/2 * * * *` | `$OPENCLAW/scripts/session-rotation-watchdog.py` |
 
-### T3-5min (9 jobs)
+### T3-5min (2 jobs)
 
 | Schedule | Script |
 |---|---|
 | `*/5 * * * *` | `$OPENCLAW/scripts/memory-budget-meter.sh` |
-| `*/5 * * * *` | `$OPENCLAW/scripts/sprint-debrief-watch.sh` |
-| `*/5 * * * *` | `$OPENCLAW/scripts/cpu-runaway-guard.sh` |
-| `*/5 * * * *` | `$OPENCLAW/scripts/session-size-guard.py` |
-| `*/5 * * * *` | `$OPENCLAW/scripts/mcp-qmd-reaper.sh` |
 | `*/5 * * * *` | `$OPENCLAW/scripts/mcp-taskboard-reaper.sh` |
-| `*/5 * * * *` | `$OPENCLAW/scripts/per-tool-byte-meter.py` |
-| `*/5 * * * *` | `$OPENCLAW/scripts/arch-deploy-readiness-check.sh` |
-| `*/5 * * * *` | `$OPENCLAW/scripts/gateway-memory-monitor.py` |
 
 ### T4-10min (2 jobs)
 
@@ -134,25 +126,19 @@ flowchart TB
 | `*/10 * * * *` | `$OPENCLAW/scripts/atlas-orphan-detect.sh` |
 | `*/10 * * * *` | `$OPENCLAW/scripts/session-health-monitor.py` |
 
-### T5-15min (3 jobs)
+### T5-15min (1 jobs)
 
 | Schedule | Script |
 |---|---|
 | `*/15 * * * *` | `$OPENCLAW/scripts/self-optimizer.py` |
-| `*/15 * * * *` | `$OPENCLAW/scripts/r49-claim-validator.py` |
-| `*/15 * * * *` | `$OPENCLAW/scripts/billing-alert-watch.sh` |
 
-### T6-30min (7 jobs)
+### T6-30min (3 jobs)
 
 | Schedule | Script |
 |---|---|
 | `23,53 * * * *` | `$OPENCLAW/scripts/session-size-alert.sh` |
 | `*/30 * * * *` | `flock` |
-| `*/30 * * * *` | `$OPENCLAW/scripts/pr68846-patch-check.sh` |
-| `*/30 * * * *` | `$OPENCLAW/scripts/cron-health-audit.sh` |
-| `*/30 * * * *` | `$OPENCLAW/scripts/session-janitor.py` |
 | `15,45 * * * *` | `$OPENCLAW/scripts/qmd-native-embed-cron.sh` |
-| `*/30 * * * *` | `$OPENCLAW/workspace/scripts/architecture-snapshot-generator.py` |
 
 ### T7-hourly (6 jobs)
 
@@ -165,23 +151,37 @@ flowchart TB
 | `5 * * * *` | `$OPENCLAW/scripts/qmd-pending-monitor.sh` |
 | `23 * * * *` | `$OPENCLAW/scripts/minions-pr-watch.sh` |
 
-### T8-daily-or-weekly (13 jobs)
+### T8-daily-or-weekly (27 jobs)
 
 | Schedule | Script |
 |---|---|
+| `1-59/2 * * * *` | `$OPENCLAW/scripts/mc-critical-alert.py` |
+| `1-59/5 * * * *` | `$OPENCLAW/scripts/sprint-debrief-watch.sh` |
+| `5-59/15 * * * *` | `$OPENCLAW/scripts/r49-claim-validator.py` |
 | `45 2 * * *` | `$OPENCLAW/workspace/scripts/memory-orchestrator.py` |
 | `0 5 * * 0` | `$OPENCLAW/workspace/scripts/memory-orchestrator.py` |
 | `0 4 1 */3 *` | `$OPENCLAW/workspace/scripts/memory-orchestrator.py` |
 | `7 */6 * * *` | `$OPENCLAW/scripts/memory-size-guard.sh` |
 | `0 */6 * * *` | `$OPENCLAW/scripts/script-integrity-check.sh` |
 | `0 */6 * * *` | `$OPENCLAW/bin/openclaw` |
+| `5-59/30 * * * *` | `$OPENCLAW/scripts/pr68846-patch-check.sh` |
 | `0 3 * * *` | `$OPENCLAW/scripts/cleanup.sh` |
 | `0 3 * * *` | `$OPENCLAW/scripts/config-snapshot-to-vault.sh` |
 | `0 3 * * 0` | `$OPENCLAW/scripts/build-artifact-cleanup.sh` |
+| `10-59/30 * * * *` | `$OPENCLAW/scripts/cron-health-audit.sh` |
 | `0 */6 * * *` | `$OPENCLAW/scripts/alert-dispatcher.sh` |
+| `15-59/30 * * * *` | `$OPENCLAW/scripts/session-janitor.py` |
+| `2-59/5 * * * *` | `$OPENCLAW/scripts/cpu-runaway-guard.sh` |
 | `0 6 * * *` | `$OPENCLAW/workspace/scripts/agents-md-size-check.sh` |
+| `3-59/5 * * * *` | `$OPENCLAW/scripts/session-size-guard.py` |
+| `4-59/5 * * * *` | `$OPENCLAW/scripts/mcp-qmd-reaper.sh` |
 | `0 8 * * *` | `$OPENCLAW/scripts/vault-search-daily-checkpoint.sh` |
+| `1-59/5 * * * *` | `$OPENCLAW/scripts/per-tool-byte-meter.py` |
+| `20-59/30 * * * *` | `$OPENCLAW/workspace/scripts/architecture-snapshot-generator.py` |
+| `2-59/5 * * * *` | `$OPENCLAW/scripts/arch-deploy-readiness-check.sh` |
 | `05 21 * * *` | `$OPENCLAW/scripts/daily-ops-digest.py` |
+| `3-59/5 * * * *` | `$OPENCLAW/scripts/gateway-memory-monitor.py` |
+| `10-59/15 * * * *` | `$OPENCLAW/scripts/billing-alert-watch.sh` |
 
 ## 🧠 Memory Layers (L1-L6)
 
@@ -197,11 +197,11 @@ flowchart TB
 
 **Last 5 budget-meter ticks:**
 ```
-[2026-04-29T10:10:01Z] CRITICAL session=019dd861-314 pct=163%
-[2026-04-29T10:15:01Z] CRITICAL session=019dd861-314 pct=282%
-[2026-04-29T10:20:01Z] CRITICAL session=019dd861-314 pct=290%
-[2026-04-29T10:25:01Z] CRITICAL session=019dd861-314 pct=297%
 [2026-04-29T10:30:01Z] OK session=019dd861-314 pct=3%
+[2026-04-29T10:35:01Z] OK session=60585399-c57 pct=19%
+[2026-04-29T10:40:01Z] OK session=60585399-c57 pct=39%
+[2026-04-29T10:45:01Z] CRITICAL session=60585399-c57 pct=137%
+[2026-04-29T10:50:02Z] CRITICAL session=60585399-c57 pct=190%
 ```
 
 ## 📜 Rules R1-R57 (56 total, by category)
@@ -297,11 +297,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+7affdae 2026-04-29 auto-sync: 2026-04-29 12:47
 4cdafad 2026-04-29 auto-sync: 2026-04-29 12:17
 5a71215 2026-04-29 auto-sync: 2026-04-29 11:46
 dd2116c 2026-04-29 auto-sync: 2026-04-29 11:16
 98cbb6e 2026-04-29 auto-sync: 2026-04-29 10:45
-547c286 2026-04-29 auto-sync: 2026-04-29 10:15
 ```
 
 ---

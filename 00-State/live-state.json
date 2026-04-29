@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T10:47:01.778121+00:00",
+  "generated_at": "2026-04-29T11:17:01.421503+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T10:46:57.223043+00:00",
-      "latest_session_size_bytes": 521453,
-      "session_count": 122
+      "last_session_iso": "2026-04-29T11:14:06.292675+00:00",
+      "latest_session_size_bytes": 715860,
+      "session_count": 123
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T10:44:15.143899+00:00",
-      "latest_session_size_bytes": 13472,
-      "session_count": 1619
+      "last_session_iso": "2026-04-29T11:16:16.580599+00:00",
+      "latest_session_size_bytes": 14829,
+      "session_count": 1618
     },
     {
       "id": "test-lock",
@@ -889,6 +889,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "7affdae",
+      "date": "2026-04-29T12:47:04+02:00",
+      "subject": "auto-sync: 2026-04-29 12:47"
+    },
+    {
       "hash": "4cdafad",
       "date": "2026-04-29T12:17:01+02:00",
       "subject": "auto-sync: 2026-04-29 12:17"
@@ -932,11 +937,6 @@
       "hash": "e9e23ab",
       "date": "2026-04-29T08:14:12+02:00",
       "subject": "auto-sync: 2026-04-29 08:14"
-    },
-    {
-      "hash": "7616a77",
-      "date": "2026-04-29T07:43:17+02:00",
-      "subject": "auto-sync: 2026-04-29 07:43"
     }
   ],
   "scripts": {
@@ -957,10 +957,8 @@
       "status": "running",
       "pids": [
         2824031,
-        2952486,
-        2952487,
-        2954366,
-        2955762
+        2994892,
+        2994893
       ]
     },
     {
@@ -968,9 +966,8 @@
       "status": "running",
       "pids": [
         2936281,
-        2939661,
-        2954354,
-        2955755
+        2980842,
+        2984110
       ]
     }
   ],
