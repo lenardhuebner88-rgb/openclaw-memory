@@ -7,12 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ff7cf9d5-278f-49e1-bf99-d097e6c9e818 [V3 Gate 2][Pixel] Harden kanban-v3 drawer/detail empty-loading-error states
-- stage: DONE
-- next: await next assignment
-- checkpoint: GATE2_IMPLEMENTATION_RESULT:
-- changed_files: src/app/kanban-v3-preview/page.tsx, src/app/kanban-v3-preview/[id]/page.tsx, src/components/v3/V3FinalDesktop.tsx
-- summary: Introduced explicit PreviewState model (loading/r
+- task: d02c49b2-dcd8-43d3-a63d-c3a3baca4d62 [V3 Gate 2][Pixel Rework] Fix invalid-id drawer state + prove build validity
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-29T12:42:29.226Z
+- updated: 2026-04-29T13:00:50.650Z
 <!-- mc:auto-working-context:end -->

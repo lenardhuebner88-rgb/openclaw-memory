@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T12:48:01.921761+00:00",
+  "generated_at": "2026-04-29T13:18:01.131091+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -62,8 +62,8 @@
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
       "status": "active",
-      "last_session_iso": "2026-04-29T12:44:43.724333+00:00",
-      "latest_session_size_bytes": 151075,
+      "last_session_iso": "2026-04-29T13:18:00.670597+00:00",
+      "latest_session_size_bytes": 296444,
       "session_count": 19
     },
     {
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T12:45:14.363564+00:00",
-      "latest_session_size_bytes": 6408482,
-      "session_count": 126
+      "last_session_iso": "2026-04-29T13:15:30.629554+00:00",
+      "latest_session_size_bytes": 999569,
+      "session_count": 124
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T12:47:31.438586+00:00",
-      "latest_session_size_bytes": 5836,
+      "last_session_iso": "2026-04-29T13:17:51.184531+00:00",
+      "latest_session_size_bytes": 7206,
       "session_count": 1618
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "de6cfb6",
+      "date": "2026-04-29T14:48:17+02:00",
+      "subject": "auto-sync: 2026-04-29 14:48"
+    },
+    {
       "hash": "05a36e1",
       "date": "2026-04-29T14:22:01+02:00",
       "subject": "docs: add v3 gate 1 evidence pack"
@@ -950,11 +955,6 @@
       "hash": "dd2116c",
       "date": "2026-04-29T11:16:17+02:00",
       "subject": "auto-sync: 2026-04-29 11:16"
-    },
-    {
-      "hash": "98cbb6e",
-      "date": "2026-04-29T10:45:58+02:00",
-      "subject": "auto-sync: 2026-04-29 10:45"
     }
   ],
   "scripts": {
@@ -975,20 +975,16 @@
       "status": "running",
       "pids": [
         3010776,
-        3109329,
-        3109330,
-        3109491
+        3146216,
+        3146217
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3014780,
         3082617,
-        3100369,
-        3106882,
-        3109470
+        3126777
       ]
     }
   ],
