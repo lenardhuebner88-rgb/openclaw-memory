@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 82c4076f-878e-4bf9-89e4-b36e168f57fa [P1][Forge] Add Taskboard MCP wrappers for receipt/finalize/move
-- stage: DONE
-- next: await next assignment
-- checkpoint: Taskboard MCP Lifecycle-Wrapper verifiziert: server.js enthält taskboard_receipt_task -> POST /api/tasks/{id}/receipt, taskboard_finalize_task -> POST /api/tasks/{id}/finalize und taskboard_move_task -> PUT /api/tasks/{i
+- task: 5e7d3e96-9be3-4d98-aac0-05787101fec8 [P2][Atlas/Forge] Session rotation watchdog signal-only loop handling
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-29T14:24:14.880Z
+- updated: 2026-04-29T15:02:05.299Z
 <!-- mc:auto-working-context:end -->

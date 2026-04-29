@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T14:48:01.908656+00:00",
+  "generated_at": "2026-04-29T15:19:01.175692+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 2,
+    "agents_active": 3,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -53,9 +53,9 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "ready",
-      "last_session_iso": "2026-04-29T07:40:44.150346+00:00",
-      "latest_session_size_bytes": 219026,
+      "status": "active",
+      "last_session_iso": "2026-04-29T15:18:22.685667+00:00",
+      "latest_session_size_bytes": 381472,
       "session_count": 53
     },
     {
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T14:46:41.540521+00:00",
-      "latest_session_size_bytes": 2389704,
-      "session_count": 126
+      "last_session_iso": "2026-04-29T15:16:00.013650+00:00",
+      "latest_session_size_bytes": 2713682,
+      "session_count": 127
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T14:48:00.632100+00:00",
-      "latest_session_size_bytes": 10836,
-      "session_count": 1619
+      "last_session_iso": "2026-04-29T15:18:38.576780+00:00",
+      "latest_session_size_bytes": 9718,
+      "session_count": 1618
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "974047b",
+      "date": "2026-04-29T16:49:01+02:00",
+      "subject": "auto-sync: 2026-04-29 16:49"
+    },
+    {
       "hash": "4fce1ad",
       "date": "2026-04-29T16:18:53+02:00",
       "subject": "auto-sync: 2026-04-29 16:18"
@@ -950,11 +955,6 @@
       "hash": "c9d2a9d",
       "date": "2026-04-29T13:17:07+02:00",
       "subject": "auto-sync: 2026-04-29 13:17"
-    },
-    {
-      "hash": "7affdae",
-      "date": "2026-04-29T12:47:04+02:00",
-      "subject": "auto-sync: 2026-04-29 12:47"
     }
   ],
   "scripts": {
@@ -974,21 +974,19 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        3161044,
-        3265138,
-        3265139,
-        3266398
+        3285084,
+        3302002,
+        3302003
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3164943,
-        3256705,
-        3257608,
-        3266381,
-        3269646
+        3289792,
+        3294098,
+        3300286,
+        3306517
       ]
     }
   ],
