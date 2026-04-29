@@ -7,12 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: abc44fbd-d516-46df-89cb-6352e8315199 [V3 Gate 2][Pixel Rework 2] Fix invalid-id drawer state after snapshot load
+- task: 69b192c3-ad89-4af0-91b8-c60f9ea1074b [P2][Pixel] Taskboard draft assign UI flow
 - stage: DONE
 - next: await next assignment
-- checkpoint: GATE2_REWORK2_RESULT:
-- changed_files: src/app/kanban-v3-preview/[id]/page.tsx
-- root_cause: The drawer route still had an unsafe loaded-missing fallback path: invalid IDs could fall through to generic “Loading live task
+- checkpoint: RESULT
+Implemented Mission Control Taskboard draft assignment UI. Draft task cards now expose an agent selector plus Assign button; task details now include an Assign draft panel. Both paths call PATCH /api/tasks/:id wit
 - blocker: -
-- updated: 2026-04-29T13:57:04.220Z
+- updated: 2026-04-29T15:56:45.009Z
 <!-- mc:auto-working-context:end -->
