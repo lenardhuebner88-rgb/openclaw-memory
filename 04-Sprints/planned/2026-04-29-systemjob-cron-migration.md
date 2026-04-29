@@ -68,3 +68,23 @@ Initial migrated jobs:
 - The 20:25 systemd tick verified receipt-stream and master-heartbeat as shell
   jobs; final post-tick verification should confirm no new native provider
   entries after the Gateway disable.
+
+## Final Verification
+- 2026-04-29 20:42 UTC: Mission Control was recovered through
+  `mc-restart-safe` after systemd `start-limit-hit`; `/api/health` returned
+  `status=ok`.
+- 2026-04-29 20:45 UTC scheduled timer tick:
+  `atlas-receipt-stream-subscribe` and `m7-atlas-master-heartbeat.timer` wrote
+  `systemJob=true`, `provider=system`, `model=shell`, and
+  `usage.total_tokens=0`.
+- 2026-04-29 20:50 UTC scheduled timer tick:
+  `mc-task-parity-check-10min` completed with
+  `PARITY_CHECK_OK total=787 mismatches=0`, `systemJob=true`,
+  `provider=system`, `model=shell`, and `usage.total_tokens=0`.
+- Native OpenClaw cron list no longer includes the three migrated job IDs;
+  `jobs.json` keeps them `enabled=false` with
+  `disabledReason=migrated-to-systemd-systemjob` and enabled top-level
+  `systemJob` metadata.
+- Final live checks: `/api/health status=ok`, worker reconciler proof
+  `status=ok`, pickup proof `status=ok`, and no failed `mc-worker-*` or
+  `openclaw-systemjob@*` units.
