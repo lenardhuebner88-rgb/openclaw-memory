@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T11:47:01.786672+00:00",
+  "generated_at": "2026-04-29T12:17:01.529573+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -9,12 +9,12 @@
   "summary": {
     "agents_total": 10,
     "agents_active": 2,
-    "crons_total": 47,
+    "crons_total": 50,
     "crons_by_tier": {
-      "T1-realtime": 4,
+      "T1-realtime": 5,
       "T2-2min": 2,
-      "T8-daily-or-weekly": 27,
-      "T3-5min": 2,
+      "T8-daily-or-weekly": 28,
+      "T3-5min": 3,
       "T4-10min": 2,
       "T5-15min": 1,
       "T7-hourly": 6,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 170,
+    "scripts_active": 173,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T11:46:12.548444+00:00",
-      "latest_session_size_bytes": 6113958,
-      "session_count": 123
+      "last_session_iso": "2026-04-29T12:16:56.106047+00:00",
+      "latest_session_size_bytes": 1270187,
+      "session_count": 122
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T11:46:38.562629+00:00",
-      "latest_session_size_bytes": 5905,
+      "last_session_iso": "2026-04-29T12:16:32.662885+00:00",
+      "latest_session_size_bytes": 6036,
       "session_count": 1618
     },
     {
@@ -467,6 +467,24 @@
       "command": "flock -n /tmp/billing-alert-watch.lock /home/piet/.openclaw/scripts/billing-alert-watch.sh >> /home/piet/.openclaw/workspace/logs/billing-alert-watch.cron.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/billing-alert-watch.sh",
       "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "* * * * *",
+      "command": "flock -n /tmp/crontab-schema-gate.lock /home/piet/.openclaw/scripts/crontab-schema-gate.sh >> /home/piet/.openclaw/workspace/logs/crontab-schema-gate.cron.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/crontab-schema-gate.sh",
+      "tier": "T1-realtime"
+    },
+    {
+      "schedule": "30 */6 * * *",
+      "command": "flock -n /tmp/vault-frontmatter-validator.lock /home/piet/.openclaw/scripts/vault-frontmatter-validator.py >> /home/piet/.openclaw/workspace/logs/vault-frontmatter-validator.cron.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/vault-frontmatter-validator.py",
+      "tier": "T8-daily-or-weekly"
+    },
+    {
+      "schedule": "*/5 * * * *",
+      "command": "flock -n /tmp/cron-runs-tracker.lock /usr/bin/python3 /home/piet/.openclaw/scripts/cron-runs-tracker.py >> /home/piet/.openclaw/workspace/logs/cron-runs-tracker.cron.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/cron-runs-tracker.py",
+      "tier": "T3-5min"
     }
   ],
   "rules": [
@@ -889,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "2f31cc8",
+      "date": "2026-04-29T13:47:17+02:00",
+      "subject": "auto-sync: 2026-04-29 13:47"
+    },
+    {
       "hash": "c9d2a9d",
       "date": "2026-04-29T13:17:07+02:00",
       "subject": "auto-sync: 2026-04-29 13:17"
@@ -932,15 +955,10 @@
       "hash": "783d991",
       "date": "2026-04-29T09:15:00+02:00",
       "subject": "auto-sync: 2026-04-29 09:15"
-    },
-    {
-      "hash": "f2f1206",
-      "date": "2026-04-29T08:44:17+02:00",
-      "subject": "auto-sync: 2026-04-29 08:44"
     }
   ],
   "scripts": {
-    "scripts_root": 105,
+    "scripts_root": 108,
     "workspace_scripts": 65
   },
   "mcp_servers": [
@@ -957,9 +975,9 @@
       "status": "running",
       "pids": [
         3010776,
-        3031630,
-        3031631,
-        3033257
+        3069553,
+        3069554,
+        3072296
       ]
     },
     {
@@ -967,7 +985,9 @@
       "status": "running",
       "pids": [
         3014780,
-        3033250
+        3033250,
+        3067768,
+        3072268
       ]
     }
   ],
