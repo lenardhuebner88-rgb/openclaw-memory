@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3f600b85-17de-4cfa-8e1d-16d723f9b02d [Forge Fix] receipt-materializer negative residual signals must not create follow-up drafts
-- stage: DONE
-- next: await next assignment
-- checkpoint: Fix umgesetzt: receipt-materializer unterdrückt jetzt Follow-up-Draft-Erzeugung bei explizit negativen Residual-Signalen (z. B. no residual/no implementation/archive/no action), während echte positive Follow-up-Signale w
-- blocker: -
-- updated: 2026-04-29T20:24:29.934Z
+- task: edec3e36-ef21-4430-896f-93b394ffe490 [V3 Follow-up][Forge] Fix toV3Status terminal precedence over retained blockerReason
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Live endpoint semantic verification of /api/board/v3-health requires applying the new code to the running MC process (build+safe restart/deploy), which is out of scope without explicit operator-approved deploy gate in th
+- blocker: Live endpoint semantic verification of /api/board/v3-health requires applying the new code to the running MC process (build+safe restart/deploy), which is out of scope without explicit operator-approved deploy gate in th
+- updated: 2026-04-29T22:13:49.055Z
 <!-- mc:auto-working-context:end -->

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T21:52:01.768190+00:00",
+  "generated_at": "2026-04-29T22:23:01.303644+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -61,10 +61,10 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "idle",
-      "last_session_iso": "2026-04-23T17:04:14.393537+00:00",
-      "latest_session_size_bytes": 321518,
-      "session_count": 18
+      "status": "monitoring",
+      "last_session_iso": "2026-04-29T22:00:33.094661+00:00",
+      "latest_session_size_bytes": 325789,
+      "session_count": 19
     },
     {
       "id": "james",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T21:50:37.926438+00:00",
-      "latest_session_size_bytes": 65849,
-      "session_count": 132
+      "last_session_iso": "2026-04-29T22:21:44.943442+00:00",
+      "latest_session_size_bytes": 112994,
+      "session_count": 141
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-04-29T21:05:42.253145+00:00",
-      "latest_session_size_bytes": 4659,
-      "session_count": 1618
+      "last_session_iso": "2026-04-29T22:14:45.537153+00:00",
+      "latest_session_size_bytes": 183884,
+      "session_count": 1620
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "0f50bdb",
+      "date": "2026-04-29T23:52:17+02:00",
+      "subject": "auto-sync: 2026-04-29 23:52"
+    },
+    {
       "hash": "0b67028",
       "date": "2026-04-29T23:22:17+02:00",
       "subject": "auto-sync: 2026-04-29 23:22"
@@ -950,11 +955,6 @@
       "hash": "9395894",
       "date": "2026-04-29T19:21:01+02:00",
       "subject": "auto-sync: 2026-04-29 19:21"
-    },
-    {
-      "hash": "a88c3f8",
-      "date": "2026-04-29T18:50:58+02:00",
-      "subject": "auto-sync: 2026-04-29 18:50"
     }
   ],
   "scripts": {
@@ -966,17 +966,20 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        3825653
+        3825653,
+        3889946,
+        3889947,
+        3899166
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3856559,
-        3857544,
-        3858212,
-        3860103
+        3860103,
+        3888662,
+        3889076,
+        3899159
       ]
     }
   ],

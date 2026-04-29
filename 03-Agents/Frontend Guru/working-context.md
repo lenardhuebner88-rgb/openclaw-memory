@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1f24e672-1ef2-474d-bc04-ffe2d9c80ff1 [Follow-up] [S-FOLLOWUP-1][S3.1][Pixel] Follow-up autonomy E2E test skeleton
-- stage: FAILED
+- task: 4d30f81f-31bc-42fa-8a36-bed6fb248c30 [V3 Follow-up][Pixel] ControlBar + Mobile Acceptance Gaps (YELLOW→GREEN)
+- stage: DONE
 - next: await next assignment
-- checkpoint: -
+- checkpoint: Closed the V3 Preview ControlBar/mobile acceptance gaps with UI-only changes: control state now drives board/list, density, and truth-rail rendering; URL params win over storage defaults with stable persistence; mobile u
 - blocker: -
-- updated: 2026-04-29T19:24:28.946Z
+- updated: 2026-04-29T21:59:51.524Z
 <!-- mc:auto-working-context:end -->
