@@ -1,7 +1,7 @@
 ---
 title: Mission Control Vault — Auto Index
 generator: /home/piet/.openclaw/scripts/vault-index-generator.py
-source_root: /home/piet/vault/03-Agents
+source_root: /home/piet/vault/_agents
 mode: generated
 ---
 
@@ -9,59 +9,58 @@ mode: generated
 
 Dieses Dokument ist generated aus YAML-Frontmatter (`sprint-id`, `status`, `owner`, `supersedes`).
 
-## RUNNING (1)
+## DONE (27)
 
 | Sprint-ID | Title | Owner | Supersedes | Path |
 |---|---|---|---|---|
-| S-GOV | Governance — Sprint-M Closeout + Vault-Index + Prefect/OTEL Spikes | lens-review:Lens, closeout-merge:Atlas, qmd-drift:Operator, mem-orch:Forge, m9-spike:Forge, m10-otel:Forge | - | `sprints/s-gov-2026-04-22.md` |
+| S-GOV | s-gov-t8-otel-proof-2026-04-22 | Forge | - | `s-gov-t8-otel-proof-2026-04-22.md` |
+| - | 2026-04-24_2137_debate_meeting-runner-architektur-review | - | - | `_coordination/meetings/2026-04-24_2137_debate_meeting-runner-architektur-review.md` |
+| - | 2026-04-24_2207_debate_forge-auf-gpt-5-5-oder-5-3-codex | - | - | `_coordination/meetings/2026-04-24_2207_debate_forge-auf-gpt-5-5-oder-5-3-codex.md` |
+| - | 2026-04-24_2327_review_memory-L3-audit | - | - | `_coordination/meetings/2026-04-24_2327_review_memory-L3-audit.md` |
+| - | 2026-04-25_0438_debate_was-w-re-der-n-chste-gr-te-hebel-zur-umsetzung | - | - | `_coordination/meetings/2026-04-25_0438_debate_was-w-re-der-n-chste-gr-te-hebel-zur-umsetzung.md` |
+| - | 2026-04-25_0448_debate_meeting-debate-phase3-state-machine | - | - | `_coordination/meetings/2026-04-25_0448_debate_meeting-debate-phase3-state-machine.md` |
+| - | 2026-04-25_0449_debate_meeting-debate-token-accounting | - | - | `_coordination/meetings/2026-04-25_0449_debate_meeting-debate-token-accounting.md` |
+| - | 2026-04-25_0450_debate_meeting-review-minimal-features | - | - | `_coordination/meetings/2026-04-25_0450_debate_meeting-review-minimal-features.md` |
+| - | 2026-04-25_0451_debate_meeting-council-safe-mode | - | - | `_coordination/meetings/2026-04-25_0451_debate_meeting-council-safe-mode.md` |
+| - | 2026-04-25_0452_debate_phase4-readiness-gates | - | - | `_coordination/meetings/2026-04-25_0452_debate_phase4-readiness-gates.md` |
+| - | 2026-04-25_0727_debate_worker-pickup-heartbeat-truth | - | - | `_coordination/meetings/2026-04-25_0727_debate_worker-pickup-heartbeat-truth.md` |
+| - | 2026-04-25_0958_debate_was-w-re-der-n-chste-konkrete-fix-um-unser-system-stabil | - | - | `_coordination/meetings/2026-04-25_0958_debate_was-w-re-der-n-chste-konkrete-fix-um-unser-system-stabil.md` |
+| - | 2026-04-25_1150_debate_bereits-f-r-phase-c-meeting-phase-erstellung-plan-und-um | - | - | `_coordination/meetings/2026-04-25_1150_debate_bereits-f-r-phase-c-meeting-phase-erstellung-plan-und-um.md` |
+| - | 2026-04-25_1658_debate_phase-d-next-single-run-candidate | - | - | `_coordination/meetings/2026-04-25_1658_debate_phase-d-next-single-run-candidate.md` |
+| - | 2026-04-25_1730_debate_atlas-latency-context-problem | - | - | `_coordination/meetings/2026-04-25_1730_debate_atlas-latency-context-problem.md` |
+| - | 2026-04-25_1742_debate_lens-cost-report-fix | - | - | `_coordination/meetings/2026-04-25_1742_debate_lens-cost-report-fix.md` |
+| - | 2026-04-25_1750_debate_meeting-debate-hardening-next | - | - | `_coordination/meetings/2026-04-25_1750_debate_meeting-debate-hardening-next.md` |
+| - | 2026-04-25_1754_debate_next-concrete-features | - | - | `_coordination/meetings/2026-04-25_1754_debate_next-concrete-features.md` |
+| - | 2026-04-25_1801_debate_autonomy-followup-tasks-next-level | - | - | `_coordination/meetings/2026-04-25_1801_debate_autonomy-followup-tasks-next-level.md` |
+| - | 2026-04-24_agent-recommendations-gpt55-implementation-plan | codex | - | `codex/plans/2026-04-24_agent-recommendations-gpt55-implementation-plan.md` |
+| - | 2026-04-24_autonomous-self-healing-openclaw-plan | codex | - | `codex/plans/2026-04-24_autonomous-self-healing-openclaw-plan.md` |
+| - | 2026-04-24_worker-hardening-points-1-5-green-gate | codex | - | `codex/plans/2026-04-24_worker-hardening-points-1-5-green-gate.md` |
+| - | 2026-04-26_atlas-gpt55-taskboard-rca-report | - | - | `codex/plans/2026-04-26_atlas-gpt55-taskboard-rca-report.md` |
+| - | 2026-04-26_atlas-orchestrator-optimization-implementation-report | - | - | `codex/plans/2026-04-26_atlas-orchestrator-optimization-implementation-report.md` |
+| - | 2026-04-26_autonomy-policy-governance-lens-e2e | codex | - | `codex/plans/2026-04-26_autonomy-policy-governance-lens-e2e.md` |
+| - | 2026-04-26_first-heartbeat-gate-hardening | codex | - | `codex/plans/2026-04-26_first-heartbeat-gate-hardening.md` |
+| - | 2026-04-26_worker-system-large-final-gate-report | codex | - | `codex/plans/2026-04-26_worker-system-large-final-gate-report.md` |
 
-## PLANNED (2)
+## UNKNOWN (242)
 
 | Sprint-ID | Title | Owner | Supersedes | Path |
 |---|---|---|---|---|
-| S-INFRA | Sprint-K Restpunkte — H6 Receipt-Lifecycle + H7 Rollback + H6'L5 FSM | h6-l1:Atlas, h6-l3:Forge, h6-l4-hook:Forge, h7b-rollback:Operator, h6-l5-fsm:Forge | - | `sprints/s-infra-2026-04-22.md` |
-| S-INTEG-W1 | Claude Code × OpenClaw Integration — Week 1 Foundation | pre-flight:Operator, sshfs:Operator, mcp-fs:Operator, cache-warming:Atlas, schema-gate:Forge | - | `sprints/s-integ-w1-2026-04-22.md` |
-
-## DONE (6)
-
-| Sprint-ID | Title | Owner | Supersedes | Path |
-|---|---|---|---|---|
-| S-FND | Foundation — Pydantic Outcome + attemptId + Config-Gate + OTEL | schema:Forge, attemptId:Forge, config-gate:Operator, otel:Forge | - | `sprints/s-fnd-2026-04-22.md` |
-| S-HANDBOOK | System Handbook + Agent Acceleration Plan | Operator (piet) | - | `sprints/s-handbook-2026-04-21.md` |
-| S-HEALTH | Board-Health Cleanup — Legacy-Data-Hygiene (145 consistency-issues) | orchestration:Atlas, inventory:Codex, pattern-analysis:Forge, bulk-close:Forge, manual-review:Operator | - | `sprints/s-health-board-cleanup-2026-04-22.md` |
-| S-RELIAB-P0 | Worker / E2E / MCP Reliability — P0 Core | f1-f9:Forge, p1:Operator, mcp-spike:Forge, chaos-test:Atlas | - | `sprints/s-reliab-p0-2026-04-22.md` |
-| S-RPT | Reporting & Next-Action-Schema Hardening | schema:Forge, reader-hygiene:Codex, writer-migration:Forge, backfill:Atlas | - | `sprints/s-rpt-2026-04-22.md` |
-| S-UX | Pipeline-Tab Quickwins — Phase 0 Backend + Phase 2+3 | phase-0-backend:Forge, phase-2-ui:Forge, phase-2b-confidence:Pixel, phase-3-sse:Forge | - | `sprints/s-ux-2026-04-22.md` |
-
-## UNKNOWN (249)
-
-| Sprint-ID | Title | Owner | Supersedes | Path |
-|---|---|---|---|---|
-| M | Sprint-M — Audit-Integrity + Scheduler-Consolidation | - | {'sprint-k-infra-hardening-plan-2026-04-19.md sections L2/L3/L4/L5 (Operator-Decision': 'Sprint-M supersedes these)'}, H10 L1 bleibt eigenständig in Sprint-K (nicht Teil Sprint-M) | `archive/2026-04/sprint-m-audit-integrity-scheduler-consolidation-plan-2026-04-20-v1.1.md` |
-| M | Sprint-M — Audit-Integrity + Scheduler-Consolidation | - | - | `archive/2026-04/sprint-m-audit-integrity-scheduler-consolidation-plan-2026-04-20.md` |
-| M | Sprint-M — Audit-Integrity + Scheduler-Consolidation | - | {'sprint-k-infra-hardening-plan-2026-04-19.md sections L2/L3/L4/L5 (Operator-Decision': 'Sprint-M supersedes these)'}, H10 L1 bleibt eigenständig in Sprint-K (nicht Teil Sprint-M) | `sprint-m-audit-integrity-scheduler-consolidation-plan-2026-04-20-v1.2.1.md` |
-| - | Mission Control — Task-Tab Operator-Cockpit Plan v2 (Revidiert 2026-04-18 Abend) | Atlas → Forge + Pixel | 2026-04-18_mission-control-task-tab-plan.md v1 | `2026-04-18_mission-control-task-tab-plan-v2.md` |
-| - | Aktiver 3h-Sprint 2026-04-18 Nacht — V-Closure + Task-Tab-Foundation | - | - | `2026-04-18_night_3h_active_sprint.md` |
-| - | working-context | - | - | `Agent/working-context.md` |
-| - | working-context | - | - | `Atlas Main/working-context.md` |
+| - | AGENTS | - | - | `AGENTS.md` |
 | - | atlas-session-handover | - | - | `Atlas/atlas-session-handover.md` |
 | - | working-context | - | - | `Atlas/working-context.md` |
-| - | DREAMS-2026-04-20 | - | - | `DREAMS-2026-04-20.md` |
 | - | working-context | - | - | `Efficiency Auditor/working-context.md` |
-| - | working-context | - | - | `Fail Test/working-context.md` |
-| - | working-context | - | - | `Flash/working-context.md` |
-| - | working-context | - | - | `Forge Ac06 Ac07 Messluecken/working-context.md` |
-| - | working-context | - | - | `Forge H5/working-context.md` |
-| - | working-context | - | - | `Forge Memory Truncation Fix/working-context.md` |
-| - | working-context | - | - | `Forge Pack C Urgent/working-context.md` |
-| - | working-context | - | - | `Forge Sprint D/working-context.md` |
-| - | working-context | - | - | `Forge-Opus/working-context.md` |
 | - | working-context | - | - | `Forge/working-context.md` |
+| - | working-context | - | - | `Frontend Guru Ui Taskboard/working-context.md` |
 | - | working-context | - | - | `Frontend Guru/working-context.md` |
-| - | working-context | - | - | `Gateway A8100ac6 Df0b 4e16 B4d6 Ac5119730e46/working-context.md` |
+| - | working-context | - | - | `James Subagent/working-context.md` |
 | - | working-context | - | - | `James/working-context.md` |
-| - | working-context | - | - | `Lens Woche 2 Review Gate/working-context.md` |
+| - | operator-runbook-live-autopilot | - | - | `Lenard/operator-runbook-live-autopilot.md` |
 | - | working-context | - | - | `Lens/working-context.md` |
+| - | working-context | - | - | `Main 15515400 5fd4 4da6 A469 7dd050f6a6c6/working-context.md` |
+| - | working-context | - | - | `Main 6ebe165d 45ce 4cf1 8789 5593dce935e4/working-context.md` |
+| - | working-context | - | - | `Main 77653831 3002 4522 994f 57945ccd90e0/working-context.md` |
+| - | working-context | - | - | `Main 83ca49f1 Bd50 4635 Bd92 391c323d7010/working-context.md` |
+| - | working-context | - | - | `Main F4ff0592 1b1b 49c6 A7af B9a79e96874b/working-context.md` |
 | - | working-context | - | - | `Main/working-context.md` |
 | - | OBSIDIAN-OPERATING-RULES | - | - | `OpenClaw/OBSIDIAN-OPERATING-RULES.md` |
 | - | README | - | - | `OpenClaw/README.md` |
@@ -79,213 +78,215 @@ Dieses Dokument ist generated aus YAML-Frontmatter (`sprint-id`, `status`, `owne
 | - | 2026-04-20 | - | - | `OpenClaw/daily/2026-04-20.md` |
 | - | 2026-04-21 | - | - | `OpenClaw/daily/2026-04-21.md` |
 | - | 2026-04-22 | - | - | `OpenClaw/daily/2026-04-22.md` |
+| - | 2026-04-24 | - | - | `OpenClaw/daily/2026-04-24.md` |
+| - | 2026-04-25 | - | - | `OpenClaw/daily/2026-04-25.md` |
+| - | 2026-04-26 | - | - | `OpenClaw/daily/2026-04-26.md` |
+| - | 2026-04-29 | - | - | `OpenClaw/daily/2026-04-29.md` |
 | - | 2026-04-10 | - | - | `OpenClaw/daily/_archive-verbose/2026-04-10.md` |
 | - | 2026-04-11 | - | - | `OpenClaw/daily/_archive-verbose/2026-04-11.md` |
 | - | 2026-04-12 | - | - | `OpenClaw/daily/_archive-verbose/2026-04-12.md` |
 | - | 2026-04-13 | - | - | `OpenClaw/daily/_archive-verbose/2026-04-13.md` |
 | - | 2026-04-14 | - | - | `OpenClaw/daily/_archive-verbose/2026-04-14.md` |
 | - | 2026-04-15 | - | - | `OpenClaw/daily/_archive-verbose/2026-04-15.md` |
+| - | daily | - | - | `OpenClaw/daily/daily.md` |
 | - | operational-state | - | - | `OpenClaw/operational-state.md` |
 | - | task-lifecycle | - | - | `OpenClaw/task-lifecycle.md` |
-| - | working-context | - | - | `Pixel Cockpit Pack3/working-context.md` |
-| - | working-context | - | - | `Pixel Cockpit Pack5/working-context.md` |
-| - | working-context | - | - | `Pixel I1/working-context.md` |
-| - | working-context | - | - | `Pixel I4/working-context.md` |
 | - | working-context | - | - | `Pixel/working-context.md` |
 | - | working-context | - | - | `Researcher/working-context.md` |
 | - | checkpoints | - | - | `Shared/checkpoints.md` |
 | - | decisions-log | - | - | `Shared/decisions-log.md` |
 | - | project-state | - | - | `Shared/project-state.md` |
-| - | reporting-routing-canon | - | - | `Shared/reporting-routing-canon.md` |
-| - | task-lifecycle-canon | - | - | `Shared/task-lifecycle-canon.md` |
 | - | user-profile | - | - | `Shared/user-profile.md` |
-| - | working-context | - | - | `Smoke Bot/working-context.md` |
-| - | working-context | - | - | `Smoke/working-context.md` |
-| - | working-context | - | - | `Spark Relief/working-context.md` |
+| - | working-context | - | - | `Spark Subagent/working-context.md` |
 | - | working-context | - | - | `Spark/working-context.md` |
-| - | working-context | - | - | `Sprint I I6 Gesture Viewport/working-context.md` |
 | - | working-context | - | - | `Sre Expert/working-context.md` |
-| - | working-context | - | - | `Startedat Validation/working-context.md` |
-| - | working-context | - | - | `Test Mini/working-context.md` |
-| - | working-context | - | - | `Throttle/working-context.md` |
-| - | working-context | - | - | `Unassigned/working-context.md` |
-| - | working-context | - | - | `Worker/working-context.md` |
+| - | working-context | - | - | `Task 01e5b7c6 E592 4d83 Bd65 596e3683c987 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 0510c7b4 De98 490f 9912 D32509742b22 Main/working-context.md` |
+| - | working-context | - | - | `Task 0feb3749 1a05 4f56 Aa11 52f182654853 Main/working-context.md` |
+| - | working-context | - | - | `Task 1357a4de 2b58 45fb 8a61 Ae68bfadee64 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 159ee41f Main/working-context.md` |
+| - | working-context | - | - | `Task 1dc27f1f Main/working-context.md` |
+| - | working-context | - | - | `Task 1e1b93cf Main/working-context.md` |
+| - | working-context | - | - | `Task 2323ce19 Main/working-context.md` |
+| - | working-context | - | - | `Task 23365e61 B0c8 458d 8fd9 00c58648d3be Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 2513ffab 26dc 4e03 9d13 98179187b098 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 27432044 Main/working-context.md` |
+| - | working-context | - | - | `Task 30c36874 Bac1 48f4 B424 61a47b151047 Main/working-context.md` |
+| - | working-context | - | - | `Task 37e3201f Dc93 4485 B6ba 122335c40cc6 Main/working-context.md` |
+| - | working-context | - | - | `Task 3a251b73 53b2 424e Aed5 3431789d7e64 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 53737803 14f2 41a9 A491 80cd2889f6f4 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 56fc8f1b 1c6d 4a98 B1ee C9a3319e31f8 Main/working-context.md` |
+| - | working-context | - | - | `Task 646c087e Bdbe 453f A833 Aeefa4990154 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 68c7bc76 Main/working-context.md` |
+| - | working-context | - | - | `Task 6eb33ea6 F774 4970 Ac07 Cbd81cfe9341 Main/working-context.md` |
+| - | working-context | - | - | `Task 75585071 Ad21 4065 90c5 Dee96cd8118d Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 77ee2581 B64d 4edd 8b04 A96241e4537b Main/working-context.md` |
+| - | working-context | - | - | `Task 7994f125 Fe13 4ad7 A28b 819a24ba3367 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 7fe05dd7 957e 484b B7c7 5f197581d4d4 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task 848f7fc5 1d7a 41f1 95fe F677597a8a10 Main/working-context.md` |
+| - | working-context | - | - | `Task 870abb64 C66a 491b 9bec 008dfd2b3527 Main/working-context.md` |
+| - | working-context | - | - | `Task 8787beb8 9126 402e 99c0 Ef65ea45fdb1 Main/working-context.md` |
+| - | working-context | - | - | `Task 93f3adc8 Main/working-context.md` |
+| - | working-context | - | - | `Task 96123f83 0442 4c38 9af7 D14fd1886efc Main/working-context.md` |
+| - | working-context | - | - | `Task 9742101e A175 4006 Bbcb 0d0de35add60 Main/working-context.md` |
+| - | working-context | - | - | `Task 989ba44a 3e39 486b A5f2 9d863d162e02 Main/working-context.md` |
+| - | working-context | - | - | `Task 9b04afda 6373 4331 B3ca 6f6a754b26a9 Efficiency Auditor/working-context.md` |
+| - | working-context | - | - | `Task 9d056416 Main/working-context.md` |
+| - | working-context | - | - | `Task Ab35cf00 Main/working-context.md` |
+| - | working-context | - | - | `Task Acaf3eee 38fd 4dd9 9281 F1c583baa5ad Main/working-context.md` |
+| - | working-context | - | - | `Task Bdb6246d 9c6b 4389 95fd Ffd6a51f1f46 Main/working-context.md` |
+| - | working-context | - | - | `Task C2182de9 C3b5 45b2 Ba48 Fa0a12e2c474 Main/working-context.md` |
+| - | working-context | - | - | `Task C5d04b9c 287e 433e 9450 08ca3373a236 Main/working-context.md` |
+| - | working-context | - | - | `Task Cd1dd84c Main/working-context.md` |
+| - | working-context | - | - | `Task D02cb065 0201 4c69 8889 9809c475160d Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task D24d6b98 974e 49e9 B29d 36e7a1059cc4 Main/working-context.md` |
+| - | working-context | - | - | `Task D50fb7c5 E7fa 4e19 9b4a B8eec83a7ca9 Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task D53764fb C3c3 4ff0 Aea7 B4da543ca039 Main/working-context.md` |
+| - | working-context | - | - | `Task D8a54f9a 99d6 492a Affd E50147784419 Main/working-context.md` |
+| - | working-context | - | - | `Task D8d77413 6d20 4b49 89f1 44bfdf15736c Main/working-context.md` |
+| - | working-context | - | - | `Task D8deb3b3 A382 47c3 Bb4b Dfe46cbf29bb Sre Expert/working-context.md` |
+| - | working-context | - | - | `Task Da2a8228 E4ce 41eb 81c9 322af25bd164 Main/working-context.md` |
+| - | working-context | - | - | `Task Ddfb3c95 2e49 42e8 Be0c 1fec2d0d9768 Main/working-context.md` |
+| - | working-context | - | - | `Task E08e844f Main/working-context.md` |
+| - | working-context | - | - | `Task E6b99519 0837 46fb 906c 284e1b532c05 Main/working-context.md` |
+| - | working-context | - | - | `Task Eb2b3a86 Main/working-context.md` |
+| - | working-context | - | - | `Task F3faec1e Bb09 4bbb B2d1 Bd767a1ccb2e Main/working-context.md` |
+| - | working-context | - | - | `Task F9be2884 F158 45e2 A3d9 Bed60d73a46b Main/working-context.md` |
+| - | working-context | - | - | `Task Faef7ded A53a 4c9c B4d8 C60928b828a3 Main/working-context.md` |
+| - | working-context | - | - | `Task Fcc6a5fd Main/working-context.md` |
+| - | working-context | - | - | `Task Fdd9dc1c Main/working-context.md` |
+| - | _agents | - | - | `_agents.md` |
+| - | 2026-04-24_0922_codex_p6-pickup-lock-health | - | - | `_coordination/2026-04-24_0922_codex_p6-pickup-lock-health.md` |
+| - | 2026-04-24_0951_codex_3h-active-stability-ui-fix | - | - | `_coordination/2026-04-24_0951_codex_3h-active-stability-ui-fix.md` |
+| - | 2026-04-24_1009_codex_3h-active-control | - | - | `_coordination/2026-04-24_1009_codex_3h-active-control.md` |
+| - | HANDSHAKE | - | - | `_coordination/HANDSHAKE.md` |
 | - | README | - | - | `_coordination/README.md` |
+| - | _coordination | - | - | `_coordination/_coordination.md` |
+| - | codex-atlas-autonomy-phase1-2026-04-22T21-00Z | - | - | `_coordination/archive/codex-atlas-autonomy-phase1-2026-04-22T21-00Z.md` |
+| - | 2026-04-24_0922_codex_p6-pickup-lock-health | - | - | `_coordination/live/2026-04-24_0922_codex_p6-pickup-lock-health.md` |
+| - | 2026-04-24_1009_codex_3h-active-control | - | - | `_coordination/live/2026-04-24_1009_codex_3h-active-control.md` |
+| - | 2026-04-24_1248_codex_auto-pickup-proof-e2e-hardening | - | - | `_coordination/live/2026-04-24_1248_codex_auto-pickup-proof-e2e-hardening.md` |
+| - | 2026-04-24_1338_codex_heartbeat-cron-worker-audit | - | - | `_coordination/live/2026-04-24_1338_codex_heartbeat-cron-worker-audit.md` |
+| - | 2026-04-24_1627_codex_evening-atlas-sprint-plan | - | - | `_coordination/live/2026-04-24_1627_codex_evening-atlas-sprint-plan.md` |
+| - | 2026-04-24_1739_codex_worker-structure-state-audit | - | - | `_coordination/live/2026-04-24_1739_codex_worker-structure-state-audit.md` |
+| - | 2026-04-24_1820_codex_worker-hardening-points-1-5 | - | - | `_coordination/live/2026-04-24_1820_codex_worker-hardening-points-1-5.md` |
+| - | 2026-04-24_2009_codex_agent-recommendation-analysis | - | - | `_coordination/live/2026-04-24_2009_codex_agent-recommendation-analysis.md` |
+| - | 2026-04-24_2025_codex_autonomous-self-healing-1-6 | - | - | `_coordination/live/2026-04-24_2025_codex_autonomous-self-healing-1-6.md` |
+| - | 2026-04-24_2116_operator-decisions-meeting-roles | - | - | `_coordination/live/2026-04-24_2116_operator-decisions-meeting-roles.md` |
+| - | 2026-04-24_2315_codex_plan-review-and-phase1-build | - | - | `_coordination/live/2026-04-24_2315_codex_plan-review-and-phase1-build.md` |
+| - | 2026-04-25_0432_codex_meeting-debate-hardening | - | - | `_coordination/live/2026-04-25_0432_codex_meeting-debate-hardening.md` |
+| - | 2026-04-25_0437_codex_meeting-debate-minimax-observer | - | - | `_coordination/live/2026-04-25_0437_codex_meeting-debate-minimax-observer.md` |
+| - | 2026-04-25_0446_codex_meeting-debate-5x-soak-phase3-4 | - | - | `_coordination/live/2026-04-25_0446_codex_meeting-debate-5x-soak-phase3-4.md` |
+| - | 2026-04-25_0524_codex_meeting-discord-only-runner-gate | - | - | `_coordination/live/2026-04-25_0524_codex_meeting-discord-only-runner-gate.md` |
+| - | 2026-04-25_0559_codex_2h-meeting-worker-hardening-phase-c | - | - | `_coordination/live/2026-04-25_0559_codex_2h-meeting-worker-hardening-phase-c.md` |
+| - | 2026-04-25_1259_codex_meeting-worker-e2e-live-analysis | - | - | `_coordination/live/2026-04-25_1259_codex_meeting-worker-e2e-live-analysis.md` |
+| - | 2026-04-25_1717_codex_3h-live-progress-hebel-analysis | - | - | `_coordination/live/2026-04-25_1717_codex_3h-live-progress-hebel-analysis.md` |
+| - | 2026-04-25_1726_codex_autonomy-meeting-5gate | - | - | `_coordination/live/2026-04-25_1726_codex_autonomy-meeting-5gate.md` |
+| - | 2026-04-25_1829_codex_autonomy-followups-dispatch-hardening | - | - | `_coordination/live/2026-04-25_1829_codex_autonomy-followups-dispatch-hardening.md` |
+| - | 2026-04-25_2113_codex_atlas-autonomy-phase1-4-gated | - | - | `_coordination/live/2026-04-25_2113_codex_atlas-autonomy-phase1-4-gated.md` |
+| - | 2026-04-26_0632_codex_normal-taskboard-autonomy | - | - | `_coordination/live/2026-04-26_0632_codex_normal-taskboard-autonomy.md` |
+| - | 2026-04-26_1340_codex_worker-system-6h-audit | - | - | `_coordination/live/2026-04-26_1340_codex_worker-system-6h-audit.md` |
+| - | 2026-04-26_1431_codex_autonomy-qmd-cron-models | - | - | `_coordination/live/2026-04-26_1431_codex_autonomy-qmd-cron-models.md` |
+| - | 2026-04-26_1539_codex_last-weaknesses-minifix | - | - | `_coordination/live/2026-04-26_1539_codex_last-weaknesses-minifix.md` |
+| - | 2026-04-26_1610_codex_atlas-session-bloat-autonomy-8stage | - | - | `_coordination/live/2026-04-26_1610_codex_atlas-session-bloat-autonomy-8stage.md` |
+| - | 2026-04-26_1731_codex_atlas-orchestrator-optimization-analysis | - | - | `_coordination/live/2026-04-26_1731_codex_atlas-orchestrator-optimization-analysis.md` |
+| - | 2026-04-26_1739_codex_atlas-orchestrator-optimization-implementation | - | - | `_coordination/live/2026-04-26_1739_codex_atlas-orchestrator-optimization-implementation.md` |
+| - | 2026-04-26_1750_codex_atlas-kernel-durable-patch | - | - | `_coordination/live/2026-04-26_1750_codex_atlas-kernel-durable-patch.md` |
+| - | 2026-04-26_1831_codex_atlas-mcp-model-rca | - | - | `_coordination/live/2026-04-26_1831_codex_atlas-mcp-model-rca.md` |
+| - | 2026-04-26_1852_codex_board-hygiene-autonomy | - | - | `_coordination/live/2026-04-26_1852_codex_board-hygiene-autonomy.md` |
+| - | 2026-04-26_1918_codex_autonomy-policy-fanout-lens-e2e | - | - | `_coordination/live/2026-04-26_1918_codex_autonomy-policy-fanout-lens-e2e.md` |
+| - | 2026-04-26_1942_operator_briefing-adversarial-review | - | - | `_coordination/live/2026-04-26_1942_operator_briefing-adversarial-review.md` |
+| - | 2026-04-26_1947_codex_first-heartbeat-gate-hardening | - | - | `_coordination/live/2026-04-26_1947_codex_first-heartbeat-gate-hardening.md` |
+| - | 2026-04-26_1951_codex_board-hygiene-test-artifacts | - | - | `_coordination/live/2026-04-26_1951_codex_board-hygiene-test-artifacts.md` |
+| - | 2026-04-26_2004_codex_discord-bot-token-inventory | - | - | `_coordination/live/2026-04-26_2004_codex_discord-bot-token-inventory.md` |
+| - | 2026-04-26_2014_codex_autonomy-points-2-5 | - | - | `_coordination/live/2026-04-26_2014_codex_autonomy-points-2-5.md` |
+| - | 2026-04-26_2047_codex_mc-online-autonomy-steps-2-3 | - | - | `_coordination/live/2026-04-26_2047_codex_mc-online-autonomy-steps-2-3.md` |
+| - | 2026-04-26_2049_codex_arch-tab-phase3 | - | - | `_coordination/live/2026-04-26_2049_codex_arch-tab-phase3.md` |
+| - | 2026-04-26_2100_codex_remove-atlas-budget-gate | - | - | `_coordination/live/2026-04-26_2100_codex_remove-atlas-budget-gate.md` |
+| - | 2026-04-26_2113_codex_autonomy-followup-0d6737 | - | - | `_coordination/live/2026-04-26_2113_codex_autonomy-followup-0d6737.md` |
+| - | 2026-04-26_2130_codex_qmd-vault-live-check | - | - | `_coordination/live/2026-04-26_2130_codex_qmd-vault-live-check.md` |
+| - | 2026-04-26_2133_codex_atlas-qmd-binding-fix | - | - | `_coordination/live/2026-04-26_2133_codex_atlas-qmd-binding-fix.md` |
+| - | 2026-04-26_2144_codex_obsidian-sync-fix | - | - | `_coordination/live/2026-04-26_2144_codex_obsidian-sync-fix.md` |
+| - | 2026-04-26_2151_codex_syncthing-new-desktop-share | - | - | `_coordination/live/2026-04-26_2151_codex_syncthing-new-desktop-share.md` |
+| - | 2026-04-26_2201_codex_autonomy-forge-adfc-hardening | - | - | `_coordination/live/2026-04-26_2201_codex_autonomy-forge-adfc-hardening.md` |
+| - | 2026-04-27_0451_codex_agent-tools-rca-fix | - | - | `_coordination/live/2026-04-27_0451_codex_agent-tools-rca-fix.md` |
+| - | 2026-04-27_0520_codex_mcp-toolbridge-rca-fix | - | - | `_coordination/live/2026-04-27_0520_codex_mcp-toolbridge-rca-fix.md` |
+| - | 2026-04-28_2032_codex-desktop_terminal-codex-coordination | codex-desktop | - | `_coordination/live/2026-04-28_2032_codex-desktop_terminal-codex-coordination.md` |
+| - | 2026-04-25_2135_debate_phase-4m-bounded-discord-discussion-runtime-proof | - | - | `_coordination/meetings/2026-04-25_2135_debate_phase-4m-bounded-discord-discussion-runtime-proof.md` |
+| - | 2026-04-26_1025_debate_phase-d-single-run-meeting-start-proof | - | - | `_coordination/meetings/2026-04-26_1025_debate_phase-d-single-run-meeting-start-proof.md` |
+| - | 2026-04-26_2023_debate_adversarial-review-meeting-bewertung | - | - | `_coordination/meetings/2026-04-26_2023_debate_adversarial-review-meeting-bewertung.md` |
+| - | README | - | - | `_coordination/meetings/README.md` |
+| - | atlas-handover-live-failed-task-2026-04-21 | - | - | `_handoffs/atlas-handover-live-failed-task-2026-04-21.md` |
+| - | Session-Handover 2026-04-22 — für nächste Claude Code Session | - | - | `_handoffs/session-handover-2026-04-22.md` |
+| - | sprint-m-v1.2-session-handover-2026-04-21 | - | - | `_handoffs/sprint-m-v1.2-session-handover-2026-04-21.md` |
 | - | CODEX-GLOBAL-RULES | - | - | `_shared/CODEX-GLOBAL-RULES.md` |
-| - | Mission Control — Pipeline-Tab Live-Experience Plan (2 Sprints) | Atlas → all agents (Pixel/Forge/Lens/Spark/James) | - | `archive/2026-04/2026-04-18_mission-control-pipeline-tab-2-sprints.md` |
-| - | Mission Control — Task Tab Operator-Cockpit Plan | Atlas → Pixel (UI) + Forge (Projections) | - | `archive/2026-04/2026-04-18_mission-control-task-tab-plan.md` |
-| - | Pipeline-Tab Plan v3 — Task-First Live-Monitor (Operator-Produktreif) | Operator (self) parallel zu Atlas-Stream (Task-Tab v2) | 2026-04-18_mission-control-pipeline-tab-2-sprints.md (v1/v2) | `archive/2026-04/2026-04-18_pipeline-tab-plan-v3.md` |
-| - | Next-Level Plan 2026-04-19 — System auf Level 3 | Operator + Atlas | - | `archive/2026-04/atlas-next-level-plan-2026-04-19.md` |
-| - | Remaining-Plan Mission-Control 2026-04-19 — Autonomer Atlas-Run | - | - | `archive/2026-04/atlas-remaining-plan-2026-04-19.md` |
-| - | Mission-Control Stabilization-Plan 2026-04-19 Morgen | Operator + Atlas-Orchestrator | - | `archive/2026-04/atlas-stabilization-plan-2026-04-19.md` |
-| - | Worker System Hardening — Post-Happy-Path | Principal Architect / Reliability Auditor | - | `archive/2026-04/atlas-worker-system-hardening.md` |
-| - | Cron Catalog 2026-04-20 (Sprint-K H10) | - | - | `archive/2026-04/cron-catalog-2026-04-20.md` |
-| - | OpenClaw Cron/Heartbeat/Script-System — Deep Analysis v2 (korrigiert) | - | - | `archive/2026-04/openclaw-cron-heartbeat-analysis-2026-04-20.md` |
-| - | Atlas Sprint-Dispatch Prompt — Pipeline Tab Quick-Wins Phase 1 | - | - | `archive/2026-04/pipeline-tab-phase1-atlas-dispatch-2026-04-21.md` |
-| - | Plan 2026-04-20 — Next Sprints + Pending Findings | Operator (pieter_pan) | - | `archive/2026-04/plan-2026-04-20.md` |
-| - | sprint-m-audit-integrity-scheduler-consolidation-plan-2026-04-20-v1.2 | - | - | `archive/2026-04/sprint-m-audit-integrity-scheduler-consolidation-plan-2026-04-20-v1.2.md` |
-| - | stabilization-plan-2026-04-19 | - | - | `archive/2026-04/stabilization-plan-2026-04-19.md` |
-| - | Mission Control Board — Operator Cockpit Target | Principal Product-System Architect | - | `atlas-board-operator-cockpit.md` |
-| - | Sprint-E Phase-2 Plan — Board-UX-Level-Up | - | - | `atlas-board-ux-levelup-phase2-plan-2026-04-19.md` |
-| - | Atlas Continuation Orchestrator — Plan-Runner Layer | Principal Systems Architect | - | `atlas-continuation-orchestrator.md` |
-| - | Mission Control Costs Cockpit v2 — Operator-Level Financial Control | Principal Product-System Architect | - | `atlas-costs-cockpit-v2.md` |
-| - | atlas-handover-live-failed-task-2026-04-21 | - | - | `atlas-handover-live-failed-task-2026-04-21.md` |
-| - | MC-Board Tab-Expansion — Memory + Files + Automations (neu) + Cross-Tab-Integration | Operator + Atlas | - | `atlas-mc-board-tab-expansion-2026-04-18-evening.md` |
-| - | Atlas Morning-Sprint S-FND T1 Pydantic Deploy | Atlas (orchestration) → Forge (execution) | - | `atlas-morning-sprint-s-fnd-t1-2026-04-22.md` |
-| - | Atlas Session & Memory Operating Model | Principal Systems Architect | - | `atlas-session-memory-operating-model.md` |
-| - | atlas-session-report-2026-04-18-evening | - | - | `atlas-session-report-2026-04-18-evening.md` |
-| - | atlas-session-report-2026-04-18-morning | - | - | `atlas-session-report-2026-04-18-morning.md` |
-| - | Atlas State-Snapshot — 2026-04-19T21:26:28Z | - | - | `atlas-snapshots/atlas-snapshot-20260419-212627.md` |
-| - | Atlas State-Snapshot — 2026-04-19T22:15:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260419-221501.md` |
-| - | Atlas State-Snapshot — 2026-04-20T02:05:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-020501.md` |
-| - | Atlas State-Snapshot — 2026-04-20T07:50:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-075001.md` |
-| - | Atlas State-Snapshot — 2026-04-20T10:50:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-105001.md` |
-| - | Atlas State-Snapshot — 2026-04-20T15:00:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-150001.md` |
-| - | Atlas State-Snapshot — 2026-04-20T15:40:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-154001.md` |
-| - | Atlas State-Snapshot — 2026-04-20T18:50:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-185001.md` |
-| - | Atlas State-Snapshot — 2026-04-20T19:25:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-192501.md` |
-| - | Atlas State-Snapshot — 2026-04-20T19:50:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-195001.md` |
-| - | Atlas State-Snapshot — 2026-04-20T20:35:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-203501.md` |
-| - | Atlas State-Snapshot — 2026-04-20T22:05:02Z | - | - | `atlas-snapshots/atlas-snapshot-20260420-220502.md` |
-| - | Atlas State-Snapshot — 2026-04-21T01:50:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-015001.md` |
-| - | Atlas State-Snapshot — 2026-04-21T02:05:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-020501.md` |
-| - | Atlas State-Snapshot — 2026-04-21T05:55:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-055501.md` |
-| - | Atlas State-Snapshot — 2026-04-21T06:15:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-061501.md` |
-| - | Atlas State-Snapshot — 2026-04-21T07:10:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-071001.md` |
-| - | Atlas State-Snapshot — 2026-04-21T08:15:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-081501.md` |
-| - | Atlas State-Snapshot — 2026-04-21T08:25:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-082501.md` |
-| - | Atlas State-Snapshot — 2026-04-21T10:30:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-103001.md` |
-| - | Atlas State-Snapshot — 2026-04-21T12:30:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-123001.md` |
-| - | Atlas State-Snapshot — 2026-04-21T17:10:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-171001.md` |
-| - | Atlas State-Snapshot — 2026-04-21T17:35:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-173501.md` |
-| - | Atlas State-Snapshot — 2026-04-21T20:00:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-200001.md` |
-| - | Atlas State-Snapshot — 2026-04-21T21:35:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260421-213501.md` |
-| - | Atlas State-Snapshot — 2026-04-22T01:20:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-012001.md` |
-| - | Atlas State-Snapshot — 2026-04-22T02:05:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-020501.md` |
-| - | Atlas State-Snapshot — 2026-04-22T04:20:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-042001.md` |
-| - | Atlas State-Snapshot — 2026-04-22T06:00:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-060001.md` |
-| - | Atlas State-Snapshot — 2026-04-22T07:00:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-070001.md` |
-| - | Atlas State-Snapshot — 2026-04-22T07:45:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-074501.md` |
-| - | Atlas State-Snapshot — 2026-04-22T09:55:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-095501.md` |
-| - | Atlas State-Snapshot — 2026-04-22T11:40:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-114001.md` |
-| - | Atlas State-Snapshot — 2026-04-22T16:35:01Z | - | - | `atlas-snapshots/atlas-snapshot-20260422-163501.md` |
-| - | atlas-sprint-reporting-trigger-2026-04-21 | - | - | `atlas-sprint-reporting-trigger-2026-04-21.md` |
-| - | Atlas Sprints A + B + C Plan 2026-04-19 Evening | - | - | `atlas-sprints-abc-plan-2026-04-19.md` |
-| - | atlas-stabilization-plan-mcp-recovery-2026-04-21 | - | - | `atlas-stabilization-plan-mcp-recovery-2026-04-21.md` |
-| - | Stabilization Sprint 2026-04-18 — System-Gaps nach 1-Tag-Autonomie | Operator + Atlas | - | `atlas-stabilization-sprint-2026-04-18.md` |
-| - | Verify-Consolidation-Sprint 2026-04-18 Nacht | Atlas (Orchestrator) | - | `atlas-verify-consolidation-2026-04-18-night.md` |
-| - | Schwachstellen-Audit 2026-04-17 Abend + Fix-Plan | Principal Reliability Auditor (Claude-Session, Operator-delegiert) | - | `atlas-weakness-audit-2026-04-17.md` |
-| - | auto-pickup-open-run-guard-fix-2026-04-21 | - | - | `auto-pickup-open-run-guard-fix-2026-04-21.md` |
-| - | Autonomous-Cascade Mega-Endreport — Sprint-E + F + G + H (Atlas-Board-Analytics) | - | - | `autonomous-cascade-endreport-sprints-efgh-2026-04-19.md` |
-| - | board-ux-levelup-plan-2026-04-19 | - | - | `board-ux-levelup-plan-2026-04-19.md` |
-| - | Claude Code × OpenClaw Integration Roadmap | - | - | `claude-code-openclaw-integration-roadmap-2026-04-20.md` |
-| - | Claude Design Handoff — taskboard (2026-04-20) | - | - | `claude-design-handoffs/2026-04-20-taskboard/INDEX.md` |
-| - | Codex Future-Plan Execution Protocol | - | - | `codex-future-plan-protocol.md` |
-| - | codex-review-prompt-sprint-m-LINUX | - | - | `codex-review-prompt-sprint-m-LINUX.md` |
-| - | codex-review-sprint-m-2026-04-20-2256 | - | - | `codex-review-sprint-m-2026-04-20-2256.md` |
-| - | test-mutation-check | - | - | `commander-drafts/test-mutation-check.md` |
-| - | context-baseline-2026-04-22 | - | - | `context-baseline-2026-04-22.md` |
-| - | context-overflow-fix-abschluss-2026-04-20 | - | - | `context-overflow-fix-abschluss-2026-04-20.md` |
-| - | Context-Overflow Fix — AGENTS.md + Memory-Layer Hygiene | - | - | `context-overflow-fix-plan-2026-04-20.md` |
-| - | cost-anomaly-analysis-2026-04-19 | - | - | `cost-anomaly-analysis-2026-04-19.md` |
-| - | Cron/Heartbeat In-Depth Audit + Consolidation Plan | - | - | `cron-audit-2026-04-19.md` |
-| - | dreaming-verify-2026-04-20 | - | - | `dreaming-verify-2026-04-20.md` |
-| - | E2E-Live-Worker-Test 2026-04-19 | - | - | `e2e-live-worker-test-2026-04-19.md` |
-| - | E2E Worker-Audit Report 2026-04-19 | - | - | `e2e-worker-audit-report-2026-04-19.md` |
-| - | End-of-Day Report 2026-04-21 | - | - | `end-of-day-2026-04-21.md` |
-| - | End-of-Day Report 2026-04-22 | - | - | `end-of-day-2026-04-22.md` |
-| - | End-of-Day Report 2026-04-19 — Sprint-Cluster + Memory-Level-3 + Governance | - | - | `end-of-day-report-2026-04-19.md` |
-| - | Mission-Control Final-Report 2026-04-19 — Autonomer Multi-Sprint-Run | - | - | `final-report-autonomous-run-2026-04-19.md` |
-| - | forge-g1-broken-scheduler-fix-2026-04-19 | - | - | `forge-g1-broken-scheduler-fix-2026-04-19.md` |
-| - | forge-scheduler-graph-audit-2026-04-19 | - | - | `forge-scheduler-graph-audit-2026-04-19.md` |
-| - | gateway-oom-rca-2026-04-22 | - | - | `gateway-oom-rca-2026-04-22.md` |
-| - | infra-files-cleanup-2026-04-19 | - | - | `infra-files-cleanup-2026-04-19.md` |
-| - | james-mobile-typography-system-2026-04-19 | - | - | `james-mobile-typography-system-2026-04-19.md` |
-| - | james-navigation-patterns-2026-04-18 | - | - | `james-navigation-patterns-2026-04-18.md` |
-| - | james-operator-dashboard-research-2026-04-18 | - | - | `james-operator-dashboard-research-2026-04-18.md` |
-| - | James Operator Dashboard Research v2 — Sprint-D Sub-D2 | - | - | `james-operator-dashboard-research-v2-2026-04-19.md` |
-| - | KB Index | - | - | `kb/_index.md` |
-| - | Atlas Hallucination Prevention | - | - | `kb/atlas-hallucination-prevention.md` |
-| - | Board Hygiene & Lifecycle | - | - | `kb/board-hygiene.md` |
-| - | Build & Deploy Rules | - | - | `kb/build-deploy-regeln.md` |
-| - | Deploy Contracts & MC-Restart | - | - | `kb/deploy-contracts.md` |
-| - | Incident Response & RCA | - | - | `kb/incident-response.md` |
-| - | Memory Architecture | - | - | `kb/memory-architecture.md` |
-| - | Receipt Discipline | - | - | `kb/receipt-discipline.md` |
-| - | Scope Governance & operatorLock | - | - | `kb/scope-governance.md` |
-| - | Sprint Orchestration | - | - | `kb/sprint-orchestration.md` |
-| - | Sub-Agent Coordination | - | - | `kb/sub-agent-coordination.md` |
-| - | lens-g2-alert-dedupe-2026-04-19 | - | - | `lens-g2-alert-dedupe-2026-04-19.md` |
-| - | lens-mobile-ui-audit-2026-04-19 | - | - | `lens-mobile-ui-audit-2026-04-19.md` |
-| - | lens-route-state-coverage-audit-v2-2026-04-19 | - | - | `lens-route-state-coverage-audit-v2-2026-04-19.md` |
-| - | lens-script-inventory-audit-2026-04-19 | - | - | `lens-script-inventory-audit-2026-04-19.md` |
-| - | 01-sshfs-install | - | - | `mcp-setup-skeletons-2026-04-20/01-sshfs-install.md` |
-| - | 05-validation | - | - | `mcp-setup-skeletons-2026-04-20/05-validation.md` |
-| - | README | - | - | `mcp-setup-skeletons-2026-04-20/README.md` |
+| - | _shared | - | - | `_shared/_shared.md` |
+| - | checkpoints | - | - | `_shared/checkpoints.md` |
+| - | decisions-log | - | - | `_shared/decisions-log.md` |
+| - | project-state | - | - | `_shared/project-state.md` |
+| - | reporting-routing-canon | - | - | `_shared/reporting-routing-canon.md` |
+| - | tag-convention | - | - | `_shared/tag-convention.md` |
+| - | task-lifecycle-canon | - | - | `_shared/task-lifecycle-canon.md` |
+| - | user-profile | - | - | `_shared/user-profile.md` |
+| - | Agent-Team-Meetings & Cross-Provider-Kollaboration | lenard | - | `agent-team-meetings-plan-2026-04-24.md` |
+| - | Architecture — Live Snapshot | - | - | `architecture-live.md` |
+| - | Atlas Autonomy Plan - Phase 1 + Phase 2 (v1.2 - Implementation Revision) | Lenard (Operator) | atlas-autonomy-phase1-phase2-plan-2026-04-22-v1.1.md | `atlas-autonomy-phase1-phase2-plan-2026-04-22-v1.2.md` |
+| - | atlas-autonomy-v1.2-implementation-handoff-2026-04-22 | - | - | `atlas-autonomy-v1.2-implementation-handoff-2026-04-22.md` |
+| - | README | - | - | `codex/README.md` |
+| - | 2026-04-24 | - | - | `codex/daily/2026-04-24.md` |
+| - | 2026-04-25 | - | - | `codex/daily/2026-04-25.md` |
+| - | 2026-04-26 | - | - | `codex/daily/2026-04-26.md` |
+| - | 2026-04-27 | - | - | `codex/daily/2026-04-27.md` |
+| - | 2026-04-24_auto-pickup-proof-e2e-hardening | - | - | `codex/plans/2026-04-24_auto-pickup-proof-e2e-hardening.md` |
+| - | 2026-04-24_autonomous-self-healing-1-6-production-slice | codex | - | `codex/plans/2026-04-24_autonomous-self-healing-1-6-production-slice.md` |
+| - | 2026-04-24_mc-board-pipeline-ui-live-test-sprint | codex | - | `codex/plans/2026-04-24_mc-board-pipeline-ui-live-test-sprint.md` |
+| - | 2026-04-24_openclaw-3h-active-stability-and-ui-details-fix | - | - | `codex/plans/2026-04-24_openclaw-3h-active-stability-and-ui-details-fix.md` |
+| - | 2026-04-24_openclaw-p6-pickup-lock-health-hardening | - | - | `codex/plans/2026-04-24_openclaw-p6-pickup-lock-health-hardening.md` |
+| - | 2026-04-25_2h-meeting-worker-hardening-phase-c-plan | codex | - | `codex/plans/2026-04-25_2h-meeting-worker-hardening-phase-c-plan.md` |
+| - | 2026-04-25_3h-live-progress-hebel-analysis | - | - | `codex/plans/2026-04-25_3h-live-progress-hebel-analysis.md` |
+| - | 2026-04-25_atlas-autonomy-followups-dispatch-plan | - | - | `codex/plans/2026-04-25_atlas-autonomy-followups-dispatch-plan.md` |
+| - | 2026-04-25_atlas-autonomy-phase1-4-to-9of10-plan | - | - | `codex/plans/2026-04-25_atlas-autonomy-phase1-4-to-9of10-plan.md` |
+| - | 2026-04-25_autonomy-meeting-5gate-execution | - | - | `codex/plans/2026-04-25_autonomy-meeting-5gate-execution.md` |
+| - | 2026-04-25_autonomy-meeting-5gate-final-report | - | - | `codex/plans/2026-04-25_autonomy-meeting-5gate-final-report.md` |
+| - | Meeting Adversarial Review + Taskboard Autonomy Sprints | codex | - | `codex/plans/2026-04-25_meeting-adversarial-review-and-taskboard-autonomy-sprints.md` |
+| - | 2026-04-25_meeting-debate-5x-soak-phase3-4-execution-plan | codex | - | `codex/plans/2026-04-25_meeting-debate-5x-soak-phase3-4-execution-plan.md` |
+| - | 2026-04-25_meeting-debate-phase2-end-phase3-4-plan | codex | - | `codex/plans/2026-04-25_meeting-debate-phase2-end-phase3-4-plan.md` |
+| - | 2026-04-25_meeting-debate-review-operating-process | codex | - | `codex/plans/2026-04-25_meeting-debate-review-operating-process.md` |
+| - | 2026-04-25_meeting-discord-only-runner-gate-plan | codex | - | `codex/plans/2026-04-25_meeting-discord-only-runner-gate-plan.md` |
+| - | 2026-04-25_meeting-worker-e2e-live-analysis | - | - | `codex/plans/2026-04-25_meeting-worker-e2e-live-analysis.md` |
+| - | 2026-04-26_atlas-kernel-v1-durable-patch-report | codex | - | `codex/plans/2026-04-26_atlas-kernel-v1-durable-patch-report.md` |
+| - | 2026-04-26_atlas-orchestrator-session-memory-tools-optimization-analysis | - | - | `codex/plans/2026-04-26_atlas-orchestrator-session-memory-tools-optimization-analysis.md` |
+| - | 2026-04-26_atlas-pickup-worker-9of10-hardening | - | - | `codex/plans/2026-04-26_atlas-pickup-worker-9of10-hardening.md` |
+| - | 2026-04-26_atlas-stabilization-autonomy-8stage | - | - | `codex/plans/2026-04-26_atlas-stabilization-autonomy-8stage.md` |
+| - | Autonomy next steps execution report | - | - | `codex/plans/2026-04-26_autonomy-next-steps-execution-report.md` |
+| - | 2026-04-26_autonomy-qmd-cron-models-steps-1-3 | - | - | `codex/plans/2026-04-26_autonomy-qmd-cron-models-steps-1-3.md` |
+| - | 2026-04-26_board-hygiene-autonomy-normal-mode | codex | - | `codex/plans/2026-04-26_board-hygiene-autonomy-normal-mode.md` |
+| - | 2026-04-26_board-hygiene-live-cleanup-report | - | - | `codex/plans/2026-04-26_board-hygiene-live-cleanup-report.md` |
+| - | 2026-04-26_discord-bot-token-inventory | - | - | `codex/plans/2026-04-26_discord-bot-token-inventory.md` |
+| - | 2026-04-26_large-autonomy-cron-heartbeat-memory-final-gate | codex | - | `codex/plans/2026-04-26_large-autonomy-cron-heartbeat-memory-final-gate.md` |
+| - | Normal Taskboard Autonomy Sprint 1-2 Final Report | codex | - | `codex/plans/2026-04-26_normal-taskboard-autonomy-final-report.md` |
+| - | Normal Taskboard Autonomy Sprint Run | codex | - | `codex/plans/2026-04-26_normal-taskboard-autonomy-sprint-run.md` |
+| - | 2026-04-26_openclaw-autonomy-9-7-execution-report | codex | - | `codex/plans/2026-04-26_openclaw-autonomy-9-7-execution-report.md` |
+| - | 2026-04-26_openclaw-autonomy-9-7-plan | codex | - | `codex/plans/2026-04-26_openclaw-autonomy-9-7-plan.md` |
+| - | 2026-04-26_worker-heartbeat-cron-zielbild | - | - | `codex/plans/2026-04-26_worker-heartbeat-cron-zielbild.md` |
+| - | 2026-04-26_worker-system-6h-audit-hardening-plan | codex | - | `codex/plans/2026-04-26_worker-system-6h-audit-hardening-plan.md` |
+| - | 2026-04-27_agent-tools-board-worker-autonomy-gate-report | - | - | `codex/plans/2026-04-27_agent-tools-board-worker-autonomy-gate-report.md` |
+| - | 2026-04-27_autonomy-95-forge-image-fix-and-atlas-8task-sprint | codex | - | `codex/plans/2026-04-27_autonomy-95-forge-image-fix-and-atlas-8task-sprint.md` |
+| - | MCP / Toolbridge RCA Fix Report | codex | - | `codex/plans/2026-04-27_mcp-toolbridge-rca-fix-report.md` |
+| - | amendments-addendum-phase2 | codex | - | `codex/plans/amendments-addendum-phase2.md` |
+| - | amendments-agent-team-meetings-2026-04-24 | codex | - | `codex/plans/amendments-agent-team-meetings-2026-04-24.md` |
+| - | phase2-claude-bot-spawn-pattern | codex | - | `codex/plans/phase2-claude-bot-spawn-pattern.md` |
+| - | phase2-discord-runner-option-a-plan | codex | - | `codex/plans/phase2-discord-runner-option-a-plan.md` |
+| - | phase2-install-anleitung | codex | - | `codex/plans/phase2-install-anleitung.md` |
+| - | review-agent-team-meetings-2026-04-24 | codex | - | `codex/plans/review-agent-team-meetings-2026-04-24.md` |
+| - | james-cost-routing-extern-2026-04-24 | - | - | `james-cost-routing-extern-2026-04-24.md` |
+| - | james-recovery-runbook-refs-2026-04-25 | - | - | `james-recovery-runbook-refs-2026-04-25.md` |
+| - | atlas-result-format | - | - | `kb/atlas-result-format.md` |
 | - | Memory Dashboard | - | - | `memory-dashboard.md` |
-| - | memory-orchestrator qmd-update Step rc=1 RCA | - | - | `memory-orchestrator-qmd-update-rca-2026-04-22.md` |
-| - | Memory-System Level-Up 2026-04-19 — QMD + Dreaming + Multi-Layer | - | - | `memory-system-level-up-2026-04-19.md` |
-| - | Minions Migration-Plan — PR | - | - | `minions-migration-plan.md` |
-| - | Morning Recovery Report 2026-04-20 — Config-Invalid Production-Outage + 3 State-Machine-Bugs | - | - | `morning-recovery-report-2026-04-20.md` |
-| - | openai-oauth-openclaw-optimization-plan-2026-04-22 | - | - | `openai-oauth-openclaw-optimization-plan-2026-04-22.md` |
-| - | openclaw Update Plan 4.15 → 4.21 (gestaffelt) | - | - | `openclaw-update-plan-2026-04-22.md` |
-| - | ops-inventory-plan-2026-04-19 | - | - | `ops-inventory-plan-2026-04-19.md` |
-| - | Pipeline-Quickwins Sprint Monitor Log | - | - | `pipeline-quickwins-monitor-log-2026-04-21.md` |
-| - | Atlas Sprint-Dispatch Prompt — Pipeline-Tab Quick-Wins | - | - | `pipeline-tab-quickwins-atlas-dispatch-2026-04-21.md` |
-| - | Mission-Control Pipeline-Tab Quick-Wins Plan 2026-04-21 | Operator + Atlas-Orchestrator + Forge (primary executor) | - | `pipeline-tab-quickwins-plan-2026-04-21.md` |
-| - | pixel-p1-dispatch-plan-2026-04-20 | - | - | `pixel-p1-dispatch-plan-2026-04-20.md` |
-| - | Pixel P1 Taskboard v2 — Pre-Flight Analysis (2026-04-20) | - | - | `pixel-p1-pre-flight-analysis-2026-04-20.md` |
-| - | qmd-openrouter-embed-abschlussbericht-2026-04-20 | - | - | `qmd-openrouter-embed-abschlussbericht-2026-04-20.md` |
-| - | qmd-openrouter-embed-plan-2026-04-20 | - | - | `qmd-openrouter-embed-plan-2026-04-20.md` |
-| - | r47-scope-lock-design-2026-04-19 | - | - | `r47-scope-lock-design-2026-04-19.md` |
-| - | Deep Root-Cause-Analyse 2026-04-19 Multi-Sprint-Incident-Cluster | - | - | `rca-2026-04-19-incident-cluster.md` |
-| - | S-HEALTH Final Close | - | - | `s-health-final-close-2026-04-22.md` |
-| - | s-health-inventory-2026-04-22 | - | - | `s-health-inventory-2026-04-22.md` |
-| - | S-UX Phase 0 stateTransitions Writer-Inventar | - | - | `s-ux-phase0-writer-inventory-2026-04-22.md` |
-| - | safeguard-verify-2026-04-19 | - | - | `safeguard-verify-2026-04-19.md` |
-| - | Session-Handover 2026-04-22 — für nächste Claude Code Session | - | - | `session-handover-2026-04-22.md` |
-| - | Agent-Display-Konventions-Guide (Mission Control UI) | - | - | `spark-agent-display-guide-2026-04-18.md` |
-| - | spark-cost-story-modal-interaction-2026-04-18 | - | - | `spark-cost-story-modal-interaction-2026-04-18.md` |
-| - | spark-cost-story-ux-concept | - | - | `spark-cost-story-ux-concept.md` |
-| - | spark-mobile-ui-audit-2026-04-18 | - | - | `spark-mobile-ui-audit-2026-04-18.md` |
-| - | spark-overview-hero-concept-2026-04-18 | - | - | `spark-overview-hero-concept-2026-04-18.md` |
-| - | spark-pending-pickup-recovery-research | - | - | `spark-pending-pickup-recovery-research.md` |
-| - | sprint-2-3-autonomous-report-2026-04-19 | - | - | `sprint-2-3-autonomous-report-2026-04-19.md` |
-| - | sprint-abc-final-report-2026-04-19 | - | - | `sprint-abc-final-report-2026-04-19.md` |
-| - | Sprint-ABC Autonomous Run — Ehrlicher Endbericht | - | - | `sprint-abc-real-endreport-2026-04-19.md` |
-| - | sprint-ce-context-efficiency-2026-04-21 | - | - | `sprint-ce-context-efficiency-2026-04-21.md` |
-| - | sprint-e-final-report-2026-04-19 | - | - | `sprint-e-final-report-2026-04-19.md` |
-| - | sprint-f-f3-synthesis-sprint-g-plan-2026-04-19 | - | - | `sprint-f-f3-synthesis-sprint-g-plan-2026-04-19.md` |
-| - | sprint-gh-consolidation-report-2026-04-19 | - | - | `sprint-gh-consolidation-report-2026-04-19.md` |
-| - | Sprint-H Board Analytics + Alerting Plan | - | - | `sprint-h-board-analytics-plan-2026-04-19.md` |
-| - | Sprint-H H1 False-Failure RCA | - | - | `sprint-h-h1-rca-2026-04-19.md` |
-| - | sprint-i-comprehensive-mobile-audit-2026-04-19 | - | - | `sprint-i-comprehensive-mobile-audit-2026-04-19.md` |
-| - | Sprint-I Mobile-Polish P1/P2 Plan (v2 — in-depth revision) | - | - | `sprint-i-mobile-polish-plan-2026-04-19.md` |
-| - | Sprint-J Autonomous-Cascade Post-Mortem + Governance Hardening | - | - | `sprint-j-cascade-postmortem-plan-2026-04-19.md` |
-| - | Sprint-J J5 Infra-Files Pre-Classification (Forge Time-Saver) | - | - | `sprint-j-j5-infra-files-preclassification-2026-04-19.md` |
-| - | Sprint-K Infra-Hardening Atlas-Dispatch-Prompt | - | - | `sprint-k-dispatch-prompt-2026-04-19.md` |
-| - | sprint-k-h11-session-lock-governance-report-2026-04-20 | - | - | `sprint-k-h11-session-lock-governance-report-2026-04-20.md` |
-| - | sprint-k-h12-board-state-machine-fix-report-2026-04-20 | - | - | `sprint-k-h12-board-state-machine-fix-report-2026-04-20.md` |
-| - | sprint-k-h13-defense-layers-report-2026-04-20 | - | - | `sprint-k-h13-defense-layers-report-2026-04-20.md` |
-| - | sprint-k-h9-contrast-audit-report-2026-04-20 | - | - | `sprint-k-h9-contrast-audit-report-2026-04-20.md` |
-| - | Sprint-K Infra-Hardening Plan | Operator (pieter_pan) | - | `sprint-k-infra-hardening-plan-2026-04-19.md` |
-| - | Sprint-L Memory Level-3 — Knowledge-Base Compilation + Graph-Edges + Retrieval-Feedback | - | - | `sprint-l-memory-kb-compilation-plan-2026-04-19.md` |
-| - | Sprint-M v1.2.1 Final Close | - | - | `sprint-m-final-close-2026-04-22.md` |
-| - | sprint-m-followup-status-2026-04-21 | - | - | `sprint-m-followup-status-2026-04-21.md` |
-| - | sprint-m-night-report-2026-04-21-0022 | - | - | `sprint-m-night-report-2026-04-21-0022.md` |
-| - | sprint-m-p1-pixel-delta-report-2026-04-20 | - | - | `sprint-m-p1-pixel-delta-report-2026-04-20.md` |
-| - | sprint-m-session-closeout-and-forge-verification-2026-04-21 | - | - | `sprint-m-session-closeout-and-forge-verification-2026-04-21.md` |
-| - | sprint-m-v1.2-session-handover-2026-04-21 | - | - | `sprint-m-v1.2-session-handover-2026-04-21.md` |
-| - | sprint-n-e2e-stabilization-2026-04-22 | - | - | `sprint-n-e2e-stabilization-2026-04-22.md` |
-| - | sprint-n-sprint-o-closure-2026-04-20 | - | - | `sprint-n-sprint-o-closure-2026-04-20.md` |
-| - | sprint-o-qmd-minimization-2026-04-22 | - | - | `sprint-o-qmd-minimization-2026-04-22.md` |
-| - | Sprint Reporting / Next-Action Hardening Plan 2026-04-21 | - | - | `sprint-reporting-next-action-hardening-plan-2026-04-21.md` |
-| - | s-ctx-p0-2026-04-22 | - | - | `sprints/s-ctx-p0-2026-04-22.md` |
-| - | Stabilization-Day 2026-04-19 — 6 Fixes Deployed | - | - | `stabilization-day-2026-04-19.md` |
-| - | task-governance-signals Consumer Inventory | - | - | `task-governance-signals-consumers-2026-04-22.md` |
-| - | vault-search-observation-2026-04-21 | - | - | `vault-search-observation-2026-04-21.md` |
-| - | vault-search-observation-2026-04-22 | - | - | `vault-search-observation-2026-04-22.md` |
-| - | worker-system-hardening-plan-2026-04-21 | - | - | `worker-system-hardening-plan-2026-04-21.md` |
+| - | vault-search-observation-2026-04-25 | - | - | `vault-search-observation-2026-04-25.md` |
+| - | vault-search-observation-2026-04-26 | - | - | `vault-search-observation-2026-04-26.md` |
+| - | vault-search-observation-2026-04-27 | - | - | `vault-search-observation-2026-04-27.md` |
+| - | vault-search-observation-2026-04-28 | - | - | `vault-search-observation-2026-04-28.md` |
 
 <!-- VAULT-INDEX:MANUAL-OVERRIDES:START -->
 _Keine manuellen Overrides gesetzt. Optional: `vault-index.override.md` anlegen._

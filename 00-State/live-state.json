@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T10:17:01.256292+00:00",
+  "generated_at": "2026-04-29T10:47:01.778121+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -12,13 +12,13 @@
     "crons_total": 47,
     "crons_by_tier": {
       "T1-realtime": 4,
-      "T2-2min": 3,
-      "T3-5min": 9,
+      "T2-2min": 2,
+      "T8-daily-or-weekly": 27,
+      "T3-5min": 2,
       "T4-10min": 2,
-      "T5-15min": 3,
+      "T5-15min": 1,
       "T7-hourly": 6,
-      "T8-daily-or-weekly": 13,
-      "T6-30min": 7
+      "T6-30min": 3
     },
     "rules_total": 56,
     "rules_by_status": {
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 171,
+    "scripts_active": 172,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T10:16:43.304118+00:00",
-      "latest_session_size_bytes": 1128533,
-      "session_count": 128
+      "last_session_iso": "2026-04-29T10:46:57.223043+00:00",
+      "latest_session_size_bytes": 521453,
+      "session_count": 122
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T10:16:11.572888+00:00",
-      "latest_session_size_bytes": 11959,
+      "last_session_iso": "2026-04-29T10:44:15.143899+00:00",
+      "latest_session_size_bytes": 13472,
       "session_count": 1619
     },
     {
@@ -205,10 +205,10 @@
       "tier": "T2-2min"
     },
     {
-      "schedule": "*/2 * * * *",
+      "schedule": "1-59/2 * * * *",
       "command": "flock -n /tmp/mc-critical-alert.lock /home/piet/.openclaw/scripts/mc-critical-alert.py >> /home/piet/.openclaw/workspace/logs/mc-critical-alert.cron.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/mc-critical-alert.py",
-      "tier": "T2-2min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "*/5 * * * *",
@@ -217,10 +217,10 @@
       "tier": "T3-5min"
     },
     {
-      "schedule": "*/5 * * * *",
+      "schedule": "1-59/5 * * * *",
       "command": "/home/piet/.openclaw/scripts/sprint-debrief-watch.sh >> /tmp/sprint-debrief-watch.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/sprint-debrief-watch.sh",
-      "tier": "T3-5min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "*/10 * * * *",
@@ -241,10 +241,10 @@
       "tier": "T5-15min"
     },
     {
-      "schedule": "*/15 * * * *",
+      "schedule": "5-59/15 * * * *",
       "command": "/home/piet/.openclaw/scripts/r49-claim-validator.py >> /tmp/r49-validator.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/r49-claim-validator.py",
-      "tier": "T5-15min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "0 */1 * * *",
@@ -325,10 +325,10 @@
       "tier": "T7-hourly"
     },
     {
-      "schedule": "*/30 * * * *",
+      "schedule": "5-59/30 * * * *",
       "command": "flock -n /tmp/pr68846-patch.lock /home/piet/.openclaw/scripts/pr68846-patch-check.sh",
       "script": "/home/piet/.openclaw/scripts/pr68846-patch-check.sh",
-      "tier": "T6-30min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "23 * * * *",
@@ -355,10 +355,10 @@
       "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "*/30 * * * *",
+      "schedule": "10-59/30 * * * *",
       "command": "/home/piet/.openclaw/scripts/cron-health-audit.sh >> /tmp/cron-health-audit.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/cron-health-audit.sh",
-      "tier": "T6-30min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "0 */6 * * *",
@@ -367,16 +367,16 @@
       "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "*/30 * * * *",
+      "schedule": "15-59/30 * * * *",
       "command": "flock -n /tmp/session-janitor.lock python3 /home/piet/.openclaw/scripts/session-janitor.py >> /tmp/session-janitor.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/session-janitor.py",
-      "tier": "T6-30min"
+      "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "*/5 * * * *",
+      "schedule": "2-59/5 * * * *",
       "command": "flock -n /tmp/cpu-runaway-guard.lock /home/piet/.openclaw/scripts/cpu-runaway-guard.sh >> /tmp/cpu-runaway-guard.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/cpu-runaway-guard.sh",
-      "tier": "T3-5min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "0 6 * * *",
@@ -385,10 +385,10 @@
       "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "*/5 * * * *",
+      "schedule": "3-59/5 * * * *",
       "command": "flock -n /tmp/session-size-guard.lock python3 /home/piet/.openclaw/scripts/session-size-guard.py >> /home/piet/.openclaw/workspace/logs/session-size-guard.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/session-size-guard.py",
-      "tier": "T3-5min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "* * * * *",
@@ -403,10 +403,10 @@
       "tier": "T6-30min"
     },
     {
-      "schedule": "*/5 * * * *",
+      "schedule": "4-59/5 * * * *",
       "command": "flock -n /tmp/mcp-qmd-reaper.lock /home/piet/.openclaw/scripts/mcp-qmd-reaper.sh",
       "script": "/home/piet/.openclaw/scripts/mcp-qmd-reaper.sh",
-      "tier": "T3-5min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "0 8 * * *",
@@ -427,16 +427,16 @@
       "tier": "T2-2min"
     },
     {
-      "schedule": "*/5 * * * *",
+      "schedule": "1-59/5 * * * *",
       "command": "flock -n /tmp/per-tool-byte-meter.lock /home/piet/.openclaw/scripts/per-tool-byte-meter.py >> /tmp/per-tool-byte-meter.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/per-tool-byte-meter.py",
-      "tier": "T3-5min"
+      "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "*/30 * * * *",
+      "schedule": "20-59/30 * * * *",
       "command": "flock -n /tmp/architecture-snapshot.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/architecture-snapshot-generator.py >> /home/piet/.openclaw/workspace/logs/architecture-snapshot.log 2>&1",
       "script": "/home/piet/.openclaw/workspace/scripts/architecture-snapshot-generator.py",
-      "tier": "T6-30min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "* * * * *",
@@ -445,10 +445,10 @@
       "tier": "T1-realtime"
     },
     {
-      "schedule": "*/5 * * * *",
+      "schedule": "2-59/5 * * * *",
       "command": "flock -n /tmp/arch-readiness.lock /home/piet/.openclaw/scripts/arch-deploy-readiness-check.sh >/dev/null 2>&1",
       "script": "/home/piet/.openclaw/scripts/arch-deploy-readiness-check.sh",
-      "tier": "T3-5min"
+      "tier": "T8-daily-or-weekly"
     },
     {
       "schedule": "05 21 * * *",
@@ -457,16 +457,16 @@
       "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "*/5 * * * *",
+      "schedule": "3-59/5 * * * *",
       "command": "/usr/bin/flock -n /tmp/gateway-memory-monitor.lock /usr/bin/python3 /home/piet/.openclaw/scripts/gateway-memory-monitor.py >> /home/piet/.openclaw/workspace/logs/gateway-memory-monitor.cron.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/gateway-memory-monitor.py",
-      "tier": "T3-5min"
+      "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "*/15 * * * *",
+      "schedule": "10-59/15 * * * *",
       "command": "flock -n /tmp/billing-alert-watch.lock /home/piet/.openclaw/scripts/billing-alert-watch.sh >> /home/piet/.openclaw/workspace/logs/billing-alert-watch.cron.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/billing-alert-watch.sh",
-      "tier": "T5-15min"
+      "tier": "T8-daily-or-weekly"
     }
   ],
   "rules": [
@@ -889,6 +889,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "4cdafad",
+      "date": "2026-04-29T12:17:01+02:00",
+      "subject": "auto-sync: 2026-04-29 12:17"
+    },
+    {
       "hash": "5a71215",
       "date": "2026-04-29T11:46:17+02:00",
       "subject": "auto-sync: 2026-04-29 11:46"
@@ -932,15 +937,10 @@
       "hash": "7616a77",
       "date": "2026-04-29T07:43:17+02:00",
       "subject": "auto-sync: 2026-04-29 07:43"
-    },
-    {
-      "hash": "2551053",
-      "date": "2026-04-29T07:13:17+02:00",
-      "subject": "auto-sync: 2026-04-29 07:13"
     }
   ],
   "scripts": {
-    "scripts_root": 104,
+    "scripts_root": 105,
     "workspace_scripts": 67
   },
   "mcp_servers": [
@@ -957,16 +957,20 @@
       "status": "running",
       "pids": [
         2824031,
-        2911772,
-        2911773
+        2952486,
+        2952487,
+        2954366,
+        2955762
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        2826384,
-        2899167
+        2936281,
+        2939661,
+        2954354,
+        2955755
       ]
     }
   ],
