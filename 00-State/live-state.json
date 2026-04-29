@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-28T13:29:01.377945+00:00",
+  "generated_at": "2026-04-29T09:46:01.663172+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,14 +8,14 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 1,
-    "crons_total": 46,
+    "agents_active": 2,
+    "crons_total": 47,
     "crons_by_tier": {
       "T1-realtime": 4,
       "T2-2min": 3,
       "T3-5min": 9,
       "T4-10min": 2,
-      "T5-15min": 2,
+      "T5-15min": 3,
       "T7-hourly": 6,
       "T8-daily-or-weekly": 13,
       "T6-30min": 7
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 166,
+    "scripts_active": 171,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -54,49 +54,49 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "ready",
-      "last_session_iso": "2026-04-28T07:03:00.516984+00:00",
-      "latest_session_size_bytes": 22566,
+      "last_session_iso": "2026-04-29T07:40:44.150346+00:00",
+      "latest_session_size_bytes": 219026,
       "session_count": 53
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-28T12:47:24.267791+00:00",
-      "latest_session_size_bytes": 262479,
-      "session_count": 25
+      "status": "idle",
+      "last_session_iso": "2026-04-23T17:04:14.393537+00:00",
+      "latest_session_size_bytes": 321518,
+      "session_count": 18
     },
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
       "status": "ready",
-      "last_session_iso": "2026-04-27T16:55:15.468310+00:00",
-      "latest_session_size_bytes": 1634193,
+      "last_session_iso": "2026-04-29T06:06:20.572212+00:00",
+      "latest_session_size_bytes": 137271,
       "session_count": 9
     },
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-28T13:25:29.083133+00:00",
-      "latest_session_size_bytes": 193447,
-      "session_count": 138
+      "last_session_iso": "2026-04-29T09:44:53.925483+00:00",
+      "latest_session_size_bytes": 819410,
+      "session_count": 129
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
       "status": "ready",
-      "last_session_iso": "2026-04-27T18:34:43.111632+00:00",
-      "latest_session_size_bytes": 49234,
-      "session_count": 15
+      "last_session_iso": "2026-04-29T07:18:20.484661+00:00",
+      "latest_session_size_bytes": 242063,
+      "session_count": 16
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-28T13:21:15.266296+00:00",
-      "latest_session_size_bytes": 15942,
-      "session_count": 1623
+      "status": "active",
+      "last_session_iso": "2026-04-29T09:42:51.902562+00:00",
+      "latest_session_size_bytes": 34392,
+      "session_count": 1615
     },
     {
       "id": "test-lock",
@@ -461,6 +461,12 @@
       "command": "/usr/bin/flock -n /tmp/gateway-memory-monitor.lock /usr/bin/python3 /home/piet/.openclaw/scripts/gateway-memory-monitor.py >> /home/piet/.openclaw/workspace/logs/gateway-memory-monitor.cron.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/gateway-memory-monitor.py",
       "tier": "T3-5min"
+    },
+    {
+      "schedule": "*/15 * * * *",
+      "command": "flock -n /tmp/billing-alert-watch.lock /home/piet/.openclaw/scripts/billing-alert-watch.sh >> /home/piet/.openclaw/workspace/logs/billing-alert-watch.cron.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/billing-alert-watch.sh",
+      "tier": "T5-15min"
     }
   ],
   "rules": [
@@ -883,83 +889,93 @@
   ],
   "vault_commits": [
     {
-      "hash": "7c7781a",
-      "date": "2026-04-28T15:03:20+02:00",
-      "subject": "auto-sync: 2026-04-28 15:03"
+      "hash": "dd2116c",
+      "date": "2026-04-29T11:16:17+02:00",
+      "subject": "auto-sync: 2026-04-29 11:16"
     },
     {
-      "hash": "b3636eb",
-      "date": "2026-04-28T14:33:18+02:00",
-      "subject": "auto-sync: 2026-04-28 14:33"
+      "hash": "98cbb6e",
+      "date": "2026-04-29T10:45:58+02:00",
+      "subject": "auto-sync: 2026-04-29 10:45"
     },
     {
-      "hash": "488cac7",
-      "date": "2026-04-28T14:03:17+02:00",
-      "subject": "auto-sync: 2026-04-28 14:03"
+      "hash": "547c286",
+      "date": "2026-04-29T10:15:17+02:00",
+      "subject": "auto-sync: 2026-04-29 10:15"
     },
     {
-      "hash": "84a7f64",
-      "date": "2026-04-28T13:33:17+02:00",
-      "subject": "auto-sync: 2026-04-28 13:33"
+      "hash": "9fd4cc0",
+      "date": "2026-04-29T09:45:00+02:00",
+      "subject": "auto-sync: 2026-04-29 09:45"
     },
     {
-      "hash": "f9dde17",
-      "date": "2026-04-28T13:03:17+02:00",
-      "subject": "auto-sync: 2026-04-28 13:03"
+      "hash": "783d991",
+      "date": "2026-04-29T09:15:00+02:00",
+      "subject": "auto-sync: 2026-04-29 09:15"
     },
     {
-      "hash": "23eefcc",
-      "date": "2026-04-28T12:33:17+02:00",
-      "subject": "auto-sync: 2026-04-28 12:33"
+      "hash": "f2f1206",
+      "date": "2026-04-29T08:44:17+02:00",
+      "subject": "auto-sync: 2026-04-29 08:44"
     },
     {
-      "hash": "9eae974",
-      "date": "2026-04-28T12:02:17+02:00",
-      "subject": "auto-sync: 2026-04-28 12:02"
+      "hash": "e9e23ab",
+      "date": "2026-04-29T08:14:12+02:00",
+      "subject": "auto-sync: 2026-04-29 08:14"
     },
     {
-      "hash": "cdb253c",
-      "date": "2026-04-28T11:31:27+02:00",
-      "subject": "auto-sync: 2026-04-28 11:31"
+      "hash": "7616a77",
+      "date": "2026-04-29T07:43:17+02:00",
+      "subject": "auto-sync: 2026-04-29 07:43"
     },
     {
-      "hash": "ebe8a85",
-      "date": "2026-04-28T11:01:17+02:00",
-      "subject": "auto-sync: 2026-04-28 11:01"
+      "hash": "2551053",
+      "date": "2026-04-29T07:13:17+02:00",
+      "subject": "auto-sync: 2026-04-29 07:13"
     },
     {
-      "hash": "18c04cb",
-      "date": "2026-04-28T10:31:17+02:00",
-      "subject": "auto-sync: 2026-04-28 10:31"
+      "hash": "851104b",
+      "date": "2026-04-29T06:42:17+02:00",
+      "subject": "auto-sync: 2026-04-29 06:42"
     }
   ],
   "scripts": {
-    "scripts_root": 101,
-    "workspace_scripts": 65
+    "scripts_root": 104,
+    "workspace_scripts": 67
   },
   "mcp_servers": [
+    {
+      "name": "vault-memory-mcp",
+      "status": "running",
+      "pids": [
+        1862656,
+        2789266
+      ]
+    },
     {
       "name": "qmd",
       "status": "running",
       "pids": [
-        1520350
+        2824031,
+        2870345,
+        2870347
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1531312,
-        1540605
+        2826384,
+        2869251
       ]
     }
   ],
   "active_sprint": {
-    "agent": "codex",
-    "started": "2026-04-27T05:20:11Z",
-    "ended": "2026-04-27T05:28:59Z",
-    "task": "MCP/Toolbridge RCA und nachhaltiger Minimalfix",
-    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-04-27_0520_codex_mcp-toolbridge-rca-fix.md"
+    "agent": "unknown",
+    "started": "2026-04-28T18:32:16Z",
+    "ended": "null",
+    "task": "",
+    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-04-28_2032_codex-desktop_terminal-codex-coordination.md"
   },
   "cron_health": {
     "total_monitored": 33,
