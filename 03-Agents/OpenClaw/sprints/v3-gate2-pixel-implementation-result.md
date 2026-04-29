@@ -45,3 +45,23 @@
 ## Next Action
 
 Operator or automated Playwright test validates: loading skeletons, empty board message, error+retry, task-not-found for invalid ID, drawer open/close for valid live ID.
+
+## 2026-04-29 Atlas Rework2 Validation
+- Rework2 task: `abc44fbd-d516-46df-89cb-6352e8315199`
+- Independent validation: PASS for Gate 2 UI/build/browser scope.
+- Evidence: BUILD_ID `JNMuaEm7-L3BuNP7WnJak` mtime `2026-04-29T13:53:49Z` > latest changed source mtime `2026-04-29T13:46:41Z`; `/api/board/snapshot` OK; `/kanban-v3-preview`, valid-live-id, `not-a-real-task-id`, and `v3-1` all HTTP 200; Playwright shows invalid/v3-1 explicit not-found copy, no endless loading, valid drawer OK, no console/network blockers.
+- Health/finalization blocker: system remains DEGRADED due old failed/stalled task `d02c49b2-dcd8-43d3-a63d-c3a3baca4d62` recoveryLoad=1/attentionCount=1. Canonical cleanup attempt via task move to canceled was rejected with 403 `Review requests require a human actor`.
+
+## 2026-04-29 Old Rework Cleanup
+- Old task `d02c49b2-dcd8-43d3-a63d-c3a3baca4d62` was canonical admin-closed/acknowledged as superseded by Rework2 PASS.
+- Method: `PATCH /api/tasks/:id/admin-close` with human/admin ingress headers; no raw JSON edit.
+- Outcome: old task remains semantically `failed`, history preserved, `resolvedAt` set, worker session labels cleared.
+- Health after cleanup: `/api/health` OK; `recoveryLoad=0`, `attentionCount=0`, `issueCount=0`, `consistencyIssues=0`.
+- Worker reconciler caveat: still DEGRADED from unrelated retry-cap issue `a668ec7f-7fe9-460b-ac85-41a923327210`, outside Gate2 scope.
+
+## 2026-04-29 Final Gate 2 Closure
+- Final status: `V3_GATE2 PASS`.
+- Rework2 task `abc44fbd-d516-46df-89cb-6352e8315199` independently validated by Atlas.
+- Old failed/stalled task `d02c49b2-dcd8-43d3-a63d-c3a3baca4d62` human-approved canonical admin-close/ack completed as superseded by Rework2 PASS; history preserved.
+- System health verified OK: `recoveryLoad=0`, `attentionCount=0`, `issueCount=0`, `consistencyIssues=0`.
+- Pixel/frontend-guru primary model verified: `openai-codex/gpt-5.5`.
