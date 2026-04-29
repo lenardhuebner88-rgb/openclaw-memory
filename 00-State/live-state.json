@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T16:50:01.723055+00:00",
+  "generated_at": "2026-04-29T17:20:01.853971+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 2,
+    "agents_active": 3,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -53,17 +53,17 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-29T16:44:04.499570+00:00",
-      "latest_session_size_bytes": 465996,
-      "session_count": 53
+      "status": "ready",
+      "last_session_iso": "2026-04-29T07:40:44.150346+00:00",
+      "latest_session_size_bytes": 219026,
+      "session_count": 52
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-29T15:57:40.430552+00:00",
-      "latest_session_size_bytes": 291836,
+      "status": "active",
+      "last_session_iso": "2026-04-29T17:19:41.646916+00:00",
+      "latest_session_size_bytes": 435001,
       "session_count": 19
     },
     {
@@ -78,24 +78,24 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T16:49:59.679968+00:00",
-      "latest_session_size_bytes": 375468,
-      "session_count": 132
+      "last_session_iso": "2026-04-29T17:15:26.700209+00:00",
+      "latest_session_size_bytes": 3821831,
+      "session_count": 133
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
-      "status": "ready",
-      "last_session_iso": "2026-04-29T07:18:20.484661+00:00",
-      "latest_session_size_bytes": 242063,
+      "status": "monitoring",
+      "last_session_iso": "2026-04-29T16:56:31.104599+00:00",
+      "latest_session_size_bytes": 336344,
       "session_count": 16
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T16:48:28.203352+00:00",
-      "latest_session_size_bytes": 13171,
+      "last_session_iso": "2026-04-29T17:19:47.162953+00:00",
+      "latest_session_size_bytes": 809236,
       "session_count": 1619
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "a88c3f8",
+      "date": "2026-04-29T18:50:58+02:00",
+      "subject": "auto-sync: 2026-04-29 18:50"
+    },
+    {
       "hash": "4e41c0c",
       "date": "2026-04-29T18:20:17+02:00",
       "subject": "auto-sync: 2026-04-29 18:20"
@@ -950,11 +955,6 @@
       "hash": "05a36e1",
       "date": "2026-04-29T14:22:01+02:00",
       "subject": "docs: add v3 gate 1 evidence pack"
-    },
-    {
-      "hash": "885a544",
-      "date": "2026-04-29T14:17:17+02:00",
-      "subject": "auto-sync: 2026-04-29 14:17"
     }
   ],
   "scripts": {
@@ -975,27 +975,18 @@
       "status": "running",
       "pids": [
         3411810,
-        3412411,
-        3412442,
-        3414237,
-        3414238,
-        3422461
+        3452343,
+        3452344
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3412404,
-        3412435,
-        3417103,
-        3417974,
         3420848,
-        3422449,
-        3422571,
-        3422606,
-        3422608,
-        3422678
+        3438070,
+        3454921,
+        3456165
       ]
     }
   ],

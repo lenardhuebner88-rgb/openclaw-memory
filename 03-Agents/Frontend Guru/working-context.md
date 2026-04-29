@@ -7,11 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 69b192c3-ad89-4af0-91b8-c60f9ea1074b [P2][Pixel] Taskboard draft assign UI flow
+- task: f74d8f04-faa4-426b-baf5-82b2d081f608 [S-FOLLOWUP-1][S2.2][Pixel] Owner inference 2-stage mapping
 - stage: DONE
 - next: await next assignment
 - checkpoint: RESULT
-Implemented Mission Control Taskboard draft assignment UI. Draft task cards now expose an agent selector plus Assign button; task details now include an Assign draft panel. Both paths call PATCH /api/tasks/:id wit
+Implemented 2-stage owner inference for receipt follow-up materialization. The materializer now checks explicit owner mentions first, then task-class/keyword mapping, then legacy fallback regexes, preserving prior
 - blocker: -
-- updated: 2026-04-29T15:56:45.009Z
+- updated: 2026-04-29T17:19:41.853Z
 <!-- mc:auto-working-context:end -->

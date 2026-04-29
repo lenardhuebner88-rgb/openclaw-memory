@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a261e9cd-9df1-48a4-b421-fe522d6ce7ec [V3 Sprint] Slice V2 — UX review ControlBar
+- task: d3581364-c5fd-4f1e-ba1d-8a86fd8e9c55 [S-FOLLOWUP-1][S1.2][Spark] Atlas sprintOutcome v1.1 prompt template
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Read V3 spec/source and current V3FinalSubBar implementation. Attempted npm run lint for validation, but local eslint binary is missing (`eslint: not found`); continuing with read-only source review and live preview smok
+- checkpoint: No dedicated Atlas sprintOutcome prompt template file found in workspace docs/skills. Creating a focused reusable v1.1 terminal-receipt template with done/partial/failed examples and explicit usage notes.
 - blocker: -
-- updated: 2026-04-29T07:15:54.803Z
+- updated: 2026-04-29T16:54:27.690Z
 <!-- mc:auto-working-context:end -->
