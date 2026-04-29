@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T22:53:01.092929+00:00",
+  "generated_at": "2026-04-29T23:24:01.774073+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -61,7 +61,7 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-04-29T22:00:33.094661+00:00",
       "latest_session_size_bytes": 325789,
       "session_count": 19
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T22:53:00.566988+00:00",
-      "latest_session_size_bytes": 28942,
-      "session_count": 147
+      "last_session_iso": "2026-04-29T23:20:31.614007+00:00",
+      "latest_session_size_bytes": 21962,
+      "session_count": 148
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-04-29T22:14:45.537153+00:00",
-      "latest_session_size_bytes": 183884,
-      "session_count": 1620
+      "last_session_iso": "2026-04-29T23:05:44.556583+00:00",
+      "latest_session_size_bytes": 7454,
+      "session_count": 1621
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "4d5cd9b",
+      "date": "2026-04-30T00:53:17+02:00",
+      "subject": "auto-sync: 2026-04-30 00:53"
+    },
+    {
       "hash": "03fe62b",
       "date": "2026-04-30T00:23:17+02:00",
       "subject": "auto-sync: 2026-04-30 00:23"
@@ -950,11 +955,6 @@
       "hash": "bbdb8cb",
       "date": "2026-04-29T20:21:08+02:00",
       "subject": "auto-sync: 2026-04-29 20:21"
-    },
-    {
-      "hash": "085c488",
-      "date": "2026-04-29T19:51:01+02:00",
-      "subject": "auto-sync: 2026-04-29 19:51"
     }
   ],
   "scripts": {
@@ -966,19 +966,16 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        3825653,
-        3934657
+        3825653
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3860103,
         3916542,
-        3920846,
-        3927619,
-        3934650
+        3934650,
+        3962671
       ]
     }
   ],
