@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T13:18:01.131091+00:00",
+  "generated_at": "2026-04-29T13:48:01.694578+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -62,8 +62,8 @@
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
       "status": "active",
-      "last_session_iso": "2026-04-29T13:18:00.670597+00:00",
-      "latest_session_size_bytes": 296444,
+      "last_session_iso": "2026-04-29T13:47:48.143400+00:00",
+      "latest_session_size_bytes": 436607,
       "session_count": 19
     },
     {
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T13:15:30.629554+00:00",
-      "latest_session_size_bytes": 999569,
+      "last_session_iso": "2026-04-29T13:44:54.244107+00:00",
+      "latest_session_size_bytes": 1318192,
       "session_count": 124
     },
     {
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T13:17:51.184531+00:00",
-      "latest_session_size_bytes": 7206,
+      "last_session_iso": "2026-04-29T13:47:36.742316+00:00",
+      "latest_session_size_bytes": 5732,
       "session_count": 1618
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "af3d26a",
+      "date": "2026-04-29T15:18:17+02:00",
+      "subject": "auto-sync: 2026-04-29 15:18"
+    },
+    {
       "hash": "de6cfb6",
       "date": "2026-04-29T14:48:17+02:00",
       "subject": "auto-sync: 2026-04-29 14:48"
@@ -950,11 +955,6 @@
       "hash": "5a71215",
       "date": "2026-04-29T11:46:17+02:00",
       "subject": "auto-sync: 2026-04-29 11:46"
-    },
-    {
-      "hash": "dd2116c",
-      "date": "2026-04-29T11:16:17+02:00",
-      "subject": "auto-sync: 2026-04-29 11:16"
     }
   ],
   "scripts": {
@@ -974,17 +974,19 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        3010776,
-        3146216,
-        3146217
+        3161044,
+        3183547,
+        3184390,
+        3184391
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3082617,
-        3126777
+        3164943,
+        3182403,
+        3183540
       ]
     }
   ],

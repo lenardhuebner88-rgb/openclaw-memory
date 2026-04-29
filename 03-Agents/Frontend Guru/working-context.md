@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d02c49b2-dcd8-43d3-a63d-c3a3baca4d62 [V3 Gate 2][Pixel Rework] Fix invalid-id drawer state + prove build validity
+- task: abc44fbd-d516-46df-89cb-6352e8315199 [V3 Gate 2][Pixel Rework 2] Fix invalid-id drawer state after snapshot load
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Applied narrow [id]/page.tsx hardening: normalize taskId, define hasLoadedSnapshot, prioritize error/selected/not-found states, and remove generic loaded-but-still-loading fallback. Typecheck passed; proceeding with cont
 - blocker: -
-- updated: 2026-04-29T13:00:50.650Z
+- updated: 2026-04-29T13:47:05.679Z
 <!-- mc:auto-working-context:end -->
