@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T16:20:01.195535+00:00",
+  "generated_at": "2026-04-29T16:50:01.723055+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 173,
+    "scripts_active": 174,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -54,8 +54,8 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-04-29T15:21:20.810939+00:00",
-      "latest_session_size_bytes": 411533,
+      "last_session_iso": "2026-04-29T16:44:04.499570+00:00",
+      "latest_session_size_bytes": 465996,
       "session_count": 53
     },
     {
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T16:15:14.641088+00:00",
-      "latest_session_size_bytes": 3264207,
-      "session_count": 130
+      "last_session_iso": "2026-04-29T16:49:59.679968+00:00",
+      "latest_session_size_bytes": 375468,
+      "session_count": 132
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T16:19:30.144703+00:00",
-      "latest_session_size_bytes": 5792,
+      "last_session_iso": "2026-04-29T16:48:28.203352+00:00",
+      "latest_session_size_bytes": 13171,
       "session_count": 1619
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "4e41c0c",
+      "date": "2026-04-29T18:20:17+02:00",
+      "subject": "auto-sync: 2026-04-29 18:20"
+    },
+    {
       "hash": "ca2a28d",
       "date": "2026-04-29T17:50:17+02:00",
       "subject": "auto-sync: 2026-04-29 17:50"
@@ -950,16 +955,11 @@
       "hash": "885a544",
       "date": "2026-04-29T14:17:17+02:00",
       "subject": "auto-sync: 2026-04-29 14:17"
-    },
-    {
-      "hash": "332ea7f",
-      "date": "2026-04-29T14:17:02+02:00",
-      "subject": "docs: mark v3 gate 1 pass"
     }
   ],
   "scripts": {
     "scripts_root": 108,
-    "workspace_scripts": 65
+    "workspace_scripts": 66
   },
   "mcp_servers": [
     {
@@ -974,17 +974,28 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        3285084,
-        3375446,
-        3375447
+        3411810,
+        3412411,
+        3412442,
+        3414237,
+        3414238,
+        3422461
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3294098,
-        3355768
+        3412404,
+        3412435,
+        3417103,
+        3417974,
+        3420848,
+        3422449,
+        3422571,
+        3422606,
+        3422608,
+        3422678
       ]
     }
   ],

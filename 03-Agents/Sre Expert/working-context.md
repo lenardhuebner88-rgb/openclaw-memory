@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5e7d3e96-9be3-4d98-aac0-05787101fec8 [P2][Atlas/Forge] Session rotation watchdog signal-only loop handling
-- stage: FAILED
+- task: 747a048a-5cc8-42bb-bd19-8e7fd05a6d86 [S-FOLLOWUP-1][S1.4][Forge] Receipt schema wrapper fallback
+- stage: DONE
 - next: await next assignment
-- checkpoint: No progress for 25m (hard-threshold=20m). Auto-failed by worker-monitor.
-- blocker: No progress for 25m (hard-threshold=20m). Auto-failed by worker-monitor.
-- updated: 2026-04-29T15:27:09.872Z
+- checkpoint: S1.4 abgeschlossen: v1.1 Receipt-Schema-Wrapper-Fallback implementiert und in die terminale Receipt-Validierung integriert. Bei fehlendem/legacy sprintOutcome wird jetzt kompatibel v1.1 aus Ergebnistext (Follow-up/Recomm
+- blocker: -
+- updated: 2026-04-29T16:46:35.702Z
 <!-- mc:auto-working-context:end -->

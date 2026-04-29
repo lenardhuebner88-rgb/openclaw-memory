@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 54625e84-88e6-428f-a382-5f8c9db04075 [P2][Lens/Atlas] R48 failed-null-completedAt archive hygiene review
+- task: 57d625db-f349-4f2e-a966-7359bf37dee8 [S-FOLLOWUP-1][S1.1][Lens] Receipt schema audit baseline
 - stage: DONE
 - next: await next assignment
-- checkpoint: R48 failed-null-completedAt hygiene review completed: 51 failed tasks, 45 without completedAt. Split: 6 normal (completedAt set), 25 admin-closed (resolvedAt set), 20 fully unresolved. R48 cron log-only policy confirmed 
+- checkpoint: S-FOLLOWUP-1 S1.1 receipt schema audit baseline completed: scanned last 48h of terminal receipts from tasks.json, found 97 terminal receipts, v1.1 adoption 35.1% (34 tasks), no-schema 64.9% (63 tasks), v0=0%. Per-agent: 
 - blocker: -
-- updated: 2026-04-29T15:20:40.768Z
+- updated: 2026-04-29T16:42:40.982Z
 <!-- mc:auto-working-context:end -->
