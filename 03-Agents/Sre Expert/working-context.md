@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5a42a3fa-302b-4cd0-9d75-e8842cb2e8c7 [P1][Forge] Redesign alerts counts from raw log lines to deduped operational incidents
+- task: 6ec92ca8-05bb-419c-a812-39109aba8183 [V3 Sprint] Slice F1 — status-derivation
 - stage: DONE
 - next: await next assignment
-- checkpoint: Backend-Redesign für /api/alerts abgeschlossen: neue Raw-vs-Incident-Metriken mit Dedupe-Gruppierung live verifiziert, ohne Ack/Mute-Regression und ohne UI-Änderungen.
+- checkpoint: F1 completed: implemented additive V3 status-derivation foundations (types/status/lane/task-adapter/health), added derivation+parity tests (5/5 passing), preserved anti-scope (no /kanban,/taskboard,/dashboard edits), and
 - blocker: -
-- updated: 2026-04-28T22:19:05.817Z
+- updated: 2026-04-29T04:50:17.577Z
 <!-- mc:auto-working-context:end -->
