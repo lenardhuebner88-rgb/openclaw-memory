@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f691c9b6-ca3e-4a59-a303-b71e58bb031d [Follow-up] [S-FOLLOWUP-1][S2.3][Forge] Discord approval bridge prototype
-- stage: FAILED
+- task: 1ebb0c1d-b1b3-482c-9d11-63f762d34bee [S-FOLLOWUP-1][Atlas Master] Follow-Up Autonomy Recovery + E2E
+- stage: DONE
 - next: await next assignment
-- checkpoint: -
+- checkpoint: S-FOLLOWUP-1 finalisiert als CLOSE-WITH-BACKLOG. Core recovery, E2E coverage, live followup-stats endpoint, v1/v1.1 audit correction, wrapper normalization, prompt guidance and owner-inference precedence are complete. Re
 - blocker: -
-- updated: 2026-04-29T19:23:27.543Z
+- updated: 2026-04-29T20:04:19.425Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 15b9b521-dbca-4c4c-a1bf-093f52dab5c0 [P1][Forge] Fix operator-authorized task cancel path + duplicate follow-up prevention
+- task: a33aa99d-f4ac-494f-ac3a-83463b45735f [Analysis][Forge] Mismatch 533c8e59 done parent vs draft follow-up 198890131995
 - stage: DONE
 - next: await next assignment
-- checkpoint: Operator-authorized Cancel-Pfad sauber fixiert: neuer `taskboard_hygiene_cancel` Wrapper erzwingt Dry-Run + explizite Task-IDs + Audit-Reason, nutzt ausschließlich admin-close/autonomy-reject (kein Dispatch/kein move-rev
+- checkpoint: Root cause bestätigt: der Mismatch ist primär eine Signal-Materializer-Nebenwirkung (textbasiertes `follow-up`/`residual` Matching) und kein Parent-Done-Fehler; dadurch wurde aus dem done-Parent 533c8e59 automatisiert de
 - blocker: -
-- updated: 2026-04-29T19:31:59.043Z
+- updated: 2026-04-29T20:17:14.454Z
 <!-- mc:auto-working-context:end -->
