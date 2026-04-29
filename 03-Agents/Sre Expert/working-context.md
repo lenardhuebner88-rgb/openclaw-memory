@@ -7,10 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4ae24392-9932-4d73-9b72-3822844b5e19 [V3 Sprint] Slice F3 — atlas-suggest derive
+- task: 5bbf2f7f-e96c-4ea6-aa35-fc554ab0b4ec [V3 Sprint][H2] atlas-receipt-stream-subscribe
 - stage: DONE
 - next: await next assignment
-- checkpoint: F3 completed: /api/board/next-action now returns derived suggestion text plus presentation metadata, taskboard banner uses that derived presentation (no local hardcoded mapping), task detail drawer renders live suggestio
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY: Für H2 wurde ein dauerhafter SSE-Subscription-Pfad umgesetzt: neues Watcher-Script liest `/api/board/events`, erkennt `receiptStage=result` und enqueued sofort einen bounded decisio
 - blocker: -
-- updated: 2026-04-29T05:47:35.098Z
+- updated: 2026-04-29T07:09:59.379Z
 <!-- mc:auto-working-context:end -->

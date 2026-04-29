@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fde91ec2-8f9c-4b01-9c5d-26cc4fc1ef37 [V3 Sprint] Slice V0 — atlas-autonomy-audit
+- task: 6f81a5bb-1b57-42cf-a9aa-6342a6d3aa6d [V3 Sprint] Slice V1 — A/B validation
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: V0 audit in progress: read V3 sprint contract and current child-task state; collecting dispatch latency, WIP-respect, receipt-completion, defense-cron, and report-cadence evidence before writing the incremental audit fil
+- checkpoint: V1 parity validation in progress: dependencies E and I are done, legacy /kanban returns 200, but live /kanban-v3-preview currently returns 404; writing a blocked parity report with route/status evidence unless a live pre
 - blocker: -
-- updated: 2026-04-29T05:18:44.786Z
+- updated: 2026-04-29T07:12:58.105Z
 <!-- mc:auto-working-context:end -->

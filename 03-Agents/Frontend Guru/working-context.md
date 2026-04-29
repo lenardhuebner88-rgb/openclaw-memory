@@ -7,12 +7,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cbb748d5-eaa8-464f-94cf-f9badd39f965 [V3 Sprint] Slice F — DetailsDrawer
+- task: 736e04dc-d407-4603-82c7-20df1f2a2a75 [V3 Sprint] Slice I — ControlBar
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: DONE
-SLICE_ID: V3-SPRINT-SLICE-F-2026-04-29
-RESULT_SUMMARY: Implemented DetailsDrawer flow for V3 preview with deep-link route /kanban-v3-preview/[id], card-click navigation into that route, and a right
+SLICE_ID: V3-SPRINT-SLICE-I-2026-04-29
+RESULT_SUMMARY: Implemented interactive V3 ControlBar behavior in the preview subbar: density/mode/truth-rail state now flips instantly without reload, persis
 - blocker: -
-- updated: 2026-04-29T06:42:52.367Z
+- updated: 2026-04-29T07:02:59.510Z
 <!-- mc:auto-working-context:end -->

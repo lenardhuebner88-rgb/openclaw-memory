@@ -1,4 +1,4 @@
-# Main Working Context
+# M7 Atlas Master Heartbeat Working Context
 
 ## Lies zuerst
 - [[../Shared/project-state]]
@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e40a90c9-238f-4b68-aba3-a5123f54f913 [V3 Sprint] Atlas Master — V3 Taskboard Implementation Sprint
+- task: eb6e26d0-b93c-4f2d-adef-a482517b5c26 [V3 Sprint][H1] atlas-master-heartbeat-cron
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: sprint-watch-heartbeat
+- checkpoint: master-heartbeat-timer
 - blocker: -
-- updated: 2026-04-29T07:13:40.094Z
+- updated: 2026-04-29T06:54:12.668Z
 <!-- mc:auto-working-context:end -->
