@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a33aa99d-f4ac-494f-ac3a-83463b45735f [Analysis][Forge] Mismatch 533c8e59 done parent vs draft follow-up 198890131995
-- stage: START
+- task: 3f600b85-17de-4cfa-8e1d-16d723f9b02d [Forge Fix] receipt-materializer negative residual signals must not create follow-up drafts
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Patch + Regression umgesetzt: explizite negative Residual-Signale unterdrücken jetzt Draft-Follow-up-Erzeugung; positive Signale erzeugen weiterhin genau einen deduplizierten Draft. Tests (17/17) + Typecheck grün, Commit
 - blocker: -
-- updated: 2026-04-29T20:15:46.326Z
+- updated: 2026-04-29T20:24:07.681Z
 <!-- mc:auto-working-context:end -->

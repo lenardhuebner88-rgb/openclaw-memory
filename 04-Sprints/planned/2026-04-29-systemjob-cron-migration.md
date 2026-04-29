@@ -1,5 +1,5 @@
 ---
-status: planned
+status: implemented
 owner: codex
 created: 2026-04-29
 priority: P1
@@ -57,3 +57,14 @@ Initial migrated jobs:
 - Systemd timers execute the scripts successfully.
 - Run logs continue to exist under the same job IDs with zero token usage.
 - No Mission Control health regression.
+
+## Implementation Notes
+- OpenClaw native jobs were disabled both in `jobs.json` and via
+  `openclaw cron disable` so the live Gateway cache cannot keep firing the old
+  `agentTurn` definitions.
+- A first parity smoke used a too-small 90s timeout and failed with
+  `exit_code=124`; the parity systemJob timeout was adjusted to 240s. The next
+  smoke passed with `PARITY_CHECK_OK`.
+- The 20:25 systemd tick verified receipt-stream and master-heartbeat as shell
+  jobs; final post-tick verification should confirm no new native provider
+  entries after the Gateway disable.
