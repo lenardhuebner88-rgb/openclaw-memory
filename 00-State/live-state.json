@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-29T12:17:01.529573+00:00",
+  "generated_at": "2026-04-29T12:48:01.921761+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,15 +8,15 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 2,
+    "agents_active": 3,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
       "T2-2min": 2,
       "T8-daily-or-weekly": 28,
-      "T3-5min": 3,
+      "T3-5min": 2,
       "T4-10min": 2,
-      "T5-15min": 1,
+      "T5-15min": 2,
       "T7-hourly": 6,
       "T6-30min": 3
     },
@@ -61,10 +61,10 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "idle",
-      "last_session_iso": "2026-04-23T17:04:14.393537+00:00",
-      "latest_session_size_bytes": 321518,
-      "session_count": 18
+      "status": "active",
+      "last_session_iso": "2026-04-29T12:44:43.724333+00:00",
+      "latest_session_size_bytes": 151075,
+      "session_count": 19
     },
     {
       "id": "james",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-29T12:16:56.106047+00:00",
-      "latest_session_size_bytes": 1270187,
-      "session_count": 122
+      "last_session_iso": "2026-04-29T12:45:14.363564+00:00",
+      "latest_session_size_bytes": 6408482,
+      "session_count": 126
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-29T12:16:32.662885+00:00",
-      "latest_session_size_bytes": 6036,
+      "last_session_iso": "2026-04-29T12:47:31.438586+00:00",
+      "latest_session_size_bytes": 5836,
       "session_count": 1618
     },
     {
@@ -440,7 +440,7 @@
     },
     {
       "schedule": "* * * * *",
-      "command": "flock -n /tmp/state-collector.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/state-collector.py >> /home/piet/.openclaw/workspace/logs/state-collector.log 2>&1",
+      "command": "flock -n /tmp/state-collector.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/state-collector.py >/dev/null 2>&1",
       "script": "/home/piet/.openclaw/workspace/scripts/state-collector.py",
       "tier": "T1-realtime"
     },
@@ -481,10 +481,10 @@
       "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "*/5 * * * *",
+      "schedule": "*/15 * * * *",
       "command": "flock -n /tmp/cron-runs-tracker.lock /usr/bin/python3 /home/piet/.openclaw/scripts/cron-runs-tracker.py >> /home/piet/.openclaw/workspace/logs/cron-runs-tracker.cron.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/cron-runs-tracker.py",
-      "tier": "T3-5min"
+      "tier": "T5-15min"
     }
   ],
   "rules": [
@@ -907,6 +907,21 @@
   ],
   "vault_commits": [
     {
+      "hash": "05a36e1",
+      "date": "2026-04-29T14:22:01+02:00",
+      "subject": "docs: add v3 gate 1 evidence pack"
+    },
+    {
+      "hash": "885a544",
+      "date": "2026-04-29T14:17:17+02:00",
+      "subject": "auto-sync: 2026-04-29 14:17"
+    },
+    {
+      "hash": "332ea7f",
+      "date": "2026-04-29T14:17:02+02:00",
+      "subject": "docs: mark v3 gate 1 pass"
+    },
+    {
       "hash": "2f31cc8",
       "date": "2026-04-29T13:47:17+02:00",
       "subject": "auto-sync: 2026-04-29 13:47"
@@ -940,21 +955,6 @@
       "hash": "98cbb6e",
       "date": "2026-04-29T10:45:58+02:00",
       "subject": "auto-sync: 2026-04-29 10:45"
-    },
-    {
-      "hash": "547c286",
-      "date": "2026-04-29T10:15:17+02:00",
-      "subject": "auto-sync: 2026-04-29 10:15"
-    },
-    {
-      "hash": "9fd4cc0",
-      "date": "2026-04-29T09:45:00+02:00",
-      "subject": "auto-sync: 2026-04-29 09:45"
-    },
-    {
-      "hash": "783d991",
-      "date": "2026-04-29T09:15:00+02:00",
-      "subject": "auto-sync: 2026-04-29 09:15"
     }
   ],
   "scripts": {
@@ -975,9 +975,9 @@
       "status": "running",
       "pids": [
         3010776,
-        3069553,
-        3069554,
-        3072296
+        3109329,
+        3109330,
+        3109491
       ]
     },
     {
@@ -985,9 +985,10 @@
       "status": "running",
       "pids": [
         3014780,
-        3033250,
-        3067768,
-        3072268
+        3082617,
+        3100369,
+        3106882,
+        3109470
       ]
     }
   ],

@@ -7,12 +7,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 736e04dc-d407-4603-82c7-20df1f2a2a75 [V3 Sprint] Slice I — ControlBar
+- task: ff7cf9d5-278f-49e1-bf99-d097e6c9e818 [V3 Gate 2][Pixel] Harden kanban-v3 drawer/detail empty-loading-error states
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: DONE
-SLICE_ID: V3-SPRINT-SLICE-I-2026-04-29
-RESULT_SUMMARY: Implemented interactive V3 ControlBar behavior in the preview subbar: density/mode/truth-rail state now flips instantly without reload, persis
+- checkpoint: GATE2_IMPLEMENTATION_RESULT:
+- changed_files: src/app/kanban-v3-preview/page.tsx, src/app/kanban-v3-preview/[id]/page.tsx, src/components/v3/V3FinalDesktop.tsx
+- summary: Introduced explicit PreviewState model (loading/r
 - blocker: -
-- updated: 2026-04-29T07:02:59.510Z
+- updated: 2026-04-29T12:42:29.226Z
 <!-- mc:auto-working-context:end -->

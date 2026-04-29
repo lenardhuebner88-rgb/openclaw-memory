@@ -41,7 +41,7 @@ Dieses Dokument ist generated aus YAML-Frontmatter (`sprint-id`, `status`, `owne
 | - | 2026-04-26_first-heartbeat-gate-hardening | codex | - | `codex/plans/2026-04-26_first-heartbeat-gate-hardening.md` |
 | - | 2026-04-26_worker-system-large-final-gate-report | codex | - | `codex/plans/2026-04-26_worker-system-large-final-gate-report.md` |
 
-## UNKNOWN (245)
+## UNKNOWN (248)
 
 | Sprint-ID | Title | Owner | Supersedes | Path |
 |---|---|---|---|---|
@@ -281,11 +281,14 @@ Dieses Dokument ist generated aus YAML-Frontmatter (`sprint-id`, `status`, `owne
 | - | review-agent-team-meetings-2026-04-24 | codex | - | `codex/plans/review-agent-team-meetings-2026-04-24.md` |
 | - | cron-decision-matrix-2026-04-29 | - | - | `cron-decision-matrix-2026-04-29.md` |
 | - | cron-minimal-fixes-2026-04-29 | - | - | `cron-minimal-fixes-2026-04-29.md` |
+| - | cron-per-job-walkthrough-2026-04-29 | - | - | `cron-per-job-walkthrough-2026-04-29.md` |
 | - | cron-scripts-audit-2026-04-29 | - | - | `cron-scripts-audit-2026-04-29.md` |
 | - | james-cost-routing-extern-2026-04-24 | - | - | `james-cost-routing-extern-2026-04-24.md` |
 | - | james-recovery-runbook-refs-2026-04-25 | - | - | `james-recovery-runbook-refs-2026-04-25.md` |
 | - | atlas-result-format | - | - | `kb/atlas-result-format.md` |
 | - | Memory Dashboard | - | - | `memory-dashboard.md` |
+| - | sprint-briefs-2026-04-29-schema-gate-ops | claude (autonomous, parallel-pass to Atlas V3 Hardening) | - | `sprint-briefs-2026-04-29-schema-gate-ops.md` |
+| - | sprint-closure-2026-04-29-schema-gate-ops | - | - | `sprint-closure-2026-04-29-schema-gate-ops.md` |
 | - | vault-search-observation-2026-04-25 | - | - | `vault-search-observation-2026-04-25.md` |
 | - | vault-search-observation-2026-04-26 | - | - | `vault-search-observation-2026-04-26.md` |
 | - | vault-search-observation-2026-04-27 | - | - | `vault-search-observation-2026-04-27.md` |
