@@ -7,11 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f5801424-9230-464b-8319-9706b88d358a [V3 Sprint][H3] atlas-auto-follow-up-from-resultSummary
+- task: 82c4076f-878e-4bf9-89e4-b36e168f57fa [P1][Forge] Add Taskboard MCP wrappers for receipt/finalize/move
 - stage: DONE
 - next: await next assignment
-- checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: H3 ist umgesetzt: Beim terminalen `result`-Receipt werden jetzt Follow-up-Signale in `resultSummary`/`resultDetails` erkannt (`follow-up`, `recommend`, `Open risks`, `TODO`, `residu
+- checkpoint: Taskboard MCP Lifecycle-Wrapper verifiziert: server.js enthält taskboard_receipt_task -> POST /api/tasks/{id}/receipt, taskboard_finalize_task -> POST /api/tasks/{id}/finalize und taskboard_move_task -> PUT /api/tasks/{i
 - blocker: -
-- updated: 2026-04-29T07:28:18.789Z
+- updated: 2026-04-29T14:24:14.880Z
 <!-- mc:auto-working-context:end -->

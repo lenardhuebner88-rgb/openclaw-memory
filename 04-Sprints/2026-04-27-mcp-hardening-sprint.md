@@ -511,3 +511,12 @@ Effekt: BM25 + vector ranking nutzen contexts als boost-signal -> bessere Top-Re
   - Live signal proof (forced >=95 via temp budget input): `/tmp/atlas-rotation-signal.json` created with `recommended_action=emergency-rotate-too-late`; file then removed to avoid stale fake signal.
 - Scenario verification matrix passed: direct >=95 jump, graceful band, same-level idempotence, graceful->emergency upgrade, cleanup on session-id-changed, cleanup on pct-drop.
 - Re-verify 12:06 CEST: `/tmp/atlas-rotation-signal.json` recreated with pct=80 test input and `recommended_action=graceful-rotate-with-summary` (ls+cat proof captured).
+
+## 2026-04-29 — P1 Taskboard MCP Lifecycle Wrapper Closure
+
+- Final status: `P1_FORGE_MCP PASS`.
+- Task `82c4076f-878e-4bf9-89e4-b36e168f57fa` is `done`.
+- Wrappers added/validated: `taskboard_receipt_task`, `taskboard_finalize_task`, `taskboard_move_task`.
+- Routing: canonical Mission-Control routes only (`/api/tasks/{id}/receipt`, `/finalize`, `/move`).
+- Safety: no direct `tasks.json` mutation; no lifecycle semantics changes.
+- Final health: OK (`recoveryLoad=0`, `attentionCount=0`, `issueCount=0`, `consistencyIssues=0`).
