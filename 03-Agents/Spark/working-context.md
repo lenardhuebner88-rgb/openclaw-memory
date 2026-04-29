@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d3581364-c5fd-4f1e-ba1d-8a86fd8e9c55 [S-FOLLOWUP-1][S1.2][Spark] Atlas sprintOutcome v1.1 prompt template
-- stage: DONE
+- task: 0cc1a0e4-0113-456d-be82-1584a159539f [Follow-up] [Backlog][S-FOLLOWUP-1][Forge] Seal receipt-materializer test fixture leakage
+- stage: FAILED
 - next: await next assignment
-- checkpoint: RESULT: Created a new reusable Atlas terminal-receipt template for sprintOutcome v1.1 at `docs/operations/atlas-sprintoutcome-v1.1-terminal-receipt-template.md`, covering required schema fields (`schema_version`, `status
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-29T16:55:21.226Z
+- updated: 2026-04-29T19:13:56.588Z
 <!-- mc:auto-working-context:end -->

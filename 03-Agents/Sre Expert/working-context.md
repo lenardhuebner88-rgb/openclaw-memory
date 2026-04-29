@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0e7b0147-9571-4c55-8b58-fc2199d94c54 [P1][S-FOLLOWUP-1][Forge] Fix signal-followup owner inference with bracketed title precedence
-- stage: DONE
+- task: e220a8bc-8aff-4891-a967-8cdec97cf86a [Follow-up] [P0][S-FOLLOWUP-1][Forge] Deploy followup-stats endpoint to production
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Owner-Inference behoben: Signal-followup nutzt jetzt bracketed Title-Hints ([Forge]/[Lens]/[Pixel] etc.) mit höherer Priorität als generische Textkeywords, wodurch die in AC-8 beobachteten Owner-Mismatches aus irreführen
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-29T18:43:34.575Z
+- updated: 2026-04-29T19:19:40.438Z
 <!-- mc:auto-working-context:end -->
