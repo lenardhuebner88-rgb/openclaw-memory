@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 6f81a5bb-1b57-42cf-a9aa-6342a6d3aa6d [V3 Sprint] Slice V1 — A/B validation
+- task: 54625e84-88e6-428f-a382-5f8c9db04075 [P2][Lens/Atlas] R48 failed-null-completedAt archive hygiene review
 - stage: DONE
 - next: await next assignment
-- checkpoint: Browser-level V1 parity PASS approved by human operator: Playwright Chromium verified /kanban-v3-preview hydrated from /api/board/snapshot, 6/6 snapshot task titles visible, no sample IDs v3-1..v3-6, no sample text Alert
+- checkpoint: R48 failed-null-completedAt hygiene review completed: 51 failed tasks, 45 without completedAt. Split: 6 normal (completedAt set), 25 admin-closed (resolvedAt set), 20 fully unresolved. R48 cron log-only policy confirmed 
 - blocker: -
-- updated: 2026-04-29T10:16:52.635Z
+- updated: 2026-04-29T15:20:40.768Z
 <!-- mc:auto-working-context:end -->
