@@ -7,10 +7,17 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 57d625db-f349-4f2e-a966-7359bf37dee8 [S-FOLLOWUP-1][S1.1][Lens] Receipt schema audit baseline
+- task: 3783b552-c3f0-4720-8ef9-cde5659a26bb [P0][S-FOLLOWUP-1][Lens] Fix receipt audit v1/v1.1 classification + rebaseline
 - stage: DONE
 - next: await next assignment
-- checkpoint: S-FOLLOWUP-1 S1.1 receipt schema audit baseline completed: scanned last 48h of terminal receipts from tasks.json, found 97 terminal receipts, v1.1 adoption 35.1% (34 tasks), no-schema 64.9% (63 tasks), v0=0%. Per-agent: 
+- checkpoint: ## RESULT
+
+**P0 Audit Fix Complete**
+
+### FILES_CHANGED
+- `scripts/receipt-schema-audit.py` — 1 file, 9 lines changed
+- Commit: `9e1cd1ea` fix(lens): correct v1/v1.1 classification bug
+- Corrected audit JSON: `vault/03-A
 - blocker: -
-- updated: 2026-04-29T16:42:40.982Z
+- updated: 2026-04-29T18:20:57.812Z
 <!-- mc:auto-working-context:end -->

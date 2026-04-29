@@ -7,11 +7,14 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f65ee4ef-22a6-442e-959e-59515094c0f2 [S-FOLLOWUP-1][S4.1][Pixel] Follow-up stats API endpoint
+- task: 2f55759c-6e48-41c7-9f4e-4b68e1e2435d [P2][S-FOLLOWUP-1][Pixel] AC-8 owner-mismatch sample review
 - stage: DONE
 - next: await next assignment
-- checkpoint: RESULT
-Implemented the read-only Mission Control follow-up observability endpoint GET /api/followup-stats. The endpoint reads tasks via taskboard-store, filters follow-up tasks created in the last 24h by default, and ret
+- checkpoint: REPORT
+Completed AC-8 owner-mismatch sample review for S-FOLLOWUP-1 and documented the findings in mission-control/reports/followup-owner-mismatch-ac8-2026-04-29.md.
+
+FINDINGS
+- Reviewed 10 auto/follow-up tasks from Miss
 - blocker: -
-- updated: 2026-04-29T17:35:38.674Z
+- updated: 2026-04-29T18:08:20.346Z
 <!-- mc:auto-working-context:end -->
