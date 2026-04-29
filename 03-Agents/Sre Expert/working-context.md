@@ -7,11 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5bbf2f7f-e96c-4ea6-aa35-fc554ab0b4ec [V3 Sprint][H2] atlas-receipt-stream-subscribe
+- task: f5801424-9230-464b-8319-9706b88d358a [V3 Sprint][H3] atlas-auto-follow-up-from-resultSummary
 - stage: DONE
 - next: await next assignment
 - checkpoint: EXECUTION_STATUS: done
-RESULT_SUMMARY: Für H2 wurde ein dauerhafter SSE-Subscription-Pfad umgesetzt: neues Watcher-Script liest `/api/board/events`, erkennt `receiptStage=result` und enqueued sofort einen bounded decisio
+RESULT_SUMMARY: H3 ist umgesetzt: Beim terminalen `result`-Receipt werden jetzt Follow-up-Signale in `resultSummary`/`resultDetails` erkannt (`follow-up`, `recommend`, `Open risks`, `TODO`, `residu
 - blocker: -
-- updated: 2026-04-29T07:09:59.379Z
+- updated: 2026-04-29T07:28:18.789Z
 <!-- mc:auto-working-context:end -->

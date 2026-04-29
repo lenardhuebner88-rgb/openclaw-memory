@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5bbf2f7f-e96c-4ea6-aa35-fc554ab0b4ec [V3 Sprint][H2] atlas-receipt-stream-subscribe
+- task: f5801424-9230-464b-8319-9706b88d358a [V3 Sprint][H3] atlas-auto-follow-up-from-resultSummary
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Implementierung abgeschlossen: SSE-Watcher-Script erstellt/committed (8cc0e6e4), produktiv deployt und als Cron-Subscription `atlas-receipt-stream-subscribe` (Job e74a9d69-8e83-42e2-bef4-4616e108187e) aktiviert. Manuelle
+- checkpoint: H3-Implementierung eingebaut: Receipt-Finalisierung erkennt Follow-up-Signale (follow-up/recommend/Open risks/TODO/residual) in resultSummary/resultDetails und erstellt deterministische Draft-Follow-up-Tasks mit decision
 - blocker: -
-- updated: 2026-04-29T07:09:43.065Z
+- updated: 2026-04-29T07:27:44.382Z
 <!-- mc:auto-working-context:end -->
