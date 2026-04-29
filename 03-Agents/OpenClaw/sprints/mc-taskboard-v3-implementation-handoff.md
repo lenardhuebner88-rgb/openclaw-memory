@@ -98,3 +98,16 @@ Produce a mapping from Claude V3 concepts to existing Mission Control files, wit
 Explicitly preserve the no-false-progress rule and the 7-lane taxonomy.
 ```
 
+
+## Gate 1 Closure — 2026-04-29
+
+Status: **PASS**
+
+Evidence:
+- Controlled Mission Control build completed successfully.
+- Mission Control restarted and served current build artifacts.
+- `/api/health` OK: `recoveryLoad=0`, `attentionCount=0`, `issueCount=0`, `consistencyIssues=0`.
+- `/sw.js` returns `200 OK`; current JS/CSS chunks return `200 OK`.
+- Final Playwright/Chromium V3 Gate 1 rerun passed: `/kanban-v3-preview` hydrated, 3 live snapshot cards visible, no sample IDs/text, drawer uses live data, live detail route OK, `/kanban-v3-preview/v3-1` renders no sample task, counts match, console errors empty, no blocking 400/404.
+
+Next proposed slice: V3 production-readiness evidence pack/documented gate runner. Do not dispatch automatically.
