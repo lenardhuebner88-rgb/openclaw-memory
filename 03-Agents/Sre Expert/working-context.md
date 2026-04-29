@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 53ab343f-5904-4445-963b-bbc0c623228a [P0][S-FOLLOWUP-1][Forge] Deploy followup-stats endpoint to production
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Build wrapper initially skipped because Mission Control was running on :3000; proceeding with controlled build using ALLOW_BUILD_WHILE_RUNNING=1 per wrapper guard.
+- task: 0e7b0147-9571-4c55-8b58-fc2199d94c54 [P1][S-FOLLOWUP-1][Forge] Fix signal-followup owner inference with bracketed title precedence
+- stage: DONE
+- next: await next assignment
+- checkpoint: Owner-Inference behoben: Signal-followup nutzt jetzt bracketed Title-Hints ([Forge]/[Lens]/[Pixel] etc.) mit höherer Priorität als generische Textkeywords, wodurch die in AC-8 beobachteten Owner-Mismatches aus irreführen
 - blocker: -
-- updated: 2026-04-29T18:20:47.687Z
+- updated: 2026-04-29T18:43:34.575Z
 <!-- mc:auto-working-context:end -->

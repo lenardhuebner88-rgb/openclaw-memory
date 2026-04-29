@@ -11,10 +11,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f5801424-9230-464b-8319-9706b88d358a [V3 Sprint][H3] atlas-auto-follow-up-from-resultSummary
+- task: 0e7b0147-9571-4c55-8b58-fc2199d94c54 [P1][S-FOLLOWUP-1][Forge] Fix signal-followup owner inference with bracketed title precedence
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: H3-Implementierung eingebaut: Receipt-Finalisierung erkennt Follow-up-Signale (follow-up/recommend/Open risks/TODO/residual) in resultSummary/resultDetails und erstellt deterministische Draft-Follow-up-Tasks mit decision
+- checkpoint: Bracketed-Title-Precedence implementiert: [Forge]/[Lens]/[Pixel]-Hints werden jetzt vor generischen Keywords ausgewertet; 4 Regressionstests hinzugefügt, Target-Tests + Typecheck grün.
 - blocker: -
-- updated: 2026-04-29T07:27:44.382Z
+- updated: 2026-04-29T18:42:59.929Z
 <!-- mc:auto-working-context:end -->
