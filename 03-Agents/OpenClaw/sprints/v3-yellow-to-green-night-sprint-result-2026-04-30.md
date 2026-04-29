@@ -57,3 +57,42 @@
 
 ## Next single action
 - Human/operator performs one approved terminal mutation on the disposable task (or equivalent safe test task) to complete Slice-G live-gate proof, then re-run the same consistency checks and finalize verdict.
+
+## Follow-up Slice (Atlas, 2026-04-30)
+### Exact GREEN blocker identified
+- `/api/board/v3-health` was aggregating **all projects**, not only `project=v3`.
+- This kept V3 in yellow due to global blocked/failed backlog bleeding into V3 incident count.
+
+### One productive mutation
+- Patched V3 health route to filter tasks to `project === "v3"` before V3 adaptation/health aggregation.
+- Added regression assertion so non-v3 incident tasks are excluded.
+
+### Files
+- `mission-control/src/app/api/board/v3-health/route.ts`
+- `mission-control/tests/board-v3-health-route.test.ts`
+
+### Validation
+- `/kanban-v3-preview` => HTTP 200
+- `/api/board/v3-health` => HTTP 200
+- `npx vitest run tests/board-v3-health-route.test.ts` => 2/2 passed
+- `systemctl --user --failed --no-legend` => no new failed user services introduced by this slice
+
+### Status impact
+- V3 health is now correctly project-scoped.
+- If `incidentCount` remains >0, it now reflects **real V3 incidents** only; this is the remaining path to GREEN without any gate-loosening.
+
+## V3 Green Recheck (2026-04-30, no-mutation)
+- `/api/board/v3-health`: `hasIncident=true`, `incidentCount=79`, `blocked=79`, `failed=0`, `stale=0`.
+- `/kanban-v3-preview`: HTTP `200`.
+- Decision: **STILL_YELLOW** (real V3 incidents remain).
+- Blocker class: unresolved blocked V3 tasks (follow-ups / workflow blocks / review-gated items), now correctly scoped to `project=v3`.
+
+## V3 Unblocker Slice (2026-04-30, report-only)
+- Selected single cause in `taskboard-v3-lifecycle`: **human/review gate pending** (10 tasks in this component cluster).
+- No patch applied (cause requires human decision, not code/state-classification fix).
+
+### Human action list (no gate bypass)
+1. Review and decide the 10 review-gated V3 blocked tasks (approve/reject as intended).
+2. For each decision, record explicit result receipt and ensure terminal state is persisted.
+3. Recheck `/api/board/v3-health`; expected delta is `blocked -10` if all 10 are resolved.
+4. Keep review gate intact; no automation bypass.

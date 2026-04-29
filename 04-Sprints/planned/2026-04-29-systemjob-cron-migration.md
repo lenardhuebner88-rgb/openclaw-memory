@@ -88,3 +88,33 @@ Initial migrated jobs:
 - Final live checks: `/api/health status=ok`, worker reconciler proof
   `status=ok`, pickup proof `status=ok`, and no failed `mc-worker-*` or
   `openclaw-systemjob@*` units.
+
+## Follow-up Regression Guard (low-risk)
+After any cron/job config touch, run this read-only guard:
+
+```bash
+curl -fsS http://127.0.0.1:3000/api/health | jq -r '.status'
+curl -fsS 'http://127.0.0.1:3000/api/ops/worker-reconciler-proof?limit=20' | jq -r '.status'
+curl -fsS 'http://127.0.0.1:3000/api/ops/pickup-proof?limit=20' | jq -r '.status'
+python3 - <<'PY'
+import json, pathlib
+p = pathlib.Path('/home/piet/.openclaw/cron/runs')
+bad = []
+for f in p.glob('*.jsonl'):
+    for line in f.read_text().splitlines()[-20:]:
+        try:
+            j = json.loads(line)
+        except Exception:
+            continue
+        if j.get('provider') == 'native' and j.get('jobId') in {
+            'atlas-receipt-stream-subscribe',
+            'm7-atlas-master-heartbeat.timer',
+            'mc-task-parity-check-10min',
+        }:
+            bad.append((j.get('jobId'), j.get('startedAt')))
+if bad:
+    print('REGRESSION_NATIVE_RUN_DETECTED', bad)
+    raise SystemExit(2)
+print('REGRESSION_GUARD_OK')
+PY
+```
