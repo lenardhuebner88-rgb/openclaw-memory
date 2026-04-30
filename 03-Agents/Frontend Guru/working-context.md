@@ -7,12 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 38886e21-66e2-448e-b009-af3d76535bf2 [Slice] Taskboard Hidden Audit Counter + Visibility Hint (UI-only)
+- task: 696bcf12-28e4-48c2-894d-0bae9906bc1f [V3 Task Detail] Echter Dispatch-Button im aktiven Drawer
 - stage: DONE
 - next: await next assignment
-- checkpoint: TASK_CREATED: no new task created; picked up existing task 38886e21-66e2-448e-b009-af3d76535bf2
-TASK_ID: 38886e21-66e2-448e-b009-af3d76535bf2
-DISPATCH_STATUS: accepted and completed with dispatchToken 67e7d1c8-37b8-460a-
+- checkpoint: V3_DISPATCH_BUTTON_STATUS: done — active V3 detail drawer now exposes a real Dispatch action for dispatchable tasks and keeps the legacy accept/retry/block/close actions mock-only.
+CHANGED_FILES: src/components/v3/V3Acti
 - blocker: -
-- updated: 2026-04-30T17:21:34.444Z
+- updated: 2026-04-30T20:29:48.954Z
 <!-- mc:auto-working-context:end -->
