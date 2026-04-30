@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-30T22:00:01.718786+00:00",
+  "generated_at": "2026-04-30T22:30:01.130522+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -64,7 +64,7 @@
       "status": "ready",
       "last_session_iso": "2026-04-30T06:50:46.427153+00:00",
       "latest_session_size_bytes": 108436,
-      "session_count": 17
+      "session_count": 10
     },
     {
       "id": "james",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-04-30T21:51:01.947145+00:00",
-      "latest_session_size_bytes": 229,
-      "session_count": 280
+      "last_session_iso": "2026-04-30T22:20:32.513005+00:00",
+      "latest_session_size_bytes": 40391,
+      "session_count": 274
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-04-30T21:05:13.227014+00:00",
-      "latest_session_size_bytes": 4730,
-      "session_count": 1527
+      "last_session_iso": "2026-04-30T22:05:14.348921+00:00",
+      "latest_session_size_bytes": 4661,
+      "session_count": 1528
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "60dfa9d",
+      "date": "2026-05-01T00:00:14+02:00",
+      "subject": "auto-sync: 2026-05-01 00:00"
+    },
+    {
       "hash": "73ec33f",
       "date": "2026-04-30T23:30:14+02:00",
       "subject": "auto-sync: 2026-04-30 23:30"
@@ -950,11 +955,6 @@
       "hash": "3bcf829",
       "date": "2026-04-30T19:30:12+02:00",
       "subject": "auto-sync: 2026-04-30 19:30"
-    },
-    {
-      "hash": "4aa4011",
-      "date": "2026-04-30T19:00:11+02:00",
-      "subject": "auto-sync: 2026-04-30 19:00"
     }
   ],
   "scripts": {
@@ -963,31 +963,24 @@
   },
   "mcp_servers": [
     {
-      "name": "vault-memory-mcp",
-      "status": "running",
-      "pids": [
-        928752
-      ]
-    },
-    {
       "name": "qmd",
       "status": "running",
       "pids": [
         949143,
-        1154133,
-        1154170,
-        1154175
+        1183041,
+        1183067,
+        1183071,
+        1183155,
+        1183156
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1136931,
-        1142566,
-        1154132,
-        1154161,
-        1154174
+        1174219,
+        1174754,
+        1183038
       ]
     }
   ],
