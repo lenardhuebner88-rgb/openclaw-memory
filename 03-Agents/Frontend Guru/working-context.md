@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5d243461-f342-4050-becb-63268951ed5d [Phase2] Primary Promotion Implementation: promote /kanban-v3-preview to production taskboard with rollback guards
-- stage: DONE
-- next: await next assignment
-- checkpoint: Promoted /taskboard to the V3 production taskboard with rollback guard MISSION_CONTROL_TASKBOARD_PRIMARY=legacy, preserved /kanban and /kanban-v3-preview, implemented /taskboard?task=<id> detail routing, built/restarted 
+- task: 56bde5d3-7cb8-4eb1-9d5f-98ffec2b5d79 V3 Visual Spot-Check/Browser Proof für Dispatch-Trace (nach Slice F)
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Visual proof completed without production UI/API/build/restart changes. Captured live /taskboard screenshot and DOM proof for the dispatch trace, plus a Playwright route-intercept proof contrasting pending-pickup amber v
 - blocker: -
-- updated: 2026-04-30T07:46:31.340Z
+- updated: 2026-04-30T08:26:35.707Z
 <!-- mc:auto-working-context:end -->
