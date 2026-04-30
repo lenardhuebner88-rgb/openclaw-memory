@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 636d07f5-71cb-4c2a-ae40-904799756645 [Slice-A] V3 Filter/Lane Clarity
+- task: b88be039-8cae-46e5-ab4b-0c85f28b7d83 [Slice-C] V3 Detail Drawer UX Polish
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Applied the minimal V3 filter/lane clarity UI slice: lane headers now include scan-friendly semantic scopes (plan/queue/live/decision/risk/history) with clearer hints, and the subbar now describes board vs list mode sema
+- checkpoint: Applied the bounded Slice-C drawer polish in V3DetailsDrawer: the drawer now groups operator scan areas as Status/Agent/Dispatch, Task brief, Receipt Timeline, Result Summary/Details, Blocker/Risk/Next Action, Proof/Chan
 - blocker: -
-- updated: 2026-04-30T09:56:16.326Z
+- updated: 2026-04-30T10:26:13.650Z
 <!-- mc:auto-working-context:end -->
