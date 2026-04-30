@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3c91550c-ebd7-43cd-bf99-79a64ba1a166 [Slice-F] Mobile Filter Discoverability Quick Fix
-- stage: DONE
-- next: await next assignment
-- checkpoint: Completed Slice-F mobile filter discoverability quick fix: the V3 mobile taskboard now shows a visible Find / Filter control in the sticky subbar, one tap reveals lane-scope guidance and the list-view scan path, controls
+- task: 582d064d-d7ec-4e8e-a1bf-59d06a0f12fc [Slice-F/T1] Mobile Filter v2: echte client-side Filterung (Query+Lane+Status)
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-04-30T12:51:00.984Z
+- updated: 2026-04-30T13:29:45.805Z
 <!-- mc:auto-working-context:end -->
