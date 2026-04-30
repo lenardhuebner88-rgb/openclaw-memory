@@ -13,7 +13,7 @@ purpose: Single canonical view of all sprint status. Newer than READMEs/AGENTS.m
 > The folders `planned/` `active/` `closed/` `superseded/` `reports/` are the storage; this file is the projection.  
 > Whenever you close, supersede, or open a sprint, **update this index in the same commit**.
 
-**Last full audit:** 2026-04-29 (post-stabilization).  
+**Last full audit:** 2026-04-30 (post-update-2026.4.27).  
 **Maintainer note:** Many files in `planned/` are stale — see §6 below. Trust this index, not the folder count.
 
 ---
@@ -26,7 +26,8 @@ purpose: Single canonical view of all sprint status. Newer than READMEs/AGENTS.m
 |---|---|---|---|---|---|
 | **EVE-1** | SystemPulse `/api/tasks` Poll Elimination | Forge (P) / Pixel (S) | 2-4 h | [planned/2026-04-24_evening-atlas-high-leverage-sprints.md §3 EVE-1](planned/2026-04-24_evening-atlas-high-leverage-sprints.md) | `/api/tasks` 1.85 MB × 15 s × 194 k requests. Highest live-perf lever. |
 | **S-FOLLOWUP-1 AC-5** | GET /followup-stats Build + Deploy | Forge | 1 h + operator | [03-Agents/sprints/s-followup-1-final-closure-2026-04-29.md](../03-Agents/sprints/s-followup-1-final-closure-2026-04-29.md) | Route exists in source, prod returns 404. Needs `mc-restart-safe`. |
-| **OPS-OAUTH-ANTHROPIC** | Anthropic OAuth re-auth | Operator | 5 min | [03-Agents/operator-actions-2026-04-29.md](../03-Agents/operator-actions-2026-04-29.md) | Token expired 2026-04-08 (19.5 d ago). Blocks Anthropic calls. |
+| **OPS-OAUTH-ANTHROPIC** | Anthropic OAuth re-auth | Operator | 5 min | [03-Agents/operator-actions-2026-04-29.md](../03-Agents/operator-actions-2026-04-29.md) | Token expired 2026-04-08 (19.5 d ago). Blocks Anthropic calls. Tracked also as Sprint-1 T6 (id f5f5a778). |
+| **S1-T1..T6** | OpenClaw 4.27 Stab Sprint (6 drafts: RCA, Logrotate, Stale-Lock, utcnow, bundle-lsp, OAuth) | sre-expert / main(T6) | 8-12h | [reports/three-sprint-plan](reports/2026-04-30-openclaw-2026-4-27-three-sprint-plan.md) | T1+T6 sind P0; alle als operator-locked drafts angelegt 2026-04-30. |
 
 ### ⚠️ P1 — Next 1–2 weeks
 
@@ -76,6 +77,7 @@ purpose: Single canonical view of all sprint status. Newer than READMEs/AGENTS.m
 
 | Date | Sprint | Pointer |
 |---|---|---|
+| 2026-04-30 | OpenClaw 2026.4.27 Update + Audit | [reports/2026-04-30-openclaw-2026-4-27-update-report.md](reports/2026-04-30-openclaw-2026-4-27-update-report.md) + [post-update-audit](reports/2026-04-30-openclaw-2026-4-27-post-update-audit.md) + [three-sprint-plan](reports/2026-04-30-openclaw-2026-4-27-three-sprint-plan.md) (Server: ~/.openclaw/workspace/memory/) |
 | 2026-04-29 | Stabilization 2026-04-29 (Crontab-restore + R51 Schema-Gate) | [../03-Agents/stabilization-2026-04-29-full.md](../03-Agents/stabilization-2026-04-29-full.md) |
 | 2026-04-27 | MCP-Hardening Sprint (P0.2 + Reaper + alert-dispatcher + 2026.4.24 upgrade) | [2026-04-27-mcp-hardening-sprint.md](2026-04-27-mcp-hardening-sprint.md) |
 | 2026-04-27 | S-MC-T01 Critical-Bug-Triage | [closed/s-mc-t01-2026-04-27.md](closed/s-mc-t01-2026-04-27.md) (+ `.DONE` marker in planned/) |

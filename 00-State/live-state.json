@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-30T18:30:02.013937+00:00",
+  "generated_at": "2026-04-30T19:00:01.807279+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 2,
+    "agents_active": 1,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-30T18:27:38.121309+00:00",
-      "latest_session_size_bytes": 45560,
-      "session_count": 261
+      "last_session_iso": "2026-04-30T18:56:56.846613+00:00",
+      "latest_session_size_bytes": 207592,
+      "session_count": 264
     },
     {
       "id": "spark",
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "active",
+      "status": "monitoring",
       "last_session_iso": "2026-04-30T18:25:23.145535+00:00",
       "latest_session_size_bytes": 242443,
-      "session_count": 1597
+      "session_count": 1573
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "515361a",
+      "date": "2026-04-30T20:30:12+02:00",
+      "subject": "auto-sync: 2026-04-30 20:30"
+    },
+    {
       "hash": "299ea04",
       "date": "2026-04-30T20:00:12+02:00",
       "subject": "auto-sync: 2026-04-30 20:00"
@@ -950,11 +955,6 @@
       "hash": "5291217",
       "date": "2026-04-30T16:00:05+02:00",
       "subject": "auto-sync: 2026-04-30 16:00"
-    },
-    {
-      "hash": "8e23eed",
-      "date": "2026-04-30T15:30:05+02:00",
-      "subject": "auto-sync: 2026-04-30 15:30"
     }
   ],
   "scripts": {
@@ -963,38 +963,34 @@
   },
   "mcp_servers": [
     {
-      "name": "qmd",
-      "status": "running",
-      "pids": [
-        761612,
-        944912,
-        944939,
-        944949,
-        945046,
-        945047
-      ]
-    },
-    {
-      "name": "taskboard-mcp",
-      "status": "running",
-      "pids": [
-        909255,
-        918799,
-        924534,
-        939914,
-        941788,
-        944915,
-        944931,
-        944938
-      ]
-    },
-    {
       "name": "vault-memory-mcp",
       "status": "running",
       "pids": [
         928752,
         930477,
         933264
+      ]
+    },
+    {
+      "name": "qmd",
+      "status": "running",
+      "pids": [
+        949143,
+        980745,
+        980761,
+        980770
+      ]
+    },
+    {
+      "name": "taskboard-mcp",
+      "status": "running",
+      "pids": [
+        956730,
+        968578,
+        972601,
+        980727,
+        980743,
+        980747
       ]
     }
   ],
