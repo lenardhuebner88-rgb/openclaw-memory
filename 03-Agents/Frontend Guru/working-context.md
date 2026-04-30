@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d2ed0fde-7685-40ce-80a4-41ece22d8077 [V3 P1][Pixel] Fix /kanban-v3-preview chunk 400 and prove route asset integrity
+- task: 5d243461-f342-4050-becb-63268951ed5d [Phase2] Primary Promotion Implementation: promote /kanban-v3-preview to production taskboard with rollback guards
 - stage: DONE
 - next: await next assignment
-- checkpoint: Fixed the /kanban-v3-preview chunk-400 acceptance risk by proving the root cause as production artifact integrity rather than a V3 component bug, rebuilding .next production assets with the canonical build wrapper overri
+- checkpoint: Promoted /taskboard to the V3 production taskboard with rollback guard MISSION_CONTROL_TASKBOARD_PRIMARY=legacy, preserved /kanban and /kanban-v3-preview, implemented /taskboard?task=<id> detail routing, built/restarted 
 - blocker: -
-- updated: 2026-04-30T06:48:42.686Z
+- updated: 2026-04-30T07:46:31.340Z
 <!-- mc:auto-working-context:end -->
