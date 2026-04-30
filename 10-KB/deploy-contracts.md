@@ -1,7 +1,7 @@
 ---
 title: "Deploy Contracts & MC-Restart"
 slug: deploy-contracts
-last_compiled: 2026-04-29T23:30:17.567049Z
+last_compiled: 2026-04-30T00:45:02.338220Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 25
 rule_count: 4
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Deploy-Verify-Contract, parallel-deploy-race prevention via mc-restart-safe wrapper.
 
-**Compiled:** 2026-04-29T23:30:17.567049Z  
+**Compiled:** 2026-04-30T00:45:02.338220Z  
 **Source:** 25 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
