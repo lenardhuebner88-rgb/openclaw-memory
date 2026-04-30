@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-30T20:30:01.679605+00:00",
+  "generated_at": "2026-04-30T21:00:01.102081+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 2,
+    "agents_active": 1,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -61,10 +61,10 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "active",
-      "last_session_iso": "2026-04-30T20:29:55.277218+00:00",
-      "latest_session_size_bytes": 609462,
-      "session_count": 20
+      "status": "monitoring",
+      "last_session_iso": "2026-04-30T20:30:13.701309+00:00",
+      "latest_session_size_bytes": 628147,
+      "session_count": 18
     },
     {
       "id": "james",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-30T20:26:10.769339+00:00",
+      "last_session_iso": "2026-04-30T20:57:17.394622+00:00",
       "latest_session_size_bytes": 229,
-      "session_count": 275
+      "session_count": 278
     },
     {
       "id": "spark",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "06d203a",
+      "date": "2026-04-30T22:30:13+02:00",
+      "subject": "auto-sync: 2026-04-30 22:30"
+    },
+    {
       "hash": "c25a823",
       "date": "2026-04-30T22:00:13+02:00",
       "subject": "auto-sync: 2026-04-30 22:00"
@@ -950,11 +955,6 @@
       "hash": "a63e886",
       "date": "2026-04-30T18:00:09+02:00",
       "subject": "auto-sync: 2026-04-30 18:00"
-    },
-    {
-      "hash": "bcea98f",
-      "date": "2026-04-30T17:30:08+02:00",
-      "subject": "auto-sync: 2026-04-30 17:30"
     }
   ],
   "scripts": {
@@ -966,9 +966,7 @@
       "name": "vault-memory-mcp",
       "status": "running",
       "pids": [
-        928752,
-        930477,
-        933264
+        928752
       ]
     },
     {
@@ -976,12 +974,9 @@
       "status": "running",
       "pids": [
         949143,
-        1066950,
-        1067010,
-        1067025,
-        1067031,
-        1067123,
-        1067124
+        1097598,
+        1097620,
+        1097632
       ]
     },
     {
@@ -989,13 +984,12 @@
       "status": "running",
       "pids": [
         1033664,
-        1049271,
-        1058445,
-        1066809,
-        1066943,
-        1066998,
-        1067009,
-        1067012
+        1067597,
+        1087106,
+        1097588,
+        1097609,
+        1097619,
+        1097737
       ]
     }
   ],
