@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 56bde5d3-7cb8-4eb1-9d5f-98ffec2b5d79 V3 Visual Spot-Check/Browser Proof für Dispatch-Trace (nach Slice F)
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Visual proof completed without production UI/API/build/restart changes. Captured live /taskboard screenshot and DOM proof for the dispatch trace, plus a Playwright route-intercept proof contrasting pending-pickup amber v
+- task: fdb3150e-416f-48c9-a7a5-975cb9fc27f1 [Slice-G] V3 Mini-UX-Polish queued/assigned Trace-Tone
+- stage: DONE
+- next: await next assignment
+- checkpoint: Completed Slice-G V3 trace-tone polish: queued/assigned cards now use a distinct sky trace tone with 'assigned · queued'/'queued' labels while pending-pickup amber, in-progress teal, and receiptStage fallback remain unch
 - blocker: -
-- updated: 2026-04-30T08:26:35.707Z
+- updated: 2026-04-30T08:54:56.198Z
 <!-- mc:auto-working-context:end -->
