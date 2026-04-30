@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-30T03:56:01.486296+00:00",
+  "generated_at": "2026-04-30T04:26:01.938125+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-04-30T03:50:55.314089+00:00",
-      "latest_session_size_bytes": 20755,
-      "session_count": 171
+      "last_session_iso": "2026-04-30T04:20:27.742043+00:00",
+      "latest_session_size_bytes": 44572,
+      "session_count": 173
     },
     {
       "id": "spark",
@@ -88,15 +88,15 @@
       "status": "ready",
       "last_session_iso": "2026-04-29T16:56:31.104599+00:00",
       "latest_session_size_bytes": 336344,
-      "session_count": 16
+      "session_count": 15
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-04-30T03:05:33.357064+00:00",
-      "latest_session_size_bytes": 4708,
-      "session_count": 1625
+      "last_session_iso": "2026-04-30T04:05:31.765921+00:00",
+      "latest_session_size_bytes": 7280,
+      "session_count": 1626
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "b2356ca",
+      "date": "2026-04-30T05:56:10+02:00",
+      "subject": "auto-sync: 2026-04-30 05:56"
+    },
+    {
       "hash": "419ec09",
       "date": "2026-04-30T05:26:10+02:00",
       "subject": "auto-sync: 2026-04-30 05:26"
@@ -950,11 +955,6 @@
       "hash": "8dccd22",
       "date": "2026-04-30T01:54:27+02:00",
       "subject": "auto-sync: 2026-04-30 01:54"
-    },
-    {
-      "hash": "92ec88d",
-      "date": "2026-04-30T01:24:17+02:00",
-      "subject": "auto-sync: 2026-04-30 01:24"
     }
   ],
   "scripts": {
@@ -966,8 +966,8 @@
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        35406,
-        35851
+        55594,
+        65689
       ]
     },
     {
