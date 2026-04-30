@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fdb3150e-416f-48c9-a7a5-975cb9fc27f1 [Slice-G] V3 Mini-UX-Polish queued/assigned Trace-Tone
+- task: 3be6acfd-bc9b-4bed-9aef-ba82c17dd37f [Slice-H] V3 UI Truth-Tuning Archive/Incident Weighting
 - stage: DONE
 - next: await next assignment
-- checkpoint: Completed Slice-G V3 trace-tone polish: queued/assigned cards now use a distinct sky trace tone with 'assigned · queued'/'queued' labels while pending-pickup amber, in-progress teal, and receiptStage fallback remain unch
+- checkpoint: Completed Slice-H V3 UI truth-tuning: /taskboard now shows a teal live-all-clear strip when the current snapshot has no active incident signals, and the closed footer is labeled historical/context-only so archived outcom
 - blocker: -
-- updated: 2026-04-30T08:54:56.198Z
+- updated: 2026-04-30T09:24:43.062Z
 <!-- mc:auto-working-context:end -->
