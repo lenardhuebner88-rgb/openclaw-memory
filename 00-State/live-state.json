@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-30T05:57:01.223503+00:00",
+  "generated_at": "2026-04-30T06:27:01.378072+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 0,
+    "agents_active": 1,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -69,7 +69,7 @@
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "ready",
+      "status": "idle",
       "last_session_iso": "2026-04-29T06:06:20.572212+00:00",
       "latest_session_size_bytes": 137271,
       "session_count": 9
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-04-30T05:50:30.652667+00:00",
-      "latest_session_size_bytes": 50130,
-      "session_count": 191
+      "status": "active",
+      "last_session_iso": "2026-04-30T06:26:58.141516+00:00",
+      "latest_session_size_bytes": 85516,
+      "session_count": 192
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-04-30T05:26:07.916133+00:00",
-      "latest_session_size_bytes": 251598,
-      "session_count": 1629
+      "last_session_iso": "2026-04-30T06:05:49.217305+00:00",
+      "latest_session_size_bytes": 6553,
+      "session_count": 1631
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "3f57843",
+      "date": "2026-04-30T07:57:17+02:00",
+      "subject": "auto-sync: 2026-04-30 07:57"
+    },
+    {
       "hash": "3a1d83e",
       "date": "2026-04-30T07:26:17+02:00",
       "subject": "auto-sync: 2026-04-30 07:26"
@@ -950,11 +955,6 @@
       "hash": "f9ba68a",
       "date": "2026-04-30T03:25:27+02:00",
       "subject": "auto-sync: 2026-04-30 03:25"
-    },
-    {
-      "hash": "ff00f32",
-      "date": "2026-04-30T03:00:01+02:00",
-      "subject": "chore(config-backup): snapshot 2026-04-30"
     }
   ],
   "scripts": {
@@ -967,13 +967,16 @@
       "status": "running",
       "pids": [
         97747,
-        157114
+        167380,
+        186493,
+        190307
       ]
     },
     {
       "name": "qmd",
       "status": "running",
       "pids": [
+        190314,
         4078216
       ]
     }
