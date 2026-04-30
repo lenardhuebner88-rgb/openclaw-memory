@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 361a991f-4bcd-4a20-bd48-c644b28791d0 [Slice-D] V3 Proof/Health Visible Button
+- task: dcc51939-ccca-450d-986a-91ce13887639 [Slice-E] V3 Backlog/Duplicate Draft Hygiene UI
 - stage: DONE
 - next: await next assignment
-- checkpoint: Completed Slice-D V3 proof/health visibility: the taskboard top chrome now exposes Health proof and V3 proof links, and the sidebar Health item is a visible proof entry to existing read-only endpoints; typecheck plus ver
+- checkpoint: Completed Slice-E V3 backlog/duplicate-draft hygiene UI: cards now visibly label duplicate-draft and backlog hygiene artifacts, soften non-active hygiene noise, and keep live actionable lanes primary without changing tas
 - blocker: -
-- updated: 2026-04-30T11:27:01.146Z
+- updated: 2026-04-30T11:47:49.960Z
 <!-- mc:auto-working-context:end -->

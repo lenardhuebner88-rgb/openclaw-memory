@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-30T11:30:02.030513+00:00",
+  "generated_at": "2026-04-30T12:00:01.283667+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 3,
+    "agents_active": 2,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -61,10 +61,10 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "active",
-      "last_session_iso": "2026-04-30T11:27:48.581039+00:00",
-      "latest_session_size_bytes": 2527115,
-      "session_count": 20
+      "status": "monitoring",
+      "last_session_iso": "2026-04-30T11:54:00.658056+00:00",
+      "latest_session_size_bytes": 2731238,
+      "session_count": 21
     },
     {
       "id": "james",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-30T11:28:50.466456+00:00",
-      "latest_session_size_bytes": 669828,
-      "session_count": 221
+      "last_session_iso": "2026-04-30T11:59:14.039086+00:00",
+      "latest_session_size_bytes": 56056,
+      "session_count": 222
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-04-30T11:29:58.508912+00:00",
-      "latest_session_size_bytes": 377057,
+      "last_session_iso": "2026-04-30T11:58:40.676870+00:00",
+      "latest_session_size_bytes": 889603,
       "session_count": 1640
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "6d44c4c",
+      "date": "2026-04-30T13:30:03+02:00",
+      "subject": "auto-sync: 2026-04-30 13:30"
+    },
+    {
       "hash": "bb49f88",
       "date": "2026-04-30T13:00:02+02:00",
       "subject": "auto-sync: 2026-04-30 13:00"
@@ -950,11 +955,6 @@
       "hash": "fe761cf",
       "date": "2026-04-30T08:57:17+02:00",
       "subject": "auto-sync: 2026-04-30 08:57"
-    },
-    {
-      "hash": "07998ac",
-      "date": "2026-04-30T08:27:17+02:00",
-      "subject": "auto-sync: 2026-04-30 08:27"
     }
   ],
   "scripts": {
@@ -967,24 +967,17 @@
       "status": "running",
       "pids": [
         505691,
-        506951,
-        507735,
-        508449,
-        509097,
-        509108,
-        509115
+        535799,
+        538624
       ]
     },
     {
       "name": "qmd",
       "status": "running",
       "pids": [
-        508456,
-        509099,
-        509112,
-        509118,
-        509225,
-        509226,
+        540890,
+        540923,
+        540936,
         4078216
       ]
     }
