@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 533c8e59-ecda-4a1c-b40c-79bc239c71e9 [Follow-up] [Follow-up] [S-FOLLOWUP-1][S3.2][Forge] Route-level fixtures for UC3/UC4
+- task: e8d7ffcd-8cb0-461d-92ff-af5054f42ba3 [Slice-F/T3] KPI Gate: Mobile Filter Adoption + Go/No-Go
 - stage: DONE
 - next: await next assignment
-- checkpoint: Manuell sauber abgeschlossen: duplicate S-FOLLOWUP-1/S3.2 follow-up mit keinem verbleibenden Residual. Parent debcb521 ist done und dokumentiert: Fixtures UC3/UC4 done, no residual action identified, archive/no implement
+- checkpoint: KPI Gate T3 complete: defined 3 KPIs (Discoverability ≥40%, Time-to-Filter ≤12s median, Filter-to-Action ≥25%) with explicit Go/No-Go thresholds and 2026-05-07 review checkpoint. Based on T1 (client-side filter, 790s) an
 - blocker: -
-- updated: 2026-04-29T20:06:42.930Z
+- updated: 2026-04-30T14:51:04.386Z
 <!-- mc:auto-working-context:end -->
