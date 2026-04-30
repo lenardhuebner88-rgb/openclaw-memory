@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c3712841-7a56-48ce-b0b8-974bb710ea34 [Replacement][Telemetry] V3 Mobile Filter Minimal Instrumentation after claim-handoff fix
+- task: 88a1a15f-bf27-4eb9-9738-c1f55c7ef470 [Maintenance] Board Hygiene Apply — duplicate/stale cleanup with backup
 - stage: DONE
 - next: await next assignment
-- checkpoint: Replacement telemetry execution completed with full live proof gates green: mobile-filter telemetry endpoint is live and writable/readable, build passed with /api/telemetry/mobile-filter included, safe restart succeeded,
+- checkpoint: Board hygiene maintenance applied successfully with backup and atomic write: 12 allowlisted artifacts were canceled (11 duplicate, 1 stale), keep-unchanged IDs were preserved exactly, post-verify shows /api/tasks /api/he
 - blocker: -
-- updated: 2026-04-30T16:39:42.125Z
+- updated: 2026-04-30T17:04:27.808Z
 <!-- mc:auto-working-context:end -->

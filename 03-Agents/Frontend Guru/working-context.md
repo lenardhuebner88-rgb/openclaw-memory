@@ -7,10 +7,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b131070f-b374-43f2-94f9-12af07ea2f5c [Slice-F/T2] Mobile UX Feinschliff: aktive Filter-Chips + Empty-State Guidance
+- task: 38886e21-66e2-448e-b009-af3d76535bf2 [Slice] Taskboard Hidden Audit Counter + Visibility Hint (UI-only)
 - stage: DONE
 - next: await next assignment
-- checkpoint: Completed Slice-F/T2 mobile filter UX polish: compact/mobile taskboard now shows active query/lane/status filter chips, supports one-tap per-chip clearing plus Clear all, and no-match empty states tell users to clear all
+- checkpoint: TASK_CREATED: no new task created; picked up existing task 38886e21-66e2-448e-b009-af3d76535bf2
+TASK_ID: 38886e21-66e2-448e-b009-af3d76535bf2
+DISPATCH_STATUS: accepted and completed with dispatchToken 67e7d1c8-37b8-460a-
 - blocker: -
-- updated: 2026-04-30T14:16:33.792Z
+- updated: 2026-04-30T17:21:34.444Z
 <!-- mc:auto-working-context:end -->
