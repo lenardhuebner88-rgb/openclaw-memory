@@ -44,3 +44,4 @@
 <!-- mc:auto-decision:model-fallback-ketten-bereinigt-2026-04-28 -->
 - [2026-04-30 11:02] PIXEL_SLICE_G_RECONCILE: bf7aaf1a classified as duplicate auto-follow-up after terminal DONE parent fdb3150e; dispatch explicitly disallowed unless operator reopens.
 - [2026-04-30 11:49] Post Slice-I governance: freeze new execution work until Pixel session rotation is acknowledged/documented; no new task dispatch before fresh proof check.
+- [2026-04-30 13:09] Pixel session rotation executed after renewed size warning: freeze dispatch, close current slice context, and prepare next task in queued state only (no dispatch) until operator confirms.

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 50aa9bd4-ad16-47e5-bcf6-a6e0c79a5d3e [Slice-B] V3 Quick Actions in Task-Zeilen
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Committed Slice-B row quick actions as 766991c. Typecheck passed and the isolated verification build passed. Proceeding with production build, safe restart, and live proof for /taskboard and the selected task row.
+- task: 361a991f-4bcd-4a20-bd48-c644b28791d0 [Slice-D] V3 Proof/Health Visible Button
+- stage: DONE
+- next: await next assignment
+- checkpoint: Completed Slice-D V3 proof/health visibility: the taskboard top chrome now exposes Health proof and V3 proof links, and the sidebar Health item is a visible proof entry to existing read-only endpoints; typecheck plus ver
 - blocker: -
-- updated: 2026-04-30T10:56:52.321Z
+- updated: 2026-04-30T11:27:01.146Z
 <!-- mc:auto-working-context:end -->

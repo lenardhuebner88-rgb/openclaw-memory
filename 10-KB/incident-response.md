@@ -1,7 +1,7 @@
 ---
 title: "Incident Response & RCA"
 slug: incident-response
-last_compiled: 2026-04-30T10:30:18.140420Z
+last_compiled: 2026-04-30T11:30:02.817900Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 44
 rule_count: 8
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Incident-detection patterns, RCA methodology, recovery-workflows from today's live-cases.
 
-**Compiled:** 2026-04-30T10:30:18.140420Z  
+**Compiled:** 2026-04-30T11:30:02.817900Z  
 **Source:** 44 facts from workspace/memory/facts/*.jsonl, 8 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
