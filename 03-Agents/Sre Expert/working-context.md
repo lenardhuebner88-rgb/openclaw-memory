@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 88a1a15f-bf27-4eb9-9738-c1f55c7ef470 [Maintenance] Board Hygiene Apply — duplicate/stale cleanup with backup
+- task: d5fb86b6-a98a-4936-a20c-756dac141d9b [P0][Forge] Controlled OpenClaw Update Now
 - stage: DONE
 - next: await next assignment
-- checkpoint: Board hygiene maintenance applied successfully with backup and atomic write: 12 allowlisted artifacts were canceled (11 duplicate, 1 stale), keep-unchanged IDs were preserved exactly, post-verify shows /api/tasks /api/he
+- checkpoint: Controlled OpenClaw-Update erfolgreich durchgeführt: 2026.4.26 → 2026.4.27 per gateway update.run, Backup erstellt, Services aktiv, Mission-Control Health/V3 clean, Taskboard 200, Smoke-Checks erfolgreich.
 - blocker: -
-- updated: 2026-04-30T17:04:27.808Z
+- updated: 2026-04-30T17:59:47.259Z
 <!-- mc:auto-working-context:end -->
