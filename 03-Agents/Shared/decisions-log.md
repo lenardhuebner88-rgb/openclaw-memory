@@ -5,6 +5,7 @@
 - 2026-04-27: [P1][Forge] Approval Gate: Activate + E2E Verify Context Runtime Patches blocked: Operator approval required for gateway restart/activation window before live E2E runtime verification. <!-- mc:auto-decision:d92c5f3a-a83f-44fe-a0be-2e5341fc9cab|blocked|p1-forge-approval-gate-activate-e2e-verify-context-runtime-patches-blocked-opera -->
 
 ## Historical decisions
+- 2026-04-30: [Slice-I] V3 Detail/Receipt Timeline Clarity: Completed Slice-I V3 detail receipt timeline clarity: V3DetailsDrawer now shows a structured latest-receipt summary and ordered Dispatch/Accepted/Progress/Result timeline with time <!-- mc:auto-decision:f849d52e-81cb-4306-bfc1-b6d196bf263b|result|slice-i-v3-detail-receipt-timeline-clarity-completed-slice-i-v3-detail-receipt-t -->
 - 2026-04-30: [Slice-H] V3 UI Truth-Tuning Archive/Incident Weighting: Completed Slice-H V3 UI truth-tuning: /taskboard now shows a teal live-all-clear strip when the current snapshot has no active incident signals, and the closed footer is labeled hi <!-- mc:auto-decision:3be6acfd-bc9b-4bed-9aef-ba82c17dd37f|result|slice-h-v3-ui-truth-tuning-archive-incident-weighting-completed-slice-h-v3-ui-tr -->
 - 2026-04-30: [V3 P1][Pixel] Fix /kanban-v3-preview chunk 400 and prove route asset integrity: Fixed the /kanban-v3-preview chunk-400 acceptance risk by proving the root cause as production artifact integrity rather than a V3 component bug, rebuilding .next production assets <!-- mc:auto-decision:d2ed0fde-7685-40ce-80a4-41ece22d8077|result|v3-p1-pixel-fix-kanban-v3-preview-chunk-400-and-prove-route-asset-integrity-fixe -->
 - 2026-04-29: [V3 Follow-up][Pixel] ControlBar + Mobile Acceptance Gaps (YELLOW→GREEN): Closed the V3 Preview ControlBar/mobile acceptance gaps with UI-only changes: control state now drives board/list, density, and truth-rail rendering; URL params win over storage de <!-- mc:auto-decision:4d30f81f-31bc-42fa-8a36-bed6fb248c30|result|v3-follow-up-pixel-controlbar-mobile-acceptance-gaps-yellow-green-closed-the-v3- -->
@@ -42,3 +43,4 @@
 - **Doku:** `vault/03-Agents/Shared/Modell-Konventionen-Learnings.md`
 <!-- mc:auto-decision:model-fallback-ketten-bereinigt-2026-04-28 -->
 - [2026-04-30 11:02] PIXEL_SLICE_G_RECONCILE: bf7aaf1a classified as duplicate auto-follow-up after terminal DONE parent fdb3150e; dispatch explicitly disallowed unless operator reopens.
+- [2026-04-30 11:49] Post Slice-I governance: freeze new execution work until Pixel session rotation is acknowledged/documented; no new task dispatch before fresh proof check.

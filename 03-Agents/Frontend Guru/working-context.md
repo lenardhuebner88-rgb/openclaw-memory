@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3be6acfd-bc9b-4bed-9aef-ba82c17dd37f [Slice-H] V3 UI Truth-Tuning Archive/Incident Weighting
-- stage: DONE
-- next: await next assignment
-- checkpoint: Completed Slice-H V3 UI truth-tuning: /taskboard now shows a teal live-all-clear strip when the current snapshot has no active incident signals, and the closed footer is labeled historical/context-only so archived outcom
+- task: 636d07f5-71cb-4c2a-ae40-904799756645 [Slice-A] V3 Filter/Lane Clarity
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Applied the minimal V3 filter/lane clarity UI slice: lane headers now include scan-friendly semantic scopes (plan/queue/live/decision/risk/history) with clearer hints, and the subbar now describes board vs list mode sema
 - blocker: -
-- updated: 2026-04-30T09:24:43.062Z
+- updated: 2026-04-30T09:56:16.326Z
 <!-- mc:auto-working-context:end -->
