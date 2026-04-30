@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-30T02:56:01.442637+00:00",
+  "generated_at": "2026-04-30T03:26:01.238508+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-04-30T02:50:32.246239+00:00",
-      "latest_session_size_bytes": 12289,
-      "session_count": 166
+      "last_session_iso": "2026-04-30T03:20:32.377880+00:00",
+      "latest_session_size_bytes": 47942,
+      "session_count": 168
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-04-30T02:10:59.882359+00:00",
-      "latest_session_size_bytes": 5509,
-      "session_count": 1624
+      "last_session_iso": "2026-04-30T03:05:33.357064+00:00",
+      "latest_session_size_bytes": 4708,
+      "session_count": 1625
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "cff09ad",
+      "date": "2026-04-30T04:56:10+02:00",
+      "subject": "auto-sync: 2026-04-30 04:56"
+    },
+    {
       "hash": "2edc91f",
       "date": "2026-04-30T04:25:57+02:00",
       "subject": "auto-sync: 2026-04-30 04:25"
@@ -950,11 +955,6 @@
       "hash": "4d5cd9b",
       "date": "2026-04-30T00:53:17+02:00",
       "subject": "auto-sync: 2026-04-30 00:53"
-    },
-    {
-      "hash": "03fe62b",
-      "date": "2026-04-30T00:23:17+02:00",
-      "subject": "auto-sync: 2026-04-30 00:23"
     }
   ],
   "scripts": {
@@ -963,17 +963,18 @@
   },
   "mcp_servers": [
     {
+      "name": "taskboard-mcp",
+      "status": "running",
+      "pids": [
+        5754,
+        4189424
+      ]
+    },
+    {
       "name": "qmd",
       "status": "running",
       "pids": [
         4078216
-      ]
-    },
-    {
-      "name": "taskboard-mcp",
-      "status": "running",
-      "pids": [
-        4169640
       ]
     }
   ],
