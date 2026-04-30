@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-04-30T19:30:01.634539+00:00",
+  "generated_at": "2026-04-30T20:00:01.657098+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-04-30T19:27:09.202764+00:00",
-      "latest_session_size_bytes": 59661,
-      "session_count": 267
+      "last_session_iso": "2026-04-30T19:59:57.542911+00:00",
+      "latest_session_size_bytes": 28638,
+      "session_count": 269
     },
     {
       "id": "spark",
@@ -96,7 +96,7 @@
       "status": "monitoring",
       "last_session_iso": "2026-04-30T19:05:21.919390+00:00",
       "latest_session_size_bytes": 4517,
-      "session_count": 1552
+      "session_count": 1537
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "82ecc4f",
+      "date": "2026-04-30T21:30:13+02:00",
+      "subject": "auto-sync: 2026-04-30 21:30"
+    },
+    {
       "hash": "17f868e",
       "date": "2026-04-30T21:00:12+02:00",
       "subject": "auto-sync: 2026-04-30 21:00"
@@ -950,11 +955,6 @@
       "hash": "16a37cc",
       "date": "2026-04-30T17:00:07+02:00",
       "subject": "auto-sync: 2026-04-30 17:00"
-    },
-    {
-      "hash": "9f64f8d",
-      "date": "2026-04-30T16:30:05+02:00",
-      "subject": "auto-sync: 2026-04-30 16:30"
     }
   ],
   "scripts": {
@@ -976,22 +976,24 @@
       "status": "running",
       "pids": [
         949143,
-        1009996,
-        1010012,
-        1010016,
-        1010136,
-        1010137
+        1036848,
+        1037369,
+        1037397,
+        1037400
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        991901,
-        1007251,
-        1009999,
-        1010007,
-        1010009
+        1028146,
+        1028679,
+        1030167,
+        1033664,
+        1036841,
+        1037361,
+        1037376,
+        1037384
       ]
     }
   ],
