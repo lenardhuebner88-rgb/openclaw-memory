@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 74de889b-8a27-44a5-b6a9-d2bc9464ff38 [Slice-F/Telemetry] V3 Mobile Filter Minimal Instrumentation für KPI-Readiness
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: Build-Gate blockiert: npm run build bricht im Stability-Preflight mit 'Gateway-RSS zu hoch: 2467.3 MB > 2048 MB' ab.
-- blocker: Build-Gate blockiert: npm run build bricht im Stability-Preflight mit 'Gateway-RSS zu hoch: 2467.3 MB > 2048 MB' ab.
-- updated: 2026-04-30T15:13:35.586Z
+- task: 697f0e9a-168c-4350-a495-f6e47aaefe8c [Hotfix] Auto-pickup Claim-Handoff minimal fix (dispatchToken)
+- stage: DONE
+- next: await next assignment
+- checkpoint: Minimal dispatchToken claim-handoff hotfix delivered and validated: claim-entry diagnostics added, auto-dispatch refreshes latest task dispatchToken immediately before claim, mismatch path emits structured reasonCode; bu
+- blocker: -
+- updated: 2026-04-30T16:28:10.682Z
 <!-- mc:auto-working-context:end -->
