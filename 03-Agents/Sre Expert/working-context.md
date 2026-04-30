@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ad6aac97-79b8-4886-83a4-c83034d3b26e [Follow-up] R52 full coverage + legacy cron hygiene
-- stage: DONE
-- next: await next assignment
-- checkpoint: Completed R52 follow-up coverage and legacy hygiene: added the same sessionTarget safety guard to the remaining cron write producer (`/api/cron-jobs/[id]/trigger`), removed legacy unsafe job `f8853da8...` via managed cro
-- blocker: -
-- updated: 2026-04-30T11:56:59.229Z
+- task: 74de889b-8a27-44a5-b6a9-d2bc9464ff38 [Slice-F/Telemetry] V3 Mobile Filter Minimal Instrumentation für KPI-Readiness
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Build-Gate blockiert: npm run build bricht im Stability-Preflight mit 'Gateway-RSS zu hoch: 2467.3 MB > 2048 MB' ab.
+- blocker: Build-Gate blockiert: npm run build bricht im Stability-Preflight mit 'Gateway-RSS zu hoch: 2467.3 MB > 2048 MB' ab.
+- updated: 2026-04-30T15:13:35.586Z
 <!-- mc:auto-working-context:end -->
