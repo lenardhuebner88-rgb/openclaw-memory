@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b88be039-8cae-46e5-ab4b-0c85f28b7d83 [Slice-C] V3 Detail Drawer UX Polish
+- task: 50aa9bd4-ad16-47e5-bcf6-a6e0c79a5d3e [Slice-B] V3 Quick Actions in Task-Zeilen
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Applied the bounded Slice-C drawer polish in V3DetailsDrawer: the drawer now groups operator scan areas as Status/Agent/Dispatch, Task brief, Receipt Timeline, Result Summary/Details, Blocker/Risk/Next Action, Proof/Chan
+- checkpoint: Committed Slice-B row quick actions as 766991c. Typecheck passed and the isolated verification build passed. Proceeding with production build, safe restart, and live proof for /taskboard and the selected task row.
 - blocker: -
-- updated: 2026-04-30T10:26:13.650Z
+- updated: 2026-04-30T10:56:52.321Z
 <!-- mc:auto-working-context:end -->
