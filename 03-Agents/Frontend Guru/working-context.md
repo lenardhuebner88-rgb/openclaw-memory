@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 752e03df-36c4-4f18-b6ab-f88ee174bcb6 [FOLLOW-UP][Pixel][P2] Taskboard operator action surface
+- task: 9024ddec-5659-408e-9299-cb7244ac4d18 [Pixel][P2] Regression pass: Taskboard operator flow after recent fixes
 - stage: DONE
 - next: await next assignment
-- checkpoint: DONE by Codex board-actions pass: V3 Taskboard action surface is live, non-mock, and verified on desktop/mobile with disabled reasons, safe links, copy-id, hidden audit, draft/backlog, no chunk/error-boundary, no mobile 
+- checkpoint: Taskboard operator-flow regression pass completed: Mission Control health ok/ok; desktop and mobile /taskboard rendered successfully; Details and Timeline controls opened for task 9024ddec-5659-408e-9299-cb7244ac4d18; hi
 - blocker: -
-- updated: 2026-05-01T12:45:44.338Z
+- updated: 2026-05-01T15:44:43.712Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f78d357a-81b8-4fd6-a1e8-b74dee9d056e [AUDIT][Lens] Operator Browser Gap Audit for Taskboard
+- task: 99d668a0-1e6e-42db-86fe-2172123fe1d4 [Lens][P2] KPI audit: Mission Control task/worker health metrics
 - stage: DONE
 - next: await next assignment
-- checkpoint: [AUDIT][Lens] Taskboard Browser Gap Audit — 10 Operator-Gaps, 5 Broken Invariants, Mobile-UX kritisch. Detailreport in resultDetails. Keine Fixes ohne Operator-Freigabe.
+- checkpoint: MC KPI Audit abgeschlossen: Board 99.7% terminal, 5.91% failure rate, 0 stale runs, dispatch-consistency=1.0. Ein warn-Risk (Pixel Regression Task blocked by frontend-guru session lock) — self-resolving. Kein Handlungsbe
 - blocker: -
-- updated: 2026-05-01T04:23:15.251Z
+- updated: 2026-05-01T15:43:57.518Z
 <!-- mc:auto-working-context:end -->
