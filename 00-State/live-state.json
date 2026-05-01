@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T20:30:01.313386+00:00",
+  "generated_at": "2026-05-01T21:00:01.195827+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 0,
+    "agents_active": 1,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-01T20:20:55.924999+00:00",
-      "latest_session_size_bytes": 111508,
-      "session_count": 369
+      "status": "active",
+      "last_session_iso": "2026-05-01T20:58:00.973355+00:00",
+      "latest_session_size_bytes": 27240,
+      "session_count": 370
     },
     {
       "id": "spark",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "baf72e2",
+      "date": "2026-05-01T22:30:31+02:00",
+      "subject": "auto-sync: 2026-05-01 22:30"
+    },
+    {
       "hash": "1e9249e",
       "date": "2026-05-01T22:00:30+02:00",
       "subject": "auto-sync: 2026-05-01 22:00"
@@ -950,11 +955,6 @@
       "hash": "ed1df0c",
       "date": "2026-05-01T19:30:28+02:00",
       "subject": "auto-sync: 2026-05-01 19:30"
-    },
-    {
-      "hash": "cd33974",
-      "date": "2026-05-01T19:00:28+02:00",
-      "subject": "auto-sync: 2026-05-01 19:00"
     }
   ],
   "scripts": {
@@ -966,30 +966,29 @@
       "name": "vault-memory-mcp",
       "status": "running",
       "pids": [
-        1938619
+        1938619,
+        2616864
       ]
     },
     {
       "name": "qmd",
       "status": "running",
       "pids": [
-        2598912,
-        2613784,
-        2613802,
-        2613804,
-        2613912,
-        2613914
+        2628948,
+        2633535,
+        2633547,
+        2633556
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        2603475,
-        2613781,
-        2613791,
-        2613793,
-        2613919
+        2629845,
+        2633521,
+        2633538,
+        2633544,
+        2633666
       ]
     }
   ],
