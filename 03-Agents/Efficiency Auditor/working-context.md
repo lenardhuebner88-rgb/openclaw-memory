@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 99d668a0-1e6e-42db-86fe-2172123fe1d4 [Lens][P2] KPI audit: Mission Control task/worker health metrics
+- task: 12c9ffd9-5322-44ec-9db2-4580e3be7d86 [Lens][P2] Dedicated comprehensive Worker-/Task-Lifecycle Audit
 - stage: DONE
 - next: await next assignment
-- checkpoint: MC KPI Audit abgeschlossen: Board 99.7% terminal, 5.91% failure rate, 0 stale runs, dispatch-consistency=1.0. Ein warn-Risk (Pixel Regression Task blocked by frontend-guru session lock) — self-resolving. Kein Handlungsbe
+- checkpoint: Lifecycle Audit done: 904 tasks, 819 runs. System operativ gesund. 4 strukturelle Findings (1×P1 worker-runs.json nicht KPI-ready, 1×P2 dispatchedAt null, 1×P2 resultSummary missing, 1×P2 R45 Timing-Kontrakt-Gap). Quick 
 - blocker: -
-- updated: 2026-05-01T15:43:57.518Z
+- updated: 2026-05-01T16:44:12.895Z
 <!-- mc:auto-working-context:end -->

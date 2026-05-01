@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2ff01866-1a9a-4dc8-bac7-2baa6fac16e2 Fix receipt-materializer stale/nonexistent parent follow-up generation
-- stage: DONE
-- next: await next assignment
-- checkpoint: Patched receipt-materializer to stop noisy duplicate follow-up draft creation for stale follow-up-parent references and superseded verification receipts; added regression tests and validated build/test gates.
+- task: ff203efc-d3b2-41f7-b3ad-affc2602c511 [Forge][P1] Implement Worker-Run KPI metadata and terminal/dispatch guards
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-05-01T15:24:43.932Z
+- updated: 2026-05-01T16:59:45.196Z
 <!-- mc:auto-working-context:end -->
