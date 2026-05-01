@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T06:30:02.032587+00:00",
+  "generated_at": "2026-05-01T07:00:01.352268+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -61,7 +61,7 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "ready",
+      "status": "idle",
       "last_session_iso": "2026-04-30T06:50:46.427153+00:00",
       "latest_session_size_bytes": 108436,
       "session_count": 4
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-01T06:28:45.693808+00:00",
-      "latest_session_size_bytes": 81285,
-      "session_count": 327
+      "last_session_iso": "2026-05-01T06:59:17.393211+00:00",
+      "latest_session_size_bytes": 229,
+      "session_count": 331
     },
     {
       "id": "spark",
@@ -96,7 +96,7 @@
       "status": "monitoring",
       "last_session_iso": "2026-05-01T06:24:37.222687+00:00",
       "latest_session_size_bytes": 275009,
-      "session_count": 1537
+      "session_count": 1536
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "336e479",
+      "date": "2026-05-01T08:30:20+02:00",
+      "subject": "auto-sync: 2026-05-01 08:30"
+    },
+    {
       "hash": "4b842a6",
       "date": "2026-05-01T08:00:20+02:00",
       "subject": "auto-sync: 2026-05-01 08:00"
@@ -950,11 +955,6 @@
       "hash": "6d363a4",
       "date": "2026-05-01T04:00:17+02:00",
       "subject": "auto-sync: 2026-05-01 04:00"
-    },
-    {
-      "hash": "cddc03e",
-      "date": "2026-05-01T03:30:16+02:00",
-      "subject": "auto-sync: 2026-05-01 03:30"
     }
   ],
   "scripts": {
@@ -967,24 +967,21 @@
       "status": "running",
       "pids": [
         949143,
-        1657818,
-        1657859,
-        1657863,
-        1657939,
-        1657940
+        1689734,
+        1689753,
+        1689756
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1645490,
-        1652511,
-        1652818,
-        1654131,
-        1657819,
-        1657837,
-        1657844
+        1658780,
+        1682706,
+        1689732,
+        1689774,
+        1689782,
+        1689899
       ]
     }
   ],
