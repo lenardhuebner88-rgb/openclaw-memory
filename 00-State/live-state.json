@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T01:00:01.142548+00:00",
+  "generated_at": "2026-05-01T01:30:01.830685+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -64,7 +64,7 @@
       "status": "ready",
       "last_session_iso": "2026-04-30T06:50:46.427153+00:00",
       "latest_session_size_bytes": 108436,
-      "session_count": 10
+      "session_count": 9
     },
     {
       "id": "james",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T00:51:01.699730+00:00",
-      "latest_session_size_bytes": 229,
-      "session_count": 286
+      "last_session_iso": "2026-05-01T01:20:14.684087+00:00",
+      "latest_session_size_bytes": 30030,
+      "session_count": 290
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T00:05:13.044590+00:00",
-      "latest_session_size_bytes": 4540,
-      "session_count": 1530
+      "last_session_iso": "2026-05-01T01:05:13.115332+00:00",
+      "latest_session_size_bytes": 4541,
+      "session_count": 1531
     },
     {
       "id": "test-lock",
@@ -907,6 +907,16 @@
   ],
   "vault_commits": [
     {
+      "hash": "038f347",
+      "date": "2026-05-01T03:00:16+02:00",
+      "subject": "auto-sync: 2026-05-01 03:00"
+    },
+    {
+      "hash": "3742631",
+      "date": "2026-05-01T03:00:01+02:00",
+      "subject": "chore(config-backup): snapshot 2026-05-01"
+    },
+    {
       "hash": "6105abe",
       "date": "2026-05-01T02:30:16+02:00",
       "subject": "auto-sync: 2026-05-01 02:30"
@@ -945,16 +955,6 @@
       "hash": "03898ca",
       "date": "2026-04-30T23:00:13+02:00",
       "subject": "auto-sync: 2026-04-30 23:00"
-    },
-    {
-      "hash": "06d203a",
-      "date": "2026-04-30T22:30:13+02:00",
-      "subject": "auto-sync: 2026-04-30 22:30"
-    },
-    {
-      "hash": "c25a823",
-      "date": "2026-04-30T22:00:13+02:00",
-      "subject": "auto-sync: 2026-04-30 22:00"
     }
   ],
   "scripts": {
@@ -967,21 +967,22 @@
       "status": "running",
       "pids": [
         949143,
-        1323645,
-        1323736,
-        1323737
+        1352325,
+        1352366,
+        1352370,
+        1352450,
+        1352451
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1314836,
-        1315322,
-        1323628,
-        1323646,
-        1323653,
-        1323809
+        1343424,
+        1344013,
+        1352329,
+        1352350,
+        1352352
       ]
     }
   ],
