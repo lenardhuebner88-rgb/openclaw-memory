@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: fcc6f453-487d-4cb3-bcae-88453d009c20 STATE-PROBE semantics triage for residual /api/health warnings
+- task: db136875-9ab4-4cd3-bfeb-218ab814b515 P0 Task Board Crash Fix: Cannot read properties of undefined (reading 'push')
 - stage: DONE
 - next: await next assignment
-- checkpoint: State-Probe-Semantik triagiert und bereinigt: operator-locked Probe-Artefakte (5a795fb6, 1c15558e, f0b178ac) wurden minimal per admin-close terminalisiert; 0447 blieb unverändert geschlossen; Reconciler/Pickup sind jetzt
+- checkpoint: Fixed Task Board crash by adding missing blocked-lane handling in V3 lane grouping/header metadata, added regression guards, validated with Vitest and headless Playwright page-load proof after safe restart.
 - blocker: -
-- updated: 2026-05-01T05:42:54.675Z
+- updated: 2026-05-01T06:24:07.498Z
 <!-- mc:auto-working-context:end -->

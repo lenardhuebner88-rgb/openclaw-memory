@@ -1,7 +1,7 @@
 ---
 title: "Memory Architecture"
 slug: memory-architecture
-last_compiled: 2026-05-01T05:30:17.365254Z
+last_compiled: 2026-05-01T06:30:18.088525Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 16
 rule_count: 2
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Multi-level memory-stack: QMD retrieval (L1), Mem0-facts + Dreaming (L2), Schema-v2 taxonomy + reflection.
 
-**Compiled:** 2026-05-01T05:30:17.365254Z  
+**Compiled:** 2026-05-01T06:30:18.088525Z  
 **Source:** 16 facts from workspace/memory/facts/*.jsonl, 2 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
