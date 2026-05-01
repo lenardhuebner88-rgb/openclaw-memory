@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 74bdbfe8-1085-4c2c-814a-43614765a8ed [FOLLOW-UP][Forge][P3] Wire agent freshness smoke guard into ops proof/alerting
+- task: 2ff01866-1a9a-4dc8-bac7-2baa6fac16e2 Fix receipt-materializer stale/nonexistent parent follow-up generation
 - stage: DONE
 - next: await next assignment
-- checkpoint: Integrated the agent freshness smoke guard into the existing read-only ops proof path, added regression coverage, and documented manual post-restart usage without introducing cron/timer mutations or restart loops.
+- checkpoint: Patched receipt-materializer to stop noisy duplicate follow-up draft creation for stale follow-up-parent references and superseded verification receipts; added regression tests and validated build/test gates.
 - blocker: -
-- updated: 2026-05-01T14:48:32.255Z
+- updated: 2026-05-01T15:24:43.932Z
 <!-- mc:auto-working-context:end -->
