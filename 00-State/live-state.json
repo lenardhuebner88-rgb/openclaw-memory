@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T05:00:01.281952+00:00",
+  "generated_at": "2026-05-01T05:30:01.289127+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -53,7 +53,7 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-01T04:23:55.038445+00:00",
       "latest_session_size_bytes": 136268,
       "session_count": 51
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-01T04:55:10.977431+00:00",
-      "latest_session_size_bytes": 3205,
-      "session_count": 308
+      "last_session_iso": "2026-05-01T05:27:20.580312+00:00",
+      "latest_session_size_bytes": 65768,
+      "session_count": 313
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-05-01T04:59:03.725720+00:00",
-      "latest_session_size_bytes": 335841,
-      "session_count": 1534
+      "last_session_iso": "2026-05-01T05:27:41.010429+00:00",
+      "latest_session_size_bytes": 725322,
+      "session_count": 1535
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "dec1395",
+      "date": "2026-05-01T07:00:19+02:00",
+      "subject": "auto-sync: 2026-05-01 07:00"
+    },
+    {
       "hash": "0b6d4e5",
       "date": "2026-05-01T06:30:19+02:00",
       "subject": "auto-sync: 2026-05-01 06:30"
@@ -950,11 +955,6 @@
       "hash": "3742631",
       "date": "2026-05-01T03:00:01+02:00",
       "subject": "chore(config-backup): snapshot 2026-05-01"
-    },
-    {
-      "hash": "6105abe",
-      "date": "2026-05-01T02:30:16+02:00",
-      "subject": "auto-sync: 2026-05-01 02:30"
     }
   ],
   "scripts": {
@@ -967,9 +967,11 @@
       "status": "running",
       "pids": [
         949143,
-        1560691,
-        1560711,
-        1560717
+        1593308,
+        1593324,
+        1593328,
+        1593433,
+        1593434
       ]
     },
     {
@@ -977,11 +979,13 @@
       "status": "running",
       "pids": [
         1544566,
-        1555598,
-        1560682,
-        1560712,
-        1560715,
-        1560836
+        1582274,
+        1583064,
+        1590079,
+        1593314,
+        1593330,
+        1593337,
+        1593431
       ]
     }
   ],
