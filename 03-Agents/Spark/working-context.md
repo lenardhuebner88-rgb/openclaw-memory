@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 2ee62310-14ad-4132-ac9b-2c9fc10b5db4 [Spark][P2] Clarify R45 timing contract: dispatch/claim ack vs worker accepted
+- task: f65d8403-ea12-4654-9c75-8d9433358530 [Spark][P2] Quick-Win Memory Hygiene
 - stage: DONE
 - next: await next assignment
-- checkpoint: Updated canonical R45 documentation wording to separate 60s dispatch/claim-ack responsiveness from worker accepted/session-ready timing, preserved existing progress-receipt obligations, regenerated rendered rules doc, an
+- checkpoint: Delivered a prioritized, low-risk memory hygiene quick-win set focused on immediate structure cleanup: root-file triage, backup artifact quarantine, and 14-day working-memory retention enforcement with clear order and ex
 - blocker: -
-- updated: 2026-05-01T17:17:36.282Z
+- updated: 2026-05-01T18:20:55.964Z
 <!-- mc:auto-working-context:end -->

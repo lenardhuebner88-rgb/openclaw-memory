@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 8881effa-aa3a-4a6a-908b-49b0ef8279a5 [Lens][P1] Memory/Context Audit — Freshness, KPI/Reporting Readiness, Stale Risk Map
+- task: e2de31d2-2685-4637-a992-5987a4795734 [Lens][P1] KPI + Risk/Cost Baseline fürs Memory-System
 - stage: DONE
 - next: await next assignment
-- checkpoint: Memory/Context Audit done. Framework intact ✅. QMD retrieval functional ✅. Session-bootstrap working ✅. One P1 (MEMORY.md stale 5 days), three P2s (L2 expiry risk, QMD embedding backlog, Atlas session-start checkpoint fr
+- checkpoint: KPI Baseline + Risk/Cost Matrix für Memory-System definiert. 4 KPI-Blöcke (A Kontext-Frische, B Retrieval, C Storage, D Operational), 23 messbare KPIs mit Baselines. 8 Maßnahmen bewertet: R1 (MEMORY.md auto-update, Score
 - blocker: -
-- updated: 2026-05-01T17:49:18.080Z
+- updated: 2026-05-01T18:18:36.939Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 25eb194a-ee9b-4af6-b093-e226bcda2e6a [James][P1] Memory/Context Audit — Canonical Source Map, Agent Context Coverage, Legacy Drift
+- task: 1f1ce6a6-ca2e-4682-9435-9aadbffc6672 [James][P1] Research: Best-in-Class Memory Setup für unser System
 - stage: DONE
 - next: await next assignment
-- checkpoint: Audit complete: mapped canonical context paths for all 6 active agents. Critical finding: memory/01-agents/ is almost entirely empty (only pixel/) — 5/6 agents lack canonical per-agent memory zone. James workspace-james 
+- checkpoint: Research complete: 6 best-in-class patterns identified (tiered memory, canonical zones, retrieval-aware indexing, evidence-backed learning, freshness gating, per-agent ownership). Our system is mature on some (tiered tie
 - blocker: -
-- updated: 2026-05-01T17:49:45.891Z
+- updated: 2026-05-01T18:20:03.093Z
 <!-- mc:auto-working-context:end -->

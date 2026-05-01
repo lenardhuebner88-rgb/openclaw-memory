@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T18:00:01.560712+00:00",
+  "generated_at": "2026-05-01T18:30:01.399832+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -54,49 +54,49 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T17:50:41.173932+00:00",
-      "latest_session_size_bytes": 515901,
+      "last_session_iso": "2026-05-01T18:19:57.238234+00:00",
+      "latest_session_size_bytes": 569861,
       "session_count": 52
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "ready",
-      "last_session_iso": "2026-05-01T15:45:39.571127+00:00",
-      "latest_session_size_bytes": 238909,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-01T18:18:00.461632+00:00",
+      "latest_session_size_bytes": 372698,
       "session_count": 5
     },
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T17:51:11.577121+00:00",
-      "latest_session_size_bytes": 315859,
+      "last_session_iso": "2026-05-01T18:21:19.209666+00:00",
+      "latest_session_size_bytes": 372444,
       "session_count": 9
     },
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-01T17:59:29.154143+00:00",
-      "latest_session_size_bytes": 225296,
-      "session_count": 379
+      "last_session_iso": "2026-05-01T18:29:50.389458+00:00",
+      "latest_session_size_bytes": 64378,
+      "session_count": 386
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T17:18:14.758596+00:00",
-      "latest_session_size_bytes": 153497,
-      "session_count": 8
+      "last_session_iso": "2026-05-01T18:22:06.347916+00:00",
+      "latest_session_size_bytes": 224841,
+      "session_count": 9
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T17:05:13.933319+00:00",
-      "latest_session_size_bytes": 4511,
-      "session_count": 1558
+      "last_session_iso": "2026-05-01T18:16:16.199081+00:00",
+      "latest_session_size_bytes": 55236,
+      "session_count": 1561
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "8ea74da",
+      "date": "2026-05-01T20:00:28+02:00",
+      "subject": "auto-sync: 2026-05-01 20:00"
+    },
+    {
       "hash": "cb41a7f",
       "date": "2026-05-01T19:45:14+02:00",
       "subject": "Add frontend quality harness sprint plan"
@@ -950,11 +955,6 @@
       "hash": "b8d4a6f",
       "date": "2026-05-01T16:00:25+02:00",
       "subject": "auto-sync: 2026-05-01 16:00"
-    },
-    {
-      "hash": "ee6db15",
-      "date": "2026-05-01T15:30:25+02:00",
-      "subject": "auto-sync: 2026-05-01 15:30"
     }
   ],
   "scripts": {
@@ -974,10 +974,11 @@
       "status": "running",
       "pids": [
         2229129,
-        2463855,
-        2464562,
-        2464570,
-        2464574
+        2501314,
+        2501333,
+        2501335,
+        2501463,
+        2501465
       ]
     },
     {
@@ -986,16 +987,19 @@
       "pids": [
         2436528,
         2441494,
-        2442619,
         2442898,
-        2448426,
-        2448681,
-        2455201,
-        2463848,
-        2464558,
-        2464568,
-        2464569,
-        2464711
+        2484335,
+        2487206,
+        2489863,
+        2489916,
+        2492543,
+        2492784,
+        2494196,
+        2494647,
+        2500255,
+        2501313,
+        2501340,
+        2501345
       ]
     }
   ],

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9024ddec-5659-408e-9299-cb7244ac4d18 [Pixel][P2] Regression pass: Taskboard operator flow after recent fixes
+- task: c6b5c01e-767b-4921-9a7b-55ffb153f4b9 [Pixel][P2] Memory Visibility für Operator
 - stage: DONE
 - next: await next assignment
-- checkpoint: Taskboard operator-flow regression pass completed: Mission Control health ok/ok; desktop and mobile /taskboard rendered successfully; Details and Timeline controls opened for task 9024ddec-5659-408e-9299-cb7244ac4d18; hi
+- checkpoint: Memory Visibility UI plan completed: inspected the current /memory page and /api/ops/memory-proof, confirmed the proof endpoint already exposes status, freshness, pending embeddings, collection drift, retrieval smoke, an
 - blocker: -
-- updated: 2026-05-01T15:44:43.712Z
+- updated: 2026-05-01T18:16:36.966Z
 <!-- mc:auto-working-context:end -->
