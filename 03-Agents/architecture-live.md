@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-05-01T00:20:01.295536+00:00
+last_generated: 2026-05-01T00:50:02.092185+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-05-01 00:20 UTC  
+**Generated:** 2026-05-01 00:50 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -24,9 +24,9 @@ flowchart TB
         agent_efficiency_auditor["efficiency-auditor<br/>9h ago<br/>274 KB"]
         agent_frontend_guru["frontend-guru<br/>17h ago<br/>105 KB"]
         agent_james["james<br/>1d ago<br/>243 KB"]
-        agent_main["main<br/>17s ago<br/>216 KB"]
+        agent_main["main<br/>19s ago<br/>444 KB"]
         agent_spark["spark<br/>1d ago<br/>293 KB"]
-        agent_sre_expert["sre-expert<br/>14m ago<br/>194 KB"]
+        agent_sre_expert["sre-expert<br/>44m ago<br/>194 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -88,9 +88,9 @@ flowchart TB
 | `efficiency-auditor` | 9h ago | 274 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 17h ago | 105 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 1d ago | 243 | `/home/piet/.openclaw/agents/james` |
-| `main` | 17s ago | 216 | `/home/piet/.openclaw/agents/main` |
+| `main` | 19s ago | 444 | `/home/piet/.openclaw/agents/main` |
 | `spark` | 1d ago | 293 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 14m ago | 194 | `/home/piet/.openclaw/agents/sre-expert` |
+| `sre-expert` | 44m ago | 194 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
@@ -300,11 +300,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+6105abe 2026-05-01 auto-sync: 2026-05-01 02:30
 59271ed 2026-05-01 auto-sync: 2026-05-01 02:00
 c07c7a8 2026-05-01 auto-sync: 2026-05-01 01:30
 0fba0de 2026-05-01 auto-sync: 2026-05-01 01:00
 3641c69 2026-05-01 auto-sync: 2026-05-01 00:30
-60dfa9d 2026-05-01 auto-sync: 2026-05-01 00:00
 ```
 
 ---
