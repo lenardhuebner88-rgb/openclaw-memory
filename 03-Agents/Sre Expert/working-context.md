@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cd59ce53-73eb-4fb0-808a-8c7a184573bf Resilience: agent reconnect after gateway restart
+- task: 74bdbfe8-1085-4c2c-814a-43614765a8ed [FOLLOW-UP][Forge][P3] Wire agent freshness smoke guard into ops proof/alerting
 - stage: DONE
 - next: await next assignment
-- checkpoint: Implemented heartbeat freshness resilience after gateway restart: Mission Control now treats non-terminal non-subagent sessions (including status=active) as fresh, preventing false dark/offline state for Atlas/agents aft
+- checkpoint: Integrated the agent freshness smoke guard into the existing read-only ops proof path, added regression coverage, and documented manual post-restart usage without introducing cron/timer mutations or restart loops.
 - blocker: -
-- updated: 2026-05-01T14:24:01.775Z
+- updated: 2026-05-01T14:48:32.255Z
 <!-- mc:auto-working-context:end -->

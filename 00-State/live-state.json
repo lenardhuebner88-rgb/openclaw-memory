@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T14:30:01.977630+00:00",
+  "generated_at": "2026-05-01T15:00:01.233052+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-01T14:25:09.127706+00:00",
-      "latest_session_size_bytes": 20792,
-      "session_count": 368
+      "last_session_iso": "2026-05-01T14:59:41.542361+00:00",
+      "latest_session_size_bytes": 146940,
+      "session_count": 374
     },
     {
       "id": "spark",
@@ -94,8 +94,8 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T14:24:47.607565+00:00",
-      "latest_session_size_bytes": 630673,
+      "last_session_iso": "2026-05-01T14:49:06.153141+00:00",
+      "latest_session_size_bytes": 787563,
       "session_count": 1553
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "8282f11",
+      "date": "2026-05-01T16:30:26+02:00",
+      "subject": "auto-sync: 2026-05-01 16:30"
+    },
+    {
       "hash": "b8d4a6f",
       "date": "2026-05-01T16:00:25+02:00",
       "subject": "auto-sync: 2026-05-01 16:00"
@@ -950,11 +955,6 @@
       "hash": "cc651da",
       "date": "2026-05-01T12:00:22+02:00",
       "subject": "auto-sync: 2026-05-01 12:00"
-    },
-    {
-      "hash": "5972fa5",
-      "date": "2026-05-01T11:30:21+02:00",
-      "subject": "auto-sync: 2026-05-01 11:30"
     }
   ],
   "scripts": {
@@ -973,12 +973,23 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        2215647,
-        2220070,
-        2220083,
-        2220098,
-        2220172,
-        2220173
+        2229129,
+        2254137,
+        2254154,
+        2254172
+      ]
+    },
+    {
+      "name": "taskboard-mcp",
+      "status": "running",
+      "pids": [
+        2231843,
+        2243524,
+        2247428,
+        2252221,
+        2254130,
+        2254140,
+        2254143
       ]
     }
   ],
