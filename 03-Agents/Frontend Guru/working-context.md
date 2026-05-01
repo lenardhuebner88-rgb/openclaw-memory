@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4ed221cb-ab04-4427-a210-a1c1b3c887a3 [FOLLOW-UP][Pixel][P1] Taskboard mobile list mode + hidden audit toggle
+- task: 752e03df-36c4-4f18-b6ab-f88ee174bcb6 [FOLLOW-UP][Pixel][P2] Taskboard operator action surface
 - stage: DONE
 - next: await next assignment
-- checkpoint: Implemented the P1 Taskboard mobile usability follow-up in V3: added mobile-first list readability, explicit Hidden audit show/hide control with URL persistence, visible Draft/Backlog shortcut, archive inclusion when aud
+- checkpoint: DONE by Codex board-actions pass: V3 Taskboard action surface is live, non-mock, and verified on desktop/mobile with disabled reasons, safe links, copy-id, hidden audit, draft/backlog, no chunk/error-boundary, no mobile 
 - blocker: -
-- updated: 2026-05-01T09:03:16.502Z
+- updated: 2026-05-01T12:45:44.338Z
 <!-- mc:auto-working-context:end -->
