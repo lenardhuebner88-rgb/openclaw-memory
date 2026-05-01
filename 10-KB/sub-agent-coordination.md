@@ -1,7 +1,7 @@
 ---
 title: "Sub-Agent Coordination"
 slug: sub-agent-coordination
-last_compiled: 2026-05-01T16:30:02.093048Z
+last_compiled: 2026-05-01T17:30:17.177554Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 20
 rule_count: 5
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Multi-agent coordination patterns, sub-agent dispatch, visibility-rules, WIP-limits.
 
-**Compiled:** 2026-05-01T16:30:02.093048Z  
+**Compiled:** 2026-05-01T17:30:17.177554Z  
 **Source:** 20 facts from workspace/memory/facts/*.jsonl, 5 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
@@ -35,7 +35,7 @@ Sub-Agent-Arbeit darf nie sessions_spawn-only laufen. Vor jeder delegierten Ausf
 ### R45 — Sub-Agent-Receipt-Discipline
 *Status: active | Since: 2026-04-19*
 
-Sub-Agent MUSS innerhalb 60s nach Task-Pickup taskboard_post_receipt mit receipt=accepted posten. Waehrend Arbeit MUSS mindestens alle 5min oder bei jedem Major-Step ein receipt=progress kommen. Status assigned laenger als 2min ohne Receipt = Contrac...
+Sub-Agent MUSS innerhalb 60s nach Pickup-Claim/Dispatch-Ack den ersten non-terminal Receipt (accepted/started/progress) posten. Dieser 60s-Check misst die Claim-/Ack-Reaktion, NICHT die spaetere worker accepted/session-ready Zeit. Waehrend Arbeit MUS...
 
 ### R46 — Parallel-Deploy-Serialization
 *Status: active | Since: 2026-04-19*

@@ -1,7 +1,7 @@
 ---
 title: "Sprint Orchestration"
 slug: sprint-orchestration
-last_compiled: 2026-05-01T16:30:02.091301Z
+last_compiled: 2026-05-01T17:30:17.175928Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 47
 rule_count: 9
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** How Atlas-main orchestriert multi-agent sprints, dispatch-patterns, Board-visibility discipline.
 
-**Compiled:** 2026-05-01T16:30:02.091301Z  
+**Compiled:** 2026-05-01T17:30:17.175928Z  
 **Source:** 47 facts from workspace/memory/facts/*.jsonl, 9 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
@@ -50,7 +50,7 @@ Sub-Agent-Arbeit darf nie sessions_spawn-only laufen. Vor jeder delegierten Ausf
 ### R45 — Sub-Agent-Receipt-Discipline
 *Status: active | Since: 2026-04-19*
 
-Sub-Agent MUSS innerhalb 60s nach Task-Pickup taskboard_post_receipt mit receipt=accepted posten. Waehrend Arbeit MUSS mindestens alle 5min oder bei jedem Major-Step ein receipt=progress kommen. Status assigned laenger als 2min ohne Receipt = Contrac...
+Sub-Agent MUSS innerhalb 60s nach Pickup-Claim/Dispatch-Ack den ersten non-terminal Receipt (accepted/started/progress) posten. Dieser 60s-Check misst die Claim-/Ack-Reaktion, NICHT die spaetere worker accepted/session-ready Zeit. Waehrend Arbeit MUS...
 
 ### R46 — Parallel-Deploy-Serialization
 *Status: active | Since: 2026-04-19*
