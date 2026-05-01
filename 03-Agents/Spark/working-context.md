@@ -7,10 +7,11 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0cc1a0e4-0113-456d-be82-1584a159539f [Follow-up] [Backlog][S-FOLLOWUP-1][Forge] Seal receipt-materializer test fixture leakage
-- stage: FAILED
+- task: c6c6b427-7d1f-438f-99fd-a7bdec395f8f [Spark][P3] Fix worker-runs status field for run-level KPI reporting
+- stage: DONE
 - next: await next assignment
-- checkpoint: -
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY: Fixed worker-run persistence so new entries now carry a durable run-level `status` for KPI reporting. Open/rebound runs are written as `running`, and terminal updates write `succeed
 - blocker: -
-- updated: 2026-04-29T19:13:56.588Z
+- updated: 2026-05-01T16:09:29.969Z
 <!-- mc:auto-working-context:end -->

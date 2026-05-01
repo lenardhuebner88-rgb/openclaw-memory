@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: d3581364-c5fd-4f1e-ba1d-8a86fd8e9c55 [S-FOLLOWUP-1][S1.2][Spark] Atlas sprintOutcome v1.1 prompt template
+- task: c6c6b427-7d1f-438f-99fd-a7bdec395f8f [Spark][P3] Fix worker-runs status field for run-level KPI reporting
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: No dedicated Atlas sprintOutcome prompt template file found in workspace docs/skills. Creating a focused reusable v1.1 terminal-receipt template with done/partial/failed examples and explicit usage notes.
+- checkpoint: Root cause confirmed: worker-runs writer paths persisted outcome/claim metadata but never a dedicated run-level status. Implemented minimal fix to persist status (`running` on open/rebind, terminal status on close) and a
 - blocker: -
-- updated: 2026-04-29T16:54:27.690Z
+- updated: 2026-05-01T16:08:58.472Z
 <!-- mc:auto-working-context:end -->
