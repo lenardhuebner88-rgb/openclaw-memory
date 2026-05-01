@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e20054ac-c429-4f9e-8fa8-21c506e1f0ff [EVE-1] SystemPulse Poll-Elimination (/api/tasks snapshot/lightweight path)
+- task: b5147f86-e281-42e6-9d3e-19b0c52622f6 [Nightly] Harden tasks snapshot API route with fail-soft error handling
 - stage: DONE
 - next: await next assignment
-- checkpoint: EVE-1 umgesetzt: SystemPulse pollt nicht mehr /api/tasks (3.6MB), sondern /api/tasks/snapshot (136B). Neuer Lightweight-Endpoint liefert aggregierte Totals <1KB, Commit d0ae464, Live-Health/V3/Taskboard auf localhost wei
+- checkpoint: Nightly hardening erfolgreich: /api/tasks/snapshot hat jetzt fail-soft top-level try/catch mit strukturiertem JSON-500-Fallback, Success-Response unverändert; zusätzlich wurden zwei bestehende Telemetry-Route-Typefehler 
 - blocker: -
-- updated: 2026-04-30T18:15:39.779Z
+- updated: 2026-05-01T02:05:47.230Z
 <!-- mc:auto-working-context:end -->
