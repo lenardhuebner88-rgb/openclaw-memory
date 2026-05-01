@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T21:30:01.847786+00:00",
+  "generated_at": "2026-05-01T22:00:01.968970+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T21:14:16.551407+00:00",
-      "latest_session_size_bytes": 7599,
+      "last_session_iso": "2026-05-01T21:51:24.837454+00:00",
+      "latest_session_size_bytes": 147055,
       "session_count": 369
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "c2f3a42",
+      "date": "2026-05-01T23:30:32+02:00",
+      "subject": "auto-sync: 2026-05-01 23:30"
+    },
+    {
       "hash": "52108d0",
       "date": "2026-05-01T23:00:31+02:00",
       "subject": "auto-sync: 2026-05-01 23:00"
@@ -950,11 +955,6 @@
       "hash": "8ea74da",
       "date": "2026-05-01T20:00:28+02:00",
       "subject": "auto-sync: 2026-05-01 20:00"
-    },
-    {
-      "hash": "cb41a7f",
-      "date": "2026-05-01T19:45:14+02:00",
-      "subject": "Add frontend quality harness sprint plan"
     }
   ],
   "scripts": {
@@ -974,20 +974,10 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        2657922,
-        2661934,
-        2662039,
-        2662053,
-        2662056,
-        2662150,
-        2662151
-      ]
-    },
-    {
-      "name": "taskboard-mcp",
-      "status": "running",
-      "pids": [
-        2661927
+        2686988,
+        2689276,
+        2689308,
+        2689318
       ]
     }
   ],
