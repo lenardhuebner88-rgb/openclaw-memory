@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T22:00:01.968970+00:00",
+  "generated_at": "2026-05-01T22:30:01.124966+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T21:51:24.837454+00:00",
-      "latest_session_size_bytes": 147055,
+      "last_session_iso": "2026-05-01T22:21:40.610955+00:00",
+      "latest_session_size_bytes": 359708,
       "session_count": 369
     },
     {
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "ready",
-      "last_session_iso": "2026-05-01T20:01:05.706105+00:00",
-      "latest_session_size_bytes": 15337,
-      "session_count": 1558
+      "status": "monitoring",
+      "last_session_iso": "2026-05-01T22:09:00.277844+00:00",
+      "latest_session_size_bytes": 4649,
+      "session_count": 1559
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "2cf92bd",
+      "date": "2026-05-02T00:00:32+02:00",
+      "subject": "auto-sync: 2026-05-02 00:00"
+    },
+    {
       "hash": "c2f3a42",
       "date": "2026-05-01T23:30:32+02:00",
       "subject": "auto-sync: 2026-05-01 23:30"
@@ -950,11 +955,6 @@
       "hash": "eed2adf",
       "date": "2026-05-01T20:30:15+02:00",
       "subject": "plan: add S-MEM-QUALITY-P1 sprint with quality gates and assignments"
-    },
-    {
-      "hash": "8ea74da",
-      "date": "2026-05-01T20:00:28+02:00",
-      "subject": "auto-sync: 2026-05-01 20:00"
     }
   ],
   "scripts": {
@@ -974,10 +974,19 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        2686988,
-        2689276,
-        2689308,
-        2689318
+        2697439,
+        2707897,
+        2707923,
+        2707926,
+        2708020,
+        2708021
+      ]
+    },
+    {
+      "name": "taskboard-mcp",
+      "status": "running",
+      "pids": [
+        2703345
       ]
     }
   ],
