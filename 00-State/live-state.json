@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T18:30:01.399832+00:00",
+  "generated_at": "2026-05-01T19:00:01.400728+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 182,
+    "scripts_active": 183,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -54,9 +54,9 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T18:19:57.238234+00:00",
-      "latest_session_size_bytes": 569861,
-      "session_count": 52
+      "last_session_iso": "2026-05-01T18:48:58.779976+00:00",
+      "latest_session_size_bytes": 87534,
+      "session_count": 53
     },
     {
       "id": "frontend-guru",
@@ -78,17 +78,17 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-01T18:29:50.389458+00:00",
-      "latest_session_size_bytes": 64378,
-      "session_count": 386
+      "last_session_iso": "2026-05-01T18:59:56.034182+00:00",
+      "latest_session_size_bytes": 229789,
+      "session_count": 390
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T18:22:06.347916+00:00",
-      "latest_session_size_bytes": 224841,
-      "session_count": 9
+      "last_session_iso": "2026-05-01T18:50:27.662485+00:00",
+      "latest_session_size_bytes": 33445,
+      "session_count": 11
     },
     {
       "id": "sre-expert",
@@ -907,6 +907,21 @@
   ],
   "vault_commits": [
     {
+      "hash": "0589480",
+      "date": "2026-05-01T20:36:59+02:00",
+      "subject": "chore: mark S-MEM-QUALITY-P1 as active"
+    },
+    {
+      "hash": "a80c3b5",
+      "date": "2026-05-01T20:30:29+02:00",
+      "subject": "auto-sync: 2026-05-01 20:30"
+    },
+    {
+      "hash": "eed2adf",
+      "date": "2026-05-01T20:30:15+02:00",
+      "subject": "plan: add S-MEM-QUALITY-P1 sprint with quality gates and assignments"
+    },
+    {
       "hash": "8ea74da",
       "date": "2026-05-01T20:00:28+02:00",
       "subject": "auto-sync: 2026-05-01 20:00"
@@ -940,26 +955,11 @@
       "hash": "43c4a07",
       "date": "2026-05-01T17:30:27+02:00",
       "subject": "auto-sync: 2026-05-01 17:30"
-    },
-    {
-      "hash": "f3efa02",
-      "date": "2026-05-01T17:00:26+02:00",
-      "subject": "auto-sync: 2026-05-01 17:00"
-    },
-    {
-      "hash": "8282f11",
-      "date": "2026-05-01T16:30:26+02:00",
-      "subject": "auto-sync: 2026-05-01 16:30"
-    },
-    {
-      "hash": "b8d4a6f",
-      "date": "2026-05-01T16:00:25+02:00",
-      "subject": "auto-sync: 2026-05-01 16:00"
     }
   ],
   "scripts": {
     "scripts_root": 114,
-    "workspace_scripts": 68
+    "workspace_scripts": 69
   },
   "mcp_servers": [
     {
@@ -974,11 +974,10 @@
       "status": "running",
       "pids": [
         2229129,
-        2501314,
-        2501333,
-        2501335,
-        2501463,
-        2501465
+        2539331,
+        2540393,
+        2540421,
+        2540423
       ]
     },
     {
@@ -988,18 +987,19 @@
         2436528,
         2441494,
         2442898,
-        2484335,
         2487206,
-        2489863,
-        2489916,
-        2492543,
-        2492784,
-        2494196,
-        2494647,
-        2500255,
-        2501313,
-        2501340,
-        2501345
+        2510099,
+        2510462,
+        2515643,
+        2517614,
+        2525996,
+        2528660,
+        2536259,
+        2539324,
+        2540401,
+        2540456,
+        2540486,
+        2540541
       ]
     }
   ],
