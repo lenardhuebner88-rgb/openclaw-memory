@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 12c9ffd9-5322-44ec-9db2-4580e3be7d86 [Lens][P2] Dedicated comprehensive Worker-/Task-Lifecycle Audit
+- task: 8881effa-aa3a-4a6a-908b-49b0ef8279a5 [Lens][P1] Memory/Context Audit — Freshness, KPI/Reporting Readiness, Stale Risk Map
 - stage: DONE
 - next: await next assignment
-- checkpoint: Lifecycle Audit done: 904 tasks, 819 runs. System operativ gesund. 4 strukturelle Findings (1×P1 worker-runs.json nicht KPI-ready, 1×P2 dispatchedAt null, 1×P2 resultSummary missing, 1×P2 R45 Timing-Kontrakt-Gap). Quick 
+- checkpoint: Memory/Context Audit done. Framework intact ✅. QMD retrieval functional ✅. Session-bootstrap working ✅. One P1 (MEMORY.md stale 5 days), three P2s (L2 expiry risk, QMD embedding backlog, Atlas session-start checkpoint fr
 - blocker: -
-- updated: 2026-05-01T16:44:12.895Z
+- updated: 2026-05-01T17:49:18.080Z
 <!-- mc:auto-working-context:end -->
