@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T23:00:01.716119+00:00",
+  "generated_at": "2026-05-01T23:30:01.857473+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 0,
+    "agents_active": 1,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-01T22:41:16.525813+00:00",
-      "latest_session_size_bytes": 188106,
+      "status": "active",
+      "last_session_iso": "2026-05-01T23:25:45.005855+00:00",
+      "latest_session_size_bytes": 215355,
       "session_count": 369
     },
     {
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T22:09:00.277844+00:00",
-      "latest_session_size_bytes": 4649,
-      "session_count": 1559
+      "last_session_iso": "2026-05-01T23:06:59.299612+00:00",
+      "latest_session_size_bytes": 7624,
+      "session_count": 1560
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "1bedfff",
+      "date": "2026-05-02T01:00:33+02:00",
+      "subject": "auto-sync: 2026-05-02 01:00"
+    },
+    {
       "hash": "a7e0bc7",
       "date": "2026-05-02T00:30:33+02:00",
       "subject": "auto-sync: 2026-05-02 00:30"
@@ -950,11 +955,6 @@
       "hash": "0589480",
       "date": "2026-05-01T20:36:59+02:00",
       "subject": "chore: mark S-MEM-QUALITY-P1 as active"
-    },
-    {
-      "hash": "a80c3b5",
-      "date": "2026-05-01T20:30:29+02:00",
-      "subject": "auto-sync: 2026-05-01 20:30"
     }
   ],
   "scripts": {
@@ -974,10 +974,12 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        2722635,
-        2727218,
-        2727234,
-        2727236
+        2745560,
+        2746907,
+        2746920,
+        2746923,
+        2747012,
+        2747013
       ]
     }
   ],
