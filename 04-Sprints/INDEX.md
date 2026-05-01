@@ -1,7 +1,7 @@
 ---
 title: 04-Sprints Status Index
 status: index
-last_update: 2026-04-29
+last_update: 2026-05-01
 maintained_by: claude (manual until cron-sprint-index-generator deployed)
 source_of_truth: true
 purpose: Single canonical view of all sprint status. Newer than READMEs/AGENTS.md.
@@ -77,6 +77,9 @@ purpose: Single canonical view of all sprint status. Newer than READMEs/AGENTS.m
 
 | Date | Sprint | Pointer |
 |---|---|---|
+| 2026-05-01 | S1 Follow-up Pipeline | [closed/2026-05-01_s1-followup-pipeline.md](closed/2026-05-01_s1-followup-pipeline.md) |
+| 2026-05-01 | S2 Session / Context Stability | [closed/2026-05-01_s2-session-context-stability.md](closed/2026-05-01_s2-session-context-stability.md) |
+| 2026-05-01 | S3 Operator Awareness Loop | [closed/2026-05-01_s3-operator-awareness-loop.md](closed/2026-05-01_s3-operator-awareness-loop.md) |
 | 2026-04-30 | OpenClaw 2026.4.27 Update + Audit | [reports/2026-04-30-openclaw-2026-4-27-update-report.md](reports/2026-04-30-openclaw-2026-4-27-update-report.md) + [post-update-audit](reports/2026-04-30-openclaw-2026-4-27-post-update-audit.md) + [three-sprint-plan](reports/2026-04-30-openclaw-2026-4-27-three-sprint-plan.md) (Server: ~/.openclaw/workspace/memory/) |
 | 2026-04-29 | Stabilization 2026-04-29 (Crontab-restore + R51 Schema-Gate) | [../03-Agents/stabilization-2026-04-29-full.md](../03-Agents/stabilization-2026-04-29-full.md) |
 | 2026-04-27 | MCP-Hardening Sprint (P0.2 + Reaper + alert-dispatcher + 2026.4.24 upgrade) | [2026-04-27-mcp-hardening-sprint.md](2026-04-27-mcp-hardening-sprint.md) |

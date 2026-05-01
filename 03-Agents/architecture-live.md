@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-05-01T11:20:01.867094+00:00
+last_generated: 2026-05-01T11:50:01.290665+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-05-01 11:20 UTC  
+**Generated:** 2026-05-01 11:50 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -24,9 +24,9 @@ flowchart TB
         agent_efficiency_auditor["efficiency-auditor<br/>4h ago<br/>193 KB"]
         agent_frontend_guru["frontend-guru<br/>1d ago<br/>105 KB"]
         agent_james["james<br/>2d ago<br/>243 KB"]
-        agent_main["main<br/>15s ago<br/>218 KB"]
+        agent_main["main<br/>15s ago<br/>448 KB"]
         agent_spark["spark<br/>1d ago<br/>293 KB"]
-        agent_sre_expert["sre-expert<br/>14m ago<br/>194 KB"]
+        agent_sre_expert["sre-expert<br/>44m ago<br/>194 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -76,7 +76,7 @@ flowchart TB
 - **Rules active:** 57
 - **Facts (all-time):** 287 across 1 daily files
 - **Facts today:** None
-- **Scripts (active, no .bak):** 109 root + 68 workspace = 177
+- **Scripts (active, no .bak):** 113 root + 68 workspace = 181
 - **Cron entries (live):** 50
 
 ## 🤖 Agents (10)
@@ -88,9 +88,9 @@ flowchart TB
 | `efficiency-auditor` | 4h ago | 193 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 1d ago | 105 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 2d ago | 243 | `/home/piet/.openclaw/agents/james` |
-| `main` | 15s ago | 218 | `/home/piet/.openclaw/agents/main` |
+| `main` | 15s ago | 448 | `/home/piet/.openclaw/agents/main` |
 | `spark` | 1d ago | 293 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 14m ago | 194 | `/home/piet/.openclaw/agents/sre-expert` |
+| `sre-expert` | 44m ago | 194 | `/home/piet/.openclaw/agents/sre-expert` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
@@ -300,11 +300,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+b1a4f20 2026-05-01 auto-sync: 2026-05-01 13:30
 d463a30 2026-05-01 auto-sync: 2026-05-01 13:00
 8373965 2026-05-01 auto-sync: 2026-05-01 12:30
 cc651da 2026-05-01 auto-sync: 2026-05-01 12:00
 5972fa5 2026-05-01 auto-sync: 2026-05-01 11:30
-b1c424e 2026-05-01 auto-sync: 2026-05-01 11:00
 ```
 
 ---
