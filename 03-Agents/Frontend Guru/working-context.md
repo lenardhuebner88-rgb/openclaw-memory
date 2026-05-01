@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 5bddc6d8-3ee1-49ca-baf4-399a54125d8f [AUDIT][Pixel] Mobile/Hidden Taskboard operator-flow audit
-- stage: DONE
-- next: await next assignment
-- checkpoint: Pixel read-only mobile/hidden Taskboard audit completed. Mobile renders without crash or horizontal page overflow, but the shipped/rollback board leaves archive/history only as a hidden-count label, uses sub-44px control
+- task: 4ed221cb-ab04-4427-a210-a1c1b3c887a3 [FOLLOW-UP][Pixel][P1] Taskboard mobile list mode + hidden audit toggle
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Implemented first-pass V3 taskboard changes: hidden-audit URL/localStorage control, mobile-readable list surface, draft/backlog shortcut, archive task inclusion when audit toggle is on, mobile 44px quick-action controls,
 - blocker: -
-- updated: 2026-05-01T08:24:54.553Z
+- updated: 2026-05-01T08:39:23.283Z
 <!-- mc:auto-working-context:end -->

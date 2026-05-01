@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T08:30:01.281728+00:00",
+  "generated_at": "2026-05-01T09:00:01.306302+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -62,8 +62,8 @@
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
       "status": "active",
-      "last_session_iso": "2026-05-01T08:25:31.899196+00:00",
-      "latest_session_size_bytes": 289927,
+      "last_session_iso": "2026-05-01T08:58:26.773116+00:00",
+      "latest_session_size_bytes": 594020,
       "session_count": 5
     },
     {
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-01T08:25:49.139276+00:00",
-      "latest_session_size_bytes": 103970,
-      "session_count": 339
+      "last_session_iso": "2026-05-01T08:59:56.830569+00:00",
+      "latest_session_size_bytes": 251651,
+      "session_count": 344
     },
     {
       "id": "spark",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "2861ed4",
+      "date": "2026-05-01T10:30:21+02:00",
+      "subject": "auto-sync: 2026-05-01 10:30"
+    },
+    {
       "hash": "95420d2",
       "date": "2026-05-01T10:00:21+02:00",
       "subject": "auto-sync: 2026-05-01 10:00"
@@ -950,11 +955,6 @@
       "hash": "930dedd",
       "date": "2026-05-01T06:00:18+02:00",
       "subject": "auto-sync: 2026-05-01 06:00"
-    },
-    {
-      "hash": "f2f07dd",
-      "date": "2026-05-01T05:30:17+02:00",
-      "subject": "auto-sync: 2026-05-01 05:30"
     }
   ],
   "scripts": {
@@ -967,25 +967,21 @@
       "status": "running",
       "pids": [
         949143,
-        1775982,
-        1775997,
-        1776002,
-        1776117,
-        1776118
+        1807403,
+        1807443,
+        1807454
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1762514,
-        1766136,
-        1770250,
-        1771684,
-        1772361,
-        1775987,
-        1776008,
-        1776018
+        1781696,
+        1788371,
+        1807400,
+        1807413,
+        1807424,
+        1807549
       ]
     }
   ],
