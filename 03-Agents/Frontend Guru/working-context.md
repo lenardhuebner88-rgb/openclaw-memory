@@ -7,11 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 696bcf12-28e4-48c2-894d-0bae9906bc1f [V3 Task Detail] Echter Dispatch-Button im aktiven Drawer
+- task: 5bddc6d8-3ee1-49ca-baf4-399a54125d8f [AUDIT][Pixel] Mobile/Hidden Taskboard operator-flow audit
 - stage: DONE
 - next: await next assignment
-- checkpoint: V3_DISPATCH_BUTTON_STATUS: done — active V3 detail drawer now exposes a real Dispatch action for dispatchable tasks and keeps the legacy accept/retry/block/close actions mock-only.
-CHANGED_FILES: src/components/v3/V3Acti
+- checkpoint: Pixel read-only mobile/hidden Taskboard audit completed. Mobile renders without crash or horizontal page overflow, but the shipped/rollback board leaves archive/history only as a hidden-count label, uses sub-44px control
 - blocker: -
-- updated: 2026-04-30T20:29:48.954Z
+- updated: 2026-05-01T08:24:54.553Z
 <!-- mc:auto-working-context:end -->
