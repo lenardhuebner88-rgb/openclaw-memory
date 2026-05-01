@@ -8,9 +8,9 @@
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 4ed221cb-ab04-4427-a210-a1c1b3c887a3 [FOLLOW-UP][Pixel][P1] Taskboard mobile list mode + hidden audit toggle
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Implemented first-pass V3 taskboard changes: hidden-audit URL/localStorage control, mobile-readable list surface, draft/backlog shortcut, archive task inclusion when audit toggle is on, mobile 44px quick-action controls,
+- stage: DONE
+- next: await next assignment
+- checkpoint: Implemented the P1 Taskboard mobile usability follow-up in V3: added mobile-first list readability, explicit Hidden audit show/hide control with URL persistence, visible Draft/Backlog shortcut, archive inclusion when aud
 - blocker: -
-- updated: 2026-05-01T08:39:23.283Z
+- updated: 2026-05-01T09:03:16.502Z
 <!-- mc:auto-working-context:end -->
