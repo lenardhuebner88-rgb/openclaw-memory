@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T22:30:01.124966+00:00",
+  "generated_at": "2026-05-01T23:00:01.716119+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-01T22:21:40.610955+00:00",
-      "latest_session_size_bytes": 359708,
+      "last_session_iso": "2026-05-01T22:41:16.525813+00:00",
+      "latest_session_size_bytes": 188106,
       "session_count": 369
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "a7e0bc7",
+      "date": "2026-05-02T00:30:33+02:00",
+      "subject": "auto-sync: 2026-05-02 00:30"
+    },
+    {
       "hash": "2cf92bd",
       "date": "2026-05-02T00:00:32+02:00",
       "subject": "auto-sync: 2026-05-02 00:00"
@@ -950,11 +955,6 @@
       "hash": "a80c3b5",
       "date": "2026-05-01T20:30:29+02:00",
       "subject": "auto-sync: 2026-05-01 20:30"
-    },
-    {
-      "hash": "eed2adf",
-      "date": "2026-05-01T20:30:15+02:00",
-      "subject": "plan: add S-MEM-QUALITY-P1 sprint with quality gates and assignments"
     }
   ],
   "scripts": {
@@ -974,19 +974,10 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        2697439,
-        2707897,
-        2707923,
-        2707926,
-        2708020,
-        2708021
-      ]
-    },
-    {
-      "name": "taskboard-mcp",
-      "status": "running",
-      "pids": [
-        2703345
+        2722635,
+        2727218,
+        2727234,
+        2727236
       ]
     }
   ],
