@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T19:30:01.991546+00:00",
+  "generated_at": "2026-05-01T20:00:01.477844+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 0,
+    "agents_active": 2,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -53,10 +53,10 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-01T18:48:58.779976+00:00",
       "latest_session_size_bytes": 87534,
-      "session_count": 53
+      "session_count": 52
     },
     {
       "id": "frontend-guru",
@@ -77,15 +77,15 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-01T19:23:42.136742+00:00",
-      "latest_session_size_bytes": 44569,
-      "session_count": 392
+      "status": "active",
+      "last_session_iso": "2026-05-01T19:56:55.737868+00:00",
+      "latest_session_size_bytes": 3111,
+      "session_count": 395
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-01T18:50:27.662485+00:00",
       "latest_session_size_bytes": 33445,
       "session_count": 11
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-01T19:14:39.245529+00:00",
-      "latest_session_size_bytes": 280815,
-      "session_count": 1563
+      "status": "active",
+      "last_session_iso": "2026-05-01T19:58:41.148475+00:00",
+      "latest_session_size_bytes": 3073,
+      "session_count": 1564
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "5db4f21",
+      "date": "2026-05-01T21:30:30+02:00",
+      "subject": "auto-sync: 2026-05-01 21:30"
+    },
+    {
       "hash": "ac8dbcc",
       "date": "2026-05-01T21:00:30+02:00",
       "subject": "auto-sync: 2026-05-01 21:00"
@@ -950,11 +955,6 @@
       "hash": "56f3573",
       "date": "2026-05-01T18:30:27+02:00",
       "subject": "auto-sync: 2026-05-01 18:30"
-    },
-    {
-      "hash": "734b39f",
-      "date": "2026-05-01T18:00:27+02:00",
-      "subject": "auto-sync: 2026-05-01 18:00"
     }
   ],
   "scripts": {
@@ -973,27 +973,21 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        2229129,
-        2573443,
-        2573472,
-        2573473,
-        2573553,
-        2573554
+        2591607,
+        2594482,
+        2594493,
+        2594501
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        2487206,
-        2510099,
-        2539324,
-        2542907,
-        2570253,
-        2570397,
-        2573434,
-        2573461,
-        2573468
+        2593111,
+        2594048,
+        2594484,
+        2594503,
+        2594532
       ]
     }
   ],
