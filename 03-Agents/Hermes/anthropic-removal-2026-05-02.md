@@ -1,3 +1,11 @@
+---
+title: Hermes Anthropic Removal
+status: completed
+created: 2026-05-02
+owner: Piet
+scope: hermes-model-routing
+---
+
 # Anthropic/Claude Removal
 
 Datum: 2026-05-02T23:05:57+02:00

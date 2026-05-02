@@ -1,3 +1,11 @@
+---
+title: Hermes Sprint H-2 Operator Companion
+status: completed
+created: 2026-05-02
+owner: Piet
+scope: hermes-operator-companion
+---
+
 # Sprint H-2: Hermes Operator Companion
 
 Date: 2026-05-02
@@ -82,4 +90,3 @@ Stop and report if:
 - Hermes Gateway restart fails;
 - a test response proposes mutation before read-only evidence;
 - Discord starts producing model 400s again.
-

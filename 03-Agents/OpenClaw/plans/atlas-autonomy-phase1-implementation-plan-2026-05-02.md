@@ -1,6 +1,6 @@
 # Atlas Autonomy Phase 1 — Implementation Plan
 
-Stand: 2026-05-02 23:28 Europe/Berlin
+Stand: 2026-05-02 23:51 Europe/Berlin
 Basis:
 - `/home/piet/vault/03-Agents/OpenClaw/plans/atlas-autonomy-policy-matrix-v1-2026-05-02.md`
 - `/home/piet/vault/03-Agents/OpenClaw/plans/atlas-autonomy-preflight-gate-spec-v1-2026-05-02.md`
@@ -119,3 +119,55 @@ Out-of-Scope in diesem Schritt:
 - P1.3 Audit-only Integration.
 - P1.4 Enforcement.
 - P1.5 Threshold-Tuning mit Operator.
+
+## Umsetzungsprotokoll P1.1/P1.2
+
+Zeitpunkt:
+- 2026-05-02 23:44 Europe/Berlin
+
+Implementiert:
+- `/home/piet/.openclaw/workspace/scripts/autonomy-preflight-evaluator.mjs`
+- `/home/piet/.openclaw/workspace/scripts/tests/autonomy-preflight-evaluator.test.mjs`
+- Root `package.json` Script: `test:autonomy-preflight`
+
+Ergebnis:
+- Evaluator als pure function `evaluateAutonomyPreflight(input)` implementiert.
+- Input/Output-Schema als JSON-Schema-Objekte + deterministische Validator-Checks implementiert.
+- Rule-Order aus Spec v1 implementiert (inkl. hard-deny und approval branches).
+- Audit-Felder werden je Entscheidung erzeugt: `policyVersion`, `evaluatedAt`, `inputsHash`, `evaluator`.
+
+Acceptance-/Test-Gate:
+1. `node --test /home/piet/.openclaw/workspace/scripts/tests/autonomy-preflight-evaluator.test.mjs` -> PASS (9/9).
+2. `npm run -s test:autonomy-preflight` -> PASS (9/9).
+3. 8 Spec-Acceptance-Cases + 1 Invalid-Input-Case vorhanden.
+
+Scope-Check:
+- Keine Integration in Dispatch-/Mutation-Runtimepfade durchgeführt.
+- Keine Restart/Cron/Gateway/Model-Routing Mutation vorgenommen.
+
+## Umsetzungsprotokoll P1.3 (Audit-only Integration)
+
+Zeitpunkt:
+- 2026-05-02 23:51 Europe/Berlin
+
+Implementiert:
+- `/home/piet/.openclaw/workspace/scripts/autonomy-preflight-audit-cli.mjs`
+- `/home/piet/.openclaw/workspace/scripts/plan-runner.py` (audit-only Hook in `create_autonomy_draft`)
+
+Audit-only Verhalten:
+- Vor Draft-Erstellung wird ein Preflight-Evaluator-Aufruf ausgeführt.
+- Ergebnis wird ausschließlich geloggt, nicht erzwungen.
+- Auch bei Preflight-Fehlern läuft Draft-Erstellung weiter (explizit non-blocking).
+
+Neue Events im Runner-Log:
+- `autonomy-preflight-audit`
+- `autonomy-preflight-audit-error`
+
+Verifikation:
+1. `python3 -m py_compile /home/piet/.openclaw/workspace/scripts/plan-runner.py` -> PASS.
+2. `node --test /home/piet/.openclaw/workspace/scripts/tests/autonomy-preflight-evaluator.test.mjs` -> PASS (9/9).
+3. CLI Smoke: `autonomy-preflight-audit-cli.mjs` liefert valide JSON-Entscheidung.
+
+Scope-Check:
+- Keine Blockierung/Enforcement aktiviert.
+- Keine Änderung an Restart/Cron/Gateway/Model-Routing.

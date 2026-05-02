@@ -1,3 +1,11 @@
+---
+title: Hermes Sprint H-2 Receipt
+status: passed
+created: 2026-05-02
+owner: Piet
+scope: hermes-operator-companion
+---
+
 # Sprint H-2 Receipt
 
 Date: 2026-05-02

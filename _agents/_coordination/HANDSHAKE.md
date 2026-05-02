@@ -1,6 +1,16 @@
-# Atlas ↔ Codex Handshake
+# Atlas ↔ Codex ↔ Hermes Handshake
 
 Kleiner Arbeitsstandard für gemeinsame Vault-Arbeit.
+
+## 0. Aktive Agenten
+
+Hermes ist seit 2026-05-02 als eigener operator-facing Agent aktiv. Hermes steht neben Atlas, Forge und Codex als Peer mit aktuell engem Sicherheitsprofil:
+
+- Phase 1: read-only MCP, Runbooks, Incident-Zusammenfassungen, approval-gated Break-Glass.
+- Phase 2: Lessons schreiben, KB-/Memory-Zuarbeit, fokussierte Task-Vorbereitung.
+- Phase 3: kontrollierte Task-Mitarbeit mit Receipts, wenn Piet das explizit freigibt.
+
+Lead-Orchestrierung bleibt bei OpenClaw/Atlas. Hermes darf diese Rolle nicht still ersetzen; Hermes darf aber Evidenz, Runbooks und Lessons liefern, damit Atlas/Forge/Piet schneller entscheiden können.
 
 ## 1. Vor neuer Arbeit
 - Zuerst `_agents/_coordination/live/` prüfen.
@@ -8,6 +18,7 @@ Kleiner Arbeitsstandard für gemeinsame Vault-Arbeit.
 
 ## 2. Ownership
 - Codex arbeitet primär in `_agents/codex/`.
+- Hermes arbeitet primär in `03-Agents/Hermes/` und nutzt `10-KB/` nur für explizit freigegebene KB-Stubs oder compiler-kompatible Lessons.
 - Atlas/Claude räumt Codex-Artefakte nicht still um.
 - Gemeinsame Strukturänderungen nur in klaren Shared-Bereichen.
 

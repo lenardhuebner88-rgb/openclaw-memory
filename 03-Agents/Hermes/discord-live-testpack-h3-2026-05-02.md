@@ -1,3 +1,11 @@
+---
+title: Hermes Discord Live Testpack H-3
+status: passed
+created: 2026-05-02
+owner: Piet
+scope: hermes-discord-e2e
+---
+
 # Hermes Discord Live Testpack H-3
 
 Datum: 2026-05-02

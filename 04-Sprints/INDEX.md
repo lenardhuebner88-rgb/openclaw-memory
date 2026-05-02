@@ -1,7 +1,7 @@
 ---
 title: 04-Sprints Status Index
 status: index
-last_update: 2026-05-01
+last_update: 2026-05-02
 maintained_by: claude (manual until cron-sprint-index-generator deployed)
 source_of_truth: true
 purpose: Single canonical view of all sprint status. Newer than READMEs/AGENTS.md.
@@ -70,6 +70,22 @@ purpose: Single canonical view of all sprint status. Newer than READMEs/AGENTS.m
 | **Sprint-K Infra-Hardening** | H9, H11, H12, H13 reports in `/reports/` | H10 status unclear; Plan-Doc not moved out of `/planned/` | [reports/sprint-k-h9-…](reports/sprint-k-h9-contrast-audit-report-2026-04-20.md) [H11](reports/sprint-k-h11-session-lock-governance-report-2026-04-20.md) [H12](reports/sprint-k-h12-board-state-machine-fix-report-2026-04-20.md) [H13](reports/sprint-k-h13-defense-layers-report-2026-04-20.md) |
 | **Sprint-L Memory-KB** | L1-L6-Lite MVPs all live | L1 Deep LLM-Synthesis (gpt-5.4-mini migration) in nightly phase | [planned/sprint-l-memory-kb-compilation-plan-2026-04-19.md](planned/sprint-l-memory-kb-compilation-plan-2026-04-19.md) — likely to be marked superseded |
 | **Sprint-M v1.2.1 Audit-Integrity** | M1-M7, M5a, Wave-2 done (per MCP sprint_status) | M0.B Lens-Plan-Review failed ×2 — needs RCA or accepted-failure note | [reports/sprint-m-session-closeout-and-forge-verification-2026-04-21.md](reports/sprint-m-session-closeout-and-forge-verification-2026-04-21.md) |
+
+---
+
+## Hermes Sprint Lane — active peer integration
+
+Hermes is active since 2026-05-02 as an operator-facing peer agent for OpenClaw/Homeserver support. Phase 1 keeps Hermes mostly read-only and approval-gated; Phase 2/3 can expand into task support, lesson writing, and memory contribution after explicit operator gates.
+
+| ID | Status | Owner | Pointer | Outcome / Next Gate |
+|---|---|---|---|---|
+| **H-2** | done | Codex/Hermes | [../03-Agents/Hermes/sprint-h2-operator-companion-2026-05-02.md](../03-Agents/Hermes/sprint-h2-operator-companion-2026-05-02.md) + [receipt](../03-Agents/Hermes/sprint-h2-receipt-2026-05-02.md) | Operator companion, `mc-readonly`, QMD stdio path, first Discord E2E. |
+| **H-3** | done | Codex/Hermes | [../03-Agents/Hermes/sprint-h3-discord-live-openclaw-readonly-2026-05-02.md](../03-Agents/Hermes/sprint-h3-discord-live-openclaw-readonly-2026-05-02.md) + [receipt](../03-Agents/Hermes/sprint-h3-receipt-2026-05-02.md) | `openclaw-readonly` MCP, model status, break-glass runbooks, Discord live checks. |
+| **H-4** | done | Codex/Hermes | [../03-Agents/Hermes/plans/sprint-h4-hermes-operator-optimization-2026-05-02.md](../03-Agents/Hermes/plans/sprint-h4-hermes-operator-optimization-2026-05-02.md) + [receipt](../03-Agents/Hermes/sprint-h4-receipt-2026-05-02.md) | PII redaction, stage-1 systemd hardening, slash-sync throttle, tool-surface tightening. |
+| **H-5** | done | Codex/Hermes | [../03-Agents/Hermes/sprint-h4-receipt-2026-05-02.md](../03-Agents/Hermes/sprint-h4-receipt-2026-05-02.md) | Operating check and MCP E2E after H-4; no active 429 loop observed. |
+| **H-6** | done | Codex | [../03-Agents/Hermes/sprint-h6-receipt-2026-05-02.md](../03-Agents/Hermes/sprint-h6-receipt-2026-05-02.md) | Vault documentation optimized for active peer trajectory. |
+| **H-7** | partial-pass | Hermes/Codex | [../03-Agents/Hermes/plans/sprint-h7-phase2-lesson-loop-2026-05-02.md](../03-Agents/Hermes/plans/sprint-h7-phase2-lesson-loop-2026-05-02.md) + [receipt](../03-Agents/Hermes/sprint-h7-receipt-2026-05-02.md) | Lessons loop alpha: schema, pending validation, static eval gate, manual extractor first; cron not active. |
+| **H-8** | planned | Hermes/OpenClaw | `TBD` | Controlled task participation pilot after explicit operator approval and receipt gates. |
 
 ---
 

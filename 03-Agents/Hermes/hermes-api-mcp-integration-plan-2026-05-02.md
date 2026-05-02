@@ -1,3 +1,11 @@
+---
+title: Hermes API MCP Integration Plan
+status: completed
+created: 2026-05-02
+owner: Piet
+scope: hermes-api-mcp
+---
+
 # Hermes API/MCP Integration Plan
 
 Date: 2026-05-02

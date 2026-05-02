@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T21:30:01.901357+00:00",
+  "generated_at": "2026-05-02T22:00:01.877808+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 190,
+    "scripts_active": 192,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-02T21:29:48.511786+00:00",
-      "latest_session_size_bytes": 8028,
-      "session_count": 412
+      "status": "monitoring",
+      "last_session_iso": "2026-05-02T21:53:32.602587+00:00",
+      "latest_session_size_bytes": 22902,
+      "session_count": 410
     },
     {
       "id": "spark",
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-02T21:01:45.560543+00:00",
-      "latest_session_size_bytes": 801400,
-      "session_count": 1593
+      "status": "ready",
+      "last_session_iso": "2026-05-02T20:01:46.432306+00:00",
+      "latest_session_size_bytes": 5827,
+      "session_count": 1592
     },
     {
       "id": "system-bot",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "0bad289",
+      "date": "2026-05-02T23:31:30+02:00",
+      "subject": "auto-sync: 2026-05-02 23:31"
+    },
+    {
       "hash": "2da9496",
       "date": "2026-05-02T23:01:29+02:00",
       "subject": "auto-sync: 2026-05-02 23:01"
@@ -964,16 +969,11 @@
       "hash": "0f291c2",
       "date": "2026-05-02T19:01:22+02:00",
       "subject": "auto-sync: 2026-05-02 19:01"
-    },
-    {
-      "hash": "f3fd740",
-      "date": "2026-05-02T18:31:22+02:00",
-      "subject": "auto-sync: 2026-05-02 18:31"
     }
   ],
   "scripts": {
     "scripts_root": 120,
-    "workspace_scripts": 70
+    "workspace_scripts": 72
   },
   "mcp_servers": [
     {
@@ -991,22 +991,20 @@
       "status": "running",
       "pids": [
         3550290,
-        3553754,
-        3553755,
-        3563301,
-        3563313,
-        3563322,
-        3563371,
-        3563372
+        3574225,
+        3574226,
+        3583788,
+        3583838,
+        3583844
       ]
     }
   ],
   "active_sprint": {
-    "agent": "unknown",
-    "started": "2026-04-28T18:32:16Z",
-    "ended": "null",
-    "task": "",
-    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-04-28_2032_codex-desktop_terminal-codex-coordination.md"
+    "agent": "codex",
+    "started": "2026-05-02T21:37Z",
+    "ended": "2026-05-02T21:45Z",
+    "task": "Sprint H-6 Hermes Vault documentation optimization",
+    "source_file": "/home/piet/vault/_agents/_coordination/live/2026-05-02_2337_codex_hermes-h6-vault-docs.md"
   },
   "cron_health": {
     "total_monitored": 33,

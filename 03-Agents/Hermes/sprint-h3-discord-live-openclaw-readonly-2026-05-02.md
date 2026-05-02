@@ -1,3 +1,11 @@
+---
+title: Hermes Sprint H-3 Discord Live OpenClaw Readonly
+status: completed
+created: 2026-05-02
+owner: Piet
+scope: hermes-openclaw-readonly
+---
+
 # Hermes Sprint H-3: Discord Live + OpenClaw Read-only
 
 Datum: 2026-05-02

@@ -1,7 +1,7 @@
 ---
 title: Vault Master Index
 status: index
-last_update: 2026-04-29
+last_update: 2026-05-02
 maintained_by: claude (manual)
 purpose: Single entry-point for "where is the truth?". Pointers only — no content.
 ---
@@ -32,8 +32,20 @@ Folder mechanics (read after the index, not before):
 
 ## 🤝 Agent coordination
 
-- **[03-Agents/_coordination/HANDSHAKE.md](_coordination/HANDSHAKE.md)** — live SSoT for cross-agent collaboration. §6 supersedes the standalone `agent_team_meetings_plan` (lokal-memory).
-- **[03-Agents/_coordination/meetings/README.md](_coordination/meetings/README.md)** — meeting modes (debate / council / review).
+- **[_agents/_coordination/HANDSHAKE.md](../_agents/_coordination/HANDSHAKE.md)** — live SSoT for cross-agent collaboration. §6 supersedes the standalone `agent_team_meetings_plan` (lokal-memory).
+- **[_agents/_coordination/meetings/README.md](../_agents/_coordination/meetings/README.md)** — meeting modes (debate / council / review).
+
+## 🛰️ Hermes
+
+- **[03-Agents/Hermes/README.md](Hermes/README.md)** — Hermes folder note and first-read map.
+- **[03-Agents/Hermes/AGENTS.md](Hermes/AGENTS.md)** — Hermes scope, approvals, coordination, and Phase 2/3 trajectory.
+- **[03-Agents/Hermes/working-context.md](Hermes/working-context.md)** — current operator context, break-glass gates, playbook routing.
+- **[03-Agents/Hermes/system-overview.md](Hermes/system-overview.md)** — active services, canonical paths, MCP surfaces, response shape.
+- **[03-Agents/Hermes/playbooks/](Hermes/playbooks/)** — incident runbooks for Discord, Mission Control, OpenClaw, QMD, model routing.
+- **[03-Agents/Hermes/lessons/INDEX.md](Hermes/lessons/INDEX.md)** — Phase-2 lesson loop and validation queue.
+- **[10-KB/hermes-shadow-debug.md](../10-KB/hermes-shadow-debug.md)** — compact KB article for Hermes lessons and operating pattern.
+
+Hermes is active as an operator-facing peer agent. Phase 1 is read-only diagnostics and approval-gated break-glass support; Phase 2/3 may expand toward task work, lessons, and memory contribution after explicit gates.
 
 ## 🧠 Context & memory architecture
 

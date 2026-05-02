@@ -1,3 +1,11 @@
+---
+title: Hermes Break-Glass Mode Split
+status: active
+created: 2026-05-02
+owner: Piet
+scope: hermes-break-glass
+---
+
 # Hermes Betriebsmodi: Normalmodus und Break-Glass
 
 Datum: 2026-05-02

@@ -1,3 +1,11 @@
+---
+title: Hermes Mission Control Degraded RCA
+status: completed
+created: 2026-05-02
+owner: Piet
+scope: mission-control-readonly
+---
+
 # Mission Control Degraded RCA
 
 Datum: 2026-05-02

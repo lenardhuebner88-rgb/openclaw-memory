@@ -1,3 +1,11 @@
+---
+title: Hermes Sprint H-3 Receipt
+status: passed
+created: 2026-05-02
+owner: Piet
+scope: hermes-openclaw-readonly
+---
+
 # Hermes Sprint H-3 Receipt
 
 Datum: 2026-05-02
