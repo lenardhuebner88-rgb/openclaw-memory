@@ -47,6 +47,9 @@ Primary playbook:
 
 - System overview: `/home/piet/vault/03-Agents/Hermes/system-overview.md`
 - API/MCP integration plan: `/home/piet/vault/03-Agents/Hermes/hermes-api-mcp-integration-plan-2026-05-02.md`
+- Sprint H-2 plan: `/home/piet/vault/03-Agents/Hermes/sprint-h2-operator-companion-2026-05-02.md`
+- Sprint H-2 receipt: `/home/piet/vault/03-Agents/Hermes/sprint-h2-receipt-2026-05-02.md`
+- Hermes skill: `openclaw-operator`
 - Hermes Gateway down: `/home/piet/vault/03-Agents/Hermes/playbooks/hermes-gateway-down.md`
 - Discord bot unresponsive: `/home/piet/vault/03-Agents/Hermes/playbooks/discord-bot-unresponsive.md`
 - Discord token rotation: `/home/piet/vault/03-Agents/Hermes/playbooks/discord-token-rotation.md`

@@ -30,6 +30,7 @@ Gate 1 - Read-only live evidence:
 Gate 2 - Tool boundary:
 
 - Mission Control API use starts with GET-only endpoints.
+- OpenClaw status use starts with `openclaw-readonly` MCP.
 - QMD MCP use starts with read-only search/retrieval tools only.
 - Mutation routes stay out of the default flow.
 
@@ -93,9 +94,30 @@ Live evidence on 2026-05-02:
 
 Hermes should first select the relevant runbook, then gather evidence.
 
+## Phase 2b - OpenClaw MCP Read-only
+
+Configured MCP server:
+
+```yaml
+mcp_servers:
+  openclaw-readonly:
+    command: /home/piet/.hermes/hermes-agent/venv/bin/python
+    args:
+    - /home/piet/.hermes/mcp/openclaw_readonly_server.py
+    timeout: 30
+    connect_timeout: 15
+```
+
+Live evidence on 2026-05-02:
+
+- `hermes mcp test openclaw-readonly`: connected, 6 tools discovered.
+- Tools discovered: `openclaw_gateway_health`, `openclaw_services_status`, `openclaw_recent_logs`, `openclaw_model_status`, `openclaw_recent_sessions`, `openclaw_status_summary`.
+- E2E OpenClaw Lagebild: PASS, Gateway `ok=true/status=live`, Gateway and Discord bot services active.
+
 Core incident packages:
 
 - Mission Control API read-only: `/home/piet/vault/03-Agents/Hermes/playbooks/mission-control-api-readonly.md`
+- OpenClaw read-only MCP: `/home/piet/vault/03-Agents/Hermes/playbooks/openclaw-readonly-mcp.md`
 - QMD MCP read-only: `/home/piet/vault/03-Agents/Hermes/playbooks/qmd-mcp-readonly.md`
 - Mission Control down and Atlas unavailable: `/home/piet/vault/03-Agents/Hermes/playbooks/mission-control-down-atlas-unavailable.md`
 - OpenClaw Gateway down: `/home/piet/vault/03-Agents/Hermes/playbooks/openclaw-gateway-down.md`
@@ -125,8 +147,11 @@ This block is done when:
 
 - The plan exists in the Hermes vault folder.
 - Mission Control read-only runbook exists.
+- OpenClaw read-only runbook exists.
 - QMD MCP read-only runbook exists.
 - Hermes config contains `qmd-vault`.
+- Hermes config contains `openclaw-readonly`.
 - `hermes mcp test qmd-vault` passes.
+- `hermes mcp test openclaw-readonly` passes.
 - Hermes gateway is restarted after config change and active.
 - E2E notes record the result and any residual issue.

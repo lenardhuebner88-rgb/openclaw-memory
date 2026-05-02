@@ -12,6 +12,15 @@ Use this playbook when OpenClaw Gateway appears crashed, unreachable, or severel
 
 ## Allowed Without Approval
 
+Prefer `openclaw-readonly` MCP first:
+
+- `openclaw_gateway_health`
+- `openclaw_services_status`
+- `openclaw_recent_logs`
+- `openclaw_status_summary`
+
+Use shell checks only when the MCP path is unavailable or Piet explicitly asks for host-level break-glass diagnosis.
+
 Read-only evidence gathering:
 
 ```bash

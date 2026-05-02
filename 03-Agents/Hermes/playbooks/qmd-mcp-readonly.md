@@ -66,6 +66,12 @@ Permitted uses:
 - retrieve known documents by path/docid;
 - get index status.
 
+Operational note:
+
+- For known Hermes/OpenClaw incident classes, select the known runbook path first.
+- Do not start with broad QMD search when the runbook is already known.
+- Broad QMD/Vault prompts can time out in Discord-like sessions; prefer `status`, `get`, or narrow collection-filtered search.
+
 Forbidden in this playbook:
 
 - reindexing;

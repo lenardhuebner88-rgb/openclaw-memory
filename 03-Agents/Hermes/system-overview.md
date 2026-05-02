@@ -56,6 +56,14 @@ This is Hermes' first-read system map for Piet's local OpenClaw/Homeserver envir
 - `hermes-gateway.service`: Hermes Discord gateway
 - `qmd-mcp-http.service`: QMD MCP HTTP bridge on `127.0.0.1:8181`
 
+## Hermes Read-only MCP Surface
+
+- `mc-readonly`: Mission Control health, board, alerts, task snapshot, monitoring, skill/plugin inventory.
+- `openclaw-readonly`: OpenClaw Gateway health, OpenClaw/Discord service status, recent warning logs, model status, recent sessions.
+- `qmd-vault`: Vault/KB search and retrieval through QMD stdio MCP.
+
+Use these before shell checks in normal Discord operation.
+
 ## Default Read-Only Checks
 
 ```bash
@@ -79,4 +87,3 @@ journalctl --user -u openclaw-gateway.service -u mission-control.service -u open
 2. Evidence
 3. Risk
 4. Next Action
-
