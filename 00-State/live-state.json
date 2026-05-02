@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T14:30:01.542967+00:00",
+  "generated_at": "2026-05-02T15:00:01.969395+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -56,7 +56,7 @@
       "status": "ready",
       "last_session_iso": "2026-05-01T18:48:58.779976+00:00",
       "latest_session_size_bytes": 87534,
-      "session_count": 32
+      "session_count": 31
     },
     {
       "id": "frontend-guru",
@@ -69,17 +69,17 @@
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "ready",
-      "last_session_iso": "2026-05-02T11:49:55.213617+00:00",
-      "latest_session_size_bytes": 268602,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-02T14:38:45.776894+00:00",
+      "latest_session_size_bytes": 515444,
       "session_count": 2
     },
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T14:20:00.305624+00:00",
-      "latest_session_size_bytes": 439724,
+      "last_session_iso": "2026-05-02T14:50:30.759349+00:00",
+      "latest_session_size_bytes": 443412,
       "session_count": 400
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "99fe476",
+      "date": "2026-05-02T16:31:21+02:00",
+      "subject": "auto-sync: 2026-05-02 16:31"
+    },
+    {
       "hash": "72cd84f",
       "date": "2026-05-02T16:01:18+02:00",
       "subject": "auto-sync: 2026-05-02 16:01"
@@ -964,11 +969,6 @@
       "hash": "60355c2",
       "date": "2026-05-02T12:00:43+02:00",
       "subject": "auto-sync: 2026-05-02 12:00"
-    },
-    {
-      "hash": "e94f6d9",
-      "date": "2026-05-02T11:30:43+02:00",
-      "subject": "auto-sync: 2026-05-02 11:30"
     }
   ],
   "scripts": {
@@ -989,22 +989,17 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        3040970,
-        3308383,
-        3308391,
-        3308422
+        3317770,
+        3328225,
+        3328248,
+        3328259
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3299371,
-        3308004,
-        3308384,
-        3308399,
-        3308401,
-        3308513
+        3324186
       ]
     }
   ],
