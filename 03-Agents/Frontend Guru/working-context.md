@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: da702b2a-94bb-4739-a553-7a4dafb8aaf3 MissionShell V3 Overview-first navigation bar
+- task: 93deb2e5-6fae-417d-81b2-29eeaefc14a1 Align /memory operator trust surface to v3 design
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Progress: accepted verified via GET. Inspected MissionShell, BottomTabBar, drawer section links, active route matching, and command-search route entries. Pre-implementation nav plan: desktop topnav becomes Overview-first
+- checkpoint: Progress: accepted verified via GET and /memory dependencies inspected: src/app/memory/page.tsx, MemoryLayersClient, MemoryMarkdownView, MemorySearch, and lib/memory-layers. Scope confirmed as /memory-only frontend route
 - blocker: -
-- updated: 2026-05-02T11:57:33.178Z
+- updated: 2026-05-02T12:30:39.308Z
 <!-- mc:auto-working-context:end -->
