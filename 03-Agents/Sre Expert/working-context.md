@@ -7,10 +7,13 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: e5757729-6316-4150-a170-d3cac32fdf51 Deploy and live-proof Mission Control V3 slices through /memory
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: Live /memory acceptance marker missing after safe restart: expected 'Memory Trust Surface · v3 operator slice' not found in live HTML response from http://127.0.0.1:3000/memory.
-- blocker: Live /memory acceptance marker missing after safe restart: expected 'Memory Trust Surface · v3 operator slice' not found in live HTML response from http://127.0.0.1:3000/memory.
-- updated: 2026-05-02T12:43:01.119Z
+- task: 99cc9d03-b2a5-42e9-9a86-6703a7ff61b4 P2: cron hygiene batch 1 - shell-only candidates audit and migration plan
+- stage: DONE
+- next: await next assignment
+- checkpoint: EXECUTION_STATUS: done
+RESULT_SUMMARY:
+- Classification + action (batch-1 candidates):
+  - `validate-models` -> **path hygiene only (applied)**; kept LLM wrapper, switched payload path to `/home/piet/.openclaw/scripts/va
+- blocker: -
+- updated: 2026-05-02T20:28:43.757Z
 <!-- mc:auto-working-context:end -->

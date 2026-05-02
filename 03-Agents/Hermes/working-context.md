@@ -46,10 +46,14 @@ If OpenClaw, Mission Control, or Hermes appears crashed or unreachable, Hermes m
 Primary playbook:
 
 - System overview: `/home/piet/vault/03-Agents/Hermes/system-overview.md`
+- API/MCP integration plan: `/home/piet/vault/03-Agents/Hermes/hermes-api-mcp-integration-plan-2026-05-02.md`
 - Hermes Gateway down: `/home/piet/vault/03-Agents/Hermes/playbooks/hermes-gateway-down.md`
 - Discord bot unresponsive: `/home/piet/vault/03-Agents/Hermes/playbooks/discord-bot-unresponsive.md`
 - Discord token rotation: `/home/piet/vault/03-Agents/Hermes/playbooks/discord-token-rotation.md`
 - Gateway Discord provider 401/429: `/home/piet/vault/03-Agents/Hermes/playbooks/gateway-discord-provider-401-429.md`
+- Hermes model routing: `/home/piet/vault/03-Agents/Hermes/playbooks/hermes-model-routing.md`
+- Mission Control API read-only: `/home/piet/vault/03-Agents/Hermes/playbooks/mission-control-api-readonly.md`
+- QMD MCP read-only: `/home/piet/vault/03-Agents/Hermes/playbooks/qmd-mcp-readonly.md`
 - Vault context drift: `/home/piet/vault/03-Agents/Hermes/playbooks/vault-context-drift.md`
 - OpenClaw/Piet Discord commands broken: `/home/piet/vault/03-Agents/Hermes/playbooks/openclaw-discord-commands-broken.md`
 - Mission Control `/api/discord/send` failed: `/home/piet/vault/03-Agents/Hermes/playbooks/mission-control-api-discord-send-failed.md`

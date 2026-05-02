@@ -2895,3 +2895,105 @@ RISKS_OR_BLOCKERS
 - 2026-05-02T12:41:00.939Z | START | e5757729-6316-4150-a170-d3cac32fdf51 | Deploy and live-proof Mission Control V3 slices through /memory | worker=sre-expert | progress=- | summary=-
 - 2026-05-02T12:42:43.073Z | CHECKPOINT | e5757729-6316-4150-a170-d3cac32fdf51 | Deploy and live-proof Mission Control V3 slices through /memory | worker=sre-expert | progress=85% | summary=- | note=Pre-deploy checks and safe restart succeeded; all required live routes return HTTP 200. Blocker surfaced on final acceptance check: /memory live response does not contain marker text 'Memory Trust Surface · v3 operator slice' after restart, so deployment proof cannot be marked PASS yet.
 - 2026-05-02T12:43:01.116Z | BLOCKED | e5757729-6316-4150-a170-d3cac32fdf51 | Deploy and live-proof Mission Control V3 slices through /memory | worker=sre-expert | progress=85% | summary=- | note=Live /memory acceptance marker missing after safe restart: expected 'Memory Trust Surface · v3 operator slice' not found in live HTML response from http://127.0.0.1:3000/memory.
+- 2026-05-02T20:03:53.459Z | START | acd87126-8e86-404b-bcb4-914f9ccbc1ae | P2: mcp-zombie-killer safety hardening and shell-only cron migration | worker=sre-expert | progress=- | summary=-
+- 2026-05-02T20:04:49.010Z | CHECKPOINT | acd87126-8e86-404b-bcb4-914f9ccbc1ae | P2: mcp-zombie-killer safety hardening and shell-only cron migration | worker=sre-expert | progress=85% | summary=- | note=Applied safety hardening and shell-only migration with backups: mcp-zombie-killer keep_count now max(KEEP_LIMIT, active_sessions), and job 26ed095e switched from enabled agentTurn to migrated systemJob config (timer unit + runner metadata). Dry-run and live script proofs both returned MCP_ZOMBIE_KILLER_OK with keep_count=3, active_sessions=1, killed=0; Mission Control health/worker/pickup proof snapshots captured.
+- 2026-05-02T20:05:25.611Z | DONE | acd87126-8e86-404b-bcb4-914f9ccbc1ae | P2: mcp-zombie-killer safety hardening and shell-only cron migration | worker=sre-expert | progress=85% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Implemented safety hardening + shell-only migration for MCP zombie killer.
+- Changed file: `/home/piet/.openclaw/scripts/mcp-zombie-killer.sh` line 92 from `keep_count = keep_limit` to `keep_count = max(keep_limit, active_sessions)`; preserved `KEEP_LIMIT=3`, `MAX_AGE_SECONDS=3600`, `DRY_RUN` behavior.
+- Cron/job migration applied in `/home/piet/.openclaw/cron/jobs.json` for job `26ed095e-a77a-4b3d-8b50-9ff06635cf92`: set `enabled=false`, `disabledReason=migrated-to-systemd-systemjob`, added `systemJob` block (`unit=openclaw-systemjob-mcp-zombie-killer-hourly.timer`, command `/home/piet/.openclaw/scripts/mcp-zombie-killer.sh`, timeout 180, success/failure patterns), kept existing `failureAlert` semantics intact.
+- Backups created:
+  - `/home/piet/.openclaw/scripts/mcp-zombie-killer.sh.bak-20260502-220440`
+  - `/home/piet/.openclaw/cron/jobs.json.bak-20260502-220440`
+- Verification commands and outcomes:
+  - `bash -n /home/piet/.openclaw/scripts/mcp-zombie-killer.sh` -> PASS
+  - `DRY_RUN=1 /home/piet/.openclaw/scripts/mcp-zombie-killer.sh` -> `MCP_ZOMBIE_KILLER_OK total_before=2 active_sessions=1 keep_count=3 stale_candidates=0 killed=0 remaining=2 mode=dry-run`
+  - `/home/piet/.openclaw/scripts/mcp-zombie-killer.sh` -> `MCP_ZOMBIE_KILLER_OK ... killed=0 ... mode=live`
+  - Job migration proof: `enabled False`, `hasSystemJob True`, `unit openclaw-systemjob-mcp-zombie-killer-hourly.timer`, `failureAlert True`.
+  - Mission Control proofs:
+    - `/api/ops/worker-reconciler-proof?limit=20` -> `ok`
+    - `/api/ops/pickup-proof?limit=20` -> `ok`
+    - `/api/health` -> `degraded` due to pre-existing execution stale/recovery (`staleOpenTasks=1`, `recoveryLoad=1`), unrelated to this change.
+- Evidence artifacts:
+  - `/tmp/mcp-zk-dryrun-20260502-220440.log`
+  - `/tmp/mcp-zk-live-20260502-220440.log`
+  - `/tmp/mc-health-acd87126-20260502-220440.json`
+  - `/tmp/mc-worker-proof-acd87126-20260502-220440.json`
+  - `/tmp/mc-pickup-proof-acd87126-20260502-220440.json`
+Remaining risk: systemJob unit activation depends on runtime systemjob reconciler consuming updated jobs.json; migration metadata is in place and script behavior is validated live.
+- 2026-05-02T20:15:37.853Z | START | a02492ee-0a90-4744-9c94-ca04875793c5 | P1: activate mcp-zombie-killer systemJob timer at 10min cadence | worker=sre-expert | progress=- | summary=-
+- 2026-05-02T20:17:20.380Z | CHECKPOINT | a02492ee-0a90-4744-9c94-ca04875793c5 | P1: activate mcp-zombie-killer systemJob timer at 10min cadence | worker=sre-expert | progress=90% | summary=- | note=Activated live user-systemd timer openclaw-systemjob-mcp-zombie-killer-10min.timer at 10-minute cadence and aligned job metadata/backups. Dry-run/live script proofs both OK with keep floor respected (active_sessions=1, keep_count=3, killed=0). Gathering final health/proof summary for terminal receipt.
+- 2026-05-02T20:17:44.720Z | DONE | a02492ee-0a90-4744-9c94-ca04875793c5 | P1: activate mcp-zombie-killer systemJob timer at 10min cadence | worker=sre-expert | progress=90% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY: Activated shell-only MCP zombie killer scheduler at ~10-minute cadence and verified live operation.
+- Files changed:
+  - `/home/piet/.openclaw/cron/jobs.json`
+  - `/home/piet/.config/systemd/user/openclaw-systemjob-mcp-zombie-killer-10min.timer`
+- Backups:
+  - `/home/piet/.openclaw/cron/jobs.json.bak-20260502-221711`
+- Job metadata updates (id `26ed095e-a77a-4b3d-8b50-9ff06635cf92`):
+  - `name` -> `mcp-zombie-killer-10min`
+  - `schedule.expr` -> `*/10 * * * *`
+  - `systemJob.unit` -> `openclaw-systemjob-mcp-zombie-killer-10min.timer`
+  - kept shell-only command `/home/piet/.openclaw/scripts/mcp-zombie-killer.sh`
+  - retained `enabled=false` + `disabledReason=migrated-to-systemd-systemjob` (consistent with existing migrated systemJob pattern)
+- Final timer name and cadence:
+  - Timer: `openclaw-systemjob-mcp-zombie-killer-10min.timer`
+  - Cadence: `OnCalendar=*-*-* *:0/10:00`
+  - Service target: `openclaw-systemjob@26ed095e-a77a-4b3d-8b50-9ff06635cf92.service`
+- Activation/proof commands and outcomes:
+  - `systemctl --user daemon-reload` -> OK
+  - `systemctl --user enable --now openclaw-systemjob-mcp-zombie-killer-10min.timer` -> OK
+  - `systemctl --user list-timers --all '*mcp*zombie*'` -> timer listed active/waiting, next trigger shown
+  - `systemctl --user status openclaw-systemjob-mcp-zombie-killer-10min.timer` -> Loaded+Active(waiting)
+  - `bash -n /home/piet/.openclaw/scripts/mcp-zombie-killer.sh` -> PASS
+  - `DRY_RUN=1 /home/piet/.openclaw/scripts/mcp-zombie-killer.sh` -> `MCP_ZOMBIE_KILLER_OK ... active_sessions=1 keep_count=3 killed=0`
+  - `/home/piet/.openclaw/scripts/mcp-zombie-killer.sh` -> `MCP_ZOMBIE_KILLER_OK ... active_sessions=1 keep_count=3 killed=0`
+- Mission Control proof endpoints:
+  - `/api/ops/worker-reconciler-proof?limit=20` -> OK
+  - `/api/ops/pickup-proof?limit=20` -> OK
+  - `/api/health` -> degraded (pre-existing stale/recovery signal; unrelated to this timer activation)
+- Evidence artifacts:
+  - `/tmp/mcp-zk-10min-dry-20260502-221711.log`
+  - `/tmp/mcp-zk-10min-live-20260502-221711.log`
+  - `/tmp/mcp-zk-10min-timers-20260502-221711.txt`
+  - `/tmp/mcp-zk-10min-status-20260502-221711.txt`
+  - `/tmp/mcp-zk-10min-worker-proof-20260502-221711.json`
+  - `/tmp/mcp-zk-10min-pickup-proof-20260502-221711.json`
+  - `/tmp/mcp-zk-10min-health-20260502-221711.json`
+Remaining risk: job is now operational via user-systemd timer; keep monitoring MC degraded health separately because it predates this change.
+- 2026-05-02T20:26:40.006Z | START | 99cc9d03-b2a5-42e9-9a86-6703a7ff61b4 | P2: cron hygiene batch 1 - shell-only candidates audit and migration plan | worker=sre-expert | progress=- | summary=-
+- 2026-05-02T20:27:44.545Z | CHECKPOINT | 99cc9d03-b2a5-42e9-9a86-6703a7ff61b4 | P2: cron hygiene batch 1 - shell-only candidates audit and migration plan | worker=sre-expert | progress=85% | summary=- | note=Completed safe batch-1 hygiene mutations: copied deterministic candidate scripts from workspace to production scripts path where missing, updated five candidate cron payloads to /home/piet/.openclaw/scripts/*, and added failureAlert routing for those five operational jobs. Validation and proof endpoints executed; preparing final per-job classification with untouched-job rationale.
+- 2026-05-02T20:28:43.754Z | DONE | 99cc9d03-b2a5-42e9-9a86-6703a7ff61b4 | P2: cron hygiene batch 1 - shell-only candidates audit and migration plan | worker=sre-expert | progress=85% | summary=EXECUTION_STATUS: done
+RESULT_SUMMARY:
+- Classification + action (batch-1 candidates):
+  - `validate-models` -> **path hygiene only (applied)**; kept LLM wrapper, switched payload path to `/home/piet/.openclaw/scripts/validate-models.py`, added `failureAlert`.
+  - `learnings-to-tasks` -> **path hygiene only (applied)**; kept LLM wrapper, switched payload path to `/home/piet/.openclaw/scripts/learnings-to-tasks.py`, added `failureAlert`.
+  - `memory-rem-backfill` -> **path hygiene only (applied)**; kept LLM wrapper, switched payload path to `/home/piet/.openclaw/scripts/rem-backfill-safe.sh`, added `failureAlert`.
+  - `memory-sqlite-vacuum-weekly` -> **path hygiene only (applied)**; kept LLM wrapper, switched payload path to `/home/piet/.openclaw/scripts/sqlite-vacuum-memory.sh`, added `failureAlert`.
+  - `mc-pending-pickup-smoke-hourly` -> **path hygiene only (applied)**; switched payload path to `/home/piet/.openclaw/scripts/mc-pending-pickup-smoke.sh`, added `failureAlert`.
+  - `daily-ops-digest` -> **keep LLM (unchanged)**; already on production script path and includes narrative/posting contract, migration semantics not clearly deterministic.
+  - `session-cleanup-local` -> **keep LLM (unchanged)**; performs mutable cleanup logic across session stores; not an obvious shell-only migration candidate.
+- No new systemJob timer migrations were executed in this batch by design (ambiguity gate respected; no scheduling-gap risk introduced).
+- Files changed:
+  - `/home/piet/.openclaw/cron/jobs.json`
+  - New production-path script copies (where missing before):
+    - `/home/piet/.openclaw/scripts/validate-models.py`
+    - `/home/piet/.openclaw/scripts/learnings-to-tasks.py`
+    - `/home/piet/.openclaw/scripts/rem-backfill-safe.sh`
+    - `/home/piet/.openclaw/scripts/sqlite-vacuum-memory.sh`
+- Backups:
+  - `/home/piet/.openclaw/cron/jobs.json.bak-20260502-222729`
+  - Source-copy snapshots created during copy step for promoted scripts: `*.bak-20260502-222729.source-copy`.
+- Validation/proof:
+  - Script checks: `bash -n` passed for promoted shell scripts.
+  - Endpoint proofs:
+    - `/api/ops/worker-reconciler-proof?limit=20` -> `ok`
+    - `/api/ops/pickup-proof?limit=20` -> `ok`
+    - `/api/health` -> `degraded` (pre-existing stale/recovery signal, not introduced by this batch).
+- Evidence:
+  - `/tmp/cron-hyg-worker-proof-20260502-222729.json`
+  - `/tmp/cron-hyg-pickup-proof-20260502-222729.json`
+  - `/tmp/cron-hyg-health-20260502-222729.json`
+  - `/tmp/cron-hyg-validate-help-20260502-222729.log`
+  - `/tmp/cron-hyg-learnings-help-20260502-222729.log`
+- Remaining follow-up:
+  - Batch-2 optional deep migration pass can evaluate systemJob conversion for selected jobs once deterministic success/failure patterns and alert semantics are explicitly codified per job.
