@@ -1,139 +1,117 @@
 # 2026-05-02 Cron Routing Migration Plan
 
-Status: PARTIAL, read-only inventory completed. No cron/config mutation was applied because `pre-flight-sprint-dispatch.sh` is RED.
+## Status
 
-## Gate State
+READ-ONLY PARTIAL. Live inventory completed, but mutations wait on preflight green. Preflight blocker: board open_count=8 and dirty Mission Control worktree.
 
-- Gateway health: live.
-- Mission Control health: ok/ok.
-- Build process: none running.
-- Gateway CPU at inventory time: about 86% while MC reports no active work.
-- Preflight: RED.
-  - Gate 3: board open_count=8 too high.
-  - Gate 6: git has 40 real-dirty Mission Control files.
-- `session.maintenance` live config currently has `pruneAfter=2d`, `maxEntries=60`; no live reversion to `14d/150` was observed in this read-only pass.
+## Live Counts
 
-## Source Inventory
+- User crontab active jobs: 50
 
-Live scheduling is split across three surfaces, not one list:
+- OpenClaw native cron jobs: 24
 
-- OpenClaw cron jobs: 24 jobs in `/home/piet/.openclaw/cron/jobs.json`.
-- User crontab: 50 active entries in `crontab -l`.
-- systemd user timers: 22 timers.
+- Prompt expected 54 jobs, but live system exposes a larger combined surface; plan follows live truth.
 
-The earlier target "54 crons" does not match the current live source-of-truth. The nearest current count is 50 active user-crontab entries plus OpenClaw/systemd timers.
+## User Crontab Inventory
 
-## OpenClaw Jobs
+| cron-name | freq-old -> freq-new | owner-old -> owner-new | tier/risk | route | rationale |
+| --- | --- | --- | --- | --- | --- |
+| `flock` | `* * * * *` -> REDUCIBLE 1m->2m | MC-API | LOW | WEBHOOK/ALERT-or-DISCORD | Heartbeat can reduce to */2 if MC health remains ok. |
+| `openclaw-config-guard.sh` | `* * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `cost-alert-dispatcher.py` | `*/2 * * * *` -> REDUCIBLE */2->*/5 | WEBHOOK-ONLY | MEDIUM | WEBHOOK/ALERT-or-DISCORD | Webhook now set; reduce cadence after smoke, no Atlas route needed. |
+| `mc-critical-alert.py` | `1-59/2 * * * *` -> REDUCIBLE */2->*/5 | SYSTEM-BOT-CANDIDATE | MEDIUM | WEBHOOK/ALERT-or-DISCORD | Alert path should be notify/system-bot, not Atlas fallback. |
+| `memory-budget-meter.sh` | `*/5 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `sprint-debrief-watch.sh` | `1-59/5 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `atlas-orphan-detect.sh` | `*/10 * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `session-health-monitor.py` | `*/10 * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `self-optimizer.py` | `*/15 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `r49-claim-validator.py` | `5-59/15 * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | HIGH | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `r48-board-hygiene-cron.sh` | `0 */1 * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | HIGH | OPENCLAW-CLI | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `memory-orchestrator.py` | `30 * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `memory-orchestrator.py` | `45 2 * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `memory-orchestrator.py` | `0 5 * * 0` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `memory-orchestrator.py` | `0 4 1 */3 *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `mc-ops-monitor.sh` | `0 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `memory-size-guard.sh` | `7 */6 * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `session-size-alert.sh` | `23,53 * * * *` -> KEEP-FREQ | REVIEW | LOW | WEBHOOK/ALERT-or-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `script-integrity-check.sh` | `0 */6 * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `openclaw` | `0 */6 * * *` -> KEEP-FREQ | REVIEW | LOW | OPENCLAW-CLI | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `rules-render.sh` | `0 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `qmd` | `*/30 * * * *` -> KEEP-FREQ | REVIEW | LOW | OPENCLAW-CLI | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `qmd-pending-monitor.sh` | `5 * * * *` -> KEEP/REDUCE case-by-case | NO-DISCORD | MEDIUM | NO-DISCORD | System notification/watch path; migrate Discord/agent-targeting to system-bot or webhook. |
+| `pr68846-patch-check.sh` | `5-59/30 * * * *` -> KEEP/REDUCE case-by-case | NO-DISCORD | MEDIUM | NO-DISCORD | System notification/watch path; migrate Discord/agent-targeting to system-bot or webhook. |
+| `minions-pr-watch.sh` | `23 * * * *` -> KEEP/REDUCE case-by-case | NO-DISCORD | MEDIUM | NO-DISCORD | System notification/watch path; migrate Discord/agent-targeting to system-bot or webhook. |
+| `cleanup.sh` | `0 3 * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `config-snapshot-to-vault.sh` | `0 3 * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `build-artifact-cleanup.sh` | `0 3 * * 0` -> KEEP-FREQ | REVIEW | LOW | OPENCLAW-CLI | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `cron-health-audit.sh` | `10-59/30 * * * *` -> KEEP-FREQ | REVIEW | LOW | OPENCLAW-CLI | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `alert-dispatcher.sh` | `0 */6 * * *` -> KEEP/REDUCE case-by-case | SYSTEM-BOT-CANDIDATE | MEDIUM | WEBHOOK/ALERT-or-DISCORD | System notification/watch path; migrate Discord/agent-targeting to system-bot or webhook. |
+| `session-janitor.py` | `15-59/30 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `cpu-runaway-guard.sh` | `2-59/5 * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `agents-md-size-check.sh` | `0 6 * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `session-size-guard.py` | `3-59/5 * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `session-size-guard.py` | `* * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `qmd-native-embed-cron.sh` | `15,45 * * * *` -> KEEP-FREQ | REVIEW | LOW | OPENCLAW-CLI | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `mcp-qmd-reaper.sh` | `4-59/5 * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `vault-search-daily-checkpoint.sh` | `0 8 * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `mcp-taskboard-reaper.sh` | `*/5 * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `session-rotation-watchdog.py` | `*/2 * * * *` -> REDUCIBLE */2->*/5 candidate | KEEP-FREQ / DEFENSE | MEDIUM | NO-DISCORD | Rotation guard should reduce only after session-size stability proof. |
+| `per-tool-byte-meter.py` | `1-59/5 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `architecture-snapshot-generator.py` | `20-59/30 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `state-collector.py` | `* * * * *` -> REDUCIBLE 1m->2m | NO-DISCORD | LOW | NO-DISCORD | Collector only; can reduce to */2. |
+| `arch-deploy-readiness-check.sh` | `2-59/5 * * * *` -> KEEP-FREQ | NO-DISCORD | LOW | NO-DISCORD | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `daily-ops-digest.py` | `05 21 * * *` -> KEEP/REDUCE case-by-case | NO-DISCORD | MEDIUM | NO-DISCORD | System notification/watch path; migrate Discord/agent-targeting to system-bot or webhook. |
+| `gateway-memory-monitor.py` | `3-59/5 * * * *` -> KEEP/REDUCE case-by-case | SYSTEM-BOT-CANDIDATE | MEDIUM | OPENCLAW-CLI | System notification/watch path; migrate Discord/agent-targeting to system-bot or webhook. |
+| `billing-alert-watch.sh` | `10-59/15 * * * *` -> KEEP/REDUCE case-by-case | SYSTEM-BOT-CANDIDATE | MEDIUM | WEBHOOK/ALERT-or-DISCORD | System notification/watch path; migrate Discord/agent-targeting to system-bot or webhook. |
+| `crontab-schema-gate.sh` | `* * * * *` -> KEEP-FREQ | KEEP-FREQ / DEFENSE | MEDIUM | OPENCLAW-CLI | Defense/validator path; keep owner and frequency unless separate RCA. |
+| `vault-frontmatter-validator.py` | `30 */6 * * *` -> KEEP-FREQ | REVIEW | LOW | OPENCLAW-CLI | No obvious Atlas route; keep unless logs prove bootstraps. |
+| `cron-runs-tracker.py` | `*/15 * * * *` -> KEEP-FREQ | REVIEW | LOW | OPENCLAW-CLI | No obvious Atlas route; keep unless logs prove bootstraps. |
 
-| job | enabled | old owner | proposed owner | tier | risk | decision |
-|---|---:|---|---|---|---|---|
-| daily-cost-report | yes | main | system-bot | T8 daily | medium | SYSTEM-BOT-CANDIDATE. It is a system cost report, not a user turn. |
-| morning-brief | yes | main | main | T8 daily | medium | Keep Atlas-owned; operator-facing narrative. |
-| nightly-self-improvement | yes | main | main or system-bot after review | T8 daily | high | Defer. It may create work and needs separate governance. |
-| efficiency-auditor-heartbeat | yes | efficiency-auditor | efficiency-auditor | T8 daily | low | USER-AGENT-OWNED. |
-| session-cleanup-local | yes | sre-expert | sre-expert | T6 8h | low | Already moved away from main; keep. |
-| evening-debrief | yes | main | main | T8 daily | medium | Keep Atlas-owned; operator-facing summary. |
-| Security-Weekly-Audit | yes | sre-expert | sre-expert | T8 weekly | low | USER-AGENT-OWNED. |
-| validate-models | yes | main | system-bot or sre-expert | T8 daily | medium | SYSTEM-BOT-CANDIDATE. System validation should not bootstrap Atlas. |
-| learnings-to-tasks | yes | main | main for now | T8 daily | medium | Defer. It creates drafts and needs operator semantics. |
-| memory-rem-backfill | yes | main | no change until Memory review | T8 daily | high | Memory-L1-L6 related; do not migrate blindly. |
-| memory-sqlite-vacuum-weekly | yes | worker | worker | T8 weekly | low | NO-DISCORD/maintenance. |
-| mc-pending-pickup-smoke-hourly | yes | sre-expert | sre-expert | T7 hourly | low | Defense/worker smoke; keep. |
-| mcp-zombie-killer-hourly | yes | sre-expert | sre-expert | T7 hourly | low | Defense; keep. |
-| midday-brief | yes | main | main | T8 daily | medium | Keep Atlas-owned; operator-facing summary. |
-| daily-ops-digest | yes | main | system-bot or direct script | T8 daily | medium | SYSTEM-BOT-CANDIDATE if generated without user interaction. |
-| disabled jobs | no | mixed | no change | n/a | low | Leave disabled. |
+## OpenClaw Native Jobs
 
-## User Crontab Decisions
+| job | id | sessionKey | delivery | owner decision | rationale |
+| --- | --- | --- | --- | --- | --- |
+| `daily-cost-report` | `69c22318-dfef-4905-a394-f3796fd496d9` | `agent:main:cron:daily-cost-report:run` | `announce/alerts` | SYSTEM-BOT-CANDIDATE | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `morning-brief` | `8f69541c-6add-4da2-960c-d34f36f51eac` | `agent:main:cron:morning-brief:run` | `announce/atlas-main` | SYSTEM-BOT-CANDIDATE | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `nightly-self-improvement` | `19047953-220e-4354-936d-be046b68723e` | `agent:main:cron:nightly-self-improvement:run` | `announce/other` | SYSTEM-BOT-CANDIDATE | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `efficiency-auditor-heartbeat` | `5b6e3416-3164-4625-b04a-d806be4baeff` | `-` | `announce/alerts` | REVIEW | No explicit main route; inspect run log before migration. |
+| `session-cleanup-local` | `19cd1425-5ba5-4cdf-abea-c13c46305e7a` | `agent:sre-expert:cron:session-cleanup-local:run` | `announce/alerts` | USER-AGENT-OWNED | Forge/SRE-owned cron; keep owner. |
+| `evening-debrief` | `7ff84751-bd1d-4780-ac50-3b92b761d009` | `agent:main:cron:evening-debrief:run` | `announce/atlas-main` | SYSTEM-BOT-CANDIDATE | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `Security-Weekly-Audit` | `security-weekly-audit` | `-` | `announce/alerts` | REVIEW | No explicit main route; inspect run log before migration. |
+| `validate-models` | `881bd75e-191e-4f1e-b605-b9f8ec95795a` | `agent:main:cron:validate-models:run` | `announce/alerts` | SYSTEM-BOT-CANDIDATE | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `learnings-to-tasks` | `learnings-to-tasks-001` | `agent:main:discord:channel:1486480128576983070` | `announce/other` | MAIN-REVIEW | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `memory-rem-backfill` | `c49eb440-6a6d-49fb-9809-225d6ccfa463` | `-` | `none/none` | REVIEW | No explicit main route; inspect run log before migration. |
+| `memory-sqlite-vacuum-weekly` | `af681204-978f-46cf-b793-a50376580291` | `agent:worker:openai:97426171-00c0-472b-aa23-8ac9fa759388` | `none/none` | REVIEW | No explicit main route; inspect run log before migration. |
+| `mc-pending-pickup-smoke-hourly` | `0f9d0f2e-9839-4a14-ad18-cb75ff7f49c7` | `-` | `none/none` | REVIEW | No explicit main route; inspect run log before migration. |
+| `mc-task-parity-check-10min` | `772cd431-dbfb-4d1b-8cc6-a0d25844c813` | `agent:sre-expert:main` | `none/none` | NO-DISCORD/SYSTEMJOB | Already migrated to shell/systemjob; keep. |
+| `mcp-zombie-killer-hourly` | `26ed095e-a77a-4b3d-8b50-9ff06635cf92` | `agent:sre-expert:main` | `none/none` | USER-AGENT-OWNED | Forge/SRE-owned cron; keep owner. |
+| `analytics-alert-watch` | `89cf60f9-40dd-4ee6-aaef-70e1048dd5c2` | `-` | `none/none` | REVIEW | No explicit main route; inspect run log before migration. |
+| `check-forge-mini-fix-accept` | `a5a3d765-e9fd-454f-ab52-7e4f9687f701` | `agent:main:discord:channel:1486480128576983070` | `none/none` | MAIN-REVIEW | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `check-direct-nudge-analysis-dispatch` | `467ebb07-bb0d-4621-b4a2-55c961111c11` | `agent:main:discord:channel:1486480128576983070` | `none/none` | MAIN-REVIEW | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `streamable-http-soak-24h` | `streamable-http-soak-24h-1776863142` | `-` | `announce/alerts` | REVIEW | No explicit main route; inspect run log before migration. |
+| `atlas-control-heartbeat-v1` | `0c96e2c6-2656-4947-ab4d-e565e4b44471` | `agent:main:cron:atlas-control-heartbeat-v1:disabled` | `-/none` | SYSTEM-BOT-CANDIDATE | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `midday-brief` | `539c9a3d-f887-44e9-9a9b-6c009d16d107` | `agent:main:cron:midday-brief:run` | `announce/atlas-main` | SYSTEM-BOT-CANDIDATE | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `daily-ops-digest` | `6d677504-db0a-42fc-bd4b-7c83f3896f22` | `agent:main:discord:channel:1486480128576983070` | `announce/atlas-main` | MAIN-REVIEW | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `v3-sprint-watch-5min` | `cc21dba9-1f4d-43ce-a5a1-8bccaa7eb619` | `agent:main:discord:channel:1486480128576983070` | `none/none` | MAIN-REVIEW | Native job targets main; migrate to system-bot if system/briefing, keep only if genuine Atlas user brief. |
+| `m7-atlas-master-heartbeat.timer` | `a61b4afe-c61b-4019-b4a5-1da4fad52b59` | `agent:sre-expert:main` | `none/none` | NO-DISCORD/SYSTEMJOB | Already migrated to shell/systemjob; keep. |
+| `atlas-receipt-stream-subscribe` | `e74a9d69-8e83-42e2-bef4-4616e108187e` | `agent:sre-expert:main` | `none/none` | NO-DISCORD/SYSTEMJOB | Already migrated to shell/systemjob; keep. |
 
-| cron line / name | old freq -> proposed freq | owner old -> new | tier | risk | decision |
-|---|---|---|---|---|---|
-| mc-heartbeat-main | `* * * * *` -> `*/2 * * * *` | MC API -> MC API | T2 -> T3 | low | REDUCIBLE. Health API is already live-polled elsewhere. |
-| openclaw-config-guard | `* * * * *` -> keep | config guard -> config guard | T2 | high | Defense/schema guard; do not touch. |
-| cost-alert-dispatcher | `*/2 * * * *` -> `*/5 * * * *` | webhook-only -> webhook-only | T3 -> T4 | medium | REDUCIBLE. It uses webhook path when configured; no Atlas bootstrap needed. |
-| mc-critical-alert | `1-59/2 * * * *` -> `*/5 * * * *` | alert-dispatcher -> alert-dispatcher | T3 -> T4 | medium | REDUCIBLE after smoke. Direct alert path remains. |
-| memory-budget-meter | keep | file/log -> file/log | T4 | medium | Defense signal for session rotation; keep. |
-| sprint-debrief-watch | keep | script -> Discord/summary | T4 | medium | Existing operator loop; keep until result-watcher consolidation review. |
-| atlas-orphan-detect | keep | defense -> defense | T5 | high | Explicitly protected by sprint rules. |
-| session-health-monitor | keep | defense -> defense | T5 | high | Defense; keep. |
-| self-optimizer | keep | dry-run -> dry-run | T6 | medium | Already low frequency. |
-| r49-claim-validator | keep | defense -> defense | T6 | high | Protected validator. |
-| r48-board-hygiene-cron | keep | defense -> defense | T7 | high | Protected validator. |
-| memory-orchestrator hourly/nightly/weekly/quarterly | keep | memory -> memory | T7/T8 | high | Memory-L1-L6 protected. |
-| mc-ops-monitor | keep | monitor -> monitor | T7 | low | Hourly, not bootstrap-heavy. |
-| memory-size-guard/session-size-alert | keep | guard -> guard | T7 | medium | Low frequency. |
-| script-integrity-check | keep | integrity -> integrity | T6 | high | Defense. |
-| openclaw sessions cleanup | keep until Phase A | maintenance -> maintenance | T6 | medium | Relevant to session lock/maintenance drift; Phase A owns it. |
-| rules-render | keep | rules -> rules | T7 | medium | Rules path; not routing. |
-| qmd-update | keep | qmd -> qmd | T6 | medium | QMD maintenance; not routing. |
-| qmd-pending-monitor | keep | alert-dispatcher -> alert-dispatcher | T7 | medium | Alert-only; no agent bootstrap observed. |
-| pr68846-patch-check | keep | webhook-only -> webhook-only | T6 | low | Webhook-only. |
-| minions-pr-watch | keep | webhook-only -> webhook-only | T7 | low | Webhook-only. |
-| cleanup/config-snapshot/build-artifact-cleanup | keep | maintenance -> maintenance | T8 | low | Daily/weekly only. |
-| cron-health-audit | keep | log/report -> log/report | T6 | medium | Auditing. |
-| canary-alert | keep | alert-dispatcher -> alert-dispatcher | T6 | low | Webhook/MC alert only. |
-| session-janitor | keep | maintenance -> maintenance | T6 | medium | Session hygiene. |
-| cpu-runaway-guard | keep | defense -> defense | T4 | high | Protected defense cron. |
-| agents-md-size-check | keep | size check -> size check | T8 | low | Daily. |
-| session-size-guard | keep | defense -> defense | T4 | high | Protected defense cron. |
-| session-size-guard-immediate | `* * * * *` -> `*/5 * * * *` | log-only -> log-only | T2 -> T4 | low | REDUCIBLE. There is already a 5-min guard. |
-| qmd-native-embed-cron | keep | qmd -> qmd | T6 | medium | Not routing. |
-| mcp-qmd-reaper | keep | defense -> defense | T4 | high | Protected reaper. |
-| vault-search-daily-checkpoint | keep | vault -> vault | T8 | low | Daily. |
-| mcp-taskboard-reaper | keep | defense -> defense | T4 | high | Protected reaper. |
-| session-rotation-watchdog | `*/2 * * * *` -> `*/5 * * * *` only after lock RCA | session defense -> session defense | T3 -> T4 | high | Do not change before Phase C; it is directly involved in session symptoms. |
-| per-tool-byte-meter | keep | meter -> meter | T4 | medium | Observability. |
-| architecture-snapshot | keep | snapshot -> snapshot | T6 | low | Every 30 minutes. |
-| state-collector | `* * * * *` -> `*/2 * * * *` | state -> state | T2 -> T3 | low | REDUCIBLE. File-only collector. |
-| arch-readiness | keep | readiness -> readiness | T4 | medium | Observability. |
-| daily-ops-digest.py | keep schedule; route review | direct MC Discord -> audit/main depending mode | T8 | medium | Candidate for system-bot/direct script semantics, not Atlas bootstrap. |
-| gateway-memory-monitor | keep | webhook-only -> webhook-only | T4 | medium | Monitor relevant to Phase B. |
-| billing-alert-watch | keep | alert-dispatcher -> alert-dispatcher | T6 | low | Alert-only. |
-| crontab-schema-gate | `* * * * *` -> no change now | schema guard -> schema guard | T2 | high | Prompt suggested reduction, but sprint hard rules protect self-validation. |
-| vault-frontmatter-validator | keep | validator -> validator | T6 | medium | Every 6h. |
-| cron-runs-tracker | keep | tracker/alert -> tracker/alert | T6 | medium | Useful for this sprint. |
+## Initial System-Bot Candidates
 
-## systemd User Timers
+- `alert-dispatcher.sh`
+- `atlas-control-heartbeat-v1`
+- `billing-alert-watch.sh`
+- `daily-cost-report`
+- `evening-debrief`
+- `gateway-memory-monitor.py`
+- `mc-critical-alert.py`
+- `midday-brief`
+- `morning-brief`
+- `nightly-self-improvement`
+- `validate-models`
 
-| timer | cadence | decision |
-|---|---:|---|
-| m7-auto-pickup.timer | ~1 min | Keep. Auto-pickup is protected. |
-| m7-plan-runner.timer | ~1 min | Keep until separate plan-runner audit. |
-| openclaw-systemjob-atlas-receipt-stream-subscribe.timer | 5 min | Keep but include in Phase B/C profiling; recent logs show cleanup timeout. |
-| openclaw-systemjob-m7-atlas-master-heartbeat.timer | 5 min | Keep but include in Phase B/C profiling; recent logs show cleanup timeout. |
-| anomaly-watch.timer/result-watcher.timer | 5 min | Keep. Operator-awareness path. |
-| m7-session-freeze-watcher/stale-lock-cleaner/worker-monitor | 5 min | Keep. Defense/worker path. |
-| openclaw-systemjob-mc-task-parity-check.timer | 10 min | Keep. Defense parity. |
-| canary-session-rotation-watchdog/canary-session-size-guard | 10 min | Keep. Canary path. |
-| forge-heartbeat.timer | hourly | Keep Forge-owned. |
-| daily/session health/logrotate/researcher timers | daily or longer | Keep. |
+## Waits On Green
 
-## Routing Notes
-
-- `/home/piet/.openclaw/workspace/discord-routing.json` has fallback `{agent: main, model: openrouter/moonshotai/kimi-k2.5}`.
-- Channel `1491148986109661334` is not mapped there, so it is still a routing hazard if used as inbound user/system event.
-- `/home/piet/.openclaw/openclaw.json` currently does not contain channel `1491148986109661334` under `channels.discord.guilds.1486464140246520068.channels`.
-- No `system-bot` agent exists in current live `openclaw.json`.
-- Existing channel bindings for Atlas/Forge/Pixel are in `workspace/discord-routing.json`, not in `openclaw.json`.
-
-## Proposed Migration Sequence
-
-1. Do not mutate cron while preflight is RED.
-2. Resolve or explicitly waive Gate 3 and Gate 6 before config/script mutations.
-3. In the A-E RCA sprint, first isolate Gateway CPU/lock/bootstrap hot path.
-4. Only after the hot path is known, apply the low-risk frequency reductions:
-   - `mc-heartbeat-main`: 1min -> 2min.
-   - `state-collector`: 1min -> 2min.
-   - `session-size-guard-immediate`: 1min -> 5min.
-   - `cost-alert-dispatcher`: 2min -> 5min.
-   - `mc-critical-alert`: 2min -> 5min after smoke.
-5. Keep protected defense/self-validation crons unchanged unless a later RCA proves they are the hot loop.
-6. Add explicit safe handling for `1491148986109661334` only after schema discovery; preferred target is a lightweight notify-only/system path, not Atlas.
-
-## Rollback Plan
-
-- Crontab changes: restore from timestamped `crontab.bak-*`.
-- OpenClaw job changes: restore `/home/piet/.openclaw/cron/jobs.json` backup.
-- `openclaw.json` changes: restore timestamped backup, run `openclaw doctor`, restart gateway only if schema clean.
-- Routing JSON changes: restore timestamped routing backup and restart only the affected service.
-
+- Apply frequency reductions only after preflight blocker is cleared or incident override is documented.
+- Apply routing migration only after Channel 1491 schema discovery and system-bot agent definition.
+- No Defense-Cron disabled in this partial pass.
