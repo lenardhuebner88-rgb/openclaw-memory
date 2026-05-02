@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-05-02T21:30:18.303112+00:00
+last_generated: 2026-05-02T22:30:02.834794+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-05-02 21:30 UTC  
+**Last Generated:** 2026-05-02 22:30 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -18,10 +18,10 @@ auto_refresh: daily 04:30 UTC (cron)
 
 | Level | Component | Status | Notes |
 |---|---|---|---|
-| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 2067 files indexed |
+| **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 2081 files indexed |
 | **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 56 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 8 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-05-02T21:30:01Z] OK session=4c62e6f7-752 size=8028 tokens_est=2007 pct=1% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-05-02T22:30:01Z] OK session=f1bf6a47-5b9 size=33246 tokens_est=8311 pct=5% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -155,6 +155,7 @@ auto_refresh: daily 04:30 UTC (cron)
 - [Board Hygiene & Lifecycle](kb/board-hygiene.md) — 70 Zeilen
 - [Build & Deploy Rules](kb/build-deploy-regeln.md) — 74 Zeilen
 - [Deploy Contracts & MC-Restart](kb/deploy-contracts.md) — 76 Zeilen
+- [Hermes Shadow Debug Pattern](kb/hermes-shadow-debug.md) — 33 Zeilen
 - [Incident Response & RCA](kb/incident-response.md) — 95 Zeilen
 - [Memory Architecture](kb/memory-architecture.md) — 60 Zeilen
 - [Receipt Discipline](kb/receipt-discipline.md) — 90 Zeilen
@@ -195,16 +196,16 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-05-02T20:45:01Z] OK session=89f0fdde-73d size=41363 tokens_est=10340 pct=6%
-[2026-05-02T20:50:01Z] OK session=af390a2e-826 size=372779 tokens_est=93194 pct=62%
-[2026-05-02T20:55:01Z] WARN session=af390a2e-826 size=467163 tokens_est=116790 pct=77%
-[2026-05-02T21:00:01Z] WARN session=af390a2e-826 size=493871 tokens_est=123467 pct=82%
-[2026-05-02T21:05:01Z] CRITICAL session=af390a2e-826 size=552030 tokens_est=138007 pct=92%
-[2026-05-02T21:10:01Z] CRITICAL session=af390a2e-826 size=552030 tokens_est=138007 pct=92%
-[2026-05-02T21:15:01Z] OK session=4c62e6f7-752 size=229 tokens_est=57 pct=0%
-[2026-05-02T21:20:01Z] OK session=4c62e6f7-752 size=133 tokens_est=33 pct=0%
-[2026-05-02T21:25:01Z] OK session=f1bf6a47-5b9 size=30749 tokens_est=7687 pct=5%
-[2026-05-02T21:30:01Z] OK session=4c62e6f7-752 size=8028 tokens_est=2007 pct=1%
+[2026-05-02T21:45:01Z] OK session=4c62e6f7-752 size=13787 tokens_est=3446 pct=2%
+[2026-05-02T21:50:01Z] OK session=4c62e6f7-752 size=16902 tokens_est=4225 pct=2%
+[2026-05-02T21:55:01Z] OK session=4c62e6f7-752 size=22902 tokens_est=5725 pct=3%
+[2026-05-02T22:00:01Z] OK session=4c62e6f7-752 size=22902 tokens_est=5725 pct=3%
+[2026-05-02T22:05:01Z] OK session=4c62e6f7-752 size=27778 tokens_est=6944 pct=4%
+[2026-05-02T22:10:01Z] OK session=4c62e6f7-752 size=29945 tokens_est=7486 pct=4%
+[2026-05-02T22:15:01Z] OK session=4c62e6f7-752 size=29945 tokens_est=7486 pct=4%
+[2026-05-02T22:20:01Z] OK session=4c62e6f7-752 size=35840 tokens_est=8960 pct=5%
+[2026-05-02T22:25:01Z] OK session=f1bf6a47-5b9 size=33246 tokens_est=8311 pct=5%
+[2026-05-02T22:30:01Z] OK session=f1bf6a47-5b9 size=33246 tokens_est=8311 pct=5%
 ```
 
 ## 9. Active Crons (summary)

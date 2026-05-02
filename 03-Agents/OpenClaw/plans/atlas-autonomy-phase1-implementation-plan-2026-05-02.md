@@ -1,6 +1,6 @@
 # Atlas Autonomy Phase 1 — Implementation Plan
 
-Stand: 2026-05-02 23:51 Europe/Berlin
+Stand: 2026-05-03 00:19 Europe/Berlin
 Basis:
 - `/home/piet/vault/03-Agents/OpenClaw/plans/atlas-autonomy-policy-matrix-v1-2026-05-02.md`
 - `/home/piet/vault/03-Agents/OpenClaw/plans/atlas-autonomy-preflight-gate-spec-v1-2026-05-02.md`
@@ -171,3 +171,27 @@ Verifikation:
 Scope-Check:
 - Keine Blockierung/Enforcement aktiviert.
 - Keine Änderung an Restart/Cron/Gateway/Model-Routing.
+
+## Follow-up Fix nach P1.3 Verifikation
+
+Zeitpunkt:
+- 2026-05-03 00:19 Europe/Berlin
+
+Problem:
+- Runner-Draft-POST scheiterte mit 400 wegen `approvalClass/approvalMode`-Mismatch gegen Mission-Control-Route-Contract.
+- Für `approvalMode=operator` + `operatorLock=true` + `lockReason=atlas-autonomy-awaiting-approval` akzeptiert die API aktuell nur `approvalClass in {sudo-required, model-switch-required}`.
+
+Fix:
+- In `/home/piet/.openclaw/workspace/scripts/plan-runner.py` Payload-Mapping auf `approvalClass=sudo-required` harmonisiert (bei atlas-autonomy Draft-Erzeugung).
+
+Live-Nachweis:
+1. Runner-Lauf erstellt Follow-up-Draft erfolgreich (`draft-created`) für Plan `preflight-audit-e2e-2026-05-03b`.
+2. Gleichzeitig wird `autonomy-preflight-audit` Event im selben Lauf geschrieben.
+3. GET `/api/tasks?autoSource=atlas-autonomy&planId=preflight-audit-e2e-2026-05-03b` zeigt den Draft mit:
+   - `approvalMode=operator`
+   - `approvalClass=sudo-required`
+   - `operatorLock=true`
+   - `lockReason=atlas-autonomy-awaiting-approval`
+
+Aufräumen:
+- E2E-Testplan nach Nachweis auf `status=paused` mit `pause_reason=e2e-proof-complete` gesetzt.
