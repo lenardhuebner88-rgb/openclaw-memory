@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T14:00:01.827264+00:00",
+  "generated_at": "2026-05-02T14:30:01.542967+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-02T13:58:53.991502+00:00",
-      "latest_session_size_bytes": 274934,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-02T14:20:00.305624+00:00",
+      "latest_session_size_bytes": 439724,
       "session_count": 400
     },
     {
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T13:05:36.572388+00:00",
-      "latest_session_size_bytes": 5510,
-      "session_count": 1582
+      "last_session_iso": "2026-05-02T14:05:29.834023+00:00",
+      "latest_session_size_bytes": 6047,
+      "session_count": 1584
     },
     {
       "id": "system-bot",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "72cd84f",
+      "date": "2026-05-02T16:01:18+02:00",
+      "subject": "auto-sync: 2026-05-02 16:01"
+    },
+    {
       "hash": "da8806e",
       "date": "2026-05-02T15:31:17+02:00",
       "subject": "auto-sync: 2026-05-02 15:31"
@@ -964,11 +969,6 @@
       "hash": "e94f6d9",
       "date": "2026-05-02T11:30:43+02:00",
       "subject": "auto-sync: 2026-05-02 11:30"
-    },
-    {
-      "hash": "267323e",
-      "date": "2026-05-02T11:00:42+02:00",
-      "subject": "auto-sync: 2026-05-02 11:00"
     }
   ],
   "scripts": {
@@ -990,22 +990,21 @@
       "status": "running",
       "pids": [
         3040970,
-        3287860,
-        3287879,
-        3287884
+        3308383,
+        3308391,
+        3308422
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        3180419,
-        3210354,
-        3283210,
-        3286735,
-        3287852,
-        3287889,
-        3287899
+        3299371,
+        3308004,
+        3308384,
+        3308399,
+        3308401,
+        3308513
       ]
     }
   ],
