@@ -265,3 +265,34 @@ Acceptance:
 - State-path and repo-path task counts diverge because a live writer went back to repo `data`.
 - Git status shows tracked `data/*` modified again.
 
+## Final Update - 2026-05-02 20:02 CEST
+
+Additional fixes completed after the initial audit write-up:
+
+- P0 operator rules were promoted into active bootstrap docs:
+  - `/home/piet/.openclaw/workspace/AGENTS.md`
+  - `/home/piet/.openclaw/workspace/HEARTBEAT.md`
+  - `/home/piet/.openclaw/workspace/CONTEXT_MAP.md`
+  - `/home/piet/.openclaw/workspace/docs/operations/WORKSPACE-GROUND-TRUTH.md`
+  - `/home/piet/.openclaw/workspace/README.md`
+- Real Atlas bootstrap proof after Gateway restart:
+  - model route: `openclaw/main` -> `openai-codex/gpt-5.5`
+  - duration: 51.6s
+  - Atlas returned the new operator ACK, MC-down fallback path, and context-rotation rule.
+- Old Atlas session overrides were rotated:
+  - `agent:main:discord:channel:1486480128576983070`
+  - `agent:main:main`
+  - backups are under `/home/piet/.openclaw/backups/session-rotation-*`.
+- Mission Control `/agents` had a stale model display bug:
+  - root cause: `openai-codex/gpt-5.5` matched the broad `codex` display rule and was shown as `GPT-5.3-Codex`.
+  - fixed in `src/lib/live-agent-data.ts` and `src/lib/team-data.ts`.
+  - `/api/agents/live` now reports Atlas `GPT-5.5` and Forge `GPT-5.3-Codex`.
+- E2E V3 route proofs passed:
+  - `/overview`
+  - `/taskboard`
+  - `/team`
+  - `/agents`
+  - final model proof: `/agents` contains `GPT-5.5` on desktop and mobile, with no horizontal overflow and valid touch targets.
+- Discord final report sent:
+  - channel `1495737862522405088`
+  - message `1500195675361644625`
