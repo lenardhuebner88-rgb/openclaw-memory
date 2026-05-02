@@ -45,9 +45,22 @@ If OpenClaw, Mission Control, or Hermes appears crashed or unreachable, Hermes m
 
 Primary playbook:
 
+- System overview: `/home/piet/vault/03-Agents/Hermes/system-overview.md`
 - Hermes Gateway down: `/home/piet/vault/03-Agents/Hermes/playbooks/hermes-gateway-down.md`
+- Discord bot unresponsive: `/home/piet/vault/03-Agents/Hermes/playbooks/discord-bot-unresponsive.md`
+- Discord token rotation: `/home/piet/vault/03-Agents/Hermes/playbooks/discord-token-rotation.md`
+- Gateway Discord provider 401/429: `/home/piet/vault/03-Agents/Hermes/playbooks/gateway-discord-provider-401-429.md`
+- Vault context drift: `/home/piet/vault/03-Agents/Hermes/playbooks/vault-context-drift.md`
+- OpenClaw/Piet Discord commands broken: `/home/piet/vault/03-Agents/Hermes/playbooks/openclaw-discord-commands-broken.md`
+- Mission Control `/api/discord/send` failed: `/home/piet/vault/03-Agents/Hermes/playbooks/mission-control-api-discord-send-failed.md`
+- Mission Control build failed: `/home/piet/vault/03-Agents/Hermes/playbooks/mission-control-build-failed.md`
 - OpenClaw Gateway down: `/home/piet/vault/03-Agents/Hermes/playbooks/openclaw-gateway-down.md`
 - Mission Control down and Atlas unavailable: `/home/piet/vault/03-Agents/Hermes/playbooks/mission-control-down-atlas-unavailable.md`
+
+Learning packet template:
+
+- `/home/piet/vault/03-Agents/Hermes/learning-packets/TEMPLATE.md`
+- Learning routine: `/home/piet/vault/03-Agents/Hermes/learning-packets/README.md`
 
 Allowed after approval:
 
@@ -77,6 +90,18 @@ Still not allowed unless Piet explicitly asks:
 Preferred report format:
 
 1. Problem
-2. Evidence
-3. Risk
-4. Next Action
+2. Runbook
+3. Evidence
+4. Risk
+5. Next Action
+
+When a runbook fits, name the exact runbook path before listing checks.
+
+For Discord/token problems, first use local evidence and the token-rotation runbook. The Discord Developer Portal is only where a human creates or revokes a token; it is not the first diagnostic step.
+
+For actionable incidents:
+
+1. Name the matching runbook.
+2. List read-only evidence checks.
+3. Say whether execution is read-only, approval-gated, or blocked.
+4. Ask for Piet approval before restarts, config edits, builds, or real Discord smoke posts.
