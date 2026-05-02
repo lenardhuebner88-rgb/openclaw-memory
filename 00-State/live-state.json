@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T06:00:02.021512+00:00",
+  "generated_at": "2026-05-02T06:30:01.345609+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
     "health": "ok"
   },
   "summary": {
-    "agents_total": 10,
+    "agents_total": 11,
     "agents_active": 1,
     "crons_total": 50,
     "crons_by_tier": {
-      "T1-realtime": 5,
       "T2-2min": 2,
-      "T8-daily-or-weekly": 28,
-      "T3-5min": 2,
+      "T1-realtime": 2,
+      "T3-5min": 6,
+      "T8-daily-or-weekly": 27,
       "T4-10min": 2,
       "T5-15min": 2,
       "T7-hourly": 6,
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-02T05:58:20.962444+00:00",
-      "latest_session_size_bytes": 134984,
-      "session_count": 387
+      "last_session_iso": "2026-05-02T06:29:38.663518+00:00",
+      "latest_session_size_bytes": 275555,
+      "session_count": 388
     },
     {
       "id": "spark",
@@ -94,9 +94,17 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T05:37:54.074826+00:00",
-      "latest_session_size_bytes": 14601,
-      "session_count": 1565
+      "last_session_iso": "2026-05-02T06:06:16.198619+00:00",
+      "latest_session_size_bytes": 7502,
+      "session_count": 1568
+    },
+    {
+      "id": "system-bot",
+      "path": "/home/piet/.openclaw/agents/system-bot",
+      "status": "monitoring",
+      "last_session_iso": "2026-05-02T06:12:26.786316+00:00",
+      "latest_session_size_bytes": 7846,
+      "session_count": 1
     },
     {
       "id": "test-lock",
@@ -187,10 +195,10 @@
   },
   "crons": [
     {
-      "schedule": "* * * * *",
+      "schedule": "*/2 * * * *",
       "command": "/usr/bin/flock -n /tmp/mc-heartbeat-main.lock /usr/bin/curl -fsS --max-time 5 -X POST -H 'x-actor-kind: system' -H 'x-request-class: system' http://127.0.0.1:3000/api/heartbeat/main >/dev/null 2>&1",
       "script": "/usr/bin/flock",
-      "tier": "T1-realtime"
+      "tier": "T2-2min"
     },
     {
       "schedule": "* * * * *",
@@ -199,16 +207,16 @@
       "tier": "T1-realtime"
     },
     {
-      "schedule": "*/2 * * * *",
+      "schedule": "*/5 * * * *",
       "command": "flock -n /tmp/mc-cost-alert-dispatcher.lock /home/piet/.openclaw/scripts/cost-alert-dispatcher.py >> /home/piet/.openclaw/workspace/logs/cost-alert-dispatcher.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/cost-alert-dispatcher.py",
-      "tier": "T2-2min"
+      "tier": "T3-5min"
     },
     {
-      "schedule": "1-59/2 * * * *",
+      "schedule": "*/5 * * * *",
       "command": "flock -n /tmp/mc-critical-alert.lock /home/piet/.openclaw/scripts/mc-critical-alert.py >> /home/piet/.openclaw/workspace/logs/mc-critical-alert.cron.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/mc-critical-alert.py",
-      "tier": "T8-daily-or-weekly"
+      "tier": "T3-5min"
     },
     {
       "schedule": "*/5 * * * *",
@@ -391,10 +399,10 @@
       "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "* * * * *",
+      "schedule": "*/5 * * * *",
       "command": "flock -n /tmp/session-size-guard-immediate.lock python3 /home/piet/.openclaw/scripts/session-size-guard.py --log-only >> /home/piet/.openclaw/workspace/logs/session-size-guard.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/session-size-guard.py",
-      "tier": "T1-realtime"
+      "tier": "T3-5min"
     },
     {
       "schedule": "15,45 * * * *",
@@ -421,10 +429,10 @@
       "tier": "T3-5min"
     },
     {
-      "schedule": "*/2 * * * *",
+      "schedule": "*/5 * * * *",
       "command": "flock -n /tmp/session-rotation-watchdog.lock /home/piet/.openclaw/scripts/session-rotation-watchdog.py --live >> /home/piet/.openclaw/workspace/logs/session-rotation-watchdog.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/session-rotation-watchdog.py",
-      "tier": "T2-2min"
+      "tier": "T3-5min"
     },
     {
       "schedule": "1-59/5 * * * *",
@@ -439,10 +447,10 @@
       "tier": "T8-daily-or-weekly"
     },
     {
-      "schedule": "* * * * *",
+      "schedule": "*/2 * * * *",
       "command": "flock -n /tmp/state-collector.lock /usr/bin/python3 /home/piet/.openclaw/workspace/scripts/state-collector.py >/dev/null 2>&1",
       "script": "/home/piet/.openclaw/workspace/scripts/state-collector.py",
-      "tier": "T1-realtime"
+      "tier": "T2-2min"
     },
     {
       "schedule": "2-59/5 * * * *",
@@ -907,6 +915,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "decaac7",
+      "date": "2026-05-02T08:00:41+02:00",
+      "subject": "auto-sync: 2026-05-02 08:00"
+    },
+    {
       "hash": "460a038",
       "date": "2026-05-02T07:30:40+02:00",
       "subject": "auto-sync: 2026-05-02 07:30"
@@ -950,11 +963,6 @@
       "hash": "1def945",
       "date": "2026-05-02T03:30:35+02:00",
       "subject": "auto-sync: 2026-05-02 03:30"
-    },
-    {
-      "hash": "684efef",
-      "date": "2026-05-02T03:00:35+02:00",
-      "subject": "auto-sync: 2026-05-02 03:00"
     }
   ],
   "scripts": {
@@ -975,17 +983,26 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        2968545,
-        2969866,
-        2969881,
-        2969885
+        2979946,
+        2992219,
+        2992246,
+        2992253,
+        2992357,
+        2992358
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        2968848
+        2983338,
+        2986136,
+        2986409,
+        2990919,
+        2992218,
+        2992245,
+        2992249,
+        2992366
       ]
     }
   ],
