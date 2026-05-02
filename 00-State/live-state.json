@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T06:30:01.345609+00:00",
+  "generated_at": "2026-05-02T07:00:01.921181+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,15 +8,15 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
-    "crons_total": 50,
+    "agents_active": 0,
+    "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
       "T1-realtime": 2,
       "T3-5min": 6,
       "T8-daily-or-weekly": 27,
       "T4-10min": 2,
-      "T5-15min": 2,
+      "T5-15min": 3,
       "T7-hourly": 6,
       "T6-30min": 3
     },
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 185,
+    "scripts_active": 186,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-02T06:29:38.663518+00:00",
-      "latest_session_size_bytes": 275555,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-02T06:49:59.696926+00:00",
+      "latest_session_size_bytes": 402048,
       "session_count": 388
     },
     {
@@ -403,6 +403,12 @@
       "command": "flock -n /tmp/session-size-guard-immediate.lock python3 /home/piet/.openclaw/scripts/session-size-guard.py --log-only >> /home/piet/.openclaw/workspace/logs/session-size-guard.log 2>&1",
       "script": "/home/piet/.openclaw/scripts/session-size-guard.py",
       "tier": "T3-5min"
+    },
+    {
+      "schedule": "*/15 * * * *",
+      "command": "flock -n /tmp/trajectory-hygiene.lock /home/piet/.openclaw/scripts/trajectory-hygiene.py >> /home/piet/.openclaw/workspace/logs/trajectory-hygiene.log 2>&1",
+      "script": "/home/piet/.openclaw/scripts/trajectory-hygiene.py",
+      "tier": "T5-15min"
     },
     {
       "schedule": "15,45 * * * *",
@@ -915,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "09092dc",
+      "date": "2026-05-02T08:30:41+02:00",
+      "subject": "auto-sync: 2026-05-02 08:30"
+    },
+    {
       "hash": "decaac7",
       "date": "2026-05-02T08:00:41+02:00",
       "subject": "auto-sync: 2026-05-02 08:00"
@@ -958,15 +969,10 @@
       "hash": "101a582",
       "date": "2026-05-02T04:00:36+02:00",
       "subject": "auto-sync: 2026-05-02 04:00"
-    },
-    {
-      "hash": "1def945",
-      "date": "2026-05-02T03:30:35+02:00",
-      "subject": "auto-sync: 2026-05-02 03:30"
     }
   ],
   "scripts": {
-    "scripts_root": 115,
+    "scripts_root": 116,
     "workspace_scripts": 70
   },
   "mcp_servers": [
@@ -984,11 +990,9 @@
       "status": "running",
       "pids": [
         2979946,
-        2992219,
-        2992246,
-        2992253,
-        2992357,
-        2992358
+        3008390,
+        3008417,
+        3008423
       ]
     },
     {
@@ -997,12 +1001,7 @@
       "pids": [
         2983338,
         2986136,
-        2986409,
-        2990919,
-        2992218,
-        2992245,
-        2992249,
-        2992366
+        3003859
       ]
     }
   ],
