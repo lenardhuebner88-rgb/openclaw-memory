@@ -8,9 +8,9 @@
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
 - task: 93deb2e5-6fae-417d-81b2-29eeaefc14a1 Align /memory operator trust surface to v3 design
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: Progress: accepted verified via GET and /memory dependencies inspected: src/app/memory/page.tsx, MemoryLayersClient, MemoryMarkdownView, MemorySearch, and lib/memory-layers. Scope confirmed as /memory-only frontend route
+- stage: DONE
+- next: await next assignment
+- checkpoint: Aligned the /memory operator trust surface to Mission Control V3: added a trust-command hero with marker, retrieval-ready chips, active source summary, KPI cards for indexed files/authors/working review/current source, l
 - blocker: -
-- updated: 2026-05-02T12:30:39.308Z
+- updated: 2026-05-02T12:33:51.167Z
 <!-- mc:auto-working-context:end -->

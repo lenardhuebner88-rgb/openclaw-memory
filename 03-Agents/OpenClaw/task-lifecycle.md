@@ -2859,3 +2859,39 @@ RECOMMENDATION
 - 2026-05-02T12:29:51.937Z | START | 93deb2e5-6fae-417d-81b2-29eeaefc14a1 | Align /memory operator trust surface to v3 design | worker=frontend-guru | progress=- | summary=-
 - 2026-05-02T12:30:28.232Z | START | 51c82d3f-8f8b-4996-8209-13c5df7b4bd9 | Clarify Session-Size-Guard worker ROTATION alert wording | worker=sre-expert | progress=- | summary=-
 - 2026-05-02T12:30:39.305Z | CHECKPOINT | 93deb2e5-6fae-417d-81b2-29eeaefc14a1 | Align /memory operator trust surface to v3 design | worker=frontend-guru | progress=25% | summary=- | note=Progress: accepted verified via GET and /memory dependencies inspected: src/app/memory/page.tsx, MemoryLayersClient, MemoryMarkdownView, MemorySearch, and lib/memory-layers. Scope confirmed as /memory-only frontend route/component work with existing memory data behavior preserved. Target layout before coding: desktop gets a v3 trust-command hero, retrieval-health KPI strip, layer freshness cards, two-column layer/source browser plus markdown detail; mobile stacks hero, KPIs, filters/search, layer cards, detail. Marker text selected: "Memory Trust Surface · v3 operator slice".
+- 2026-05-02T12:30:49.293Z | CHECKPOINT | 51c82d3f-8f8b-4996-8209-13c5df7b4bd9 | Clarify Session-Size-Guard worker ROTATION alert wording | worker=sre-expert | progress=70% | summary=- | note=Patched canonical worker ROTATION alert wording in /home/piet/.openclaw/scripts/session-size-guard.py (single location), preserving policy/behavior. Next: run py_compile and produce deterministic sample text proof with exact line reference + rollback command.
+- 2026-05-02T12:31:19.425Z | DONE | 51c82d3f-8f8b-4996-8209-13c5df7b4bd9 | Clarify Session-Size-Guard worker ROTATION alert wording | worker=sre-expert | progress=70% | summary=EXECUTION_STATUS
+completed
+
+CHANGES_MADE
+- Updated canonical worker-session ROTATION alert wording in `/home/piet/.openclaw/scripts/session-size-guard.py`.
+- Exact change at line 715:
+  - from: `Action: `alert-only` (worker session, keine Rotation)`
+  - to:   `Action: `alert-only` (rotation threshold exceeded; worker auto-rotation disabled by policy)`
+- Scope kept minimal: wording only; no behavior/policy/threshold changes.
+
+VERIFICATION
+- Compile gate passed: `python3 -m py_compile /home/piet/.openclaw/scripts/session-size-guard.py`.
+- Line proof captured via `nl -ba ... | sed -n '706,722p'`, showing updated line 715.
+- Deterministic sample alert text generated locally (string-format proof only, no live session mutation).
+
+SAMPLE_ALERT_TEXT
+🚨 Session Size Guard: ROTATION
+- Agent: `frontend-guru`
+- Session: `99ee9b79-0331-40d3-8a60-c8ff6c4b0922.jsonl`
+- Size: `1984.5 KB` | Messages: `703`
+- Thresholds (warn/hard/rotation): `600/900/1126 KB`, `150/200/250 msgs`
+Action: `alert-only` (rotation threshold exceeded; worker auto-rotation disabled by policy)
+
+ROLLBACK
+- One-liner rollback (exact reverse):
+  `python3 - <<'PY'\nfrom pathlib import Path\np=Path('/home/piet/.openclaw/scripts/session-size-guard.py')\ns=p.read_text()\ns=s.replace("Action: `alert-only` (rotation threshold exceeded; worker auto-rotation disabled by policy)","Action: `alert-only` (worker session, keine Rotation)")\np.write_text(s)\nprint('rolled back')\nPY`
+- Then verify: `python3 -m py_compile /home/piet/.openclaw/scripts/session-size-guard.py`.
+
+RISKS_OR_BLOCKERS
+- No functional blockers.
+- Repository commit not created because `/home/piet/.openclaw` is not a git repository (`fatal: not a git repository`). Change is applied directly to live script path; rollback command provided.
+- 2026-05-02T12:33:51.163Z | DONE | 93deb2e5-6fae-417d-81b2-29eeaefc14a1 | Align /memory operator trust surface to v3 design | worker=frontend-guru | progress=25% | summary=Aligned the /memory operator trust surface to Mission Control V3: added a trust-command hero with marker, retrieval-ready chips, active source summary, KPI cards for indexed files/authors/working review/current source, layer freshness cards, V3-styled source/search/attribution panels, and overflow-safe markdown detail. Scope stayed /memory-only with existing memory data behavior preserved. npm run typecheck passes; qa:v3-tab /memory passes with HTTP 200, marker present, zero errors, no horizontal overflow, and 44px mobile controls. Commit a8ab13d.
+- 2026-05-02T12:41:00.939Z | START | e5757729-6316-4150-a170-d3cac32fdf51 | Deploy and live-proof Mission Control V3 slices through /memory | worker=sre-expert | progress=- | summary=-
+- 2026-05-02T12:42:43.073Z | CHECKPOINT | e5757729-6316-4150-a170-d3cac32fdf51 | Deploy and live-proof Mission Control V3 slices through /memory | worker=sre-expert | progress=85% | summary=- | note=Pre-deploy checks and safe restart succeeded; all required live routes return HTTP 200. Blocker surfaced on final acceptance check: /memory live response does not contain marker text 'Memory Trust Surface · v3 operator slice' after restart, so deployment proof cannot be marked PASS yet.
+- 2026-05-02T12:43:01.116Z | BLOCKED | e5757729-6316-4150-a170-d3cac32fdf51 | Deploy and live-proof Mission Control V3 slices through /memory | worker=sre-expert | progress=85% | summary=- | note=Live /memory acceptance marker missing after safe restart: expected 'Memory Trust Surface · v3 operator slice' not found in live HTML response from http://127.0.0.1:3000/memory.
