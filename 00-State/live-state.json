@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-01T23:30:01.857473+00:00",
+  "generated_at": "2026-05-02T00:00:01.508245+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 10,
-    "agents_active": 1,
+    "agents_active": 0,
     "crons_total": 50,
     "crons_by_tier": {
       "T1-realtime": 5,
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-01T23:25:45.005855+00:00",
-      "latest_session_size_bytes": 215355,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-01T23:50:18.934021+00:00",
+      "latest_session_size_bytes": 366081,
       "session_count": 369
     },
     {
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "f1e2d52",
+      "date": "2026-05-02T01:30:33+02:00",
+      "subject": "auto-sync: 2026-05-02 01:30"
+    },
+    {
       "hash": "1bedfff",
       "date": "2026-05-02T01:00:33+02:00",
       "subject": "auto-sync: 2026-05-02 01:00"
@@ -950,11 +955,6 @@
       "hash": "ac8dbcc",
       "date": "2026-05-01T21:00:30+02:00",
       "subject": "auto-sync: 2026-05-01 21:00"
-    },
-    {
-      "hash": "0589480",
-      "date": "2026-05-01T20:36:59+02:00",
-      "subject": "chore: mark S-MEM-QUALITY-P1 as active"
     }
   ],
   "scripts": {
@@ -975,11 +975,16 @@
       "status": "running",
       "pids": [
         2745560,
-        2746907,
-        2746920,
-        2746923,
-        2747012,
-        2747013
+        2762985,
+        2762990,
+        2762992
+      ]
+    },
+    {
+      "name": "taskboard-mcp",
+      "status": "running",
+      "pids": [
+        2758590
       ]
     }
   ],
