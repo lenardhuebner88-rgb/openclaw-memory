@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T02:00:01.580479+00:00",
+  "generated_at": "2026-05-02T02:30:01.429910+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T01:49:58.295130+00:00",
-      "latest_session_size_bytes": 374671,
-      "session_count": 370
+      "last_session_iso": "2026-05-02T02:03:44.081565+00:00",
+      "latest_session_size_bytes": 3903,
+      "session_count": 372
     },
     {
       "id": "spark",
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T01:05:29.304004+00:00",
-      "latest_session_size_bytes": 4731,
-      "session_count": 1562
+      "last_session_iso": "2026-05-02T02:05:27.465022+00:00",
+      "latest_session_size_bytes": 4672,
+      "session_count": 1563
     },
     {
       "id": "test-lock",
@@ -907,6 +907,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "101a582",
+      "date": "2026-05-02T04:00:36+02:00",
+      "subject": "auto-sync: 2026-05-02 04:00"
+    },
+    {
       "hash": "1def945",
       "date": "2026-05-02T03:30:35+02:00",
       "subject": "auto-sync: 2026-05-02 03:30"
@@ -950,11 +955,6 @@
       "hash": "2cf92bd",
       "date": "2026-05-02T00:00:32+02:00",
       "subject": "auto-sync: 2026-05-02 00:00"
-    },
-    {
-      "hash": "c2f3a42",
-      "date": "2026-05-01T23:30:32+02:00",
-      "subject": "auto-sync: 2026-05-01 23:30"
     }
   ],
   "scripts": {
@@ -975,19 +975,11 @@
       "status": "running",
       "pids": [
         2745560,
-        2828769,
-        2828788,
-        2828804
-      ]
-    },
-    {
-      "name": "taskboard-mcp",
-      "status": "running",
-      "pids": [
-        2824114,
-        2828765,
-        2828781,
-        2828783
+        2845813,
+        2845831,
+        2845850,
+        2845925,
+        2845929
       ]
     }
   ],
