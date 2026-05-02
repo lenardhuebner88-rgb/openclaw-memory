@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T10:30:01.393374+00:00",
+  "generated_at": "2026-05-02T11:00:01.598870+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -61,10 +61,10 @@
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "active",
-      "last_session_iso": "2026-05-02T10:29:58.213903+00:00",
-      "latest_session_size_bytes": 913357,
-      "session_count": 1
+      "status": "monitoring",
+      "last_session_iso": "2026-05-02T10:54:30.086256+00:00",
+      "latest_session_size_bytes": 1454070,
+      "session_count": 2
     },
     {
       "id": "james",
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-02T10:19:59.685173+00:00",
-      "latest_session_size_bytes": 418382,
-      "session_count": 393
+      "status": "active",
+      "last_session_iso": "2026-05-02T10:59:10.017890+00:00",
+      "latest_session_size_bytes": 117043,
+      "session_count": 397
     },
     {
       "id": "spark",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "30a3e07",
+      "date": "2026-05-02T12:30:44+02:00",
+      "subject": "auto-sync: 2026-05-02 12:30"
+    },
+    {
       "hash": "60355c2",
       "date": "2026-05-02T12:00:43+02:00",
       "subject": "auto-sync: 2026-05-02 12:00"
@@ -964,11 +969,6 @@
       "hash": "decaac7",
       "date": "2026-05-02T08:00:41+02:00",
       "subject": "auto-sync: 2026-05-02 08:00"
-    },
-    {
-      "hash": "460a038",
-      "date": "2026-05-02T07:30:40+02:00",
-      "subject": "auto-sync: 2026-05-02 07:30"
     }
   ],
   "scripts": {
@@ -990,11 +990,9 @@
       "status": "running",
       "pids": [
         3040970,
-        3137370,
-        3137391,
-        3137396,
-        3137481,
-        3137482
+        3159384,
+        3159399,
+        3159403
       ]
     },
     {
@@ -1003,11 +1001,14 @@
       "pids": [
         3108742,
         3120511,
-        3131441,
         3132356,
-        3137342,
-        3137402,
-        3137407
+        3156605,
+        3156895,
+        3158219,
+        3159382,
+        3159413,
+        3159424,
+        3159539
       ]
     }
   ],
