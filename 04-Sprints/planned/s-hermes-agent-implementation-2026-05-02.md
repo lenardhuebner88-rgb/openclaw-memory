@@ -1,7 +1,7 @@
 # HERMES-AGENT Implementation Plan
 **Version:** 1.1-draft  
 **Datum:** 2026-05-02  
-**Status:** DRAFT → Atlas Review DONE, Lens PENDING  
+**Status:** DRAFT → Atlas + Lens Review DONE → NEEDS OPERATOR DECISION  
 **Owner:** James (Piet's research assistant)  
 **Supersedes:** none
 
@@ -109,9 +109,27 @@ KEINE AUTOMATISCHE ESKALATION ohne klare Evidence
 ### 2.6 Session/Lock-Handling
 ```
 BEI KONFLIKT (R50 Session Locks):
-- backoff: 30s warten, dann Retry
-- Bei persistierendem Lock: Eskalation an Operator
-- Hermes annotiert seinen Run mit session-id für Traceability
+- backoff: 60s + jitter, dann Retry
+- max_retries: 2
+- Danach: blocked receipt + Eskalation an Operator/Atlas
+- Hermes annotiert jeden Run mit session-id + task-id für Traceability
+```
+
+### 2.6b Dedup/Cooldown
+```
+INCIDENT-KEY = <type>:<primary-resource>:<error-signature>
+TTL: 15 Minuten pro Incident-Key
+RATE-LIMIT: max 3 Alerts pro Stunde pro Incident-Type
+BEHAVIOR: Duplicate innerhalb TTL wird zusammengeführt, nicht neu eskaliert
+```
+
+### 2.6c Board-first Enforcement
+```
+REGEL: No Task-ID, no diagnostic run — außer read-only quick health ping.
+VOR JEDEM RUN:
+1. Board-State lesen
+2. Task-ID/Incident-ID annotieren
+3. Keine Mutation ohne Board-Receipt + Operator/Atlas Double-Check
 ```
 
 ### 2.7 Diagnose-Standardpfad
@@ -171,7 +189,7 @@ tools:
 /home/piet/.openclaw/scripts/hermes-debug/
 ├── hermes-mc-down.sh            # MC-DOWN Playbook
 ├── hermes-worker-stuck.sh       # WORKER-STUCK Playbook
-├── hermes-proof-mismatch.sh     # PROOF-MISMATCH Playbook
+├── hermes-session-stuck.sh      # SESSION-STUCK Playbook
 ├── hermes-health-check.sh      # Master Health Overview (nach MVP)
 ├── hermes-log-analyzer.sh       # Tail + Filter by Severity (nach MVP)
 ├── hermes-session-diagnose.sh  # Session Size/Activity (nach MVP)
@@ -226,9 +244,10 @@ tools:
     - Prüft: offene Tasks >2h, Worker-Sessions mit stale activity
     - Output: Task-Liste + betroffene Worker + Empfehlung
 
-2.3 PROOF-MISMATCH Playbook (hermes-proof-mismatch.sh)
-    - Prüft: Board vs. Live-Runtime Diskrepanzen
-    - Output: Diff-Report + Eskalation wenn Drift > Schwellwert
+2.3 SESSION-STUCK Playbook (hermes-session-stuck.sh)
+    - Prüft: aktive Sessions ohne Fortschritt, Timeouts, repeated tool failures
+    - Liest: session transcripts + session status + recent process/session errors
+    - Output: betroffene Session, Symptom, Evidence, Risiko, Next Action
 ```
 
 ### Phase 3: Discord-Integration (Tag 2)
@@ -254,7 +273,7 @@ tools:
     - Hermes startet, antwortet auf DM
     - MC-DOWN Playbook: korrektes UP/DEGRADED/DOWN
     - WORKER-STUCK Playbook: findet bewusst stale Task
-    - PROOF-MISMATCH Playbook: zeigt absichtliche Diskrepanz
+    - SESSION-STUCK Playbook: findet absichtlich blockierte/stale Session
 
 4.2 Security-Audit
     - Hermes kann keine destruktiven Aktionen
@@ -305,11 +324,20 @@ tools:
 | AC-1 | Hermes antwortet auf DM/Erwähnung innerhalb 30s | Manual Discord-Test |
 | AC-2 | MC-DOWN Playbook gibt "UP/DEGRADED/DOWN" + korrekte Evidence | absichtlicher MC-Stop |
 | AC-3 | WORKER-STUCK Playbook zeigt Tasks >2h + Worker | bewusste stale Task |
-| AC-4 | PROOF-MISMATCH Playbook zeigt Board/Live-Diskrepanz | absichtliche Diskrepanz |
+| AC-4 | SESSION-STUCK Playbook zeigt stale/blockierte Session + Evidence | absichtliche stale Session |
 | AC-5 | Keine destruktiven Aktionen ohne explizite Bestätigung | Security-Review + exec-log |
 | AC-6 | Receipt pro Run: Problem/Evidence/Risks/Next Action | Manual Review |
 | AC-7 | Budget: max 4096 output tokens pro Incident | Token-Meter |
 | AC-8 | Operator kann Hermes jederzeit stoppen/deaktivieren | Operator-Befehl |
+
+### Hermes KPI-Ziele (14-Tage Review-Fenster)
+
+| KPI | Zielwert | Messung |
+|---|---:|---|
+| MTTR für häufige Incidents | -20% ggü. Baseline | Zeit von Alert → klare Next Action |
+| False-positive Eskalationen | <15% | Operator/Atlas markiert unnötig |
+| Blocked wegen fehlender Evidence | -25% | Receipts mit blockerReason evidence-missing |
+| Duplicate Alerts | <2 pro Incident-Key / 15min | Dedup-Log |
 
 ### Vollversion Akzeptanzkriterien (Phase 3+)
 
@@ -333,7 +361,7 @@ tools:
 | O4 | Alert-Kanal: Discord oder Telegram? | Discord + Telegram als Backup | **ENTSCHEIDUNG NÖTIG** |
 | O5 | Budget-Guardrail: harte Grenze oder Warnung? | Erst Warnung, dann Graceful-Decline | **ENTSCHEIDUNG NÖTIG** |
 | O6 | Rollout-Phasen: wann von Shadow → Gated → Limited Autonomy? | MVP-Exit-Kriterien als Gate | OFFEN |
-| O7 | Sekundär-Check vor irreversiblen Aktionen: wer? | Atlas oder Operator | OFFEN |
+| O7 | Sekundär-Check vor irreversiblen Aktionen: wer? | Atlas oder Operator | **ENTSCHEIDUNG NÖTIG** |
 
 ---
 
@@ -367,8 +395,8 @@ Total Vollversion:   ~5 Tage total
 
 ```
 1. [Piet] Review + Approve + O1-O5 Entscheidungen
-2. [Lens] Efficiency + Redundanz-Review (dieser Plan) — ANGEFRAGT
-3. [Atlas] Operational Plausibility Check (dieser Plan) — ANGEFRAGT
+2. [Lens] Efficiency + Redundanz-Review — DONE: approve-with-changes
+3. [Atlas] Operational Plausibility Check — DONE: approve-with-changes
 4. [Forge] Implementierung starten nach Approval + Atlas/Lens Feedback
 5. [James] Hermes-Identity + working-context vorbereiten
 ```
@@ -378,4 +406,4 @@ Total Vollversion:   ~5 Tage total
 *Plan erstellt: 2026-05-02 von James*  
 *Review-History:*  
 *- Atlas (2026-05-02): 12 kritische Fragen gestellt, MVP empfohlen, Key-Gaps identifiziert (Trigger-Logik, Lock-Handling, Playbooks, Budget)*  
-*- Lens: PENDING*
+*- Lens (2026-05-02): approve-with-changes; P0: SESSION-STUCK statt PROOF-MISMATCH, Dedup/Cooldown, Board-first Enforcement, robustere Lock-Policy*

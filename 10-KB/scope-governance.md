@@ -1,7 +1,7 @@
 ---
 title: "Scope Governance & operatorLock"
 slug: scope-governance
-last_compiled: 2026-05-02T16:30:17.669077Z
+last_compiled: 2026-05-02T17:30:18.031936Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 8
 rule_count: 3
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Plan-Doc-Level scope-lock enforcement, preventing autonomous sprint-dispatch bypass.
 
-**Compiled:** 2026-05-02T16:30:17.669077Z  
+**Compiled:** 2026-05-02T17:30:18.031936Z  
 **Source:** 8 facts from workspace/memory/facts/*.jsonl, 3 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
