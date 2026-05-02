@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 57cdf45e-eb9c-4dbd-9569-45f24dcb845b [Follow-up] [Subtask][S-MEM-QG-03] 30-45 day milestone roadmap draft
-- stage: DONE
-- next: await next assignment
-- checkpoint: already done see vault
-- blocker: -
-- updated: 2026-05-02T05:27:04.965Z
+- task: f28959a5-c85b-4090-9724-7e89b17c8680 [Plan] Evaluate and implement ClawHub Grill Me skill
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: External dependency blocked: ClawHub download endpoint rate-limited (HTTP 429) after one mandated retry window.
+- blocker: External dependency blocked: ClawHub download endpoint rate-limited (HTTP 429) after one mandated retry window.
+- updated: 2026-05-02T07:27:04.786Z
 <!-- mc:auto-working-context:end -->
