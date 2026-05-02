@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b06078e3-3ce0-489c-a93b-a6f11c4c40b3 Align /team agent response surface to v3 operator design
-- stage: DONE
-- next: await next assignment
-- checkpoint: Aligned the /team agent response surface as the next single v3 operator-design slice: inspected /team route/client/data dependencies, documented mobile and desktop target layouts before coding, applied v3 dark layered su
+- task: da702b2a-94bb-4739-a553-7a4dafb8aaf3 MissionShell V3 Overview-first navigation bar
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: Progress: accepted verified via GET. Inspected MissionShell, BottomTabBar, drawer section links, active route matching, and command-search route entries. Pre-implementation nav plan: desktop topnav becomes Overview-first
 - blocker: -
-- updated: 2026-05-02T11:09:06.645Z
+- updated: 2026-05-02T11:57:33.178Z
 <!-- mc:auto-working-context:end -->
