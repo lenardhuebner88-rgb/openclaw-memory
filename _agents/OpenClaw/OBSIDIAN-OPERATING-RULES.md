@@ -1,5 +1,10 @@
 # Obsidian Operating Rules
 
+> [!important] Override 2026-05-02
+> "Kein Hermes im aktiven Pfad" bedeutet: Hermes ist kein Lead-System und kein OpenClaw-Agentenpfad.
+> Hermes ist aktuell trotzdem aktiv als separater Shadow-Debug-Assistant / Break-Glass Companion.
+> Siehe: `/home/piet/vault/03-Agents/Hermes/system-overview.md`
+
 ## Core Rules
 1. Start immer über [[../../Home]].
 2. Standard-Lesekette bleibt: `project-state` → `decisions-log` → `operational-state` → `working-context`.

@@ -8,6 +8,12 @@ priority: P1-STRATEGIC
 
 # Claude Code × OpenClaw Integration Roadmap
 
+> [!important] Override 2026-05-02
+> Die Entscheidung "Do NOT adopt Hermes" ist historisch.
+> Aktuelle Entscheidung: Hermes wird nicht als OpenClaw-Ersatz adoptiert, aber als separater Shadow-Debug-Assistant / Break-Glass Companion betrieben.
+> Lead-System bleibt OpenClaw/Atlas.
+> Siehe: `/home/piet/vault/03-Agents/Hermes/system-overview.md`
+
 **Session context:** User (pieter_pan) runs Claude Code on Windows laptop, operates OpenClaw multi-agent orchestration on a Linux homeserver via SSH. Current pattern introduces ~25 min production-outage risk per week due to friction points (today 2026-04-20 06:00–06:34 UTC incident: config-invalid not detected because no schema-validation feedback loop between laptop and server).
 
 ---

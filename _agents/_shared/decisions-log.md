@@ -1,5 +1,11 @@
 # Decisions Log
 
+> [!important] Override 2026-05-02
+> Die Entscheidung "Hermes removed from active agent structure" bleibt historisch korrekt, ist aber fuer den aktuellen Betrieb ueberholt.
+> Hermes ist wieder aktiv als separater Shadow-Debug-Assistant / Break-Glass Companion.
+> Hermes ersetzt OpenClaw/Atlas nicht und ist kein OpenClaw-Agentenpfad.
+> Siehe: `/home/piet/vault/03-Agents/Hermes/system-overview.md`
+
 ## Active decisions
 - 2026-04-22: S-RELIAB-P0 T8: Chaos-Test als Dispatch-Gate blocked: No approved maintenance window is documented for a gateway OOM/kill test. The task and sprint both forbid disruptive intervention without that approval. <!-- mc:auto-decision:865cd1a5-68bb-41a5-b74e-01223135ed62|blocked|s-reliab-p0-t8-chaos-test-als-dispatch-gate-blocked-no-approved-maintenance-wind -->
 - 2026-04-15: Receipt blocked task blocked: Needs human decision <!-- mc:auto-decision:receipt-blocked-task|blocked|receipt-blocked-task-blocked-needs-human-decision -->

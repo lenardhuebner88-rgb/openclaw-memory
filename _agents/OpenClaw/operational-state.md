@@ -1,5 +1,11 @@
 # OpenClaw Operational State
 
+> [!important] Override 2026-05-02
+> Hermes ist wieder aktiv, aber nicht als Lead-System und nicht als OpenClaw-Agentenpfad.
+> Aktueller Status: Shadow-Debug-Assistant / Break-Glass Companion.
+> Lead-System bleibt OpenClaw/Atlas.
+> Siehe: `/home/piet/vault/03-Agents/Hermes/system-overview.md`
+
 ## Canonical Paths
 - Workspace: `/home/piet/.openclaw/workspace`
 - Vault: `/home/piet/vault`

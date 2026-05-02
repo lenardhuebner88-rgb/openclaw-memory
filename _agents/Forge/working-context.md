@@ -1,5 +1,10 @@
 # Forge Working Context
 
+> [!important] Override 2026-05-02
+> "Keine neue Hermes-Abhaengigkeit" bedeutet: Forge bleibt nicht von Hermes abhaengig.
+> Hermes ist aktuell separat aktiv als Shadow-Debug-Assistant / Break-Glass Companion.
+> Lead-System bleibt OpenClaw/Atlas; Forge arbeitet weiter in seinem normalen OpenClaw-Kontext.
+
 ## Rolle
 - Infra, Code, Runtime, Stabilität
 

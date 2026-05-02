@@ -1,5 +1,11 @@
 # Project State
 
+> [!important] Override 2026-05-02
+> Hermes ist wieder aktiv, aber nicht als Lead-System und nicht als OpenClaw-Agentenpfad.
+> Aktueller Status: Shadow-Debug-Assistant / Break-Glass Companion.
+> Lead-System bleibt OpenClaw/Atlas.
+> Siehe: `/home/piet/vault/03-Agents/Hermes/system-overview.md`
+
 ## Active System Focus
 - Obsidian Vault ist jetzt der produktive Informationsanker
 - Ziel: stabile Retrieval-Pfade, wenig Kontextverschwendung, wenig manuelle Pflege
