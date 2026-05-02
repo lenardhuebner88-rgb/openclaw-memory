@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T17:30:01.910620+00:00",
+  "generated_at": "2026-05-02T18:00:01.341344+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 2,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -69,7 +69,7 @@
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "active",
+      "status": "monitoring",
       "last_session_iso": "2026-05-02T17:27:24.426547+00:00",
       "latest_session_size_bytes": 200203,
       "session_count": 3
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T17:22:38.596169+00:00",
-      "latest_session_size_bytes": 310703,
-      "session_count": 402
+      "last_session_iso": "2026-05-02T17:48:26.858952+00:00",
+      "latest_session_size_bytes": 3508,
+      "session_count": 403
     },
     {
       "id": "spark",
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "active",
-      "last_session_iso": "2026-05-02T17:28:07.942760+00:00",
-      "latest_session_size_bytes": 110387,
-      "session_count": 1588
+      "status": "monitoring",
+      "last_session_iso": "2026-05-02T17:42:31.143413+00:00",
+      "latest_session_size_bytes": 2985,
+      "session_count": 1589
     },
     {
       "id": "system-bot",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "91efc4e",
+      "date": "2026-05-02T19:31:22+02:00",
+      "subject": "auto-sync: 2026-05-02 19:31"
+    },
+    {
       "hash": "0f291c2",
       "date": "2026-05-02T19:01:22+02:00",
       "subject": "auto-sync: 2026-05-02 19:01"
@@ -964,11 +969,6 @@
       "hash": "bb91663",
       "date": "2026-05-02T15:00:57+02:00",
       "subject": "auto-sync: 2026-05-02 15:00"
-    },
-    {
-      "hash": "f0ba02d",
-      "date": "2026-05-02T14:30:45+02:00",
-      "subject": "auto-sync: 2026-05-02 14:30"
     }
   ],
   "scripts": {
@@ -990,25 +990,12 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        3401583,
-        3410235,
-        3410245,
-        3410249,
-        3410340,
-        3410341
-      ]
-    },
-    {
-      "name": "taskboard-mcp",
-      "status": "running",
-      "pids": [
-        3405015,
-        3406285,
-        3406391,
-        3410213,
-        3410234,
-        3410238,
-        3410365
+        3419595,
+        3419596,
+        3423593,
+        3429639,
+        3429649,
+        3429652
       ]
     }
   ],
