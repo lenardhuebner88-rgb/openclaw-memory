@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T16:30:01.610704+00:00",
+  "generated_at": "2026-05-02T17:00:01.757251+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 0,
+    "agents_active": 2,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -69,17 +69,17 @@
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-02T16:04:36.976627+00:00",
-      "latest_session_size_bytes": 51053,
+      "status": "active",
+      "last_session_iso": "2026-05-02T16:59:27.386795+00:00",
+      "latest_session_size_bytes": 142865,
       "session_count": 2
     },
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-02T16:19:59.815388+00:00",
-      "latest_session_size_bytes": 451452,
+      "status": "active",
+      "last_session_iso": "2026-05-02T16:56:55.174927+00:00",
+      "latest_session_size_bytes": 288033,
       "session_count": 400
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "f3fd740",
+      "date": "2026-05-02T18:31:22+02:00",
+      "subject": "auto-sync: 2026-05-02 18:31"
+    },
+    {
       "hash": "579b2ff",
       "date": "2026-05-02T18:01:21+02:00",
       "subject": "auto-sync: 2026-05-02 18:01"
@@ -964,11 +969,6 @@
       "hash": "a2bf5f4",
       "date": "2026-05-02T14:00:44+02:00",
       "subject": "auto-sync: 2026-05-02 14:00"
-    },
-    {
-      "hash": "3989ef6",
-      "date": "2026-05-02T13:30:44+02:00",
-      "subject": "auto-sync: 2026-05-02 13:30"
     }
   ],
   "scripts": {
@@ -990,11 +990,9 @@
       "status": "running",
       "pids": [
         3317770,
-        3376683,
-        3376714,
-        3376716,
-        3376808,
-        3376809
+        3392310,
+        3392357,
+        3392361
       ]
     },
     {
@@ -1002,7 +1000,13 @@
       "status": "running",
       "pids": [
         3331114,
-        3372127
+        3387645,
+        3390405,
+        3390544,
+        3392293,
+        3392323,
+        3392328,
+        3392452
       ]
     }
   ],
