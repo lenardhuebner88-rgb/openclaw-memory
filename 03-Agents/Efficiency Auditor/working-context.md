@@ -7,13 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0f3bc26b-ce1b-49bc-9d71-2d7a64d33b11 [Subtask][S-MEM-QG-03] Regression set + review-loop spec
+- task: 6bd3c06b-c579-47d9-9e27-2a811f6f1364 [Follow-up] [Lens][P2] KPI audit: Mission Control task/worker health metrics
 - stage: DONE
 - next: await next assignment
-- checkpoint: S-MEM-QG-03 regression spec + review-loop delivered. Artifact: vault/04-Sprints/planned/2026-05-01-s-mem-qg-03-regression-spec.md
-
-EXECUTION_STATUS: done
-- 17 named regression tests across 4 Gates (A retrieval, B hygiene
+- checkpoint: Closed during Codex preflight hygiene: parent Lens KPI audit was already DONE and reported no action required.
 - blocker: -
-- updated: 2026-05-01T18:47:43.395Z
+- updated: 2026-05-02T05:32:14.142Z
 <!-- mc:auto-working-context:end -->

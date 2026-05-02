@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c6b5c01e-767b-4921-9a7b-55ffb153f4b9 [Pixel][P2] Memory Visibility für Operator
+- task: b44a1249-d73c-45de-8e3f-e2e7085d2eb3 [Follow-up] [Pixel][P2] Regression pass: Taskboard operator flow after recent fixes
 - stage: DONE
 - next: await next assignment
-- checkpoint: Memory Visibility UI plan completed: inspected the current /memory page and /api/ops/memory-proof, confirmed the proof endpoint already exposes status, freshness, pending embeddings, collection drift, retrieval smoke, an
+- checkpoint: Closed during Codex preflight hygiene: parent Pixel regression pass was already DONE and explicitly reported no UI regression/no follow-up required.
 - blocker: -
-- updated: 2026-05-01T18:16:36.966Z
+- updated: 2026-05-02T05:31:39.239Z
 <!-- mc:auto-working-context:end -->
