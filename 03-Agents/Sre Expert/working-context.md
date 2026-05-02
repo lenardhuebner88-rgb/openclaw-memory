@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: f28959a5-c85b-4090-9724-7e89b17c8680 [Plan] Evaluate and implement ClawHub Grill Me skill
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: External dependency blocked: ClawHub download endpoint rate-limited (HTTP 429) after one mandated retry window.
-- blocker: External dependency blocked: ClawHub download endpoint rate-limited (HTTP 429) after one mandated retry window.
-- updated: 2026-05-02T07:27:04.786Z
+- task: 3b3921b3-9318-47b2-93bb-7cc3ff43166e Implement /grill-me command alias for Grill Me skill
+- stage: CHECKPOINT
+- next: continue current task
+- checkpoint: `grill-me` skill auf command-style Alias erweitert (`/grill-me`, `/grill-me --report`, empty-usage). Subagent smoke-check zeigt, dass `/grill-me <topic>` in Grill-Interviewmodus antwortet.
+- blocker: -
+- updated: 2026-05-02T09:00:06.966Z
 <!-- mc:auto-working-context:end -->
