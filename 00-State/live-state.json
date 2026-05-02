@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T15:30:01.456948+00:00",
+  "generated_at": "2026-05-02T16:00:01.662997+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -69,17 +69,17 @@
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-02T15:11:03.941143+00:00",
-      "latest_session_size_bytes": 586780,
-      "session_count": 3
+      "status": "idle",
+      "last_session_iso": "2026-05-01T15:04:53.185677+00:00",
+      "latest_session_size_bytes": 45803,
+      "session_count": 1
     },
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T15:19:58.202548+00:00",
-      "latest_session_size_bytes": 446105,
+      "last_session_iso": "2026-05-02T15:49:58.256989+00:00",
+      "latest_session_size_bytes": 448783,
       "session_count": 400
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "ab93f7d",
+      "date": "2026-05-02T17:31:21+02:00",
+      "subject": "auto-sync: 2026-05-02 17:31"
+    },
+    {
       "hash": "2bd8c5a",
       "date": "2026-05-02T17:01:21+02:00",
       "subject": "auto-sync: 2026-05-02 17:01"
@@ -964,11 +969,6 @@
       "hash": "ea40e3b",
       "date": "2026-05-02T13:00:44+02:00",
       "subject": "auto-sync: 2026-05-02 13:00"
-    },
-    {
-      "hash": "30a3e07",
-      "date": "2026-05-02T12:30:44+02:00",
-      "subject": "auto-sync: 2026-05-02 12:30"
     }
   ],
   "scripts": {
@@ -990,9 +990,9 @@
       "status": "running",
       "pids": [
         3317770,
-        3344667,
-        3344672,
-        3344674
+        3360170,
+        3360184,
+        3360192
       ]
     },
     {
@@ -1000,10 +1000,7 @@
       "status": "running",
       "pids": [
         3331114,
-        3340080,
-        3344655,
-        3344682,
-        3344695
+        3355651
       ]
     }
   ],
