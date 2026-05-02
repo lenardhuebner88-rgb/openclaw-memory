@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-02T16:00:01.662997+00:00",
+  "generated_at": "2026-05-02T16:30:01.610704+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -69,17 +69,17 @@
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "idle",
-      "last_session_iso": "2026-05-01T15:04:53.185677+00:00",
-      "latest_session_size_bytes": 45803,
-      "session_count": 1
+      "status": "monitoring",
+      "last_session_iso": "2026-05-02T16:04:36.976627+00:00",
+      "latest_session_size_bytes": 51053,
+      "session_count": 2
     },
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T15:49:58.256989+00:00",
-      "latest_session_size_bytes": 448783,
+      "last_session_iso": "2026-05-02T16:19:59.815388+00:00",
+      "latest_session_size_bytes": 451452,
       "session_count": 400
     },
     {
@@ -94,9 +94,9 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-02T15:05:50.262143+00:00",
-      "latest_session_size_bytes": 4613,
-      "session_count": 1584
+      "last_session_iso": "2026-05-02T16:05:30.846874+00:00",
+      "latest_session_size_bytes": 4670,
+      "session_count": 1586
     },
     {
       "id": "system-bot",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "579b2ff",
+      "date": "2026-05-02T18:01:21+02:00",
+      "subject": "auto-sync: 2026-05-02 18:01"
+    },
+    {
       "hash": "ab93f7d",
       "date": "2026-05-02T17:31:21+02:00",
       "subject": "auto-sync: 2026-05-02 17:31"
@@ -964,11 +969,6 @@
       "hash": "3989ef6",
       "date": "2026-05-02T13:30:44+02:00",
       "subject": "auto-sync: 2026-05-02 13:30"
-    },
-    {
-      "hash": "ea40e3b",
-      "date": "2026-05-02T13:00:44+02:00",
-      "subject": "auto-sync: 2026-05-02 13:00"
     }
   ],
   "scripts": {
@@ -990,9 +990,11 @@
       "status": "running",
       "pids": [
         3317770,
-        3360170,
-        3360184,
-        3360192
+        3376683,
+        3376714,
+        3376716,
+        3376808,
+        3376809
       ]
     },
     {
@@ -1000,7 +1002,7 @@
       "status": "running",
       "pids": [
         3331114,
-        3355651
+        3372127
       ]
     }
   ],
