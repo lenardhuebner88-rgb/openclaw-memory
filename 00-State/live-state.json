@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T17:30:01.311784+00:00",
+  "generated_at": "2026-05-03T18:00:01.782424+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 2,
+    "agents_active": 1,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-03T17:28:50.050336+00:00",
-      "latest_session_size_bytes": 112576,
-      "session_count": 403
+      "last_session_iso": "2026-05-03T17:55:34.732079+00:00",
+      "latest_session_size_bytes": 135600,
+      "session_count": 401
     },
     {
       "id": "spark",
@@ -93,9 +93,9 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "active",
-      "last_session_iso": "2026-05-03T17:28:14.000109+00:00",
-      "latest_session_size_bytes": 49038,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-03T17:44:35.654279+00:00",
+      "latest_session_size_bytes": 78954,
       "session_count": 1593
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "ced42bf",
+      "date": "2026-05-03T19:31:41+02:00",
+      "subject": "auto-sync: 2026-05-03 19:31"
+    },
+    {
       "hash": "556bf22",
       "date": "2026-05-03T19:01:41+02:00",
       "subject": "auto-sync: 2026-05-03 19:01"
@@ -964,11 +969,6 @@
       "hash": "c83a43f",
       "date": "2026-05-03T15:01:39+02:00",
       "subject": "auto-sync: 2026-05-03 15:01"
-    },
-    {
-      "hash": "d15655b",
-      "date": "2026-05-03T14:31:39+02:00",
-      "subject": "auto-sync: 2026-05-03 14:31"
     }
   ],
   "scripts": {
@@ -981,10 +981,9 @@
       "status": "running",
       "pids": [
         87069,
-        121647,
-        121676,
-        121683,
-        121782
+        147844,
+        147865,
+        147870
       ]
     }
   ],
