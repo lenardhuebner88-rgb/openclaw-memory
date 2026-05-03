@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T12:30:01.705760+00:00",
+  "generated_at": "2026-05-03T13:00:01.712035+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-03T12:06:17.223869+00:00",
-      "latest_session_size_bytes": 40244,
+      "last_session_iso": "2026-05-03T12:50:32.991737+00:00",
+      "latest_session_size_bytes": 76081,
       "session_count": 402
     },
     {
@@ -101,9 +101,9 @@
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "active",
-      "last_session_iso": "2026-05-03T12:28:04.522841+00:00",
-      "latest_session_size_bytes": 1027,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-03T12:53:59.296919+00:00",
+      "latest_session_size_bytes": 2011,
       "session_count": 11
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "d15655b",
+      "date": "2026-05-03T14:31:39+02:00",
+      "subject": "auto-sync: 2026-05-03 14:31"
+    },
+    {
       "hash": "be6e75b",
       "date": "2026-05-03T14:01:38+02:00",
       "subject": "auto-sync: 2026-05-03 14:01"
@@ -964,11 +969,6 @@
       "hash": "7559d4f",
       "date": "2026-05-03T10:01:36+02:00",
       "subject": "auto-sync: 2026-05-03 10:01"
-    },
-    {
-      "hash": "210739c",
-      "date": "2026-05-03T09:31:36+02:00",
-      "subject": "auto-sync: 2026-05-03 09:31"
     }
   ],
   "scripts": {
@@ -980,14 +980,10 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        4088843,
-        4088844,
-        4095250,
-        4098217,
-        4098227,
-        4098230,
-        4098341,
-        4098342
+        4114204,
+        4117648,
+        4117663,
+        4117665
       ]
     }
   ],
