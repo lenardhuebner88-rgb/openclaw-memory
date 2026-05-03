@@ -1,7 +1,7 @@
 ---
 agent: codex
 started: 2026-05-03T21:31Z
-ended: null
+ended: 2026-05-03T22:00Z
 task: "Audit active_embedded_run / Codex app-server timeout stalls"
 touching:
   - 03-Agents/Hermes/receipts/codex-embedded-run-timeout-audit-2026-05-03.md
@@ -15,3 +15,4 @@ operator: piet
 
 ## Log
 - 2026-05-03T21:31Z Started; active Hermes session touches different files, no receipt-path overlap found.
+- 2026-05-03T22:00Z Wrote final German audit report to `03-Agents/Hermes/receipts/codex-embedded-run-timeout-audit-2026-05-03.md`.

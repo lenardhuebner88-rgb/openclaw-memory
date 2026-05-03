@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T21:30:01.955924+00:00",
+  "generated_at": "2026-05-03T22:00:01.468298+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 2,
+    "agents_active": 1,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 193,
+    "scripts_active": 194,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -53,7 +53,7 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-03T20:42:10.931267+00:00",
       "latest_session_size_bytes": 1243,
       "session_count": 32
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-03T21:29:37.430212+00:00",
-      "latest_session_size_bytes": 15006,
-      "session_count": 396
+      "status": "monitoring",
+      "last_session_iso": "2026-05-03T21:52:41.724705+00:00",
+      "latest_session_size_bytes": 8427,
+      "session_count": 395
     },
     {
       "id": "spark",
@@ -94,14 +94,14 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-05-03T21:29:38.339218+00:00",
-      "latest_session_size_bytes": 156732,
-      "session_count": 1596
+      "last_session_iso": "2026-05-03T21:59:48.777489+00:00",
+      "latest_session_size_bytes": 13633,
+      "session_count": 1597
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-03T20:47:18.869025+00:00",
       "latest_session_size_bytes": 11434,
       "session_count": 17
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "d0f7fac",
+      "date": "2026-05-03T23:31:44+02:00",
+      "subject": "auto-sync: 2026-05-03 23:31"
+    },
+    {
       "hash": "1f5becc",
       "date": "2026-05-03T23:01:44+02:00",
       "subject": "auto-sync: 2026-05-03 23:01"
@@ -964,15 +969,10 @@
       "hash": "556bf22",
       "date": "2026-05-03T19:01:41+02:00",
       "subject": "auto-sync: 2026-05-03 19:01"
-    },
-    {
-      "hash": "c0ae185",
-      "date": "2026-05-03T18:31:41+02:00",
-      "subject": "auto-sync: 2026-05-03 18:31"
     }
   ],
   "scripts": {
-    "scripts_root": 121,
+    "scripts_root": 122,
     "workspace_scripts": 72
   },
   "mcp_servers": [
@@ -980,11 +980,10 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        308101,
-        335010,
-        335026,
-        335038,
-        335140
+        343574,
+        364695,
+        364772,
+        364776
       ]
     }
   ],
