@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T02:00:01.995463+00:00",
+  "generated_at": "2026-05-03T02:30:01.683307+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-03T01:50:18.835472+00:00",
-      "latest_session_size_bytes": 41965,
-      "session_count": 402
+      "last_session_iso": "2026-05-03T02:20:17.574417+00:00",
+      "latest_session_size_bytes": 43211,
+      "session_count": 401
     },
     {
       "id": "spark",
@@ -101,10 +101,10 @@
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "ready",
-      "last_session_iso": "2026-05-03T00:45:37.541909+00:00",
-      "latest_session_size_bytes": 1262,
-      "session_count": 6
+      "status": "monitoring",
+      "last_session_iso": "2026-05-03T02:03:33.868043+00:00",
+      "latest_session_size_bytes": 2395,
+      "session_count": 7
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "ee64791",
+      "date": "2026-05-03T04:01:32+02:00",
+      "subject": "auto-sync: 2026-05-03 04:01"
+    },
+    {
       "hash": "696b3d8",
       "date": "2026-05-03T03:31:32+02:00",
       "subject": "auto-sync: 2026-05-03 03:31"
@@ -964,11 +969,6 @@
       "hash": "3e7e9f2",
       "date": "2026-05-03T00:01:30+02:00",
       "subject": "auto-sync: 2026-05-03 00:01"
-    },
-    {
-      "hash": "0bad289",
-      "date": "2026-05-02T23:31:30+02:00",
-      "subject": "auto-sync: 2026-05-02 23:31"
     }
   ],
   "scripts": {
@@ -991,11 +991,13 @@
       "status": "running",
       "pids": [
         3550290,
-        3709785,
-        3709786,
-        3717139,
-        3717155,
-        3717156
+        3728348,
+        3728349,
+        3735937,
+        3735959,
+        3735961,
+        3736066,
+        3736067
       ]
     }
   ],
