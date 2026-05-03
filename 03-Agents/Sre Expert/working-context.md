@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 47a97e35-e9b9-4ec2-8857-d16569225154 [Smoke] pending-pickup lifecycle
-- stage: START
-- next: continue current task
-- checkpoint: -
-- blocker: -
-- updated: 2026-05-03T20:00:16.379Z
+- task: b5052100-492f-41da-b5eb-e37710e35354 [P1][Forge] OAuth/Test Drift bereinigen — openai-codex vs openai/gpt
+- stage: FAILED
+- next: await next assignment
+- checkpoint: Task exceeded runTimeoutSeconds=900s (runtime=1044s). Auto-failed by worker-monitor timeout guard.
+- blocker: Task exceeded runTimeoutSeconds=900s (runtime=1044s). Auto-failed by worker-monitor timeout guard.
+- updated: 2026-05-03T20:30:07.078Z
 <!-- mc:auto-working-context:end -->

@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-05-03T19:50:01.417244+00:00
+last_generated: 2026-05-03T20:20:01.585467+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-05-03 19:50 UTC  
+**Generated:** 2026-05-03 20:20 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -21,13 +21,13 @@ flowchart TB
     subgraph AGT["🤖 Agents"]
         agent_codex["codex<br/>n/a<br/>0 KB"]
         agent_default["default<br/>n/a<br/>0 KB"]
-        agent_efficiency_auditor["efficiency-auditor<br/>20m ago<br/>2 KB"]
+        agent_efficiency_auditor["efficiency-auditor<br/>50m ago<br/>2 KB"]
         agent_frontend_guru["frontend-guru<br/>6h ago<br/>47 KB"]
         agent_james["james<br/>3h ago<br/>9 KB"]
-        agent_main["main<br/>22s ago<br/>348 KB"]
+        agent_main["main<br/>9s ago<br/>346 KB"]
         agent_spark["spark<br/>1d ago<br/>248 KB"]
-        agent_sre_expert["sre-expert<br/>10m ago<br/>94 KB"]
-        agent_system_bot["system-bot<br/>44m ago<br/>1 KB"]
+        agent_sre_expert["sre-expert<br/>8m ago<br/>33 KB"]
+        agent_system_bot["system-bot<br/>19m ago<br/>1 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -86,13 +86,13 @@ flowchart TB
 |----|--------------|------------------|------|
 | `codex` | n/a | 0 | `/home/piet/.openclaw/agents/codex` |
 | `default` | n/a | 0 | `/home/piet/.openclaw/agents/default` |
-| `efficiency-auditor` | 20m ago | 2 | `/home/piet/.openclaw/agents/efficiency-auditor` |
+| `efficiency-auditor` | 50m ago | 2 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 6h ago | 47 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 3h ago | 9 | `/home/piet/.openclaw/agents/james` |
-| `main` | 22s ago | 348 | `/home/piet/.openclaw/agents/main` |
+| `main` | 9s ago | 346 | `/home/piet/.openclaw/agents/main` |
 | `spark` | 1d ago | 248 | `/home/piet/.openclaw/agents/spark` |
-| `sre-expert` | 10m ago | 94 | `/home/piet/.openclaw/agents/sre-expert` |
-| `system-bot` | 44m ago | 1 | `/home/piet/.openclaw/agents/system-bot` |
+| `sre-expert` | 8m ago | 33 | `/home/piet/.openclaw/agents/sre-expert` |
+| `system-bot` | 19m ago | 1 | `/home/piet/.openclaw/agents/system-bot` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
@@ -303,11 +303,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+f7be13a 2026-05-03 auto-sync: 2026-05-03 22:01
 697e650 2026-05-03 auto-sync: 2026-05-03 21:31
 6669a2e 2026-05-03 auto-sync: 2026-05-03 21:01
 105e4f8 2026-05-03 auto-sync: 2026-05-03 20:31
 cca5e17 2026-05-03 auto-sync: 2026-05-03 20:01
-ced42bf 2026-05-03 auto-sync: 2026-05-03 19:31
 ```
 
 ---

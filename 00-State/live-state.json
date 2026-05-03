@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T20:00:01.554951+00:00",
+  "generated_at": "2026-05-03T20:30:01.509435+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 0,
+    "agents_active": 2,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -53,7 +53,7 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-03T19:29:28.839909+00:00",
       "latest_session_size_bytes": 2111,
       "session_count": 31
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-03T19:50:08.593263+00:00",
-      "latest_session_size_bytes": 101039,
+      "status": "active",
+      "last_session_iso": "2026-05-03T20:27:13.453656+00:00",
+      "latest_session_size_bytes": 41760,
       "session_count": 394
     },
     {
@@ -93,18 +93,18 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-03T19:39:28.851617+00:00",
-      "latest_session_size_bytes": 96652,
-      "session_count": 1593
+      "status": "active",
+      "last_session_iso": "2026-05-03T20:26:43.653521+00:00",
+      "latest_session_size_bytes": 100736,
+      "session_count": 1592
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-03T19:05:16.499369+00:00",
-      "latest_session_size_bytes": 1648,
-      "session_count": 16
+      "last_session_iso": "2026-05-03T20:00:22.551491+00:00",
+      "latest_session_size_bytes": 1434,
+      "session_count": 17
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "f7be13a",
+      "date": "2026-05-03T22:01:43+02:00",
+      "subject": "auto-sync: 2026-05-03 22:01"
+    },
+    {
       "hash": "697e650",
       "date": "2026-05-03T21:31:43+02:00",
       "subject": "auto-sync: 2026-05-03 21:31"
@@ -964,11 +969,6 @@
       "hash": "83c871c",
       "date": "2026-05-03T17:31:41+02:00",
       "subject": "auto-sync: 2026-05-03 17:31"
-    },
-    {
-      "hash": "20bd792",
-      "date": "2026-05-03T17:01:40+02:00",
-      "subject": "auto-sync: 2026-05-03 17:01"
     }
   ],
   "scripts": {
@@ -981,9 +981,10 @@
       "status": "running",
       "pids": [
         181097,
-        239949,
-        239979,
-        239980
+        263335,
+        263352,
+        263355,
+        263469
       ]
     }
   ],

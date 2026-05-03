@@ -3091,3 +3091,5 @@ NEXT_RECOMMENDED_TASKS
 - 2026-05-03T17:03:40.646Z | START | 71d72c74-04a6-4125-99e1-00472fc4e5ac | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
 - 2026-05-03T19:01:57.372Z | START | d0336581-84c3-4042-8872-fb599d2eeb5b | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
 - 2026-05-03T20:00:16.376Z | START | 47a97e35-e9b9-4ec2-8857-d16569225154 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-05-03T20:12:55.726Z | CHECKPOINT | b5052100-492f-41da-b5eb-e37710e35354 | [P1][Forge] OAuth/Test Drift bereinigen — openai-codex vs openai/gpt | worker=sre-expert | progress=- | summary=- | note=Claim erfolgreich; analysiere nun kanonische OpenAI-Lane und patchte Runtime/Tests gezielt.
+- 2026-05-03T20:30:07.075Z | FAILED | b5052100-492f-41da-b5eb-e37710e35354 | [P1][Forge] OAuth/Test Drift bereinigen — openai-codex vs openai/gpt | worker=sre-expert | progress=- | summary=- | note=Task exceeded runTimeoutSeconds=900s (runtime=1044s). Auto-failed by worker-monitor timeout guard.
