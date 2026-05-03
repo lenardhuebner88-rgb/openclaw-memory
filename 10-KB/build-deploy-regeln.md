@@ -1,7 +1,7 @@
 ---
 title: "Build & Deploy Rules"
 slug: build-deploy-regeln
-last_compiled: 2026-05-03T09:30:18.055829Z
+last_compiled: 2026-05-03T10:30:02.184944Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 21
 rule_count: 4
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Build-sequence, deploy-patterns, systemd-service conventions, V8-heap+memory limits.
 
-**Compiled:** 2026-05-03T09:30:18.055829Z  
+**Compiled:** 2026-05-03T10:30:02.184944Z  
 **Source:** 21 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
