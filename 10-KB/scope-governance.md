@@ -1,7 +1,7 @@
 ---
 title: "Scope Governance & operatorLock"
 slug: scope-governance
-last_compiled: 2026-05-03T00:45:02.454922Z
+last_compiled: 2026-05-03T01:30:17.390204Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 8
 rule_count: 3
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Plan-Doc-Level scope-lock enforcement, preventing autonomous sprint-dispatch bypass.
 
-**Compiled:** 2026-05-03T00:45:02.454922Z  
+**Compiled:** 2026-05-03T01:30:17.390204Z  
 **Source:** 8 facts from workspace/memory/facts/*.jsonl, 3 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
@@ -39,9 +39,9 @@ Atlas MUSS vor Sprint-Dispatch das Plan-Doc-Frontmatter lesen. Wenn operatorLock
 - **[0.90]** `procedural` (2026-04-19T21:35:11 system#1f4f56a6) — Pre-Flight-Sprint-Dispatch Script deployed 2026-04-19 20:42 UTC mit 7 Gates: Atlas-session-size R36, operatorLock R47, Board-open_count, MC+Gateway-health, R49-Validator-CRITICAL, Git-dirty-state, Fre...
 - **[0.85]** `procedural` (2026-04-19T21:35:11 system#4ab4f0af) — Atlas-State-Snapshot-Generator deployed 2026-04-19 21:26 UTC (L5-Deep). Script extrahiert aktuelle Atlas-Session in strukturiertes Markdown (session-id, git-log, plan-docs, task-IDs, last-assistant-me...
 - **[0.85]** `semantic` (2026-04-19T21:35:11 system#967225ab) — Defense-Stack Pattern 2026-04-19: 12 automated cron-layers active für governance + memory + monitoring: session-freeze-watcher */5, r49-claim-validator */15, r48-board-hygiene hourly, daily-reflection...
-- **[0.63]** `reflective` (2026-04-19T21:50:01 system#5ee1ed4a) — Today's highest-importance facts:   - [1.00] R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:3   - [0.95] R45 Sub-Agent-Receipt-Discipline deployed 2026-04-19 17:20 UTC ...
-- **[0.38]** `semantic` (2026-04-19T21:35:11 system#1db9c9d9) — 10 Karpathy-KB-Articles compiled 2026-04-19 20:46 UTC in vault/03-Agents/kb/: sprint-orchestration (27f/7r), receipt-discipline (34f/4r), deploy-contracts (12f/3r), atlas-hallucination-prevention (0f/...
-- **[0.12]** `episodic` (2026-04-19T21:35:11 system#c1d68857) — Atlas-main lief 2026-04-19 evening auf MiniMax-M2.7 statt Codex (primary offline). Sprint-I-Dispatch funktional, 4 parallele Sub-Tasks (Pixel×2 + Forge + Lens) dispatched innerhalb 2min nach /reset. R...
+- **[0.60]** `reflective` (2026-04-19T21:50:01 system#5ee1ed4a) — Today's highest-importance facts:   - [1.00] R49 Atlas Anti-Hallucination Claim-Verify-Before-Report deployed 2026-04-19 20:3   - [0.95] R45 Sub-Agent-Receipt-Discipline deployed 2026-04-19 17:20 UTC ...
+- **[0.34]** `semantic` (2026-04-19T21:35:11 system#1db9c9d9) — 10 Karpathy-KB-Articles compiled 2026-04-19 20:46 UTC in vault/03-Agents/kb/: sprint-orchestration (27f/7r), receipt-discipline (34f/4r), deploy-contracts (12f/3r), atlas-hallucination-prevention (0f/...
+- **[0.09]** `episodic` (2026-04-19T21:35:11 system#c1d68857) — Atlas-main lief 2026-04-19 evening auf MiniMax-M2.7 statt Codex (primary offline). Sprint-I-Dispatch funktional, 4 parallele Sub-Tasks (Pixel×2 + Forge + Lens) dispatched innerhalb 2min nach /reset. R...
 
 ## Related KB Articles
 
