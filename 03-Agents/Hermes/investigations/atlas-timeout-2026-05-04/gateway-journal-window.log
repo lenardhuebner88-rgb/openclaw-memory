@@ -1,0 +1,16 @@
+May 03 23:56:20 huebners node[343560]: 2026-05-03T23:56:20.139+02:00 [ws] ⇄ res ✓ health 70ms cached=true conn=83f36fc3…cdb7 id=4fc1b956…5c37
+May 03 23:58:05 huebners node[343560]: 2026-05-03T23:58:05.268+02:00 [ws] ⇄ res ✓ health 94ms cached=true conn=744e4173…a284 id=93b5caf4…8e1b
+May 03 23:59:20 huebners node[343560]: 2026-05-03T23:59:20.322+02:00 [ws] ⇄ res ✓ health 70ms cached=true conn=2bfc8157…de8b id=75022ce0…e5f6
+May 03 23:59:28 huebners node[343560]: 2026-05-03T23:59:28.795+02:00 [diagnostic] stuck session: sessionId=main sessionKey=agent:main:discord:channel:1486480128576983070 state=processing age=141s queueDepth=1 reason=queued_work_without_active_run classification=stale_session_state recovery=checking
+May 03 23:59:28 huebners node[343560]: 2026-05-03T23:59:28.798+02:00 [diagnostic] stuck session recovery skipped: reason=active_embedded_run action=observe_only sessionId=main sessionKey=agent:main:discord:channel:1486480128576983070 age=141s queueDepth=1 activeSessionId=c398bead-a362-46ca-a764-6502d305ff61
+May 04 00:00:05 huebners node[343560]: 2026-05-04T00:00:05.293+02:00 [ws] ⇄ res ✓ sessions.cleanup 582ms conn=32167d89…7d10 id=e1d2ccf6…7c2c
+May 04 00:01:20 huebners node[343560]: 2026-05-04T00:01:20.621+02:00 [ws] ⇄ res ✓ health 70ms cached=true conn=a8df2bd4…be9b id=a68c17c5…a01a
+May 04 00:01:25 huebners node[343560]: 2026-05-04T00:01:25.652+02:00 [agent/embedded] Profile openai-codex:lenardhuebner88@gmail.com timed out. Trying next account...
+May 04 00:01:25 huebners node[343560]: 2026-05-04T00:01:25.657+02:00 [agent/embedded] embedded run failover decision: runId=a362c84a-6f6d-4279-b3ef-80b44553a1bb stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.4-mini profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out
+May 04 00:01:25 huebners node[343560]: 2026-05-04T00:01:25.659+02:00 [diagnostic] lane task error: lane=main durationMs=300745 error="FailoverError: LLM request timed out."
+May 04 00:01:25 huebners node[343560]: 2026-05-04T00:01:25.660+02:00 [diagnostic] lane task error: lane=session:agent:main:discord:channel:1486480128576983070 durationMs=300746 error="FailoverError: LLM request timed out."
+May 04 00:01:25 huebners node[343560]: 2026-05-04T00:01:25.665+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.4-mini candidate=openai/gpt-5.4-mini reason=timeout next=openai/gpt-5.4 detail=codex app-server attempt timed out
+May 04 00:01:28 huebners node[343560]: 2026-05-04T00:01:28.793+02:00 [diagnostic] liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=22.7 eventLoopDelayMaxMs=1036.5 eventLoopUtilization=0.154 cpuCoreRatio=0.185 active=1 waiting=0 queued=1
+May 04 00:01:56 huebners node[343560]: 2026-05-04T00:01:56.647+02:00 [model-fallback/decision] model fallback decision: decision=candidate_succeeded requested=openai/gpt-5.4-mini candidate=openai/gpt-5.4 reason=unknown next=none
+May 04 00:03:04 huebners node[343560]: 2026-05-04T00:03:04.806+02:00 [ws] ⇄ res ✓ health 74ms cached=true conn=2b1036ac…983e id=693ec22c…f682
+May 04 00:03:20 huebners node[343560]: 2026-05-04T00:03:20.984+02:00 [ws] ⇄ res ✓ health 77ms cached=true conn=347d8741…f40b id=4ea31c35…7015

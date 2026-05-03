@@ -1,0 +1,120 @@
+{
+  "agents.defaults.agentRuntime": {
+    "id": "codex",
+    "fallback": "pi"
+  },
+  "main": {
+    "id": "main",
+    "name": "Atlas",
+    "model": {
+      "primary": "openai/gpt-5.5",
+      "fallbacks": [
+        "openai/gpt-5.4-mini",
+        "openai/gpt-5.4",
+        "openai/gpt-5.3-codex"
+      ]
+    },
+    "thinkingDefault": "off",
+    "reasoningDefault": "off",
+    "fastModeDefault": true,
+    "memorySearch": {
+      "qmd": {
+        "extraCollections": [
+          {
+            "path": "/home/piet/vault",
+            "name": "vault",
+            "pattern": "**/*.md"
+          },
+          {
+            "path": "/home/piet/.openclaw/workspace/mission-control",
+            "name": "mc-src",
+            "pattern": "**/*.md"
+          },
+          {
+            "path": "/home/piet/.openclaw/workspace/memory/facts",
+            "name": "facts",
+            "pattern": "**/*.jsonl"
+          }
+        ]
+      }
+    },
+    "subagents": {
+      "allowAgents": [
+        "sre-expert",
+        "frontend-guru",
+        "efficiency-auditor",
+        "james",
+        "spark"
+      ]
+    },
+    "contextLimits": {
+      "postCompactionMaxChars": 12000,
+      "toolResultMaxChars": 4000,
+      "memoryGetMaxChars": 10000
+    },
+    "params": {
+      "wipLimit": 3
+    },
+    "tools": {
+      "allow": [
+        "agents_list",
+        "exec",
+        "memory_get",
+        "memory_search",
+        "read",
+        "session_status",
+        "sessions_history",
+        "sessions_list",
+        "sessions_send",
+        "sessions_yield",
+        "subagents",
+        "update_plan"
+      ]
+    },
+    "skills": [
+      "agent-self-recovery",
+      "compaction-resilience-guard",
+      "context-budget-guard",
+      "context-window-management",
+      "daily-review",
+      "dangerous-action-guard",
+      "discord",
+      "executing-plans",
+      "fact-check-before-trust",
+      "grill-me",
+      "heartbeat-governor",
+      "long-running-task-management",
+      "loop-circuit-breaker",
+      "memory-integrity-checker",
+      "model-router",
+      "multi-agent-coordinator",
+      "persistent-memory-hygiene",
+      "prompt-injection-guard",
+      "secrets-hygiene",
+      "session-logs",
+      "session-persistence",
+      "skill-loadout-manager",
+      "subagent-driven-development",
+      "systematic-debugging",
+      "task-handoff",
+      "taskflow",
+      "taskflow-inbox-triage",
+      "verification-before-completion",
+      "workflow-orchestration"
+    ],
+    "agentRuntime": {
+      "id": "codex",
+      "fallback": "pi"
+    }
+  },
+  "providers": [
+    "alibaba",
+    "minimax",
+    "minimax-portal",
+    "modelstudio",
+    "nvidia",
+    "ollama",
+    "openai",
+    "openrouter"
+  ]
+}

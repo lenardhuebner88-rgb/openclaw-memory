@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T22:00:01.468298+00:00",
+  "generated_at": "2026-05-03T22:30:01.269660+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 194,
+    "scripts_active": 195,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-03T21:52:41.724705+00:00",
-      "latest_session_size_bytes": 8427,
+      "status": "active",
+      "last_session_iso": "2026-05-03T22:25:53.371835+00:00",
+      "latest_session_size_bytes": 35295,
       "session_count": 395
     },
     {
@@ -93,9 +93,9 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "active",
-      "last_session_iso": "2026-05-03T21:59:48.777489+00:00",
-      "latest_session_size_bytes": 13633,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-03T22:23:57.616050+00:00",
+      "latest_session_size_bytes": 34435,
       "session_count": 1597
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "8c7267b",
+      "date": "2026-05-04T00:01:45+02:00",
+      "subject": "auto-sync: 2026-05-04 00:01"
+    },
+    {
       "hash": "d0f7fac",
       "date": "2026-05-03T23:31:44+02:00",
       "subject": "auto-sync: 2026-05-03 23:31"
@@ -964,15 +969,10 @@
       "hash": "ced42bf",
       "date": "2026-05-03T19:31:41+02:00",
       "subject": "auto-sync: 2026-05-03 19:31"
-    },
-    {
-      "hash": "556bf22",
-      "date": "2026-05-03T19:01:41+02:00",
-      "subject": "auto-sync: 2026-05-03 19:01"
     }
   ],
   "scripts": {
-    "scripts_root": 122,
+    "scripts_root": 123,
     "workspace_scripts": 72
   },
   "mcp_servers": [
@@ -980,10 +980,11 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        343574,
-        364695,
-        364772,
-        364776
+        395275,
+        395814,
+        395838,
+        395845,
+        395946
       ]
     }
   ],
