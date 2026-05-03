@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T20:30:01.509435+00:00",
+  "generated_at": "2026-05-03T21:00:01.759105+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -53,10 +53,10 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "ready",
-      "last_session_iso": "2026-05-03T19:29:28.839909+00:00",
-      "latest_session_size_bytes": 2111,
-      "session_count": 31
+      "status": "monitoring",
+      "last_session_iso": "2026-05-03T20:42:10.931267+00:00",
+      "latest_session_size_bytes": 1243,
+      "session_count": 32
     },
     {
       "id": "frontend-guru",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-03T20:27:13.453656+00:00",
-      "latest_session_size_bytes": 41760,
-      "session_count": 394
+      "last_session_iso": "2026-05-03T20:56:12.161755+00:00",
+      "latest_session_size_bytes": 2055,
+      "session_count": 396
     },
     {
       "id": "spark",
@@ -94,16 +94,16 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "active",
-      "last_session_iso": "2026-05-03T20:26:43.653521+00:00",
-      "latest_session_size_bytes": 100736,
-      "session_count": 1592
+      "last_session_iso": "2026-05-03T20:55:40.313792+00:00",
+      "latest_session_size_bytes": 122943,
+      "session_count": 1593
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-03T20:00:22.551491+00:00",
-      "latest_session_size_bytes": 1434,
+      "last_session_iso": "2026-05-03T20:47:18.869025+00:00",
+      "latest_session_size_bytes": 11434,
       "session_count": 17
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "d2f388c",
+      "date": "2026-05-03T22:31:44+02:00",
+      "subject": "auto-sync: 2026-05-03 22:31"
+    },
+    {
       "hash": "f7be13a",
       "date": "2026-05-03T22:01:43+02:00",
       "subject": "auto-sync: 2026-05-03 22:01"
@@ -964,11 +969,6 @@
       "hash": "db84a32",
       "date": "2026-05-03T18:01:41+02:00",
       "subject": "auto-sync: 2026-05-03 18:01"
-    },
-    {
-      "hash": "83c871c",
-      "date": "2026-05-03T17:31:41+02:00",
-      "subject": "auto-sync: 2026-05-03 17:31"
     }
   ],
   "scripts": {
@@ -980,11 +980,10 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        181097,
-        263335,
-        263352,
-        263355,
-        263469
+        276925,
+        297318,
+        297329,
+        297333
       ]
     }
   ],
