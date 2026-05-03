@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T07:00:01.736200+00:00",
+  "generated_at": "2026-05-03T07:30:01.408694+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -56,7 +56,7 @@
       "status": "ready",
       "last_session_iso": "2026-05-02T17:05:37.786136+00:00",
       "latest_session_size_bytes": 108757,
-      "session_count": 31
+      "session_count": 30
     },
     {
       "id": "frontend-guru",
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-03T06:50:15.648300+00:00",
-      "latest_session_size_bytes": 54424,
+      "last_session_iso": "2026-05-03T07:20:23.702327+00:00",
+      "latest_session_size_bytes": 55670,
       "session_count": 402
     },
     {
@@ -93,7 +93,7 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-03T06:04:17.751119+00:00",
       "latest_session_size_bytes": 1708,
       "session_count": 1594
@@ -101,7 +101,7 @@
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-03T06:01:05.669001+00:00",
       "latest_session_size_bytes": 1626,
       "session_count": 10
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "5f9d7b5",
+      "date": "2026-05-03T09:01:35+02:00",
+      "subject": "auto-sync: 2026-05-03 09:01"
+    },
+    {
       "hash": "3b553da",
       "date": "2026-05-03T08:31:35+02:00",
       "subject": "auto-sync: 2026-05-03 08:31"
@@ -964,11 +969,6 @@
       "hash": "6c72954",
       "date": "2026-05-03T04:31:32+02:00",
       "subject": "auto-sync: 2026-05-03 04:31"
-    },
-    {
-      "hash": "ee64791",
-      "date": "2026-05-03T04:01:32+02:00",
-      "subject": "auto-sync: 2026-05-03 04:01"
     }
   ],
   "scripts": {
@@ -977,22 +977,15 @@
   },
   "mcp_servers": [
     {
-      "name": "vault-memory-mcp",
-      "status": "running",
-      "pids": [
-        3397497
-      ]
-    },
-    {
       "name": "qmd",
       "status": "running",
       "pids": [
-        3819314,
-        3885781,
-        3885782,
-        3893280,
-        3893285,
-        3893288
+        3903122,
+        3903123,
+        3911547,
+        3911997,
+        3912009,
+        3912010
       ]
     }
   ],

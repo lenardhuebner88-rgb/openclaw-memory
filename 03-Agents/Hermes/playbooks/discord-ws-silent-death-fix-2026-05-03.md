@@ -1,8 +1,8 @@
 # Fix-Plan: Discord WS Silent Death — Nachhaltige Lösung
 
-**Status:** In Progress  
-**Datum:** 2026-05-03  
-**Betroffene Systeme:** OpenClaw Gateway, gateway-memory-monitor.py, provider-hTInySyN.js  
+**Status:** Phase 1 DONE — Phase 2 Open
+**Datum:** 2026-05-03
+**Betroffene Systeme:** OpenClaw Gateway, gateway-memory-monitor.py, provider-hTInySyN.js
 
 ---
 
@@ -11,13 +11,29 @@
 Discord WS Event Stream stirbt lautlos. Gateway HTTP health meldet `ok/live`, aber der Discord-
 Inbound-Stream ist tot. Kein Error geloggt. Workaround: manueller Gateway-Restart.
 
-### Root Cause (verifiziert durch Codex, 2026-05-03)
+### Root Cause (verifiziert durch Codex + Claude, 2026-05-03)
 
 | Layer | Ort | Bug |
 |-------|-----|-----|
-| L1 — Gateway | `provider-hTInySyN.js` | Kein Idle-Detector: wenn TCP-Verbindung in Zombie-State hängt, feuert weder `socket.on(close)` noch ACK-Timeout noch Opcode 7 |
-| L2 — Monitor | `gateway-memory-monitor.py` | Discord-Watchdog hängt hinter Früh-Return bei `rss is None` → **nie aufgerufen** wenn PID nicht gefunden wird |
+| L1 — Gateway Reconnect Bug | `provider-hTInySyN.js:3770` | `shouldReconnect=false` → `scheduleReconnect()` macht sofort `return` bei Code 1000 (Normal Close) — **kein Reconnect nach sauberem Close** |
+| L2 — Monitor Gap | `gateway-memory-monitor.py:300` | Discord-Watchdog hängt hinter Früh-Return bei `rss is None` → **nie aufgerufen** wenn PID nicht gefunden wird |
 | L3 — Crontab | Piet's crontab | 5-Min-Intervall = bis zu 5min Totzeit nach Recovery |
+
+### L1 Detail — Der Reconnect-Bug
+
+```
+07:16:47 — [discord] gateway: Gateway websocket closed: 1000
+→ socket.on("close", code=1000) in Zeile 3631
+→ this.scheduleReconnect(true, 1000) in Zeile 3647
+→ scheduleReconnect() Zeile 3769: if (!this.shouldReconnect) return ← BUG: shouldReconnect=false
+→ 45 min Stille — kein reconnect, keine Kanäle
+```
+
+Code 1000 = normal close. `isFatalGatewayCloseCode(1000)` → `false`. Aber `shouldReconnect` ist `false`
+irgendwann vor dem Close gesetzt worden (z.B. nach vorherigem fatal close oder initial ohne Reset).
+
+**Alternative Hypothese (Claude):** `shouldReconnect` wird nach `close(1000)` auf `false` gesetzt —
+ohne es je auf `true` zurückzusetzen — sodaas der nächste `scheduleReconnect()`-Call sofort returned.
 
 ---
 
