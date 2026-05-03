@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T15:00:01.750290+00:00",
+  "generated_at": "2026-05-03T15:30:01.613957+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-03T14:50:02.396383+00:00",
-      "latest_session_size_bytes": 85457,
+      "last_session_iso": "2026-05-03T15:20:16.946076+00:00",
+      "latest_session_size_bytes": 87010,
       "session_count": 405
     },
     {
@@ -94,14 +94,14 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "ready",
-      "last_session_iso": "2026-05-03T13:25:59.543723+00:00",
-      "latest_session_size_bytes": 27287,
-      "session_count": 1593
+      "last_session_iso": "2026-05-03T06:04:17.751119+00:00",
+      "latest_session_size_bytes": 1708,
+      "session_count": 1592
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-03T14:29:52.975554+00:00",
       "latest_session_size_bytes": 9305,
       "session_count": 11
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "20bd792",
+      "date": "2026-05-03T17:01:40+02:00",
+      "subject": "auto-sync: 2026-05-03 17:01"
+    },
+    {
       "hash": "b77536f",
       "date": "2026-05-03T16:31:40+02:00",
       "subject": "auto-sync: 2026-05-03 16:31"
@@ -964,11 +969,6 @@
       "hash": "43ff71e",
       "date": "2026-05-03T12:31:37+02:00",
       "subject": "auto-sync: 2026-05-03 12:31"
-    },
-    {
-      "hash": "821acde",
-      "date": "2026-05-03T12:01:37+02:00",
-      "subject": "auto-sync: 2026-05-03 12:01"
     }
   ],
   "scripts": {
@@ -980,9 +980,13 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        7357,
-        7376,
-        7385,
+        16483,
+        16484,
+        24381,
+        24426,
+        24427,
+        24486,
+        24487,
         4181851
       ]
     }
