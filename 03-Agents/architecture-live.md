@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-05-03T18:50:01.409356+00:00
+last_generated: 2026-05-03T19:20:01.256555+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-05-03 18:50 UTC  
+**Generated:** 2026-05-03 19:20 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -24,10 +24,10 @@ flowchart TB
         agent_efficiency_auditor["efficiency-auditor<br/>5h ago<br/>168 KB"]
         agent_frontend_guru["frontend-guru<br/>5h ago<br/>47 KB"]
         agent_james["james<br/>2h ago<br/>9 KB"]
-        agent_main["main<br/>11s ago<br/>308 KB"]
+        agent_main["main<br/>23s ago<br/>328 KB"]
         agent_spark["spark<br/>1d ago<br/>248 KB"]
         agent_sre_expert["sre-expert<br/>1h ago<br/>77 KB"]
-        agent_system_bot["system-bot<br/>45m ago<br/>19 KB"]
+        agent_system_bot["system-bot<br/>14m ago<br/>1 KB"]
         agent_test_lock["test-lock<br/>n/a<br/>0 KB"]
         agent_worker["worker<br/>n/a<br/>0 KB"]
     end
@@ -89,10 +89,10 @@ flowchart TB
 | `efficiency-auditor` | 5h ago | 168 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 5h ago | 47 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 2h ago | 9 | `/home/piet/.openclaw/agents/james` |
-| `main` | 11s ago | 308 | `/home/piet/.openclaw/agents/main` |
+| `main` | 23s ago | 328 | `/home/piet/.openclaw/agents/main` |
 | `spark` | 1d ago | 248 | `/home/piet/.openclaw/agents/spark` |
 | `sre-expert` | 1h ago | 77 | `/home/piet/.openclaw/agents/sre-expert` |
-| `system-bot` | 45m ago | 19 | `/home/piet/.openclaw/agents/system-bot` |
+| `system-bot` | 14m ago | 1 | `/home/piet/.openclaw/agents/system-bot` |
 | `test-lock` | n/a | 0 | `/home/piet/.openclaw/agents/test-lock` |
 | `worker` | n/a | 0 | `/home/piet/.openclaw/agents/worker` |
 
@@ -303,11 +303,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+6669a2e 2026-05-03 auto-sync: 2026-05-03 21:01
 105e4f8 2026-05-03 auto-sync: 2026-05-03 20:31
 cca5e17 2026-05-03 auto-sync: 2026-05-03 20:01
 ced42bf 2026-05-03 auto-sync: 2026-05-03 19:31
 556bf22 2026-05-03 auto-sync: 2026-05-03 19:01
-c0ae185 2026-05-03 auto-sync: 2026-05-03 18:31
 ```
 
 ---
