@@ -3088,3 +3088,4 @@ NEXT_RECOMMENDED_TASKS
 3) Integrate preflight before autonomous dispatch/mutation points.
 4) Add audit-event emission and run the 8 E2E acceptance tests.
 5) Run operator review pass to tune major-model thresholds.
+- 2026-05-03T17:03:40.646Z | START | 71d72c74-04a6-4125-99e1-00472fc4e5ac | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
