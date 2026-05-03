@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T06:30:01.715781+00:00",
+  "generated_at": "2026-05-03T07:00:01.736200+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-03T06:20:21.891731+00:00",
-      "latest_session_size_bytes": 53178,
-      "session_count": 403
+      "last_session_iso": "2026-05-03T06:50:15.648300+00:00",
+      "latest_session_size_bytes": 54424,
+      "session_count": 402
     },
     {
       "id": "spark",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "3b553da",
+      "date": "2026-05-03T08:31:35+02:00",
+      "subject": "auto-sync: 2026-05-03 08:31"
+    },
+    {
       "hash": "da1dff0",
       "date": "2026-05-03T08:01:35+02:00",
       "subject": "auto-sync: 2026-05-03 08:01"
@@ -964,11 +969,6 @@
       "hash": "ee64791",
       "date": "2026-05-03T04:01:32+02:00",
       "subject": "auto-sync: 2026-05-03 04:01"
-    },
-    {
-      "hash": "696b3d8",
-      "date": "2026-05-03T03:31:32+02:00",
-      "subject": "auto-sync: 2026-05-03 03:31"
     }
   ],
   "scripts": {
@@ -980,8 +980,6 @@
       "name": "vault-memory-mcp",
       "status": "running",
       "pids": [
-        1938619,
-        2616864,
         3397497
       ]
     },
@@ -990,11 +988,11 @@
       "status": "running",
       "pids": [
         3819314,
-        3868937,
-        3868938,
-        3876583,
-        3876593,
-        3876596
+        3885781,
+        3885782,
+        3893280,
+        3893285,
+        3893288
       ]
     }
   ],
