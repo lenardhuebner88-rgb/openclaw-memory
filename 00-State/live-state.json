@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T14:30:01.248114+00:00",
+  "generated_at": "2026-05-03T15:00:01.750290+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 2,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-03T14:29:37.408920+00:00",
-      "latest_session_size_bytes": 21377,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-03T14:50:02.396383+00:00",
+      "latest_session_size_bytes": 85457,
       "session_count": 405
     },
     {
@@ -101,7 +101,7 @@
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "active",
+      "status": "monitoring",
       "last_session_iso": "2026-05-03T14:29:52.975554+00:00",
       "latest_session_size_bytes": 9305,
       "session_count": 11
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "b77536f",
+      "date": "2026-05-03T16:31:40+02:00",
+      "subject": "auto-sync: 2026-05-03 16:31"
+    },
+    {
       "hash": "d04d157",
       "date": "2026-05-03T16:01:39+02:00",
       "subject": "auto-sync: 2026-05-03 16:01"
@@ -964,11 +969,6 @@
       "hash": "821acde",
       "date": "2026-05-03T12:01:37+02:00",
       "subject": "auto-sync: 2026-05-03 12:01"
-    },
-    {
-      "hash": "7c4ef98",
-      "date": "2026-05-03T11:31:37+02:00",
-      "subject": "auto-sync: 2026-05-03 11:31"
     }
   ],
   "scripts": {
@@ -980,14 +980,10 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        4172279,
-        4172280,
-        4181851,
-        4183450,
-        4183466,
-        4183469,
-        4183552,
-        4183553
+        7357,
+        7376,
+        7385,
+        4181851
       ]
     }
   ],
