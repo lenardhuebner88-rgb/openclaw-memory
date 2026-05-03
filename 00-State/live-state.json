@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-03T05:30:01.644255+00:00",
+  "generated_at": "2026-05-03T06:00:01.681179+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-03T05:27:23.388232+00:00",
-      "latest_session_size_bytes": 21765,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-03T05:50:18.829235+00:00",
+      "latest_session_size_bytes": 51932,
       "session_count": 403
     },
     {
@@ -102,9 +102,9 @@
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-03T04:55:49.754285+00:00",
-      "latest_session_size_bytes": 1784,
-      "session_count": 8
+      "last_session_iso": "2026-05-03T05:32:04.379866+00:00",
+      "latest_session_size_bytes": 1611,
+      "session_count": 9
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "487e8f4",
+      "date": "2026-05-03T07:31:35+02:00",
+      "subject": "auto-sync: 2026-05-03 07:31"
+    },
+    {
       "hash": "54602a6",
       "date": "2026-05-03T07:01:34+02:00",
       "subject": "auto-sync: 2026-05-03 07:01"
@@ -964,11 +969,6 @@
       "hash": "df6916c",
       "date": "2026-05-03T03:01:32+02:00",
       "subject": "auto-sync: 2026-05-03 03:01"
-    },
-    {
-      "hash": "9ad5270",
-      "date": "2026-05-03T03:00:02+02:00",
-      "subject": "chore(config-backup): snapshot 2026-05-03"
     }
   ],
   "scripts": {
@@ -991,13 +991,11 @@
       "status": "running",
       "pids": [
         3819314,
-        3831201,
-        3831202,
-        3839210,
-        3839229,
-        3839233,
-        3839305,
-        3839308
+        3850448,
+        3850449,
+        3857828,
+        3857849,
+        3857852
       ]
     }
   ],
