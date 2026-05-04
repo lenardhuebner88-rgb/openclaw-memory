@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 783d9289-532c-49e3-8d63-01781c34d6ba [Smoke] pending-pickup lifecycle
-- stage: START
+- task: c79041bd-9f47-452a-b2f2-2969f773e1ce [P1] Atlas Discord Metadata Slimming + Dedupe
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: P1-Implementierung erfolgt (Allowlist + Dedupe). Verifikation und Metriken laufen.
 - blocker: -
-- updated: 2026-05-04T10:00:14.472Z
+- updated: 2026-05-04T13:35:18.350Z
 <!-- mc:auto-working-context:end -->
