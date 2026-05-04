@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-05-04T01:50:01.618978+00:00
+last_generated: 2026-05-04T02:20:01.597797+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-05-04 01:50 UTC  
+**Generated:** 2026-05-04 02:20 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -24,7 +24,7 @@ flowchart TB
         agent_efficiency_auditor["efficiency-auditor<br/>5h ago<br/>36 KB"]
         agent_frontend_guru["frontend-guru<br/>12h ago<br/>47 KB"]
         agent_james["james<br/>9h ago<br/>9 KB"]
-        agent_main["main<br/>24s ago<br/>281 KB"]
+        agent_main["main<br/>24s ago<br/>301 KB"]
         agent_spark["spark<br/>1d ago<br/>248 KB"]
         agent_sre_expert["sre-expert<br/>3h ago<br/>33 KB"]
         agent_system_bot["system-bot<br/>5h ago<br/>11 KB"]
@@ -89,7 +89,7 @@ flowchart TB
 | `efficiency-auditor` | 5h ago | 36 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 12h ago | 47 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 9h ago | 9 | `/home/piet/.openclaw/agents/james` |
-| `main` | 24s ago | 281 | `/home/piet/.openclaw/agents/main` |
+| `main` | 24s ago | 301 | `/home/piet/.openclaw/agents/main` |
 | `spark` | 1d ago | 248 | `/home/piet/.openclaw/agents/spark` |
 | `sre-expert` | 3h ago | 33 | `/home/piet/.openclaw/agents/sre-expert` |
 | `system-bot` | 5h ago | 11 | `/home/piet/.openclaw/agents/system-bot` |
@@ -303,11 +303,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+5ac366e 2026-05-04 auto-sync: 2026-05-04 04:01
 9ece761 2026-05-04 auto-sync: 2026-05-04 03:31
 1a6a0b2 2026-05-04 auto-sync: 2026-05-04 03:01
 f15b4f7 2026-05-04 chore(config-backup): snapshot 2026-05-04
 2434f0f 2026-05-04 auto-sync: 2026-05-04 02:31
-a9d0767 2026-05-04 auto-sync: 2026-05-04 02:01
 ```
 
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-05-04T01:30:03.595361+00:00
+last_generated: 2026-05-04T02:30:03.400529+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-05-04 01:30 UTC  
+**Last Generated:** 2026-05-04 02:30 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -21,7 +21,7 @@ auto_refresh: daily 04:30 UTC (cron)
 | **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 2132 files indexed |
 | **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 56 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 8 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-05-04T01:30:01Z] OK session=ae16df5c-ab4 size=17746 tokens_est=4436 pct=2% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-05-04T02:30:01Z] OK session=ae16df5c-ab4 size=20853 tokens_est=5213 pct=3% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -196,16 +196,16 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-05-04T00:45:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2%
-[2026-05-04T00:50:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2%
-[2026-05-04T00:55:01Z] OK session=ae16df5c-ab4 size=16193 tokens_est=4048 pct=2%
-[2026-05-04T01:00:01Z] OK session=ae16df5c-ab4 size=16193 tokens_est=4048 pct=2%
-[2026-05-04T01:05:01Z] OK session=ae16df5c-ab4 size=16193 tokens_est=4048 pct=2%
-[2026-05-04T01:10:01Z] OK session=ae16df5c-ab4 size=16193 tokens_est=4048 pct=2%
-[2026-05-04T01:15:01Z] OK session=ae16df5c-ab4 size=16193 tokens_est=4048 pct=2%
-[2026-05-04T01:20:01Z] OK session=ae16df5c-ab4 size=16193 tokens_est=4048 pct=2%
-[2026-05-04T01:25:01Z] OK session=ae16df5c-ab4 size=17746 tokens_est=4436 pct=2%
-[2026-05-04T01:30:01Z] OK session=ae16df5c-ab4 size=17746 tokens_est=4436 pct=2%
+[2026-05-04T01:45:01Z] OK session=ae16df5c-ab4 size=17746 tokens_est=4436 pct=2%
+[2026-05-04T01:50:01Z] OK session=ae16df5c-ab4 size=17746 tokens_est=4436 pct=2%
+[2026-05-04T01:55:01Z] OK session=ae16df5c-ab4 size=19299 tokens_est=4824 pct=3%
+[2026-05-04T02:00:01Z] OK session=ae16df5c-ab4 size=19299 tokens_est=4824 pct=3%
+[2026-05-04T02:05:01Z] OK session=ae16df5c-ab4 size=19299 tokens_est=4824 pct=3%
+[2026-05-04T02:10:01Z] OK session=ae16df5c-ab4 size=19299 tokens_est=4824 pct=3%
+[2026-05-04T02:15:01Z] OK session=ae16df5c-ab4 size=19299 tokens_est=4824 pct=3%
+[2026-05-04T02:20:01Z] OK session=ae16df5c-ab4 size=19299 tokens_est=4824 pct=3%
+[2026-05-04T02:25:01Z] OK session=ae16df5c-ab4 size=20853 tokens_est=5213 pct=3%
+[2026-05-04T02:30:01Z] OK session=ae16df5c-ab4 size=20853 tokens_est=5213 pct=3%
 ```
 
 ## 9. Active Crons (summary)
