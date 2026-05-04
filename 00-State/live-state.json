@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T08:04:01.462583+00:00",
+  "generated_at": "2026-05-04T08:34:01.809268+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 2,
+    "agents_active": 1,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -53,7 +53,7 @@
     {
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-04T07:05:00.651110+00:00",
       "latest_session_size_bytes": 1454,
       "session_count": 33
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-04T08:03:45.999831+00:00",
-      "latest_session_size_bytes": 82213,
-      "session_count": 396
+      "last_session_iso": "2026-05-04T08:31:17.199766+00:00",
+      "latest_session_size_bytes": 124415,
+      "session_count": 397
     },
     {
       "id": "spark",
@@ -101,7 +101,7 @@
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "active",
+      "status": "monitoring",
       "last_session_iso": "2026-05-04T08:00:20.249727+00:00",
       "latest_session_size_bytes": 1422,
       "session_count": 20
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "5314a75",
+      "date": "2026-05-04T10:05:02+02:00",
+      "subject": "auto-sync: 2026-05-04 10:05"
+    },
+    {
       "hash": "3ed15e2",
       "date": "2026-05-04T09:35:02+02:00",
       "subject": "auto-sync: 2026-05-04 09:35"
@@ -964,11 +969,6 @@
       "hash": "a809d34",
       "date": "2026-05-04T05:31:49+02:00",
       "subject": "auto-sync: 2026-05-04 05:31"
-    },
-    {
-      "hash": "866a11b",
-      "date": "2026-05-04T05:01:48+02:00",
-      "subject": "auto-sync: 2026-05-04 05:01"
     }
   ],
   "scripts": {
@@ -987,7 +987,7 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        751236
+        783899
       ]
     }
   ],
