@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T19:40:01.930706+00:00",
+  "generated_at": "2026-05-04T20:10:01.713540+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 2,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 205,
+    "scripts_active": 206,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -54,17 +54,17 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T19:01:15.227232+00:00",
-      "latest_session_size_bytes": 23555,
-      "session_count": 34
+      "last_session_iso": "2026-05-04T19:45:54.520148+00:00",
+      "latest_session_size_bytes": 20884,
+      "session_count": 35
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T19:04:16.647438+00:00",
-      "latest_session_size_bytes": 57523,
-      "session_count": 1
+      "last_session_iso": "2026-05-04T19:45:42.594069+00:00",
+      "latest_session_size_bytes": 24438,
+      "session_count": 2
     },
     {
       "id": "james",
@@ -78,33 +78,33 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-04T19:39:56.734765+00:00",
-      "latest_session_size_bytes": 310740,
-      "session_count": 444
+      "last_session_iso": "2026-05-04T20:09:20.507512+00:00",
+      "latest_session_size_bytes": 525612,
+      "session_count": 443
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-04T19:09:54.781715+00:00",
-      "latest_session_size_bytes": 51229,
-      "session_count": 2
+      "status": "active",
+      "last_session_iso": "2026-05-04T20:09:25.072542+00:00",
+      "latest_session_size_bytes": 3248,
+      "session_count": 3
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T19:19:02.149394+00:00",
-      "latest_session_size_bytes": 56293,
-      "session_count": 1616
+      "last_session_iso": "2026-05-04T20:01:09.436241+00:00",
+      "latest_session_size_bytes": 6064,
+      "session_count": 1617
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T19:31:25.945361+00:00",
-      "latest_session_size_bytes": 8477,
-      "session_count": 29
+      "last_session_iso": "2026-05-04T20:00:49.722110+00:00",
+      "latest_session_size_bytes": 3544,
+      "session_count": 31
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "36ad52e",
+      "date": "2026-05-04T21:40:03+02:00",
+      "subject": "auto-sync: 2026-05-04 21:40"
+    },
+    {
       "hash": "5e411bc",
       "date": "2026-05-04T21:10:02+02:00",
       "subject": "auto-sync: 2026-05-04 21:10"
@@ -964,15 +969,10 @@
       "hash": "d7a22a3",
       "date": "2026-05-04T17:37:19+02:00",
       "subject": "auto-sync: 2026-05-04 17:37"
-    },
-    {
-      "hash": "118b60c",
-      "date": "2026-05-04T17:07:19+02:00",
-      "subject": "auto-sync: 2026-05-04 17:07"
     }
   ],
   "scripts": {
-    "scripts_root": 133,
+    "scripts_root": 134,
     "workspace_scripts": 72
   },
   "mcp_servers": [
@@ -987,14 +987,20 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        1411589
+        1437435,
+        1447417
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1412760
+        1440788,
+        1443011,
+        1447410,
+        1447827,
+        1447857,
+        1447859
       ]
     }
   ],
