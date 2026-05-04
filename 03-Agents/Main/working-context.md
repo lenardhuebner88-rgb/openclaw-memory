@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: ce09d2b6-0ca0-48bf-a520-cbe124716808 MC-REPORT-FIX-E2E-20260504T124035Z Accepted reporting fix canary
-- stage: DONE
+- task: 11cf305b-bece-452b-a564-7f0153db0cd8 [P5 Canary] main
+- stage: FAILED
 - next: await next assignment
-- checkpoint: MC-REPORT-FIX-E2E-20260504T124035Z accepted-reporting fix canary completed.
-- blocker: -
-- updated: 2026-05-04T12:40:40.039Z
+- checkpoint: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- blocker: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- updated: 2026-05-04T15:42:15.586Z
 <!-- mc:auto-working-context:end -->
