@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T16:06:01.732416+00:00",
+  "generated_at": "2026-05-04T16:38:01.807190+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 0,
+    "agents_active": 1,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -69,7 +69,7 @@
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "ready",
+      "status": "idle",
       "last_session_iso": "2026-05-03T16:26:01.160978+00:00",
       "latest_session_size_bytes": 10199,
       "session_count": 2
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T16:00:21.243831+00:00",
-      "latest_session_size_bytes": 1726,
-      "session_count": 428
+      "last_session_iso": "2026-05-04T16:15:26.570750+00:00",
+      "latest_session_size_bytes": 2537,
+      "session_count": 429
     },
     {
       "id": "spark",
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-04T15:51:49.545914+00:00",
-      "latest_session_size_bytes": 2195,
-      "session_count": 1602
+      "status": "active",
+      "last_session_iso": "2026-05-04T16:36:35.006646+00:00",
+      "latest_session_size_bytes": 3354,
+      "session_count": 1608
     },
     {
       "id": "system-bot",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "5d6fb90",
+      "date": "2026-05-04T18:08:00+02:00",
+      "subject": "auto-sync: 2026-05-04 18:08"
+    },
+    {
       "hash": "d7a22a3",
       "date": "2026-05-04T17:37:19+02:00",
       "subject": "auto-sync: 2026-05-04 17:37"
@@ -964,11 +969,6 @@
       "hash": "ace95e5",
       "date": "2026-05-04T13:36:17+02:00",
       "subject": "auto-sync: 2026-05-04 13:36"
-    },
-    {
-      "hash": "bb8f4f0",
-      "date": "2026-05-04T13:06:17+02:00",
-      "subject": "auto-sync: 2026-05-04 13:06"
     }
   ],
   "scripts": {

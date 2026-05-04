@@ -222,6 +222,69 @@ Start: 2026-05-04T17:19:54+02:00
 - Interpretation: productive Discord lane remains clean, but terminal task reporting can still invoke Atlas through the OpenClaw Gateway model path and create fallback noise/load.
 - Candidate next fix after the 2h test: make `atlas_pinged` non-blocking and/or queue-limited, or route it to a cheaper/light isolated reporting lane instead of `openclaw/main`.
 
+## 18:14 Atlas main canary recovery proof
+
+- Atlas/main dry-run gate became eligible after 10 minute cooldown.
+- Created/dispatched real Atlas runtime-soak canary: task `9a882666-8eec-4620-b300-ebde4148f3a4`, dispatch notification `1500892554877472809`.
+- Initial auto-pickup run was intentionally held as `young=1`; second pickup after age gate claimed successfully.
+- Accepted receipt: `2026-05-04T16:13:30Z`, workerSessionId `agent:main`.
+- Terminal result: `2026-05-04T16:13:59Z`, resultSummary `canary-ok`.
+- Task state: `done`, dispatchState `completed`, executionState `done`, receiptStage `result`.
+- Reaper post-check: no lingering `mc-worker-main-*` service.
+- Gateway log since `18:10 CEST`: no `codex app-server`, `FailoverError`, `candidate_failed`, `lane wait exceeded`, `status:408`, or `AbortError` matches.
+- Session guard after Atlas canary: `rotationNeeded=0`, `staleRunning=0`, `loadErrors=0`.
+- Interpretation: the Atlas Mission Control worker path is recovered after stale `agent:main:main` rotation plus Gateway restart. Productive proof is still bounded; broader real Atlas work should now be observed, not assumed.
+
+## 18:17 Real RCA workload dispatched
+
+- Atlas RCA task dispatched: `24987336-4cfa-4913-ab7c-518e951bc788`, title `[P5][Atlas] atlas_pinged reporting path RCA`, dispatch notification `1500894176148062503`.
+- Forge RCA task dispatched: `85607987-3593-43e3-8da4-12d52e278f10`, title `[P5][Forge] nested worker auth/fallback RCA`, dispatch notification `1500894182514884882`.
+- Purpose: move beyond canaries into real read-only RCA work while the monitor tracks claim/receipt/worker-service/gateway fallback behavior.
+- No config/runtime/session mutation included in either task.
+
+## 18:23 Real workload status
+
+- Atlas RCA task `24987336-4cfa-4913-ab7c-518e951bc788` claimed successfully:
+  - Accepted receipt: `2026-05-04T16:19:45Z`
+  - Progress receipt: `2026-05-04T16:21:20Z`
+  - Current state: `in-progress`, executionState `active`, receiptStage `progress`, workerSessionId `agent:main`
+  - Progress summary: `Read-only RCA evidence gathered: task-reports.ts posts atlas_pinged synchronously through Gateway openclaw/main after terminal reports...`
+- Forge RCA task `85607987-3593-43e3-8da4-12d52e278f10` failed before first claim:
+  - Four worker logs were created with zero bytes.
+  - Auto-pickup attempted normal session plus three fresh-session retries.
+  - Final failure: `Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger`.
+  - systemd worker services exited with status 1 after 3-6 seconds CPU and around 300 MB peak memory.
+- Gateway log since `18:17 CEST`: no model timeout/fallback/lane-wait matches. The Forge failure is pre-claim worker startup, not model inference.
+- Mission Control health: `openCount=1` (Atlas active), `orphanedDispatches=0`, `staleOpenTasks=0`.
+- Session guard: `rotationNeeded=0`, `staleRunning=0`, `loadErrors=0`.
+
+## 18:26 SRE claim-budget fix and Forge retest
+
+- Live cause for Forge RCA failure: pre-claim timeout, not model inference. Four `sre-expert` worker attempts wrote 0-byte logs and were stopped before first accepted receipt.
+- `auto-pickup.py` previously gave `sre-expert` only the base 45s sync-claim budget; Atlas/main already had 90s.
+- Patched `/home/piet/.openclaw/scripts/auto-pickup.py`:
+  - Added `AUTO_PICKUP_SRE_SYNC_CLAIM_TIMEOUT_SEC`, default `120`.
+  - `claim_timeout_for_agent("sre-expert")` now returns at least 120s.
+- Validation:
+  - `python3 -m py_compile /home/piet/.openclaw/scripts/auto-pickup.py` OK.
+  - `/home/piet/.openclaw/scripts/tests/test_auto_pickup.py` OK, 15 tests.
+  - Live function check: `main=90`, `sre-expert=120`, `efficiency-auditor=90`.
+- Also rotated failed high-cache `agent:sre-expert:main` session:
+  - removed sessionId `22af7dcb-4992-446a-a85c-f1d0a03b3ab1`
+  - status `failed`, cacheRead `163200`, totalTokens `174723`
+  - backup `/home/piet/.openclaw/agents/sre-expert/sessions/sessions.json.bak-20260504T162536Z-rotate-sre-main-timeout`
+- Forge retest task dispatched: `7a4e6d3a-9066-4d15-81fc-b1c67b39d7dd`, dispatch notification `1500896392820953280`.
+
+## 18:33 Forge retest accepted
+
+- First Forge retest attempt still hit `claim_timeout_sec=120` before accepted receipt.
+- A fresh-session retry then succeeded:
+  - task `7a4e6d3a-9066-4d15-81fc-b1c67b39d7dd`
+  - accepted at `2026-05-04T16:32:52Z`
+  - state `in-progress`, executionState `active`, receiptStage `accepted`
+  - workerSessionId `gateway:7a4e6d3a-9066-4d15-81fc-b1c67b39d7dd`
+- Interpretation: the SRE claim-budget fix is materially better than 45s; Forge can now claim under the retest. It still needs follow-through to terminal result and may need a deeper first-attempt startup fix later.
+
 ```json
 {
   "ts": "2026-05-04T18:05:08+02:00",
@@ -238,6 +301,126 @@ Start: 2026-05-04T17:19:54+02:00
     "May 04 18:00:13 huebners node[1210995]: 2026-05-04T18:00:13.927+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=timeout next=openai/gpt-5.4 detail=This operation was aborted",
     "May 04 18:00:14 huebners node[1210995]: 2026-05-04T18:00:14.074+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4 reason=timeout next=openai/gpt-5.4-mini detail=This operation was aborted",
     "May 04 18:00:14 huebners node[1210995]: 2026-05-04T18:00:14.215+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4-mini reason=timeout next=none detail=This operation was aborted"
+  ]
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:10:10+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": []
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:15:11+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": []
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:20:12+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": [
+    "May 04 18:15:26 huebners node[1210995]: 2026-05-04T18:15:26.829+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=84912 queueAhead=0",
+    "May 04 18:15:26 huebners node[1210995]: 2026-05-04T18:15:26.843+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=This operation was aborted",
+    "May 04 18:15:27 huebners node[1210995]: 2026-05-04T18:15:27.060+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=timeout next=openai/gpt-5.4 detail=This operation was aborted",
+    "May 04 18:15:27 huebners node[1210995]: 2026-05-04T18:15:27.204+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4 reason=timeout next=openai/gpt-5.4-mini detail=This operation was aborted",
+    "May 04 18:15:27 huebners node[1210995]: 2026-05-04T18:15:27.348+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4-mini reason=timeout next=none detail=This operation was aborted"
+  ]
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:25:14+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": [
+    "May 04 18:24:24 huebners node[1210995]: 2026-05-04T18:24:24.961+02:00 [agent/embedded] embedded run failover decision: runId=117281b8-5527-44de-8fc9-e9c119d363ae stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.3-codex profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out",
+    "May 04 18:24:24 huebners node[1210995]: 2026-05-04T18:24:24.963+02:00 [diagnostic] lane task error: lane=main durationMs=1503637 error=\"FailoverError: LLM request timed out.\"",
+    "May 04 18:24:24 huebners node[1210995]: 2026-05-04T18:24:24.964+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=214055 queueAhead=3",
+    "May 04 18:24:24 huebners node[1210995]: 2026-05-04T18:24:24.990+02:00 [diagnostic] lane task error: lane=session:agent:sre-expert:main durationMs=1503664 error=\"FailoverError: LLM request timed out.\"",
+    "May 04 18:24:24 huebners node[1210995]: 2026-05-04T18:24:24.991+02:00 [diagnostic] lane wait exceeded: lane=session:agent:sre-expert:main waitedMs=274419 queueAhead=0",
+    "May 04 18:24:24 huebners node[1210995]: 2026-05-04T18:24:24.995+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.3-codex candidate=openai/gpt-5.3-codex reason=timeout next=openai/gpt-5.5 detail=codex app-server attempt timed out"
+  ]
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:30:15+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": [
+    "May 04 18:26:41 huebners node[1210995]: 2026-05-04T18:26:41.238+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=289701 queueAhead=3",
+    "May 04 18:29:45 huebners node[1210995]: 2026-05-04T18:29:45.326+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=419842 queueAhead=2",
+    "May 04 18:29:45 huebners node[1210995]: 2026-05-04T18:29:45.329+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=407524 queueAhead=1",
+    "May 04 18:29:45 huebners node[1210995]: 2026-05-04T18:29:45.355+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=This operation was aborted",
+    "May 04 18:29:45 huebners node[1210995]: 2026-05-04T18:29:45.496+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=timeout next=openai/gpt-5.4 detail=This operation was aborted",
+    "May 04 18:29:45 huebners node[1210995]: 2026-05-04T18:29:45.626+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4 reason=timeout next=openai/gpt-5.4-mini detail=This operation was aborted",
+    "May 04 18:29:45 huebners node[1210995]: 2026-05-04T18:29:45.792+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4-mini reason=timeout next=none detail=This operation was aborted"
+  ]
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:35:17+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": [
+    "May 04 18:31:17 huebners node[1210995]: 2026-05-04T18:31:17.860+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=412868 queueAhead=1",
+    "May 04 18:31:40 huebners node[1210995]: 2026-05-04T18:31:40.914+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=69528 queueAhead=0",
+    "May 04 18:31:40 huebners node[1210995]: 2026-05-04T18:31:40.938+02:00 [diagnostic] lane wait exceeded: lane=session:agent:sre-expert:main waitedMs=435809 queueAhead=1",
+    "May 04 18:31:40 huebners node[1210995]: 2026-05-04T18:31:40.941+02:00 [diagnostic] lane wait exceeded: lane=session:agent:sre-expert:main waitedMs=199073 queueAhead=0",
+    "May 04 18:31:40 huebners node[1210995]: 2026-05-04T18:31:40.945+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.3-codex candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.4-mini detail=This operation was aborted",
+    "May 04 18:31:41 huebners node[1210995]: 2026-05-04T18:31:41.083+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.3-codex candidate=openai/gpt-5.4-mini reason=timeout next=openai/gpt-5.4 detail=This operation was aborted",
+    "May 04 18:31:41 huebners node[1210995]: 2026-05-04T18:31:41.226+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.3-codex candidate=openai/gpt-5.4 reason=timeout next=none detail=This operation was aborted",
+    "May 04 18:31:41 huebners node[1210995]: 2026-05-04T18:31:41.908+02:00 [ws] ⇄ res ✗ agent errorCode=UNAVAILABLE errorMessage=FallbackSummaryError: All models failed (4): openai/gpt-5.3-codex: codex app-server attempt timed out (timeout) | openai/gpt-5.5: This operation was aborted (timeout) | openai/gpt-5.4-mini: This operation was aborted (timeout) | openai/gpt-... runId=117281b8-5527-44de-8fc9-e9c119d363ae error=FallbackSummaryError: All models failed (4): openai/gpt-5.3-codex: codex app-server attempt timed out (timeout) | openai/gpt-5.5: This operation was aborted (timeout) | openai/gpt-5.4-mini: This operation was aborted (timeout) | openai/gpt-... conn=4b4f613a…e45a id=15ea889f…7c5c"
   ]
 }
 ```

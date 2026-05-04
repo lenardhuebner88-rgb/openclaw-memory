@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 75638bd4-90e6-4e85-a4e7-80dbcff02fa4 [P5 Canary] sre-expert
+- task: 7a4e6d3a-9066-4d15-81fc-b1c67b39d7dd [P5][Forge] nested worker auth/fallback RCA retest
 - stage: DONE
 - next: await next assignment
-- checkpoint: Canary validation for sre-expert succeeded: accepted/progress/result lifecycle completed with matching dispatch token and no config/provider/runtime mutations.
+- checkpoint: RCA retest abgeschlossen: Claim/Progress stabil, Fehlerbild liegt im nested local API-key/Auth-Fallback (401) und nicht in MC-Dispatch oder produktiver Discord/OAuth-Lane.
 - blocker: -
-- updated: 2026-05-04T16:00:04.927Z
+- updated: 2026-05-04T16:33:59.199Z
 <!-- mc:auto-working-context:end -->
