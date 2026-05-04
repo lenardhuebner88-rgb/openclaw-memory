@@ -135,3 +135,79 @@ Validation:
    - done `finalReportSentAt` and `threadId` present
    - board consistency OK
 
+## Fix Implementation
+
+Status: implemented and live-validated.
+
+Changed files:
+
+- `/home/piet/.openclaw/workspace/mission-control/src/app/api/tasks/[id]/claim/route.ts`
+- `/home/piet/.openclaw/workspace/mission-control/tests/worker-lifecycle-integration.test.ts`
+
+Production change:
+
+- Claim route imports `emitTaskLifecycleReport`.
+- After the canonical accepted Board receipt is appended, Claim route calls `await emitTaskLifecycleReport(id, 'accepted')`.
+- No custom Discord logic was added.
+
+Test change:
+
+- Worker lifecycle integration test now asserts:
+  - accepted claim calls `emitTaskLifecycleReport(taskId, 'accepted')` exactly once.
+  - duplicate claim does not emit another accepted report.
+  - terminal result still calls `emitTaskLifecycleReport(taskId, 'result')`.
+
+Validation:
+
+- `npm run test:worker-lifecycle`: passed, 3 files, 8 tests.
+- `npx tsc --noEmit --pretty false`: passed.
+- `ALLOW_BUILD_WHILE_RUNNING=1 npm run build`: passed.
+- `systemctl --user restart mission-control.service`: done.
+- Mission Control active since `Mon 2026-05-04 14:39:27 CEST`, PID `1014552`, `NRestarts=0`.
+- `/api/health`: OK.
+- `/api/board-consistency`: OK.
+
+## Post-Fix E2E Canary
+
+Marker: `MC-REPORT-FIX-E2E-20260504T124035Z`
+
+- Task: `ce09d2b6-0ca0-48bf-a520-cbe124716808`
+- Run: `6a98732c-69cb-45f0-8467-3b5a1edce096`
+- Worker Session: `worker:mc-report-fix-e2e-20260504`
+- Statusfolge:
+  - `draft`
+  - `assigned`
+  - `pending-pickup`
+  - `in-progress` / `receiptStage=accepted`
+  - `done` / `receiptStage=result`
+
+Backups:
+
+- `/home/piet/.openclaw/state/mission-control/data/tasks.json.bak-20260504T124035Z-accepted-reporting-fix-e2e`
+- `/home/piet/.openclaw/state/mission-control/data/worker-runs.json.bak-20260504T124035Z-accepted-reporting-fix-e2e`
+- `/home/piet/.openclaw/state/mission-control/data/board-events.json.bak-20260504T124035Z-accepted-reporting-fix-e2e`
+- `/home/piet/.openclaw/state/mission-control/data/board-events.jsonl.bak-20260504T124035Z-accepted-reporting-fix-e2e`
+
+Post-fix reporting proof:
+
+- Direct route smoke:
+  - messageId `1500839564707631155`
+- Dispatch / pending-pickup:
+  - messageId `1500839572550975499`
+  - persisted as `dispatchNotificationMessageId`
+  - `dispatchNotificationSentAt=2026-05-04T12:40:38.531Z`
+- Accepted:
+  - persisted as `startedReportSentAt=2026-05-04T12:40:39.160Z`
+- Done / result:
+  - `finalReportSentAt=2026-05-04T12:40:40.459Z`
+  - `threadId=1500839581900083241`
+  - `lastReportedStatus=result`
+
+Post-fix board proof:
+
+- Board events include `task-dispatched`, `receipt accepted`, `receipt result`, and `task-status-change in-progress -> done`.
+- Worker run ended as `succeeded`.
+- `/api/health`: OK, `openTasks=0`, `pendingPickup=0`, `inProgress=0`.
+- `/api/board-consistency`: OK, `issueCount=0`.
+
+Final verdict after fix: GREEN for the Mission Control lifecycle reporting chain.

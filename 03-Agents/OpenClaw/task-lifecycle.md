@@ -3106,3 +3106,5 @@ NEXT_RECOMMENDED_TASKS
 - 2026-05-04T11:01:21.314Z | DONE | c7dcb8b2-def2-4ed3-841d-ca9c9defb92b | MC-CANARY worker lifecycle post-beta4 stability check | worker=spark | progress=- | summary=MC_CANARY_OK
 - 2026-05-04T11:10:08.464Z | DONE | 9c2cd146-e4e3-4f69-a562-125784a628cb | MC-E2E-CANARY draft-to-done board state check | worker=spark | progress=- | summary=MC_E2E_CANARY_OK
 - 2026-05-04T12:28:43.414Z | DONE | 84fb5510-bc04-4fab-a2e2-25baba8c589f | MC-REPORT-E2E-20260504T122756Z Discord reporting lifecycle canary | worker=main | progress=- | summary=MC-REPORT-E2E-20260504T122756Z lifecycle canary completed: pending-pickup, accepted, and done/result reporting checked.
+- 2026-05-04T12:40:39.152Z | START | ce09d2b6-0ca0-48bf-a520-cbe124716808 | MC-REPORT-FIX-E2E-20260504T124035Z Accepted reporting fix canary | worker=MC Reporting Fix E2E Canary | progress=- | summary=-
+- 2026-05-04T12:40:40.036Z | DONE | ce09d2b6-0ca0-48bf-a520-cbe124716808 | MC-REPORT-FIX-E2E-20260504T124035Z Accepted reporting fix canary | worker=main | progress=- | summary=MC-REPORT-FIX-E2E-20260504T124035Z accepted-reporting fix canary completed.

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T12:36:01.993721+00:00",
+  "generated_at": "2026-05-04T13:06:01.736584+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 201,
+    "scripts_active": 203,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -77,9 +77,9 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-04T12:36:00.428242+00:00",
-      "latest_session_size_bytes": 202323,
+      "status": "monitoring",
+      "last_session_iso": "2026-05-04T12:57:25.025812+00:00",
+      "latest_session_size_bytes": 2803,
       "session_count": 411
     },
     {
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "ready",
-      "last_session_iso": "2026-05-04T11:30:24.999171+00:00",
-      "latest_session_size_bytes": 10076,
-      "session_count": 1596
+      "status": "monitoring",
+      "last_session_iso": "2026-05-04T12:46:56.315484+00:00",
+      "latest_session_size_bytes": 2504,
+      "session_count": 1597
     },
     {
       "id": "system-bot",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "d1514f1",
+      "date": "2026-05-04T14:36:18+02:00",
+      "subject": "auto-sync: 2026-05-04 14:36"
+    },
+    {
       "hash": "ee2d375",
       "date": "2026-05-04T14:06:17+02:00",
       "subject": "auto-sync: 2026-05-04 14:06"
@@ -964,15 +969,10 @@
       "hash": "5314a75",
       "date": "2026-05-04T10:05:02+02:00",
       "subject": "auto-sync: 2026-05-04 10:05"
-    },
-    {
-      "hash": "3ed15e2",
-      "date": "2026-05-04T09:35:02+02:00",
-      "subject": "auto-sync: 2026-05-04 09:35"
     }
   ],
   "scripts": {
-    "scripts_root": 129,
+    "scripts_root": 131,
     "workspace_scripts": 72
   },
   "mcp_servers": [
@@ -987,7 +987,7 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        882938
+        1035398
       ]
     }
   ],
