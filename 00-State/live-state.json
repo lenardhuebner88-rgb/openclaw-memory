@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T21:40:01.237936+00:00",
+  "generated_at": "2026-05-04T22:10:01.443714+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 3,
+    "agents_active": 1,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 212,
+    "scripts_active": 213,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -54,17 +54,17 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T21:15:36.714661+00:00",
-      "latest_session_size_bytes": 3297,
-      "session_count": 38
+      "last_session_iso": "2026-05-04T21:46:15.649493+00:00",
+      "latest_session_size_bytes": 3907,
+      "session_count": 39
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "active",
-      "last_session_iso": "2026-05-04T21:39:29.964819+00:00",
-      "latest_session_size_bytes": 9686,
-      "session_count": 6
+      "status": "monitoring",
+      "last_session_iso": "2026-05-04T22:04:14.093304+00:00",
+      "latest_session_size_bytes": 402962,
+      "session_count": 8
     },
     {
       "id": "james",
@@ -78,14 +78,14 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-04T21:39:16.050728+00:00",
-      "latest_session_size_bytes": 309889,
-      "session_count": 446
+      "last_session_iso": "2026-05-04T22:09:38.114313+00:00",
+      "latest_session_size_bytes": 621772,
+      "session_count": 445
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
-      "status": "active",
+      "status": "monitoring",
       "last_session_iso": "2026-05-04T21:39:34.130846+00:00",
       "latest_session_size_bytes": 3299,
       "session_count": 6
@@ -94,17 +94,17 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T21:30:17.932282+00:00",
-      "latest_session_size_bytes": 5575,
-      "session_count": 1620
+      "last_session_iso": "2026-05-04T22:02:14.312584+00:00",
+      "latest_session_size_bytes": 5864,
+      "session_count": 1622
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T21:18:14.003734+00:00",
-      "latest_session_size_bytes": 2062,
-      "session_count": 34
+      "last_session_iso": "2026-05-04T21:49:05.199619+00:00",
+      "latest_session_size_bytes": 2039,
+      "session_count": 35
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "2b1a7a3",
+      "date": "2026-05-04T23:40:17+02:00",
+      "subject": "auto-sync: 2026-05-04 23:40"
+    },
+    {
       "hash": "748f6c3",
       "date": "2026-05-04T23:10:17+02:00",
       "subject": "auto-sync: 2026-05-04 23:10"
@@ -964,15 +969,10 @@
       "hash": "bd7ef32",
       "date": "2026-05-04T19:39:17+02:00",
       "subject": "auto-sync: 2026-05-04 19:39"
-    },
-    {
-      "hash": "37094a0",
-      "date": "2026-05-04T19:08:57+02:00",
-      "subject": "auto-sync: 2026-05-04 19:08"
     }
   ],
   "scripts": {
-    "scripts_root": 137,
+    "scripts_root": 138,
     "workspace_scripts": 75
   },
   "mcp_servers": [
@@ -987,9 +987,7 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        1437435,
-        1517999,
-        1518079
+        1437435
       ]
     },
     {
@@ -997,12 +995,10 @@
       "status": "running",
       "pids": [
         1497923,
-        1513528,
-        1517992,
-        1518072,
-        1518214,
-        1518231,
-        1518235
+        1533946,
+        1537175,
+        1537199,
+        1537204
       ]
     }
   ],

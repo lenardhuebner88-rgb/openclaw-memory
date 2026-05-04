@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 32be70cc-dde0-4080-986a-2a97be78037c [P5 Canary] frontend-guru
-- stage: DONE
+- task: ddd32090-ab16-461e-b1cd-75a17b2ef8a1 P1 UI Proof Tooling: Component Preview State Catalog
+- stage: FAILED
 - next: await next assignment
-- checkpoint: canary-ok: frontend-guru picked up task 32be70cc-dde0-4080-986a-2a97be78037c, accepted it with the dispatch token, performed the no-op canary, and did not mutate config, provider routing, QMD config, or unrelated tasks.
-- blocker: -
-- updated: 2026-05-04T19:04:01.996Z
+- checkpoint: Task ddd32090 has untracked session (agent:frontend-guru:webc…) and no active runs exist in runs.json after 382s (confidence-window=90s). Auto-failed by worker-monitor (ghost state).
+- blocker: Task ddd32090 has untracked session (agent:frontend-guru:webc…) and no active runs exist in runs.json after 382s (confidence-window=90s). Auto-failed by worker-monitor (ghost state).
+- updated: 2026-05-04T22:00:08.951Z
 <!-- mc:auto-working-context:end -->
