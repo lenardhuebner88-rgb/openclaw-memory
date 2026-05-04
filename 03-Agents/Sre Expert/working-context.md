@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c79041bd-9f47-452a-b2f2-2969f773e1ce [P1] Atlas Discord Metadata Slimming + Dedupe
-- stage: CHECKPOINT
-- next: continue current task
-- checkpoint: P1-Implementierung erfolgt (Allowlist + Dedupe). Verifikation und Metriken laufen.
+- task: bf9d9ae2-7c20-41af-bd21-77115f7bec8f [P1.2] Atlas Source Patch + Rebuild Verification
+- stage: DONE
+- next: await next assignment
+- checkpoint: P1.2 complete: source-of-truth for this beta4 install confirmed as shipped dist artifact; P1/P1.1 hardening persisted in runtime chunk with reload and microbench verification, and rebuild-loss risk documented.
 - blocker: -
-- updated: 2026-05-04T13:35:18.350Z
+- updated: 2026-05-04T14:04:50.818Z
 <!-- mc:auto-working-context:end -->
