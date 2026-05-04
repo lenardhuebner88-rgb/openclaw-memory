@@ -109,3 +109,149 @@ GatewayTail:
 MCTail:
 26:May 04 18:52:30 huebners node[1262382]: [task-reports] atlas-ping-skipped {
 ```
+
+## Corrected sample 3 2026-05-04T17:11:59.047253+00:00
+
+```text
+UTC 2026-05-04T17:11:59.047253+00:00
+MC {"status":"ok","openTasks":null,"inProgress":null,"pendingPickup":null,"staleOpenTasks":null,"orphanedDispatches":0}
+Gateway {"ok":true,"status":"live"}
+Guard {"ok": true, "rotationNeeded": 0, "staleRunning": 0, "loadErrors": 0, "wouldRotateSessionKeys": []}
+GatewaySignalsSinceFix=0 MCSignalsSinceFix=2
+Tasks:
+- main 53895866 in-progress/active/progress runs=running:agent:main report=False atlasPingedAt=False result=-
+- sre-expert 716dd0d3 done/done/result runs=succeeded:gateway:716dd0d3-4160-4efd-a116-460d3301a32d report=True atlasPingedAt=True result=Forge 2h stability RCA: Claim/Progress/Result-Pfad funktioniert; Hauptsignal bleibt reproduzierbarer 401-Auth-Fail im nested local embedded/API-key Fallback, nicht produktive Disco
+WorkerServices:
+mc-worker-main-53895866-c9f-1777913341.service loaded active running Mission Control worker main 53895866
+GatewayTail:
+-
+MCTail:
+26:May 04 18:52:30 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+38:May 04 19:07:24 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+```
+
+## Corrected sample 4 2026-05-04T17:17:01.873720+00:00
+
+```text
+UTC 2026-05-04T17:17:01.873720+00:00
+MC {"status":"ok","openTasks":null,"inProgress":null,"pendingPickup":null,"staleOpenTasks":null,"orphanedDispatches":0}
+Gateway {"ok":true,"status":"live"}
+Guard {"ok": true, "rotationNeeded": 0, "staleRunning": 0, "loadErrors": 0, "wouldRotateSessionKeys": []}
+GatewaySignalsSinceFix=5 MCSignalsSinceFix=3
+Tasks:
+- main 53895866 failed/failed/failed runs=failed:agent:main report=True atlasPingedAt=True result=-
+- sre-expert 716dd0d3 done/done/result runs=succeeded:gateway:716dd0d3-4160-4efd-a116-460d3301a32d report=True atlasPingedAt=True result=Forge 2h stability RCA: Claim/Progress/Result-Pfad funktioniert; Hauptsignal bleibt reproduzierbarer 401-Auth-Fail im nested local embedded/API-key Fallback, nicht produktive Disco
+WorkerServices:
+mc-worker-main-53895866-c9f-1777913341.service loaded active running Mission Control worker main 53895866
+GatewayTail:
+43:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.460+02:00 [agent/embedded] embedded run failover decision: runId=25b5d110-3b19-4d51-aff9-6ffe7e0255fe stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.5 profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out
+44:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.462+02:00 [diagnostic] lane task error: lane=main durationMs=1500875 error="FailoverError: LLM request timed out."
+45:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.463+02:00 [diagnostic] lane task error: lane=session:agent:main:main durationMs=1500876 error="FailoverError: LLM request timed out."
+46:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.466+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=codex app-server attempt timed out
+48:May 04 19:15:40 huebners node[1210995]: 2026-05-04T19:15:40.789+02:00 [model-fallback/decision] model fallback decision: decision=candidate_succeeded requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=unknown next=none
+MCTail:
+26:May 04 18:52:30 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+38:May 04 19:07:24 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+43:May 04 19:15:20 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+```
+
+## Corrected sample 5 2026-05-04T17:22:03.812681+00:00
+
+```text
+UTC 2026-05-04T17:22:03.812681+00:00
+MC {"status":"ok","openTasks":null,"inProgress":null,"pendingPickup":null,"staleOpenTasks":null,"orphanedDispatches":0}
+Gateway {"ok":true,"status":"live"}
+Guard {"ok": true, "rotationNeeded": 0, "staleRunning": 0, "loadErrors": 0, "wouldRotateSessionKeys": []}
+GatewaySignalsSinceFix=5 MCSignalsSinceFix=3
+Tasks:
+- main 53895866 failed/failed/failed runs=failed:agent:main report=True atlasPingedAt=True result=-
+- sre-expert 716dd0d3 done/done/result runs=succeeded:gateway:716dd0d3-4160-4efd-a116-460d3301a32d report=True atlasPingedAt=True result=Forge 2h stability RCA: Claim/Progress/Result-Pfad funktioniert; Hauptsignal bleibt reproduzierbarer 401-Auth-Fail im nested local embedded/API-key Fallback, nicht produktive Disco
+WorkerServices:
+mc-worker-main-43603d8c-234-1777915278.service loaded active running Mission Control worker main 43603d8c
+GatewayTail:
+43:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.460+02:00 [agent/embedded] embedded run failover decision: runId=25b5d110-3b19-4d51-aff9-6ffe7e0255fe stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.5 profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out
+44:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.462+02:00 [diagnostic] lane task error: lane=main durationMs=1500875 error="FailoverError: LLM request timed out."
+45:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.463+02:00 [diagnostic] lane task error: lane=session:agent:main:main durationMs=1500876 error="FailoverError: LLM request timed out."
+46:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.466+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=codex app-server attempt timed out
+48:May 04 19:15:40 huebners node[1210995]: 2026-05-04T19:15:40.789+02:00 [model-fallback/decision] model fallback decision: decision=candidate_succeeded requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=unknown next=none
+MCTail:
+26:May 04 18:52:30 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+38:May 04 19:07:24 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+43:May 04 19:15:20 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+```
+
+## Corrected sample 6 2026-05-04T17:27:05.554433+00:00
+
+```text
+UTC 2026-05-04T17:27:05.554433+00:00
+MC {"status":"ok","openTasks":null,"inProgress":null,"pendingPickup":null,"staleOpenTasks":null,"orphanedDispatches":0}
+Gateway {"ok":true,"status":"live"}
+Guard {"ok": true, "rotationNeeded": 0, "staleRunning": 0, "loadErrors": 0, "wouldRotateSessionKeys": []}
+GatewaySignalsSinceFix=5 MCSignalsSinceFix=3
+Tasks:
+- main 53895866 failed/failed/failed runs=failed:agent:main report=True atlasPingedAt=True result=-
+- sre-expert 716dd0d3 done/done/result runs=succeeded:gateway:716dd0d3-4160-4efd-a116-460d3301a32d report=True atlasPingedAt=True result=Forge 2h stability RCA: Claim/Progress/Result-Pfad funktioniert; Hauptsignal bleibt reproduzierbarer 401-Auth-Fail im nested local embedded/API-key Fallback, nicht produktive Disco
+WorkerServices:
+mc-worker-main-43603d8c-234-1777915278.service loaded active running Mission Control worker main 43603d8c
+GatewayTail:
+43:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.460+02:00 [agent/embedded] embedded run failover decision: runId=25b5d110-3b19-4d51-aff9-6ffe7e0255fe stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.5 profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out
+44:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.462+02:00 [diagnostic] lane task error: lane=main durationMs=1500875 error="FailoverError: LLM request timed out."
+45:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.463+02:00 [diagnostic] lane task error: lane=session:agent:main:main durationMs=1500876 error="FailoverError: LLM request timed out."
+46:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.466+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=codex app-server attempt timed out
+48:May 04 19:15:40 huebners node[1210995]: 2026-05-04T19:15:40.789+02:00 [model-fallback/decision] model fallback decision: decision=candidate_succeeded requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=unknown next=none
+MCTail:
+26:May 04 18:52:30 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+38:May 04 19:07:24 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+43:May 04 19:15:20 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+```
+
+## Corrected sample 7 2026-05-04T17:32:06.656155+00:00
+
+```text
+UTC 2026-05-04T17:32:06.656155+00:00
+MC {"status":"ok","openTasks":null,"inProgress":null,"pendingPickup":null,"staleOpenTasks":null,"orphanedDispatches":0}
+Gateway {"ok":true,"status":"live"}
+Guard {"ok": true, "rotationNeeded": 0, "staleRunning": 0, "loadErrors": 0, "wouldRotateSessionKeys": []}
+GatewaySignalsSinceFix=5 MCSignalsSinceFix=3
+Tasks:
+- main 53895866 failed/failed/failed runs=failed:agent:main report=True atlasPingedAt=True result=-
+- sre-expert 716dd0d3 done/done/result runs=succeeded:gateway:716dd0d3-4160-4efd-a116-460d3301a32d report=True atlasPingedAt=True result=Forge 2h stability RCA: Claim/Progress/Result-Pfad funktioniert; Hauptsignal bleibt reproduzierbarer 401-Auth-Fail im nested local embedded/API-key Fallback, nicht produktive Disco
+WorkerServices:
+mc-worker-main-43603d8c-234-1777915278.service loaded active running Mission Control worker main 43603d8c
+GatewayTail:
+43:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.460+02:00 [agent/embedded] embedded run failover decision: runId=25b5d110-3b19-4d51-aff9-6ffe7e0255fe stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.5 profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out
+44:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.462+02:00 [diagnostic] lane task error: lane=main durationMs=1500875 error="FailoverError: LLM request timed out."
+45:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.463+02:00 [diagnostic] lane task error: lane=session:agent:main:main durationMs=1500876 error="FailoverError: LLM request timed out."
+46:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.466+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=codex app-server attempt timed out
+48:May 04 19:15:40 huebners node[1210995]: 2026-05-04T19:15:40.789+02:00 [model-fallback/decision] model fallback decision: decision=candidate_succeeded requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=unknown next=none
+MCTail:
+26:May 04 18:52:30 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+38:May 04 19:07:24 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+43:May 04 19:15:20 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+```
+
+## Corrected sample 8 2026-05-04T17:37:08.042552+00:00
+
+```text
+UTC 2026-05-04T17:37:08.042552+00:00
+MC {"status":"ok","openTasks":null,"inProgress":null,"pendingPickup":null,"staleOpenTasks":null,"orphanedDispatches":0}
+Gateway {"ok":true,"status":"live"}
+Guard {"ok": false, "rotationNeeded": 1, "staleRunning": 1, "loadErrors": 0, "wouldRotateSessionKeys": ["agent:james:discord:channel:1487930174384247005"]}
+GatewaySignalsSinceFix=5 MCSignalsSinceFix=4
+Tasks:
+- main 53895866 failed/failed/failed runs=failed:agent:main report=True atlasPingedAt=True result=-
+- sre-expert 716dd0d3 done/done/result runs=succeeded:gateway:716dd0d3-4160-4efd-a116-460d3301a32d report=True atlasPingedAt=True result=Forge 2h stability RCA: Claim/Progress/Result-Pfad funktioniert; Hauptsignal bleibt reproduzierbarer 401-Auth-Fail im nested local embedded/API-key Fallback, nicht produktive Disco
+WorkerServices:
+-
+GatewayTail:
+43:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.460+02:00 [agent/embedded] embedded run failover decision: runId=25b5d110-3b19-4d51-aff9-6ffe7e0255fe stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.5 profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out
+44:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.462+02:00 [diagnostic] lane task error: lane=main durationMs=1500875 error="FailoverError: LLM request timed out."
+45:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.463+02:00 [diagnostic] lane task error: lane=session:agent:main:main durationMs=1500876 error="FailoverError: LLM request timed out."
+46:May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.466+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=codex app-server attempt timed out
+48:May 04 19:15:40 huebners node[1210995]: 2026-05-04T19:15:40.789+02:00 [model-fallback/decision] model fallback decision: decision=candidate_succeeded requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=unknown next=none
+MCTail:
+26:May 04 18:52:30 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+38:May 04 19:07:24 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+43:May 04 19:15:20 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+70:May 04 19:33:58 huebners node[1262382]: [task-reports] atlas-ping-skipped {
+```

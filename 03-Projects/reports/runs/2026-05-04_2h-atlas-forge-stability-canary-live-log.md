@@ -532,3 +532,66 @@ Start: 2026-05-04T17:19:54+02:00
   "events": []
 }
 ```
+
+```json
+{
+  "ts": "2026-05-04T19:10:25+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": []
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T19:15:26+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": [
+    "May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.460+02:00 [agent/embedded] embedded run failover decision: runId=25b5d110-3b19-4d51-aff9-6ffe7e0255fe stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.5 profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out",
+    "May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.462+02:00 [diagnostic] lane task error: lane=main durationMs=1500875 error=\"FailoverError: LLM request timed out.\"",
+    "May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.463+02:00 [diagnostic] lane task error: lane=session:agent:main:main durationMs=1500876 error=\"FailoverError: LLM request timed out.\"",
+    "May 04 19:14:06 huebners node[1210995]: 2026-05-04T19:14:06.466+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=codex app-server attempt timed out"
+  ]
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T19:20:27+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": []
+}
+```
+
+## Summary
+
+```json
+{
+  "iterations": 25,
+  "rotations": [],
+  "fallbackEvents": 32,
+  "timeoutEvents": 22,
+  "healthFailures": 0,
+  "guardFailures": 0
+}
+```
