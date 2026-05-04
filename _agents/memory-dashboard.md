@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-05-04T00:30:02.944287+00:00
+last_generated: 2026-05-04T00:46:03.000872+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-05-04 00:30 UTC  
+**Last Generated:** 2026-05-04 00:46 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -21,7 +21,7 @@ auto_refresh: daily 04:30 UTC (cron)
 | **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 2132 files indexed |
 | **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 56 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 8 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-05-04T00:30:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-05-04T00:45:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -196,9 +196,6 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-05-03T23:45:01Z] OK session=ae16df5c-ab4 size=11534 tokens_est=2883 pct=1%
-[2026-05-03T23:50:02Z] OK session=ae16df5c-ab4 size=11534 tokens_est=2883 pct=1%
-[2026-05-03T23:55:01Z] OK session=ae16df5c-ab4 size=13087 tokens_est=3271 pct=2%
 [2026-05-04T00:00:01Z] OK session=ae16df5c-ab4 size=13087 tokens_est=3271 pct=2%
 [2026-05-04T00:05:01Z] OK session=ae16df5c-ab4 size=13087 tokens_est=3271 pct=2%
 [2026-05-04T00:10:01Z] OK session=ae16df5c-ab4 size=13087 tokens_est=3271 pct=2%
@@ -206,6 +203,9 @@ auto_refresh: daily 04:30 UTC (cron)
 [2026-05-04T00:20:01Z] OK session=ae16df5c-ab4 size=13087 tokens_est=3271 pct=2%
 [2026-05-04T00:25:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2%
 [2026-05-04T00:30:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2%
+[2026-05-04T00:35:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2%
+[2026-05-04T00:40:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2%
+[2026-05-04T00:45:01Z] OK session=ae16df5c-ab4 size=14640 tokens_est=3660 pct=2%
 ```
 
 ## 9. Active Crons (summary)
