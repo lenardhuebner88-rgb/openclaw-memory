@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T18:08:01.636921+00:00",
+  "generated_at": "2026-05-04T18:38:01.268644+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -69,7 +69,7 @@
     {
       "id": "james",
       "path": "/home/piet/.openclaw/agents/james",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-04T17:33:17.648731+00:00",
       "latest_session_size_bytes": 10557,
       "session_count": 3
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-04T17:55:36.385880+00:00",
-      "latest_session_size_bytes": 2688,
-      "session_count": 433
+      "status": "active",
+      "last_session_iso": "2026-05-04T18:37:20.305635+00:00",
+      "latest_session_size_bytes": 502291,
+      "session_count": 438
     },
     {
       "id": "spark",
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "active",
-      "last_session_iso": "2026-05-04T18:04:51.616633+00:00",
-      "latest_session_size_bytes": 74376,
-      "session_count": 1611
+      "status": "monitoring",
+      "last_session_iso": "2026-05-04T18:28:50.991201+00:00",
+      "latest_session_size_bytes": 63857,
+      "session_count": 1613
     },
     {
       "id": "system-bot",
@@ -921,6 +921,16 @@
   ],
   "vault_commits": [
     {
+      "hash": "5d9fc3b",
+      "date": "2026-05-04T20:35:39+02:00",
+      "subject": "docs(hermes): define atlas read-only review lane"
+    },
+    {
+      "hash": "31babca",
+      "date": "2026-05-04T20:09:29+02:00",
+      "subject": "auto-sync: 2026-05-04 20:09"
+    },
+    {
       "hash": "bd7ef32",
       "date": "2026-05-04T19:39:17+02:00",
       "subject": "auto-sync: 2026-05-04 19:39"
@@ -959,16 +969,6 @@
       "hash": "3c8d238",
       "date": "2026-05-04T16:07:17+02:00",
       "subject": "auto-sync: 2026-05-04 16:07"
-    },
-    {
-      "hash": "733e16b",
-      "date": "2026-05-04T15:37:17+02:00",
-      "subject": "auto-sync: 2026-05-04 15:37"
-    },
-    {
-      "hash": "d721b79",
-      "date": "2026-05-04T15:06:19+02:00",
-      "subject": "auto-sync: 2026-05-04 15:06"
     }
   ],
   "scripts": {
@@ -987,14 +987,16 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        1336112
+        1345713,
+        1364598
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1338690
+        1351407,
+        1359770
       ]
     }
   ],
