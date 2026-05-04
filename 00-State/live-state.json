@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T04:00:01.834524+00:00",
+  "generated_at": "2026-05-04T04:32:01.061529+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T03:50:08.713737+00:00",
-      "latest_session_size_bytes": 25518,
+      "last_session_iso": "2026-05-04T04:20:09.664421+00:00",
+      "latest_session_size_bytes": 27073,
       "session_count": 395
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "33a7aa5",
+      "date": "2026-05-04T06:01:49+02:00",
+      "subject": "auto-sync: 2026-05-04 06:01"
+    },
+    {
       "hash": "a809d34",
       "date": "2026-05-04T05:31:49+02:00",
       "subject": "auto-sync: 2026-05-04 05:31"
@@ -964,11 +969,6 @@
       "hash": "a9d0767",
       "date": "2026-05-04T02:01:46+02:00",
       "subject": "auto-sync: 2026-05-04 02:01"
-    },
-    {
-      "hash": "ca4c29b",
-      "date": "2026-05-04T01:31:46+02:00",
-      "subject": "auto-sync: 2026-05-04 01:31"
     }
   ],
   "scripts": {
@@ -980,10 +980,7 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        395275,
-        580829,
-        580876,
-        580882
+        395275
       ]
     }
   ],
