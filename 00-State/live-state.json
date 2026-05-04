@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T09:34:01.311100+00:00",
+  "generated_at": "2026-05-04T10:06:01.976614+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 196,
+    "scripts_active": 197,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-04T09:30:56.332398+00:00",
-      "latest_session_size_bytes": 14915,
-      "session_count": 401
+      "status": "monitoring",
+      "last_session_iso": "2026-05-04T09:58:25.021317+00:00",
+      "latest_session_size_bytes": 47734,
+      "session_count": 402
     },
     {
       "id": "spark",
@@ -102,9 +102,9 @@
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T09:00:18.603768+00:00",
-      "latest_session_size_bytes": 1526,
-      "session_count": 21
+      "last_session_iso": "2026-05-04T10:00:20.452338+00:00",
+      "latest_session_size_bytes": 1422,
+      "session_count": 22
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "cad5111",
+      "date": "2026-05-04T11:35:48+02:00",
+      "subject": "auto-sync: 2026-05-04 11:35"
+    },
+    {
       "hash": "408099d",
       "date": "2026-05-04T11:05:17+02:00",
       "subject": "auto-sync: 2026-05-04 11:05"
@@ -964,15 +969,10 @@
       "hash": "b1cf10b",
       "date": "2026-05-04T07:03:17+02:00",
       "subject": "auto-sync: 2026-05-04 07:03"
-    },
-    {
-      "hash": "1f399fe",
-      "date": "2026-05-04T06:32:17+02:00",
-      "subject": "auto-sync: 2026-05-04 06:32"
     }
   ],
   "scripts": {
-    "scripts_root": 124,
+    "scripts_root": 125,
     "workspace_scripts": 72
   },
   "mcp_servers": [

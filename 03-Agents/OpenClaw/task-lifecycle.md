@@ -3102,3 +3102,4 @@ NEXT_RECOMMENDED_TASKS
 - 2026-05-04T08:27:50.207Z | CHECKPOINT | pickup-claim-synth-3 | Pickup claim synthetic task 3 | worker=frontend-guru | progress=- | summary=- | note=progress heartbeat
 - 2026-05-04T08:27:50.218Z | CHECKPOINT | pickup-claim-synth-4 | Pickup claim synthetic task 4 | worker=frontend-guru | progress=- | summary=- | note=progress heartbeat
 - 2026-05-04T08:27:50.228Z | CHECKPOINT | pickup-claim-synth-5 | Pickup claim synthetic task 5 | worker=frontend-guru | progress=- | summary=- | note=progress heartbeat
+- 2026-05-04T10:00:14.469Z | START | 783d9289-532c-49e3-8d63-01781c34d6ba | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
