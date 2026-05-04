@@ -117,3 +117,6 @@ phase_4_break_glass_guardrails: documented
 runtime_config_changes: none
 openclaw_restarts: none
 ```
+
+## 2026-05-04
+- `plans/hermes-atlas-review-lane-2026-05-04.md` — Atlas↔Hermes read-only review lane, pilot prompt, receipt contract, and legacy Discord service classification.
