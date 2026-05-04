@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T14:36:02.034759+00:00",
+  "generated_at": "2026-05-04T15:06:01.336074+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 2,
+    "agents_active": 0,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "active",
-      "last_session_iso": "2026-05-04T14:35:58.624633+00:00",
-      "latest_session_size_bytes": 289789,
-      "session_count": 417
+      "status": "monitoring",
+      "last_session_iso": "2026-05-04T14:49:53.322680+00:00",
+      "latest_session_size_bytes": 1450,
+      "session_count": 422
     },
     {
       "id": "spark",
@@ -93,10 +93,10 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "active",
-      "last_session_iso": "2026-05-04T14:35:34.721917+00:00",
-      "latest_session_size_bytes": 3459,
-      "session_count": 1600
+      "status": "monitoring",
+      "last_session_iso": "2026-05-04T14:37:16.759806+00:00",
+      "latest_session_size_bytes": 5063,
+      "session_count": 1601
     },
     {
       "id": "system-bot",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "998e207",
+      "date": "2026-05-04T16:37:18+02:00",
+      "subject": "auto-sync: 2026-05-04 16:37"
+    },
+    {
       "hash": "3c8d238",
       "date": "2026-05-04T16:07:17+02:00",
       "subject": "auto-sync: 2026-05-04 16:07"
@@ -964,11 +969,6 @@
       "hash": "87ded47",
       "date": "2026-05-04T12:06:13+02:00",
       "subject": "auto-sync: 2026-05-04 12:06"
-    },
-    {
-      "hash": "cad5111",
-      "date": "2026-05-04T11:35:48+02:00",
-      "subject": "auto-sync: 2026-05-04 11:35"
     }
   ],
   "scripts": {
@@ -987,7 +987,7 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        1035398
+        1157407
       ]
     }
   ],
