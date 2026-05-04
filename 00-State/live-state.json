@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T21:10:01.747999+00:00",
+  "generated_at": "2026-05-04T21:40:01.237936+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 2,
+    "agents_active": 3,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 210,
+    "scripts_active": 212,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -54,17 +54,17 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T20:45:35.342647+00:00",
-      "latest_session_size_bytes": 3393,
-      "session_count": 37
+      "last_session_iso": "2026-05-04T21:15:36.714661+00:00",
+      "latest_session_size_bytes": 3297,
+      "session_count": 38
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-04T20:44:29.870186+00:00",
-      "latest_session_size_bytes": 3267,
-      "session_count": 4
+      "status": "active",
+      "last_session_iso": "2026-05-04T21:39:29.964819+00:00",
+      "latest_session_size_bytes": 9686,
+      "session_count": 6
     },
     {
       "id": "james",
@@ -78,33 +78,33 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-04T21:09:57.605353+00:00",
-      "latest_session_size_bytes": 738492,
-      "session_count": 443
+      "last_session_iso": "2026-05-04T21:39:16.050728+00:00",
+      "latest_session_size_bytes": 309889,
+      "session_count": 446
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
       "status": "active",
-      "last_session_iso": "2026-05-04T21:08:14.161652+00:00",
-      "latest_session_size_bytes": 3282,
-      "session_count": 5
+      "last_session_iso": "2026-05-04T21:39:34.130846+00:00",
+      "latest_session_size_bytes": 3299,
+      "session_count": 6
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T21:00:16.786442+00:00",
-      "latest_session_size_bytes": 5195,
-      "session_count": 1619
+      "last_session_iso": "2026-05-04T21:30:17.932282+00:00",
+      "latest_session_size_bytes": 5575,
+      "session_count": 1620
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T20:48:13.966763+00:00",
+      "last_session_iso": "2026-05-04T21:18:14.003734+00:00",
       "latest_session_size_bytes": 2062,
-      "session_count": 33
+      "session_count": 34
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "748f6c3",
+      "date": "2026-05-04T23:10:17+02:00",
+      "subject": "auto-sync: 2026-05-04 23:10"
+    },
+    {
       "hash": "30cfd85",
       "date": "2026-05-04T22:40:17+02:00",
       "subject": "auto-sync: 2026-05-04 22:40"
@@ -964,15 +969,10 @@
       "hash": "37094a0",
       "date": "2026-05-04T19:08:57+02:00",
       "subject": "auto-sync: 2026-05-04 19:08"
-    },
-    {
-      "hash": "ea6197e",
-      "date": "2026-05-04T18:38:17+02:00",
-      "subject": "auto-sync: 2026-05-04 18:38"
     }
   ],
   "scripts": {
-    "scripts_root": 135,
+    "scripts_root": 137,
     "workspace_scripts": 75
   },
   "mcp_servers": [
@@ -987,20 +987,22 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        1437435
+        1437435,
+        1517999,
+        1518079
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1456765,
-        1488172,
-        1494692,
-        1495755,
-        1495775,
-        1495778,
-        1495952
+        1497923,
+        1513528,
+        1517992,
+        1518072,
+        1518214,
+        1518231,
+        1518235
       ]
     }
   ],
