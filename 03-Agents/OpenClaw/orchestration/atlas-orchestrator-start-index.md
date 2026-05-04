@@ -39,3 +39,23 @@ Purpose: durable, compact start surface for Atlas. Keep this file small; link de
 - Clean sprint template: [[atlas-clean-sprint-trigger-template]]
 - Minimal operator command: `Starte einen Sprint mit Fokus auf: <fokus>. Autonomie: <niedrig|mittel|full>.`
 - Note: `full` is treated as `full-light` until Autonomy Full Readiness sprint implements durable heartbeat/monitor checks.
+
+## Next Orchestrator Levers
+- Sprint Heartbeat/Monitor for true full autonomy.
+- Redacted Config/Runtime Endpoint: active agents, models, runtimes, tools/MCPs, channels, no secrets.
+- Model-/Runtime-Failure Summary.
+- Taskboard Quality-Gate Wrapper.
+- UI Proof Tooling.
+- Operator Decision Inbox.
+
+Current next focus: Redacted Config/Runtime Endpoint.
+
+## Sprint Heartbeat Monitor
+- Read-only monitor doc: [[atlas-sprint-heartbeat-monitor]]
+- Script: `/home/piet/.openclaw/workspace/scripts/atlas-sprint-monitor.py`
+- For `Autonomie: full`, run monitor before final done claim.
+
+## Taskboard Quality-Gate Wrapper
+- Doc: [[atlas-taskboard-quality-gate-wrapper]]
+- Script: `/home/piet/.openclaw/workspace/scripts/atlas-taskboard-quality-gate.py`
+- Default dry-run; `--execute --dispatch --monitor` for controlled sprint board execution.

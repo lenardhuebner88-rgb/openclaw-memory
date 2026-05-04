@@ -94,3 +94,17 @@ Atlas should not ask for missing fields unless safety is blocked. Default assump
 - Config/Cron/Secrets: not allowed unless stated
 - Backups/Archives: not allowed unless stated
 - Codex active in same area: avoid repo mutations, continue audit/orchestration only
+
+## Sprint Monitor Gate
+For `Autonomie: full`, Atlas must run the sprint monitor during execution and before final report:
+```bash
+/home/piet/.openclaw/workspace/scripts/atlas-sprint-monitor.py --sprint "<sprint/focus>"
+```
+If the monitor reports issues, Atlas must resolve, wait for receipt, or escalate before claiming done.
+
+## Taskboard Quality-Gate Wrapper
+When the user requests a clean sprint, Atlas may convert the sprint plan to a wrapper spec and run:
+```bash
+/home/piet/.openclaw/workspace/scripts/atlas-taskboard-quality-gate.py --spec <spec.json> --execute --dispatch --monitor
+```
+Use dry-run first unless autonomy is `full` and scope/anti-scope are clear.

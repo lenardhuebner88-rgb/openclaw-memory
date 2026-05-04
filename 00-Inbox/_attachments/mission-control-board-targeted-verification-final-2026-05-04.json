@@ -1,0 +1,297 @@
+{
+  "summary": {
+    "generatedAt": "2026-05-04T21:04:06.985Z",
+    "baseUrl": "http://127.0.0.1:3000",
+    "routes": 18,
+    "failingRoutes": [],
+    "consoleWarningCount": 0,
+    "pageErrorCount": 0,
+    "failedRequestCount": 0,
+    "visibleButtons": 696,
+    "visibleLinks": 373,
+    "automations": {
+      "pauseGuard": "dialog-opened",
+      "resumeGuard": "dialog-opened",
+      "pauseAllGuard": "dialog-opened"
+    },
+    "pipeline": {
+      "hasHealthStates": true,
+      "stepDagOpens": "dialog-opened",
+      "focusAgentWorks": "content-changed"
+    }
+  },
+  "routeResults": [
+    {
+      "route": "/",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/overview",
+      "controls": {
+        "buttons": 3,
+        "links": 11,
+        "h1": [
+          "Leitstand"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/overview",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/overview",
+      "controls": {
+        "buttons": 3,
+        "links": 11,
+        "h1": [
+          "Leitstand"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/taskboard?density=compact&mode=list&truth=0&lane=draft&audit=1",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/taskboard?density=compact&mode=list&truth=0&lane=draft&audit=1",
+      "controls": {
+        "buttons": 17,
+        "links": 8,
+        "h1": [
+          "Taskboard"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/kanban",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/kanban",
+      "controls": {
+        "buttons": 30,
+        "links": 16,
+        "h1": [
+          "Pipeline"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/alerts",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/alerts",
+      "controls": {
+        "buttons": 33,
+        "links": 9,
+        "h1": [
+          "Alerts"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/monitoring",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/monitoring",
+      "controls": {
+        "buttons": 0,
+        "links": 11,
+        "h1": [
+          "Monitoring"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/costs",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/costs",
+      "controls": {
+        "buttons": 19,
+        "links": 15,
+        "h1": [
+          "Kosten"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/agents",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/agents",
+      "controls": {
+        "buttons": 18,
+        "links": 10,
+        "h1": [
+          "Agents"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/team",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/team",
+      "controls": {
+        "buttons": 6,
+        "links": 16,
+        "h1": [
+          "Meet the Team"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/memory",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/memory",
+      "controls": {
+        "buttons": 7,
+        "links": 141,
+        "h1": [
+          "Gedächtnis",
+          "Layer trust, retrieval health, and source continuity",
+          "Truth Order (Invariant)"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/automate",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/automate",
+      "controls": {
+        "buttons": 346,
+        "links": 10,
+        "h1": [
+          "Automations"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/ops",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/ops",
+      "controls": {
+        "buttons": 4,
+        "links": 15,
+        "h1": [
+          "Ops Inventory"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/calendar",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/calendar",
+      "controls": {
+        "buttons": 49,
+        "links": 15,
+        "h1": [
+          "Kalender"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/files",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/files",
+      "controls": {
+        "buttons": 154,
+        "links": 15,
+        "h1": [
+          "Files"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/analytics",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/analytics",
+      "controls": {
+        "buttons": 2,
+        "links": 15,
+        "h1": [
+          "Analytics"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/trends",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/trends",
+      "controls": {
+        "buttons": 0,
+        "links": 15,
+        "h1": [
+          "Trend-Dashboard"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/architecture",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/architecture",
+      "controls": {
+        "buttons": 3,
+        "links": 15,
+        "h1": [
+          "Systemarchitektur"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    },
+    {
+      "route": "/more",
+      "status": 200,
+      "finalUrl": "http://127.0.0.1:3000/more",
+      "controls": {
+        "buttons": 2,
+        "links": 25,
+        "h1": [
+          "Mehr"
+        ]
+      },
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": []
+    }
+  ]
+}
