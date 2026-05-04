@@ -3105,3 +3105,4 @@ NEXT_RECOMMENDED_TASKS
 - 2026-05-04T10:00:14.469Z | START | 783d9289-532c-49e3-8d63-01781c34d6ba | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
 - 2026-05-04T11:01:21.314Z | DONE | c7dcb8b2-def2-4ed3-841d-ca9c9defb92b | MC-CANARY worker lifecycle post-beta4 stability check | worker=spark | progress=- | summary=MC_CANARY_OK
 - 2026-05-04T11:10:08.464Z | DONE | 9c2cd146-e4e3-4f69-a562-125784a628cb | MC-E2E-CANARY draft-to-done board state check | worker=spark | progress=- | summary=MC_E2E_CANARY_OK
+- 2026-05-04T12:28:43.414Z | DONE | 84fb5510-bc04-4fab-a2e2-25baba8c589f | MC-REPORT-E2E-20260504T122756Z Discord reporting lifecycle canary | worker=main | progress=- | summary=MC-REPORT-E2E-20260504T122756Z lifecycle canary completed: pending-pickup, accepted, and done/result reporting checked.
