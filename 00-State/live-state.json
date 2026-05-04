@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T19:10:01.305273+00:00",
+  "generated_at": "2026-05-04T19:40:01.930706+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 3,
+    "agents_active": 1,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -78,14 +78,14 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-04T19:08:36.956188+00:00",
-      "latest_session_size_bytes": 360796,
-      "session_count": 441
+      "last_session_iso": "2026-05-04T19:39:56.734765+00:00",
+      "latest_session_size_bytes": 310740,
+      "session_count": 444
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
-      "status": "active",
+      "status": "monitoring",
       "last_session_iso": "2026-05-04T19:09:54.781715+00:00",
       "latest_session_size_bytes": 51229,
       "session_count": 2
@@ -94,17 +94,17 @@
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T18:57:57.414917+00:00",
-      "latest_session_size_bytes": 216148,
-      "session_count": 1615
+      "last_session_iso": "2026-05-04T19:19:02.149394+00:00",
+      "latest_session_size_bytes": 56293,
+      "session_count": 1616
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "active",
-      "last_session_iso": "2026-05-04T19:05:11.294801+00:00",
-      "latest_session_size_bytes": 16868,
-      "session_count": 26
+      "status": "monitoring",
+      "last_session_iso": "2026-05-04T19:31:25.945361+00:00",
+      "latest_session_size_bytes": 8477,
+      "session_count": 29
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "5e411bc",
+      "date": "2026-05-04T21:10:02+02:00",
+      "subject": "auto-sync: 2026-05-04 21:10"
+    },
+    {
       "hash": "32e235d",
       "date": "2026-05-04T20:40:01+02:00",
       "subject": "auto-sync: 2026-05-04 20:40"
@@ -964,11 +969,6 @@
       "hash": "118b60c",
       "date": "2026-05-04T17:07:19+02:00",
       "subject": "auto-sync: 2026-05-04 17:07"
-    },
-    {
-      "hash": "998e207",
-      "date": "2026-05-04T16:37:18+02:00",
-      "subject": "auto-sync: 2026-05-04 16:37"
     }
   ],
   "scripts": {
@@ -987,23 +987,14 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        1371967,
-        1395002
+        1411589
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1386951,
-        1387294,
-        1388473,
-        1390963,
-        1394995,
-        1395211,
-        1395226,
-        1395232,
-        1395407
+        1412760
       ]
     }
   ],
