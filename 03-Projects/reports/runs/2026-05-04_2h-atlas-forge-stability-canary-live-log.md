@@ -424,3 +424,111 @@ Start: 2026-05-04T17:19:54+02:00
   ]
 }
 ```
+
+```json
+{
+  "ts": "2026-05-04T18:40:18+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": [
+    "May 04 18:35:25 huebners node[1210995]: - `/home/piet/.openclaw/agents/sre-expert/sessions/sre-expert-be948b8c-4b34-4787-8f0d-a545d92c8812.trajectory.jsonl` enthält `turn.completion_idle_timeout` und `codex app-server attempt timed out` (Turn-Timeout nach Start, kein neuer Pending-Pickup-Claim-Abbruch).",
+    "May 04 18:36:05 huebners node[1210995]: 2026-05-04T18:36:05.405+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=205069 queueAhead=2",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.185+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=152944 queueAhead=1",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.188+02:00 [diagnostic] lane wait exceeded: lane=main waitedMs=82823 queueAhead=0",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.194+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=This operation was aborted",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.203+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=This operation was aborted",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.353+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=timeout next=openai/gpt-5.4 detail=This operation was aborted",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.503+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.3-codex reason=timeout next=openai/gpt-5.4 detail=This operation was aborted",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.635+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4 reason=timeout next=openai/gpt-5.4-mini detail=This operation was aborted",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.763+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4 reason=timeout next=openai/gpt-5.4-mini detail=This operation was aborted",
+    "May 04 18:36:35 huebners node[1210995]: 2026-05-04T18:36:35.892+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4-mini reason=timeout next=none detail=This operation was aborted",
+    "May 04 18:36:36 huebners node[1210995]: 2026-05-04T18:36:36.233+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.4-mini reason=timeout next=none detail=This operation was aborted"
+  ]
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:45:19+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": [
+    "May 04 18:44:25 huebners node[1210995]: 2026-05-04T18:44:25.053+02:00 [agent/embedded] embedded run failover decision: runId=9d15a4c3-863f-4400-979b-d01ac0ef0fdc stage=assistant decision=fallback_model reason=timeout from=openai/gpt-5.5 profile=sha256:195d21b1dd7f rawError=codex app-server attempt timed out",
+    "May 04 18:44:25 huebners node[1210995]: 2026-05-04T18:44:25.055+02:00 [diagnostic] lane task error: lane=main durationMs=1500905 error=\"FailoverError: LLM request timed out.\"",
+    "May 04 18:44:25 huebners node[1210995]: 2026-05-04T18:44:25.056+02:00 [diagnostic] lane task error: lane=session:agent:main:main durationMs=1500906 error=\"FailoverError: LLM request timed out.\"",
+    "May 04 18:44:25 huebners node[1210995]: 2026-05-04T18:44:25.060+02:00 [model-fallback/decision] model fallback decision: decision=candidate_failed requested=openai/gpt-5.5 candidate=openai/gpt-5.5 reason=timeout next=openai/gpt-5.3-codex detail=codex app-server attempt timed out"
+  ]
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:50:21+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": []
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T18:55:22+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": []
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T19:00:23+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": []
+}
+```
+
+```json
+{
+  "ts": "2026-05-04T19:05:24+02:00",
+  "healthOk": true,
+  "boardOk": true,
+  "service": "NRestarts=0\nActiveState=active\nSubState=running\nActiveEnterTimestamp=Mon 2026-05-04 17:54:26 CEST",
+  "guardOk": true,
+  "rotationNeeded": 0,
+  "staleRunning": 0,
+  "loadErrors": 0,
+  "rotated": [],
+  "events": []
+}
+```
