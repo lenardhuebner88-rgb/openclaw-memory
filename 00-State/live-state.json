@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T10:06:01.976614+00:00",
+  "generated_at": "2026-05-04T10:36:01.362741+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 0,
+    "agents_active": 1,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 197,
+    "scripts_active": 201,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -77,10 +77,10 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-04T09:58:25.021317+00:00",
-      "latest_session_size_bytes": 47734,
-      "session_count": 402
+      "status": "active",
+      "last_session_iso": "2026-05-04T10:34:28.643362+00:00",
+      "latest_session_size_bytes": 36064,
+      "session_count": 403
     },
     {
       "id": "spark",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "87ded47",
+      "date": "2026-05-04T12:06:13+02:00",
+      "subject": "auto-sync: 2026-05-04 12:06"
+    },
+    {
       "hash": "cad5111",
       "date": "2026-05-04T11:35:48+02:00",
       "subject": "auto-sync: 2026-05-04 11:35"
@@ -964,15 +969,10 @@
       "hash": "e89803c",
       "date": "2026-05-04T07:34:17+02:00",
       "subject": "auto-sync: 2026-05-04 07:34"
-    },
-    {
-      "hash": "b1cf10b",
-      "date": "2026-05-04T07:03:17+02:00",
-      "subject": "auto-sync: 2026-05-04 07:03"
     }
   ],
   "scripts": {
-    "scripts_root": 125,
+    "scripts_root": 129,
     "workspace_scripts": 72
   },
   "mcp_servers": [
@@ -987,7 +987,7 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        838477
+        882938
       ]
     }
   ],
