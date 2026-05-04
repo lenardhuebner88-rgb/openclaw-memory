@@ -102,3 +102,31 @@ systemctl --user daemon-reload
 ```
 
 Das entfernt nur den Review-Tick. Atlas Heartbeat und OpenClaw-Runtime bleiben unberührt.
+
+## Live-Validierung
+
+Zeitpunkt: 2026-05-04 22:11 CEST.
+
+Durchgeführt:
+
+- `python3 -m py_compile /home/piet/.openclaw/scripts/atlas-autonomy-review-tick.py` passed.
+- Dry-run via `atlas-autonomy-review-tick.py --json` passed.
+- `systemd-analyze verify --user ...atlas-autonomy-review-tick.{service,timer}` ohne Fehler für diese Units.
+- `systemctl --user enable --now atlas-autonomy-review-tick.timer` ausgeführt.
+- Manueller Service-Lauf: `atlas-autonomy-review-tick.service` `0/SUCCESS`.
+- Discord-Report gesendet nach `1495737862522405088`, messageId `1500952957670396205`.
+- Gateway blieb aktiv, kein Restart: `openclaw-gateway.service` `NRestarts=0`, Startzeit `Mon 2026-05-04 21:57:05 CEST`.
+- Mission Control blieb aktiv, kein Restart durch diesen Tick.
+- `/home/piet/.openclaw/openclaw.json` blieb unverändert.
+
+Erster Report:
+
+```text
+Atlas Autonomy Review Tick — GREEN
+Atlas: model=openai-codex/gpt-5.5, runtime=pi, heartbeat=30m isolated=True skipBusy=True
+Mission Control: status=ok open=0 inProgress=0 pendingPickup=0 stale=0
+Board: status=ok issues=0
+Guard: rotationNeeded=0 staleRunning=0 loadErrors=0
+```
+
+Hinweis: Während der Validierung änderte sich `/home/piet/.openclaw/cron/jobs.json` durch parallel laufende bestehende OpenClaw/systemJob-Aktivität um 22:10 CEST. Der neue Atlas Review Tick liest diese Datei nicht und schreibt sie nicht; er ist als systemd-Timer außerhalb von OpenClaw `jobs.json` implementiert.

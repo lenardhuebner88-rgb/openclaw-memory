@@ -18,3 +18,8 @@
 - blocker: -
 - updated: 2026-05-04T18:04:33.188Z
 <!-- mc:auto-working-context:end -->
+
+## Orchestrator Start Compact
+- Use compact index first: [[../OpenClaw/orchestration/atlas-orchestrator-start-index]]
+- Morning live gate: `/home/piet/.openclaw/workspace/scripts/atlas-morning-health-compact.sh`
+- Do not preload detailed orchestration docs unless needed; keep startup context small.

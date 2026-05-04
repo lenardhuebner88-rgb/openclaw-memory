@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T20:10:01.713540+00:00",
+  "generated_at": "2026-05-04T20:40:01.648990+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 206,
+    "scripts_active": 208,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -54,17 +54,17 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T19:45:54.520148+00:00",
-      "latest_session_size_bytes": 20884,
-      "session_count": 35
+      "last_session_iso": "2026-05-04T20:15:37.049153+00:00",
+      "latest_session_size_bytes": 3460,
+      "session_count": 36
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T19:45:42.594069+00:00",
-      "latest_session_size_bytes": 24438,
-      "session_count": 2
+      "last_session_iso": "2026-05-04T20:14:31.560583+00:00",
+      "latest_session_size_bytes": 3252,
+      "session_count": 3
     },
     {
       "id": "james",
@@ -78,33 +78,33 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-04T20:09:20.507512+00:00",
-      "latest_session_size_bytes": 525612,
-      "session_count": 443
+      "last_session_iso": "2026-05-04T20:39:05.041888+00:00",
+      "latest_session_size_bytes": 255604,
+      "session_count": 444
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
       "status": "active",
-      "last_session_iso": "2026-05-04T20:09:25.072542+00:00",
-      "latest_session_size_bytes": 3248,
-      "session_count": 3
+      "last_session_iso": "2026-05-04T20:38:13.862524+00:00",
+      "latest_session_size_bytes": 3333,
+      "session_count": 4
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T20:01:09.436241+00:00",
-      "latest_session_size_bytes": 6064,
-      "session_count": 1617
+      "last_session_iso": "2026-05-04T20:30:18.078096+00:00",
+      "latest_session_size_bytes": 6265,
+      "session_count": 1618
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T20:00:49.722110+00:00",
-      "latest_session_size_bytes": 3544,
-      "session_count": 31
+      "last_session_iso": "2026-05-04T20:18:31.808652+00:00",
+      "latest_session_size_bytes": 2039,
+      "session_count": 32
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "a6e0665",
+      "date": "2026-05-04T22:10:03+02:00",
+      "subject": "auto-sync: 2026-05-04 22:10"
+    },
+    {
       "hash": "36ad52e",
       "date": "2026-05-04T21:40:03+02:00",
       "subject": "auto-sync: 2026-05-04 21:40"
@@ -964,16 +969,11 @@
       "hash": "5d6fb90",
       "date": "2026-05-04T18:08:00+02:00",
       "subject": "auto-sync: 2026-05-04 18:08"
-    },
-    {
-      "hash": "d7a22a3",
-      "date": "2026-05-04T17:37:19+02:00",
-      "subject": "auto-sync: 2026-05-04 17:37"
     }
   ],
   "scripts": {
-    "scripts_root": 134,
-    "workspace_scripts": 72
+    "scripts_root": 135,
+    "workspace_scripts": 73
   },
   "mcp_servers": [
     {
@@ -987,20 +987,19 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        1437435,
-        1447417
+        1437435
       ]
     },
     {
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1440788,
-        1443011,
-        1447410,
-        1447827,
-        1447857,
-        1447859
+        1456765,
+        1466251,
+        1470835,
+        1471393,
+        1471400,
+        1471405
       ]
     }
   ],

@@ -1,0 +1,423 @@
+{
+  "generatedAt": "2026-05-04T20:33:04.499Z",
+  "baseUrl": "http://127.0.0.1:3000",
+  "routes": 18,
+  "failingRoutes": [],
+  "consoleErrorCount": 4,
+  "pageErrorCount": 0,
+  "failedRequestCount": 6,
+  "totalVisibleButtons": 697,
+  "totalVisibleLinks": 380,
+  "totalSafeClicks": 71,
+  "safeClickErrors": [
+    {
+      "route": "/taskboard?density=compact&mode=list&truth=0&lane=draft&audit=1",
+      "label": "Open operator-readable Mission Control health proof",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Open operator-readable Mission Control health proof' }).first()\n"
+    },
+    {
+      "route": "/taskboard?density=compact&mode=list&truth=0&lane=draft&audit=1",
+      "label": "Open operator-readable V3 board proof",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Open operator-readable V3 board proof' }).first()\n"
+    },
+    {
+      "route": "/taskboard?density=compact&mode=list&truth=0&lane=draft&audit=1",
+      "label": "Show or hide terminal canceled/failed audit tasks. Default is off.",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Show or hide terminal canceled/failed audit tasks. Default is off.' }).first()\n"
+    },
+    {
+      "route": "/taskboard?density=compact&mode=list&truth=0&lane=draft&audit=1",
+      "label": "Jump to draft/backlog work without opening the full filter panel.",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Jump to draft/backlog work without opening the full filter panel.' }).first()\n"
+    },
+    {
+      "route": "/taskboard?density=compact&mode=list&truth=0&lane=draft&audit=1",
+      "label": "Clear Lane: Draft",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Clear Lane: Draft' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "Reset filters",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Reset filters' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "All agents",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'All agents' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "All stages",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'All stages' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "stuck",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'stuck' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "at-risk",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'at-risk' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "draft",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'draft' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "dispatched",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'dispatched' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "working",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'working' }).first()\n"
+    },
+    {
+      "route": "/kanban",
+      "label": "review",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'review' }).first()\n    - locator resolved to <button type=\"button\" class=\"min-w-0 rounded-[22px] border bg-[#101010] p-4 text-left min-h-[44px] border-emerald-400/30\">…</button>\n  - attempting clic"
+    },
+    {
+      "route": "/kanban",
+      "label": "incident",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'incident' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "HIGH OTHER 297 alerts LOG atlas-discord-fallback-chain-watch.log latest 1 minute ago 04.05., 22:28",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'HIGH OTHER 297 alerts LOG atlas-discord-fallback-chain-watch.log latest 1 minute ago 04.05., 22:28' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "HIGH OTHER 282 alerts LOG openclaw-discord-fallback-chain-watch.log latest 1 minute ago 04.05., 22:28",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'HIGH OTHER 282 alerts LOG openclaw-discord-fallback-chain-watch.log latest 1 minute ago 04.05., 22:28' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "HIGH PATCH-DRIFT 69 alerts WEBHOOK alert-dispatcher.log latest 3 minutes ago 04.05., 22:26",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'HIGH PATCH-DRIFT 69 alerts WEBHOOK alert-dispatcher.log latest 3 minutes ago 04.05., 22:26' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "HIGH OTHER 41 alerts LOG auto-pickup.log latest 3 minutes ago 04.05., 22:26",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'HIGH OTHER 41 alerts LOG auto-pickup.log latest 3 minutes ago 04.05., 22:26' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "HIGH API 40 alerts LOG auto-pickup.log · api-unreachable latest 3 minutes ago 04.05., 22:26",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'HIGH API 40 alerts LOG auto-pickup.log · api-unreachable latest 3 minutes ago 04.05., 22:26' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "HIGH COST 7 alerts LOG cost-alert-dispatcher.log latest 4 minutes ago 04.05., 22:25",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'HIGH COST 7 alerts LOG cost-alert-dispatcher.log latest 4 minutes ago 04.05., 22:25' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "INFO COST 70 alerts LOG billing-alert-watch.log latest 4 minutes ago 04.05., 22:25",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'INFO COST 70 alerts LOG billing-alert-watch.log latest 4 minutes ago 04.05., 22:25' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "HIGH MCP-ZOMBIE 32 alerts LOG mcp-qmd-reaper.log latest 5 minutes ago 04.05., 22:24",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'HIGH MCP-ZOMBIE 32 alerts LOG mcp-qmd-reaper.log latest 5 minutes ago 04.05., 22:24' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "MEDIUM COST 25 alerts WEBHOOK cost-alert-dispatcher.log · flatrate-rate-spike latest 9 minutes ago 04.05., 22:20",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'MEDIUM COST 25 alerts WEBHOOK cost-alert-dispatcher.log · flatrate-rate-spike latest 9 minutes ago 04.05., 22:20' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "CRITICAL SYSTEM 2 alerts LOG canary-session-rotation-watchdog.log latest 10 minutes ago 04.05., 22:19",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'CRITICAL SYSTEM 2 alerts LOG canary-session-rotation-watchdog.log latest 10 minutes ago 04.05., 22:19' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "MEDIUM SESSION-SIZE 3 alerts LOG session-size-guard.log latest 20 minutes ago 04.05., 22:09",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'MEDIUM SESSION-SIZE 3 alerts LOG session-size-guard.log latest 20 minutes ago 04.05., 22:09' }).first()\n"
+    },
+    {
+      "route": "/alerts",
+      "label": "HIGH PATCH-DRIFT 35 alerts LOG pr68846-patch-check.log latest 24 minutes ago 04.05., 22:05",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'HIGH PATCH-DRIFT 35 alerts LOG pr68846-patch-check.log latest 24 minutes ago 04.05., 22:05' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:29:18.022Z gpt-5.5 openai-codex openai-codex session · session 119.455 9.374 $1.20 agents/main/sessions/dff9b3bf-388a-4efb-b6f8-842c8e3da1ec.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:29:18.022Z gpt-5.5 openai-codex openai-codex session · session 119.455 9.374 $1.20 agents/main/sessions/dff9b3bf-388a-4efb-b6f8-842c8e3da1ec.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:20:42.446Z gpt-5.4-mini openai-codex openai-codex session · session 6.547 23 $0.01 agents/main/sessions/29630bf2-a672-4c09-a001-6ee3fc549076.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:20:42.446Z gpt-5.4-mini openai-codex openai-codex session · session 6.547 23 $0.01 agents/main/sessions/29630bf2-a672-4c09-a001-6ee3fc549076.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:18:31.809Z gpt-5.4-mini openai-codex openai-codex session · session 5.931 9 $0.00 agents/system-bot/sessions/b22e1d92-c60f-4520-8d0c-866054caa467.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:18:31.809Z gpt-5.4-mini openai-codex openai-codex session · session 5.931 9 $0.00 agents/system-bot/sessions/b22e1d92-c60f-4520-8d0c-866054caa467.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:15:37.050Z gpt-5.4-mini openai-codex openai-codex session · session 352 52 $0.00 agents/efficiency-auditor/sessions/fe6d69ec-818e-46d9-9214-36252741d6b5.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:15:37.050Z gpt-5.4-mini openai-codex openai-codex session · session 352 52 $0.00 agents/efficiency-auditor/sessions/fe6d69ec-818e-46d9-9214-36252741d6b5.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:14:31.560Z gpt-5.4-mini openai-codex openai-codex session · session 13.150 26 $0.01 agents/frontend-guru/sessions/714ed2a3-2a0e-49ca-97bc-4083dedc94b0.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:14:31.560Z gpt-5.4-mini openai-codex openai-codex session · session 13.150 26 $0.01 agents/frontend-guru/sessions/714ed2a3-2a0e-49ca-97bc-4083dedc94b0.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:12:29.095Z gpt-5.5 openai-codex openai-codex session · session 702.276 25.908 $5.97 agents/main/sessions/78c61673-80ee-4b5d-a1d3-031be11b8f1a.checkpoint.20260504-201303.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:12:29.095Z gpt-5.5 openai-codex openai-codex session · session 702.276 25.908 $5.97 agents/main/sessions/78c61673-80ee-4b5d-a1d3-031be11b8f1a.checkpoint.20260504-201303.jsonl' }).firs"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:12:29.095Z gpt-5.5 openai-codex openai-codex session · session 702.276 25.908 $5.97 agents/main/sessions/78c61673-80ee-4b5d-a1d3-031be11b8f1a.archived.20260504-201303.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:12:29.095Z gpt-5.5 openai-codex openai-codex session · session 702.276 25.908 $5.97 agents/main/sessions/78c61673-80ee-4b5d-a1d3-031be11b8f1a.archived.20260504-201303.jsonl' }).first("
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:09:25.072Z gpt-5.4-mini openai-codex openai-codex session · session 13.151 23 $0.01 agents/spark/sessions/7d9c4404-d53f-4ccf-9395-0e9afd312aca.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:09:25.072Z gpt-5.4-mini openai-codex openai-codex session · session 13.151 23 $0.01 agents/spark/sessions/7d9c4404-d53f-4ccf-9395-0e9afd312aca.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:01:09.436Z gpt-5.4-mini openai-codex openai-codex session · session 13.883 112 $0.01 agents/sre-expert/sessions/955dd65f-5eb9-4fac-a5bd-6dde4c944a85.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:01:09.436Z gpt-5.4-mini openai-codex openai-codex session · session 13.883 112 $0.01 agents/sre-expert/sessions/955dd65f-5eb9-4fac-a5bd-6dde4c944a85.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T20:00:49.723Z gpt-5.4-mini openai-codex openai-codex session · session 1.074 39 $0.00 agents/system-bot/sessions/973e1cb6-113b-4444-8aa1-d66031f218f9.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T20:00:49.723Z gpt-5.4-mini openai-codex openai-codex session · session 1.074 39 $0.00 agents/system-bot/sessions/973e1cb6-113b-4444-8aa1-d66031f218f9.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T19:49:49.721Z gpt-5.4-mini openai-codex openai-codex session · session 6.584 106 $0.01 agents/main/sessions/6173b5ce-15ba-4ca5-a425-19a610508c8b.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T19:49:49.721Z gpt-5.4-mini openai-codex openai-codex session · session 6.584 106 $0.01 agents/main/sessions/6173b5ce-15ba-4ca5-a425-19a610508c8b.jsonl' }).first()\n"
+    },
+    {
+      "route": "/costs",
+      "label": "2026-05-04T19:49:08.387Z gpt-5.4-mini openai-codex openai-codex session · session 10.501 44 $0.01 agents/system-bot/sessions/8fe44782-b5d5-4fcd-a4b7-cccad8d3d56b.jsonl",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '2026-05-04T19:49:08.387Z gpt-5.4-mini openai-codex openai-codex session · session 10.501 44 $0.01 agents/system-bot/sessions/8fe44782-b5d5-4fcd-a4b7-cccad8d3d56b.jsonl' }).first()\n"
+    },
+    {
+      "route": "/agents",
+      "label": "Collapse Atlas",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Collapse Atlas' }).first()\n"
+    },
+    {
+      "route": "/agents",
+      "label": "Collapse Forge",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Collapse Forge' }).first()\n"
+    },
+    {
+      "route": "/agents",
+      "label": "Collapse Pixel",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Collapse Pixel' }).first()\n"
+    },
+    {
+      "route": "/agents",
+      "label": "Collapse Lens",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Collapse Lens' }).first()\n"
+    },
+    {
+      "route": "/agents",
+      "label": "Collapse Spark",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Collapse Spark' }).first()\n"
+    },
+    {
+      "route": "/agents",
+      "label": "Collapse James",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Collapse James' }).first()\n"
+    },
+    {
+      "route": "/memory",
+      "label": "Promote 2026-04-20-sprint-n-sprint-o.md Lens · 20.04.2026, 19:35 REVIEW",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Promote 2026-04-20-sprint-n-sprint-o.md Lens · 20.04.2026, 19:35 REVIEW' }).first()\n"
+    },
+    {
+      "route": "/memory",
+      "label": "Promote 2026-04-20.md Forge · 20.04.2026, 21:30 REVIEW",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Promote 2026-04-20.md Forge · 20.04.2026, 21:30 REVIEW' }).first()\n"
+    },
+    {
+      "route": "/memory",
+      "label": "Promote 2026-04-22.md Lens · 22.04.2026, 15:07 REVIEW",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Promote 2026-04-22.md Lens · 22.04.2026, 15:07 REVIEW' }).first()\n"
+    },
+    {
+      "route": "/memory",
+      "label": "Promote 2026-04-23.md Unknown · 23.04.2026, 22:53 REVIEW",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Promote 2026-04-23.md Unknown · 23.04.2026, 22:53 REVIEW' }).first()\n"
+    },
+    {
+      "route": "/memory",
+      "label": "Promote 2026-04-24.md Spark · 24.04.2026, 00:39 REVIEW",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Promote 2026-04-24.md Spark · 24.04.2026, 00:39 REVIEW' }).first()\n"
+    },
+    {
+      "route": "/memory",
+      "label": "Promote 2026-04-25.md Atlas · 25.04.2026, 14:02 REVIEW",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: 'Promote 2026-04-25.md Atlas · 25.04.2026, 14:02 REVIEW' }).first()\n"
+    },
+    {
+      "route": "/calendar",
+      "label": "📋 TASK TASK [P3][Hermes Pilot] Clean dry-run read-only review smoke test Low —",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📋 TASK TASK [P3][Hermes Pilot] Clean dry-run read-only review smoke test Low —' }).first()\n"
+    },
+    {
+      "route": "/calendar",
+      "label": "📋 TASK TASK [P3][Hermes Pilot] Clean dry-run read-only review smoke test Low —",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📋 TASK TASK [P3][Hermes Pilot] Clean dry-run read-only review smoke test Low —' }).first()\n"
+    },
+    {
+      "route": "/calendar",
+      "label": "📋 TASK TASK [P3][Hermes Pilot] Dry-run read-only review smoke test Low —",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📋 TASK TASK [P3][Hermes Pilot] Dry-run read-only review smoke test Low —' }).first()\n"
+    },
+    {
+      "route": "/calendar",
+      "label": "📋 TASK TASK [P3][Hermes Pilot] Minimal dry-run review smoke test Low —",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📋 TASK TASK [P3][Hermes Pilot] Minimal dry-run review smoke test Low —' }).first()\n"
+    },
+    {
+      "route": "/calendar",
+      "label": "📋 TASK TASK MC-E2E-CANARY draft-to-done board state check Normal —",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📋 TASK TASK MC-E2E-CANARY draft-to-done board state check Normal —' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📝 monitoring-separation.md MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📝 monitoring-separation.md MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "{} reported-tasks.json JSON",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '{} reported-tasks.json JSON' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📝 AGENTS.md MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📝 AGENTS.md MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-20260420-1930 MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-20260420-1930 MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-20260420-235137 MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-20260420-235137 MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-audit-p3-2026-04-18 MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-audit-p3-2026-04-18 MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-audit-p6-2026-04-18 MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-audit-p6-2026-04-18 MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-p1-3-2026-04-18 MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-p1-3-2026-04-18 MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-p2-6-2026-04-18 MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-p2-6-2026-04-18 MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-phase2-2026-04-17 MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-phase2-2026-04-17 MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-phase2b MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-phase2b MD' }).first()\n"
+    },
+    {
+      "route": "/files",
+      "label": "📄 AGENTS.md.bak-pre-h2-h5-reimpl-20260420 MD",
+      "outcome": "no-observable-change",
+      "error": "locator.click: Timeout 2500ms exceeded.\nCall log:\n  - waiting for locator('button').filter({ hasText: '📄 AGENTS.md.bak-pre-h2-h5-reimpl-20260420 MD' }).first()\n"
+    }
+  ],
+  "suspiciousButtons": []
+}
