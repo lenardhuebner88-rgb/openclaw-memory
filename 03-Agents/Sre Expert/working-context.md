@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 19295cfe-a1c8-4cdf-a726-3487298aaf4a P0 UI Proof Tooling: DOM/A11y Inspector for Mission Control
+- task: 76676b55-a443-45fd-b23e-5c01e206fae5 P1 Worker Lifecycle RCA: Pixel task ghost auto-fail after valid implementation
 - stage: DONE
 - next: await next assignment
-- checkpoint: DOM/A11y Inspector für Mission Control implementiert (Playwright-basiert), auf /taskboard und /kanban-v3-preview in Desktop+Mobile ausgeführt und mit JSON/Markdown-Artefakten unter reports/dom-a11y-inspector verifiziert.
+- checkpoint: RCA abgeschlossen: Ghost auto-fail entstand durch untracked agent:frontend-guru:webchat Session, die nicht als external-untracked klassifiziert war; minimaler Hardening-Fix committed (4c295887) inkl. Regressionstest.
 - blocker: -
-- updated: 2026-05-04T21:55:30.240Z
+- updated: 2026-05-04T22:18:40.983Z
 <!-- mc:auto-working-context:end -->
