@@ -3095,3 +3095,4 @@ NEXT_RECOMMENDED_TASKS
 - 2026-05-03T20:30:07.075Z | FAILED | b5052100-492f-41da-b5eb-e37710e35354 | [P1][Forge] OAuth/Test Drift bereinigen — openai-codex vs openai/gpt | worker=sre-expert | progress=- | summary=- | note=Task exceeded runTimeoutSeconds=900s (runtime=1044s). Auto-failed by worker-monitor timeout guard.
 - 2026-05-04T06:00:17.957Z | START | 691bdadc-23d8-4e57-8aaa-fa04215871a0 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
 - 2026-05-04T07:05:13.915Z | START | 23bc70c7-181e-4566-a471-f5bc9b7a5040 | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
+- 2026-05-04T08:00:14.022Z | START | fd8d1bd3-66cc-4919-95ef-c4dbfdbc154c | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-

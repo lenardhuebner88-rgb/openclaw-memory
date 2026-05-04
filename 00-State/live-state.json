@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T07:34:01.130184+00:00",
+  "generated_at": "2026-05-04T08:04:01.462583+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 2,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-04T07:33:56.442941+00:00",
-      "latest_session_size_bytes": 35527,
-      "session_count": 395
+      "last_session_iso": "2026-05-04T08:03:45.999831+00:00",
+      "latest_session_size_bytes": 82213,
+      "session_count": 396
     },
     {
       "id": "spark",
@@ -93,7 +93,7 @@
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
+      "status": "ready",
       "last_session_iso": "2026-05-04T06:55:51.896796+00:00",
       "latest_session_size_bytes": 24240,
       "session_count": 1595
@@ -101,10 +101,10 @@
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-04T07:05:19.591822+00:00",
-      "latest_session_size_bytes": 1421,
-      "session_count": 19
+      "status": "active",
+      "last_session_iso": "2026-05-04T08:00:20.249727+00:00",
+      "latest_session_size_bytes": 1422,
+      "session_count": 20
     },
     {
       "id": "test-lock",
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "3ed15e2",
+      "date": "2026-05-04T09:35:02+02:00",
+      "subject": "auto-sync: 2026-05-04 09:35"
+    },
+    {
       "hash": "eb52216",
       "date": "2026-05-04T09:05:01+02:00",
       "subject": "auto-sync: 2026-05-04 09:05"
@@ -964,11 +969,6 @@
       "hash": "866a11b",
       "date": "2026-05-04T05:01:48+02:00",
       "subject": "auto-sync: 2026-05-04 05:01"
-    },
-    {
-      "hash": "db975f6",
-      "date": "2026-05-04T04:31:48+02:00",
-      "subject": "auto-sync: 2026-05-04 04:31"
     }
   ],
   "scripts": {
@@ -987,7 +987,7 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        737701
+        751236
       ]
     }
   ],

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 23bc70c7-181e-4566-a471-f5bc9b7a5040 [Smoke] pending-pickup lifecycle
+- task: fd8d1bd3-66cc-4919-95ef-c4dbfdbc154c [Smoke] pending-pickup lifecycle
 - stage: START
 - next: continue current task
 - checkpoint: -
 - blocker: -
-- updated: 2026-05-04T07:05:13.918Z
+- updated: 2026-05-04T08:00:14.025Z
 <!-- mc:auto-working-context:end -->
