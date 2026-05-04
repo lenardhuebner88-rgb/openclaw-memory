@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T02:30:01.639124+00:00",
+  "generated_at": "2026-05-04T03:00:01.769256+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -78,8 +78,8 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "monitoring",
-      "last_session_iso": "2026-05-04T02:20:08.515972+00:00",
-      "latest_session_size_bytes": 20853,
+      "last_session_iso": "2026-05-04T02:50:06.865993+00:00",
+      "latest_session_size_bytes": 22408,
       "session_count": 395
     },
     {
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "db975f6",
+      "date": "2026-05-04T04:31:48+02:00",
+      "subject": "auto-sync: 2026-05-04 04:31"
+    },
+    {
       "hash": "5ac366e",
       "date": "2026-05-04T04:01:48+02:00",
       "subject": "auto-sync: 2026-05-04 04:01"
@@ -964,11 +969,6 @@
       "hash": "6d9f7d3",
       "date": "2026-05-04T00:31:45+02:00",
       "subject": "auto-sync: 2026-05-04 00:31"
-    },
-    {
-      "hash": "8c7267b",
-      "date": "2026-05-04T00:01:45+02:00",
-      "subject": "auto-sync: 2026-05-04 00:01"
     }
   ],
   "scripts": {
@@ -981,10 +981,9 @@
       "status": "running",
       "pids": [
         395275,
-        531996,
-        532013,
-        532017,
-        532089
+        548278,
+        548299,
+        548301
       ]
     }
   ],
