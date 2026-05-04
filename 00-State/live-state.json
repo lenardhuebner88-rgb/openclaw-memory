@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-04T09:04:01.085727+00:00",
+  "generated_at": "2026-05-04T09:34:01.311100+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 2,
+    "agents_active": 1,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -29,7 +29,7 @@
     },
     "graph_edges": 1279,
     "facts_total": 287,
-    "scripts_active": 195,
+    "scripts_active": 196,
     "atlas_last_critical_pct": null,
     "atlas_current_pct": 0
   },
@@ -78,9 +78,9 @@
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
       "status": "active",
-      "last_session_iso": "2026-05-04T09:03:09.886447+00:00",
-      "latest_session_size_bytes": 216111,
-      "session_count": 398
+      "last_session_iso": "2026-05-04T09:30:56.332398+00:00",
+      "latest_session_size_bytes": 14915,
+      "session_count": 401
     },
     {
       "id": "spark",
@@ -101,7 +101,7 @@
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
-      "status": "active",
+      "status": "monitoring",
       "last_session_iso": "2026-05-04T09:00:18.603768+00:00",
       "latest_session_size_bytes": 1526,
       "session_count": 21
@@ -921,6 +921,11 @@
   ],
   "vault_commits": [
     {
+      "hash": "408099d",
+      "date": "2026-05-04T11:05:17+02:00",
+      "subject": "auto-sync: 2026-05-04 11:05"
+    },
+    {
       "hash": "589f7e5",
       "date": "2026-05-04T10:35:03+02:00",
       "subject": "auto-sync: 2026-05-04 10:35"
@@ -964,15 +969,10 @@
       "hash": "1f399fe",
       "date": "2026-05-04T06:32:17+02:00",
       "subject": "auto-sync: 2026-05-04 06:32"
-    },
-    {
-      "hash": "33a7aa5",
-      "date": "2026-05-04T06:01:49+02:00",
-      "subject": "auto-sync: 2026-05-04 06:01"
     }
   ],
   "scripts": {
-    "scripts_root": 123,
+    "scripts_root": 124,
     "workspace_scripts": 72
   },
   "mcp_servers": [
@@ -987,7 +987,7 @@
       "name": "qmd",
       "status": "running",
       "pids": [
-        783899
+        838477
       ]
     }
   ],
