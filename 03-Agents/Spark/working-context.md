@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 9c2cd146-e4e3-4f69-a562-125784a628cb MC-E2E-CANARY draft-to-done board state check
+- task: 8465f266-6c3e-4010-9c9c-938a790be7ff [P5 Canary] spark
 - stage: DONE
 - next: await next assignment
-- checkpoint: MC_E2E_CANARY_OK
+- checkpoint: canary-ok: pickup/receipt path validated for spark with dispatch token and stable worker session binding; no config/routing mutations executed.
 - blocker: -
-- updated: 2026-05-04T11:10:08.480Z
+- updated: 2026-05-04T19:09:44.738Z
 <!-- mc:auto-working-context:end -->

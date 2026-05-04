@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 15d09468-729e-40b7-b5f8-4267df7ed506 [P5 Canary] sre-expert
+- task: 82bddcb8-40d5-4686-ac0a-f9b906e5989a [P2][Forge] Hermes direct task dispatch adapter — plan + gated implementation
 - stage: DONE
 - next: await next assignment
-- checkpoint: canary-ok
+- checkpoint: Hermes direct dispatch pilot umgesetzt: dispatch-eligibility für Hermes ergänzt, read-only Hermes-Adapter (mit Mutations-Blockliste) implementiert, Pilot-Doku erstellt und Tests für Hermes-Review-Accept/Mutations-Reject 
 - blocker: -
-- updated: 2026-05-04T18:28:37.068Z
+- updated: 2026-05-04T18:57:42.365Z
 <!-- mc:auto-working-context:end -->

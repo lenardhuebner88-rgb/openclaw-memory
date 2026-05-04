@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: bd381d80-3af5-4441-8292-56334c0c71c5 [P5 Canary] main
-- stage: START
+- task: 82bddcb8-40d5-4686-ac0a-f9b906e5989a [P2][Forge] Hermes direct task dispatch adapter — plan + gated implementation
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Codepfade für Dispatch/Receipt analysiert; starte Hermes-Adapter + Guardrails + Tests.
 - blocker: -
-- updated: 2026-05-04T18:10:25.051Z
+- updated: 2026-05-04T18:56:00.638Z
 <!-- mc:auto-working-context:end -->
