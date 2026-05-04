@@ -1,7 +1,7 @@
 ---
 title: "Sub-Agent Coordination"
 slug: sub-agent-coordination
-last_compiled: 2026-05-04T04:30:02.984087Z
+last_compiled: 2026-05-04T05:30:03.203806Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 20
 rule_count: 5
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Multi-agent coordination patterns, sub-agent dispatch, visibility-rules, WIP-limits.
 
-**Compiled:** 2026-05-04T04:30:02.984087Z  
+**Compiled:** 2026-05-04T05:30:03.203806Z  
 **Source:** 20 facts from workspace/memory/facts/*.jsonl, 5 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
