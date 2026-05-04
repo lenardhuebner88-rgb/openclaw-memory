@@ -137,3 +137,8 @@ Likely exact problem:
 
 - The persistence script handles current bundle anchors. If an OpenClaw update changes bundle code shape, the checker must be run after update.
 - Atlas has now shown 300s timeouts on both `gpt-5.5` and `gpt-5.4-mini`; `gpt-5.4` completed the same task quickly. If this repeats, prefer making `gpt-5.4` a hotter fallback or temporarily primary for Atlas Discord operations.
+
+# Canonical Final Report
+
+- [[../../../03-Projects/plans/2026-05-04_openclaw-mission-control-stabilization-final-report|OpenClaw/Mission-Control Stabilization Final Report]]
+- This receipt remains the Hermes timeout/persistence evidence source; the linked project report is the cross-agent/operator SSOT.

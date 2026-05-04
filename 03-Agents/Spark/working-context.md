@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: c7dcb8b2-def2-4ed3-841d-ca9c9defb92b MC-CANARY worker lifecycle post-beta4 stability check
+- task: 9c2cd146-e4e3-4f69-a562-125784a628cb MC-E2E-CANARY draft-to-done board state check
 - stage: DONE
 - next: await next assignment
-- checkpoint: MC_CANARY_OK
+- checkpoint: MC_E2E_CANARY_OK
 - blocker: -
-- updated: 2026-05-04T11:01:21.318Z
+- updated: 2026-05-04T11:10:08.480Z
 <!-- mc:auto-working-context:end -->

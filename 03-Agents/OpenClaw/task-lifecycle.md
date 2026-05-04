@@ -3104,3 +3104,4 @@ NEXT_RECOMMENDED_TASKS
 - 2026-05-04T08:27:50.228Z | CHECKPOINT | pickup-claim-synth-5 | Pickup claim synthetic task 5 | worker=frontend-guru | progress=- | summary=- | note=progress heartbeat
 - 2026-05-04T10:00:14.469Z | START | 783d9289-532c-49e3-8d63-01781c34d6ba | [Smoke] pending-pickup lifecycle | worker=sre-expert | progress=- | summary=-
 - 2026-05-04T11:01:21.314Z | DONE | c7dcb8b2-def2-4ed3-841d-ca9c9defb92b | MC-CANARY worker lifecycle post-beta4 stability check | worker=spark | progress=- | summary=MC_CANARY_OK
+- 2026-05-04T11:10:08.464Z | DONE | 9c2cd146-e4e3-4f69-a562-125784a628cb | MC-E2E-CANARY draft-to-done board state check | worker=spark | progress=- | summary=MC_E2E_CANARY_OK

@@ -7,7 +7,7 @@
 
 
 ## Focus
--
+- 2026-05-04 stabilization SSOT: [[../../03-Projects/plans/2026-05-04_openclaw-mission-control-stabilization-final-report|OpenClaw/Mission-Control final report]]. Current operating note: do not rotate Atlas Discord session while active; if idle >10min and cache remains high, rotate only `agent:main:discord:channel:1486480128576983070` with scoped backup/validation.
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update

@@ -172,3 +172,8 @@ Validation:
 
 Rollback:
 - `cp -a /home/piet/.openclaw/cron/jobs.json.bak-20260504T104937Z-minimax-cron-fix /home/piet/.openclaw/cron/jobs.json`
+
+## Canonical Final Report
+
+- [[../../../03-Projects/plans/2026-05-04_openclaw-mission-control-stabilization-final-report|OpenClaw/Mission-Control Stabilization Final Report]]
+- This receipt remains the detailed post-gate evidence source; the linked project report is the cross-agent/operator SSOT.
