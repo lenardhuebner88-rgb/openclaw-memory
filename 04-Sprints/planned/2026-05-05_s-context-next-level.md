@@ -1,7 +1,7 @@
 ---
 title: "2026-05-05 S-Context — Session/Context Management auf die nächste Stufe"
 date: 2026-05-05
-status: adjusted-live-verified
+status: active-partial-dispatch
 owner: Atlas
 priority: P0
 ---
@@ -20,6 +20,44 @@ Live-Check 2026-05-05 19:35: MC ist gesund (`/api/health`: open=0, failed=0, iss
 - Keine destruktiven Operationen ohne explizite Verify-After-Write
 
 ---
+
+## Current Dispatch Decision — 2026-05-05
+
+Operator approved T1 + T2 for execution. Atlas dispatched:
+
+- T1 `a633ff1e-c2b6-4029-9e37-3e88d32a2770` → Forge / `sre-expert`, `pending-pickup`
+- T2 `b0da1870-18f5-4b12-844a-55c99bcb1f8d` → Atlas / `main`, `pending-pickup`
+
+T3/T4 remain held for plan refinement. T3 is not an implementation task right now because live data shows 0 Working files older than 14d. T4 is useful only as a measured pilot with rollback criteria, not as a guaranteed root fix.
+
+## Clean Execution Plan
+
+### Phase 1 — Approved P0 execution
+1. **T2 Bootstrap budget first**
+   - Measure section sizes of the session-start cache output.
+   - Trim the smallest high-noise source until Atlas bootstrap is ≤16 KB.
+   - Preserve operational usefulness; do not remove human-critical handoff context blindly.
+2. **T1 QMD session-start sync**
+   - Enable `agents.defaults.memorySearch.sync.onSessionStart=true` safely.
+   - Verify QMD session-start update/warmup and first Memory Search against current Vault content.
+   - Confirm Gateway/MC health stays ok.
+
+### Phase 2 — Refine, do not dispatch yet
+3. **T3 becomes Audit/Monitor only**
+   - Check whether sweep automation exists and is healthy.
+   - No cron or delete/archive action unless dry-run shows real stale L2 files.
+4. **T4 becomes controlled compaction pilot**
+   - Compare current context/cache trajectory before change.
+   - If changed, use 1 MB for 48h/7d with rollback criteria.
+   - Roll back if compaction frequency, continuity loss, or token use worsens.
+
+### Phase 3 — New missing “next-level” work
+5. **T9 Discord metadata budget / dedupe design**
+   - Root-cause target: repeated inbound context/sender/conversation metadata.
+   - Produce a design before implementation.
+6. **T10 Session lifecycle policy**
+   - Define thresholds for safe rotation/compaction: context, cacheRead, idle time, active lock.
+   - Must preserve active Discord operator session safety.
 
 ## Tasks
 
@@ -48,29 +86,30 @@ Live-Check 2026-05-05 19:35: MC ist gesund (`/api/health`: open=0, failed=0, iss
 
 ---
 
-### T3 — L2 Auto-Sweep reaktivieren + Monitor
+### T3 — L2 Auto-Sweep Audit + Monitor (hold)
 **Owner:** Forge  
-**Estimate:** 2–3 h  
-**Priority:** P2 (herabgestuft nach Live-Check)  
+**Estimate:** 45–60 min  
+**Priority:** P2 / HOLD  
 **Scope:**
 - Live-Befund: `memory/working` hat 36 Dateien, davon 0 aelter als 14 Tage. Kein akuter Cleanup-Backlog.
-- Nur Scriptaudit/Monitor pruefen; Cron nur anlegen, wenn Sweep wirklich fehlt.
-- Files older than 14d archivieren oder löschen
+- Nur Scriptaudit/Monitor pruefen; Cron nur anlegen, wenn Sweep wirklich fehlt und Operator freigibt.
+- Kein Delete/Archivieren im ersten Schritt; maximal Dry-Run + Report.
 - Guard: nie L1 (invariants) oder aktuelle 48h löschen
 - Monitoring: `memory-sweep.log` trackt gelöschte Files
-**Verify:** `find memory/working -name "*.md" -mtime +14` → leer nach 14 Tagen
+**Verify:** Dry-run report zeigt Sweep-Status, aktuelle stale count, geplante Aktion = none unless stale files exist
 
 ---
 
-### T4 — `maxActiveTranscriptBytes` senken (3 MB → 1 MB)
+### T4 — `maxActiveTranscriptBytes` kontrollierter Pilot (hold)
 **Owner:** Forge  
 **Estimate:** 15 min  
-**Priority:** P1  
+**Priority:** P1 / HOLD  
 **Scope:**
-- `agents.defaults.compaction.maxActiveTranscriptBytes`: 3000000 → 1000000
-- Kein Hard-Restart nötig (Hot-Reload)
-- Effekt: Compaction triggert früher, weniger massiv pro Event
-**Verify:** Nach 48h: Compaction-Frequenz dokumentiert, pro Event weniger Daten
+- Nicht blind senken; zuerst Baseline aus Analyzer + Session-Status dokumentieren.
+- Pilot-Vorschlag: `agents.defaults.compaction.maxActiveTranscriptBytes`: 3000000 → 1000000 für 48h/7d.
+- Rollback, wenn Compaction-Frequenz, Antwortqualität/Kontinuität oder Tokenverbrauch schlechter werden.
+- Effekt-Hypothese: Compaction triggert früher, weniger massiv pro Event; löst aber Discord-Metadatenwachstum nicht ursächlich.
+**Verify:** Baseline + Pilot-Metriken + klare Rollback-Entscheidung dokumentiert
 
 ---
 
@@ -124,6 +163,30 @@ Live-Check 2026-05-05 19:35: MC ist gesund (`/api/health`: open=0, failed=0, iss
 
 ---
 
+---
+
+### T9 — Discord Metadata Budget / Dedupe Design
+**Owner:** Forge + Atlas  
+**Estimate:** 1–2 h analysis  
+**Priority:** P1 design / HOLD  
+**Scope:**
+- Analysieren, welche Discord inbound metadata blocks pro Turn in Session JSONL landen.
+- Design fuer Trimming/Dedupe: Sender/Conversation info nur bei Änderung oder kompakte Hash-/Reference-Form.
+- Keine Runtime-Änderung ohne separaten Implementierungs-Task.
+**Verify:** Design nennt konkrete Felder, erwartete Einsparung, Safety-Risiken und Testpfad.
+
+---
+
+### T10 — Session Lifecycle Policy
+**Owner:** Atlas  
+**Estimate:** 1 h  
+**Priority:** P2 design / HOLD  
+**Scope:**
+- Schwellen definieren fuer rotate/compact/watch: Context %, cacheRead, totalTokens, idle time, active lock.
+- Discord operator session darf nicht waehrend aktiver Arbeit rotiert werden.
+- Policy in operational-state/ops doc verankern.
+**Verify:** Entscheidungsmatrix + no-go conditions dokumentiert.
+
 ## Team-Assignment
 
 | Task | Owner | Assistenz | Priority |
@@ -136,6 +199,8 @@ Live-Check 2026-05-05 19:35: MC ist gesund (`/api/health`: open=0, failed=0, iss
 | T6 Op-State live | **Atlas** | — | P2 |
 | T7 L1 Aufräumen | **Atlas** | — | P3 |
 | T8 Doku | **Atlas** | — | P2 |
+| T9 Discord Metadata Budget | **Forge + Atlas** | — | P1 design / HOLD |
+| T10 Session Lifecycle Policy | **Atlas** | Forge | P2 design / HOLD |
 
 **Spark** kann bei T3 (Sweep-Script) und T5 (Cleanup-Automation) als Assistenz herangezogen werden.
 
@@ -151,6 +216,8 @@ Live-Check 2026-05-05 19:35: MC ist gesund (`/api/health`: open=0, failed=0, iss
 - [ ] T6: Op-State zeigt live MC-API-Daten im Bootstrap
 - [ ] T7: L1 invariants ≤ 30 KB gesamt, ≤ 3 KB pro File
 - [ ] T8: Sprint geschlossen, Lessons archiviert
+- [ ] T9: Discord metadata budget design erstellt
+- [ ] T10: Session lifecycle policy dokumentiert
 
 ## Risks
 - **R1:** QMD-Sync mit 3000+ Vault-Dateien könnte Latenz addieren → erst mit kleinem Scope testen
@@ -158,7 +225,7 @@ Live-Check 2026-05-05 19:35: MC ist gesund (`/api/health`: open=0, failed=0, iss
 - **R3:** `maxActiveTranscriptBytes` senken = häufigere Compaction → monitor 7 Tage
 
 ## Schnellster Gewinn
-T1 (QMD-Sync) + T2 (Bootstrap-Budget) zusammen = ~1h, sofort messbarer Effekt. Zuerst diese beiden.
+T2 (Bootstrap-Budget) + T1 (QMD-Sync) zusammen = schnellster messbarer Effekt. T3/T4 erst nach Plan-Refinement/Operator-Freigabe.
 
 ---
 
