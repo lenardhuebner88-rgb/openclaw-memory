@@ -195,3 +195,36 @@ Quality Gate:
 1. Atlas erstellt T1 Forge Discovery Task.
 2. Atlas erstellt T3 Spark Prompt-/Runbook-Pack Task parallel.
 3. Nach T1+T3: T2 Adapter Guardrail Fix entscheiden/dispatchen.
+
+## Update — Hermes OpenClaw Registration + Smoke (2026-05-05)
+
+Status: implemented / smoke-validated
+
+What changed:
+- `hermes` is registered as real OpenClaw agent in `/home/piet/.openclaw/openclaw.json` under `agents.list`.
+- Atlas/main allowlist now includes `hermes` in `subagents.allowAgents`.
+- No Discord/channel bindings were added.
+- No Gateway restart was required.
+
+Validation evidence:
+- `openclaw config validate` returned valid.
+- `openclaw agents list` shows `hermes (Hermes)` with model `openai-codex/gpt-5.3-codex` and runtime `pi`.
+- Atlas `agents_list` exposes `hermes` as available to Atlas.
+
+Smoke evidence:
+- Mission Control smoke task: `5897f0a8-cb29-428e-a339-8f168041a603`
+- Assigned agent: `hermes`
+- Hermes no-op output: `HERMES_SMOKE_OK`
+- Final task state verified:
+  - `status=done`
+  - `dispatchState=completed`
+  - `receiptStage=result`
+  - `lastReportedStatus=result`
+
+Rollback / backup:
+- Backup before Atlas allowlist patch: `/home/piet/.openclaw/openclaw.json.bak-hermes-allowlist-20260505-164052`
+
+Current operating decision:
+- Hermes is available for isolated, read-only review/smoke style work.
+- Keep Hermes unbound to channels for now.
+- Do not grant mutating tools or productive auto-pickup beyond explicit gated review tasks without a separate plan/approval.

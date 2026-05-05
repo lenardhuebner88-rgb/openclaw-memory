@@ -77,16 +77,22 @@ This makes future push rejection visible as a systemd failure.
 537a37d chore(vault): sync cleaned local state without config backups
 ```
 
-- Direct `vault-sync.service` run succeeded and committed/pushed this receipt:
+- Direct `vault-sync.service` run succeeded and committed/pushed the initial receipt snapshot:
 
 ```text
 227245b auto-sync: 2026-05-05 17:01
 ```
 
-- GitHub remote `refs/heads/master` observed at final pushed commit:
+- A second direct `vault-sync.service` run after removing the non-fatal systemd escape warning also succeeded:
 
 ```text
-227245ba79e6c740823d0a0c576fe652ec091da4 refs/heads/master
+7531226 auto-sync: 2026-05-05T17:02
+```
+
+- GitHub remote `refs/heads/master` was observed advancing successfully during verification. Final live commit can be checked with:
+
+```bash
+git -C /home/piet/vault ls-remote github refs/heads/master
 ```
 
 - Service was adjusted again to remove systemd-analyze's non-fatal unknown-escape warning by using an ISO-like timestamp format without escaped spaces:
