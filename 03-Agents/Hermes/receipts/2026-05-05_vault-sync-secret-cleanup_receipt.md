@@ -67,14 +67,32 @@ git push github master
 
 This makes future push rejection visible as a systemd failure.
 
-## Verification snapshot before final service-run
+## Verification snapshot
 
 - Backup dir staged additions/modifications: `0`.
 - Staged secret-like scan before cleaned commit: `0` hits across non-deleted staged files.
-- GitHub remote `refs/heads/master` observed at cleaned commit:
+- Cleaned commit created and pushed:
 
 ```text
-537a37de81e5146fe647b90f6091d1c4b44b6982 refs/heads/master
+537a37d chore(vault): sync cleaned local state without config backups
+```
+
+- Direct `vault-sync.service` run succeeded and committed/pushed this receipt:
+
+```text
+227245b auto-sync: 2026-05-05 17:01
+```
+
+- GitHub remote `refs/heads/master` observed at final pushed commit:
+
+```text
+227245ba79e6c740823d0a0c576fe652ec091da4 refs/heads/master
+```
+
+- Service was adjusted again to remove systemd-analyze's non-fatal unknown-escape warning by using an ISO-like timestamp format without escaped spaces:
+
+```text
+auto-sync: $(date +%Y-%m-%dT%H:%M)
 ```
 
 ## Rollback
