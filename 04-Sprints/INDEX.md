@@ -159,3 +159,17 @@ This index is currently **manually maintained**. To keep it honest:
 - **Quarterly:** verify §"Recently closed" against `closed/` directory listing — drop entries older than 90 days.
 
 **Future automation candidate** (P2 backlog): `cron-sprint-index-generator.py` reads frontmatter from all sprint files and regenerates this file. Pattern parallels `memory-dashboard-generator` (cron `30 4 * * *`).
+
+### 🆕 2026-05-05 — S-Context (Session/Context next level)
+
+| ID | Title | Owner | Estimate | Tasks | Why |
+|---|---|---|---|---|---|
+| **S-Context** | Session/Context Management auf nächste Stufe | Atlas | TBD | T1-T4 dispatched | QMD-Sync tot, Bootstrap-Budget überschritten, 186 Archive |
+
+**Task IDs:**
+- T1 (Forge): `a633ff1e-c2b6-4029-9e37-3e88d32a2770` — QMD OnSessionStart Sync
+- T2 (Atlas): `b0da1870-18f5-4b12-844a-55c99bcb1f8d` — Bootstrap 16KB Budget
+- T3 (Forge): `4ed8145f-1a3b-47f9-abde-21df7e3dfa07` — L2 Auto-Sweep
+- T4 (Forge): `91756557-d3c2-4384-8a0b-cc15f965c9f0` — maxActiveTranscriptBytes 1MB
+
+**Plan:** `04-Sprints/planned/2026-05-05_s-context-next-level.md`
