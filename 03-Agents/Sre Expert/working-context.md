@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 7032e1de-23c4-428d-93e1-e796e1ceaf8c [P2][Forge] sprintOutcome v1.1 Tier-B missing-only backfill via MC API
-- stage: BLOCKED
-- next: resolve blocker, then continue
-- checkpoint: MC API /api/tasks/{id}/receipt returns idempotent=true on already completed done tasks (dispatchState=completed), so terminal receipt re-post does not persist sprintOutcome v1.1 backfill. First failing candidate for writ
-- blocker: MC API /api/tasks/{id}/receipt returns idempotent=true on already completed done tasks (dispatchState=completed), so terminal receipt re-post does not persist sprintOutcome v1.1 backfill. First failing candidate for writ
-- updated: 2026-05-05T14:08:08.021Z
+- task: a633ff1e-c2b6-4029-9e37-3e88d32a2770 [S-Context T1] QMD OnSessionStart Sync aktivieren
+- stage: DONE
+- next: await next assignment
+- checkpoint: QMD OnSessionStart Sync in openclaw.json auf true gesetzt, Backup erstellt, JSON validiert und Gateway-/QMD-Funktionscheck erfolgreich durchgeführt.
+- blocker: -
+- updated: 2026-05-05T17:58:05.611Z
 <!-- mc:auto-working-context:end -->

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: cca6a63d-beb2-4e27-96f1-bfa123df2e3a [Sprint][Atlas] Recovery/Retry-Automation Architektur-Analyse
-- stage: FAILED
+- task: b0da1870-18f5-4b12-844a-55c99bcb1f8d [S-Context T2] Bootstrap 16 KB Budget einhalten
+- stage: DONE
 - next: await next assignment
-- checkpoint: Worker failed
-- blocker: Worker failed
-- updated: 2026-05-05T13:09:43.649Z
+- checkpoint: Trimmed Atlas session-start vault bootstrap cache from 18,654 to 14,649 characters by lowering the per-file bootstrap cap from 12,000 to 8,000 chars; required context files still appear and the exact INCLUDE_DAILY=1 AGEN
+- blocker: -
+- updated: 2026-05-05T17:58:54.896Z
 <!-- mc:auto-working-context:end -->
