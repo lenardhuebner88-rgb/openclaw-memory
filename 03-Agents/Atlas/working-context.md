@@ -12,12 +12,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 0b9e00c6-d856-4fc1-b8ea-147c5753c937 [P2][Forge] S-HERMES: exact real-agent config patch for approval
+- task: 38ca18c8-bf68-4d2f-8995-ea201bb3d7b8 [P1][Forge] Deploy MC build-hang fix 4107f68 with gated restart
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Prepared exact Hermes agent JSON block based on current Forge lane defaults, plus no-binding recommendation, validation gates, and rollback plan; no config mutation performed.
+- checkpoint: Preflight + controlled reload executed via /home/piet/.openclaw/scripts/mission-control-reload.sh; post-check collection in progress (health + model-runtime-failures).
 - blocker: -
-- updated: 2026-05-05T13:49:02.882Z
+- updated: 2026-05-05T22:25:40.214Z
 <!-- mc:auto-working-context:end -->
 
 ## Orchestrator Start Compact
