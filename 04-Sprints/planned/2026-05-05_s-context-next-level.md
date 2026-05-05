@@ -317,3 +317,8 @@ Current evaluation:
 - Created and dispatched MC task T13 `26b4ed85-8ac1-49fd-9ca6-fc3983568bfb`, owner `efficiency-auditor`, approvalClass `safe-read-only`, risk `low`.
 - Scope: observe T12 shadow telemetry for 24-48h; no enforce, no runtime/config mutation, no operator restrictions.
 - Verified after dispatch: status `pending-pickup`, dispatchState `dispatched`, operatorLock `false`.
+
+## T14 Board Update — 2026-05-05 21:55
+- Created and dispatched MC task T14 `4195d74c-16b4-428d-a609-e8e20769c94b`, owner `sre-expert`, approvalClass `gated-mutation`, risk `medium`.
+- Scope: controlled large-tool-result smoke to prove `[tool-result-shadow]` telemetry emission; no enforce, no session rotation/compaction, no operator restrictions.
+- Verified after dispatch: status `pending-pickup`, dispatchState `dispatched`, operatorLock `false`.
