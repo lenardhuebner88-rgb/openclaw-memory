@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: a633ff1e-c2b6-4029-9e37-3e88d32a2770 [S-Context T1] QMD OnSessionStart Sync aktivieren
-- stage: DONE
-- next: await next assignment
-- checkpoint: QMD OnSessionStart Sync in openclaw.json auf true gesetzt, Backup erstellt, JSON validiert und Gateway-/QMD-Funktionscheck erfolgreich durchgeführt.
+- task: 27961691-becd-42d8-b5d7-5fd5e44471e2 [S-Context T12] Safe shadow canary for tool-result summarizer telemetry
+- stage: START
+- next: continue current task
+- checkpoint: -
 - blocker: -
-- updated: 2026-05-05T17:58:05.611Z
+- updated: 2026-05-05T18:54:45.437Z
 <!-- mc:auto-working-context:end -->

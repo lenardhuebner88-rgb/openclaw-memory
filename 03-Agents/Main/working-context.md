@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: b0da1870-18f5-4b12-844a-55c99bcb1f8d [S-Context T2] Bootstrap 16 KB Budget einhalten
+- task: 4a49ad67-6ba2-4a0b-9216-b86bbc4fafee [S-Context T10] Session Lifecycle Policy
 - stage: DONE
 - next: await next assignment
-- checkpoint: Trimmed Atlas session-start vault bootstrap cache from 18,654 to 14,649 characters by lowering the per-file bootstrap cap from 12,000 to 8,000 chars; required context files still appear and the exact INCLUDE_DAILY=1 AGEN
+- checkpoint: T10 completed: session lifecycle policy matrix and no-go rules documented in operational-state and sprint doc; current Atlas Discord session evaluated as WATCH (35% context, 0 compactions), with no compact/rotate action 
 - blocker: -
-- updated: 2026-05-05T17:58:54.896Z
+- updated: 2026-05-05T18:29:25.617Z
 <!-- mc:auto-working-context:end -->

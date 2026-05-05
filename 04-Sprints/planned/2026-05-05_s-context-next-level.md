@@ -288,3 +288,19 @@ T4 interaction:
 Current evaluation:
 - Atlas Discord session `agent:main:discord:channel:1486480128576983070`: 96k/272k = 35%, compactions=0, cache currently 95k cached; last visible run done, no abort.
 - Policy state: WATCH. No compact, no rotate. Keep session, checkpoint if work continues, reassess after idle >10min or if cache/token spike repeats.
+
+## T11 Board Update — 2026-05-05 20:35
+- Created and dispatched MC task T11 `09f404e5-b3e5-4f46-9ddf-7a48e1f83fcb`, owner `sre-expert`, approvalClass `gated-mutation`, risk `medium`.
+- Scope: shadow-mode context budget engine + deterministic tool-result summarizer; default must not change submitted prompt behavior.
+- Verified after dispatch: status `pending-pickup`, dispatchState `dispatched`, operatorLock `false`.
+
+## T11 Result — 2026-05-05 20:45
+- MC task `09f404e5-b3e5-4f46-9ddf-7a48e1f83fcb` completed by Forge: status `done`, dispatchState `completed`.
+- Implemented shadow/enforce tool-result summarization at context assembly boundary with A/B/C classification, sha256/byte accounting, warning repeat suppression, and default no behavior change unless `OPENCLAW_TOOL_RESULT_SUMMARY_MODE=enforce`.
+- Verification rerun by Atlas: `node --test scripts/tests/tool-result-shadow-summary.test.mjs` → 4 passed, 0 failed.
+- Rollout recommendation: keep default off; canary `OPENCLAW_TOOL_RESULT_SUMMARY_MODE=shadow` first; enforce only later per overflow-prone lane.
+
+## T12 Board Update — 2026-05-05 20:55
+- Created and dispatched MC task T12 `27961691-becd-42d8-b5d7-5fd5e44471e2`, owner `sre-expert`, approvalClass `gated-mutation`, risk `medium`.
+- Scope: safe shadow canary for T11 tool-result summarizer telemetry; no prompt behavior change, no operator restrictions, no enforce mode.
+- Verified after dispatch: status `pending-pickup`, dispatchState `dispatched`, operatorLock `false`.
