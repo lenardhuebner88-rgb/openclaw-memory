@@ -1,6 +1,6 @@
 ---
 title: "Architecture — Live Snapshot"
-last_generated: 2026-05-04T23:50:01.305409+00:00
+last_generated: 2026-05-05T00:20:01.708224+00:00
 type: architecture-snapshot
 generator: architecture-snapshot-generator.py@v0-draft
 auto_refresh: 30 min via cron (planned)
@@ -9,7 +9,7 @@ read_only: true
 
 # 🏗️ System Architecture — Live Snapshot
 
-**Generated:** 2026-05-04 23:50 UTC  
+**Generated:** 2026-05-05 00:20 UTC  
 **Source-of-Truth:** crontab + rules.jsonl + agents/ + memory/ + vault git-log  
 **Refresh-Mode:** auto (drift-resistant) — *no manual update needed*  
 
@@ -21,7 +21,7 @@ flowchart TB
     subgraph AGT["🤖 Agents"]
         agent_codex["codex<br/>n/a<br/>0 KB"]
         agent_default["default<br/>n/a<br/>0 KB"]
-        agent_efficiency_auditor["efficiency-auditor<br/>4m ago<br/>161 KB"]
+        agent_efficiency_auditor["efficiency-auditor<br/>4m ago<br/>160 KB"]
         agent_frontend_guru["frontend-guru<br/>5m ago<br/>160 KB"]
         agent_james["james<br/>6h ago<br/>166 KB"]
         agent_main["main<br/>18s ago<br/>94 KB"]
@@ -86,7 +86,7 @@ flowchart TB
 |----|--------------|------------------|------|
 | `codex` | n/a | 0 | `/home/piet/.openclaw/agents/codex` |
 | `default` | n/a | 0 | `/home/piet/.openclaw/agents/default` |
-| `efficiency-auditor` | 4m ago | 161 | `/home/piet/.openclaw/agents/efficiency-auditor` |
+| `efficiency-auditor` | 4m ago | 160 | `/home/piet/.openclaw/agents/efficiency-auditor` |
 | `frontend-guru` | 5m ago | 160 | `/home/piet/.openclaw/agents/frontend-guru` |
 | `james` | 6h ago | 166 | `/home/piet/.openclaw/agents/james` |
 | `main` | 18s ago | 94 | `/home/piet/.openclaw/agents/main` |
@@ -303,11 +303,11 @@ flowchart TB
 ## 📚 Recent Vault Commits
 
 ```
+33fef86 2026-05-05 auto-sync: 2026-05-05 02:10
 7bfc6f3 2026-05-05 auto-sync: 2026-05-05 01:40
 2c8cddc 2026-05-05 auto-sync: 2026-05-05 01:10
 685296f 2026-05-05 auto-sync: 2026-05-05 00:40
 22ab984 2026-05-05 auto-sync: 2026-05-05 00:10
-2b1a7a3 2026-05-04 auto-sync: 2026-05-04 23:40
 ```
 
 ---
