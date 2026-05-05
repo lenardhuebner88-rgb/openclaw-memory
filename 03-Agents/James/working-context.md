@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 96df35a6-73d2-4367-a1d4-248debd181da Research Grill Me skill behavior and feasibility of local rebuild
-- stage: DONE
+- task: f4e5949e-9c8d-40ca-8fec-2b0d16285cbc Obsidian #4 — Struktur verfeinern (Templates)
+- stage: FAILED
 - next: await next assignment
-- checkpoint: Research complete — rebuild NOT needed. The nox-grill-me skill is already installed locally at both ~/.openclaw/workspace/skills/grill-me/ and ~/.openclaw/skills/grill-me/ (identical, 78 lines, installed 2026-05-02 09:44
-- blocker: -
-- updated: 2026-05-02T08:02:03.901Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-05-05T13:09:46.415Z
 <!-- mc:auto-working-context:end -->

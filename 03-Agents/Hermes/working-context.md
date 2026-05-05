@@ -121,10 +121,10 @@ For actionable incidents:
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 1dc8cd0a-9e50-482b-8ca7-3d8862f3061f [P3][Hermes Pilot] Dry-run read-only review smoke test
+- task: fae51e11-ee31-4f3c-b56c-cda96d88aeac [Hermes Review] Atlas session-newness first step
 - stage: FAILED
 - next: await next assignment
-- checkpoint: Hermes adapter dry-run rejected the first pilot description because the guardrail pattern matched prohibited operation words in the Anti-Scope text. Creating a cleaner read-only pilot task without those trigger words.
-- blocker: Hermes adapter dry-run rejected the first pilot description because the guardrail pattern matched prohibited operation words in the Anti-Scope text. Creating a cleaner read-only pilot task without those trigger words.
-- updated: 2026-05-04T19:36:45.090Z
+- checkpoint: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- blocker: Auto-pickup unclaimed after 3 attempts: unclaimed-retry-limit-before-trigger
+- updated: 2026-05-05T11:11:02.928Z
 <!-- mc:auto-working-context:end -->

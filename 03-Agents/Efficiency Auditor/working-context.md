@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: bba6a488-1514-4b88-ae85-0e68adeb6d21 [P5 Canary] efficiency-auditor
-- stage: DONE
+- task: 7ce06653-f1ae-4608-a4b1-72f14925e361 [P1] Cron-Load-Shedding Analyse: OpenAI-Last durch Modellverteilung senken
+- stage: FAILED
 - next: await next assignment
-- checkpoint: canary-ok
-- blocker: -
-- updated: 2026-05-04T19:01:03.749Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-05-05T13:09:40.051Z
 <!-- mc:auto-working-context:end -->

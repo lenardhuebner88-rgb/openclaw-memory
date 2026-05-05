@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: bd381d80-3af5-4441-8292-56334c0c71c5 [P5 Canary] main
-- stage: DONE
+- task: cca6a63d-beb2-4e27-96f1-bfa123df2e3a [Sprint][Atlas] Recovery/Retry-Automation Architektur-Analyse
+- stage: FAILED
 - next: await next assignment
-- checkpoint: canary-ok
-- blocker: -
-- updated: 2026-05-04T18:10:35.168Z
+- checkpoint: Worker failed
+- blocker: Worker failed
+- updated: 2026-05-05T13:09:43.649Z
 <!-- mc:auto-working-context:end -->

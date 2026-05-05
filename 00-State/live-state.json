@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-05T00:40:01.527279+00:00",
+  "generated_at": "2026-05-05T05:40:01.125497+00:00",
   "system": {
     "openclaw_root": "/home/piet/.openclaw",
     "vault_root": "/home/piet/vault",
@@ -8,7 +8,7 @@
   },
   "summary": {
     "agents_total": 11,
-    "agents_active": 1,
+    "agents_active": 2,
     "crons_total": 51,
     "crons_by_tier": {
       "T2-2min": 2,
@@ -54,17 +54,17 @@
       "id": "efficiency-auditor",
       "path": "/home/piet/.openclaw/agents/efficiency-auditor",
       "status": "monitoring",
-      "last_session_iso": "2026-05-05T00:15:35.374314+00:00",
-      "latest_session_size_bytes": 3255,
-      "session_count": 44
+      "last_session_iso": "2026-05-05T05:15:35.054454+00:00",
+      "latest_session_size_bytes": 3352,
+      "session_count": 54
     },
     {
       "id": "frontend-guru",
       "path": "/home/piet/.openclaw/agents/frontend-guru",
       "status": "monitoring",
-      "last_session_iso": "2026-05-05T00:14:29.569119+00:00",
-      "latest_session_size_bytes": 3252,
-      "session_count": 13
+      "last_session_iso": "2026-05-05T05:14:29.894124+00:00",
+      "latest_session_size_bytes": 3274,
+      "session_count": 23
     },
     {
       "id": "james",
@@ -77,34 +77,34 @@
     {
       "id": "main",
       "path": "/home/piet/.openclaw/agents/main",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-05T00:19:42.956198+00:00",
-      "latest_session_size_bytes": 3267,
-      "session_count": 450
+      "status": "active",
+      "last_session_iso": "2026-05-05T05:38:26.356316+00:00",
+      "latest_session_size_bytes": 351470,
+      "session_count": 460
     },
     {
       "id": "spark",
       "path": "/home/piet/.openclaw/agents/spark",
-      "status": "active",
-      "last_session_iso": "2026-05-05T00:38:13.835466+00:00",
-      "latest_session_size_bytes": 3282,
-      "session_count": 12
+      "status": "monitoring",
+      "last_session_iso": "2026-05-05T05:09:31.457613+00:00",
+      "latest_session_size_bytes": 3248,
+      "session_count": 21
     },
     {
       "id": "sre-expert",
       "path": "/home/piet/.openclaw/agents/sre-expert",
-      "status": "monitoring",
-      "last_session_iso": "2026-05-05T00:30:16.733063+00:00",
-      "latest_session_size_bytes": 5364,
-      "session_count": 1628
+      "status": "active",
+      "last_session_iso": "2026-05-05T05:37:12.187910+00:00",
+      "latest_session_size_bytes": 6297,
+      "session_count": 1639
     },
     {
       "id": "system-bot",
       "path": "/home/piet/.openclaw/agents/system-bot",
       "status": "monitoring",
-      "last_session_iso": "2026-05-05T00:18:14.413858+00:00",
-      "latest_session_size_bytes": 2039,
-      "session_count": 40
+      "last_session_iso": "2026-05-05T05:30:12.972555+00:00",
+      "latest_session_size_bytes": 8098,
+      "session_count": 53
     },
     {
       "id": "test-lock",
@@ -921,54 +921,54 @@
   ],
   "vault_commits": [
     {
-      "hash": "33fef86",
-      "date": "2026-05-05T02:10:19+02:00",
-      "subject": "auto-sync: 2026-05-05 02:10"
+      "hash": "6e498ab",
+      "date": "2026-05-05T07:10:22+02:00",
+      "subject": "auto-sync: 2026-05-05 07:10"
     },
     {
-      "hash": "7bfc6f3",
-      "date": "2026-05-05T01:40:19+02:00",
-      "subject": "auto-sync: 2026-05-05 01:40"
+      "hash": "4aa66bf",
+      "date": "2026-05-05T06:40:22+02:00",
+      "subject": "auto-sync: 2026-05-05 06:40"
     },
     {
-      "hash": "2c8cddc",
-      "date": "2026-05-05T01:10:18+02:00",
-      "subject": "auto-sync: 2026-05-05 01:10"
+      "hash": "82a943d",
+      "date": "2026-05-05T06:10:21+02:00",
+      "subject": "auto-sync: 2026-05-05 06:10"
     },
     {
-      "hash": "685296f",
-      "date": "2026-05-05T00:40:18+02:00",
-      "subject": "auto-sync: 2026-05-05 00:40"
+      "hash": "eb9e04e",
+      "date": "2026-05-05T05:40:21+02:00",
+      "subject": "auto-sync: 2026-05-05 05:40"
     },
     {
-      "hash": "22ab984",
-      "date": "2026-05-05T00:10:18+02:00",
-      "subject": "auto-sync: 2026-05-05 00:10"
+      "hash": "b65beb7",
+      "date": "2026-05-05T05:10:21+02:00",
+      "subject": "auto-sync: 2026-05-05 05:10"
     },
     {
-      "hash": "2b1a7a3",
-      "date": "2026-05-04T23:40:17+02:00",
-      "subject": "auto-sync: 2026-05-04 23:40"
+      "hash": "87ffca4",
+      "date": "2026-05-05T04:40:21+02:00",
+      "subject": "auto-sync: 2026-05-05 04:40"
     },
     {
-      "hash": "748f6c3",
-      "date": "2026-05-04T23:10:17+02:00",
-      "subject": "auto-sync: 2026-05-04 23:10"
+      "hash": "c7bccf5",
+      "date": "2026-05-05T04:10:20+02:00",
+      "subject": "auto-sync: 2026-05-05 04:10"
     },
     {
-      "hash": "30cfd85",
-      "date": "2026-05-04T22:40:17+02:00",
-      "subject": "auto-sync: 2026-05-04 22:40"
+      "hash": "5e6ca86",
+      "date": "2026-05-05T03:40:20+02:00",
+      "subject": "auto-sync: 2026-05-05 03:40"
     },
     {
-      "hash": "a6e0665",
-      "date": "2026-05-04T22:10:03+02:00",
-      "subject": "auto-sync: 2026-05-04 22:10"
+      "hash": "b0bf12a",
+      "date": "2026-05-05T03:10:20+02:00",
+      "subject": "auto-sync: 2026-05-05 03:10"
     },
     {
-      "hash": "36ad52e",
-      "date": "2026-05-04T21:40:03+02:00",
-      "subject": "auto-sync: 2026-05-04 21:40"
+      "hash": "01e4658",
+      "date": "2026-05-05T03:00:01+02:00",
+      "subject": "chore(config-backup): snapshot 2026-05-05"
     }
   ],
   "scripts": {
@@ -976,13 +976,6 @@
     "workspace_scripts": 75
   },
   "mcp_servers": [
-    {
-      "name": "vault-memory-mcp",
-      "status": "running",
-      "pids": [
-        654695
-      ]
-    },
     {
       "name": "qmd",
       "status": "running",
@@ -994,11 +987,13 @@
       "name": "taskboard-mcp",
       "status": "running",
       "pids": [
-        1615776,
-        1618783,
-        1619346,
-        1619362,
-        1619367
+        1767842,
+        1769500,
+        1772710,
+        1773745,
+        1773758,
+        1773759,
+        1773936
       ]
     }
   ],

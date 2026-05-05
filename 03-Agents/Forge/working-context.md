@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 99bd3b9e-fb8c-4b6b-9ef3-d3e7387ebbf4 [P5][Forge] fresh task-session proof 20260504T170509Z
+- task: 379cea7e-d7a6-4971-8c0f-9a7a21ba9615 [P2][Forge] Atlas session-newness mini-fixes: guard, UTC doc, report, tests/smokes
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Progress: pending-pickup→in-progress claim verified; collecting workerSession evidence.
+- checkpoint: Accepted and in progress: implementing empty-ID manifest guard, UTC timestamp assumption docs, report wording update, and test/smoke verification.
 - blocker: -
-- updated: 2026-05-04T17:07:22.430Z
+- updated: 2026-05-05T11:40:45.554Z
 <!-- mc:auto-working-context:end -->

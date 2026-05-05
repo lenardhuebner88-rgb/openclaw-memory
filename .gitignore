@@ -13,3 +13,16 @@ desktop.ini
 *.swp
 ~$*
 .stignore
+
+# Auto-generated runtime state (30min cron)
+00-State/live-state.json
+03-Agents/architecture-live.md
+
+# Daily operational review docs (ephemeral)
+03-Projects/reports/daily/2026-05-*.md
+
+# Atlas state snapshots (generated at session rotation)
+08-Backups/atlas-snapshots/atlas-snapshot-*.md
+
+# Local OpenClaw config/script backups may contain secrets and must stay local-only
+08-Backups/openclaw-config-backups/
