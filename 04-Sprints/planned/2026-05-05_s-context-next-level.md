@@ -322,3 +322,9 @@ Current evaluation:
 - Created and dispatched MC task T14 `4195d74c-16b4-428d-a609-e8e20769c94b`, owner `sre-expert`, approvalClass `gated-mutation`, risk `medium`.
 - Scope: controlled large-tool-result smoke to prove `[tool-result-shadow]` telemetry emission; no enforce, no session rotation/compaction, no operator restrictions.
 - Verified after dispatch: status `pending-pickup`, dispatchState `dispatched`, operatorLock `false`.
+
+## T15 Board Update — 2026-05-05 22:10
+- Created and dispatched MC task T15 `5d12c584-97a3-471a-9a42-51123c23120f`, owner `sre-expert`, approvalClass `gated-mutation`, risk `medium`.
+- Scope: fix/verify `[tool-result-shadow]` telemetry sink observability and rerun controlled large-tool-result smoke.
+- Guardrails: no enforce, no session rotation/compaction, no provider/model routing changes, no operator restrictions; restart only if strictly required with health proof and rollback.
+- Verified after dispatch: status `pending-pickup`, dispatchState `dispatched`, operatorLock `false`.

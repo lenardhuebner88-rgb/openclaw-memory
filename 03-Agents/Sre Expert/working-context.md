@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 4195d74c-16b4-428d-a609-e8e20769c94b [S-Context T14] Controlled shadow telemetry smoke for large tool-result
-- stage: DONE
-- next: await next assignment
-- checkpoint: Controlled smoke executed with a 238KB synthetic tool result while shadow mode was active; gateway stayed healthy, but no `[tool-result-shadow]` telemetry was observable and the gateway unit has no journal entries, so ou
-- blocker: -
-- updated: 2026-05-05T20:05:15.486Z
+- task: 5d12c584-97a3-471a-9a42-51123c23120f [S-Context T15] Fix shadow telemetry sink observability and rerun smoke
+- stage: BLOCKED
+- next: resolve blocker, then continue
+- checkpoint: Active binary mismatch: running gateway uses /home/piet/.npm-global/lib/node_modules/openclaw/dist (no shadow telemetry symbols), while shadow-capable code exists only in workspace node_modules build; proving [tool-resul
+- blocker: Active binary mismatch: running gateway uses /home/piet/.npm-global/lib/node_modules/openclaw/dist (no shadow telemetry symbols), while shadow-capable code exists only in workspace node_modules build; proving [tool-resul
+- updated: 2026-05-05T20:40:29.023Z
 <!-- mc:auto-working-context:end -->
