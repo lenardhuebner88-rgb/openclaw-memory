@@ -304,3 +304,16 @@ Current evaluation:
 - Created and dispatched MC task T12 `27961691-becd-42d8-b5d7-5fd5e44471e2`, owner `sre-expert`, approvalClass `gated-mutation`, risk `medium`.
 - Scope: safe shadow canary for T11 tool-result summarizer telemetry; no prompt behavior change, no operator restrictions, no enforce mode.
 - Verified after dispatch: status `pending-pickup`, dispatchState `dispatched`, operatorLock `false`.
+
+## T12 Result — 2026-05-05 21:00
+- MC task `27961691-becd-42d8-b5d7-5fd5e44471e2` completed by Forge: status `done`, dispatchState `completed`.
+- Shadow canary active on `openclaw-gateway` via systemd user drop-in `tool-result-summary-shadow.conf`: `OPENCLAW_TOOL_RESULT_SUMMARY_MODE=shadow`.
+- Enforce remains disabled; prompt behavior should remain unchanged.
+- Health proof rechecked by Atlas: gateway health `{"ok":true,"status":"live"}`.
+- Telemetry note: no meaningful `[tool-result-shadow]` event yet except this check echo path; needs 24-48h observation or a controlled large-tool-result smoke.
+- Next recommended step: T13 observe/measure shadow telemetry, no enforce.
+
+## T13 Board Update — 2026-05-05 21:46
+- Created and dispatched MC task T13 `26b4ed85-8ac1-49fd-9ca6-fc3983568bfb`, owner `efficiency-auditor`, approvalClass `safe-read-only`, risk `low`.
+- Scope: observe T12 shadow telemetry for 24-48h; no enforce, no runtime/config mutation, no operator restrictions.
+- Verified after dispatch: status `pending-pickup`, dispatchState `dispatched`, operatorLock `false`.

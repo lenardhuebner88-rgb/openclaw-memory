@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 27961691-becd-42d8-b5d7-5fd5e44471e2 [S-Context T12] Safe shadow canary for tool-result summarizer telemetry
+- task: 37f951d4-a02c-4d5a-a41d-0a3c1cd81303 [P2][Forge] Fix Evening Debrief daily-source fallback and missing memory/daily path
 - stage: DONE
 - next: await next assignment
-- checkpoint: Activated shadow-mode tool-result summarizer canary on the openclaw-gateway lane with verified healthy runtime and enforce-mode still disabled; rollback path documented.
+- checkpoint: Fixed Evening Debrief source fallback by updating the active skill to prefer canonical Vault/OpenClaw daily sources when memory/daily is missing; produced corrected 2026-05-05 debrief and passed fallback smoke checks.
 - blocker: -
-- updated: 2026-05-05T18:57:40.513Z
+- updated: 2026-05-05T19:52:30.866Z
 <!-- mc:auto-working-context:end -->
