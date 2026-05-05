@@ -1,7 +1,7 @@
 ---
 title: "2026-05-05 S-Context — Session/Context Management auf die nächste Stufe"
 date: 2026-05-05
-status: active-partial-dispatch
+status: active-t9-t10-planning
 owner: Atlas
 priority: P0
 ---
@@ -23,10 +23,10 @@ Live-Check 2026-05-05 19:35: MC ist gesund (`/api/health`: open=0, failed=0, iss
 
 ## Current Dispatch Decision — 2026-05-05
 
-Operator approved T1 + T2 for execution. Atlas dispatched:
+Operator approved T1 + T2 for execution. Both are now done.
 
-- T1 `a633ff1e-c2b6-4029-9e37-3e88d32a2770` → Forge / `sre-expert`, `pending-pickup`
-- T2 `b0da1870-18f5-4b12-844a-55c99bcb1f8d` → Atlas / `main`, `pending-pickup`
+- T1 `a633ff1e-c2b6-4029-9e37-3e88d32a2770` → Forge / `sre-expert`, `done`
+- T2 `b0da1870-18f5-4b12-844a-55c99bcb1f8d` → Atlas / `main`, `done`
 
 T3/T4 remain held for plan refinement. T3 is not an implementation task right now because live data shows 0 Working files older than 14d. T4 is useful only as a measured pilot with rollback criteria, not as a guaranteed root fix.
 
@@ -58,6 +58,22 @@ T3/T4 remain held for plan refinement. T3 is not an implementation task right no
 6. **T10 Session lifecycle policy**
    - Define thresholds for safe rotation/compaction: context, cacheRead, idle time, active lock.
    - Must preserve active Discord operator session safety.
+
+
+## T9/T10 Live Baseline — 2026-05-05 20:22
+
+Live evidence from current Atlas Discord session `agent:main:discord:channel:1486480128576983070`:
+
+- Session status: Context `77k/272k` = 28%, compactions `0`.
+- Analyzer session JSONL: 201 lines, `totalTextBytes=168483`.
+- Discord metadata approximation: `10265` bytes, only `1.9%` of JSONL text.
+- Largest current growth source is not Discord metadata but tool/output material:
+  - `message:toolResult`: `297120` bytes
+  - `message:assistant`: `226537` bytes
+  - `message:user`: `3125` bytes
+- Trajectory spike exists: `totalTokens.max=1211849`, `cacheRead.max=1133568`, but last run was lower (`totalTokens.last=153015`, `cacheRead.last=87040`).
+
+Conclusion: keep T9, but broaden it from “Discord metadata only” to “Discord metadata + tool-output budget”. T10 should define lifecycle thresholds before T4 compaction tuning.
 
 ## Tasks
 
@@ -165,27 +181,31 @@ T3/T4 remain held for plan refinement. T3 is not an implementation task right no
 
 ---
 
-### T9 — Discord Metadata Budget / Dedupe Design
+### T9 — Context Input Budget Design: Discord Metadata + Tool Output
+**MC Task:** `b8781ca4-983b-4698-be08-df3f76311012` (draft, operator-locked)  
 **Owner:** Forge + Atlas  
 **Estimate:** 1–2 h analysis  
 **Priority:** P1 design / HOLD  
 **Scope:**
 - Analysieren, welche Discord inbound metadata blocks pro Turn in Session JSONL landen.
-- Design fuer Trimming/Dedupe: Sender/Conversation info nur bei Änderung oder kompakte Hash-/Reference-Form.
+- Zusaetzlich Tool-output-Wachstum budgetieren, weil Live-Baseline tool results als groessten Treiber zeigt.
+- Design fuer Trimming/Dedupe: Sender/Conversation info nur bei Änderung oder kompakte Hash-/Reference-Form; Tool-Ergebnisse mit Auto-Summary/Line-Limit/attachment-reference statt Volltext, wo sicher.
 - Keine Runtime-Änderung ohne separaten Implementierungs-Task.
-**Verify:** Design nennt konkrete Felder, erwartete Einsparung, Safety-Risiken und Testpfad.
+**Verify:** Design nennt konkrete Felder/Output-Klassen, erwartete Einsparung, Safety-Risiken und Testpfad.
 
 ---
 
 ### T10 — Session Lifecycle Policy
+**MC Task:** `4a49ad67-6ba2-4a0b-9216-b86bbc4fafee` (draft, operator-locked)  
 **Owner:** Atlas  
 **Estimate:** 1 h  
 **Priority:** P2 design / HOLD  
 **Scope:**
-- Schwellen definieren fuer rotate/compact/watch: Context %, cacheRead, totalTokens, idle time, active lock.
+- Schwellen definieren fuer watch/compact/rotate: Context %, cacheRead, totalTokens, idle time, active lock, run timeout/aborts.
+- Erste Schwellen als Policy-Entwurf: watch ab 35% context oder cacheRead >250k; compact ab 50% oder totalTokens >500k; rotate nur idle >10min und kein live lock/operator task; incident-stop bei repeated timeout/aborts.
 - Discord operator session darf nicht waehrend aktiver Arbeit rotiert werden.
 - Policy in operational-state/ops doc verankern.
-**Verify:** Entscheidungsmatrix + no-go conditions dokumentiert.
+**Verify:** Entscheidungsmatrix + no-go conditions dokumentiert und gegen aktuellen Session-Status getestet.
 
 ## Team-Assignment
 
@@ -199,7 +219,7 @@ T3/T4 remain held for plan refinement. T3 is not an implementation task right no
 | T6 Op-State live | **Atlas** | — | P2 |
 | T7 L1 Aufräumen | **Atlas** | — | P3 |
 | T8 Doku | **Atlas** | — | P2 |
-| T9 Discord Metadata Budget | **Forge + Atlas** | — | P1 design / HOLD |
+| T9 Context Input Budget | **Forge + Atlas** | — | P1 design / HOLD |
 | T10 Session Lifecycle Policy | **Atlas** | Forge | P2 design / HOLD |
 
 **Spark** kann bei T3 (Sweep-Script) und T5 (Cleanup-Automation) als Assistenz herangezogen werden.
@@ -216,7 +236,7 @@ T3/T4 remain held for plan refinement. T3 is not an implementation task right no
 - [ ] T6: Op-State zeigt live MC-API-Daten im Bootstrap
 - [ ] T7: L1 invariants ≤ 30 KB gesamt, ≤ 3 KB pro File
 - [ ] T8: Sprint geschlossen, Lessons archiviert
-- [ ] T9: Discord metadata budget design erstellt
+- [ ] T9: Context input budget design erstellt
 - [ ] T10: Session lifecycle policy dokumentiert
 
 ## Risks
@@ -231,6 +251,11 @@ T2 (Bootstrap-Budget) + T1 (QMD-Sync) zusammen = schnellster messbarer Effekt. T
 
 *Erstellt: 2026-05-05 | Atlas | Auf Basis: Deep-Dive Session-Management-Analyse*
 
+
+## T9/T10 Board Update — 2026-05-05 20:23
+- Created MC draft T9 `b8781ca4-983b-4698-be08-df3f76311012`, owner `sre-expert`, approvalClass `safe-read-only`, operator-locked.
+- Created MC draft T10 `4a49ad67-6ba2-4a0b-9216-b86bbc4fafee`, owner `main`, approvalClass `safe-read-only`, operator-locked.
+- Both are design-only; no runtime mutation without separate operator approval.
 
 ## Live-Adjustments 2026-05-05 19:35
 - MC live gesund: `status=ok`, `openTasks=0`, `failed=0`, `issueCount=0`.
