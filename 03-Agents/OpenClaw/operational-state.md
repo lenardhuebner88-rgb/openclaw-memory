@@ -90,3 +90,7 @@ Priorities:
 - P3: baseline Gateway post-restart websocket connect-failed spikes and isolated tool/file-path journal warnings as known noise unless recurring outside restart windows.
 
 Report: [[../../03-Projects/reports/2026-05-06_post-update-audit-worker-model-lox-report|Post-Update Audit — Worker, Model, Logs, File Completeness]]
+
+## Post-Update P1 Follow-up Dispatched — 2026-05-06 08:25 CEST
+
+Following audit synthesis, Atlas created and dispatched the first P1 follow-up under operator-approved autonomy: Forge task `c313ba6d-11b5-49be-a93f-f9a724ab30b4` — T15 readiness + pickup/session-lock warning classification. Scope is read-only diagnostic: classify T15 readiness blocker and current vs historical/T15-derived lock warning context. Anti-scope: no restarts, config/cron/model changes, direct data edits, task closure/unblock, or cleanup. Verification after dispatch: task is pending-pickup/dispatched, pickup proof ok with 0 findings.
