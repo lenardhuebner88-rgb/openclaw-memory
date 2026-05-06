@@ -64,3 +64,16 @@ Purpose: clean post-update transition audit after OpenClaw 2026.5.4. Owners plan
 ## Post-Update Audit Sprint Corrected — 2026-05-06 07:56 CEST
 
 Operator clarified LOX means logs, not logic/orchestration shorthand. Sprint updated: Logs/LOX now covers post-update log errors/warnings and weakness signals. Added Forge T4 for post-update logs plus system-file/update-completeness audit: Gateway/updater/MC/OpenClaw/cron/worker logs, package/plugin/systemd/script/config/build asset freshness, and stale/split-brain risk checks. Atlas synthesis moved to T5.
+
+## Post-Update Audit Sprint Dispatched — 2026-05-06 08:02 CEST
+
+Mission Control sprint execution started under operator-approved full autonomy. Runbook checked: worker-executable analysis/review tasks created as unlocked `status=assigned`, `approvalClass=safe-read-only`, then dispatched. Duplicate scan for planId `S-POST-UPDATE-AUDIT-2026-05-06` was clear before creation.
+
+Tasks:
+- Parent Atlas coordination: `2002cd6a-c9d1-4ad0-9bf9-d69dd3afb7bd` (`assigned`, queued; Atlas synthesis owner)
+- T1 Forge worker runtime audit: `fe86bb90-7369-4ec2-bf51-43ec3f0d96e8` (`pending-pickup`, `dispatchState=dispatched`)
+- T2 Lens model config/cost/timeout audit: `db774139-9f77-4cd9-9cdc-2354b4a9ba75` (`pending-pickup`, `dispatchState=dispatched`)
+- T3 Spark operator smoke/doc drift audit: `3010e6b3-cf9d-4226-96b9-fb31f293e13e` (`pending-pickup`, `dispatchState=dispatched`)
+- T4 Forge logs/system-file completeness audit: `57c0626f-f49a-485f-94ea-201a5640d9e3` (`pending-pickup`, `dispatchState=dispatched`)
+
+Verification after dispatch: each worker task verified by `GET /api/tasks/<id>`; pickup proof returned `status=ok`, findings `0`. Awaiting worker receipts.
