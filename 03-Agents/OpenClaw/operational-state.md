@@ -94,3 +94,7 @@ Report: [[../../03-Projects/reports/2026-05-06_post-update-audit-worker-model-lo
 ## Post-Update P1 Follow-up Dispatched — 2026-05-06 08:25 CEST
 
 Following audit synthesis, Atlas created and dispatched the first P1 follow-up under operator-approved autonomy: Forge task `c313ba6d-11b5-49be-a93f-f9a724ab30b4` — T15 readiness + pickup/session-lock warning classification. Scope is read-only diagnostic: classify T15 readiness blocker and current vs historical/T15-derived lock warning context. Anti-scope: no restarts, config/cron/model changes, direct data edits, task closure/unblock, or cleanup. Verification after dispatch: task is pending-pickup/dispatched, pickup proof ok with 0 findings.
+
+## T15 Runtime Sync Plan Created — 2026-05-06 08:33 CEST
+
+Planned gated fix: [[../../04-Sprints/planned/2026-05-06_t15-runtime-package-sync-plan|T15 Runtime Package Sync + Smoke Plan]]. Forge task created as locked draft/gated mutation: controlled runtime package sync + T15 smoke rerun. Task must preflight first and stop before any runtime mutation/restart for explicit go. No dispatch yet.
