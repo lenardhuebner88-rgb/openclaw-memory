@@ -1,6 +1,6 @@
 ---
 title: "Memory Dashboard"
-last_generated: 2026-05-06T02:30:03.039405+00:00
+last_generated: 2026-05-06T03:30:03.279129+00:00
 type: memory-dashboard
 generator: memory-dashboard-generator.py@v1-L6-Lite
 auto_refresh: daily 04:30 UTC (cron)
@@ -8,7 +8,7 @@ auto_refresh: daily 04:30 UTC (cron)
 
 # 🧠 Memory Dashboard
 
-**Last Generated:** 2026-05-06 02:30 UTC  
+**Last Generated:** 2026-05-06 03:30 UTC  
 **Source-of-Truth:** Multiple (QMD-index + facts.jsonl + rules.jsonl + graph.jsonl + kb/* + memory-budget.log)  
 **Refresh:** Auto-daily via `memory-dashboard-generator.py` 04:30 UTC. Manual: run script directly.
 
@@ -21,7 +21,7 @@ auto_refresh: daily 04:30 UTC (cron)
 | **L1** | QMD Hybrid-Retrieval (BM25+Vector+Rerank) | ✅ active | 2262 files indexed |
 | **L2** | Fact-Extraction + Rules + Dreaming | ✅ active | 287 facts, 56 rules |
 | **L3-MVP** | Schema v2 + Reflection + KB + Graph + Retrieval-Feedback | ✅ active | 1279 graph edges, 8 retrieval-events logged |
-| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-05-06T02:30:01Z] OK session=f8f5c231-0d6 size=3269 tokens_est=817 pct=0% |
+| **L5** | Memory-Budget-Meter + Atlas-State-Snapshot | ✅ active | [2026-05-06T03:30:01Z] OK session=37987bc7-1a2 size=3258 tokens_est=814 pct=0% |
 | **L6-Lite** | This Static Dashboard | ✅ active | You are reading it |
 
 ## 2. Active Rules (49 total)
@@ -196,16 +196,16 @@ auto_refresh: daily 04:30 UTC (cron)
 ## 8. Budget-Meter History (last 10)
 
 ```
-[2026-05-06T01:45:01Z] OK session=f43de028-8d7 size=3299 tokens_est=824 pct=0%
-[2026-05-06T01:50:01Z] OK session=5cf8cf29-0ce size=3245 tokens_est=811 pct=0%
-[2026-05-06T01:55:02Z] OK session=5cf8cf29-0ce size=3245 tokens_est=811 pct=0%
-[2026-05-06T02:00:01Z] OK session=5cf8cf29-0ce size=3245 tokens_est=811 pct=0%
-[2026-05-06T02:05:01Z] OK session=5cf8cf29-0ce size=3245 tokens_est=811 pct=0%
-[2026-05-06T02:10:01Z] OK session=5cf8cf29-0ce size=3245 tokens_est=811 pct=0%
-[2026-05-06T02:15:01Z] OK session=5cf8cf29-0ce size=3245 tokens_est=811 pct=0%
-[2026-05-06T02:20:01Z] OK session=f8f5c231-0d6 size=3269 tokens_est=817 pct=0%
-[2026-05-06T02:25:01Z] OK session=f8f5c231-0d6 size=3269 tokens_est=817 pct=0%
-[2026-05-06T02:30:01Z] OK session=f8f5c231-0d6 size=3269 tokens_est=817 pct=0%
+[2026-05-06T02:45:02Z] OK session=f8f5c231-0d6 size=3269 tokens_est=817 pct=0%
+[2026-05-06T02:50:01Z] OK session=b9fda700-dc2 size=3249 tokens_est=812 pct=0%
+[2026-05-06T02:55:01Z] OK session=b9fda700-dc2 size=3249 tokens_est=812 pct=0%
+[2026-05-06T03:00:01Z] OK session=b9fda700-dc2 size=3249 tokens_est=812 pct=0%
+[2026-05-06T03:05:01Z] OK session=b9fda700-dc2 size=3249 tokens_est=812 pct=0%
+[2026-05-06T03:10:01Z] OK session=b9fda700-dc2 size=3249 tokens_est=812 pct=0%
+[2026-05-06T03:15:01Z] OK session=b9fda700-dc2 size=3249 tokens_est=812 pct=0%
+[2026-05-06T03:20:01Z] OK session=37987bc7-1a2 size=3258 tokens_est=814 pct=0%
+[2026-05-06T03:25:01Z] OK session=37987bc7-1a2 size=3258 tokens_est=814 pct=0%
+[2026-05-06T03:30:01Z] OK session=37987bc7-1a2 size=3258 tokens_est=814 pct=0%
 ```
 
 ## 9. Active Crons (summary)

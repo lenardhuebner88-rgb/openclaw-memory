@@ -1,7 +1,7 @@
 ---
 title: "Sprint Orchestration"
 slug: sprint-orchestration
-last_compiled: 2026-05-06T02:30:02.788234Z
+last_compiled: 2026-05-06T03:30:03.021625Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 47
 rule_count: 9
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** How Atlas-main orchestriert multi-agent sprints, dispatch-patterns, Board-visibility discipline.
 
-**Compiled:** 2026-05-06T02:30:02.788234Z  
+**Compiled:** 2026-05-06T03:30:03.021625Z  
 **Source:** 47 facts from workspace/memory/facts/*.jsonl, 9 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
