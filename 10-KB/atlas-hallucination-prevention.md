@@ -1,7 +1,7 @@
 ---
 title: "Atlas Hallucination Prevention"
 slug: atlas-hallucination-prevention
-last_compiled: 2026-05-06T03:30:03.022671Z
+last_compiled: 2026-05-06T04:30:03.013088Z
 compiler: kb-compiler.py@v1-mvp
 fact_count: 8
 rule_count: 4
@@ -12,7 +12,7 @@ memory_level: 3
 
 **Description:** Prevention of Atlas producing fabricated commit-SHAs/session-IDs/done-claims after context-rotation.
 
-**Compiled:** 2026-05-06T03:30:03.022671Z  
+**Compiled:** 2026-05-06T04:30:03.013088Z  
 **Source:** 8 facts from workspace/memory/facts/*.jsonl, 4 rules from workspace/memory/rules.jsonl
 
 ## Key Rules
