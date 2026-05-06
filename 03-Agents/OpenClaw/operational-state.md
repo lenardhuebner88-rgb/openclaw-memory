@@ -35,3 +35,9 @@ T4 interaction:
 Current evaluation:
 - Atlas Discord session `agent:main:discord:channel:1486480128576983070`: 96k/272k = 35%, compactions=0, cache currently 95k cached; last visible run done, no abort.
 - Policy state: WATCH. No compact, no rotate. Keep session, checkpoint if work continues, reassess after idle >10min or if cache/token spike repeats.
+
+## OpenClaw 2026.5.4 Update Plan — 2026-05-06 07:00 CEST
+
+Documented controlled update plan, not executed yet.
+Plan: [[../03-Projects/plans/2026-05-06_openclaw-2026-5-4-controlled-update-plan|OpenClaw 2026.5.4 Controlled Update Plan]]
+Key gates: backup config/systemd/state/package, dry-run, config guard, Gateway/MC health, worker/pickup proofs, update via `openclaw update --tag 2026.5.4 --yes`, post-check active version + tool-result-shadow marker, rollback via `openclaw update --tag 2026.5.3-1 --yes` if needed.
