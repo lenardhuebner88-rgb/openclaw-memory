@@ -98,3 +98,34 @@ Following audit synthesis, Atlas created and dispatched the first P1 follow-up u
 ## T15 Runtime Sync Plan Created — 2026-05-06 08:33 CEST
 
 Planned gated fix: [[../../04-Sprints/planned/2026-05-06_t15-runtime-package-sync-plan|T15 Runtime Package Sync + Smoke Plan]]. Forge task created as locked draft/gated mutation: controlled runtime package sync + T15 smoke rerun. Task must preflight first and stop before any runtime mutation/restart for explicit go. No dispatch yet.
+
+## Post-Update State Wording Cleanup — 2026-05-06 08:50 CEST
+
+Operator-facing clarification (append-only):
+- Update status: **GREEN / no rollback** (OpenClaw 2026.5.4 remains valid).
+- Mission Control status: **currently ok** (`/api/health` returned `status=ok` at verification time).
+- T15 status: **resolved/done** after runtime sync + shadow smoke proof.
+- Remaining follow-ups are **P2/P3 policy/baseline/documentation items**, not an active post-update runtime failure.
+
+## Nightly-Self-Improvement Timeout Exception — 2026-05-06 08:55 CEST
+
+Decision: keep `nightly-self-improvement` timeout at 900s as an intentional documented exception, not a misconfiguration.
+
+- Skill: `nightly-self-improvement` (nightly cron, 02:45 CEST)
+- Timeout: 900s
+- Baseline/default flag: general agent default remains 600s
+- Reason: bounded multi-step orchestrator — scans sources, evaluates candidates, creates/dispatches Forge tasks, logs result, sends Discord notification. Full sequence legitimately needs more headroom than the general default.
+- Cost/risk assessment: no cost overrun or runaway behavior observed; T2 audit found valid model refs and cron refs.
+- Scope decision: no scope reduction and no config mutation from this cleanup pass.
+- Review trigger: revisit only if runtime duration/cost increases materially, if the job times out repeatedly, or if the workflow scope changes.
+
+## Post-Restart Log Noise Baseline — 2026-05-06 08:55 CEST
+
+Known non-blocking noise:
+- brief Gateway websocket `connect-failed` spikes directly after restart,
+- isolated tool/file-path journal warnings without user-visible impact.
+
+Escalation rule:
+- P1 if these warnings recur outside restart windows **and** correlate with user-visible tool/routing failures.
+- P2 if the same warning pattern accumulates across multiple restart cycles without user-visible impact, for trend analysis.
+- Otherwise keep as P3 known post-restart noise; no runtime/config action.

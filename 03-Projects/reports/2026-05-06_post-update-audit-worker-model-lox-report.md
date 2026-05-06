@@ -144,3 +144,21 @@ Action:
 - Keep system in WATCH while T15 remains unresolved.
 - Next concrete move: clean up/create the P1 Forge follow-up for T15 readiness and current lock-warning classification.
 
+## Addendum — 2026-05-06 08:50 CEST (post-synthesis live-state update)
+
+This addendum preserves the historical synthesis above and updates only the later live state:
+- MC `/api/health`: `status=ok` at verification time.
+- T15 (`5d12c584-97a3-471a-9a42-51123c23120f`): terminal status `done`.
+- Runtime sync task (`0058d417-3652-4a71-9489-da5a47c0b08f`): terminal status `done`.
+
+Operator wording now: update is green/no rollback, MC is currently ok, T15 is resolved, and remaining items are P2/P3 policy/baseline follow-ups rather than active update failure signals.
+
+
+## Cleanup Addendum — 2026-05-06 08:55 CEST
+
+Post-update cleanup tasks completed and verified:
+- Nightly-self-improvement timeout: keep 900s as intentional documented exception; no config mutation; review only on repeated timeout, material runtime/cost increase, or workflow scope change.
+- Operator-facing wording: updated append-only; current state is update GREEN/no rollback, MC ok, T15 resolved.
+- Log-noise baseline: brief Gateway websocket `connect-failed` spikes after restart and isolated tool/file-path journal warnings are P3 known noise unless they recur outside restart windows or correlate with user-visible failures.
+
+Final cleanup verdict: no rollback, no active P0/P1/P2 remediation required. Remaining action is routine observation under the documented thresholds.

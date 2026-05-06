@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 26b4ed85-8ac1-49fd-9ca6-fc3983568bfb [S-Context T13] Observe shadow tool-result telemetry 24-48h
-- stage: START
+- task: 67468d41-f813-4374-8f85-314ce2cd9f8e [P2][Lens] Decide/document nightly-self-improvement timeout exception
+- stage: CHECKPOINT
 - next: continue current task
-- checkpoint: -
+- checkpoint: Nightly-self-improvement 900s timeout: evidence gathered, recommendation composed. Keep documented exception + update operational-state doc wording. No config mutation.
 - blocker: -
-- updated: 2026-05-05T19:49:41.007Z
+- updated: 2026-05-06T06:50:32.088Z
 <!-- mc:auto-working-context:end -->

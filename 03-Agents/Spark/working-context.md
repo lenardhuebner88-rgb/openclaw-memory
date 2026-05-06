@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 3010e6b3-cf9d-4226-96b9-fb31f293e13e [P2][Spark] Post-update operator smoke and doc drift audit T3
+- task: a3c04360-652d-4a85-b1f0-09ce0d340d09 [P2][Spark] Clean post-update operator-facing state wording
 - stage: DONE
 - next: await next assignment
-- checkpoint: Read-only operator smoke audit abgeschlossen: 3 operator-relevante Drift-/Signalthemen identifiziert (Status-Konsistenz, Stale-Header in Operational State, unklare degraded-Wording-Granularität).
+- checkpoint: Clarified post-update operator wording via append-only updates: operational state now states update green/no rollback, MC currently ok, T15 resolved, and remaining items limited to P2/P3 policy/baseline; audit report rec
 - blocker: -
-- updated: 2026-05-06T06:06:42.083Z
+- updated: 2026-05-06T06:51:06.391Z
 <!-- mc:auto-working-context:end -->

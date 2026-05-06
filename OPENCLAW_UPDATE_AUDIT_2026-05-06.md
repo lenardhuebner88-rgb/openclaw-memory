@@ -20,6 +20,36 @@ Scope: Read-only audit after OpenClaw update to `2026.5.4`, including live syste
 
 ---
 
+## Live Recheck Update — 2026-05-06 08:50 CEST
+
+**Scope:** Hermes rechecked whether the original post-update findings are still present after the later disk cleanup. This section supersedes stale point-in-time status values above where they differ.
+
+### Status matrix
+
+| Finding from original audit | Current status | Live evidence | Atlas task recommendation |
+|---|---|---|---|
+| Core update real | **Still confirmed** | `/home/piet/bin/openclaw --version` → `OpenClaw 2026.5.4 (325df3e)`; global package `openclaw@2026.5.4`; Gateway `ExecStart` points to `/home/piet/.npm-global/lib/node_modules/openclaw/dist/index.js` | No task needed except retain evidence in handoff. |
+| External Discord plugin drift | **Still present** | `@openclaw/discord@2026.5.3` loaded from `/home/piet/.openclaw/npm`; bundled loaded plugins are `2026.5.4` | **Task candidate P1:** Forge verify availability/compatibility of `@openclaw/discord@2026.5.4`; plan controlled plugin sync if safe. |
+| External Codex plugin drift | **Still present but disabled** | `@openclaw/codex@2026.5.3`, status `disabled`, origin global/external | **Task candidate P2:** Only check whether stale disabled plugin can be ignored or should be version-aligned during same plugin-maintenance window. |
+| Stale systemd description | **Still present** | `systemctl show Description=OpenClaw Gateway (v2026.5.3-1)` because drop-in `description-version.conf` overrides base unit, while base service says `v2026.5.4` | **Task candidate P2 low-risk:** remove/update stale drop-in after backup + daemon-reload; cosmetic/diagnostic correctness, not runtime urgent. |
+| Disk pressure | **Partially resolved** | After cleanup: `/` is `98G total / 75G used / 19G free / 81%`; was `87%` | No urgent cleanup task. Optional retention task for backups/journals if target is `<80%`. |
+| Mission Control degraded | **Resolved at recheck** | `/api/health`: `status=ok`, `severity=ok`, `staleOpenTasks=0`, `recoveryLoad=0`; task snapshot still reports `open=237` due broader backlog definition | **Task candidate P3:** reconcile MC health open-count semantics vs task snapshot definitions only if operator wants dashboard clarity. |
+| Monitoring/alerts | **Changed** | Alerts endpoint now `activeCount=1`; skill/plugin inventory report-only risk hints unchanged | **Task candidate P2:** Atlas/Forge inspect the single active alert and classify. |
+| QMD lifecycle debt | **Still present** | QMD CLI status OK, index `460 MB`, `2276` docs, `16` pending; `qmd-mcp-http.service NRestarts=4204` | **Task candidate P2:** QMD restart-count RCA to determine historical vs ongoing restarts. |
+| Runtime/session health | **Mostly OK, but one warning cluster** | Session health 120m: `suspectedStuck=0`, `withErrors=0`. Gateway live. One recent Discord `/users/@me` fetch-timeout/event-loop delay after Gateway restart/settle. | **Task candidate P2:** watch/triage post-restart gateway settle warnings; no restart recommended from this evidence alone. |
+| Model-status diagnostics latency | **Still present** | `openclaw_status_summary` reports `model_status timeout after 12s`, while config/session health endpoints work | **Task candidate P3:** improve/timeout-budget model-status diagnostics; not runtime-critical. |
+| Config/routing changed vs older native Codex guidance | **Still present and important** | Effective/direct config: defaults and main use `agentRuntime.id=pi`, primary `openai-codex/gpt-5.5`, MiniMax fallbacks enabled | **Task candidate P1/P2:** Atlas/Forge confirm PI-route migration is intentional and test fallback paths; do not assume old native Codex route is current SSoT. |
+
+### Current priority recommendation for Atlas
+
+1. **P1 — Plugin/runtime coherence verification:** Verify whether external `@openclaw/discord@2026.5.3` under core `2026.5.4` is expected or needs sync. Include disabled `@openclaw/codex@2026.5.3` in the same inventory check.
+2. **P1/P2 — Routing intent verification:** Confirm current PI/openai-codex + MiniMax fallback configuration is deliberate after update and run isolated runtime/fallback checks before any production path changes.
+3. **P2 — Gateway restart/settle RCA:** Review the 08:41 restart timeout + event-loop/fetch-timeout cluster; current service recovered, so this is a hardening/RCA task, not emergency recovery.
+4. **P2 — QMD restart-count RCA:** QMD works, but `NRestarts=4204` remains high.
+5. **P2/P3 — Cleanup/retention:** Disk is materially improved. Remaining big cleanup requires backup-retention decisions, not emergency deletion.
+
+---
+
 ## System Components — Live State
 
 | Component | Live evidence | Status | Notes |

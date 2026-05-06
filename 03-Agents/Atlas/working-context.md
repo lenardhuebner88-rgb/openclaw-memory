@@ -12,12 +12,12 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 38ca18c8-bf68-4d2f-8995-ea201bb3d7b8 [P1][Forge] Deploy MC build-hang fix 4107f68 with gated restart
+- task: 79c99121-4cef-4959-9ed6-89b5f38f368c [P3][Forge] Baseline post-restart log noise signals
 - stage: CHECKPOINT
 - next: continue current task
-- checkpoint: Preflight + controlled reload executed via /home/piet/.openclaw/scripts/mission-control-reload.sh; post-check collection in progress (health + model-runtime-failures).
+- checkpoint: Logquellen gesichtet, beginne evidenzbasierte Klassifikation von Restart-Noise vs. eskalationswürdigen Signalen.
 - blocker: -
-- updated: 2026-05-05T22:25:40.214Z
+- updated: 2026-05-06T06:51:49.316Z
 <!-- mc:auto-working-context:end -->
 
 ## Orchestrator Start Compact

@@ -7,10 +7,10 @@
 
 <!-- mc:auto-working-context:start -->
 ## Runtime Auto-Update
-- task: 57c0626f-f49a-485f-94ea-201a5640d9e3 [P1][Forge] Post-update logs and system-file completeness audit T4
+- task: 79c99121-4cef-4959-9ed6-89b5f38f368c [P3][Forge] Baseline post-restart log noise signals
 - stage: DONE
 - next: await next assignment
-- checkpoint: Read-only T4 Audit abgeschlossen: OpenClaw 2026.5.4 ist aktiv, Konfigurationsdatei valide, alle in Crontab referenzierten Skriptpfade vorhanden; Hauptauffälligkeit sind temporäre Gateway-WS connect-failed-Spitzen direkt 
+- checkpoint: Post-restart Log-Noise baseline abgeschlossen: bekannte Gateway-Websocket-Spikes als restart-gebunden klassifiziert, isolierte Tool/File-Path-Warnungen ohne aktuellen Outage-Bezug; Eskalation nur bei Auftreten außerhalb 
 - blocker: -
-- updated: 2026-05-06T06:09:25.199Z
+- updated: 2026-05-06T06:52:26.480Z
 <!-- mc:auto-working-context:end -->
