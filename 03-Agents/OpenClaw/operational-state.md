@@ -77,3 +77,16 @@ Tasks:
 - T4 Forge logs/system-file completeness audit: `57c0626f-f49a-485f-94ea-201a5640d9e3` (`pending-pickup`, `dispatchState=dispatched`)
 
 Verification after dispatch: each worker task verified by `GET /api/tasks/<id>`; pickup proof returned `status=ok`, findings `0`. Awaiting worker receipts.
+
+## Post-Update Audit Synthesis — 2026-05-06 08:22 CEST
+
+Post-update audit receipts completed for T1-T4. Result: no rollback signal, no P0 blocker, worker/pickup proofs currently clean, model/cron refs valid, OpenClaw 2026.5.4 active, config valid, cron script paths present. MC remains WATCH/degraded due known T15 stale/open issue, not due a newly detected update failure.
+
+Priorities:
+- P1: T15 implementation/readiness follow-up before declaring full GREEN.
+- P1: classify cross-task pickup/session-lock warning context as current vs historical/T15-derived.
+- P2: decide/document `nightly-self-improvement` 900s timeout exception vs scope reduction.
+- P2: clean operator-facing state wording so “update green” and “MC degraded due T15” are not conflated.
+- P3: baseline Gateway post-restart websocket connect-failed spikes and isolated tool/file-path journal warnings as known noise unless recurring outside restart windows.
+
+Report: [[../../03-Projects/reports/2026-05-06_post-update-audit-worker-model-lox-report|Post-Update Audit — Worker, Model, Logs, File Completeness]]
