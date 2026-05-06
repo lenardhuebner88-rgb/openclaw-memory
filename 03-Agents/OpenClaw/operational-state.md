@@ -41,3 +41,22 @@ Current evaluation:
 Documented controlled update plan, not executed yet.
 Plan: [[../03-Projects/plans/2026-05-06_openclaw-2026-5-4-controlled-update-plan|OpenClaw 2026.5.4 Controlled Update Plan]]
 Key gates: backup config/systemd/state/package, dry-run, config guard, Gateway/MC health, worker/pickup proofs, update via `openclaw update --tag 2026.5.4 --yes`, post-check active version + tool-result-shadow marker, rollback via `openclaw update --tag 2026.5.3-1 --yes` if needed.
+
+## OpenClaw 2026.5.4 Update Executed — 2026-05-06 07:50 CEST
+
+Update executed via transient systemd user unit because direct updater from Discord/Gateway process tree is intentionally blocked.
+Backup: /home/piet/.openclaw/backups/openclaw-update-2026-5-4-20260506T052705Z
+Unit: openclaw-update-2026-5-4-20260506T054538Z.service
+Result nuance: package update/doctor/plugin sync succeeded (2026.5.3-1 -> 2026.5.4), updater exited non-zero during final Gateway health wait because restarted Gateway was already running on port 18789. Live post-gates passed, so no rollback performed.
+Post-gates: openclaw status up to date, Gateway app 2026.5.4 active PID 2572457, Gateway /health ok/live, MC board issueCount 0, dispatch consistencyIssues 0, worker proof ok issues 0, pickup proof ok findings 0. MC remains degraded only due to known blocked T15 stale/open task. validate-models: 57 refs valid, 11 enabled cron jobs valid, one existing nightly-self-improvement timeout warning.
+T15 note: active package has tool-result persistence/summary code, but literal grep for `tool-result-shadow` marker returned no match; T15 smoke still required before unblocking/closing.
+
+## OpenClaw 2026.5.4 Update Report — 2026-05-06 07:51 CEST
+
+Final execution report written: [[../03-Projects/reports/2026-05-06_openclaw-2026-5-4-update-execution-report|OpenClaw 2026.5.4 Update Execution Report]]
+Result: completed; live gates passed; no rollback. Gateway active on 2026.5.4. MC remains degraded only because known T15 shadow/tool-result smoke is still unresolved.
+
+## Post-Update Audit Sprint Planned — 2026-05-06 07:55 CEST
+
+Planned Sprint: [[../../04-Sprints/planned/2026-05-06_post-update-audit-worker-model-lox|Post-Update Audit Sprint — Worker + Model LOX Review]]
+Purpose: clean post-update transition audit after OpenClaw 2026.5.4. Owners planned: Forge for worker/runtime LOX, Lens for model config/cost/timeout audit, Spark for lightweight operator-edge smoke, Atlas for synthesis. No dispatch yet; next step is Mission Control parent task + bounded worker tasks after operator confirmation or direct go.
