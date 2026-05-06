@@ -12,10 +12,12 @@ Run a structured post-update audit to verify that the updated OpenClaw runtime t
 
 - Worker lifecycle and pickup/reconciler behavior
 - Mission Control task/worker state consistency
+- Gateway, MC, systemd, cron, updater, worker, and application logs since the update
+- System/package/file completeness: verify all relevant runtime files, package trees, plugins, scripts, units, and generated assets are current after update
 - Model configuration, model routing, cron model references, and timeout budgets
 - Small operational edge cases that could create delayed post-update failures
 
-Working definition for this sprint: LOX = logic, orchestration, and cross-system consistency faults. If the operator uses LOX as a narrower term, update this definition before dispatch.
+Working definition for this sprint: Logs/LOX = post-update log errors, warnings, regressions, and weak spots surfaced by Gateway, Mission Control, systemd, cron, worker, updater, and related runtime logs. This replaces the earlier shorthand assumption.
 
 ## Current Baseline
 
@@ -121,11 +123,41 @@ DoD:
 Anti-scope:
 - No implementation, no UI changes, no restarts, no edits unless Atlas explicitly converts a finding into a task.
 
-### T4 — Atlas: Synthesis + Go/No-Go Transition Decision
+
+### T4 — Forge: Post-Update Logs + System File Completeness Audit
+
+Owner: Forge (`sre-expert`)
+Priority: P1
+Mode: read-only audit unless approved
+
+Scope:
+- Review post-update logs for new errors, warnings, crashes, restart loops, plugin sync issues, provider/model failures, cron failures, worker failures, and degraded-service signals.
+- Cover Gateway journal, updater unit logs, Mission Control logs if available, OpenClaw logs directory, cron logs, worker-run artifacts, and relevant application logs since the update timestamp.
+- Verify update completeness: active OpenClaw package version, global install path, plugin state, Gateway unit/drop-ins, scripts referenced by cron/systemd, Mission Control build/runtime assets, config schema compatibility, and stale duplicate package trees or old symlinks that could cause split-brain behavior.
+- Confirm all important system files touched or depended on by the update were either updated, intentionally unchanged, or backed up.
+
+Evidence gates:
+- `journalctl --user -u openclaw-gateway --since <update-start>` excerpt summary
+- updater transient unit log summary
+- `/home/piet/.openclaw/logs` error/warn scan since update
+- package/version/path proof for active OpenClaw install
+- plugin sync/state proof
+- cron/systemd referenced-script existence + freshness check
+- config validation proof
+
+DoD:
+- Report lists log findings by severity: FAIL/WARN/INFO/NOISE.
+- Report lists file/update completeness status: current, intentionally unchanged, stale-but-harmless, or stale-risk.
+- Any weakness has exact evidence and a safe follow-up recommendation.
+
+Anti-scope:
+- No log deletion, no package cleanup, no symlink edits, no service restarts, no config changes.
+
+### T5 — Atlas: Synthesis + Go/No-Go Transition Decision
 
 Owner: Atlas
 Priority: P1
-Depends on: T1, T2, T3
+Depends on: T1, T2, T3, T4
 
 Scope:
 - Merge findings into one post-update audit report.
@@ -141,7 +173,7 @@ DoD:
 ## Dispatch Plan
 
 1. Atlas creates/updates Mission Control parent sprint task: `S-POST-UPDATE-AUDIT-2026-05-06`.
-2. Dispatch T1 to Forge, T2 to Lens, T3 to Spark in parallel after duplicate-task scan.
+2. Dispatch T1 to Forge, T2 to Lens, T3 to Spark, and T4 to Forge in parallel after duplicate-task scan. If Forge capacity is constrained, run T1 first, then T4.
 3. Wait for receipts.
 4. Atlas synthesizes and recommends next action.
 5. Only after synthesis: decide whether to execute T15 smoke or remediation tasks.
@@ -153,6 +185,8 @@ The post-update transition is clean if:
 - Gateway and MC live gates remain stable.
 - Worker/pickup proofs remain clean or findings are bounded and non-regressive.
 - No unknown terminal-task pickup, missing receipt, zombie worker, duplicate lock, or dispatch consistency issue is found.
+- Post-update logs do not show unclassified new errors/warnings or restart loops.
+- System/package/plugin/unit/script/build assets are verified current or intentionally unchanged.
 - Model validation remains valid.
 - Known timeout/model warnings are classified and accepted or converted into follow-up tasks.
 - T15 remains the only known degraded item, or a clear remediation path exists for new findings.
@@ -167,4 +201,5 @@ Operational State update:
 - Summary of worker audit
 - Summary of model audit
 - Summary of Spark smoke audit
+- Summary of log and system-file completeness audit
 - Transition decision

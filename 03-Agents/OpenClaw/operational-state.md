@@ -60,3 +60,7 @@ Result: completed; live gates passed; no rollback. Gateway active on 2026.5.4. M
 
 Planned Sprint: [[../../04-Sprints/planned/2026-05-06_post-update-audit-worker-model-lox|Post-Update Audit Sprint — Worker + Model LOX Review]]
 Purpose: clean post-update transition audit after OpenClaw 2026.5.4. Owners planned: Forge for worker/runtime LOX, Lens for model config/cost/timeout audit, Spark for lightweight operator-edge smoke, Atlas for synthesis. No dispatch yet; next step is Mission Control parent task + bounded worker tasks after operator confirmation or direct go.
+
+## Post-Update Audit Sprint Corrected — 2026-05-06 07:56 CEST
+
+Operator clarified LOX means logs, not logic/orchestration shorthand. Sprint updated: Logs/LOX now covers post-update log errors/warnings and weakness signals. Added Forge T4 for post-update logs plus system-file/update-completeness audit: Gateway/updater/MC/OpenClaw/cron/worker logs, package/plugin/systemd/script/config/build asset freshness, and stale/split-brain risk checks. Atlas synthesis moved to T5.
